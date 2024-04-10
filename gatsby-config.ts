@@ -5,25 +5,25 @@ dotEnvConfig()
 
 const config: GatsbyConfig = {
 	jsxRuntime: "automatic",
-	// TODO add proper metadata
+	// TODO add og image
 	siteMetadata: {
 		/**
 		 * this is the default page title when none is provided
 		 */
-		title: "Reform Starter",
+		title: "Thoughtly",
 		/**
 		 * this is the search engine description when none is provided
 		 */
-		description: "A starter for Gatsby",
+		description: "Thoughtly Marketing Site",
 		/**
 		 * this is the base URL of the site. do not include a trailing slash
 		 */
-		siteUrl: "https://www.yourdomain.tld",
+		siteUrl: "https://thought.ly",
 		/**
 		 * this is the default og image when none other is provided
 		 * it must be a complete URL (e.g. https://example.com/image.jpg)
 		 */
-		image: "https://example.com/logo.png",
+		image: "https://thought.ly/",
 	},
 	graphqlTypegen: {
 		generateOnBuild: true,
@@ -56,8 +56,8 @@ const config: GatsbyConfig = {
 		{
 			resolve: "gatsby-plugin-manifest",
 			options: {
-				name: "Reform Starter", // TODO add name
-				short_name: "Reform", // TODO add short name
+				name: "Thoughtly Marketing",
+				short_name: "Thoughtly",
 				start_url: "/",
 				background_color: "#ffffff", // TODO add theme color
 				theme_color: "#ffffff",
@@ -94,14 +94,14 @@ const config: GatsbyConfig = {
 				silent: true,
 			},
 		},
-		// {
-		// 	resolve: "gatsby-plugin-robots-txt",
-		// 	options: {
-		// 		host: "https://{url}/", // TODO add url and remove brackets
-		// 		sitemap: "https://{url}/sitemap-0.xml", // TODO add url and remove brackets
-		// 		policy: [{ userAgent: "*", allow: "/" }],
-		// 	},
-		// },
+		{
+			resolve: "gatsby-plugin-robots-txt",
+			options: {
+				host: "https://thought.ly/",
+				sitemap: "https://thought.ly/sitemap-0.xml",
+				policy: [{ userAgent: "*", allow: "/" }],
+			},
+		},
 		"gatsby-plugin-styled-components",
 		"gatsby-transformer-json",
 	],
