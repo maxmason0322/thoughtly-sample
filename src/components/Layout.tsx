@@ -8,6 +8,7 @@ import { useTrackPageReady } from "library/pageReady"
 import useCSSHeightVariables from "library/useCssHeightVariables"
 import useTrackFrameTime from "library/useTrackFrameTime"
 import styled, { createGlobalStyle, css } from "styled-components"
+import colors from "styles/colors"
 import textStyles from "styles/text"
 
 interface LayoutProps {
@@ -43,9 +44,9 @@ const globalCss = css`
   /* default text styles */
   html {
     /* if your project uses a dark color for most text, set that here */
-    color: black; 
+    color: ${colors.black}; 
     font-family: sans-serif;
-    ${textStyles.body}
+    ${textStyles.bodyR}
   }
 
   * {

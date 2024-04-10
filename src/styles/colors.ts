@@ -7,9 +7,33 @@ import { isBrowser } from "../library/deviceDetection"
  * if you provide a p3 color, it will be used where supported
  */
 const rawColors = {
-	white: ["white"],
-	red: ["red", "color(display-p3 1 0 0)"],
+	black: ["#1B1F1C"],
+	white: ["#FFFFFF"],
+	green700: ["#1A7A0C"],
+	green600: ["#2CA90A"],
+	green500: ["#32CB08"],
+	green400: ["#37EB05"],
+	green300: ["#72FA4C"],
+	green200: ["#A8FC92"],
+	green100: ["#D0FDC4"],
+	gray900: ["#424242"],
+	gray800: ["#5C5C5C"],
+	gray700: ["#959393"],
+	gray600: ["#AEADAD"],
+	gray500: ["#C7C7C7"],
+	gray400: ["#E0E0E0"],
+	gray300: ["#EBEBEB"],
+	gray200: ["#F2F2F2"],
+	gray100: ["#FAFAFA"],
 } as const satisfies Record<string, [string, string] | [string]>
+
+export const gradients = {
+	greenGreen: "linear-gradient(10deg, #32CB08 -4.03%, #72FA4C 101.71%)",
+	greenBlue: "linear-gradient(39deg, #37EB05 4.74%, #55D2FF 94.17%)",
+	blueBlue: "linear-gradient(5deg, #1D9BC3 -20.25%, #55D2FF 93.91%)",
+	bluePurple: "linear-gradient(39deg, #45C2ED 4.74%, #A063DF 94.17%)",
+	purplePurple: "linear-gradient(355deg, #591D9D -11.13%, #B39CF4 91.84%)",
+} as const
 
 const browserSupportsP3 =
 	isBrowser && window.matchMedia("(color-gamut: p3)").matches
