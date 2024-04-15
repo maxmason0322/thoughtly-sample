@@ -1,1 +1,30 @@
 /* font faces go in here */
+@font-face {
+    font-family: Whyte;
+    src:
+      url("ABCWhyte-Book.woff2") format("woff2"),
+      url("ABCWhyte-Book.woff") format("woff");
+    font-weight: 350;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: Whyte;
+    src:
+      url("ABCWhyte-Regular.woff2") format("woff2"),
+      url("ABCWhyte-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: Whyte;
+    src:
+      url("ABCWhyte-Medium.woff2") format("woff2"),
+      url("ABCWhyte-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
