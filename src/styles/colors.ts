@@ -28,11 +28,16 @@ const rawColors = {
 } as const satisfies Record<string, [string, string] | [string]>
 
 export const gradients = {
-	greenGreen: "linear-gradient(10deg, #32CB08 -4.03%, #72FA4C 101.71%)",
-	greenBlue: "linear-gradient(39deg, #37EB05 4.74%, #55D2FF 94.17%)",
+	greenGreen: `linear-gradient(10deg, ${rawColors.green500} -4.03%, ${rawColors.green300} 101.71%)`,
+	greenBlue: `linear-gradient(39deg, ${rawColors.green400} 4.74%, #55D2FF 94.17%)`,
 	blueBlue: "linear-gradient(5deg, #1D9BC3 -20.25%, #55D2FF 93.91%)",
 	bluePurple: "linear-gradient(39deg, #45C2ED 4.74%, #A063DF 94.17%)",
 	purplePurple: "linear-gradient(355deg, #591D9D -11.13%, #B39CF4 91.84%)",
+	surface1: "linear-gradient(202deg, #FFF 1.96%, #F9F9F9 188.52%)",
+	surface1Reverse: "linear-gradient(358deg, #FFF -25.82%, #F9F9F9 160.26%)",
+	surface2: "linear-gradient(194deg, #FFF 5.12%, #E5E5E5 248.15%)",
+	surface2Reverse: "linear-gradient(18deg, #FFF 3.72%, #E5E5E5 208.64%)",
+	surfaceOutline: "linear-gradient(198deg, #D8D8D8 -45.86%, #F9F9F9 153.9%)"
 } as const
 
 const browserSupportsP3 =
