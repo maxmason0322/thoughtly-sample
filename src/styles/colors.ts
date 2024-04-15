@@ -37,7 +37,7 @@ export const gradients = {
 	surface1Reverse: "linear-gradient(358deg, #FFF -25.82%, #F9F9F9 160.26%)",
 	surface2: "linear-gradient(194deg, #FFF 5.12%, #E5E5E5 248.15%)",
 	surface2Reverse: "linear-gradient(18deg, #FFF 3.72%, #E5E5E5 208.64%)",
-	surfaceOutline: "linear-gradient(198deg, #D8D8D8 -45.86%, #F9F9F9 153.9%)"
+	surfaceOutline: "linear-gradient(198deg, #D8D8D8 -45.86%, #F9F9F9 153.9%)",
 } as const
 
 const browserSupportsP3 =

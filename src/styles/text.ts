@@ -156,7 +156,7 @@ const textStyles = {
 		font-weight: 400;
 		line-height: 132%; /* 79.2px */
 		letter-spacing: -3px;
-	`)
+	`),
 }
 
 export default textStyles
