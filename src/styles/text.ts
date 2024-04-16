@@ -109,6 +109,15 @@ const textStyles = {
 		letter-spacing: 0.7px;
 		text-transform: uppercase;
 	`),
+	t3: fresponsive(css`
+		font-family: Whyte, sans-serif;
+		font-size: 6px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 120%; /* 7.2px */
+		letter-spacing: 0.48px;
+		text-transform: uppercase;
+	`),
 	bodyXL: fresponsive(css`
 		font-family: Whyte, sans-serif;
 		font-size: 24px;
