@@ -28,11 +28,12 @@ export default function Link({ icon, tag, children, ...props }: Props) {
 }
 
 const Wrapper = styled(UniversalLink)<{ $hasTag: boolean }>`
+    pointer-events: ${({ $hasTag }) => ($hasTag ? "none" : "auto")};
     width: fit-content;
     display: flex;
-    color: ${colors.black};
     ${textStyles.sh4};
     transition: background-color 0.25s;
+    color: ${({ $hasTag }) => ($hasTag ? colors.gray800 : colors.black)};
 
     ${fresponsive(css`
         padding: 8px 10px;
