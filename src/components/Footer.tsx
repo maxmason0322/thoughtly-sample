@@ -114,7 +114,7 @@ const LogoAddress = styled.div`
   flex-direction: column;
 
   ${fresponsive(css`
-    gap: 15px;
+    gap: 8px;
   `)}
 `
 
