@@ -4,6 +4,7 @@ import Tag from "components/Tag"
 import type { UniversalLinkProps } from "library/Loader/UniversalLink"
 import UniversalLink from "library/Loader/UniversalLink"
 import { fresponsive } from "library/fullyResponsive"
+import type React from "react"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
@@ -11,6 +12,7 @@ import textStyles from "styles/text"
 type Props = UniversalLinkProps & {
 	icon?: IconType
 	tag?: string
+	children: React.ReactNode
 }
 
 export default function Link({ icon, tag, children, ...props }: Props) {
@@ -31,9 +33,11 @@ const Wrapper = styled(UniversalLink)<{ $hasTag: boolean }>`
     color: ${colors.black};
     ${textStyles.sh4};
     transition: background-color 0.25s;
+
     ${fresponsive(css`
         padding: 8px 10px;
         border-radius: 8px;
+        height: 30px;
     `)}
     
     &:hover {
@@ -60,6 +64,7 @@ const StyledIcon = styled(Icon)`
         height: auto;
         width: 12px;
     `)}
+
     path {
             fill: ${colors.gray600};
             stroke: ${colors.gray600};
