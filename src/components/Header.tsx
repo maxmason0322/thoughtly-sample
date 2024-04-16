@@ -9,6 +9,8 @@ import { useEffect, useRef } from "react"
 import styled from "styled-components"
 import { desktopBreakpoint } from "styles/media"
 import links from "utils/links"
+import Link from "./Buttons/Link"
+import Tag from "./Tag"
 
 export default function Header() {
 	const text = useRef<HTMLDivElement>(null)
@@ -47,6 +49,12 @@ export default function Header() {
 	return (
 		<Wrapper>
 			<Inner>
+				<Link tag="Coming Soon" to={links.todo}>
+					Industries
+				</Link>
+				<Link icon="chev" to={links.todo}>
+					Features
+				</Link>
 				<PrimaryButton variant="secondary" to={links.todo}>
 					Sign In
 				</PrimaryButton>
