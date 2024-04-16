@@ -1,3 +1,4 @@
+import Button from "components/Buttons/Primary"
 import backgroundIMG from "images/global/footer-background.png"
 import { ReactComponent as LogoSVG } from "images/global/logo.svg"
 import UniversalLink from "library/Loader/UniversalLink"
@@ -51,8 +52,12 @@ export default function Footer() {
 							<Link>Email</Link>
 						</Socials>
 						<Buttons>
-							<button type="button">button1</button>
-							<button type="button">button2</button>
+							<Button to={links.todo} outline>
+								Build your own Thoughtly
+							</Button>
+							<Button to={links.todo} variant="secondary" icon="phone">
+								Call Demo
+							</Button>
 						</Buttons>
 					</BottomTop>
 					<BottomBottom>
