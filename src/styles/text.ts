@@ -160,3 +160,12 @@ const textStyles = {
 }
 
 export default textStyles
+
+export const transparentText = css`
+  background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  background-size: 100%;
+  background-clip: text;
+`
