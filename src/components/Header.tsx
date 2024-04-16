@@ -1,3 +1,5 @@
+import PrimaryButton from "components/Buttons/Primary"
+import Primary from "components/Buttons/Primary"
 import gsap from "gsap"
 import {
 	registerTransition,
@@ -5,6 +7,8 @@ import {
 } from "library/Loader/TransitionUtils"
 import { useEffect, useRef } from "react"
 import styled from "styled-components"
+import { desktopBreakpoint } from "styles/media"
+import links from "utils/links"
 
 export default function Header() {
 	const text = useRef<HTMLDivElement>(null)
@@ -42,15 +46,26 @@ export default function Header() {
 
 	return (
 		<Wrapper>
-			<h1 ref={text}>Header</h1>
+			<Inner>
+				<PrimaryButton variant="secondary" to={links.todo}>
+					Sign In
+				</PrimaryButton>
+				<PrimaryButton icon="chev" to={links.todo}>
+					Get Started
+				</PrimaryButton>
+			</Inner>
 		</Wrapper>
 	)
 }
 
 const Wrapper = styled.header`
-  background-color: rebeccapurple;
-  color: white;
-  display: grid;
-  place-items: center;
-  height: 100px;
+	width: 100%;
+	display: grid;
+	place-items: center;
+`
+
+const Inner = styled.div`
+	width: 100%;
+	max-width: ${desktopBreakpoint}px;
+	padding-top: 32px;
 `
