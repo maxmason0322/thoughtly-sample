@@ -146,7 +146,7 @@ const Address = styled.span`
   color: ${colors.gray600};
 
   ${fresponsive(css`
-    width: 127px;
+    width: 120px;
     margin-left: 8px;
   `)}
 `
