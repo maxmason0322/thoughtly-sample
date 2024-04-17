@@ -1,3 +1,4 @@
+import Button from "components/Buttons/Primary"
 import backgroundIMG from "images/global/footer-background.png"
 import { ReactComponent as LogoSVG } from "images/global/logo.svg"
 import UniversalLink from "library/Loader/UniversalLink"
@@ -7,6 +8,7 @@ import colors from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles from "styles/text"
 import links from "utils/links"
+import Link from "./Buttons/Link"
 
 export default function Footer() {
 	return (
@@ -14,7 +16,7 @@ export default function Footer() {
 			<Inner>
 				<Top>
 					<LogoAddress>
-						<UniversalLink to="/">
+						<UniversalLink to={links.todo}>
 							<Logo />
 						</UniversalLink>
 						<Address>41 E 11th St, 11th Floor, New York, NY 10003</Address>
@@ -22,37 +24,50 @@ export default function Footer() {
 					<Columns>
 						<LinkColumn>
 							<Label>Product</Label>
-							<Link>link 1</Link>
-							<Link>link 2</Link>
-							<Link>link 3</Link>
-							<Link>link 4</Link>
+							<Link to={links.todo}>Pricing</Link>
+							<Link to={links.todo} tag="Coming Soon">
+								Platform
+							</Link>
+							<Link to={links.todo} tag="Coming Soon">
+								Solutions
+							</Link>
+							<Link to={links.todo} tag="Coming Soon">
+								Customers
+							</Link>
 						</LinkColumn>
 						<LinkColumn>
 							<Label>Company</Label>
-							<Link>link 1</Link>
-							<Link>link 2</Link>
-							<Link>link 3</Link>
-							<Link>link 4</Link>
+							<Link to={links.todo}>Media Inquiries</Link>
+							<Link to={links.todo}>Careers</Link>
+							<Link to={links.todo} tag="Coming Soon">
+								About
+							</Link>
+							<Link to={links.todo} tag="Coming Soon">
+								Blog
+							</Link>
 						</LinkColumn>
 						<LinkColumn>
 							<Label>Support</Label>
-							<Link>link 1</Link>
-							<Link>link 2</Link>
-							<Link>link 3</Link>
+							<Link to={links.todo}>Help Center</Link>
+							<Link to={links.todo}>API Docs</Link>
+							<Link to={links.todo}>Contact Us</Link>
 						</LinkColumn>
 					</Columns>
 				</Top>
 				<Bottom>
 					<BottomTop>
 						<Socials>
-							<Link>Instagram</Link>
-							<Link>LinkedIn</Link>
-							<Link>X(Twitter)</Link>
-							<Link>Email</Link>
+							<Link to={links.todo}>Instagram</Link>
+							<Link to={links.todo}>LinkedIn</Link>
+							<Link to={links.todo}>X(Twitter)</Link>
 						</Socials>
 						<Buttons>
-							<button type="button">button1</button>
-							<button type="button">button2</button>
+							<Button to={links.todo} outline>
+								Build your own Thoughtly
+							</Button>
+							<Button to={links.todo} variant="secondary" icon="phone">
+								Call Demo
+							</Button>
 						</Buttons>
 					</BottomTop>
 					<BottomBottom>
@@ -112,8 +127,10 @@ const Top = styled.div`
 const LogoAddress = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
 
   ${fresponsive(css`
+    top: -15px;
     gap: 8px;
   `)}
 `
@@ -131,7 +148,7 @@ const Address = styled.span`
   color: ${colors.gray600};
 
   ${fresponsive(css`
-    width: 127px;
+    width: 120px;
     margin-left: 8px;
   `)}
 `
@@ -141,6 +158,7 @@ const Columns = styled.div`
 
   ${fresponsive(css`
     gap: 24px;
+    padding-right: 10px;
   `)}
 `
 
@@ -157,9 +175,10 @@ const LinkColumn = styled.div`
 const Label = styled.span`
   ${textStyles.sh2}
   color: ${colors.gray700};
-`
 
-const Link = styled.span`
+  ${fresponsive(css`
+    padding-left: 10px;
+  `)}
 `
 
 const Bottom = styled.div`
