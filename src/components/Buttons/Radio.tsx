@@ -1,5 +1,4 @@
 import { fresponsive } from "library/fullyResponsive"
-import { useState } from "react"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 
@@ -9,16 +8,18 @@ interface Props {
 	onClick?: () => void
 }
 
-export default function Radio({ as = "span", active = false, onClick }: Props) {
+export default function Radio({
+	as = "button",
+	active = false,
+	onClick,
+}: Props) {
 	const handleClick = () => {
 		if (!onClick) return
 		onClick()
 	}
 
-	const Input = as === "span" ? Span : Button
-
 	return (
-		<Input $active={!!active} onClick={handleClick}>
+		<Input $active={!!active} as={as} onClick={handleClick}>
 			<RadioButton />
 		</Input>
 	)
@@ -58,6 +59,3 @@ const Input = styled.button<{ $active: boolean }>`
         border-radius: 50%;   
     `)}
 `
-
-const Span = styled(Input).attrs({ as: "span" })``
-const Button = styled(Input).attrs({ as: "button" })``
