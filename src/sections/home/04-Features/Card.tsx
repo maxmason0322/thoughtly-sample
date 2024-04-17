@@ -21,18 +21,20 @@ export default function Card({
 	text,
 	link,
 	index,
+	background,
 }: {
 	icon: IconType
 	title: string
 	text: string
 	link?: string
 	index: number
+	background?: string | null
 }) {
 	const columns = COLUMNS[index % COLUMNS.length]
 	const rows = ROWS[index % ROWS.length]
 
 	return (
-		<Wrapper $columns={columns} $rows={rows}>
+		<Wrapper $columns={columns} $rows={rows} $background={background}>
 			<StyledIcon name={icon} />
 			<Title>{title}</Title>
 			<Text>{text}</Text>
@@ -40,13 +42,19 @@ export default function Card({
 	)
 }
 
-const Wrapper = styled.div<{ $columns?: string; $rows?: string }>`
+const Wrapper = styled.div<{
+	$columns?: string
+	$rows?: string
+	$background?: string | null
+}>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;
   grid-column: ${({ $columns }) => $columns};
   grid-row: ${({ $rows }) => $rows};
+  background-image: ${({ $background }) => `url(${$background})`};
+  background-size: 100% 100%;
 
   ${fresponsive(css`
     border: 2px solid ${colors.gray300};

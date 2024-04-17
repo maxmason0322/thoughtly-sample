@@ -19,6 +19,13 @@ export default function Features() {
           icon
           title
           text
+          background {
+            childImageSharp {
+              original {
+                src
+              }
+            }
+          }
         }
       }
     }
@@ -31,6 +38,7 @@ export default function Features() {
 				icon={item.icon as IconType}
 				title={item.title ?? ""}
 				text={item.text ?? ""}
+				background={item.background?.childImageSharp?.original?.src}
 				index={index}
 			/>
 		)
