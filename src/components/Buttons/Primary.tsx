@@ -56,8 +56,8 @@ const Border = styled.div`
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 50%;
-    height: 50%;
+    width: 90%;
+    height: 90%;
     transform: translate(-50%, -50%);
     transition: width 0.25s, height 0.25s;
 
@@ -73,8 +73,7 @@ const Wrapper = styled(UniversalLink)`
     position: relative;
 
     ${fresponsive(css`
-        height: 57px;
-        padding: 4px;
+        height: 50px;
     `)}
 
     &:hover {
@@ -83,8 +82,8 @@ const Wrapper = styled(UniversalLink)`
         }
 
         ${Border} {
-            width: 100%;
-            height: 100%;
+            width: calc(100% + 8px);
+            height: calc(100% + 8px);
         }
     }
 `
