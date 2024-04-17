@@ -6,6 +6,7 @@ import type { ReactNode } from "react"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
+import Radio from "./Radio"
 
 type Props = UniversalLinkProps & {
 	children: ReactNode
@@ -18,9 +19,7 @@ export default function Selector({ children, active, ...props }: Props) {
 			<Border />
 			<Inner>
 				{children}
-				<Radio>
-					<Dot />
-				</Radio>
+				<Radio as="span" active={!!active} />
 			</Inner>
 		</Wrapper>
 	)
@@ -59,48 +58,14 @@ const Inner = styled.div`
   `)}
 `
 
-const Radio = styled.div`
-  border-radius: 99vw;
-  transition: background-color 0.25s;
-  display: grid;
-  place-items: center;
-
-  ${fresponsive(css`
-    width: 16px;
-    height: 16px;
-    box-shadow: 0 1px 1.8px 0 rgba(0 0 0 / 2%) inset;
-  `)}
-`
-
-const Dot = styled.div`
-  border-radius: 99vw;
-  background-color: ${colors.green400};
-  transition: opacity 0.25s;
-
-  ${fresponsive(css`
-    height: 8px;
-    width: 8px;
-    box-shadow: 0 1px 1.8px 0 rgba(0 0 0 / 2%) inset;
-  `)}
-`
-
 const Wrapper = styled(UniversalLink)<{ $active: boolean }>`
   width: fit-content;
   position: relative;
   cursor: pointer;
 
-  ${Dot} {
-    opacity: ${({ $active }) => ($active ? 1 : 0)};
-  }
-
-  ${Radio} {
-    background-color: ${({ $active }) =>
-			$active ? colors.green100 : colors.gray200};
-  }
-
   ${Border} {
-    height: ${({ $active }) => ($active ? "calc(100% + 4px)" : "90%")};
-    width: ${({ $active }) => ($active ? "calc(100% + 4px)" : "90%")};
+    height: ${({ $active }) => ($active ? "calc(100% + 8px)" : "90%")};
+    width: ${({ $active }) => ($active ? "calc(100% + 8px)" : "90%")};
   }
 
   &:hover {
