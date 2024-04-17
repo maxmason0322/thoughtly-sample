@@ -127,8 +127,10 @@ const Top = styled.div`
 const LogoAddress = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
 
   ${fresponsive(css`
+    top: -15px;
     gap: 8px;
   `)}
 `
