@@ -1,10 +1,12 @@
 import Seo from "components/Seo"
 import Industry from "sections/home/02-Industry"
+import Statement from "sections/home/03-Statement"
 
 export default function IndexPage() {
 	return (
 		<>
 			<Industry />
+			<Statement />
 		</>
 	)
 }
