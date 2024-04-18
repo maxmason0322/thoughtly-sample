@@ -1,4 +1,5 @@
 import Seo from "components/Seo"
+import Integrations from "sections/075-Integrations.tsx"
 import Industry from "sections/home/02-Industry"
 import Statement from "sections/home/03-Statement"
 import Features from "sections/home/04-Features"
@@ -11,6 +12,7 @@ export default function IndexPage() {
 			<Industry />
 			<Statement />
 			<Features />
+			<Integrations />
 		</>
 	)
 }
