@@ -2,7 +2,7 @@ import Icon, { type IconType } from "components/Icon"
 import UniversalLink, {
 	type UniversalLinkProps,
 } from "library/Loader/UniversalLink"
-import { fresponsive } from "library/fullyResponsive"
+import { fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
@@ -37,17 +37,17 @@ export default function Primary({
 const Highlight = styled.div`
     position: absolute;
     transition: opacity 0.25s;
+    background: linear-gradient(338deg, rgb(236 251 232) 24.31%, rgb(255 255 255) 94.24%);
+    opacity: 0.25;
+    z-index: 2;
+    transform: translateX(-50%);
+    left: 50%;
 
     ${fresponsive(css`
         width: 411px;
         height: 65px;
         border-radius: 411px;
-        background: linear-gradient(338deg, rgb(236 251 232) 24.31%, rgb(255 255 255) 94.24%);
-        opacity: 0.25;
         filter: blur(5.5px);
-        z-index: 2;
-        transform: translateX(-50%);
-        left: 50%;
         bottom: 23px;
     `)}
 `
@@ -72,46 +72,56 @@ const Wrapper = styled(UniversalLink)`
     display: flex;
     position: relative;
 
-    ${fresponsive(css`
-        height: 57px;
-        padding: 4px;
-    `)}
-
     &:hover {
         ${Highlight} {
             opacity: 0.5;
         }
 
         ${Border} {
-            width: 100%;
-            height: 100%;
+            width: calc(100% + 8px);
+            height: calc(100% + 8px);
         }
     }
+
+    ${fresponsive(css`
+        height: 50px;
+    `)}
+
+    ${ftablet(css`
+        height: 58px;
+    `)}
 `
 
 const Inner = styled.div<{ $secondary: boolean }>`
     display: flex;
-    ${({ $secondary }) =>
-			fresponsive(css`
-        border-radius: 12px;
-        height: 50px;
-        padding: 16px 24px;
-        border: ${
-					$secondary
-						? `2px solid ${colors.gray200}`
-						: `0.5px solid ${colors.white}`
-				};
-        box-shadow: ${
-					$secondary
-						? "unset"
-						: "0 2px 1.5px 0 rgba(216 250 206 / 75%) inset, 0 -2px 1px 0 rgba(23 122 12 / 16%) inset"
-				};                                    
-        background-color: ${$secondary ? colors.white : colors.green300};
-    `)}
     width: fit-content;
     position: relative;
     overflow: clip;
     ${textStyles.sh3}
+    height: 100%;
+
+    ${({ $secondary }) =>
+			fresponsive(css`
+            border-radius: 12px;
+            padding: 16px 24px;
+            border: ${
+							$secondary
+								? `2px solid ${colors.gray200}`
+								: `0.5px solid ${colors.white}`
+						};
+            box-shadow: ${
+							$secondary
+								? "unset"
+								: "0 2px 1.5px 0 rgba(216 250 206 / 75%) inset, 0 -2px 1px 0 rgba(23 122 12 / 16%) inset"
+						};                                    
+            background-color: ${$secondary ? colors.white : colors.green300};
+    `)}
+
+    ${ftablet(css`
+        ${textStyles.sh2}
+        padding: 18px 24px;
+    `)}
+    
 
     svg {
         ${fresponsive(css`
