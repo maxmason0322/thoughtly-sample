@@ -7,6 +7,7 @@
 		"hipaa": true,
 		"soc2": true,
 		"image": "./industries/healthcare.jpg",
+		"icon": "verified",
 		"agent": {
 			"name": "Phillip",
 			"country": "🇬🇧",
@@ -21,6 +22,7 @@
 		"hipaa": true,
 		"soc2": false,
 		"image": "./industries/healthcare.jpg",
+		"icon": "verified",
 		"agent": {
 			"name": "Tessa",
 			"country": "🇺🇸",
@@ -35,6 +37,7 @@
 		"hipaa": false,
 		"soc2": true,
 		"image": "./industries/healthcare.jpg",
+		"icon": "verified",
 		"agent": {
 			"name": "Gabriel",
 			"country": "🇲🇽",
@@ -49,6 +52,7 @@
 		"hipaa": true,
 		"soc2": true,
 		"image": "./industries/healthcare.jpg",
+		"icon": "verified",
 		"agent": {
 			"name": "James",
 			"country": "🇺🇸",
@@ -63,6 +67,7 @@
 		"hipaa": true,
 		"soc2": true,
 		"image": "./industries/healthcare.jpg",
+		"icon": "verified",
 		"agent": {
 			"name": "James",
 			"country": "🇺🇸",
@@ -77,6 +82,7 @@
 		"hipaa": true,
 		"soc2": true,
 		"image": "./industries/healthcare.jpg",
+		"icon": "verified",
 		"agent": {
 			"name": "James",
 			"country": "🇺🇸",
@@ -91,6 +97,7 @@
 		"hipaa": true,
 		"soc2": true,
 		"image": "./industries/healthcare.jpg",
+		"icon": "verified",
 		"agent": {
 			"name": "James",
 			"country": "🇺🇸",

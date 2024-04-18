@@ -36,7 +36,7 @@ export default function Layout({ children }: LayoutProps) {
 }
 
 const Main = styled.main`
-  overflow-x: hidden;
+  overflow-x: clip;
 `
 
 // TODO: configure a default text color

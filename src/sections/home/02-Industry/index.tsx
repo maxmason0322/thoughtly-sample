@@ -1,4 +1,5 @@
 import Selector from "components/Buttons/Selector"
+import Icon, { type IconType } from "components/Icon"
 import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
 import Hipaa from "images/global/hipaa.png"
@@ -6,9 +7,10 @@ import Soc2 from "images/global/soc-2.png"
 import Background from "images/home/industry-background.png"
 import AutoAnimate from "library/AutoAnimate"
 import UniversalImage from "library/UniversalImage"
-import { fresponsive } from "library/fullyResponsive"
+import { fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
-import { useRef, useState } from "react"
+import useMedia from "library/useMedia"
+import { useState } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
@@ -16,8 +18,8 @@ import textStyles, { transparentText } from "styles/text"
 import ProgressGroup from "./ProgressGroup"
 
 export default function Industry() {
-	const logosRef = useRef<HTMLDivElement | null>(null)
 	const [activeIndex, setActiveIndex] = useState(0)
+	const desktop = useMedia(true, true, false, false)
 
 	const data: Queries.IndustryQuery = useStaticQuery(graphql`
 		query Industry {
@@ -29,6 +31,7 @@ export default function Industry() {
 					soc2
 					assertiveness
 					humorLevel
+          icon
 					image {
 						childImageSharp {
 							gatsbyImageData
@@ -177,26 +180,40 @@ export default function Industry() {
 								alt={data.allHomeIndustryJson.nodes[activeIndex]?.title ?? ""}
 							/>
 						</AutoAnimate>
-						<LogosWrapper>
-							<AutoAnimate
-								alignment="centered"
-								fromParameters={{ yPercent: 110 }}
-								toParameters={{ yPercent: -110 }}
-							>
-								<Logos key={data.allHomeIndustryJson.nodes[activeIndex]?.title}>
-									{data.allHomeIndustryJson.nodes[activeIndex]?.hipaa && (
-										<Logo src={Hipaa} alt="Hipaa Compliant" />
-									)}
+						{!desktop && <Widget />}
+						{desktop && (
+							<LogosWrapper>
+								<AutoAnimate
+									alignment="center"
+									fromParameters={{ yPercent: 110 }}
+									toParameters={{ yPercent: -110 }}
+								>
+									<Logos
+										key={data.allHomeIndustryJson.nodes[activeIndex]?.title}
+									>
+										{data.allHomeIndustryJson.nodes[activeIndex]?.hipaa && (
+											<Logo src={Hipaa} alt="Hipaa Compliant" />
+										)}
 
-									{data.allHomeIndustryJson.nodes[activeIndex]?.soc2 && (
-										<Logo src={Soc2} alt="Soc 2 Compliant" />
-									)}
-								</Logos>
-							</AutoAnimate>
-						</LogosWrapper>
+										{data.allHomeIndustryJson.nodes[activeIndex]?.soc2 && (
+											<Logo src={Soc2} alt="Soc 2 Compliant" />
+										)}
+									</Logos>
+								</AutoAnimate>
+							</LogosWrapper>
+						)}
 					</Left>
 					<Right>
 						<TextContent>
+							<AutoAnimate>
+								<StyledIcon
+									key={activeIndex}
+									name={
+										data.allHomeIndustryJson.nodes[activeIndex]
+											?.icon as IconType
+									}
+								/>
+							</AutoAnimate>
 							<AutoAnimate>
 								<SubTitle
 									key={data.allHomeIndustryJson.nodes[activeIndex]?.title}
@@ -210,10 +227,33 @@ export default function Industry() {
 								</Text>
 							</AutoAnimate>
 						</TextContent>
-						<WidgetWrapper>
-							{widgets}
-							{widgets2}
-						</WidgetWrapper>
+						{!desktop && (
+							<LogosWrapper>
+								<AutoAnimate
+									alignment="center"
+									fromParameters={{ yPercent: 110 }}
+									toParameters={{ yPercent: -110 }}
+								>
+									<Logos
+										key={data.allHomeIndustryJson.nodes[activeIndex]?.title}
+									>
+										{data.allHomeIndustryJson.nodes[activeIndex]?.hipaa && (
+											<Logo src={Hipaa} alt="Hipaa Compliant" />
+										)}
+
+										{data.allHomeIndustryJson.nodes[activeIndex]?.soc2 && (
+											<Logo src={Soc2} alt="Soc 2 Compliant" />
+										)}
+									</Logos>
+								</AutoAnimate>
+							</LogosWrapper>
+						)}
+						{desktop && (
+							<WidgetWrapper>
+								{widgets}
+								{widgets2}
+							</WidgetWrapper>
+						)}
 					</Right>
 				</Bottom>
 			</Inner>
@@ -225,6 +265,7 @@ const Wrapper = styled.section`
   width: 100%;
   display: grid;
   place-items: center;
+  overflow: clip;
 `
 
 const Inner = styled.div`
@@ -238,6 +279,12 @@ const Inner = styled.div`
     padding: 36px 156px 171px;
     gap: 47px;
   `)}
+
+  ${ftablet(css`
+    height: 1172px;
+    padding: 85px 68px 121px;
+    gap: 30px;
+  `)}
 `
 
 const Top = styled.div`
@@ -245,6 +292,11 @@ const Top = styled.div`
 
   ${fresponsive(css`
     gap: 63px;
+  `)}
+
+  ${ftablet(css`
+    flex-direction: column;
+    gap: 48px;
   `)}
 `
 
@@ -260,6 +312,11 @@ const Title = styled.h2`
   ${fresponsive(css`
     width: 395px;
   `)}
+
+  ${ftablet(css`
+    ${textStyles.h3}
+    width: 95%;
+  `)}
 `
 
 const Buttons = styled.div`
@@ -270,6 +327,10 @@ const Buttons = styled.div`
 		gap: 18px;
 		width: 552px;
 	`)}
+
+  ${ftablet(css`
+    width: 650px;
+  `)}
 `
 
 const Bottom = styled.div`
@@ -279,6 +340,11 @@ const Bottom = styled.div`
 	${fresponsive(css`
 		gap: 24px;
 	`)}
+
+  ${ftablet(css`
+    flex-direction: row-reverse;
+    gap: 52px;
+  `)}
 `
 
 const Left = styled.div`
@@ -300,6 +366,11 @@ const Image = styled(UniversalImage)`
 		height: 375px;
 		border-radius: 24px;
 	`)}
+
+  ${ftablet(css`
+    width: 480px;
+    height: 494px;
+  `)}
 `
 
 const Card = styled.div`
@@ -326,6 +397,12 @@ const Assertiveness = styled(Card)`
 		left: -72px;
 		gap: 24px;
 	`)}
+
+  ${ftablet(css`
+    top: 262px;
+    left: unset;
+    right: -24px;
+  `)}
 `
 
 const Agent = styled(Card)`
@@ -342,6 +419,12 @@ const Agent = styled(Card)`
 		padding: 12px 24px;
 		gap: 10px;
 	`)}
+
+  ${ftablet(css`
+    top: 464px;
+    right: -24px;
+    left: unset;
+  `)}
 `
 
 const LogosWrapper = styled(Card)`
@@ -366,6 +449,12 @@ const Right = styled.div`
 	${fresponsive(css`
 		gap: 48px;
 	`)}
+
+  ${ftablet(css`
+    padding-top: 47px;
+    gap: 32px;
+    align-items: flex-start;
+  `)}
 `
 
 const TextContent = styled.div`
@@ -376,6 +465,10 @@ const TextContent = styled.div`
 		gap: 16px;
 		padding-left: 24px;
 	`)}
+
+  ${ftablet(css`
+    padding-left: 0;
+  `)}
 `
 
 const SubTitle = styled.h6`
@@ -383,6 +476,10 @@ const SubTitle = styled.h6`
 	color: ${colors.black};
 	width: fit-content;
 	white-space: nowrap;
+
+  ${fresponsive(css`
+    width: 200px;
+  `)}
 `
 
 const Text = styled.p`
@@ -394,6 +491,12 @@ const Text = styled.p`
 		width: 462px;
 		height: 95px;
 	`)}
+
+  ${ftablet(css`
+    ${textStyles.bodyR}
+    width: 378px;
+    height: 184px;
+  `)}
 `
 
 const WidgetWrapper = styled.div`
@@ -421,6 +524,12 @@ const Widget = styled(Card)`
 		top: 24px;
 		left: 24px;
 	`)}
+
+  ${ftablet(css`
+    top: -30px;
+    left: -96px;
+    z-index: 2;
+  `)}
 `
 
 const Widget2 = styled(Widget)`
@@ -461,4 +570,18 @@ const Line = styled.div`
 	${fresponsive(css`
 		height: 12px;
 	`)}
+`
+
+const StyledIcon = styled(Icon)`
+  display: none;
+
+  path, circle {
+    fill: ${colors.gray500};
+  }
+
+  ${ftablet(css`
+    display: flex;
+    width: 30px;
+    height: 30px;
+  `)}
 `
