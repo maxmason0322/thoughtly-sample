@@ -35,7 +35,7 @@ const Wrapper = styled.div<{ $gradient: boolean }>`
 
   ${({ $gradient }) =>
 		$gradient &&
-		`
+		css`
     ${transparentText}
     background-image: ${gradients.greenBlue};
   `}
