@@ -6,11 +6,11 @@ import Hipaa from "images/global/hipaa.png"
 import Soc2 from "images/global/soc-2.png"
 import Background from "images/home/industry-background.png"
 import AutoAnimate from "library/AutoAnimate"
+import { ScreenContext } from "library/ScreenContext"
 import UniversalImage from "library/UniversalImage"
-import { fresponsive, ftablet } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
-import useMedia from "library/useMedia"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
@@ -19,7 +19,7 @@ import ProgressGroup from "./ProgressGroup"
 
 export default function Industry() {
 	const [activeIndex, setActiveIndex] = useState(0)
-	const desktop = useMedia(true, true, false, false)
+	const { fullWidth, desktop, tablet, mobile } = useContext(ScreenContext)
 
 	const data: Queries.IndustryQuery = useStaticQuery(graphql`
 		query Industry {
@@ -113,7 +113,7 @@ export default function Industry() {
 					<Title>
 						The future of customer <span>interaction.</span>
 					</Title>
-					<Buttons>{tabs}</Buttons>
+					{!mobile && <Buttons>{tabs}</Buttons>}
 				</Top>
 				<Bottom>
 					<Left>
@@ -133,31 +133,36 @@ export default function Industry() {
 								text="Balanced humor and professionalism"
 							/>
 						</Assertiveness>
-						<Agent>
-							<AutoAnimate>
-								<Avatar
-									key={activeIndex}
-									image={
-										data.allHomeIndustryJson.nodes[activeIndex]?.agent?.avatar
-									}
-									alt={
-										data.allHomeIndustryJson.nodes[activeIndex]?.agent?.name ??
-										""
-									}
-								/>
-							</AutoAnimate>
-							<AutoAnimate>
-								<Name key={activeIndex}>
-									{data.allHomeIndustryJson.nodes[activeIndex]?.agent?.country}
-								</Name>
-							</AutoAnimate>
-							<Line />
-							<AutoAnimate>
-								<Name key={activeIndex}>
-									{data.allHomeIndustryJson.nodes[activeIndex]?.agent?.name}
-								</Name>
-							</AutoAnimate>
-						</Agent>
+						{!mobile && (
+							<Agent>
+								<AutoAnimate>
+									<Avatar
+										key={activeIndex}
+										image={
+											data.allHomeIndustryJson.nodes[activeIndex]?.agent?.avatar
+										}
+										alt={
+											data.allHomeIndustryJson.nodes[activeIndex]?.agent
+												?.name ?? ""
+										}
+									/>
+								</AutoAnimate>
+								<AutoAnimate>
+									<Name key={activeIndex}>
+										{
+											data.allHomeIndustryJson.nodes[activeIndex]?.agent
+												?.country
+										}
+									</Name>
+								</AutoAnimate>
+								<Line />
+								<AutoAnimate>
+									<Name key={activeIndex}>
+										{data.allHomeIndustryJson.nodes[activeIndex]?.agent?.name}
+									</Name>
+								</AutoAnimate>
+							</Agent>
+						)}
 						<AutoAnimate
 							duration={1.25}
 							toParameters={{
@@ -180,8 +185,8 @@ export default function Industry() {
 								alt={data.allHomeIndustryJson.nodes[activeIndex]?.title ?? ""}
 							/>
 						</AutoAnimate>
-						{!desktop && <Widget />}
-						{desktop && (
+						{tablet && <Widget />}
+						{(fullWidth || desktop || mobile) && (
 							<LogosWrapper>
 								<AutoAnimate
 									alignment="centered"
@@ -227,7 +232,7 @@ export default function Industry() {
 								</Text>
 							</AutoAnimate>
 						</TextContent>
-						{!desktop && (
+						{tablet && (
 							<LogosWrapper>
 								<AutoAnimate
 									alignment="centered"
@@ -248,7 +253,7 @@ export default function Industry() {
 								</AutoAnimate>
 							</LogosWrapper>
 						)}
-						{desktop && (
+						{(fullWidth || desktop) && (
 							<WidgetWrapper>
 								{widgets}
 								{widgets2}
@@ -256,6 +261,7 @@ export default function Industry() {
 						)}
 					</Right>
 				</Bottom>
+				{mobile && <Buttons>{tabs}</Buttons>}
 			</Inner>
 		</Wrapper>
 	)
@@ -284,6 +290,11 @@ const Inner = styled.div`
     height: 1172px;
     padding: 85px 68px 121px;
     gap: 30px;
+  `)}
+
+  ${fmobile(css`
+    height: auto;
+    padding: 85px 29px 117px;
   `)}
 `
 
@@ -317,11 +328,24 @@ const Title = styled.h2`
     ${textStyles.h3}
     width: 95%;
   `)}
+
+  ${fmobile(css`
+    ${textStyles.h6}
+    width: 100%;
+  `)}
 `
 
 const Buttons = styled.div`
 	display: flex;
 	flex-wrap: wrap;
+
+  button {
+    flex-shrink: 0;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
 	${fresponsive(css`
 		gap: 18px;
@@ -330,6 +354,15 @@ const Buttons = styled.div`
 
   ${ftablet(css`
     width: 650px;
+  `)}
+
+  ${fmobile(css`
+    width: 315px;
+    height: 60px;
+    padding: 0 8px;
+    align-items: center;
+    overflow-x: scroll;
+    flex-wrap: nowrap;
   `)}
 `
 
@@ -344,6 +377,11 @@ const Bottom = styled.div`
   ${ftablet(css`
     flex-direction: row-reverse;
     gap: 52px;
+  `)}
+
+  ${fmobile(css`
+    flex-direction: column;
+    gap: 56px;
   `)}
 `
 
@@ -371,13 +409,18 @@ const Image = styled(UniversalImage)`
     width: 480px;
     height: 494px;
   `)}
+
+  ${fmobile(css`
+    width: 314px;
+    height: 278px;
+  `)}
 `
 
 const Card = styled.div`
 	background: ${gradients.surface1};
+  border: 2px solid ${colors.gray200};
 
 	${fresponsive(css`
-		border: 2px solid ${colors.gray200};
 		padding: 24px;
 		border-radius: 12px;
 		box-shadow: 0 18px 42px 0 rgba(89 89 89 / 4%);
@@ -402,6 +445,13 @@ const Assertiveness = styled(Card)`
     top: 262px;
     left: unset;
     right: -24px;
+  `)}
+
+  ${fmobile(css`
+    right: -23px;
+    bottom: -80px;
+    left: unset;
+    top: unset;
   `)}
 `
 
@@ -431,6 +481,13 @@ const LogosWrapper = styled(Card)`
 	${fresponsive(css`
 		border-radius: 24px;
 	`)}
+
+  ${fmobile(css`
+    position: absolute;
+    top: -29px;
+    left: -13px;
+    z-index: 2;
+  `)}
 `
 
 const Logos = styled.div`
@@ -469,6 +526,10 @@ const TextContent = styled.div`
   ${ftablet(css`
     padding-left: 0;
   `)}
+
+  ${fmobile(css`
+    padding-left: 12px;
+  `)}
 `
 
 const SubTitle = styled.h6`
@@ -496,6 +557,12 @@ const Text = styled.p`
     ${textStyles.bodyR}
     width: 378px;
     height: 184px;
+  `)}
+
+  ${fmobile(css`
+    ${textStyles.bodyS}
+    width: 315px;
+    height: 150px;
   `)}
 `
 
@@ -547,6 +614,11 @@ const Logo = styled.img`
 		width: 42px;
 		height: 42px;			
 	`)}
+
+  ${fmobile(css`
+    width: 33px;
+    height: 33px;
+  `)}
 `
 
 const Avatar = styled(UniversalImage)`
@@ -580,6 +652,12 @@ const StyledIcon = styled(Icon)`
   }
 
   ${ftablet(css`
+    display: flex;
+    width: 30px;
+    height: 30px;
+  `)}
+
+  ${fmobile(css`
     display: flex;
     width: 30px;
     height: 30px;
