@@ -1,7 +1,7 @@
 import type { IconType } from "components/Icon"
 import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
-import { fresponsive } from "library/fullyResponsive"
+import { fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import { useRef } from "react"
 import styled, { css } from "styled-components"
@@ -89,4 +89,10 @@ const Inner = styled.div`
     grid-auto-rows: 329px 420px;
     grid-template-columns: 360px 192px 192px 360px;
   `)}
+
+	${ftablet(css`
+		grid-auto-rows: 348px 306px 306px 276px;
+		grid-template-columns: 432px 93px 339px;
+		padding: 85px 68px 202px;
+	`)}
 `

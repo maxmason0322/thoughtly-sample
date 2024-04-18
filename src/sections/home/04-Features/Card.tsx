@@ -1,19 +1,42 @@
 import Icon, { type IconType } from "components/Icon"
-import { fresponsive } from "library/fullyResponsive"
+import { fresponsive, ftablet } from "library/fullyResponsive"
+import useMedia from "library/useMedia"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
 
-const COLUMNS = [
-	"1 / span 2",
-	"3 / span 2",
-	"1 / span 1",
-	"2 / span 2",
-	"4 / span 1",
-	"1 / span 3",
-]
+const COLUMNS = {
+	desktop: [
+		"1 / span 2",
+		"3 / span 2",
+		"1 / span 1",
+		"2 / span 2",
+		"4 / span 1",
+		"1 / span 3",
+	],
+	tablet: [
+		"1 / span 1",
+		"2 / span 2",
+		"1 / span 2",
+		"3 / span 1",
+		"1 / span 2",
+		"1 / span 3",
+	],
+	mobile: [
+		"1 / span 1",
+		"2 / span 2",
+		"1 / span 2",
+		"3 / span 1",
+		"1 / span 2",
+		"1 / span 3",
+	],
+}
 
-const ROWS = ["span 1", "span 1", "span 1", "span 1", "span 2", "span 1"]
+const ROWS = {
+	desktop: ["span 1", "span 1", "span 1", "span 1", "span 2", "span 1"],
+	tablet: ["span 1", "span 1", "span 1", "span 2", "span 1", "span 1"],
+	mobile: [],
+}
 
 export default function Card({
 	icon,
@@ -30,8 +53,9 @@ export default function Card({
 	index: number
 	background?: string | null
 }) {
-	const columns = COLUMNS[index % COLUMNS.length]
-	const rows = ROWS[index % ROWS.length]
+	const breakpoint = useMedia("desktop", "desktop", "tablet", "mobile")
+	const columns = COLUMNS[breakpoint][index % 6]
+	const rows = ROWS[breakpoint][index % 6]
 
 	return (
 		<Wrapper $columns={columns} $rows={rows} $background={background}>
@@ -91,5 +115,10 @@ const StyledIcon = styled(Icon)`
   ${fresponsive(css`
     width: 15px;
     height: 15px;
+  `)}
+
+  ${ftablet(css`
+    width: 20px;
+    height: 20px;
   `)}
 `
