@@ -184,7 +184,7 @@ export default function Industry() {
 						{desktop && (
 							<LogosWrapper>
 								<AutoAnimate
-									alignment="centered"
+									alignment="center"
 									fromParameters={{ yPercent: 110 }}
 									toParameters={{ yPercent: -110 }}
 								>
@@ -230,7 +230,7 @@ export default function Industry() {
 						{!desktop && (
 							<LogosWrapper>
 								<AutoAnimate
-									alignment="centered"
+									alignment="center"
 									fromParameters={{ yPercent: 110 }}
 									toParameters={{ yPercent: -110 }}
 								>
