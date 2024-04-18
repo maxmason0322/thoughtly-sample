@@ -2,7 +2,7 @@ import Button from "components/Buttons/Primary"
 import backgroundIMG from "images/global/footer-background.png"
 import { ReactComponent as LogoSVG } from "images/global/logo.svg"
 import UniversalLink from "library/Loader/UniversalLink"
-import { fresponsive } from "library/fullyResponsive"
+import { fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
@@ -99,6 +99,10 @@ const Wrapper = styled.footer`
   ${fresponsive(css`
     height: 646px;
   `)}
+
+  ${ftablet(css`
+    height: 720px;
+  `)}
 `
 
 const Inner = styled.div`
@@ -116,12 +120,21 @@ const Inner = styled.div`
   ${fresponsive(css`
     padding: 100px 156px 50px;
   `)}
+
+  ${ftablet(css`
+    padding: 96px 68px 39px;
+  `)}
 `
 
 const Top = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+
+  ${ftablet(css`
+    justify-content: flex-start;
+    gap: 81px;
+  `)}
 `
 
 const LogoAddress = styled.div`
@@ -169,6 +182,10 @@ const LinkColumn = styled.div`
   ${fresponsive(css`
     width: 168px;
     gap: 12px;
+  `)}
+
+  ${ftablet(css`
+    width: 204px;
   `)}
 `
 
@@ -218,11 +235,21 @@ const Buttons = styled.div`
   ${fresponsive(css`
     gap: 12px;
   `)}
+
+  ${ftablet(css`
+    flex-direction: column-reverse;
+    gap: 14px;
+    align-items: flex-end;
+  `)}
 `
 
 const Text = styled.span`
   ${textStyles.bodyS}
   color: ${colors.gray600};
+
+  ${ftablet(css`
+    ${textStyles.bodyR}
+  `)}
 `
 
 const BottomBottom = styled.div`
