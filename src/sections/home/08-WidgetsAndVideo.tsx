@@ -175,7 +175,6 @@ export default function WidgetsAndVideo() {
 			if (open) {
 				const distance = videoRef.current.getBoundingClientRect()
 				const smoother = ScrollSmoother.get()
-				console.log(distance)
 				smoother?.paused(true)
 
 				tl.to(
