@@ -4,6 +4,7 @@ import Industry from "sections/home/02-Industry"
 import Statement from "sections/home/03-Statement"
 import Features from "sections/home/04-Features"
 import Workflows from "sections/home/07-Workflows"
+import WidgetsAndVideo from "sections/home/08-WidgetsAndVideo"
 import SocialProof from "sections/home/SocialProof"
 
 export default function IndexPage() {
@@ -13,6 +14,7 @@ export default function IndexPage() {
 			<Industry />
 			<Statement />
 			<Features />
+      <WidgetsAndVideo />
 			<Workflows />
 			<Integrations />
 		</>
@@ -20,5 +22,11 @@ export default function IndexPage() {
 }
 
 export function Head() {
-	return <Seo title="Home" description="This is the homepage!" pathname="/" />
+	return (
+		<Seo
+			title="Home"
+			description="This is the thoughtly homepage"
+			pathname="/"
+		/>
+	)
 }
