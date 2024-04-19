@@ -1,20 +1,17 @@
 import Seo from "components/Seo"
-import type { PageProps } from "gatsby"
-import { graphql } from "gatsby"
-import UniversalLink from "library/Loader/UniversalLink"
-
+import Industry from "sections/home/02-Industry"
+import Statement from "sections/home/03-Statement"
+import Features from "sections/home/04-Features"
 import WidgetsAndVideo from "sections/home/08-WidgetsAndVideo"
-import styled from "styled-components"
-import { Filler } from "./404"
+import SocialProof from "sections/home/SocialProof"
 
-export default function IndexPage({
-	data,
-}: PageProps<Queries.SitePluginsHomeQuery>) {
-	const { edges: pluginList } = data.allSitePlugin
-
+export default function IndexPage() {
 	return (
 		<>
-			<Container />
+			<SocialProof />
+			<Industry />
+			<Statement />
+			<Features />
 			<WidgetsAndVideo />
 		</>
 	)
@@ -23,21 +20,3 @@ export default function IndexPage({
 export function Head() {
 	return <Seo title="Home" description="This is the homepage!" pathname="/" />
 }
-
-export const query = graphql`
-  query SitePluginsHome {
-    allSitePlugin {
-      edges {
-        node {
-          id
-          name
-        }
-      }
-    }
-  }
-`
-
-const Container = styled.div`
-  position: relative;
-  height: 100vh;
-`

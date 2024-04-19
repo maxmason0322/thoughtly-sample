@@ -1,0 +1,38 @@
+[
+	{
+		"icon": "calendar",
+		"title": "Appointment Scheduling",
+		"text": "Your Thoughtly agent syncs with your calendar, working alongside callers to pinpoint the perfect meeting time. Coordinate effortlessly.",
+		"background": "./backgrounds/feature-0.png"
+	},
+	{
+		"icon": "verified",
+		"title": "Lead Qualification",
+		"text": "Every incoming call is an opportunity. Your Thoughtly agent will never miss a call from a potential lead, intuitively directing them to the ideal point of contact. Perfect routing, every time, ready to convert.",
+		"background": "./backgrounds/feature-1.png"
+	},
+	{
+		"icon": "analytics",
+		"title": "Analytics & Reporting",
+		"text": "Optimize your communication strategies by leveraging industry-leading analytics and data collection.",
+		"background": "./backgrounds/feature-2.png"
+	},
+	{
+		"icon": "routing",
+		"title": "Call Routing",
+		"text": "Build a human-like receptionist to route calls based on natural requests from your customers– all with zero hold time.",
+		"background": "./backgrounds/feature-3.png"
+	},
+	{
+		"icon": "calendar",
+		"title": "Custom Knowledge Base",
+		"text": "Train your agent on hours of call recordings, unstructured text, and even your website. Your agent will learn from your data and improve over time.",
+		"background": "./backgrounds/feature-4.png"
+	},
+	{
+		"icon": "integration",
+		"title": "Built for your Tech Stack",
+		"text": "Arm your agents with advanced automation capabilities to authenticate callers quickly and resolve customer service issues seamlessly. Thoughtly connects directly to your CRM, scheduling tools, SaaS platforms, and more. ",
+		"background": "./backgrounds/feature-5.png"
+	}
+]

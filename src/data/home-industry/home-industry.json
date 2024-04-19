@@ -1,0 +1,107 @@
+[
+	{
+		"title": "Healthcare",
+		"text": "Our agents automate complex processes, from benefits explanation to medication adherence support, ensuring clarity and compliance across all interactions. Enhance operational workflows, reduce administrative burdens, and deliver superior member service with AI that understands the nuances of pharmacy benefits and healthcare planning.",
+		"assertiveness": 20,
+		"humorLevel": 25,
+		"hipaa": true,
+		"soc2": true,
+		"image": "./industries/healthcare.jpg",
+		"icon": "verified",
+		"agent": {
+			"name": "Phillip",
+			"country": "🇬🇧",
+			"avatar": "./agents/phillip.jpg"
+		}
+	},
+	{
+		"title": "Services",
+		"text": "Revolutionize your scheduling, appointment setting, and everything else with AI that understands your client's needs. Perfect for hospitality & travel, consumer services, financial services, and more.",
+		"assertiveness": 20,
+		"humorLevel": 70,
+		"hipaa": true,
+		"soc2": false,
+		"image": "./industries/healthcare.jpg",
+		"icon": "verified",
+		"agent": {
+			"name": "Tessa",
+			"country": "🇺🇸",
+			"avatar": "./agents/tessa.jpg"
+		}
+	},
+	{
+		"title": "Real Estate",
+		"text": "Imagine a full-time employee that answers every new lead, calls cold leads, and schedules a property showing for all of them. Your own AI ISA at your service.",
+		"assertiveness": 70,
+		"humorLevel": 60,
+		"hipaa": false,
+		"soc2": true,
+		"image": "./industries/healthcare.jpg",
+		"icon": "verified",
+		"agent": {
+			"name": "Gabriel",
+			"country": "🇲🇽",
+			"avatar": "./agents/gabriel.jpg"
+		}
+	},
+	{
+		"title": "Insurance",
+		"text": "From policy inquiries to claims processing, your Thoughtly agents provide accurate, compassionate service, making every step seamless for your customers. Enhance trust and efficiency in your insurance services with AI that cares.",
+		"assertiveness": 30,
+		"humorLevel": 10,
+		"hipaa": true,
+		"soc2": true,
+		"image": "./industries/healthcare.jpg",
+		"icon": "verified",
+		"agent": {
+			"name": "James",
+			"country": "🇺🇸",
+			"avatar": "./agents/james.jpg"
+		}
+	},
+	{
+		"title": "Government",
+		"text": "Drive political engagement and make every voice heard with technology that bridges gaps and fosters democracy. Designed for PACs, campaigns, and advocacy groups, our agents not only streamline outreach and personalize interactions with voters but also seamlessly facilitate connections between constituents and their representatives.",
+		"assertiveness": 20,
+		"humorLevel": 30,
+		"hipaa": true,
+		"soc2": true,
+		"image": "./industries/healthcare.jpg",
+		"icon": "verified",
+		"agent": {
+			"name": "James",
+			"country": "🇺🇸",
+			"avatar": "./agents/james.jpg"
+		}
+	},
+	{
+		"title": "Agencies",
+		"text": "Empower your agency with Thoughtly, becoming the bridge that connects your clients to the future of customer interaction. As a solution provider, leverage our platform to offer cutting-edge AI agents that enhance client services, from automated customer support to personalized sales interactions",
+		"assertiveness": 20,
+		"humorLevel": 30,
+		"hipaa": true,
+		"soc2": true,
+		"image": "./industries/healthcare.jpg",
+		"icon": "verified",
+		"agent": {
+			"name": "James",
+			"country": "🇺🇸",
+			"avatar": "./agents/james.jpg"
+		}
+	},
+	{
+		"title": "Market Research",
+		"text": "Whether you're exploring market dynamics, gauging sentiments of your membership, or conducting political polling, Thoughtly delivers actionable intelligence, reports, and exportable data to inform your strategies, simplifying complex research tasks into clear, strategic advantages.",
+		"assertiveness": 20,
+		"humorLevel": 30,
+		"hipaa": true,
+		"soc2": true,
+		"image": "./industries/healthcare.jpg",
+		"icon": "verified",
+		"agent": {
+			"name": "James",
+			"country": "🇺🇸",
+			"avatar": "./agents/james.jpg"
+		}
+	}
+]

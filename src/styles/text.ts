@@ -109,6 +109,15 @@ const textStyles = {
 		letter-spacing: 0.7px;
 		text-transform: uppercase;
 	`),
+	t3: fresponsive(css`
+		font-family: Whyte, sans-serif;
+		font-size: 6px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 120%; /* 7.2px */
+		letter-spacing: 0.48px;
+		text-transform: uppercase;
+	`),
 	bodyXL: fresponsive(css`
 		font-family: Whyte, sans-serif;
 		font-size: 24px;
@@ -135,7 +144,7 @@ const textStyles = {
 	`),
 	bodyS: fresponsive(css`
 		font-family: Whyte, sans-serif;
-		font-size: 16px;
+		font-size: 13px;
 		font-style: normal;
 		font-weight: 350;
 		line-height: 144%; /* 23.04px */
@@ -160,3 +169,10 @@ const textStyles = {
 }
 
 export default textStyles
+
+export const transparentText = css`
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  background-size: 100%;
+  background-clip: text;
+`
