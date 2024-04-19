@@ -3,6 +3,8 @@ import type { PageProps } from "gatsby"
 import { graphql } from "gatsby"
 import UniversalLink from "library/Loader/UniversalLink"
 
+import WidgetsAndVideo from "sections/home/08-WidgetsAndVideo"
+import styled from "styled-components"
 import { Filler } from "./404"
 
 export default function IndexPage({
@@ -12,30 +14,8 @@ export default function IndexPage({
 
 	return (
 		<>
-			<Filler>
-				<h1>Welcome to Your Gatsby Site</h1>
-				<br />
-				<UniversalLink transition="fade" to="/page-2/">
-					Fade to page 2
-				</UniversalLink>
-				<br />
-				<UniversalLink transition="slide" to="/page-2/">
-					Slide to page 2
-				</UniversalLink>
-				<br />
-				<UniversalLink transition="slide" to="/three/">
-					Slide to threejs scene starter
-				</UniversalLink>
-			</Filler>
-			<Filler>
-				<h1>Please enjoy the following template pages:</h1> <br />
-				{pluginList.map(({ node }) => (
-					<UniversalLink transition="fade" to={`/${node.id}`} key={node.id}>
-						{node.name}
-						<br />
-					</UniversalLink>
-				))}
-			</Filler>
+			<Container />
+			<WidgetsAndVideo />
 		</>
 	)
 }
@@ -55,4 +35,9 @@ export const query = graphql`
       }
     }
   }
+`
+
+const Container = styled.div`
+  position: relative;
+  height: 100vh;
 `
