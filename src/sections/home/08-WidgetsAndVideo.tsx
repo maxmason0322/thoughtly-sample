@@ -16,7 +16,7 @@ import { distributeByPosition } from "utils/gsapDistribute"
 
 export default function WidgetsAndVideo() {
 	const gridsRef = useRef<HTMLDivElement | null>(null)
-	const videoRef = useRef<HTMLDivElement>(null)
+	const videoRef = useRef<HTMLDivElement | null>(null)
 	const innerGrid1 = useRef<HTMLDivElement>(null)
 	const innerGrid2 = useRef<HTMLDivElement>(null)
 	const videoWrapper = useRef<HTMLDivElement>(null)
@@ -141,7 +141,7 @@ export default function WidgetsAndVideo() {
 		return (
 			<GridElement
 				$gridArea={widget.name}
-				className="parralax-elements"
+				className="parallax-elements"
 				key={widget.name}
 			>
 				<GridImage image={widget.image} alt={widget.name} />
@@ -153,7 +153,7 @@ export default function WidgetsAndVideo() {
 		return (
 			<GridElement
 				$gridArea={widget.name}
-				className="parralax-elements"
+				className="parallax-elements"
 				key={widget.name}
 			>
 				<GridImage image={widget.image} alt={widget.name} />
@@ -281,7 +281,7 @@ export default function WidgetsAndVideo() {
 			}
 		},
 		[open, canAnimateVideo],
-		{ recreateOnResize: true },
+		{ scope: videoRef, recreateOnResize: true },
 	)
 
 	useAnimation(
@@ -305,7 +305,7 @@ export default function WidgetsAndVideo() {
 			})
 
 			tl.from(
-				".parralax-elements",
+				".parallax-elements",
 				{
 					x: 300,
 					y: 300,
@@ -331,16 +331,16 @@ export default function WidgetsAndVideo() {
 		<Wrapper>
 			<Grids ref={gridsRef}>
 				<TopText>
-					<Kicker className="parralax-elements">
+					<Kicker className="parallax-elements">
 						Unlimited phone agents at your fingertips
 					</Kicker>
-					<Title className="parralax-elements">
+					<Title className="parallax-elements">
 						Finally, AI that works full-time for your business.
 					</Title>
 				</TopText>
 				<Grid1 ref={innerGrid1}>
 					{allGrid1Widgets}
-					<BottomText className="parralax-elements">
+					<BottomText className="parallax-elements">
 						Scale your operations up or down—and pay only for the talk time you
 						need. Tailored efficiency, because your business isn't
 						one-size-fits-all.
@@ -349,7 +349,7 @@ export default function WidgetsAndVideo() {
 
 				<Grid2 ref={innerGrid2}>
 					{allGrid2Widgets}
-					<VideoBGFrame ref={videoRef} className="parralax-elements">
+					<VideoBGFrame ref={videoRef} className="parallax-elements">
 						<CloseButton
 							className="close-video-button"
 							type="button"
