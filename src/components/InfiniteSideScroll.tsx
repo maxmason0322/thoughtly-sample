@@ -77,7 +77,7 @@ const Track = styled.div`
   display: flex;
   position: relative;
   scrollbar-width: none;
-  transform: scale(1);
+  transform: translateZ(0.01);
 
   &::-webkit-scrollbar {
     display: none;
@@ -110,7 +110,7 @@ const TrackInner = styled.div<{ $gap: number }>`
 
 const Gradient = styled.div`
   background: linear-gradient(to left, #FFF 18.67%, rgba(255 255 255 / 0%) 100%);
-  position: absolute;
+  position: fixed;
   z-index: 3;
   top: 50%;
   transform: translateY(-50%);
@@ -119,6 +119,10 @@ const Gradient = styled.div`
   ${fresponsive(css`
     width: 120px;
     right: -18px; 
+  `)}
+
+  ${fmobile(css`
+    width: 60px;
   `)}
 `
 

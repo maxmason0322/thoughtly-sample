@@ -13,7 +13,7 @@ import Card from "./Card"
 gsap.registerPlugin(ScrollToPlugin)
 
 export default function Integrations() {
-	const tablet = useMedia(false, false, true, false)
+	const doubleTrack = useMedia(false, false, true, true)
 	const trackGap = useMedia(
 		getResponsivePixels(24),
 		getResponsivePixels(24),
@@ -53,7 +53,7 @@ export default function Integrations() {
 				</Kicker>
 				<Tracks>
 					<InfiniteSideScroll trackGap={trackGap}>{cards}</InfiniteSideScroll>
-					{tablet && (
+					{doubleTrack && (
 						<InfiniteSideScroll key={2} trackGap={trackGap}>
 							{cards}
 						</InfiniteSideScroll>
@@ -77,6 +77,7 @@ const Inner = styled.div`
   align-items: center;
   flex-direction: column;
   position: relative;
+  transform: scale(1);
 
   ${fresponsive(css`
     padding: 30px 0 100px;
