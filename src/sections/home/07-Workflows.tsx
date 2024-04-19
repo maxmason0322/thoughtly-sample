@@ -1,3 +1,4 @@
+import BackgroundImg from "images/home/workflows-background.png"
 import { fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
@@ -8,7 +9,13 @@ export default function Workflows() {
 	return (
 		<Wrapper>
 			<Inner>
-				<Content />
+				<Content>
+					<Title>Human-like agents, fully integrated into your business.</Title>
+					<Text>
+						Build powerful workflows that fully automate your entire sales
+						funnel, customer service routines, and more.
+					</Text>
+				</Content>
 			</Inner>
 		</Wrapper>
 	)
@@ -32,8 +39,35 @@ const Inner = styled.div`
 const Content = styled.div`
   position: relative;
   width: 100%;
+  background-image: url(${BackgroundImg});
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   ${fresponsive(css`
     height: 671px;
+    padding: 60px 165px;
+  `)}
+`
+
+const Title = styled.h5`
+  ${textStyles.h5}
+  color: ${colors.black};
+  text-align: center;
+
+  ${fresponsive(css`
+    margin-bottom: 36px;
+  `)}
+`
+
+const Text = styled.p`
+  ${textStyles.bodyR}
+  text-align: center;
+
+  ${fresponsive(css`
+    width: 346px;
   `)}
 `
