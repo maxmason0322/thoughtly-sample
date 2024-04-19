@@ -15,7 +15,7 @@ import textStyles from "styles/text"
 import { distributeByPosition } from "utils/gsapDistribute"
 
 export default function WidgetsAndVideo() {
-	const gridsRef = useRef<HTMLDivElement>(null)
+	const gridsRef = useRef<HTMLDivElement | null>(null)
 	const videoRef = useRef<HTMLDivElement>(null)
 	const innerGrid1 = useRef<HTMLDivElement>(null)
 	const innerGrid2 = useRef<HTMLDivElement>(null)
@@ -325,7 +325,7 @@ export default function WidgetsAndVideo() {
 			)
 		},
 		[],
-		{ scope: gridsRef.current },
+		{ scope: gridsRef },
 	)
 
 	return (
