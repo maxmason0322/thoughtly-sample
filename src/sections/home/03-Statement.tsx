@@ -1,4 +1,5 @@
 import gsap from "gsap"
+import { CSSPlugin } from "gsap"
 import SplitText from "gsap/SplitText"
 import Background from "images/home/statement-background.png"
 import { fresponsive } from "library/fullyResponsive"
@@ -9,7 +10,7 @@ import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
 
-gsap.registerPlugin(SplitText)
+gsap.registerPlugin(SplitText, CSSPlugin)
 
 export default function Statement() {
 	const wrapperRef = useRef<HTMLElement | null>(null)
@@ -20,10 +21,30 @@ export default function Statement() {
 				type: "words",
 				wordsClass: "word",
 			})
-			// const gradient = new SplitText(".gradient", {
-			// 	type: "words",
-			// 	wordsClass: "word",
-			// })
+			const gradient = new SplitText(".gradient", {
+				type: "words",
+				wordsClass: "gradient-word",
+			})
+
+			const gradientColors = [
+				"linear-gradient(53deg, #A5CFF9 0%, #8FD5C8 100%)",
+				"linear-gradient(53deg,#8FD5C8 0%, #8BD6BF 16.04%)",
+				"linear-gradient(53deg, #8BD6BF 0%, #85D7B2 19.02%)",
+				"linear-gradient(53deg,  #7ADA9A 0%, #76DB91 26.77%)",
+				"linear-gradient(53deg, #7ADA9A 0%, #76DB91 26.77%)",
+				"linear-gradient(53deg,  #76DB91 0%, #66DF6D 34.94%)",
+				"linear-gradient(53deg,  #53E443 0%, #37EB05 59.14%)",
+			]
+
+			for (const el of gradient.words) {
+				;(el as HTMLElement).style.background = colors.gray400
+			}
+
+			gsap.set(gradient.words, {
+				backgroundSize: "100%",
+				backgroundClip: "text",
+				webkitTextFillColor: "transparent",
+			})
 
 			const tl = gsap.timeline({
 				scrollTrigger: {
@@ -33,14 +54,35 @@ export default function Statement() {
 					scrub: true,
 				},
 			})
+			const nonGradientArrayLength = Array.from(nonGradient.words).length
 
 			tl.to(nonGradient.words, {
 				backgroundColor: colors.js.black,
 				stagger: 1,
 			})
-			tl.from(".gradient", {
-				backgroundImage: `linear-gradient(39deg, ${colors.js.gray400} 4.74%, ${colors.js.gray400} 94.17%)`,
-				stagger: 1,
+
+			Object.values(gradient.words).forEach((el, i) => {
+				const animation = gsap.to(el, {
+					backgroundSize: "100%",
+					backgroundClip: "text",
+					webkitTextFillColor: "transparent",
+					duration: 0.01,
+					onComplete: () => {
+						const el = gradient.words[i] as HTMLElement
+
+						el.style.backgroundImage = gradientColors[i]
+					},
+					onReverseComplete: () => {
+						const el = gradient.words[i] as HTMLElement
+
+						el.style.background = colors.gray400
+						el.style.backgroundClip = "text"
+						el.style.backgroundSize = "100%"
+						el.style.webkitTextFillColor = "transparent"
+					},
+				})
+
+				tl.add(animation, nonGradientArrayLength + i + 1)
 			})
 		},
 		[],
@@ -58,9 +100,9 @@ export default function Statement() {
 							Thoughtly reimagines phone calls with AI that speaks your
 							language. Our mission is to make every call your best yet, merging
 							tradition with tomorrow&apos;s tech.
-						</span>{" "}
+						</span>
 						<span className="gradient">
-							Welcome to the future of customer interaction.
+							&nbsp; Welcome to the future of customer interaction.
 						</span>
 					</Title>
 				</Content>
@@ -74,7 +116,7 @@ const Wrapper = styled.section`
   display: grid;
   place-items: center;
   height: 100vh;
-  
+
   ${fresponsive(css`
     min-height: 882px;
   `)}
@@ -108,7 +150,7 @@ const Title = styled.h3`
   .gradient {
     ${transparentText}
     background-image: ${gradients.greenBlue};
-    
+
     /* .word {
 			${transparentText}
       color: ${colors.gray400};
