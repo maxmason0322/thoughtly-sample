@@ -7,7 +7,9 @@ import textStyles from "styles/text"
 export default function Workflows() {
 	return (
 		<Wrapper>
-			<Inner></Inner>
+			<Inner>
+				<Content />
+			</Inner>
 		</Wrapper>
 	)
 }
@@ -21,4 +23,17 @@ const Wrapper = styled.section`
 const Inner = styled.div`
   width: 100%;
   max-width: ${desktopBreakpoint}px;
+
+  ${fresponsive(css`
+    padding: 106px 170px 25px;
+  `)}
+`
+
+const Content = styled.div`
+  position: relative;
+  width: 100%;
+
+  ${fresponsive(css`
+    height: 671px;
+  `)}
 `
