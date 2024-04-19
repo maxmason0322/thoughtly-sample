@@ -20,5 +20,11 @@ export default function IndexPage() {
 }
 
 export function Head() {
-	return <Seo title="Home" description="This is the homepage!" pathname="/" />
+	return (
+		<Seo
+			title="Home"
+			description="This is the thoughtly homepage"
+			pathname="/"
+		/>
+	)
 }
