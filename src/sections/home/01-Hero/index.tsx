@@ -33,7 +33,7 @@ gsap.registerPlugin(DrawSVGPlugin)
 export default function Hero() {
 	const wrapperRef = useRef<HTMLElement | null>(null)
 
-	const images = useStaticQuery(graphql`
+	const images: Queries.HomeHeroQuery = useStaticQuery(graphql`
     query HomeHero {
       abTest: file(relativePath: { eq: "home/hero/anal-graph.png" }) {
         childImageSharp {

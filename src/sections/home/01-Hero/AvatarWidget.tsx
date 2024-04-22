@@ -34,7 +34,7 @@ export default function AvatarWidget({
 					$zIndex={arr.length - index}
 					className="avatar"
 					image={item}
-					key={item.id}
+					key={item.id + Math.random()}
 					alt="avatar"
 				/>
 			)
