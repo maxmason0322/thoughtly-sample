@@ -1,4 +1,3 @@
-// see https://www.totaltypescript.com/tsconfig-cheat-sheet
 {
 	"include": ["./src/**/*", "./*.tsx", "./*.ts"],
 	"compilerOptions": {

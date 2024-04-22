@@ -1,8 +1,11 @@
 import Button from "components/Buttons/Primary"
+import backgroundMobileIMG from "images/global/footer-background-mobile.png"
+import backgroundTabletIMG from "images/global/footer-background-tablet.png"
 import backgroundIMG from "images/global/footer-background.png"
 import { ReactComponent as LogoSVG } from "images/global/logo.svg"
 import UniversalLink from "library/Loader/UniversalLink"
-import { fresponsive } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
+import useMedia from "library/useMedia"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
@@ -11,6 +14,8 @@ import links from "utils/links"
 import Link from "./Buttons/Link"
 
 export default function Footer() {
+	const mobile = useMedia(false, false, false, true)
+
 	return (
 		<Wrapper>
 			<Inner>
@@ -52,15 +57,25 @@ export default function Footer() {
 							<Link to={links.todo}>API Docs</Link>
 							<Link to={links.todo}>Contact Us</Link>
 						</LinkColumn>
+						{mobile && (
+							<LinkColumn>
+								<Label>Socials</Label>
+								<Link to={links.todo}>Instagram</Link>
+								<Link to={links.todo}>Linkedin</Link>
+								<Link to={links.todo}>X(Twitter)</Link>
+							</LinkColumn>
+						)}
 					</Columns>
 				</Top>
 				<Bottom>
 					<BottomTop>
-						<Socials>
-							<Link to={links.todo}>Instagram</Link>
-							<Link to={links.todo}>LinkedIn</Link>
-							<Link to={links.todo}>X(Twitter)</Link>
-						</Socials>
+						{!mobile && (
+							<Socials>
+								<Link to={links.todo}>Instagram</Link>
+								<Link to={links.todo}>LinkedIn</Link>
+								<Link to={links.todo}>X(Twitter)</Link>
+							</Socials>
+						)}
 						<Buttons>
 							<Button to={links.todo} outline>
 								Build your own Thoughtly
@@ -99,6 +114,14 @@ const Wrapper = styled.footer`
   ${fresponsive(css`
     height: 646px;
   `)}
+
+  ${ftablet(css`
+    height: 720px;
+  `)}
+
+  ${fmobile(css`
+    height: 868px;
+  `)}
 `
 
 const Inner = styled.div`
@@ -116,12 +139,32 @@ const Inner = styled.div`
   ${fresponsive(css`
     padding: 100px 156px 50px;
   `)}
+
+  ${ftablet(css`
+    padding: 96px 68px 39px;
+    background-image: url(${backgroundTabletIMG});
+  `)}
+
+  ${fmobile(css`
+    padding: 60px 24px 26px;
+    background-image: url(${backgroundMobileIMG});
+  `)}
 `
 
 const Top = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+
+  ${ftablet(css`
+    justify-content: flex-start;
+    gap: 81px;
+  `)}
+
+  ${fmobile(css`
+    flex-direction: column;
+
+  `)}
 `
 
 const LogoAddress = styled.div`
@@ -133,6 +176,12 @@ const LogoAddress = styled.div`
     top: -15px;
     gap: 8px;
   `)}
+
+  ${fmobile(css`
+    width: 100%;
+    border-bottom: 2px solid ${colors.gray400};
+    padding-bottom: 34px;
+  `)}
 `
 
 const Logo = styled(LogoSVG)`
@@ -140,6 +189,10 @@ const Logo = styled(LogoSVG)`
 
   ${fresponsive(css`
     width: 138px;
+  `)}
+
+  ${fmobile(css`
+    width: 160px;
   `)}
 `
 
@@ -160,6 +213,11 @@ const Columns = styled.div`
     gap: 24px;
     padding-right: 10px;
   `)}
+
+  ${fmobile(css`
+    gap: 24px 6px;
+    flex-wrap: wrap;
+  `)}
 `
 
 const LinkColumn = styled.div`
@@ -169,6 +227,14 @@ const LinkColumn = styled.div`
   ${fresponsive(css`
     width: 168px;
     gap: 12px;
+  `)}
+
+  ${ftablet(css`
+    width: 204px;
+  `)}
+
+  ${fmobile(css`
+    width: 154px;
   `)}
 `
 
@@ -209,6 +275,10 @@ const Socials = styled.div`
   ${fresponsive(css`
     gap: 24px;
   `)}
+
+  ${fmobile(css`
+    display: none;
+  `)}
 `
 
 const Buttons = styled.div`
@@ -218,11 +288,26 @@ const Buttons = styled.div`
   ${fresponsive(css`
     gap: 12px;
   `)}
+
+  ${ftablet(css`
+    flex-direction: column-reverse;
+    gap: 14px;
+    align-items: flex-end;
+  `)}
+
+  ${fmobile(css`
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  `)}
 `
 
 const Text = styled.span`
   ${textStyles.bodyS}
   color: ${colors.gray600};
+
+  ${ftablet(css`
+    ${textStyles.bodyR}
+  `)}
 `
 
 const BottomBottom = styled.div`
