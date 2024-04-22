@@ -1,21 +1,31 @@
-import PrimaryButton from "components/Buttons/Primary"
-import { ReactComponent as LogoSVG } from "images/global/logo.svg"
+import Circle from "components/Buttons/Circle"
+import MouseFollower from "components/MouseFollower"
+import gsap from "gsap"
+import DotSVG from "images/global/icons/Dot.svg"
+import ConstantMarquee from "library/ConstantMarquee"
+import UniversalLink from "library/Loader/UniversalLink"
 import { fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles from "styles/text"
-import links from "utils/links"
 import { transparentText } from "styles/text"
-import ConstantMarquee from "library/ConstantMarquee"
-import UniversalLink from "library/Loader/UniversalLink"
-import Circle from "components/Buttons/Circle"
-import DotSVG from "images/global/icons/Dot.svg"
-import Demo from "components/Buttons/Demo"
-import { useState } from "react"
-// import MouseFollower from "components/MouseFollower"
 
 export default function CallCTA() {
+	const handleMouseEnter = () => {
+		gsap.to(".phoneNumber", {
+			duration: 0.25,
+			backgroundImage: gradients.greenGreen,
+		})
+	}
+
+	const handleMouseLeave = () => {
+		gsap.to(".phoneNumber", {
+			duration: 0.25,
+			backgroundImage: gradients.grayGray,
+		})
+	}
+
 	return (
 		<Wrapper>
 			<Inner>
@@ -24,20 +34,30 @@ export default function CallCTA() {
 						The <TextSpan>future</TextSpan> is here–call it.
 					</Heading>
 					<Text>
-						The proof is in the pudding– experience how Thoughtly is
-						transforming customer interaction with one call.
+						The proof is in the pudding–experience how Thoughtly is transforming
+						customer interaction with one call.
 					</Text>
 				</Top>
 				<Bottom>
-					<MarqueeBorder>
-						{/* <MouseFollower /> */}
-						<Marquee timing={10}>
-							<MarqueeSpan>
-								<PhoneNumber to={links.todo}>+1 (855) 717-0250</PhoneNumber>
-								<Circle />
-							</MarqueeSpan>
-						</Marquee>
-					</MarqueeBorder>
+					<MarqueeWrapper>
+						<MouseFollower />
+						<MarqueeBorder>
+							<BackgroundBorder />
+							<ConstantMarquee timing={10}>
+								<MarqueeSpan>
+									<PhoneNumber
+										onMouseEnter={handleMouseEnter}
+										onMouseLeave={handleMouseLeave}
+										className="phoneNumber"
+										to="tel:+18557170250"
+									>
+										+1 (855) 717-0250
+									</PhoneNumber>
+									<Circle />
+								</MarqueeSpan>
+							</ConstantMarquee>
+						</MarqueeBorder>
+					</MarqueeWrapper>
 				</Bottom>
 			</Inner>
 		</Wrapper>
@@ -93,13 +113,13 @@ const Bottom = styled.div`
     `)}
 `
 
-const Marquee = styled(ConstantMarquee)`
-    &:hover {
-        a {
-            ${transparentText};
-            background-image: ${gradients.greenGreen};
-        }
-    }
+const MarqueeWrapper = styled.div`
+    position: relative;
+    ${fresponsive(css`
+        width: 1320px;
+        height: 382px;
+        border-radius: 60px;
+    `)}
 `
 
 const TextSpan = styled.span`
@@ -109,7 +129,8 @@ const TextSpan = styled.span`
 
 const PhoneNumber = styled(UniversalLink)`
     ${textStyles.h2};
-    color: ${colors.gray900};
+    ${transparentText};
+    background-image: ${gradients.grayGray};
 
     ${fresponsive(css`
         padding: 0 54px;
@@ -119,18 +140,26 @@ const PhoneNumber = styled(UniversalLink)`
 const MarqueeBorder = styled.div`
     display: flex;
     align-items: center;
-    background-image: url(${DotSVG});
-    background-repeat: repeat;
-    background-size: 100% 100%;
-    background-position: center center;
+    position: relative;
     background-color: ${colors.gray100};
     overflow: hidden;
-
     ${fresponsive(css`
         width: 1320px;
         height: 382px;
         border-radius: 60px;
-        background-size: 21px 21px;
+    `)}
+`
+
+const BackgroundBorder = styled.div`
+    position: absolute;
+    background-image: url(${DotSVG});
+    background-repeat: repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+
+    ${fresponsive(css`
+        inset: 15px;
+        background-size: 23px 23px;
     `)}
 `
 

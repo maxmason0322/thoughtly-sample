@@ -1,11 +1,10 @@
 import gsap from "gsap"
-// import { ReactComponent as ArrowSVG } from "images/global/icons/arrow-one.svg"
-import { fresponsive } from "library/fullyResponsive"
-import { isBrowser } from "library/functions"
+import { isBrowser } from "library/deviceDetection"
 import useAnimation from "library/useAnimation"
 import { useEffect, useRef, useState } from "react"
-import styled, { css } from "styled-components"
-import textStyles from "styles/text"
+import styled from "styled-components"
+import links from "utils/links"
+import Primary from "./Buttons/Primary"
 
 interface MouseFollowerProps {
 	/**
@@ -17,10 +16,39 @@ interface MouseFollowerProps {
 
 export default function MouseFollower({ trackElement }: MouseFollowerProps) {
 	const wrapperRef = useRef<HTMLDivElement>(null)
+	const [rotation, setRotation] = useState(0)
 
 	const [isClient, setIsClient] = useState(false)
 	useEffect(() => {
-		if (isBrowser()) setIsClient(true)
+		if (isBrowser) setIsClient(true)
+	}, [])
+
+	useEffect(() => {
+		const handleMouseMove = (e: MouseEvent) => {
+			const { clientX, clientY } = e
+			const { innerWidth, innerHeight } = window
+			const centerX = innerWidth / 2
+			const centerY = innerHeight / 2
+
+			const deltaX = clientX - centerX
+			const deltaY = clientY - centerY
+			const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY)
+
+			const maxDistance = Math.sqrt(centerX * centerX + centerY * centerY)
+			let rotationAngle: number
+			if (deltaX > 0) {
+				rotationAngle = (distance / maxDistance) * 10
+			} else {
+				rotationAngle = -(distance / maxDistance) * 10
+			}
+			setRotation(rotationAngle)
+		}
+
+		window.addEventListener("mousemove", handleMouseMove)
+
+		return () => {
+			window.removeEventListener("mousemove", handleMouseMove)
+		}
 	}, [])
 
 	useAnimation(() => {
@@ -59,7 +87,7 @@ export default function MouseFollower({ trackElement }: MouseFollowerProps) {
 			mouseIsInside = false
 		}
 		const onEnter = () => {
-			gsap.delayedCall(0.5, () => {
+			gsap.delayedCall(0.25, () => {
 				if (mouseIsInside) {
 					gsap.to(wrapperRef.current, {
 						scale: 1,
@@ -111,41 +139,25 @@ export default function MouseFollower({ trackElement }: MouseFollowerProps) {
 	}, [isClient, trackElement])
 
 	if (!isClient) return null
-	return <Wrapper ref={wrapperRef} />
+	return (
+		<Wrapper ref={wrapperRef}>
+			<StyledPrimary $rotation={rotation} to={links.todo} variant="demo">
+				Call for a Live Demo
+			</StyledPrimary>
+		</Wrapper>
+	)
 }
 
-const Wrapper = styled.div`
-  ${fresponsive(css`
-    width: 117px;
-    height: 117px;
-  `)}
-
-  border-radius: 50%;
+const Wrapper = styled.div` 
   position: absolute;
-  top: 0;
+  top: -3%;
   left: 0;
   transform: translate(-50%, -50%) scale(0);
   pointer-events: none;
-  backdrop-filter: invert() hue-rotate(180deg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  text-align: center;
   z-index: 10;
-  ${textStyles.h6};
+  color: #000;
 `
 
-// const Arrow = styled(ArrowSVG)`
-//   ${fresponsive(css`
-//     width: 13px;
-//     height: 13px;
-//   `)}
-
-//   &,
-//   & * {
-//     fill: black;
-//     stroke: none;
-//   }
-// `
+const StyledPrimary = styled(Primary)<{ $rotation: number }>`
+    transform: rotate(${({ $rotation }) => $rotation}deg);
+`

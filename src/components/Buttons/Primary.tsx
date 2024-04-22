@@ -9,7 +9,7 @@ import textStyles from "styles/text"
 
 type Props = UniversalLinkProps & {
 	outline?: boolean
-	variant?: "primary" | "secondary"
+	variant?: "primary" | "secondary" | "demo"
 	icon?: IconType
 }
 
@@ -23,8 +23,9 @@ export default function Primary({
 	return (
 		<Wrapper {...props}>
 			{outline && <Border />}
-			<Inner $secondary={variant === "secondary"}>
+			<Inner $secondary={variant === "secondary"} $demo={variant === "demo"}>
 				{variant !== "secondary" && <Highlight />}
+				{variant !== "demo" && <Highlight />}
 				<Span>
 					{children}
 					{icon && <Icon name={icon} />}
@@ -89,23 +90,33 @@ const Wrapper = styled(UniversalLink)`
     }
 `
 
-const Inner = styled.div<{ $secondary: boolean }>`
+const Inner = styled.div<{ $secondary: boolean; $demo: boolean }>`
     display: flex;
-    ${({ $secondary }) =>
+    align-items: center;
+    ${({ $secondary, $demo }) =>
 			fresponsive(css`
-        border-radius: 12px;
+        border-radius: ${$demo ? "10px" : "12px"};
         height: 50px;
-        padding: 16px 24px;
+        padding: ${$demo ? "12px 18px" : "16px 24px"};
         border: ${
 					$secondary
 						? `2px solid ${colors.gray200}`
-						: `0.5px solid ${colors.white}`
+						: $demo
+							? "1.5px solid #E4E4E4"
+							: `0.5px solid ${colors.white}`
 				};
         box-shadow: ${
 					$secondary
 						? "unset"
-						: "0 2px 1.5px 0 rgba(216 250 206 / 75%) inset, 0 -2px 1px 0 rgba(23 122 12 / 16%) inset"
+						: $demo
+							? "box-shadow: 0 18px 42px 0 rgba(89 89 89 / 4%)"
+							: "0 2px 1.5px 0 rgba(216 250 206 / 75%) inset, 0 -2px 1px 0 rgba(23 122 12 / 16%) inset"
 				};                                    
+        background: ${
+					$demo
+						? "linear-gradient(210deg, #FFF 2.03%, #F7F7F7 255.34%)"
+						: "none"
+				};
         background-color: ${$secondary ? colors.white : colors.green300};
     `)}
     width: fit-content;
