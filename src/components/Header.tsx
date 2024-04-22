@@ -38,6 +38,7 @@ const Wrapper = styled.header`
 	display: grid;
 	place-items: center;
   overflow: clip;
+	position: absolute;
 `
 
 const Inner = styled.div`

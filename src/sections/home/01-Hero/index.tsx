@@ -1,6 +1,8 @@
 import Button from "components/Buttons/Primary"
 import Kicker from "components/Kicker"
 import { graphql, useStaticQuery } from "gatsby"
+import gsap from "gsap"
+import DrawSVGPlugin from "gsap/DrawSVGPlugin"
 import { ReactComponent as ActionSpeakLineSVG } from "images/home/hero/action-speak-line.svg"
 import Background from "images/home/hero/hero-background.png"
 import { ReactComponent as SpeakTestLineSVG } from "images/home/hero/speak-abtest-line.svg"
@@ -14,14 +16,23 @@ import { ReactComponent as TestLine1SVG } from "images/home/hero/test-line-1.svg
 import { ReactComponent as TestSpeakLineSVG } from "images/home/hero/test-speak-line.svg"
 import UniversalImage from "library/UniversalImage"
 import { fresponsive } from "library/fullyResponsive"
+import useAnimation from "library/useAnimation"
+import { useRef } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
 import links from "utils/links"
+import AvatarWidget from "./AvatarWidget"
+import CallWidget from "./CallWidget"
+import IconsWidget from "./IconsWidget"
 import Widget from "./Widget"
 
+gsap.registerPlugin(DrawSVGPlugin)
+
 export default function Hero() {
+	const wrapperRef = useRef<HTMLElement | null>(null)
+
 	const images = useStaticQuery(graphql`
     query HomeHero {
       abTest: file(relativePath: { eq: "home/hero/anal-graph.png" }) {
@@ -37,8 +48,97 @@ export default function Hero() {
     }
   `)
 
+	useAnimation(
+		() => {
+			const tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: wrapperRef.current,
+					start: "top top",
+					end: "bottom 50%",
+					scrub: true,
+				},
+			})
+
+			tl.from(
+				"#start-speak-line",
+				{
+					drawSVG: 0,
+				},
+				0,
+			)
+			tl.from(".speak-1-widget", {
+				y: 50,
+				opacity: 0,
+			})
+			tl.from("#speak-action-line", {
+				drawSVG: 0,
+			})
+			tl.from(
+				"#speak-test-line",
+				{
+					drawSVG: 0,
+					duration: 2,
+				},
+				"<",
+			)
+			tl.from(
+				".action-widget",
+				{
+					y: 50,
+					opacity: 0,
+				},
+				"<+=0.5",
+			)
+			tl.from(
+				".test-widget",
+				{
+					y: 50,
+					opacity: 0,
+				},
+				">",
+			)
+			tl.from(
+				"#action-speak-line",
+				{
+					drawSVG: 0,
+					duration: 1.5,
+				},
+				"<",
+			)
+			tl.from(
+				"#test-speak-line",
+				{
+					drawSVG: 0,
+				},
+				"<+=1",
+			)
+			tl.from(".speak-2-widget", {
+				y: 50,
+				opacity: 0,
+			})
+			tl.from(
+				"#test-line-1",
+				{
+					drawSVG: 0,
+				},
+				"<",
+			)
+			tl.from(
+				["#speak-line-1", "#speak-line-2", "#speak-line-3", "#speak-line-4"],
+				{
+					drawSVG: 0,
+				},
+				"<+=0.5",
+			)
+		},
+		[],
+		{
+			scope: wrapperRef,
+		},
+	)
+
 	return (
-		<Wrapper>
+		<Wrapper ref={wrapperRef}>
 			<Inner>
 				<BackgroundImage src={Background} />
 				<TextContent>
@@ -78,7 +178,11 @@ export default function Hero() {
 						conversions more effectively.
 					</p>
 				</Callout2>
+				<StyledCallWidget className="call-widget" />
+				<StyledIconsWidget className="icons-widget" />
+				<StyledAvatarWidget className="avatar-widget" />
 				<StartWidget
+					className="start-widget"
 					title="Start"
 					iconColor={colors.green400}
 					icon="play"
@@ -88,6 +192,7 @@ export default function Hero() {
 					with?"
 				</StartWidget>
 				<SpeakWidget
+					className="speak-1-widget"
 					title="Speak"
 					iconColor="#0085E5"
 					icon="speak"
@@ -100,6 +205,7 @@ export default function Hero() {
 					</p>
 				</SpeakWidget>
 				<Speak2Widget
+					className="speak-2-widget"
 					title="Speak"
 					iconColor="#0085E5"
 					icon="speak"
@@ -118,6 +224,7 @@ export default function Hero() {
 					</p>
 				</Speak2Widget>
 				<ActionWidget
+					className="action-widget"
 					title="Action"
 					icon="integration"
 					iconColor="#F48A46"
@@ -127,6 +234,7 @@ export default function Hero() {
 					<ActionImage image={images.webhook} alt="webhook ui" />
 				</ActionWidget>
 				<ABTestWidget
+					className="test-widget"
 					title="A/B Test"
 					icon="shuffle"
 					iconColor="#EED70B"
@@ -287,8 +395,9 @@ const StartWidget = styled(Widget)`
   position: absolute;
 
   ${fresponsive(css`
-    top: 384px;
+    top: 372px;
     right: 226px;
+		height: 178px;
   `)}
 `
 
@@ -462,4 +571,31 @@ const SpeakLine4 = styled(SpeakLine4SVG)`
     bottom: 36px;
     right: 592px;
   `)}
+`
+
+const StyledCallWidget = styled(CallWidget)`
+	position: absolute;
+
+	${fresponsive(css`
+		top: 150px;
+		right: 229px;
+	`)}
+`
+
+const StyledIconsWidget = styled(IconsWidget)`
+	position: absolute;
+
+	${fresponsive(css`
+		top: 150px;
+		right: 157px;
+	`)}
+`
+
+const StyledAvatarWidget = styled(AvatarWidget)`
+	position: absolute;
+
+	${fresponsive(css`
+		top: 452px;
+		right: 83px;
+	`)}
 `

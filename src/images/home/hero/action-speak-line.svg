@@ -1,3 +1,4 @@
 <svg width="576" height="306" viewBox="0 0 576 306" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M575 1C575 186 1 -36 1 304.5" stroke="#E0E0E0" stroke-width="1.5" stroke-linecap="round"/>
+  <path id="action-speak-line" d="M575 1C575 186 1 -36 1 304.5" stroke="#E0E0E0" stroke-width="1.5"
+    stroke-linecap="round" />
 </svg>
