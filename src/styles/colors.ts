@@ -27,6 +27,8 @@ const rawColors = {
 	gray100: ["#FAFAFA"],
 } as const satisfies Record<string, [string, string] | [string]>
 
+export type ColorType = keyof typeof rawColors
+
 export const gradients = {
 	greenGreen: `linear-gradient(10deg, ${rawColors.green500} -4.03%, ${rawColors.green300} 101.71%)`,
 	greenBlue: `linear-gradient(39deg, ${rawColors.green400} 4.74%, #55D2FF 94.17%)`,
