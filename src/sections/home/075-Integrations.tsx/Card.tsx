@@ -57,7 +57,7 @@ const Text = styled.p`
 
 const Logo = styled(UniversalImage)`
   flex-grow: 0;
-  
+
   img {
     object-position: left center;
   }
