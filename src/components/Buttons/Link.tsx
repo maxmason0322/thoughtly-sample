@@ -3,7 +3,7 @@ import Icon from "components/Icon"
 import Tag from "components/Tag"
 import type { UniversalLinkProps } from "library/Loader/UniversalLink"
 import UniversalLink from "library/Loader/UniversalLink"
-import { fresponsive } from "library/fullyResponsive"
+import { fresponsive, ftablet } from "library/fullyResponsive"
 import type React from "react"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
@@ -35,16 +35,20 @@ const Wrapper = styled(UniversalLink)<{ $hasTag: boolean }>`
     transition: background-color 0.25s;
     color: ${({ $hasTag }) => ($hasTag ? colors.gray800 : colors.black)};
 
+    &:hover {
+        background-color: ${({ $hasTag }) =>
+					$hasTag ? "transparent" : colors.gray200};
+    }
+
     ${fresponsive(css`
         padding: 8px 10px;
         border-radius: 8px;
         height: 30px;
     `)}
     
-    &:hover {
-        background-color: ${({ $hasTag }) =>
-					$hasTag ? "transparent" : colors.gray200};
-    }
+    ${ftablet(css`
+        ${textStyles.sh3}
+    `)}
 `
 
 const Span = styled.span`

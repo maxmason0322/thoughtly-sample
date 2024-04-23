@@ -13,6 +13,9 @@ import { ReactComponent as RoutingSVG } from "images/global/icons/Routing.svg"
 import { ReactComponent as TargetSVG } from "images/global/icons/Target.svg"
 import { ReactComponent as TrashSVG } from "images/global/icons/Trash.svg"
 import { ReactComponent as VerifiedSVG } from "images/global/icons/Verified.svg"
+import { ReactComponent as PlaySVG } from "images/global/icons/play.svg"
+import { ReactComponent as ShuffleSVG } from "images/global/icons/shuffle.svg"
+import { ReactComponent as SpeakSVG } from "images/global/icons/speak.svg"
 
 const iconMap = {
 	calendar: CalendarSVG,
@@ -30,6 +33,9 @@ const iconMap = {
 	phone: PhoneSVG,
 	routing: RoutingSVG,
 	verified: VerifiedSVG,
+	speak: SpeakSVG,
+	play: PlaySVG,
+	shuffle: ShuffleSVG,
 }
 
 export type IconType = keyof typeof iconMap
