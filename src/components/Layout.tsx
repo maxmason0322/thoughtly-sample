@@ -5,7 +5,6 @@ import Transition from "components/Transition"
 import { useBackButton } from "library/Loader/TransitionUtils"
 import Scroll from "library/Scroll"
 import { useTrackPageReady } from "library/pageReady"
-import useCSSHeightVariables from "library/useCssHeightVariables"
 import useTrackFrameTime from "library/useTrackFrameTime"
 import styled, { createGlobalStyle, css } from "styled-components"
 import colors from "styles/colors"
@@ -18,7 +17,6 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
 	useTrackPageReady()
 	useBackButton()
-	useCSSHeightVariables()
 	useTrackFrameTime()
 
 	return (
@@ -39,7 +37,6 @@ const Main = styled.main`
   overflow-x: clip;
 `
 
-// TODO: configure a default text color
 const globalCss = css`
   /* default text styles */
   html {
