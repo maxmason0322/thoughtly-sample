@@ -5,6 +5,7 @@ import DotSVG from "images/global/icons/Dot.svg"
 import ConstantMarquee from "library/ConstantMarquee"
 import UniversalLink from "library/Loader/UniversalLink"
 import { ScreenContext } from "library/ScreenContext"
+import useCanHover from "library/canHover"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import { useContext } from "react"
 import styled, { css } from "styled-components"
@@ -50,7 +51,7 @@ export default function CallCTA() {
 				</Top>
 				<Bottom>
 					<MarqueeWrapper>
-						{!tablet && !mobile && <MouseFollower />}
+						{useCanHover() && <MouseFollower />}
 						<MarqueeBorder>
 							<BackgroundBorder />
 							<Marquee timing={mobile ? 7 : 10}>
@@ -67,7 +68,7 @@ export default function CallCTA() {
 								</MarqueeSpan>
 							</Marquee>
 							{mobile && (
-								<Marquee timing={mobile ? 7 : 10} reversed={true}>
+								<Marquee timing={mobile ? 7 : 10} reversed>
 									<MarqueeSpan>
 										<PhoneNumber
 											onMouseEnter={handleMouseEnter}
@@ -90,174 +91,174 @@ export default function CallCTA() {
 }
 
 const Wrapper = styled.section`
-	width: 100%;
-    display: grid;
-    place-items: center;
+  width: 100%;
+  display: grid;
+  place-items: center;
 `
 
 const Inner = styled.div`
-    width: 100%;
-    max-width: ${desktopBreakpoint}px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  max-width: ${desktopBreakpoint}px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    ${ftablet(css`
-        max-width: ${tabletBreakpoint}px;
-    `)}
+  ${ftablet(css`
+    max-width: ${tabletBreakpoint}px;
+  `)}
 
-    ${fmobile(css`
-        max-width: ${mobileBreakpoint}px;
-    `)}
+  ${fmobile(css`
+    max-width: ${mobileBreakpoint}px;
+  `)}
 `
 
 const Top = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    ${fresponsive(css`
-        gap: 36px;
-        padding: 96px 0 72px;
-        width: 1128px;
-        border-top: 1.5px solid ${colors.gray300};
-    `)}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    ${fmobile(css`
-        width: 320px;
-        padding: 60px 27px 48px;
-        margin-top: 91px;
-    `)}
+  ${fresponsive(css`
+    gap: 36px;
+    padding: 96px 0 72px;
+    width: 1128px;
+    border-top: 1.5px solid ${colors.gray300};
+  `)}
+
+  ${fmobile(css`
+    width: 320px;
+    padding: 60px 27px 48px;
+    margin-top: 91px;
+  `)}
 `
 
 const Heading = styled.h1`
-    ${textStyles.h5};
-    color: ${colors.black};
+  ${textStyles.h5};
+  color: ${colors.black};
 
-    ${fmobile(css`
-        width: 350px;
-        text-align: center;
-    `)}
+  ${fmobile(css`
+    width: 350px;
+    text-align: center;
+  `)}
 `
 
 const Text = styled.p`
-    ${textStyles.bodyL};
-    color: ${colors.gray700};
-    text-align: center;
+  ${textStyles.bodyL};
+  color: ${colors.gray700};
+  text-align: center;
 
-    ${fresponsive(css`
-        width: 395px;
-    `)}
+  ${fresponsive(css`
+    width: 395px;
+  `)}
 
-    ${fmobile(css`
-        width: 300px;
-    `)}
+  ${fmobile(css`
+    width: 300px;
+  `)}
 `
 
 const Bottom = styled.div`
-    ${fresponsive(css`
-        padding: 0 61px 122px;
-    `)}
+  ${fresponsive(css`
+    padding: 0 61px 122px;
+  `)}
 
-    ${ftablet(css`
-        padding: 0 21px 122px;
-    `)}
+  ${ftablet(css`
+    padding: 0 21px 122px;
+  `)}
 
     ${fmobile(css`
-        padding: 0 9px 88px;
-    `)}
+    padding: 0 9px 88px;
+  `)}
 `
 
 const MarqueeWrapper = styled.div`
-    position: relative;
-    ${fresponsive(css`
-        width: 1320px;
-        height: 382px;
-        border-radius: 60px;
-    `)}
+  position: relative;
+  ${fresponsive(css`
+    width: 1320px;
+    height: 382px;
+    border-radius: 60px;
+  `)}
 
-    ${ftablet(css`
-        width: 982px;
-    `)}
+  ${ftablet(css`
+    width: 982px;
+  `)}
 
     ${fmobile(css`
-        width: 358px;
-        height: 191px;
-        border-radius: 36px;
-    `)}
+    width: 358px;
+    height: 191px;
+    border-radius: 36px;
+  `)}
 `
 
 const TextSpan = styled.span`
-    ${transparentText};
-    background-image: ${gradients.greenBlue};
+  ${transparentText};
+  background-image: ${gradients.greenBlue};
 `
 
 const PhoneNumber = styled(UniversalLink)`
-    ${textStyles.h2};
-    ${transparentText};
-    background-image: ${gradients.grayGray};
+  ${textStyles.h2};
+  ${transparentText};
+  background-image: ${gradients.grayGray};
 
-    ${fresponsive(css`
-        padding: 0 54px;
-    `)}
+  ${fresponsive(css`
+    padding: 0 54px;
+  `)}
 
-    ${fmobile(css`
-        padding: 0 21.6px;
-        ${textStyles.h6};
-    `)}
+  ${fmobile(css`
+    padding: 0 21.6px;
+    ${textStyles.h6};
+  `)}
 `
 
 const MarqueeBorder = styled.div`
-    display: flex;
-    align-items: center;
-    position: relative;
-    background-color: ${colors.gray100};
-    overflow: hidden;
-    ${fresponsive(css`
-        width: 1320px;
-        height: 382px;
-        border-radius: 60px;
-    `)}
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: ${colors.gray100};
+  overflow: hidden;
+  ${fresponsive(css`
+    width: 1320px;
+    height: 382px;
+    border-radius: 60px;
+  `)}
 
-    ${ftablet(css`
-        width: 982px;
-    `)}
+  ${ftablet(css`
+    width: 982px;
+  `)}
 
     ${fmobile(css`
-        width: 358px;
-        height: 191px;
-        border-radius: 36px;
-        flex-direction: column;
-        justify-content: center;
-    `)}
+    width: 358px;
+    height: 191px;
+    border-radius: 36px;
+    flex-direction: column;
+    justify-content: center;
+  `)}
 `
 
 const BackgroundBorder = styled.div`
-    position: absolute;
-    background-image: url(${DotSVG});
-    background-repeat: repeat;
-    background-size: 100% 100%;
-    background-position: center center;
+  position: absolute;
+  background-image: url(${DotSVG});
+  background-repeat: repeat;
+  background-size: 100% 100%;
+  background-position: center center;
 
-    ${fresponsive(css`
-        inset: 15px;
-        background-size: 23px 23px;
-    `)}
+  ${fresponsive(css`
+    inset: 15px;
+    background-size: 23px 23px;
+  `)}
 
-    ${fmobile(css`
-        inset: 9px;
-    `)}
+  ${fmobile(css`
+    inset: 9px;
+  `)}
 `
 
 const MarqueeSpan = styled.span`
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center; 
 `
 
 const Marquee = styled(ConstantMarquee)`
-    ${fmobile(css`
-        height: 70px;
-        display: flex;
-        align-items: center;
-    `)}
+  ${fmobile(css`
+    height: 70px;
+    display: flex;
+    align-items: center;
+  `)}
 `

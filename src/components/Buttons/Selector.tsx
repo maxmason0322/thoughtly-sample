@@ -33,7 +33,9 @@ const Border = styled.div`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  transition: height 0.25s, width 0.25s;
+  transition:
+    height 0.25s,
+    width 0.25s;
 
   ${fresponsive(css`
     border-radius: 14px;
@@ -49,7 +51,7 @@ const Inner = styled.div`
   align-items: center;
   ${textStyles.sh3}
   color: ${colors.black};
-  
+
   ${fresponsive(css`
     border-radius: 12px;
     border: 1.5px solid ${colors.gray200};

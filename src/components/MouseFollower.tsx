@@ -2,9 +2,8 @@ import gsap from "gsap"
 import { isBrowser } from "library/deviceDetection"
 import useAnimation from "library/useAnimation"
 import { useEffect, useRef, useState } from "react"
+import DemoButton from "sections/home/DemoButton"
 import styled from "styled-components"
-import links from "utils/links"
-import Primary from "./Buttons/Primary"
 
 interface MouseFollowerProps {
 	/**
@@ -141,14 +140,14 @@ export default function MouseFollower({ trackElement }: MouseFollowerProps) {
 	if (!isClient) return null
 	return (
 		<Wrapper ref={wrapperRef}>
-			<StyledPrimary $rotation={rotation} to={links.todo} variant="demo">
+			<StyledDemoButton $rotation={rotation} to="tel:+18557170250">
 				Call for a Live Demo
-			</StyledPrimary>
+			</StyledDemoButton>
 		</Wrapper>
 	)
 }
 
-const Wrapper = styled.div` 
+const Wrapper = styled.div`
   position: absolute;
   top: -3%;
   left: 0;
@@ -158,6 +157,6 @@ const Wrapper = styled.div`
   color: #000;
 `
 
-const StyledPrimary = styled(Primary)<{ $rotation: number }>`
-    transform: rotate(${({ $rotation }) => $rotation}deg);
+const StyledDemoButton = styled(DemoButton)<{ $rotation: number }>`
+  transform: rotate(${({ $rotation }) => $rotation}deg);
 `

@@ -43,7 +43,10 @@ export type IconType = keyof typeof iconMap
 export default function Icon({
 	name,
 	className = "",
-}: { name: IconType; className?: string }) {
+}: {
+	name: IconType
+	className?: string
+}) {
 	const Svg = iconMap[name]
 	return <Svg className={className} />
 }

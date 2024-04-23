@@ -6,11 +6,7 @@ import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
 
-export default function CallWidget({
-	className = "",
-}: {
-	className: string
-}) {
+export default function CallWidget({ className = "" }: { className: string }) {
 	return (
 		<Wrapper className={className}>
 			<Image />
@@ -90,7 +86,7 @@ const Wrapper = styled.div`
       }
     }
   }
-  
+
   ${fresponsive(css`
     padding: 12px;
     gap: 9px;
@@ -98,7 +94,9 @@ const Wrapper = styled.div`
     width: 311px;
     height: 197px;
     border-radius: 18px;
-    box-shadow: 0 -1px 6px 0 rgba(38 38 38 / 6%) inset, 0 18px 32px 0 rgba(89 89 89 / 4%);
+    box-shadow:
+      0 -1px 6px 0 rgba(38 38 38 / 6%) inset,
+      0 18px 32px 0 rgba(89 89 89 / 4%);
   `)}
 `
 

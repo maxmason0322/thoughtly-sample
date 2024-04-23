@@ -163,7 +163,6 @@ const Top = styled.div`
 
   ${fmobile(css`
     flex-direction: column;
-
   `)}
 `
 
