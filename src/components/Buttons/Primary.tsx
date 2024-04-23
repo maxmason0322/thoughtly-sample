@@ -4,7 +4,7 @@ import UniversalLink, {
 } from "library/Loader/UniversalLink"
 import { fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
-import colors from "styles/colors"
+import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
 
 type Props = UniversalLinkProps & {
@@ -131,11 +131,19 @@ const Inner = styled.div<{ $secondary: boolean }>`
   `)}
     
 
-    svg {
+  svg {
     ${fresponsive(css`
       height: auto;
       width: 12px;
     `)}
+  }
+
+  &:hover {
+    ${({ $secondary }) =>
+			$secondary &&
+			css`
+      background: ${gradients.surface1Reverse};
+    `}
   }
 `
 
