@@ -3,7 +3,7 @@ import gsap from "gsap"
 import UniversalImage from "library/UniversalImage"
 import { fresponsive } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
-import { useEffect, useRef } from "react"
+import { useEffect, useMemo, useRef } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 
@@ -27,24 +27,27 @@ export default function AvatarWidget({
     }
   `)
 
-	const avatars = [...images.avatars.nodes, ...images.avatars.nodes].map(
-		(item, index, arr) => {
-			return (
-				<Avatar
-					$zIndex={arr.length - index}
-					className="avatar"
-					image={item}
-					key={item.id + Math.random()}
-					alt="avatar"
-				/>
-			)
-		},
+	const avatars = useMemo(
+		() =>
+			[...images.avatars.nodes, ...images.avatars.nodes].map(
+				(item, index, arr) => {
+					return (
+						<Avatar
+							$zIndex={arr.length - index}
+							className="avatar"
+							image={item}
+							key={item.id + Math.random()}
+							alt="avatar"
+						/>
+					)
+				},
+			),
+		[images],
 	)
 
 	const timeline = useAnimation(
 		() => {
 			const tl = gsap.timeline({
-				paused: true,
 				onUpdate: () => {
 					if (Math.ceil(tl.duration() / 2) + 2 === Math.ceil(tl.time())) {
 						tl.pause()
