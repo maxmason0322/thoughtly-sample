@@ -5,6 +5,7 @@ import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
 import links from "utils/links"
+import Card from "./Card"
 
 export default function Pricing() {
 	return (
@@ -27,9 +28,37 @@ export default function Pricing() {
 						</Row>
 					</TextContent>
 					<Prices>
-						<Tier />
-						<Tier />
-						<Tier />
+						<Card
+							title="Free"
+							text="Get started building Thoughtly agents for free."
+							price="$30"
+							tags={["Unlimited Seats", "10 minutes per month"]}
+						/>
+						<Card
+							title="Pro"
+							text="Use Thoughtly to grow your small business."
+							price="$150"
+							tags={[
+								"Unlimited Seats",
+								"Industry-leading agent editor",
+								"Inbound and outbound calling",
+								"Genius knowledge database",
+							]}
+						/>
+						<Card
+							title="Enterprise"
+							text="Automate your enterprise using conversational AI."
+							price="Contact Us"
+							hideMonth
+							tags={[
+								"Unlimited Seats",
+								"Industry-leading agent editor",
+								"Inbound and outbound calling",
+								"Genius knowledge database",
+								"Whitelabel support",
+								"Executive coaching",
+							]}
+						/>
 					</Prices>
 				</Content>
 			</Inner>
@@ -55,6 +84,7 @@ const Inner = styled.div`
 const Content = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   border-top: 1px solid #EAEAEA;
 
   ${fresponsive(css`
@@ -111,17 +141,5 @@ const Prices = styled.div`
 
   ${fresponsive(css`
     gap: 24px;
-  `)}
-`
-
-const Tier = styled.div`
-  background: ${gradients.surface1};
-
-  ${fresponsive(css`
-    min-height: 440px;
-    width: 360px;
-    border-radius: 18px;
-    border: 1.5px solid ${colors.gray300};
-    box-shadow: 0 18px 42px 0 rgba(89 89 89 / 4%);
   `)}
 `
