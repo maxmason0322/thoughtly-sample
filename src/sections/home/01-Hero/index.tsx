@@ -1,5 +1,6 @@
 import Button from "components/Buttons/Primary"
 import Kicker from "components/Kicker"
+import Unmask from "components/Unmask"
 import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
@@ -57,8 +58,37 @@ export default function Hero() {
 					end: "bottom 50%",
 					scrub: true,
 				},
+				defaults: {
+					ease: "none",
+				},
 			})
 
+			tl.to(
+				".icons-widget",
+				{
+					x: 80,
+					yPercent: 100,
+					duration: 1.5,
+				},
+				0,
+			)
+			tl.to(
+				".avatar-widget",
+				{
+					yPercent: 300,
+					opacity: 0,
+					duration: 1.5,
+				},
+				0,
+			)
+			tl.to(
+				".call-widget",
+				{
+					y: -100,
+					opacity: 0,
+				},
+				0,
+			)
 			tl.from(
 				"#start-speak-line",
 				{
@@ -159,24 +189,36 @@ export default function Hero() {
 					</Buttons>
 				</TextContent>
 				<Callout1>
-					<span>Inbound and outbound phone calls</span>
-					<h6>From "Hello" to handled in a few clicks.</h6>
-					<p>
-						Anything you can teach your human agents to say on the phone, your
-						Thoughtly agents can do the same. Speak with precision and empathy,
-						just like your top performers.
-					</p>
+					<Unmask>
+						<span>Inbound and outbound phone calls</span>
+					</Unmask>
+					<Unmask>
+						<h6>From "Hello" to handled in a few clicks.</h6>
+					</Unmask>
+					<Unmask>
+						<p>
+							Anything you can teach your human agents to say on the phone, your
+							Thoughtly agents can do the same. Speak with precision and
+							empathy, just like your top performers.
+						</p>
+					</Unmask>
 				</Callout1>
 				<Callout2>
-					<span>A data-driven approach</span>
-					<h6>Analytics that tell your customer's story</h6>
-					<p>
-						Empower your decision-making with comprehensive analytics, detailed
-						reports, and A/B testing. Thoughtly provides real-time data
-						visualization and performance metrics, enabling you to optimize
-						communication strategies, understand customer behavior, and drive
-						conversions more effectively.
-					</p>
+					<Unmask>
+						<span>A data-driven approach</span>
+					</Unmask>
+					<Unmask>
+						<h6>Analytics that tell your customer's story</h6>
+					</Unmask>
+					<Unmask>
+						<p>
+							Empower your decision-making with comprehensive analytics,
+							detailed reports, and A/B testing. Thoughtly provides real-time
+							data visualization and performance metrics, enabling you to
+							optimize communication strategies, understand customer behavior,
+							and drive conversions more effectively.
+						</p>
+					</Unmask>
 				</Callout2>
 				<StyledCallWidget className="call-widget" />
 				<StyledIconsWidget className="icons-widget" />
