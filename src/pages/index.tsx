@@ -5,6 +5,7 @@ import Statement from "sections/home/03-Statement"
 import Features from "sections/home/04-Features"
 import Integrations from "sections/home/075-Integrations.tsx"
 import WidgetsAndVideo from "sections/home/08-WidgetsAndVideo"
+import Pricing from "sections/home/Pricing"
 import SocialProof from "sections/home/SocialProof"
 
 export default function IndexPage() {
@@ -17,6 +18,7 @@ export default function IndexPage() {
 			<Features />
 			<WidgetsAndVideo />
 			<Integrations />
+			<Pricing />
 		</>
 	)
 }
