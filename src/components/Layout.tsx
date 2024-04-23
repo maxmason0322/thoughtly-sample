@@ -23,8 +23,8 @@ export default function Layout({ children }: LayoutProps) {
 
 	return (
 		<>
-			<Transition />
-			<Preloader />
+			{/* <Transition />
+			<Preloader /> */}
 			<GlobalStyle />
 			<Scroll>
 				<Header />
@@ -36,7 +36,7 @@ export default function Layout({ children }: LayoutProps) {
 }
 
 const Main = styled.main`
-  overflow-x: hidden;
+  overflow-x: clip;
 `
 
 // TODO: configure a default text color
@@ -44,7 +44,7 @@ const globalCss = css`
   /* default text styles */
   html {
     /* if your project uses a dark color for most text, set that here */
-    color: ${colors.black}; 
+    color: ${colors.black};
     font-family: sans-serif;
     ${textStyles.bodyR}
   }
@@ -52,7 +52,7 @@ const globalCss = css`
   * {
     /* need this so that fonts match figma */
     text-rendering: geometricprecision;
-  	-webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
   }
 
   /** restore default focus states for elements that need them */

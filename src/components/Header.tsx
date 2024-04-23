@@ -34,9 +34,11 @@ export default function Header() {
 }
 
 const Wrapper = styled.header`
-	width: 100%;
+	width: 100vw;
 	display: grid;
 	place-items: center;
+  overflow: clip;
+	position: absolute;
 `
 
 const Inner = styled.div`
