@@ -4,11 +4,7 @@ import type { ReactNode } from "react"
 import { useRef } from "react"
 import styled, { css } from "styled-components"
 
-export default function Unmask({
-	children,
-}: {
-	children: ReactNode
-}) {
+export default function Unmask({ children }: { children: ReactNode }) {
 	const wrapperRef = useRef<HTMLDivElement | null>(null)
 
 	useAnimation(() => {

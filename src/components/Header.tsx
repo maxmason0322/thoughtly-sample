@@ -34,57 +34,57 @@ export default function Header() {
 }
 
 const Wrapper = styled.header`
-	width: 100vw;
-	display: grid;
-	place-items: center;
+  width: 100vw;
+  display: grid;
+  place-items: center;
   overflow: clip;
-	position: absolute;
+  position: absolute;
 `
 
 const Inner = styled.div`
-	width: 100%;
-	max-width: ${desktopBreakpoint}px;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+  width: 100%;
+  max-width: ${desktopBreakpoint}px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-	${fresponsive(css`
-		padding: 32px 156px 0;
-	`)}
+  ${fresponsive(css`
+    padding: 32px 156px 0;
+  `)}
 `
 
 const StyledLogoSVG = styled(LogoSVG)`
-	height: auto;
-	
-	${fresponsive(css`
-		width: 138px;
-	`)}
+  height: auto;
+
+  ${fresponsive(css`
+    width: 138px;
+  `)}
 `
 
 const Left = styled.div`
-	display: flex;
-	flex-direction: row;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
-	${fresponsive(css`
-		gap: 36px;
-	`)}
+  ${fresponsive(css`
+    gap: 36px;
+  `)}
 `
 
 const Right = styled.div`
-	display: flex;
-	flex-direction: row;
+  display: flex;
+  flex-direction: row;
 
-	${fresponsive(css`
-		gap: 16px;
-	`)}
+  ${fresponsive(css`
+    gap: 16px;
+  `)}
 `
 
 const Links = styled.div`
-	display: flex;
-	flex-direction: row;
+  display: flex;
+  flex-direction: row;
 
-	${fresponsive(css`
-		gap: 24px;
-	`)}
+  ${fresponsive(css`
+    gap: 24px;
+  `)}
 `

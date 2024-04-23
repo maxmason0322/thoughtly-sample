@@ -333,7 +333,6 @@ const BackgroundImage = styled.img`
     top: 408px;
     right: 62px;
   `)}
-
 `
 
 const TextContent = styled.div`
@@ -439,7 +438,7 @@ const StartWidget = styled(Widget)`
   ${fresponsive(css`
     top: 372px;
     right: 226px;
-		height: 178px;
+    height: 178px;
   `)}
 `
 
@@ -454,7 +453,7 @@ const SpeakWidget = styled(Widget)`
 `
 
 const Blue = styled.strong`
-  color: #0085E5D9;
+  color: #0085e5d9;
 `
 
 const Speak2Widget = styled(Widget)`
@@ -573,7 +572,7 @@ const TestLine = styled(TestLine1SVG)`
 
 const SpeakLine1 = styled(SpeakLine1SVG)`
   position: absolute;
-  
+
   ${fresponsive(css`
     width: 192px;
     height: 68px;
@@ -616,31 +615,31 @@ const SpeakLine4 = styled(SpeakLine4SVG)`
 `
 
 const StyledCallWidget = styled(CallWidget)`
-	position: absolute;
-	z-index: 1;
+  position: absolute;
+  z-index: 1;
 
-	${fresponsive(css`
-		top: 150px;
-		right: 229px;
-	`)}
+  ${fresponsive(css`
+    top: 150px;
+    right: 229px;
+  `)}
 `
 
 const StyledIconsWidget = styled(IconsWidget)`
-	position: absolute;
-	z-index: 1;
+  position: absolute;
+  z-index: 1;
 
-	${fresponsive(css`
-		top: 150px;
-		right: 157px;
-	`)}
+  ${fresponsive(css`
+    top: 150px;
+    right: 157px;
+  `)}
 `
 
 const StyledAvatarWidget = styled(AvatarWidget)`
-	position: absolute;
-	z-index: 1;
+  position: absolute;
+  z-index: 1;
 
-	${fresponsive(css`
-		top: 452px;
-		right: 83px;
-	`)}
+  ${fresponsive(css`
+    top: 452px;
+    right: 83px;
+  `)}
 `

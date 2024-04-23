@@ -72,7 +72,9 @@ const Wrapper = styled.div`
     width: 388px;
     border-radius: 18px;
     border: 1.5px solid ${colors.gray300};
-    box-shadow: 0 -1px 6px 0 rgba(38 38 38 / 6%) inset, 0 18px 32px 0 rgba(89 89 89 / 4%);
+    box-shadow:
+      0 -1px 6px 0 rgba(38 38 38 / 6%) inset,
+      0 18px 32px 0 rgba(89 89 89 / 4%);
   `)}
 `
 
@@ -108,7 +110,8 @@ const IconWrapper = styled.div<{ $color: string }>`
   background-color: ${({ $color }) => $color}30;
 
   ${StyledIcon} {
-    path, circle {
+    path,
+    circle {
       fill: ${({ $color }) => $color};
     }
   }
@@ -143,12 +146,12 @@ const Connector = styled.div<{ $pos: number; $top?: boolean }>`
   bottom: ${({ $top }) => ($top ? "unset" : 0)};
   top: ${({ $top }) => ($top ? 0 : "unset")};
   left: ${({ $pos }) => $pos}%;
-  
+
   ${({ $top }) =>
 		fresponsive(css`
-    transform: translate(-50%, ${$top ? "-4.5px" : "4.5px"});
-    gap: 8px;
-  `)}
+      transform: translate(-50%, ${$top ? "-4.5px" : "4.5px"});
+      gap: 8px;
+    `)}
 `
 
 const ConnectorLabel = styled.span`
@@ -161,7 +164,7 @@ const ConnectorLabel = styled.span`
 const Node = styled.div`
   border-radius: 99vw;
   background: ${colors.white};
-  
+
   ${fresponsive(css`
     border: 1.5px solid ${colors.gray300};
     width: 9px;

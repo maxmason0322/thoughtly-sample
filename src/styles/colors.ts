@@ -35,6 +35,7 @@ export const gradients = {
 	blueBlue: "linear-gradient(5deg, #1D9BC3 -20.25%, #55D2FF 93.91%)",
 	bluePurple: "linear-gradient(39deg, #45C2ED 4.74%, #A063DF 94.17%)",
 	purplePurple: "linear-gradient(355deg, #591D9D -11.13%, #B39CF4 91.84%)",
+	grayGray: `linear-gradient(10deg, ${rawColors.gray900} -4.03%, ${rawColors.gray900} 101.71%)`,
 	surface1: "linear-gradient(202deg, #FFF 1.96%, #F9F9F9 188.52%)",
 	surface1Reverse: "linear-gradient(358deg, #FFF -25.82%, #F9F9F9 160.26%)",
 	surface2: "linear-gradient(194deg, #FFF 5.12%, #E5E5E5 248.15%)",
