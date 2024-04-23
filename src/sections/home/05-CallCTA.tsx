@@ -9,6 +9,7 @@ import useCanHover from "library/canHover"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import { useContext } from "react"
 import styled, { css } from "styled-components"
+import { Dots } from "styles/background"
 import colors, { gradients } from "styles/colors"
 import {
 	desktopBreakpoint,
@@ -53,7 +54,8 @@ export default function CallCTA() {
 					<MarqueeWrapper>
 						{useCanHover() && <MouseFollower />}
 						<MarqueeBorder>
-							<BackgroundBorder />
+							{/* <BackgroundBorder /> */}
+							<Dots />
 							<Marquee timing={mobile ? 7 : 10}>
 								<MarqueeSpan>
 									<PhoneNumber
