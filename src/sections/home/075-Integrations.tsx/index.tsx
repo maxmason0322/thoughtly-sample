@@ -39,7 +39,11 @@ export default function Integrations() {
 
 	const cards = data.allHomeIntegrationsJson.nodes.map((item, index) => {
 		return (
-			<Card key={item.text} logo={item.logo} tag={item.tag}>
+			<Card
+				key={(item?.text ?? "") + Math.random()}
+				logo={item.logo}
+				tag={item.tag}
+			>
 				{item.text}
 			</Card>
 		)

@@ -575,6 +575,7 @@ const SpeakLine4 = styled(SpeakLine4SVG)`
 
 const StyledCallWidget = styled(CallWidget)`
 	position: absolute;
+	z-index: 1;
 
 	${fresponsive(css`
 		top: 150px;
@@ -584,6 +585,7 @@ const StyledCallWidget = styled(CallWidget)`
 
 const StyledIconsWidget = styled(IconsWidget)`
 	position: absolute;
+	z-index: 1;
 
 	${fresponsive(css`
 		top: 150px;
@@ -593,6 +595,7 @@ const StyledIconsWidget = styled(IconsWidget)`
 
 const StyledAvatarWidget = styled(AvatarWidget)`
 	position: absolute;
+	z-index: 1;
 
 	${fresponsive(css`
 		top: 452px;
