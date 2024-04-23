@@ -4,15 +4,24 @@ import gsap from "gsap"
 import DotSVG from "images/global/icons/Dot.svg"
 import ConstantMarquee from "library/ConstantMarquee"
 import UniversalLink from "library/Loader/UniversalLink"
-import { fresponsive } from "library/fullyResponsive"
+import { ScreenContext } from "library/ScreenContext"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
+import { useContext } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
-import { desktopBreakpoint } from "styles/media"
+import {
+	desktopBreakpoint,
+	mobileBreakpoint,
+	tabletBreakpoint,
+} from "styles/media"
 import textStyles from "styles/text"
 import { transparentText } from "styles/text"
 
 export default function CallCTA() {
+	const { tablet, mobile } = useContext(ScreenContext)
+
 	const handleMouseEnter = () => {
+		if (tablet || mobile) return
 		gsap.to(".phoneNumber", {
 			duration: 0.25,
 			backgroundImage: gradients.greenGreen,
@@ -20,6 +29,7 @@ export default function CallCTA() {
 	}
 
 	const handleMouseLeave = () => {
+		if (tablet || mobile) return
 		gsap.to(".phoneNumber", {
 			duration: 0.25,
 			backgroundImage: gradients.grayGray,
@@ -40,10 +50,10 @@ export default function CallCTA() {
 				</Top>
 				<Bottom>
 					<MarqueeWrapper>
-						<MouseFollower />
+						{!tablet && !mobile && <MouseFollower />}
 						<MarqueeBorder>
 							<BackgroundBorder />
-							<ConstantMarquee timing={10}>
+							<Marquee timing={mobile ? 7 : 10}>
 								<MarqueeSpan>
 									<PhoneNumber
 										onMouseEnter={handleMouseEnter}
@@ -55,7 +65,22 @@ export default function CallCTA() {
 									</PhoneNumber>
 									<Circle />
 								</MarqueeSpan>
-							</ConstantMarquee>
+							</Marquee>
+							{mobile && (
+								<Marquee timing={mobile ? 7 : 10} reversed={true}>
+									<MarqueeSpan>
+										<PhoneNumber
+											onMouseEnter={handleMouseEnter}
+											onMouseLeave={handleMouseLeave}
+											className="reversePhoneNumber"
+											to="tel:+18557170250"
+										>
+											+1 (855) 717-0250
+										</PhoneNumber>
+										<Circle />
+									</MarqueeSpan>
+								</Marquee>
+							)}
 						</MarqueeBorder>
 					</MarqueeWrapper>
 				</Bottom>
@@ -76,6 +101,14 @@ const Inner = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    ${ftablet(css`
+        max-width: ${tabletBreakpoint}px;
+    `)}
+
+    ${fmobile(css`
+        max-width: ${mobileBreakpoint}px;
+    `)}
 `
 
 const Top = styled.div`
@@ -89,11 +122,22 @@ const Top = styled.div`
         width: 1128px;
         border-top: 1.5px solid ${colors.gray300};
     `)}
+
+    ${fmobile(css`
+        width: 320px;
+        padding: 60px 27px 48px;
+        margin-top: 91px;
+    `)}
 `
 
 const Heading = styled.h1`
     ${textStyles.h5};
     color: ${colors.black};
+
+    ${fmobile(css`
+        width: 350px;
+        text-align: center;
+    `)}
 `
 
 const Text = styled.p`
@@ -104,12 +148,23 @@ const Text = styled.p`
     ${fresponsive(css`
         width: 395px;
     `)}
+
+    ${fmobile(css`
+        width: 300px;
+    `)}
 `
 
 const Bottom = styled.div`
     ${fresponsive(css`
         padding: 0 61px 122px;
-        border-radius: 60px;
+    `)}
+
+    ${ftablet(css`
+        padding: 0 21px 122px;
+    `)}
+
+    ${fmobile(css`
+        padding: 0 9px 88px;
     `)}
 `
 
@@ -119,6 +174,16 @@ const MarqueeWrapper = styled.div`
         width: 1320px;
         height: 382px;
         border-radius: 60px;
+    `)}
+
+    ${ftablet(css`
+        width: 982px;
+    `)}
+
+    ${fmobile(css`
+        width: 358px;
+        height: 191px;
+        border-radius: 36px;
     `)}
 `
 
@@ -135,6 +200,11 @@ const PhoneNumber = styled(UniversalLink)`
     ${fresponsive(css`
         padding: 0 54px;
     `)}
+
+    ${fmobile(css`
+        padding: 0 21.6px;
+        ${textStyles.h6};
+    `)}
 `
 
 const MarqueeBorder = styled.div`
@@ -147,6 +217,18 @@ const MarqueeBorder = styled.div`
         width: 1320px;
         height: 382px;
         border-radius: 60px;
+    `)}
+
+    ${ftablet(css`
+        width: 982px;
+    `)}
+
+    ${fmobile(css`
+        width: 358px;
+        height: 191px;
+        border-radius: 36px;
+        flex-direction: column;
+        justify-content: center;
     `)}
 `
 
@@ -161,9 +243,21 @@ const BackgroundBorder = styled.div`
         inset: 15px;
         background-size: 23px 23px;
     `)}
+
+    ${fmobile(css`
+        inset: 9px;
+    `)}
 `
 
 const MarqueeSpan = styled.span`
     display: flex;
     align-items: center;
+`
+
+const Marquee = styled(ConstantMarquee)`
+    ${fmobile(css`
+        height: 70px;
+        display: flex;
+        align-items: center;
+    `)}
 `
