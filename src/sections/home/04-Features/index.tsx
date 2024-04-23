@@ -1,8 +1,9 @@
 import type { IconType } from "components/Icon"
 import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
-import { fresponsive, ftablet } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
+import useMedia from "library/useMedia"
 import { useRef } from "react"
 import styled, { css } from "styled-components"
 import { desktopBreakpoint } from "styles/media"
@@ -11,6 +12,7 @@ import Card from "./Card"
 export default function Features() {
 	const wrapperRef = useRef<HTMLElement | null>(null)
 	const innerRef = useRef<HTMLDivElement | null>(null)
+	const mobile = useMedia(false, false, false, true)
 
 	const data: Queries.FeaturesQuery = useStaticQuery(graphql`
     query Features {
@@ -46,6 +48,7 @@ export default function Features() {
 
 	useAnimation(
 		() => {
+			if (mobile) return
 			const tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: wrapperRef.current,
@@ -59,7 +62,7 @@ export default function Features() {
 				rowGap: 200,
 			})
 		},
-		[],
+		[mobile],
 		{
 			scope: wrapperRef,
 		},
@@ -94,5 +97,12 @@ const Inner = styled.div`
 		grid-auto-rows: 348px 306px 306px 276px;
 		grid-template-columns: 432px 93px 339px;
 		padding: 85px 68px 202px;
+	`)}
+
+	${fmobile(css`
+		padding: 24px 30px;
+		grid-template-columns: 315px;
+		grid-auto-rows: 360px 360px 360px 360px 360px 420px;
+		gap: 12px;
 	`)}
 `

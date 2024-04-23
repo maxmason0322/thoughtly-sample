@@ -1,5 +1,5 @@
 import Icon, { type IconType } from "components/Icon"
-import { fresponsive, ftablet } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useMedia from "library/useMedia"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
@@ -22,20 +22,13 @@ const COLUMNS = {
 		"1 / span 2",
 		"1 / span 3",
 	],
-	mobile: [
-		"1 / span 1",
-		"2 / span 2",
-		"1 / span 2",
-		"3 / span 1",
-		"1 / span 2",
-		"1 / span 3",
-	],
+	mobile: ["1", "1", "1", "1", "1", "1"],
 }
 
 const ROWS = {
 	desktop: ["span 1", "span 1", "span 1", "span 1", "span 2", "span 1"],
 	tablet: ["span 1", "span 1", "span 1", "span 2", "span 1", "span 1"],
-	mobile: [],
+	mobile: ["span 1", "span 1", "span 1", "span 1", "span 1", "span 1"],
 }
 
 export default function Card({
@@ -96,6 +89,10 @@ const Title = styled.h6`
   ${fresponsive(css`
     width: 140px;
   `)}
+
+	${fmobile(css`
+		width: 100%;
+	`)}
 `
 
 const Text = styled.p`
@@ -105,6 +102,10 @@ const Text = styled.p`
   ${fresponsive(css`
     width: 310px;
   `)} 
+
+	${fmobile(css`
+		width: 100%;
+	`)}
 `
 
 const StyledIcon = styled(Icon)`
