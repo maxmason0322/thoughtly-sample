@@ -1,4 +1,9 @@
 import { ReactComponent as ActionSpeakLineSVG } from "images/home/hero/action-speak-line.svg"
+import { ReactComponent as ActionSpeakTabletSVG } from "images/home/hero/action-speak-tablet.svg"
+import { ReactComponent as Speak1TabletSVG } from "images/home/hero/speak-1-tablet.svg"
+import { ReactComponent as Speak2TabletSVG } from "images/home/hero/speak-2-tablet.svg"
+import { ReactComponent as Speak3TabletSVG } from "images/home/hero/speak-3-tablet.svg"
+import { ReactComponent as Speak4TabletSVG } from "images/home/hero/speak-4-tablet.svg"
 import { ReactComponent as SpeakTestLineSVG } from "images/home/hero/speak-abtest-line.svg"
 import { ReactComponent as SpeakActionLineSVG } from "images/home/hero/speak-action-line.svg"
 import { ReactComponent as SpeakActionTabletSVG } from "images/home/hero/speak-action-tablet.svg"
@@ -11,6 +16,8 @@ import { ReactComponent as StartSpeakLineSVG } from "images/home/hero/start-spea
 import { ReactComponent as StartSpeakTabletSVG } from "images/home/hero/start-speak-tablet.svg"
 import { ReactComponent as TestLine1SVG } from "images/home/hero/test-line-1.svg"
 import { ReactComponent as TestSpeakLineSVG } from "images/home/hero/test-speak-line.svg"
+import { ReactComponent as TestSpeakTabletSVG } from "images/home/hero/test-speak-tablet.svg"
+import { ReactComponent as Test1TabletSVG } from "images/home/hero/test-tablet.svg"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 
@@ -30,6 +37,13 @@ export default function Lines() {
 			<StartSpeakTablet />
 			<SpeakActionTablet />
 			<SpeakTestTablet />
+			<ActionSpeakTablet />
+			<TestSpeakTablet />
+			<Test1Tablet />
+			<Speak1Tablet />
+			<Speak2Tablet />
+			<Speak3Tablet />
+			<Speak4Tablet />
 		</>
 	)
 }
@@ -260,5 +274,96 @@ const SpeakTestTablet = styled(SpeakTestTabletSVG)`
     height: 250px;
     top: 1326px;
     right: 375px;
+  `)}
+`
+
+const ActionSpeakTablet = styled(ActionSpeakTabletSVG)`
+  display: none;
+
+  ${ftablet(css`
+    display: flex;
+    position: absolute;
+    width: 435px;
+    height: 255px;
+    top: 1685px;
+    right: 236px;
+  `)}
+`
+
+const TestSpeakTablet = styled(TestSpeakTabletSVG)`
+  display: none;
+
+  ${ftablet(css`
+    display: flex;
+    position: absolute;
+    width: 62px;
+    height: 95px;
+    top: 1850px;
+    right: 667px;
+  `)}
+`
+
+const Test1Tablet = styled(Test1TabletSVG)`
+  display: none;
+
+  ${ftablet(css`
+    display: flex;
+    position: absolute;
+    width: 148px;
+    height: 221px;
+    top: 1845px;
+    left: 25px;
+  `)}
+`
+
+const Speak1Tablet = styled(Speak1TabletSVG)`
+  display: none;
+
+  ${ftablet(css`
+    display: flex;
+    position: absolute;
+    width: 166px;
+    height: 52px;
+    bottom: 24px;
+    left: 76px;
+  `)}
+`
+
+const Speak2Tablet = styled(Speak2TabletSVG)`
+  display: none;
+
+  ${ftablet(css`
+    display: flex;
+    position: absolute;
+    width: 166px;
+    height: 52px;
+    bottom: 24px;
+    left: 155px;
+  `)}
+`
+
+const Speak3Tablet = styled(Speak3TabletSVG)`
+  display: none;
+
+  ${ftablet(css`
+    display: flex;
+    position: absolute;
+    width: 121px;
+    height: 52px;
+    bottom: 24px;
+    left: 346px;
+  `)}
+`
+
+const Speak4Tablet = styled(Speak4TabletSVG)`
+  display: none;
+
+  ${ftablet(css`
+    display: flex;
+    position: absolute;
+    width: 166px;
+    height: 52px;
+    bottom: 24px;
+    left: 465px;
   `)}
 `
