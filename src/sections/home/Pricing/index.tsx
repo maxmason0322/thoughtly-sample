@@ -1,5 +1,5 @@
 import Button from "components/Buttons/Primary"
-import { fresponsive } from "library/fullyResponsive"
+import { fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
@@ -124,6 +124,10 @@ const Inner = styled.div`
   ${fresponsive(css`
     padding: 123px 114px 168px;
   `)}
+  
+  ${ftablet(css`
+    padding: 123px 94.5px;
+  `)}
 `
 
 const Content = styled.div`
@@ -135,6 +139,11 @@ const Content = styled.div`
   ${fresponsive(css`
     padding-top: 81px;
     gap: 81px;
+  `)}
+
+  ${ftablet(css`
+    padding-top: 112px;
+    gap: 60px;
   `)}
 `
 
@@ -160,6 +169,11 @@ const Title = styled.h5`
   ${fresponsive(css`
     width: 630px;
   `)}
+
+  ${ftablet(css`
+    ${textStyles.h3}
+    width: 835px;
+  `)}
 `
 
 const Row = styled.div`
@@ -168,6 +182,10 @@ const Row = styled.div`
 
   ${fresponsive(css`
     gap: 36px;
+  `)}
+
+  ${fresponsive(css`
+    gap: 73px;
   `)}
 `
 
@@ -178,6 +196,11 @@ const Text = styled.p`
   ${fresponsive(css`
     width: 271px;
   `)}
+
+  ${ftablet(css`
+    ${textStyles.bodyL}
+    width: 318px;
+  `)}
 `
 
 const Prices = styled.div`
@@ -186,5 +209,9 @@ const Prices = styled.div`
 
   ${fresponsive(css`
     gap: 24px;
+  `)}
+
+  ${ftablet(css`
+    flex-direction: column;
   `)}
 `

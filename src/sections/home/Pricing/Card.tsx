@@ -1,7 +1,7 @@
 import Button from "components/Buttons/Primary"
 import Icon from "components/Icon"
 import AutoAnimate from "library/AutoAnimate"
-import { fresponsive } from "library/fullyResponsive"
+import { fresponsive, ftablet } from "library/fullyResponsive"
 import { useState } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
@@ -89,6 +89,11 @@ const Wrapper = styled.div`
     border: 1.5px solid ${colors.gray300};
     box-shadow: 0 18px 42px 0 rgba(89 89 89 / 4%);
   `)}
+
+  ${ftablet(css`
+    width: 570px;
+    min-height: unset;
+  `)}
 `
 
 const Top = styled.div`
@@ -154,11 +159,20 @@ const StyledIcon = styled(Icon)`
 const Title = styled.span`
   color: ${colors.black};
   ${textStyles.sh2}
+
+  ${ftablet(css`
+    ${textStyles.sh1}
+  `)}
 `
 
 const Text = styled.p`
   ${textStyles.bodyS}
   color: ${colors.gray600};
+
+  ${ftablet(css`
+    ${textStyles.bodyR}
+    width: 250px;
+  `)}
 `
 
 const StyledButton = styled(Button)`
