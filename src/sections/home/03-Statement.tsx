@@ -8,6 +8,7 @@ import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import { useRef } from "react"
 import styled, { css } from "styled-components"
+import { Dots } from "styles/background"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
@@ -96,18 +97,21 @@ export default function Statement() {
 	return (
 		<Wrapper ref={wrapperRef}>
 			<Inner>
-				<Content>
-					<Title>
-						<span className="non-gradient">
-							Thoughtly reimagines phone calls with AI that speaks your
-							language. Our mission is to make every call your best yet, merging
-							tradition with tomorrow&apos;s tech.
-						</span>
-						<span className="gradient">
-							&nbsp; Welcome to the future of customer interaction.
-						</span>
-					</Title>
-				</Content>
+				<DotsWrapper>
+					<Dots />
+					<Content>
+						<Title>
+							<span className="non-gradient">
+								Thoughtly reimagines phone calls with AI that speaks your
+								language. Our mission is to make every call your best yet,
+								merging tradition with tomorrow&apos;s tech.
+							</span>
+							<span className="gradient">
+								&nbsp; Welcome to the future of customer interaction.
+							</span>
+						</Title>
+					</Content>
+				</DotsWrapper>
 			</Inner>
 		</Wrapper>
 	)
@@ -143,11 +147,31 @@ const Inner = styled.div`
   `)}
 `
 
+const DotsWrapper = styled.div`
+	background-color: ${colors.gray100};
+  position: relative;
+  overflow: hidden;
+
+  ${fresponsive(css`
+    border-radius: 60px;
+    width: 1318px;
+    height: 694px;
+  `)}
+
+	${ftablet(css`
+		border-radius: 48px;
+		width: 982px;
+		height: 694px;
+	`)}
+
+	${fmobile(css`
+		border-radius: 36px;
+		width: 358px;
+		height: 448px;
+	`)}
+`
+
 const Content = styled.div`
-  background-image: url(${Background});
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
   width: 100%;
 
   ${fresponsive(css`
@@ -156,13 +180,11 @@ const Content = styled.div`
   `)}
 
   ${ftablet(css`
-    background-image: url(${BackgroundT});
     height: 694px;
     padding: 72px 47px;
   `)}
 
   ${fmobile(css`
-    background-image: url(${BackgroundM});
     height: 448px;
     padding: 65px 47px 0 22px;
   `)}

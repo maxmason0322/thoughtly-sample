@@ -1,12 +1,10 @@
 import Button from "components/Buttons/Primary"
-import backgroundMobileIMG from "images/global/footer-background-mobile.png"
-import backgroundTabletIMG from "images/global/footer-background-tablet.png"
-import backgroundIMG from "images/global/footer-background.png"
 import { ReactComponent as LogoSVG } from "images/global/logo.svg"
 import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useMedia from "library/useMedia"
 import styled, { css } from "styled-components"
+import { Dots } from "styles/background"
 import colors from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles from "styles/text"
@@ -19,6 +17,7 @@ export default function Footer() {
 	return (
 		<Wrapper>
 			<Inner>
+				<StyledDots />
 				<Top>
 					<LogoAddress>
 						<UniversalLink to={links.todo}>
@@ -110,6 +109,7 @@ const Wrapper = styled.footer`
   display: grid;
   place-items: center;
   background-color: ${colors.gray100};
+  overflow: clip;
 
   ${fresponsive(css`
     height: 646px;
@@ -124,17 +124,29 @@ const Wrapper = styled.footer`
   `)}
 `
 
+const StyledDots = styled(Dots)`
+  position: absolute;
+  top: 0;
+  display: flex;
+  transform: translateX(-50%);
+  left: 50%;
+  
+  ${fresponsive(css`
+    width: 1320px;
+    height: 100%;
+    padding: 100px 156px;
+    background-position: 0 22px;
+  `)}
+`
+
 const Inner = styled.div`
   width: 100%;
   height: 100%;
   max-width: ${desktopBreakpoint}px;
-  background-image: url(${backgroundIMG});
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 
   ${fresponsive(css`
     padding: 100px 156px 50px;
@@ -142,12 +154,10 @@ const Inner = styled.div`
 
   ${ftablet(css`
     padding: 96px 68px 39px;
-    background-image: url(${backgroundTabletIMG});
   `)}
 
   ${fmobile(css`
     padding: 60px 24px 26px;
-    background-image: url(${backgroundMobileIMG});
   `)}
 `
 
@@ -179,7 +189,7 @@ const LogoAddress = styled.div`
   ${fmobile(css`
     width: 100%;
     border-bottom: 2px solid ${colors.gray400};
-    padding-bottom: 34px;
+    padding-bottom: 33.83px;
   `)}
 `
 
@@ -265,6 +275,11 @@ const BottomTop = styled.div`
   ${fresponsive(css`
     padding-bottom: 24px;
   `)}
+
+  ${fmobile(css`
+    border-top: 1.5px solid ${colors.gray400};
+    padding-top: 21px;
+  `)}
 `
 
 const Socials = styled.div`
@@ -297,6 +312,7 @@ const Buttons = styled.div`
   ${fmobile(css`
     flex-direction: column-reverse;
     align-items: flex-start;
+    gap: 22px;
   `)}
 `
 
