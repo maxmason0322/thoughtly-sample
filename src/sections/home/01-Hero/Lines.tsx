@@ -1,14 +1,17 @@
 import { ReactComponent as ActionSpeakLineSVG } from "images/home/hero/action-speak-line.svg"
 import { ReactComponent as SpeakTestLineSVG } from "images/home/hero/speak-abtest-line.svg"
 import { ReactComponent as SpeakActionLineSVG } from "images/home/hero/speak-action-line.svg"
+import { ReactComponent as SpeakActionTabletSVG } from "images/home/hero/speak-action-tablet.svg"
 import { ReactComponent as SpeakLine1SVG } from "images/home/hero/speak-line-1.svg"
 import { ReactComponent as SpeakLine2SVG } from "images/home/hero/speak-line-2.svg"
 import { ReactComponent as SpeakLine3SVG } from "images/home/hero/speak-line-3.svg"
 import { ReactComponent as SpeakLine4SVG } from "images/home/hero/speak-line-4.svg"
+import { ReactComponent as SpeakTestTabletSVG } from "images/home/hero/speak-test-tablet.svg"
 import { ReactComponent as StartSpeakLineSVG } from "images/home/hero/start-speak-line.svg"
+import { ReactComponent as StartSpeakTabletSVG } from "images/home/hero/start-speak-tablet.svg"
 import { ReactComponent as TestLine1SVG } from "images/home/hero/test-line-1.svg"
 import { ReactComponent as TestSpeakLineSVG } from "images/home/hero/test-speak-line.svg"
-import { fresponsive, ftablet } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 
 export default function Lines() {
@@ -24,6 +27,9 @@ export default function Lines() {
 			<SpeakLine2 />
 			<SpeakLine3 />
 			<SpeakLine4 />
+			<StartSpeakTablet />
+			<SpeakActionTablet />
+			<SpeakTestTablet />
 		</>
 	)
 }
@@ -41,6 +47,10 @@ const StartSpeakLine = styled(StartSpeakLineSVG)`
 	${ftablet(css`
 		display: none;
 	`)}
+
+  ${fmobile(css`
+    display: none;
+  `)}
 `
 
 const SpeakActionLine = styled(SpeakActionLineSVG)`
@@ -56,6 +66,10 @@ const SpeakActionLine = styled(SpeakActionLineSVG)`
 	${ftablet(css`
 		display: none;
 	`)}
+
+  ${fmobile(css`
+    display: none;
+  `)}
 `
 
 const SpeakTestLine = styled(SpeakTestLineSVG)`
@@ -71,6 +85,10 @@ const SpeakTestLine = styled(SpeakTestLineSVG)`
 	${ftablet(css`
 		display: none;
 	`)}
+
+  ${fmobile(css`
+    display: none;
+  `)}
 `
 
 const ActionSpeakLine = styled(ActionSpeakLineSVG)`
@@ -86,6 +104,10 @@ const ActionSpeakLine = styled(ActionSpeakLineSVG)`
 	${ftablet(css`
 		display: none;
 	`)}
+
+  ${fmobile(css`
+    display: none;
+  `)}
 `
 
 const TestSpeakLine = styled(TestSpeakLineSVG)`
@@ -101,6 +123,10 @@ const TestSpeakLine = styled(TestSpeakLineSVG)`
 	${ftablet(css`
 		display: none;
 	`)}
+
+  ${fmobile(css`
+    display: none;
+  `)}
 `
 
 const TestLine = styled(TestLine1SVG)`
@@ -116,6 +142,10 @@ const TestLine = styled(TestLine1SVG)`
 	${ftablet(css`
 		display: none;
 	`)}
+
+  ${fmobile(css`
+    display: none;
+  `)}
 `
 
 const SpeakLine1 = styled(SpeakLine1SVG)`
@@ -131,6 +161,10 @@ const SpeakLine1 = styled(SpeakLine1SVG)`
 	${ftablet(css`
 		display: none;
 	`)}
+
+  ${fmobile(css`
+    display: none;
+  `)}
 `
 
 const SpeakLine2 = styled(SpeakLine2SVG)`
@@ -146,6 +180,10 @@ const SpeakLine2 = styled(SpeakLine2SVG)`
 	${ftablet(css`
 		display: none;
 	`)}
+
+  ${fmobile(css`
+    display: none;
+  `)}
 `
 
 const SpeakLine3 = styled(SpeakLine3SVG)`
@@ -161,6 +199,10 @@ const SpeakLine3 = styled(SpeakLine3SVG)`
 	${ftablet(css`
 		display: none;
 	`)}
+
+  ${fmobile(css`
+    display: none;
+  `)}
 `
 
 const SpeakLine4 = styled(SpeakLine4SVG)`
@@ -176,4 +218,47 @@ const SpeakLine4 = styled(SpeakLine4SVG)`
 	${ftablet(css`
 		display: none;
 	`)}
+
+  ${fmobile(css`
+    display: none;
+  `)}
+`
+
+const StartSpeakTablet = styled(StartSpeakTabletSVG)`
+  display: none;
+
+  ${ftablet(css`
+    display: flex;
+    position: absolute;
+    width: 84px;
+    height: 90px;
+    top: 1038px;
+    right: 310px;
+  `)}
+`
+
+const SpeakActionTablet = styled(SpeakActionTabletSVG)`
+  display: none;
+
+  ${ftablet(css`
+    display: flex;
+    position: absolute;
+    height: 70px;
+    width: 9px;
+    top: 1326px;
+    right: 238px;
+  `)}
+`
+
+const SpeakTestTablet = styled(SpeakTestTabletSVG)`
+  display: none;
+
+  ${ftablet(css`
+    display: flex;
+    position: absolute;
+    width: 420px;
+    height: 250px;
+    top: 1326px;
+    right: 375px;
+  `)}
 `
