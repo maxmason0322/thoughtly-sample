@@ -6,12 +6,11 @@ export const Dots = styled.div`
   position: absolute;
   background-image: url(${DotSVG});
   background-repeat: repeat;
-  background-size: 100% 100%;
   background-position: center center;
 
   ${fresponsive(css`
     inset: 15px;
-    background-size: 23px 23px;
+    background-size: 24px 24px;
   `)}
 
   ${fmobile(css`

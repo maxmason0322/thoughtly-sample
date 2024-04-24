@@ -1,7 +1,6 @@
 import Circle from "components/Buttons/Circle"
 import MouseFollower from "components/MouseFollower"
 import gsap from "gsap"
-import DotSVG from "images/global/icons/Dot.svg"
 import ConstantMarquee from "library/ConstantMarquee"
 import UniversalLink from "library/Loader/UniversalLink"
 import { ScreenContext } from "library/ScreenContext"
@@ -54,7 +53,6 @@ export default function CallCTA() {
 					<MarqueeWrapper>
 						{useCanHover() && <MouseFollower />}
 						<MarqueeBorder>
-							{/* <BackgroundBorder /> */}
 							<Dots />
 							<Marquee timing={mobile ? 7 : 10}>
 								<MarqueeSpan>
@@ -218,7 +216,7 @@ const MarqueeBorder = styled.div`
   overflow: hidden;
   ${fresponsive(css`
     width: 1320px;
-    height: 382px;
+    height: 398px;
     border-radius: 60px;
   `)}
 
@@ -226,29 +224,12 @@ const MarqueeBorder = styled.div`
     width: 982px;
   `)}
 
-    ${fmobile(css`
+  ${fmobile(css`
     width: 358px;
     height: 191px;
     border-radius: 36px;
     flex-direction: column;
     justify-content: center;
-  `)}
-`
-
-const BackgroundBorder = styled.div`
-  position: absolute;
-  background-image: url(${DotSVG});
-  background-repeat: repeat;
-  background-size: 100% 100%;
-  background-position: center center;
-
-  ${fresponsive(css`
-    inset: 15px;
-    background-size: 23px 23px;
-  `)}
-
-  ${fmobile(css`
-    inset: 9px;
   `)}
 `
 

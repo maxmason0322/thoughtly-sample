@@ -1,14 +1,16 @@
 import Button from "components/Buttons/Primary"
-import backgroundMobileIMG from "images/global/footer-background-mobile.png"
-import backgroundTabletIMG from "images/global/footer-background-tablet.png"
-import backgroundIMG from "images/global/footer-background.png"
 import { ReactComponent as LogoSVG } from "images/global/logo.svg"
 import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useMedia from "library/useMedia"
 import styled, { css } from "styled-components"
+import { Dots } from "styles/background"
 import colors from "styles/colors"
-import { desktopBreakpoint } from "styles/media"
+import {
+	desktopBreakpoint,
+	mobileBreakpoint,
+	tabletBreakpoint,
+} from "styles/media"
 import textStyles from "styles/text"
 import links from "utils/links"
 import Link from "./Buttons/Link"
@@ -18,89 +20,92 @@ export default function Footer() {
 
 	return (
 		<Wrapper>
-			<Inner>
-				<Top>
-					<LogoAddress>
-						<UniversalLink to={links.todo}>
-							<Logo />
-						</UniversalLink>
-						<Address>41 E 11th St, 11th Floor, New York, NY 10003</Address>
-					</LogoAddress>
-					<Columns>
-						<LinkColumn>
-							<Label>Product</Label>
-							<Link to={links.todo}>Pricing</Link>
-							<Link to={links.todo} tag="Coming Soon">
-								Platform
-							</Link>
-							<Link to={links.todo} tag="Coming Soon">
-								Solutions
-							</Link>
-							<Link to={links.todo} tag="Coming Soon">
-								Customers
-							</Link>
-						</LinkColumn>
-						<LinkColumn>
-							<Label>Company</Label>
-							<Link to={links.todo}>Media Inquiries</Link>
-							<Link to={links.todo}>Careers</Link>
-							<Link to={links.todo} tag="Coming Soon">
-								About
-							</Link>
-							<Link to={links.todo} tag="Coming Soon">
-								Blog
-							</Link>
-						</LinkColumn>
-						<LinkColumn>
-							<Label>Support</Label>
-							<Link to={links.todo}>Help Center</Link>
-							<Link to={links.todo}>API Docs</Link>
-							<Link to={links.todo}>Contact Us</Link>
-						</LinkColumn>
-						{mobile && (
+			<DotsWrapper>
+				<StyledDots />
+				<Inner>
+					<Top>
+						<LogoAddress>
+							<UniversalLink to={links.todo}>
+								<Logo />
+							</UniversalLink>
+							<Address>41 E 11th St, 11th Floor, New York, NY 10003</Address>
+						</LogoAddress>
+						<Columns>
 							<LinkColumn>
-								<Label>Socials</Label>
-								<Link to={links.todo}>Instagram</Link>
-								<Link to={links.todo}>Linkedin</Link>
-								<Link to={links.todo}>X(Twitter)</Link>
+								<Label>Product</Label>
+								<Link to={links.todo}>Pricing</Link>
+								<Link to={links.todo} tag="Coming Soon">
+									Platform
+								</Link>
+								<Link to={links.todo} tag="Coming Soon">
+									Solutions
+								</Link>
+								<Link to={links.todo} tag="Coming Soon">
+									Customers
+								</Link>
 							</LinkColumn>
-						)}
-					</Columns>
-				</Top>
-				<Bottom>
-					<BottomTop>
-						{!mobile && (
-							<Socials>
-								<Link to={links.todo}>Instagram</Link>
-								<Link to={links.todo}>LinkedIn</Link>
-								<Link to={links.todo}>X(Twitter)</Link>
-							</Socials>
-						)}
-						<Buttons>
-							<Button to={links.todo} outline>
-								Build your own Thoughtly
-							</Button>
-							<Button to={links.todo} variant="secondary" icon="phone">
-								Call Demo
-							</Button>
-						</Buttons>
-					</BottomTop>
-					<BottomBottom>
-						<Column>
-							<Text>Copyright © 2024 Thoughtly,</Text>
-							<Text>Inc. All rights reserved.</Text>
-						</Column>
-						<Column>
-							<UniversalLink to={links.todo}>
-								<Text>Terms</Text>
-							</UniversalLink>
-							<UniversalLink to={links.todo}>
-								<Text>Privacy Policy</Text>
-							</UniversalLink>
-						</Column>
-					</BottomBottom>
-				</Bottom>
-			</Inner>
+							<LinkColumn>
+								<Label>Company</Label>
+								<Link to={links.todo}>Media Inquiries</Link>
+								<Link to={links.todo}>Careers</Link>
+								<Link to={links.todo} tag="Coming Soon">
+									About
+								</Link>
+								<Link to={links.todo} tag="Coming Soon">
+									Blog
+								</Link>
+							</LinkColumn>
+							<LinkColumn>
+								<Label>Support</Label>
+								<Link to={links.todo}>Help Center</Link>
+								<Link to={links.todo}>API Docs</Link>
+								<Link to={links.todo}>Contact Us</Link>
+							</LinkColumn>
+							{mobile && (
+								<LinkColumn>
+									<Label>Socials</Label>
+									<Link to={links.todo}>Instagram</Link>
+									<Link to={links.todo}>Linkedin</Link>
+									<Link to={links.todo}>X(Twitter)</Link>
+								</LinkColumn>
+							)}
+						</Columns>
+					</Top>
+					<Bottom>
+						<BottomTop>
+							{!mobile && (
+								<Socials>
+									<Link to={links.todo}>Instagram</Link>
+									<Link to={links.todo}>LinkedIn</Link>
+									<Link to={links.todo}>X(Twitter)</Link>
+								</Socials>
+							)}
+							<Buttons>
+								<Button to={links.todo} outline>
+									Build your own Thoughtly
+								</Button>
+								<Button to={links.todo} variant="secondary" icon="phone">
+									Call Demo
+								</Button>
+							</Buttons>
+						</BottomTop>
+						<BottomBottom>
+							<Column>
+								<Text>Copyright © 2024 Thoughtly,</Text>
+								<Text>Inc. All rights reserved.</Text>
+							</Column>
+							<Column>
+								<UniversalLink to={links.todo}>
+									<Text>Terms</Text>
+								</UniversalLink>
+								<UniversalLink to={links.todo}>
+									<Text>Privacy Policy</Text>
+								</UniversalLink>
+							</Column>
+						</BottomBottom>
+					</Bottom>
+				</Inner>
+			</DotsWrapper>
 		</Wrapper>
 	)
 }
@@ -124,14 +129,37 @@ const Wrapper = styled.footer`
   `)}
 `
 
+const DotsWrapper = styled.div`
+  background-color: ${colors.gray100};
+  position: relative;
+  overflow: hidden;
+
+  ${fresponsive(css`
+    width: 1320px;
+    height: 650px;
+  `)}
+
+  ${ftablet(css`
+    width: ${tabletBreakpoint}px;
+    height: 720px;
+  `)}
+
+    ${fmobile(css`
+    width: ${mobileBreakpoint}px;
+    height: 868px;
+  `)}
+`
+
+const StyledDots = styled(Dots)`
+  ${ftablet(css`
+    inset: 0;
+  `)}
+`
+
 const Inner = styled.div`
   width: 100%;
   height: 100%;
   max-width: ${desktopBreakpoint}px;
-  background-image: url(${backgroundIMG});
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -142,12 +170,10 @@ const Inner = styled.div`
 
   ${ftablet(css`
     padding: 96px 68px 39px;
-    background-image: url(${backgroundTabletIMG});
   `)}
 
   ${fmobile(css`
     padding: 60px 24px 26px;
-    background-image: url(${backgroundMobileIMG});
   `)}
 `
 
