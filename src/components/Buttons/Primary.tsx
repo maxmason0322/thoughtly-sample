@@ -4,7 +4,7 @@ import UniversalLink, {
 } from "library/Loader/UniversalLink"
 import { fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
-import colors from "styles/colors"
+import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
 
 type Props = UniversalLinkProps & {
@@ -77,6 +77,7 @@ const Wrapper = styled(UniversalLink)`
   width: fit-content;
   display: flex;
   position: relative;
+  z-index: 2;
 
   &:hover {
     ${Highlight} {
@@ -107,6 +108,7 @@ const Inner = styled.div<{ $secondary: boolean }>`
   justify-content: center;
   ${textStyles.sh3}
   height: 100%;
+  transition: background 0.25s;
 
   ${({ $secondary }) =>
 		fresponsive(css`
@@ -131,11 +133,19 @@ const Inner = styled.div<{ $secondary: boolean }>`
   `)}
     
 
-    svg {
+  svg {
     ${fresponsive(css`
       height: auto;
       width: 12px;
     `)}
+  }
+
+  &:hover {
+    ${({ $secondary }) =>
+			$secondary &&
+			css`
+      background: ${gradients.surface1Reverse};
+    `}
   }
 `
 
