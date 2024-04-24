@@ -6,11 +6,7 @@ import useMedia from "library/useMedia"
 import styled, { css } from "styled-components"
 import { Dots } from "styles/background"
 import colors from "styles/colors"
-import {
-	desktopBreakpoint,
-	mobileBreakpoint,
-	tabletBreakpoint,
-} from "styles/media"
+import { desktopBreakpoint } from "styles/media"
 import textStyles from "styles/text"
 import links from "utils/links"
 import Link from "./Buttons/Link"
@@ -135,11 +131,11 @@ const StyledDots = styled(Dots)`
   transform: translateX(-50%);
   left: 50%;
   
-  
   ${fresponsive(css`
     width: 1320px;
     height: 100%;
     padding: 100px 156px;
+    background-position: 0 22px;
   `)}
 `
 
