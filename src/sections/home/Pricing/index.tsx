@@ -29,34 +29,79 @@ export default function Pricing() {
 					</TextContent>
 					<Prices>
 						<Card
-							title="Free"
-							text="Get started building Thoughtly agents for free."
-							price="$30"
-							tags={["Unlimited Seats", "10 minutes per month"]}
+							titles={["Starter Plan"]}
+							text={["Get started building Thoughtly agents for free."]}
+							prices={["$30"]}
+							tags={[["Unlimited Seats", "10 minutes per month"]]}
 						/>
 						<Card
-							title="Pro"
-							text="Use Thoughtly to grow your small business."
-							price="$150"
+							titles={[
+								"Starter Plan",
+								"Pro",
+								"Business",
+								"Agency",
+								"Enterprise",
+							]}
+							text={[
+								"Find a plan that fits your needs and budget.",
+								"Use Thoughtly to grow your small business.",
+								"Reliably handle both your inbound and outbound call traffic.",
+								"Our advanced whitelabel solution for industry partners and early adopters.",
+								"Automate your enterprise using conversational AI.",
+							]}
+							prices={["$30", "$150", "$300", "$1,000", "$10,000"]}
+							minutes={["300", "900", "1,700", "2,500", "10,000+"]}
+							showProgress
 							tags={[
-								"Unlimited Seats",
-								"Industry-leading agent editor",
-								"Inbound and outbound calling",
-								"Genius knowledge database",
+								[
+									"Unlimited Seats",
+									"Industry-leading agent editor",
+									"Inbound and outbound calling",
+									"Genius knowledge database",
+								],
+								[
+									"Unlimited Seats",
+									"Industry-leading agent editor",
+									"Inbound and outbound calling",
+									"Genius knowledge database",
+								],
+								[
+									"Unlimited Seats",
+									"Industry-leading agent editor",
+									"Inbound and outbound calling",
+									"Genius knowledge database",
+								],
+								[
+									"Unlimited Seats",
+									"Industry-leading agent editor",
+									"Inbound and outbound calling",
+									"Genius knowledge database",
+									"Whitelabel support",
+								],
+								[
+									"Unlimited Seats",
+									"Industry-leading agent editor",
+									"Inbound and outbound calling",
+									"Genius knowledge database",
+									"Whitelabel support",
+									"Executive coaching",
+								],
 							]}
 						/>
 						<Card
-							title="Enterprise"
-							text="Automate your enterprise using conversational AI."
-							price="Contact Us"
+							titles={["Enterprise"]}
+							text={["Automate your enterprise using conversational AI."]}
+							prices={["Contact Us"]}
 							hideMonth
 							tags={[
-								"Unlimited Seats",
-								"Industry-leading agent editor",
-								"Inbound and outbound calling",
-								"Genius knowledge database",
-								"Whitelabel support",
-								"Executive coaching",
+								[
+									"Unlimited Seats",
+									"Industry-leading agent editor",
+									"Inbound and outbound calling",
+									"Genius knowledge database",
+									"Whitelabel support",
+									"Executive coaching",
+								],
 							]}
 						/>
 					</Prices>

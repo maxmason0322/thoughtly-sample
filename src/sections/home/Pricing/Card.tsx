@@ -1,25 +1,35 @@
 import Button from "components/Buttons/Primary"
 import Icon from "components/Icon"
+import AutoAnimate from "library/AutoAnimate"
 import { fresponsive } from "library/fullyResponsive"
+import { useState } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
 import links from "utils/links"
 
 export default function Card({
-	title,
+	titles,
 	text,
-	price,
+	prices,
+	minutes,
 	hideMonth,
 	tags,
+	showProgress,
 }: {
-	title: string
-	text: string
-	price: string
+	titles: string[]
+	text: string[]
+	prices: string[]
+	minutes?: string[]
 	hideMonth?: boolean
-	tags: string[]
+	tags: string[][]
+	showProgress?: boolean
 }) {
-	const tagEls = tags.map((item) => <TempTag key={item}>{item}</TempTag>)
+	const [activeIndex, setActiveIndex] = useState(0)
+
+	const tagEls = tags[activeIndex]?.map((item) => (
+		<TempTag key={item}>{item}</TempTag>
+	))
 
 	return (
 		<Wrapper>
@@ -27,17 +37,40 @@ export default function Card({
 				<Row>
 					<Info>
 						<StyledIcon name="analytics" />
-						<Title>{title}</Title>
-						<Text>{text}</Text>
+						<AutoAnimate>
+							<Title key={activeIndex}>{titles[activeIndex]}</Title>
+						</AutoAnimate>
+						<AutoAnimate>
+							<Text key={activeIndex}>{text[activeIndex]}</Text>
+						</AutoAnimate>
 					</Info>
 					<StyledButton to={links.todo} variant="secondary">
 						Get Started
 					</StyledButton>
 				</Row>
 				<Price>
-					{price}
+					<AutoAnimate>
+						<div key={activeIndex}>{prices[activeIndex]}</div>
+					</AutoAnimate>
 					{!hideMonth && <span>/mo.</span>}
 				</Price>
+				{showProgress && (
+					<>
+						<Minutes>
+							Minutes Per Month
+							<AutoAnimate>
+								<span key={activeIndex}>{minutes?.[activeIndex]}</span>
+							</AutoAnimate>
+						</Minutes>
+						<Slider
+							value={activeIndex}
+							type="range"
+							min="0"
+							max="4"
+							onChange={(e) => setActiveIndex(Number.parseInt(e.target.value))}
+						/>
+					</>
+				)}
 			</Top>
 			<Bottom>{tagEls}</Bottom>
 		</Wrapper>
@@ -145,5 +178,48 @@ const Price = styled.h6`
   ${fresponsive(css`
     gap: 5px;
     margin-top: 28px;
+    margin-bottom: 12px;
+  `)}
+`
+
+const Slider = styled.input`
+  appearance: none;
+  width: 100%; 
+  background: #ECECEC;
+  outline: none;
+  border-radius: 99vw;
+
+  ${fresponsive(css`
+    height: 9px;
+  `)}
+
+  &::-webkit-slider-thumb {
+    appearance: none;
+    cursor: pointer;
+    background: ${colors.green400};
+    border-radius: 99vw;
+    filter: drop-shadow(0 4.266px 9.67px rgba(119 119 119 / 21%));
+
+    ${fresponsive(css`
+      border: 1px solid ${colors.white};
+      width: 15px; 
+      height: 15px; 
+    `)}
+  }
+`
+
+const Minutes = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  ${textStyles.t2}
+  color: ${colors.gray600};
+
+  span {
+    color: ${colors.gray800};
+  }
+
+  ${fresponsive(css`
+    margin-bottom: 12px;
   `)}
 `
