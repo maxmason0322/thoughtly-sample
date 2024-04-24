@@ -1,4 +1,5 @@
 import Button from "components/Buttons/Primary"
+import CheckTag from "components/CheckTag"
 import Icon from "components/Icon"
 import AutoAnimate from "library/AutoAnimate"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
@@ -28,7 +29,7 @@ export default function Card({
 	const [activeIndex, setActiveIndex] = useState(0)
 
 	const tagEls = tags[activeIndex]?.map((item) => (
-		<TempTag key={item}>{item}</TempTag>
+		<CheckTag key={item}>{item}</CheckTag>
 	))
 
 	return (
@@ -109,16 +110,6 @@ const Top = styled.div`
   `)}
 `
 
-const TempTag = styled.div`
-  ${textStyles.bodyXS}
-  background-color: ${colors.gray300};
-  color: ${colors.gray500};
-
-  ${fresponsive(css`
-    padding: 10px;
-  `)}
-`
-
 const Bottom = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -196,7 +187,6 @@ const Price = styled.h6`
   ${fresponsive(css`
     gap: 5px;
     margin-top: 28px;
-    margin-bottom: 12px;
   `)}
 `
 
@@ -239,5 +229,6 @@ const Minutes = styled.div`
 
   ${fresponsive(css`
     margin-bottom: 12px;
+    margin-top: 12px;
   `)}
 `
