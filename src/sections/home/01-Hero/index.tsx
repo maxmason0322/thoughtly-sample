@@ -454,6 +454,15 @@ const BackgroundTablet = styled.div`
 		left: 21px;
 		border-radius: 48px;
 	`)}
+
+	${fmobile(css`
+		height: 1269px;
+		width: 358px;
+		display: flex;
+		left: 9px;
+		bottom: 82px;
+		border-radius: 36px;
+	`)}
 `
 
 const StyledDots = styled(Dots)``
