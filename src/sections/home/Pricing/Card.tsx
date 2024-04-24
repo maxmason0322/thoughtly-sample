@@ -1,7 +1,7 @@
 import Button from "components/Buttons/Primary"
 import Icon from "components/Icon"
 import AutoAnimate from "library/AutoAnimate"
-import { fresponsive, ftablet } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import { useState } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
@@ -92,6 +92,10 @@ const Wrapper = styled.div`
 
   ${ftablet(css`
     width: 570px;
+    min-height: unset;
+  `)}
+
+  ${fmobile(css`
     min-height: unset;
   `)}
 `
