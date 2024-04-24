@@ -10,6 +10,7 @@ import useAnimation from "library/useAnimation"
 import { getResponsivePixels } from "library/viewportUtils"
 import { useRef } from "react"
 import styled, { css } from "styled-components"
+import { Dots } from "styles/background"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
@@ -144,6 +145,9 @@ export default function Hero() {
 		<Wrapper ref={wrapperRef}>
 			<Inner>
 				<BackgroundImage src={Background} />
+				<BackgroundTablet>
+					<StyledDots />
+				</BackgroundTablet>
 				<TextContent>
 					<Kicker icon="chev">
 						🚀&nbsp;&nbsp;&nbsp;Seed round led by Afore & others
@@ -366,3 +370,21 @@ const Callout2 = styled(Callout)`
 		}
 	`)}
 `
+
+const BackgroundTablet = styled.div`
+	position: absolute;
+	display: none;
+	z-index: 0;
+	background-color: ${colors.gray100};
+
+	${ftablet(css`
+		display: flex;
+		width: 982px;
+		height: 1271px;
+		bottom: 24px;
+		left: 21px;
+		border-radius: 48px;
+	`)}
+`
+
+const StyledDots = styled(Dots)``
