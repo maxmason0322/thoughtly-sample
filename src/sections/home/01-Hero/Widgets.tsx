@@ -1,7 +1,7 @@
 import Widget from "components/Widget"
 import { graphql, useStaticQuery } from "gatsby"
 import UniversalImage from "library/UniversalImage"
-import { fresponsive, ftablet } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import AvatarWidget from "./AvatarWidget"
@@ -114,6 +114,13 @@ const StartWidget = styled(Widget)`
 		top: 857px;
 		right: 199px;
 	`)}
+
+	${fmobile(css`
+		right: 31.5px;
+		top: 788px;
+		transform-origin: top right;
+		transform: scale(0.73);
+	`)}
 `
 
 const SpeakWidget = styled(Widget)`
@@ -128,6 +135,13 @@ const SpeakWidget = styled(Widget)`
 	${ftablet(css`
 		top: 1131px;
 		right: 118px;
+	`)}
+
+	${fmobile(css`
+		transform-origin: top right;
+		transform: scale(0.73);
+		top: 1116px;
+		right: -204.5px;
 	`)}
 `
 
@@ -148,6 +162,13 @@ const Speak2Widget = styled(Widget)`
 		top: 1941px;
 		right: 476px;
 	`)}
+
+	${fmobile(css`
+		transform-origin: top right;
+		transform: scale(0.73);
+		top: 1952px;
+		right: 103.5px;
+	`)}
 `
 
 const ActionWidget = styled(Widget)`
@@ -161,6 +182,13 @@ const ActionWidget = styled(Widget)`
 	${ftablet(css`
 		top: 1396px;
 		right: 44px;
+	`)}
+
+	${fmobile(css`
+		transform-origin: top right;
+		transform: scale(0.73);
+		top: 1210px;
+		right: 103.5px;
 	`)}
 `
 
@@ -176,6 +204,13 @@ const ABTestWidget = styled(Widget)`
 	${ftablet(css`
 		top: 1558px;
 		right: 597px;
+	`)}
+
+	${fmobile(css`
+		transform-origin: top right;
+		transform: scale(0.73);
+		right: -36.5px;
+		top: 1714px;
 	`)}
 `
 
@@ -211,6 +246,13 @@ const StyledCallWidget = styled(CallWidget)`
 		top: 633px;
 		right: 126px;
 	`)}
+
+	${fmobile(css`
+		transform-origin: top right;
+		top: 629.25px;
+		right: 127.75px;
+		transform: scale(0.75);
+	`)}
 `
 
 const StyledIconsWidget = styled(IconsWidget)`
@@ -226,6 +268,10 @@ const StyledIconsWidget = styled(IconsWidget)`
 		top: 550px;
 		right: 53px;
 	`)}
+
+	${fmobile(css`
+		display: none;
+	`)}
 `
 
 const StyledAvatarWidget = styled(AvatarWidget)`
@@ -240,5 +286,12 @@ const StyledAvatarWidget = styled(AvatarWidget)`
 	${ftablet(css`
 		top: 857px;
 		right: 53px;
+	`)}
+	
+	${fmobile(css`
+		right: 26px;
+		top: 687px;
+		transform: scale(0.73);
+		transform-origin: top right;
 	`)}
 `

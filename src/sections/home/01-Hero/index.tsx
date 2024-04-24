@@ -4,11 +4,12 @@ import Unmask from "components/Unmask"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
 import Background from "images/home/hero/hero-background.png"
-import { fresponsive, ftablet } from "library/fullyResponsive"
+import { ScreenContext } from "library/ScreenContext"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import getMedia from "library/getMedia"
 import useAnimation from "library/useAnimation"
 import { getResponsivePixels } from "library/viewportUtils"
-import { useRef } from "react"
+import { useContext, useRef } from "react"
 import styled, { css } from "styled-components"
 import { Dots } from "styles/background"
 import colors, { gradients } from "styles/colors"
@@ -21,10 +22,12 @@ import Widgets from "./Widgets"
 gsap.registerPlugin(DrawSVGPlugin)
 
 export default function Hero() {
+	const { mobile } = useContext(ScreenContext)
 	const wrapperRef = useRef<HTMLElement | null>(null)
 
 	useAnimation(
 		() => {
+			if (mobile) return
 			const tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: wrapperRef.current,
@@ -135,7 +138,7 @@ export default function Hero() {
 				"<+=0.5",
 			)
 		},
-		[],
+		[mobile],
 		{
 			scope: wrapperRef,
 		},
@@ -226,6 +229,11 @@ const Inner = styled.div`
 		height: 2211px;
 		padding: 190px 68px 24px;
 	`)}
+
+	${fmobile(css`
+		height: 2253px;
+		padding: 110px 0;
+	`)}
 `
 
 const BackgroundImage = styled.img`
@@ -242,6 +250,10 @@ const BackgroundImage = styled.img`
 	${ftablet(css`
 		display: none;
 	`)}
+
+	${fmobile(css`
+		display: none;
+	`)}
 `
 
 const TextContent = styled.div`
@@ -253,6 +265,10 @@ const TextContent = styled.div`
   ${fresponsive(css`
     gap: 24px;
   `)}
+
+	${fmobile(css`
+		align-items: center;
+	`)}
 `
 
 const Title = styled.h1`
@@ -266,6 +282,12 @@ const Title = styled.h1`
 	${ftablet(css`
 		${textStyles.h2}
 		width: 100%;
+	`)}
+
+	${fmobile(css`
+		${textStyles.h6}
+		width: 80%;
+		text-align: center;
 	`)}
 `
 
@@ -281,6 +303,12 @@ const Text = styled.p`
 		${textStyles.bodyXL}
 		width: 456px;
 	`)}
+
+	${fmobile(css`
+		${textStyles.bodyR}
+		width: 318px;
+		text-align: center;
+	`)}
 `
 
 const Buttons = styled.div`
@@ -290,6 +318,11 @@ const Buttons = styled.div`
   ${fresponsive(css`
     gap: 18px;
   `)}
+
+	${fmobile(css`
+		flex-direction: column;
+		gap: 12px;
+	`)}
 `
 
 const Callout = styled.div`
@@ -315,6 +348,14 @@ const Callout = styled.div`
   ${fresponsive(css`
     gap: 14px;
   `)}
+
+	${fmobile(css`
+		gap: 8px;
+
+		h6 {
+			${textStyles.sh1}
+		}
+	`)}
 `
 
 const Callout1 = styled(Callout)`
@@ -342,6 +383,20 @@ const Callout1 = styled(Callout)`
 			width: 100%;
 		}
 	`)}
+
+	${fmobile(css`
+		left: 33px;
+		top: 977px;
+		width: 247px;
+
+		h6 {
+			width: 100%;
+		}
+
+		p {
+			width: 225px;
+		}
+	`)}
 `
 
 const Callout2 = styled(Callout)`
@@ -367,6 +422,20 @@ const Callout2 = styled(Callout)`
 
 		h6, p {
 			width: 100%;
+		}
+	`)}
+
+	${fmobile(css`
+		top: 1471px;
+		left: 33px;
+		width: 247px;
+
+		h6 {
+			width: 100%;
+		}
+
+		p {
+			width: 284px;
 		}
 	`)}
 `
