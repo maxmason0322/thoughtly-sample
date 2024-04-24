@@ -2,7 +2,7 @@ import PrimaryButton from "components/Buttons/Primary"
 import gsap from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
 import { ReactComponent as LogoSVG } from "images/global/logo.svg"
-import { fresponsive } from "library/fullyResponsive"
+import { fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import { desktopBreakpoint } from "styles/media"
 import links from "utils/links"
@@ -73,6 +73,10 @@ const Inner = styled.div`
   ${fresponsive(css`
     padding: 32px 156px 0;
   `)}
+
+  ${ftablet(css`
+    padding: 48px 68px 0;
+  `)}
 `
 
 const StyledLogoSVG = styled(LogoSVG)`
@@ -108,5 +112,9 @@ const Links = styled.div`
 
   ${fresponsive(css`
     gap: 24px;
+  `)}
+
+  ${ftablet(css`
+    display: none;
   `)}
 `
