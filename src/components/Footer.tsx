@@ -20,92 +20,90 @@ export default function Footer() {
 
 	return (
 		<Wrapper>
-			<DotsWrapper>
+			<Inner>
 				<StyledDots />
-				<Inner>
-					<Top>
-						<LogoAddress>
+				<Top>
+					<LogoAddress>
+						<UniversalLink to={links.todo}>
+							<Logo />
+						</UniversalLink>
+						<Address>41 E 11th St, 11th Floor, New York, NY 10003</Address>
+					</LogoAddress>
+					<Columns>
+						<LinkColumn>
+							<Label>Product</Label>
+							<Link to={links.todo}>Pricing</Link>
+							<Link to={links.todo} tag="Coming Soon">
+								Platform
+							</Link>
+							<Link to={links.todo} tag="Coming Soon">
+								Solutions
+							</Link>
+							<Link to={links.todo} tag="Coming Soon">
+								Customers
+							</Link>
+						</LinkColumn>
+						<LinkColumn>
+							<Label>Company</Label>
+							<Link to={links.todo}>Media Inquiries</Link>
+							<Link to={links.todo}>Careers</Link>
+							<Link to={links.todo} tag="Coming Soon">
+								About
+							</Link>
+							<Link to={links.todo} tag="Coming Soon">
+								Blog
+							</Link>
+						</LinkColumn>
+						<LinkColumn>
+							<Label>Support</Label>
+							<Link to={links.todo}>Help Center</Link>
+							<Link to={links.todo}>API Docs</Link>
+							<Link to={links.todo}>Contact Us</Link>
+						</LinkColumn>
+						{mobile && (
+							<LinkColumn>
+								<Label>Socials</Label>
+								<Link to={links.todo}>Instagram</Link>
+								<Link to={links.todo}>Linkedin</Link>
+								<Link to={links.todo}>X(Twitter)</Link>
+							</LinkColumn>
+						)}
+					</Columns>
+				</Top>
+				<Bottom>
+					<BottomTop>
+						{!mobile && (
+							<Socials>
+								<Link to={links.todo}>Instagram</Link>
+								<Link to={links.todo}>LinkedIn</Link>
+								<Link to={links.todo}>X(Twitter)</Link>
+							</Socials>
+						)}
+						<Buttons>
+							<Button to={links.todo} outline>
+								Build your own Thoughtly
+							</Button>
+							<Button to={links.todo} variant="secondary" icon="phone">
+								Call Demo
+							</Button>
+						</Buttons>
+					</BottomTop>
+					<BottomBottom>
+						<Column>
+							<Text>Copyright © 2024 Thoughtly,</Text>
+							<Text>Inc. All rights reserved.</Text>
+						</Column>
+						<Column>
 							<UniversalLink to={links.todo}>
-								<Logo />
+								<Text>Terms</Text>
 							</UniversalLink>
-							<Address>41 E 11th St, 11th Floor, New York, NY 10003</Address>
-						</LogoAddress>
-						<Columns>
-							<LinkColumn>
-								<Label>Product</Label>
-								<Link to={links.todo}>Pricing</Link>
-								<Link to={links.todo} tag="Coming Soon">
-									Platform
-								</Link>
-								<Link to={links.todo} tag="Coming Soon">
-									Solutions
-								</Link>
-								<Link to={links.todo} tag="Coming Soon">
-									Customers
-								</Link>
-							</LinkColumn>
-							<LinkColumn>
-								<Label>Company</Label>
-								<Link to={links.todo}>Media Inquiries</Link>
-								<Link to={links.todo}>Careers</Link>
-								<Link to={links.todo} tag="Coming Soon">
-									About
-								</Link>
-								<Link to={links.todo} tag="Coming Soon">
-									Blog
-								</Link>
-							</LinkColumn>
-							<LinkColumn>
-								<Label>Support</Label>
-								<Link to={links.todo}>Help Center</Link>
-								<Link to={links.todo}>API Docs</Link>
-								<Link to={links.todo}>Contact Us</Link>
-							</LinkColumn>
-							{mobile && (
-								<LinkColumn>
-									<Label>Socials</Label>
-									<Link to={links.todo}>Instagram</Link>
-									<Link to={links.todo}>Linkedin</Link>
-									<Link to={links.todo}>X(Twitter)</Link>
-								</LinkColumn>
-							)}
-						</Columns>
-					</Top>
-					<Bottom>
-						<BottomTop>
-							{!mobile && (
-								<Socials>
-									<Link to={links.todo}>Instagram</Link>
-									<Link to={links.todo}>LinkedIn</Link>
-									<Link to={links.todo}>X(Twitter)</Link>
-								</Socials>
-							)}
-							<Buttons>
-								<Button to={links.todo} outline>
-									Build your own Thoughtly
-								</Button>
-								<Button to={links.todo} variant="secondary" icon="phone">
-									Call Demo
-								</Button>
-							</Buttons>
-						</BottomTop>
-						<BottomBottom>
-							<Column>
-								<Text>Copyright © 2024 Thoughtly,</Text>
-								<Text>Inc. All rights reserved.</Text>
-							</Column>
-							<Column>
-								<UniversalLink to={links.todo}>
-									<Text>Terms</Text>
-								</UniversalLink>
-								<UniversalLink to={links.todo}>
-									<Text>Privacy Policy</Text>
-								</UniversalLink>
-							</Column>
-						</BottomBottom>
-					</Bottom>
-				</Inner>
-			</DotsWrapper>
+							<UniversalLink to={links.todo}>
+								<Text>Privacy Policy</Text>
+							</UniversalLink>
+						</Column>
+					</BottomBottom>
+				</Bottom>
+			</Inner>
 		</Wrapper>
 	)
 }
@@ -115,6 +113,7 @@ const Wrapper = styled.footer`
   display: grid;
   place-items: center;
   background-color: ${colors.gray100};
+  overflow: clip;
 
   ${fresponsive(css`
     height: 646px;
@@ -129,30 +128,18 @@ const Wrapper = styled.footer`
   `)}
 `
 
-const DotsWrapper = styled.div`
-  background-color: ${colors.gray100};
-  position: relative;
-  overflow: hidden;
-
+const StyledDots = styled(Dots)`
+  position: absolute;
+  top: 0;
+  display: flex;
+  transform: translateX(-50%);
+  left: 50%;
+  
+  
   ${fresponsive(css`
     width: 1320px;
-    height: 650px;
-  `)}
-
-  ${ftablet(css`
-    width: ${tabletBreakpoint}px;
-    height: 720px;
-  `)}
-
-    ${fmobile(css`
-    width: ${mobileBreakpoint}px;
-    height: 868px;
-  `)}
-`
-
-const StyledDots = styled(Dots)`
-  ${ftablet(css`
-    inset: 0;
+    height: 100%;
+    padding: 100px 156px;
   `)}
 `
 
@@ -163,6 +150,7 @@ const Inner = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 
   ${fresponsive(css`
     padding: 100px 156px 50px;
@@ -205,7 +193,7 @@ const LogoAddress = styled.div`
   ${fmobile(css`
     width: 100%;
     border-bottom: 2px solid ${colors.gray400};
-    padding-bottom: 34px;
+    padding-bottom: 33.83px;
   `)}
 `
 
@@ -291,6 +279,11 @@ const BottomTop = styled.div`
   ${fresponsive(css`
     padding-bottom: 24px;
   `)}
+
+  ${fmobile(css`
+    border-top: 1.5px solid ${colors.gray400};
+    padding-top: 21px;
+  `)}
 `
 
 const Socials = styled.div`
@@ -323,6 +316,7 @@ const Buttons = styled.div`
   ${fmobile(css`
     flex-direction: column-reverse;
     align-items: flex-start;
+    gap: 22px;
   `)}
 `
 
