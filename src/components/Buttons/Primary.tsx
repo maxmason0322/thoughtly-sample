@@ -77,6 +77,7 @@ const Wrapper = styled(UniversalLink)`
   width: fit-content;
   display: flex;
   position: relative;
+  z-index: 2;
 
   &:hover {
     ${Highlight} {
@@ -107,6 +108,7 @@ const Inner = styled.div<{ $secondary: boolean }>`
   justify-content: center;
   ${textStyles.sh3}
   height: 100%;
+  transition: background 0.25s;
 
   ${({ $secondary }) =>
 		fresponsive(css`
