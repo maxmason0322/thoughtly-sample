@@ -66,7 +66,7 @@ export default function Features() {
 	)
 
 	return (
-		<Wrapper ref={wrapperRef}>
+		<Wrapper id="features" ref={wrapperRef}>
 			<Inner ref={innerRef}>{cards}</Inner>
 		</Wrapper>
 	)

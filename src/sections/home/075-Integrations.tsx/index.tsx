@@ -44,7 +44,7 @@ export default function Integrations() {
 	})
 
 	return (
-		<Wrapper>
+		<Wrapper id="integrations">
 			<Inner>
 				<Kicker gradient icon="integration" iconLeft>
 					Integrations

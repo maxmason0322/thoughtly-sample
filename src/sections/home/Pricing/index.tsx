@@ -9,7 +9,7 @@ import Card from "./Card"
 
 export default function Pricing() {
 	return (
-		<Wrapper>
+		<Wrapper id="pricing">
 			<Inner>
 				<Content>
 					<TextContent>

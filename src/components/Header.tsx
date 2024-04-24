@@ -1,4 +1,6 @@
 import PrimaryButton from "components/Buttons/Primary"
+import gsap from "gsap"
+import ScrollToPlugin from "gsap/ScrollToPlugin"
 import { ReactComponent as LogoSVG } from "images/global/logo.svg"
 import { fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
@@ -6,17 +8,36 @@ import { desktopBreakpoint } from "styles/media"
 import links from "utils/links"
 import Link from "./Buttons/Link"
 
+gsap.registerPlugin(ScrollToPlugin)
+
 export default function Header() {
+	const scrollTo = (section: string, offset: number) => {
+		gsap.to(window, {
+			scrollTo: {
+				y: section,
+				offsetY: offset,
+			},
+		})
+	}
+
 	return (
 		<Wrapper>
 			<Inner>
 				<Left>
 					<StyledLogoSVG />
 					<Links>
-						<Link to={links.todo}>Industries</Link>
-						<Link to={links.todo}>Features</Link>
-						<Link to={links.todo}>Integrations</Link>
-						<Link to={links.todo}>Pricing</Link>
+						<Link type="button" onClick={() => scrollTo("#industries", 0)}>
+							Industries
+						</Link>
+						<Link type="button" onClick={() => scrollTo("#features", 0)}>
+							Features
+						</Link>
+						<Link type="button" onClick={() => scrollTo("#integrations", 500)}>
+							Integrations
+						</Link>
+						<Link type="button" onClick={() => scrollTo("#pricing", 250)}>
+							Pricing
+						</Link>
 						<Link to={links.todo}>Support</Link>
 					</Links>
 				</Left>
@@ -39,6 +60,7 @@ const Wrapper = styled.header`
   place-items: center;
   overflow: clip;
   position: absolute;
+  z-index: 9;
 `
 
 const Inner = styled.div`
