@@ -107,7 +107,7 @@ export default function Industry() {
 	)
 
 	return (
-		<Wrapper>
+		<Wrapper id="industries">
 			<Inner>
 				<Top>
 					<Title>
