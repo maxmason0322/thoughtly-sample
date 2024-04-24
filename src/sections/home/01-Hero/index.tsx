@@ -1,53 +1,26 @@
 import Button from "components/Buttons/Primary"
 import Kicker from "components/Kicker"
 import Unmask from "components/Unmask"
-import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
-import { ReactComponent as ActionSpeakLineSVG } from "images/home/hero/action-speak-line.svg"
 import Background from "images/home/hero/hero-background.png"
-import { ReactComponent as SpeakTestLineSVG } from "images/home/hero/speak-abtest-line.svg"
-import { ReactComponent as SpeakActionLineSVG } from "images/home/hero/speak-action-line.svg"
-import { ReactComponent as SpeakLine1SVG } from "images/home/hero/speak-line-1.svg"
-import { ReactComponent as SpeakLine2SVG } from "images/home/hero/speak-line-2.svg"
-import { ReactComponent as SpeakLine3SVG } from "images/home/hero/speak-line-3.svg"
-import { ReactComponent as SpeakLine4SVG } from "images/home/hero/speak-line-4.svg"
-import { ReactComponent as StartSpeakLineSVG } from "images/home/hero/start-speak-line.svg"
-import { ReactComponent as TestLine1SVG } from "images/home/hero/test-line-1.svg"
-import { ReactComponent as TestSpeakLineSVG } from "images/home/hero/test-speak-line.svg"
-import UniversalImage from "library/UniversalImage"
-import { fresponsive } from "library/fullyResponsive"
+import { fresponsive, ftablet } from "library/fullyResponsive"
+import getMedia from "library/getMedia"
 import useAnimation from "library/useAnimation"
+import { getResponsivePixels } from "library/viewportUtils"
 import { useRef } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
 import links from "utils/links"
-import AvatarWidget from "./AvatarWidget"
-import CallWidget from "./CallWidget"
-import IconsWidget from "./IconsWidget"
-import Widget from "./Widget"
+import Lines from "./Lines"
+import Widgets from "./Widgets"
 
 gsap.registerPlugin(DrawSVGPlugin)
 
 export default function Hero() {
 	const wrapperRef = useRef<HTMLElement | null>(null)
-
-	const images: Queries.HomeHeroQuery = useStaticQuery(graphql`
-    query HomeHero {
-      abTest: file(relativePath: { eq: "home/hero/anal-graph.png" }) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-      webhook: file(relativePath: { eq: "home/hero/webhook.png" }) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-    }
-  `)
 
 	useAnimation(
 		() => {
@@ -66,7 +39,7 @@ export default function Hero() {
 			tl.to(
 				".icons-widget",
 				{
-					x: 80,
+					x: () => getResponsivePixels(getMedia(80, 80, 20, 40)),
 					yPercent: 100,
 					duration: 1.5,
 				},
@@ -172,7 +145,9 @@ export default function Hero() {
 			<Inner>
 				<BackgroundImage src={Background} />
 				<TextContent>
-					<Kicker icon="chev">🚀 Seed round led by Afore & others</Kicker>
+					<Kicker icon="chev">
+						🚀&nbsp;&nbsp;&nbsp;Seed round led by Afore & others
+					</Kicker>
 					<Title>Your phone calls, answered beautifully.</Title>
 					<Text>
 						Businesses trust Thoughtly’s human-like AI agents to answer millions
@@ -208,7 +183,7 @@ export default function Hero() {
 						<span>A data-driven approach</span>
 					</Unmask>
 					<Unmask>
-						<h6>Analytics that tell your customer's story</h6>
+						<h6>Analytics that&nbsp;tell your customer's&nbsp;story</h6>
 					</Unmask>
 					<Unmask>
 						<p>
@@ -220,87 +195,8 @@ export default function Hero() {
 						</p>
 					</Unmask>
 				</Callout2>
-				<StyledCallWidget className="call-widget" />
-				<StyledIconsWidget className="icons-widget" />
-				<StyledAvatarWidget className="avatar-widget" />
-				<StartWidget
-					className="start-widget"
-					title="Start"
-					iconColor={colors.green400}
-					icon="play"
-					bottomConnectors={[""]}
-				>
-					"Thank you for calling Thoughtly, this is Tessa. Who am I speaking
-					with?"
-				</StartWidget>
-				<SpeakWidget
-					className="speak-1-widget"
-					title="Speak"
-					iconColor="#0085E5"
-					icon="speak"
-					bottomConnectors={["New Customer", "Existing Customer"]}
-					topConnectors={[""]}
-				>
-					<p>
-						Hey <Blue>{"{name}"}</Blue>, thanks for reaching out. Can you tell
-						me your email so I can lookup your account?
-					</p>
-				</SpeakWidget>
-				<Speak2Widget
-					className="speak-2-widget"
-					title="Speak"
-					iconColor="#0085E5"
-					icon="speak"
-					bottomConnectors={[
-						"Make\nPayment",
-						"Place\nOrder",
-						"Book\nAppointment",
-						"Something\nElse",
-					]}
-					topConnectors={[""]}
-				>
-					<p>
-						Got it, thanks for being a customer for{" "}
-						<Blue>{"{api.num_years}"}</Blue> incredible years,{" "}
-						<Blue>{"{name}"}</Blue>! So, what can I do for you?
-					</p>
-				</Speak2Widget>
-				<ActionWidget
-					className="action-widget"
-					title="Action"
-					icon="integration"
-					iconColor="#F48A46"
-					topConnectors={[""]}
-					bottomConnectors={[""]}
-				>
-					<ActionImage image={images.webhook} alt="webhook ui" />
-				</ActionWidget>
-				<ABTestWidget
-					className="test-widget"
-					title="A/B Test"
-					icon="shuffle"
-					iconColor="#EED70B"
-					topConnectors={[""]}
-					bottomConnectors={["1", "2"]}
-				>
-					<ABTestContent>
-						<p>
-							Great <Blue>{"{name}"}</Blue>, let's get you in the system and
-							I'll route you to the right place!
-						</p>
-						<ABImage image={images.abTest} alt="analytics graph" />
-					</ABTestContent>
-				</ABTestWidget>
-				<StartSpeakLine />
-				<SpeakActionLine />
-				<SpeakTestLine />
-				<ActionSpeakLine />
-				<TestSpeakLine />
-				<TestLine />
-				<SpeakLine1 />
-				<SpeakLine2 />
-				<SpeakLine3 />
-				<SpeakLine4 />
+				<Widgets />
+				<Lines />
 			</Inner>
 		</Wrapper>
 	)
@@ -321,6 +217,11 @@ const Inner = styled.div`
     height: 1926px;
     padding: 144px 156px 60px;
   `)}
+
+	${ftablet(css`
+		height: 2211px;
+		padding: 190px 68px 24px;
+	`)}
 `
 
 const BackgroundImage = styled.img`
@@ -333,6 +234,10 @@ const BackgroundImage = styled.img`
     top: 408px;
     right: 62px;
   `)}
+
+	${ftablet(css`
+		display: none;
+	`)}
 `
 
 const TextContent = styled.div`
@@ -353,6 +258,11 @@ const Title = styled.h1`
   ${fresponsive(css`
     width: 620px;
   `)}
+
+	${ftablet(css`
+		${textStyles.h2}
+		width: 100%;
+	`)}
 `
 
 const Text = styled.p`
@@ -362,6 +272,11 @@ const Text = styled.p`
   ${fresponsive(css`
     width: 380px;
   `)}
+
+	${ftablet(css`
+		${textStyles.bodyXL}
+		width: 456px;
+	`)}
 `
 
 const Buttons = styled.div`
@@ -413,6 +328,16 @@ const Callout1 = styled(Callout)`
       width: 360px;
     }
   `)}
+
+	${ftablet(css`
+		left: 87px;
+		top: 1097px;
+		width: 290px;
+
+		h6, p {
+			width: 100%;
+		}
+	`)}
 `
 
 const Callout2 = styled(Callout)`
@@ -430,216 +355,14 @@ const Callout2 = styled(Callout)`
       width: 411px;
     }
   `)}
-`
 
-const StartWidget = styled(Widget)`
-  position: absolute;
+	${ftablet(css`
+		right: 70px;
+		bottom: 152px;
+		width: 330px;
 
-  ${fresponsive(css`
-    top: 372px;
-    right: 226px;
-    height: 178px;
-  `)}
-`
-
-const SpeakWidget = styled(Widget)`
-  position: absolute;
-
-  ${fresponsive(css`
-    top: 762px;
-    right: 346px;
-    height: 196px;
-  `)}
-`
-
-const Blue = styled.strong`
-  color: #0085e5d9;
-`
-
-const Speak2Widget = styled(Widget)`
-  position: absolute;
-
-  ${fresponsive(css`
-    top: 1603px;
-    right: 732px;
-    height: 195px;
-  `)}
-`
-
-const ActionWidget = styled(Widget)`
-  position: absolute;
-
-  ${fresponsive(css`
-    top: 1004px;
-    right: 156px;
-  `)}
-`
-
-const ABTestWidget = styled(Widget)`
-  position: absolute;
-
-  ${fresponsive(css`
-    top: 1268px;
-    right: 948px;
-    height: 290px;
-  `)}
-`
-
-const ABTestContent = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-
-const ABImage = styled(UniversalImage)`
-  ${fresponsive(css`
-    width: 326px;
-    height: 113px;
-  `)}
-`
-
-const ActionImage = styled(UniversalImage)`
-  ${fresponsive(css`
-    width: 327px;
-    height: 162px;
-  `)}
-`
-
-const StartSpeakLine = styled(StartSpeakLineSVG)`
-  position: absolute;
-
-  ${fresponsive(css`
-    height: 210px;
-    width: 122px;
-    right: 419px;
-    top: 552px;
-  `)}
-`
-
-const SpeakActionLine = styled(SpeakActionLineSVG)`
-  position: absolute;
-
-  ${fresponsive(css`
-    width: 132px;
-    height: 43px;
-    right: 347px;
-    top: 960px;
-  `)}
-`
-
-const SpeakTestLine = styled(SpeakTestLineSVG)`
-  position: absolute;
-
-  ${fresponsive(css`
-    width: 546px;
-    height: 319px;
-    right: 601px;
-    top: 959px;
-  `)}
-`
-
-const ActionSpeakLine = styled(ActionSpeakLineSVG)`
-  position: absolute;
-
-  ${fresponsive(css`
-    width: 578px;
-    height: 309px;
-    right: 349px;
-    top: 1297px;
-  `)}
-`
-
-const TestSpeakLine = styled(TestSpeakLineSVG)`
-  position: absolute;
-
-  ${fresponsive(css`
-    width: 152px;
-    height: 42px;
-    right: 926px;
-    top: 1560px;
-  `)}
-`
-
-const TestLine = styled(TestLine1SVG)`
-  position: absolute;
-
-  ${fresponsive(css`
-    width: 199px;
-    height: 209px;
-    top: 1560px;
-    right: 1180px;
-  `)}
-`
-
-const SpeakLine1 = styled(SpeakLine1SVG)`
-  position: absolute;
-
-  ${fresponsive(css`
-    width: 192px;
-    height: 68px;
-    bottom: 60px;
-    right: 1037px;
-  `)}
-`
-
-const SpeakLine2 = styled(SpeakLine2SVG)`
-  position: absolute;
-
-  ${fresponsive(css`
-    width: 192px;
-    height: 68px;
-    bottom: 60px;
-    right: 960px;
-  `)}
-`
-
-const SpeakLine3 = styled(SpeakLine3SVG)`
-  position: absolute;
-
-  ${fresponsive(css`
-    width: 313px;
-    height: 70px;
-    bottom: 60px;
-    right: 763px;
-  `)}
-`
-
-const SpeakLine4 = styled(SpeakLine4SVG)`
-  position: absolute;
-
-  ${fresponsive(css`
-    width: 225px;
-    height: 107px;
-    bottom: 36px;
-    right: 592px;
-  `)}
-`
-
-const StyledCallWidget = styled(CallWidget)`
-  position: absolute;
-  z-index: 1;
-
-  ${fresponsive(css`
-    top: 150px;
-    right: 229px;
-  `)}
-`
-
-const StyledIconsWidget = styled(IconsWidget)`
-  position: absolute;
-  z-index: 1;
-
-  ${fresponsive(css`
-    top: 150px;
-    right: 157px;
-  `)}
-`
-
-const StyledAvatarWidget = styled(AvatarWidget)`
-  position: absolute;
-  z-index: 1;
-
-  ${fresponsive(css`
-    top: 452px;
-    right: 83px;
-  `)}
+		h6, p {
+			width: 100%;
+		}
+	`)}
 `
