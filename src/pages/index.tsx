@@ -1,4 +1,5 @@
 import Seo from "components/Seo"
+import FinalCTA from "sections/09-FinalCTA"
 import Hero from "sections/home/01-Hero"
 import Industry from "sections/home/02-Industry"
 import Statement from "sections/home/03-Statement"
@@ -21,6 +22,7 @@ export default function IndexPage() {
 			<WidgetsAndVideo />
 			<Integrations />
 			<Pricing />
+			<FinalCTA />
 		</>
 	)
 }
