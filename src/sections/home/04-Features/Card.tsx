@@ -80,11 +80,12 @@ const Text = styled.p`
 
   ${fresponsive(css`
     width: 310px;
-  `)} 
+  `)}
 `
 
 const StyledIcon = styled(Icon)`
-  path, circle {
+  path,
+  circle {
     fill: ${colors.gray600};
   }
 

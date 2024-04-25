@@ -4,7 +4,6 @@ import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
 import Hipaa from "images/global/hipaa.png"
 import Soc2 from "images/global/soc-2.png"
-import Background from "images/home/industry-background.png"
 import AutoAnimate from "library/AutoAnimate"
 import { ScreenContext } from "library/ScreenContext"
 import UniversalImage from "library/UniversalImage"
@@ -12,6 +11,7 @@ import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import { useContext, useState } from "react"
 import styled, { css } from "styled-components"
+import { Dots } from "styles/background"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
@@ -22,34 +22,34 @@ export default function Industry() {
 	const { fullWidth, desktop, tablet, mobile } = useContext(ScreenContext)
 
 	const data: Queries.IndustryQuery = useStaticQuery(graphql`
-		query Industry {
-			allHomeIndustryJson {
-				nodes {
-					title
-					text
-					hipaa
-					soc2
-					assertiveness
-					humorLevel
+    query Industry {
+      allHomeIndustryJson {
+        nodes {
+          title
+          text
+          hipaa
+          soc2
+          assertiveness
+          humorLevel
           icon
-					image {
-						childImageSharp {
-							gatsbyImageData
-						}
-					}
-					agent {
-						name
-						country
-						avatar {
-							childImageSharp {
-								gatsbyImageData
-							}
-						}
-					}
-				}
-			}
-		}
-	`)
+          image {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+          agent {
+            name
+            country
+            avatar {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
 
 	const tabs = data.allHomeIndustryJson.nodes.map((item, index) => {
 		return (
@@ -107,7 +107,7 @@ export default function Industry() {
 	)
 
 	return (
-		<Wrapper>
+		<Wrapper id="industries">
 			<Inner>
 				<Top>
 					<Title>
@@ -254,10 +254,13 @@ export default function Industry() {
 							</LogosWrapper>
 						)}
 						{(fullWidth || desktop) && (
-							<WidgetWrapper>
-								{widgets}
-								{widgets2}
-							</WidgetWrapper>
+							<DotsWrapper>
+								<StyledDots />
+								<WidgetWrapper>
+									{widgets}
+									{widgets2}
+								</WidgetWrapper>
+							</DotsWrapper>
 						)}
 					</Right>
 				</Bottom>
@@ -336,8 +339,8 @@ const Title = styled.h2`
 `
 
 const Buttons = styled.div`
-	display: flex;
-	flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 
   button {
     flex-shrink: 0;
@@ -367,12 +370,12 @@ const Buttons = styled.div`
 `
 
 const Bottom = styled.div`
-	display: flex;
-	align-items: flex-start;
-	
-	${fresponsive(css`
-		gap: 24px;
-	`)}
+  display: flex;
+  align-items: flex-start;
+
+  ${fresponsive(css`
+    gap: 24px;
+  `)}
 
   ${ftablet(css`
     flex-direction: row-reverse;
@@ -386,24 +389,24 @@ const Bottom = styled.div`
 `
 
 const Left = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
-	position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
 
-	${fresponsive(css`
-		gap: 24px;
-	`)}
+  ${fresponsive(css`
+    gap: 24px;
+  `)}
 `
 
 const Image = styled(UniversalImage)`
-	background-color: ${colors.gray800};
+  background-color: ${colors.gray800};
 
-	${fresponsive(css`
-		width: 528px;
-		height: 375px;
-		border-radius: 24px;
-	`)}
+  ${fresponsive(css`
+    width: 528px;
+    height: 375px;
+    border-radius: 24px;
+  `)}
 
   ${ftablet(css`
     width: 480px;
@@ -417,29 +420,29 @@ const Image = styled(UniversalImage)`
 `
 
 const Card = styled.div`
-	background: ${gradients.surface1};
-  border: 2px solid ${colors.gray200};
+  background: ${gradients.surface1};
 
-	${fresponsive(css`
-		padding: 24px;
-		border-radius: 12px;
-		box-shadow: 0 18px 42px 0 rgba(89 89 89 / 4%);
-	`)}
+  ${fresponsive(css`
+    border: 2px solid ${colors.gray200};
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 18px 42px 0 rgba(89 89 89 / 4%);
+  `)}
 `
 
 const Assertiveness = styled(Card)`
-	position: absolute;
-	z-index: 2;
-	display: flex;
-	flex-direction: column;
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
 
-	${fresponsive(css`
-		width: 240px;
-		height: 190px;
-		top: 139px;
-		left: -72px;
-		gap: 24px;
-	`)}
+  ${fresponsive(css`
+    width: 240px;
+    height: 190px;
+    top: 139px;
+    left: -72px;
+    gap: 24px;
+  `)}
 
   ${ftablet(css`
     top: 262px;
@@ -456,19 +459,19 @@ const Assertiveness = styled(Card)`
 `
 
 const Agent = styled(Card)`
-	position: absolute;
-	z-index: 2;
-	display: flex;
-	align-items: center;
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
 
-	${fresponsive(css`
-		width: 240px;
-		height: 58px;
-		top: 342px;
-		left: -72px;
-		padding: 12px 24px;
-		gap: 10px;
-	`)}
+  ${fresponsive(css`
+    width: 240px;
+    height: 58px;
+    top: 342px;
+    left: -72px;
+    padding: 12px 24px;
+    gap: 10px;
+  `)}
 
   ${ftablet(css`
     top: 464px;
@@ -491,21 +494,21 @@ const LogosWrapper = styled(Card)`
 `
 
 const Logos = styled.div`
-	display: flex;
+  display: flex;
   width: max-content;
-	
-	${fresponsive(css`
-		gap: 24px;
-	`)}
+
+  ${fresponsive(css`
+    gap: 24px;
+  `)}
 `
 
 const Right = styled.div`
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-	${fresponsive(css`
-		gap: 48px;
-	`)}
+  ${fresponsive(css`
+    gap: 48px;
+  `)}
 
   ${ftablet(css`
     padding-top: 47px;
@@ -515,13 +518,13 @@ const Right = styled.div`
 `
 
 const TextContent = styled.div`
-	display: flex;
-	flex-direction: column;
-	
-	${fresponsive(css`
-		gap: 16px;
-		padding-left: 24px;
-	`)}
+  display: flex;
+  flex-direction: column;
+
+  ${fresponsive(css`
+    gap: 16px;
+    padding-left: 24px;
+  `)}
 
   ${ftablet(css`
     padding-left: 0;
@@ -533,10 +536,10 @@ const TextContent = styled.div`
 `
 
 const SubTitle = styled.h6`
-	${textStyles.sh1}
-	color: ${colors.black};
-	width: fit-content;
-	white-space: nowrap;
+  ${textStyles.sh1}
+  color: ${colors.black};
+  width: fit-content;
+  white-space: nowrap;
 
   ${fresponsive(css`
     width: 200px;
@@ -544,14 +547,14 @@ const SubTitle = styled.h6`
 `
 
 const Text = styled.p`
-	${textStyles.bodyS}
-	color: ${colors.gray800};
-	overflow: clip;
+  ${textStyles.bodyS}
+  color: ${colors.gray800};
+  overflow: clip;
 
-	${fresponsive(css`
-		width: 462px;
-		height: 95px;
-	`)}
+  ${fresponsive(css`
+    width: 462px;
+    height: 95px;
+  `)}
 
   ${ftablet(css`
     ${textStyles.bodyR}
@@ -566,31 +569,45 @@ const Text = styled.p`
   `)}
 `
 
-const WidgetWrapper = styled.div`
-	background-color: ${colors.gray100};
-	position: relative;
-	background-image: url(${Background});
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
-	background-position: center center;
-	overflow: clip;
+const DotsWrapper = styled.div`
+  background-color: ${colors.gray100};
+  position: relative;
+  overflow: hidden;
 
-	${fresponsive(css`
-		border-radius: 24px;
-		width: 576px;
-		height: 375px;
-	`)}
+  ${fresponsive(css`
+    border-radius: 24px;
+    width: 576px;
+    height: 375px;
+  `)}
 `
 
-const Widget = styled(Card)`	
-	position: absolute;
+const StyledDots = styled(Dots)`
+  ${fresponsive(css`
+    inset: 0;
+    background-position: 10px 18px;
+  `)}
+`
 
-	${fresponsive(css`
-		width: 288px;
-		height: 133px;
-		top: 24px;
-		left: 24px;
-	`)}
+const WidgetWrapper = styled.div`
+  position: relative;
+  overflow: clip;
+
+  ${fresponsive(css`
+    border-radius: 24px;
+    width: 576px;
+    height: 375px;
+  `)}
+`
+
+const Widget = styled(Card)`
+  position: absolute;
+
+  ${fresponsive(css`
+    width: 288px;
+    height: 133px;
+    top: 24px;
+    left: 24px;
+  `)}
 
   ${ftablet(css`
     top: -30px;
@@ -600,13 +617,13 @@ const Widget = styled(Card)`
 `
 
 const Widget2 = styled(Widget)`
-	top: unset;
-	left: unset;
+  top: unset;
+  left: unset;
 
-	${fresponsive(css`
-		bottom: 24px;
-		right: 24px;
-	`)}
+  ${fresponsive(css`
+    bottom: 24px;
+    right: 24px;
+  `)}
 `
 
 const Logo = styled.img`
@@ -622,32 +639,33 @@ const Logo = styled.img`
 `
 
 const Avatar = styled(UniversalImage)`
-	border-radius: 99vw;
+  border-radius: 99vw;
 
-	${fresponsive(css`
-		width: 34px;
-		height: 34px;
-	`)}
+  ${fresponsive(css`
+    width: 34px;
+    height: 34px;
+  `)}
 `
 
 const Name = styled.span`
-	${textStyles.bodyR}
-	color: ${colors.black};
+  ${textStyles.bodyR}
+  color: ${colors.black};
 `
 
 const Line = styled.div`
-	width: 1px;
-	background-color: ${colors.gray300};
+  width: 1px;
+  background-color: ${colors.gray300};
 
-	${fresponsive(css`
-		height: 12px;
-	`)}
+  ${fresponsive(css`
+    height: 12px;
+  `)}
 `
 
 const StyledIcon = styled(Icon)`
   display: none;
 
-  path, circle {
+  path,
+  circle {
     fill: ${colors.gray500};
   }
 
