@@ -76,6 +76,7 @@ const Track = styled.div`
   overflow-x: scroll;
   display: flex;
   position: relative;
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
   scrollbar-width: none;
   transform: translateZ(0.01);
 
@@ -103,13 +104,17 @@ const TrackInner = styled.div<{ $gap: number }>`
 
   ${({ $gap }) =>
 		fresponsive(css`
-    gap: ${$gap}px;
-    padding: 0 ${$gap}px;
-  `)}
+      gap: ${$gap}px;
+      padding: 0 ${$gap}px;
+    `)}
 `
 
 const Gradient = styled.div`
-  background: linear-gradient(to left, #FFF 18.67%, rgba(255 255 255 / 0%) 100%);
+  background: linear-gradient(
+    to left,
+    #fff 18.67%,
+    rgba(255 255 255 / 0%) 100%
+  );
   position: fixed;
   z-index: 3;
   top: 50%;
@@ -118,7 +123,7 @@ const Gradient = styled.div`
 
   ${fresponsive(css`
     width: 120px;
-    right: -18px; 
+    right: -18px;
   `)}
 
   ${fmobile(css`
@@ -127,7 +132,11 @@ const Gradient = styled.div`
 `
 
 const Gradient2 = styled(Gradient)`
-  background: linear-gradient(to right, #FFF 18.67%, rgba(255 255 255 / 0%) 100%);
+  background: linear-gradient(
+    to right,
+    #fff 18.67%,
+    rgba(255 255 255 / 0%) 100%
+  );
   right: unset;
 
   ${fresponsive(css`

@@ -36,9 +36,9 @@ const Wrapper = styled.div<{ $gradient: boolean }>`
   ${({ $gradient }) =>
 		$gradient &&
 		css`
-    ${transparentText}
-    background-image: ${gradients.greenBlue};
-  `}
+      ${transparentText}
+      background-image: ${gradients.greenBlue};
+    `}
 
   ${fresponsive(css`
     height: 38px;

@@ -28,50 +28,50 @@ export default function Link({ icon, tag, children, ...props }: Props) {
 }
 
 const Wrapper = styled(UniversalLink)<{ $hasTag: boolean }>`
-    pointer-events: ${({ $hasTag }) => ($hasTag ? "none" : "auto")};
-    width: fit-content;
-    display: flex;
-    ${textStyles.sh4};
-    transition: background-color 0.25s;
-    color: ${({ $hasTag }) => ($hasTag ? colors.gray800 : colors.black)};
+  pointer-events: ${({ $hasTag }) => ($hasTag ? "none" : "auto")};
+  width: fit-content;
+  display: flex;
+  ${textStyles.sh4};
+  transition: background-color 0.25s;
+  color: ${({ $hasTag }) => ($hasTag ? colors.gray800 : colors.black)};
 
-    &:hover {
-        background-color: ${({ $hasTag }) =>
-					$hasTag ? "transparent" : colors.gray200};
-    }
+  &:hover {
+    background-color: ${({ $hasTag }) =>
+			$hasTag ? "transparent" : colors.gray200};
+  }
 
-    ${fresponsive(css`
-        padding: 8px 10px;
-        border-radius: 8px;
-        height: 30px;
-    `)}
-    
-    ${ftablet(css`
-        ${textStyles.sh3}
-    `)}
+  ${fresponsive(css`
+    padding: 8px 10px;
+    border-radius: 8px;
+    height: 30px;
+  `)}
+
+  ${ftablet(css`
+    ${textStyles.sh3}
+  `)}
 `
 
 const Span = styled.span`
-    width: fit-content;
-    display: flex;
-    align-items: center;
+  width: fit-content;
+  display: flex;
+  align-items: center;
 `
 
 const StyledTag = styled(Tag)`
-    ${fresponsive(css`
-        margin-left: 7px;
-    `)}
+  ${fresponsive(css`
+    margin-left: 7px;
+  `)}
 `
 
 const StyledIcon = styled(Icon)`
-    ${fresponsive(css`
-        margin-left: 2px;
-        height: auto;
-        width: 12px;
-    `)}
+  ${fresponsive(css`
+    margin-left: 2px;
+    height: auto;
+    width: 12px;
+  `)}
 
-    path {
-            fill: ${colors.gray600};
-            stroke: ${colors.gray600};
-        }
+  path {
+    fill: ${colors.gray600};
+    stroke: ${colors.gray600};
+  }
 `

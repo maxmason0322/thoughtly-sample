@@ -4,7 +4,6 @@ import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
 import Hipaa from "images/global/hipaa.png"
 import Soc2 from "images/global/soc-2.png"
-import Background from "images/home/industry-background.png"
 import AutoAnimate from "library/AutoAnimate"
 import UniversalImage from "library/UniversalImage"
 import { fresponsive, ftablet } from "library/fullyResponsive"
@@ -12,6 +11,7 @@ import useAnimation from "library/useAnimation"
 import useMedia from "library/useMedia"
 import { useState } from "react"
 import styled, { css } from "styled-components"
+import { Dots } from "styles/background"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
@@ -107,7 +107,7 @@ export default function Industry() {
 	)
 
 	return (
-		<Wrapper>
+		<Wrapper id="industries">
 			<Inner>
 				<Top>
 					<Title>
@@ -249,10 +249,13 @@ export default function Industry() {
 							</LogosWrapper>
 						)}
 						{desktop && (
-							<WidgetWrapper>
-								{widgets}
-								{widgets2}
-							</WidgetWrapper>
+							<DotsWrapper>
+								<StyledDots />
+								<WidgetWrapper>
+									{widgets}
+									{widgets2}
+								</WidgetWrapper>
+							</DotsWrapper>
 						)}
 					</Right>
 				</Bottom>
@@ -499,13 +502,27 @@ const Text = styled.p`
   `)}
 `
 
-const WidgetWrapper = styled.div`
+const DotsWrapper = styled.div`
   background-color: ${colors.gray100};
   position: relative;
-  background-image: url(${Background});
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
+  overflow: hidden;
+
+  ${fresponsive(css`
+    border-radius: 24px;
+    width: 576px;
+    height: 375px;
+  `)}
+`
+
+const StyledDots = styled(Dots)`
+  ${fresponsive(css`
+    inset: 0;
+    background-position: 10px 18px;
+  `)}
+`
+
+const WidgetWrapper = styled.div`
+  position: relative;
   overflow: clip;
 
   ${fresponsive(css`

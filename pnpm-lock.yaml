@@ -26,9 +26,6 @@ dependencies:
   ahooks:
     specifier: 3.7.11
     version: 3.7.11(react@18.2.0)
-  color-convert:
-    specifier: 2.0.1
-    version: 2.0.1
   dotenv:
     specifier: 16.4.5
     version: 16.4.5

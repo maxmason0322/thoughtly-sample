@@ -66,7 +66,7 @@ export default function Features() {
 	)
 
 	return (
-		<Wrapper ref={wrapperRef}>
+		<Wrapper id="features" ref={wrapperRef}>
 			<Inner ref={innerRef}>{cards}</Inner>
 		</Wrapper>
 	)
@@ -82,7 +82,7 @@ const Inner = styled.div`
   width: 100%;
   max-width: ${desktopBreakpoint}px;
   display: grid;
-  
+
   ${fresponsive(css`
     padding: 111px 156px 200px;
     gap: 24px 24px;
