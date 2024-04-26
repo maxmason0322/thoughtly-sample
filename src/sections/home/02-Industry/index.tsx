@@ -27,8 +27,10 @@ export default function Industry() {
         nodes {
           title
           text
-          hipaa
-          soc2
+          files {
+            name
+            icon
+          }
           assertiveness
           humorLevel
           icon
@@ -73,6 +75,21 @@ export default function Industry() {
 			<Widget2 key={item.title} className="widget-2" id={`widget-2-${index}`} />
 		)
 	})
+
+	const files = data.allHomeIndustryJson.nodes[activeIndex]?.files?.map(
+		(item) => {
+			if (!item) return null
+			return (
+				<File key={item.name}>
+					<FileIcon name={item.icon} />
+					<FileName>{item.name}</FileName>
+					<Trash name="trash" />
+				</File>
+			)
+		},
+	)
+
+	console.log(files)
 
 	useAnimation(
 		() => {
@@ -188,23 +205,17 @@ export default function Industry() {
 						{tablet && <Widget />}
 						{(fullWidth || desktop || mobile) && (
 							<LogosWrapper>
-								<AutoAnimate
-									alignment="center"
-									fromParameters={{ yPercent: 110 }}
-									toParameters={{ yPercent: -110 }}
-								>
-									<Logos
-										key={data.allHomeIndustryJson.nodes[activeIndex]?.title}
-									>
-										{data.allHomeIndustryJson.nodes[activeIndex]?.hipaa && (
-											<Logo src={Hipaa} alt="Hipaa Compliant" />
-										)}
-
-										{data.allHomeIndustryJson.nodes[activeIndex]?.soc2 && (
-											<Logo src={Soc2} alt="Soc 2 Compliant" />
-										)}
-									</Logos>
-								</AutoAnimate>
+								<FilesInner>
+									<PositionWrapper>
+										<AutoAnimate
+											alignment="center"
+											fromParameters={{ yPercent: 110 }}
+											toParameters={{ yPercent: -110 }}
+										>
+											<Logos key={activeIndex}>{files}</Logos>
+										</AutoAnimate>
+									</PositionWrapper>
+								</FilesInner>
 							</LogosWrapper>
 						)}
 					</Left>
@@ -234,23 +245,17 @@ export default function Industry() {
 						</TextContent>
 						{tablet && (
 							<LogosWrapper>
-								<AutoAnimate
-									alignment="center"
-									fromParameters={{ yPercent: 110 }}
-									toParameters={{ yPercent: -110 }}
-								>
-									<Logos
-										key={data.allHomeIndustryJson.nodes[activeIndex]?.title}
-									>
-										{data.allHomeIndustryJson.nodes[activeIndex]?.hipaa && (
-											<Logo src={Hipaa} alt="Hipaa Compliant" />
-										)}
-
-										{data.allHomeIndustryJson.nodes[activeIndex]?.soc2 && (
-											<Logo src={Soc2} alt="Soc 2 Compliant" />
-										)}
-									</Logos>
-								</AutoAnimate>
+								<FilesInner>
+									<PositionWrapper>
+										<AutoAnimate
+											alignment="center"
+											fromParameters={{ yPercent: 110 }}
+											toParameters={{ yPercent: -110 }}
+										>
+											<Logos key={activeIndex}>{files}</Logos>
+										</AutoAnimate>
+									</PositionWrapper>
+								</FilesInner>
 							</LogosWrapper>
 						)}
 						{(fullWidth || desktop) && (
@@ -483,6 +488,9 @@ const Agent = styled(Card)`
 const LogosWrapper = styled(Card)`
 	${fresponsive(css`
 		border-radius: 24px;
+    width: 243px;
+    height: 134px;
+    padding: 20px;
 	`)}
 
   ${fmobile(css`
@@ -493,12 +501,71 @@ const LogosWrapper = styled(Card)`
   `)}
 `
 
-const Logos = styled.div`
-  display: flex;
-  width: max-content;
+const FilesInner = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
 
   ${fresponsive(css`
-    gap: 24px;
+    border-radius: 14px;
+    border: 1.5px dashed ${colors.gray600};
+  `)}
+`
+
+const PositionWrapper = styled.div`
+  position: absolute;
+
+  ${fresponsive(css`
+    top: 20px;
+    left: -61px;
+  `)}
+`
+
+const Logos = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  ${fresponsive(css`
+    gap: 3px;
+  `)}
+`
+
+const File = styled.div`
+  display: flex;
+  align-items: center;
+  background: ${colors.white};
+
+  ${fresponsive(css`
+    padding: 7.5px;
+    border-radius: 8px;
+    border: 1.5px solid #e4e4e4;
+    width: 210px;
+  `)}
+`
+
+const FileName = styled.span`
+  ${textStyles.bodyS}
+  color: ${colors.black};
+`
+
+const FileIcon = styled(Icon)`
+  ${fresponsive(css`
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+  `)}
+`
+
+const Trash = styled(Icon)`
+  margin-left: auto;
+
+  path {
+    fill: #D9D9D9;
+  }
+
+  ${fresponsive(css`
+    width: 12px;
+    height: 12px;
   `)}
 `
 
@@ -623,18 +690,6 @@ const Widget2 = styled(Widget)`
   ${fresponsive(css`
     bottom: 24px;
     right: 24px;
-  `)}
-`
-
-const Logo = styled.img`
-	${fresponsive(css`
-		width: 42px;
-		height: 42px;			
-	`)}
-
-  ${fmobile(css`
-    width: 33px;
-    height: 33px;
   `)}
 `
 
