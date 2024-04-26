@@ -29,8 +29,6 @@ export default function Workflows() {
     }
   `)
 
-	console.log(mobileImage)
-
 	return (
 		<Wrapper>
 			<Inner>
