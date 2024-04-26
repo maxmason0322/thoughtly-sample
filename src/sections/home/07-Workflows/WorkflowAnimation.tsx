@@ -1,29 +1,27 @@
 import gsap from "gsap"
 import { ReactComponent as LeftConnectorSVG } from "images/home/leftConnector.svg"
 import { ReactComponent as LeftConnectorTSVG } from "images/home/leftConnectorT.svg"
-import { ReactComponent as ProcessingIcon } from "images/home/processing.svg"
 import { ReactComponent as RightConnectorSVG } from "images/home/rightConnector.svg"
 import { ReactComponent as RightConnectorTSVG } from "images/home/rightConnectorT.svg"
-import spinnerImg from "images/home/spinner.png"
-import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
+import { fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
-import { useContext, useMemo, useRef, useState } from "react"
-import styled, { css, keyframes } from "styled-components"
+import { useContext, useRef, useState } from "react"
+import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
-import textStyles from "styles/text"
 
-import { graphql, useStaticQuery } from "gatsby"
 import { MorphSVGPlugin, TextPlugin } from "gsap/all"
-import { ReactComponent as CheckMarkSVG } from "images/home/complete.svg"
-import AutoAnimate from "library/AutoAnimate"
 import { ScreenContext } from "library/ScreenContext"
-import UniversalImage from "library/UniversalImage"
 import getMedia from "library/getMedia"
 import { getResponsivePixels } from "library/viewportUtils"
+import CenterModule from "./CenterModule"
+import LeftCard from "./LeftCard"
+import RightCard from "./RightCard"
 import {
-	createColorsFromGradient,
-	reorderArrayFromArray,
-} from "utils/colorFormatter"
+	iconStaggerIn,
+	processCircleAnimation,
+	tagStaggerIn,
+	tagStaggerOut,
+} from "./workflowAnimations"
 
 const RIGHT_CONNECTOR_1 = "M0 123C26.0339 123 31.8192 207 64 207"
 const RIGHT_CONNECTOR_2 = "M0 123C26.8474 123 32.8135 36 66 36"
@@ -46,62 +44,6 @@ gsap.registerPlugin(MorphSVGPlugin, TextPlugin)
 const STEP_INTERVAL = 8
 
 const EASE_1 = "power2.inOut"
-const EASE_2 = "power4.inOut"
-const EASE_BACK = "back.inOut"
-
-const gradientStops = createColorsFromGradient(
-	"39deg, #37EB05 4.74%, #A5CFF9 94.17%",
-	32,
-)
-
-const newArrayOrder = [
-	28, 22, 29, 23, 16, 30, 24, 17, 10, 31, 25, 18, 11, 4, 26, 19, 12, 5, 27, 20,
-	13, 6, 0, 21, 14, 7, 1, 15, 8, 2, 9, 3,
-]
-
-const processCircleAnimation = () => {
-	const circles = gsap.utils.toArray(".processing-circle")
-
-	const circleEls = reorderArrayFromArray(circles, newArrayOrder)
-
-	gsap.to(circleEls, {
-		stagger: {
-			from: "end",
-			amount: 0.75,
-		},
-		fill: (index) => gradientStops[index] ?? colors.green400,
-		ease: EASE_2,
-		repeat: -1,
-		repeatDelay: 0.25,
-		yoyo: true,
-	})
-}
-
-// Todo: add real tags when they are ready.
-
-const tags1 = [
-	"Asked Questions",
-	"Added Sequence",
-	"Opened Email",
-	" Created Task",
-	"Set Milestones",
-]
-
-const tags2 = [
-	"Collected Data",
-	"Logged Call",
-	"Opportunity Won",
-	"Contract Sent",
-	"Request Signature",
-]
-
-const tags3 = [
-	"Request Signature",
-	"Created Cards",
-	"Appended Data",
-	"Published to Site",
-	"Updated Analytics",
-]
 
 export default function WorkflowAnimation({
 	setActiveIndex,
@@ -118,74 +60,7 @@ export default function WorkflowAnimation({
 	const [processStep, setProcessStep] = useState(0)
 	const { tablet } = useContext(ScreenContext)
 
-	const processIcons = [
-		<SpinningCircle key="spinner">
-			<img src={spinnerImg} alt="spinner" />
-		</SpinningCircle>,
-		<StyledCheckMark key="success-check" />,
-	]
-
-	const images: Queries.WorkflowImageQuery = useStaticQuery(graphql`
-    query WorkflowImage {
-      hubspot: file(relativePath: { eq: "home/hubspot.png" }) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-      salesforce: file(relativePath: { eq: "home/salesforce.png" }) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-      airtable: file(relativePath: { eq: "home/airtable.png" }) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-    }
-  `)
-
-	const CompanyIcons = useMemo(
-		() => [
-			{
-				icon: images.hubspot,
-				text: "HubSpot",
-			},
-			{
-				icon: images.salesforce,
-				text: "Salesforce",
-			},
-			{
-				icon: images.airtable,
-				text: "AirTable",
-			},
-		],
-		[images.airtable, images.hubspot, images.salesforce],
-	)
-
-	const allIcons = useMemo(
-		() =>
-			CompanyIcons.map((icon) => {
-				return <Icon image={icon.icon} alt={icon.text} key={icon.text} />
-			}),
-		[CompanyIcons],
-	)
-
-	const [activeIcon, setActiveIcon] = useState(allIcons[0])
-
-	const createTags = (tags: string[], i: number) => {
-		return tags.map((tag) => {
-			return (
-				<Tag className={`tags-${i}`} key={tag}>
-					<CheckMarkSVG /> <div>{tag}</div>
-				</Tag>
-			)
-		})
-	}
-
-	const taskGroup1 = createTags(tags1, 1)
-	const taskGroup2 = createTags(tags2, 2)
-	const taskGroup3 = createTags(tags3, 3)
+	const [activeIcon, setActiveIcon] = useState(0)
 
 	useAnimation(() => {
 		if (!animationRef.current) return
@@ -197,34 +72,6 @@ export default function WorkflowAnimation({
 				setProcessStep(1)
 				setAfterContent(false)
 			},
-		}
-
-		const tagStaggerIn = {
-			opacity: 1,
-			stagger: {
-				amount: 3,
-			},
-			duration: 0.5,
-			ease: EASE_2,
-		}
-
-		const tagStaggerOut = {
-			opacity: 0,
-			stagger: {
-				amount: 0.6,
-				from: "end" as const,
-			},
-			duration: 0.2,
-			ease: EASE_2,
-		}
-
-		const iconStaggerIn = {
-			scale: 1,
-			stagger: {
-				amount: 3,
-			},
-			duration: 0.5,
-			ease: EASE_BACK,
 		}
 
 		let activeIndex = 0
@@ -330,7 +177,7 @@ export default function WorkflowAnimation({
 					duration: 0.3,
 					text: { value: "" },
 					onStart: () => {
-						setActiveIcon(allIcons[1])
+						setActiveIcon(1)
 					},
 				},
 				STEP_INTERVAL + 1,
@@ -408,7 +255,7 @@ export default function WorkflowAnimation({
 					duration: 0.3,
 					text: { value: "" },
 					onStart: () => {
-						setActiveIcon(allIcons[2])
+						setActiveIcon(2)
 					},
 				},
 				STEP_INTERVAL * 2 + 1,
@@ -521,7 +368,7 @@ export default function WorkflowAnimation({
 					duration: 0.3,
 					text: { value: "" },
 					onStart: () => {
-						setActiveIcon(allIcons[0])
+						setActiveIcon(0)
 					},
 				},
 				STEP_INTERVAL * 3 + 1,
@@ -534,22 +381,16 @@ export default function WorkflowAnimation({
 				},
 				STEP_INTERVAL * 3 + 1.3,
 			)
-	}, [allIcons, setActiveIndex])
+	}, [setActiveIndex])
 
 	return (
 		<Animation ref={animationRef}>
-			<LeftCard ref={leftCardRef}>
-				<RightNode />
-				<Row ref={leftCardRow}>
-					<Icons>
-						<AutoAnimate>{activeIcon}</AutoAnimate>
-					</Icons>
-					<CenterLine />
-					<RowText>
-						<TextInner ref={rowText} />
-					</RowText>
-				</Row>
-			</LeftCard>
+			<LeftCard
+				leftCardRef={leftCardRef}
+				rowText={rowText}
+				leftCardRow={leftCardRow}
+				activeIconIndex={activeIcon}
+			/>
 
 			{tablet ? (
 				<LeftConnectorT>
@@ -560,26 +401,11 @@ export default function WorkflowAnimation({
 					<LeftConnectorSVG />
 				</LeftConnector>
 			)}
-			<CenterModule>
-				<LeftNode />
-				<RightNode />
-				<StyledProcessingIcon />
-
-				<Processing>
-					<ProcessIconContainer>
-						<AutoAnimate
-							fromParameters={{ opacity: 0 }}
-							toParameters={{ opacity: 1 }}
-						>
-							{processIcons[processStep]}
-						</AutoAnimate>
-					</ProcessIconContainer>
-					<ProcessText>
-						<Dots $afterContent={afterContent} />
-						<ProcessTextWord ref={processText} />
-					</ProcessText>
-				</Processing>
-			</CenterModule>
+			<CenterModule
+				afterContent={afterContent}
+				processStep={processStep}
+				processText={processText}
+			/>
 
 			{tablet ? (
 				<RightConnectorT>
@@ -591,17 +417,12 @@ export default function WorkflowAnimation({
 				</RightConnector>
 			)}
 
-			<RightCard ref={rightCardRef}>
-				<LeftNode />
-				<TaskGroup>{taskGroup1}</TaskGroup>
-				<TaskGroup>{taskGroup2}</TaskGroup>
-				<TaskGroup>{taskGroup3}</TaskGroup>
-			</RightCard>
+			<RightCard rightCardRef={rightCardRef} />
 		</Animation>
 	)
 }
 
-const animationCardStyle = css`
+export const animationCardStyle = css`
   background: ${gradients.surface1};
 
   ${fresponsive(css`
@@ -622,155 +443,6 @@ const Animation = styled.div`
   ${ftablet(css`
     justify-content: flex-start;
   `)}
-`
-
-const Processing = styled.div`
-  ${textStyles.sh4}
-  color: ${colors.gray800};
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 8px;
-`
-
-const StyledProcessingIcon = styled(ProcessingIcon)`
-  position: relative;
-  ${fresponsive(css`
-    width: 91px;
-    height: 91px;
-  `)}
-`
-
-const spin = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`
-
-const SpinningCircle = styled.div`
-  position: relative;
-  animation: ${spin} 1s linear infinite;
-  transform-origin: center;
-  ${fresponsive(css`
-    width: 14px;
-    height: 14px;
-  `)}
-`
-
-const NodeStyle = css`
-  border-radius: 99vw;
-  background: ${colors.white};
-  ${fresponsive(css`
-    border: 1.5px solid ${colors.gray200};
-    width: 9px;
-    height: 9px;
-    top: 118.68px;
-  `)}
-`
-
-const LeftNode = styled.div`
-  position: absolute;
-  z-index: 2;
-  ${NodeStyle}
-  ${fresponsive(css`
-    left: -4.7px;
-  `)}
-`
-
-const RightNode = styled.div`
-  position: absolute;
-
-  ${NodeStyle}
-  ${fresponsive(css`
-    left: unset;
-    right: -4.7px;
-  `)}
-`
-
-const CenterModule = styled.div`
-  position: relative;
-  ${animationCardStyle};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  flex-direction: column;
-
-  ${fresponsive(css`
-    width: 357px;
-    height: 239px;
-    gap: 44px;
-    padding: 40px 133px 28px;
-
-    ${LeftNode}, ${RightNode} {
-      top: 117.68px;
-    }
-  `)}
-
-  ${ftablet(css`
-    width: 264px;
-
-    ${LeftNode}, ${RightNode} {
-      top: 94.68px;
-    }
-  `)}
-`
-
-const dotAnimation = keyframes`
-  0% {
-    content: "";
-  }
-  20% {
-    content: ".";
-  }
-  40% {
-    content: "..";
-  }
-  60% {
-    content: "...";
-  }
-  80% {
-    content: "";
-  }
-  100% {
-    content: "";
-  }
-`
-
-const Dots = styled.div<{ $afterContent: boolean }>`
-  width: 30px;
-  height: 100%;
-  position: absolute;
-  left: 94%;
-  opacity: ${({ $afterContent }) => ($afterContent ? 1 : 0)};
-  transition: opacity 0s;
-
-  &::after {
-    position: absolute;
-    content: "";
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: ${colors.black};
-    animation: ${dotAnimation} 2s steps(5)
-      ${({ $afterContent }) => ($afterContent ? "infinite" : "1")};
-  }
-`
-
-const ProcessText = styled.div`
-  padding-right: 4px;
-  display: flex;
-  position: relative;
-  ${fresponsive(css`
-    min-width: 50px;
-  `)}
-
-  .process-text {
-    opacity: 0;
-  }
 `
 
 const LeftConnector = styled.div`
@@ -837,171 +509,5 @@ const RightConnectorT = styled.div`
     display: inline-block;
     width: 111px;
     height: 238px;
-  `)}
-`
-
-const LeftCard = styled.div`
-  ${animationCardStyle};
-  position: absolute;
-  display: grid;
-  place-items: center;
-
-  ${RightNode} {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  ${fresponsive(css`
-    right: calc(100% - 2px);
-    top: -1px;
-    width: 280px;
-    height: 150px;
-  `)}
-
-  ${ftablet(css`
-    right: calc(100% - 2px);
-    top: 3px;
-    width: 265px;
-    height: 150px;
-  `)}
-`
-
-const RightCard = styled.div`
-  ${animationCardStyle};
-  position: absolute;
-
-  ${LeftNode} {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  ${fresponsive(css`
-    left: 539px;
-    top: 123px;
-    width: 330px;
-    height: 168px;
-    min-height: 126px;
-  `)}
-
-  ${ftablet(css`
-    width: 194px;
-    height: 252px;
-    left: 444px;
-    top: 58px;
-  `)}
-`
-
-const Row = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  left: 0;
-
-  ${fresponsive(css`
-    gap: 16px;
-    width: fit-content;
-  `)}
-`
-
-const Icons = styled.div`
-  position: relative;
-  display: grid;
-  place-items: center;
-  ${fresponsive(css`
-    width: 112px;
-    height: 48px;
-  `)}
-`
-
-const RowText = styled.p`
-  ${textStyles.sh4};
-  color: ${colors.black};
-  position: relative;
-
-  ${fresponsive(css`
-    width: 50px;
-    white-space: nowrap;
-  `)}
-`
-
-const Icon = styled(UniversalImage).attrs({ objectFit: "contain" })`
-  ${fresponsive(css`
-    height: 48px;
-    width: 112px;
-
-    img {
-      object-position: right center;
-    }
-  `)}
-`
-
-const TextInner = styled.span``
-
-const CenterLine = styled.div`
-  background: ${colors.gray400};
-  ${fresponsive(css`
-    width: 1.5px;
-    height: 24px;
-  `)}
-`
-
-const StyledCheckMark = styled(CheckMarkSVG)`
-  position: relative;
-
-  ${fresponsive(css`
-    width: 14px;
-    height: 14px;
-  `)}
-`
-
-const ProcessIconContainer = styled.div`
-  position: relative;
-  display: grid;
-  place-items: center;
-  ${fresponsive(css`
-    width: 14px;
-    height: 14px;
-  `)}
-`
-
-const ProcessTextWord = styled.p``
-
-const Tag = styled.div`
-  width: fit-content;
-  position: relative;
-  background: ${colors.gray100};
-  color: ${colors.gray800};
-  display: flex;
-  ${textStyles.sh4};
-  opacity: 0;
-  ${fresponsive(css`
-    gap: 10.42px;
-    padding: 11.46px 10.42px 10.42px;
-    border-radius: 9.37px;
-
-    svg {
-      display: block;
-      width: 14px;
-      height: 14px;
-      transform: scale(0);
-    }
-  `)}
-
-  ${ftablet(css`
-    white-space: nowrap;
-  `)}
-`
-
-const TaskGroup = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  position: absolute;
-  inset: 0;
-  ${fresponsive(css`
-    padding: 24px;
-    gap: 6px;
   `)}
 `
