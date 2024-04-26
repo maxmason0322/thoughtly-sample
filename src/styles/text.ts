@@ -170,28 +170,43 @@ const textStyles = {
 
 export const strokeText = css`
   /* styled doesn't prefix this property yet */
-  /* stylelint-disable property-no-vendor-prefix */
+/* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-background-clip: text;
+  /* stylelint-disable-next-line property-no-vendor-prefix */
   -moz-background-clip: text;
+   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-text-fill-color: transparent;
+   /* stylelint-disable-next-line property-no-vendor-prefix */
   -moz-text-fill-color: transparent;
   background-size: 100%;
   background-clip: text;
+   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-text-stroke-width: 0.07vw;
 `
 
 export const strokeTextTransparent = css`
+/* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-background-clip: text;
+ /* stylelint-disable-next-line property-no-vendor-prefix */
+   -moz-background-clip: text;
+    /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-text-fill-color: transparent;
+   /* stylelint-disable-next-line property-no-vendor-prefix */
   -moz-text-fill-color: transparent;
   background-size: 100%;
   background-clip: text;
+   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-text-stroke-width: 0.07vw;
 `
 
 export const transparentText = css`
-  -webkit-background-clip: text;
+ /* stylelint-disable-next-line property-no-vendor-prefix */
+ -webkit-background-clip: text;
+ /* stylelint-disable-next-line property-no-vendor-prefix */
+   -moz-background-clip: text;
+    /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-text-fill-color: transparent;
+   /* stylelint-disable-next-line property-no-vendor-prefix */
   -moz-text-fill-color: transparent;
   background-size: 100%;
   background-clip: text;
@@ -200,9 +215,12 @@ export const transparentText = css`
 export const clampText = (lines: number) => css`
   overflow: hidden;
   text-overflow: ellipsis;
+   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-text-overflow: ellipsis;
   display: -webkit-box;
+   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-box-orient: vertical;
+   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-line-clamp: ${lines};
 `
 
