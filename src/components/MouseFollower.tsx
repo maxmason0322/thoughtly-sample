@@ -1,8 +1,8 @@
+import DemoButton from "components/Buttons/DemoButton"
 import gsap from "gsap"
 import { isBrowser } from "library/deviceDetection"
 import useAnimation from "library/useAnimation"
 import { useEffect, useRef, useState } from "react"
-import DemoButton from "sections/home/DemoButton"
 import styled from "styled-components"
 
 interface MouseFollowerProps {
