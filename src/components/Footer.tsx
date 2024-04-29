@@ -1,4 +1,6 @@
 import Button from "components/Buttons/Primary"
+import gsap from "gsap"
+import ScrollToPlugin from "gsap/ScrollToPlugin"
 import { ReactComponent as LogoSVG } from "images/global/logo.svg"
 import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
@@ -11,6 +13,14 @@ import textStyles from "styles/text"
 import links from "utils/links"
 import Link from "./Buttons/Link"
 
+gsap.registerPlugin(ScrollToPlugin)
+
+const scrollTo = (section: string) => {
+	gsap.to(window, {
+		scrollTo: section,
+	})
+}
+
 export default function Footer() {
 	const mobile = useMedia(false, false, false, true)
 
@@ -20,7 +30,7 @@ export default function Footer() {
 				<StyledDots />
 				<Top>
 					<LogoAddress>
-						<UniversalLink to={links.todo}>
+						<UniversalLink to={links.home}>
 							<Logo />
 						</UniversalLink>
 						<Address>41 E 11th St, 11th Floor, New York, NY 10003</Address>
@@ -28,7 +38,9 @@ export default function Footer() {
 					<Columns>
 						<LinkColumn>
 							<Label>Product</Label>
-							<Link to={links.todo}>Pricing</Link>
+							<Link type="button" onClick={() => scrollTo("#pricing")}>
+								Pricing
+							</Link>
 							<Link to={links.todo} tag="Coming Soon">
 								Platform
 							</Link>
@@ -52,8 +64,8 @@ export default function Footer() {
 						</LinkColumn>
 						<LinkColumn>
 							<Label>Support</Label>
-							<Link to={links.todo}>Help Center</Link>
-							<Link to={links.todo}>API Docs</Link>
+							<Link to={links.helpCenter}>Help Center</Link>
+							<Link to={links.apiDocs}>API Docs</Link>
 							<Link to={links.todo}>Contact Us</Link>
 						</LinkColumn>
 						{mobile && (
@@ -90,10 +102,10 @@ export default function Footer() {
 							<Text>Inc. All rights reserved.</Text>
 						</Column>
 						<Column>
-							<UniversalLink to={links.todo}>
+							<UniversalLink to={links.terms}>
 								<Text>Terms</Text>
 							</UniversalLink>
-							<UniversalLink to={links.todo}>
+							<UniversalLink to={links.privacy}>
 								<Text>Privacy Policy</Text>
 							</UniversalLink>
 						</Column>
@@ -130,6 +142,7 @@ const StyledDots = styled(Dots)`
   display: flex;
   transform: translateX(-50%);
   left: 50%;
+  z-index: 0;
   
   ${fresponsive(css`
     width: 1320px;
@@ -165,7 +178,9 @@ const Top = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-
+  position: relative;
+  z-index: 2;
+  
   ${ftablet(css`
     justify-content: flex-start;
     gap: 81px;
@@ -259,6 +274,8 @@ const Label = styled.span`
 const Bottom = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 2;
 
   ${fresponsive(css`
     gap: 36px;

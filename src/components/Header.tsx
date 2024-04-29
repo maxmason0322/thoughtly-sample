@@ -52,7 +52,7 @@ export default function Header() {
 				<Right>
 					{mobile && (
 						<>
-							<MobileButton to={links.todo}>Sign In</MobileButton>
+							<MobileButton to={links.login}>Sign In</MobileButton>
 							<MobileButton to={links.todo}>
 								Get Started <StyledIcon name="chev" />
 							</MobileButton>
@@ -60,7 +60,7 @@ export default function Header() {
 					)}
 					{!mobile && (
 						<>
-							<PrimaryButton variant="secondary" to={links.todo}>
+							<PrimaryButton variant="secondary" to={links.login}>
 								Sign In
 							</PrimaryButton>
 							<PrimaryButton icon="chev" to={links.todo}>
