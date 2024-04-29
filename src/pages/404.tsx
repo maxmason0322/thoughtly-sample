@@ -22,14 +22,15 @@ export default function FourOhFour() {
 		})
 		const dots = split.chars.splice(-3)
 		for (let i = 0; i < dots.length; i++) {
-			gsap.timeline({ delay: i * 0.2, repeat: -1, yoyo: true }).to(
+			gsap.timeline({ delay: i * 0.15, repeat: -1, yoyo: true }).to(
 				dots[i] ?? null,
 				{
 					yPercent: -25,
-					ease: "power1.out",
-					yoyoEase: "power1.in",
+					ease: "power2.out",
+					yoyoEase: "power2.in",
+					duration: 0.3,
 				},
-				0.5,
+				1.5,
 			)
 		}
 	}, [])
