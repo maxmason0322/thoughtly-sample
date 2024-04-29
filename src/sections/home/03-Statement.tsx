@@ -1,9 +1,6 @@
 import gsap from "gsap"
 import { CSSPlugin } from "gsap"
 import SplitText from "gsap/SplitText"
-import Background from "images/home/statement-background.png"
-import BackgroundM from "images/home/statement-backgroundM.png"
-import BackgroundT from "images/home/statement-backgroundT.png"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import { useRef } from "react"
@@ -148,7 +145,7 @@ const Inner = styled.div`
 `
 
 const DotsWrapper = styled.div`
-	background-color: ${colors.gray100};
+  background-color: ${colors.gray100};
   position: relative;
   overflow: hidden;
 
@@ -158,17 +155,17 @@ const DotsWrapper = styled.div`
     height: 694px;
   `)}
 
-	${ftablet(css`
-		border-radius: 48px;
-		width: 982px;
-		height: 694px;
-	`)}
+  ${ftablet(css`
+    border-radius: 48px;
+    width: 982px;
+    height: 694px;
+  `)}
 
 	${fmobile(css`
-		border-radius: 36px;
-		width: 358px;
-		height: 448px;
-	`)}
+    border-radius: 36px;
+    width: 358px;
+    height: 448px;
+  `)}
 `
 
 const Content = styled.div`

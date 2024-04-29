@@ -1,15 +1,16 @@
 import Selector from "components/Buttons/Selector"
 import Icon, { type IconType } from "components/Icon"
+import Widget from "components/Widget"
 import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
-import Hipaa from "images/global/hipaa.png"
-import Soc2 from "images/global/soc-2.png"
+import DrawSVGPlugin from "gsap/DrawSVGPlugin"
+import { ReactComponent as LineSVG } from "images/home/industries-line.svg"
 import AutoAnimate from "library/AutoAnimate"
+import { ScreenContext } from "library/ScreenContext"
 import UniversalImage from "library/UniversalImage"
-import { fresponsive, ftablet } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
-import useMedia from "library/useMedia"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import styled, { css } from "styled-components"
 import { Dots } from "styles/background"
 import colors, { gradients } from "styles/colors"
@@ -17,9 +18,11 @@ import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
 import ProgressGroup from "./ProgressGroup"
 
+gsap.registerPlugin(DrawSVGPlugin)
+
 export default function Industry() {
 	const [activeIndex, setActiveIndex] = useState(0)
-	const desktop = useMedia(true, true, false, false)
+	const { fullWidth, desktop, tablet, mobile } = useContext(ScreenContext)
 
 	const data: Queries.IndustryQuery = useStaticQuery(graphql`
     query Industry {
@@ -27,8 +30,17 @@ export default function Industry() {
         nodes {
           title
           text
-          hipaa
-          soc2
+          files {
+            name
+            icon
+          }
+          widgetOne {
+            text
+          }
+          widgetTwo {
+            text
+            bottomConnectors
+          }
           assertiveness
           humorLevel
           icon
@@ -65,14 +77,54 @@ export default function Industry() {
 	})
 
 	const widgets = data.allHomeIndustryJson.nodes.map((item, index) => {
-		return <Widget key={item.title} className="widget" id={`widget-${index}`} />
+		return (
+			<Widget1
+				key={item.title}
+				className="widget"
+				id={`widget-${index}`}
+				title="Start"
+				icon="play"
+				iconColor={colors.green400}
+				bottomConnectors={[""]}
+			>
+				{item.widgetOne?.text && <p>"{item.widgetOne.text}"</p>}
+			</Widget1>
+		)
 	})
 
 	const widgets2 = data.allHomeIndustryJson.nodes.map((item, index) => {
+		const bottomConnectors = item.widgetTwo?.bottomConnectors?.map((item) =>
+			item?.replace("\\n", "\n"),
+		)
+
 		return (
-			<Widget2 key={item.title} className="widget-2" id={`widget-2-${index}`} />
+			<Widget2
+				key={item.title}
+				className="widget-2"
+				id={`widget-2-${index}`}
+				title="Speak"
+				icon="speak"
+				iconColor="#0085E5"
+				topConnectors={[""]}
+				bottomConnectors={bottomConnectors}
+			>
+				{item.widgetTwo?.text && <p>"{item.widgetTwo.text}"</p>}
+			</Widget2>
 		)
 	})
+
+	const files = data.allHomeIndustryJson.nodes[activeIndex]?.files?.map(
+		(item) => {
+			if (!item) return null
+			return (
+				<File key={item.name}>
+					{item.icon && <FileIcon name={item.icon as IconType} />}
+					<FileName>{item.name}</FileName>
+					<Trash name="trash" />
+				</File>
+			)
+		},
+	)
 
 	useAnimation(
 		() => {
@@ -92,6 +144,13 @@ export default function Industry() {
 				},
 				0,
 			)
+			tl.from(
+				"#industries-line",
+				{
+					drawSVG: "0",
+				},
+				1.5,
+			)
 			tl.to(
 				[`#widget-${activeIndex}`, `#widget-2-${activeIndex}`],
 				{
@@ -107,13 +166,13 @@ export default function Industry() {
 	)
 
 	return (
-		<Wrapper>
+		<Wrapper id="industries">
 			<Inner>
 				<Top>
 					<Title>
 						The future of customer <span>interaction.</span>
 					</Title>
-					<Buttons>{tabs}</Buttons>
+					{!mobile && <Buttons>{tabs}</Buttons>}
 				</Top>
 				<Bottom>
 					<Left>
@@ -133,6 +192,7 @@ export default function Industry() {
 								text="Balanced humor and professionalism"
 							/>
 						</Assertiveness>
+
 						<Agent>
 							<AutoAnimate>
 								<Avatar
@@ -158,6 +218,7 @@ export default function Industry() {
 								</Name>
 							</AutoAnimate>
 						</Agent>
+
 						<AutoAnimate
 							duration={1.25}
 							toParameters={{
@@ -176,30 +237,43 @@ export default function Industry() {
 						>
 							<Image
 								key={activeIndex}
+								objectFit="cover"
 								image={data.allHomeIndustryJson.nodes[activeIndex]?.image}
 								alt={data.allHomeIndustryJson.nodes[activeIndex]?.title ?? ""}
 							/>
 						</AutoAnimate>
-						{!desktop && <Widget />}
-						{desktop && (
-							<LogosWrapper>
-								<AutoAnimate
-									alignment="center"
-									fromParameters={{ yPercent: 110 }}
-									toParameters={{ yPercent: -110 }}
-								>
-									<Logos
-										key={data.allHomeIndustryJson.nodes[activeIndex]?.title}
+						{tablet && (
+							<TabletWidgetWrapper>
+								<AutoAnimate>
+									<Widget1
+										key={activeIndex}
+										title="Start"
+										icon="play"
+										iconColor={colors.green400}
 									>
-										{data.allHomeIndustryJson.nodes[activeIndex]?.hipaa && (
-											<Logo src={Hipaa} alt="Hipaa Compliant" />
-										)}
-
-										{data.allHomeIndustryJson.nodes[activeIndex]?.soc2 && (
-											<Logo src={Soc2} alt="Soc 2 Compliant" />
-										)}
-									</Logos>
+										<p>
+											{
+												data.allHomeIndustryJson.nodes[activeIndex]?.widgetOne
+													?.text
+											}
+										</p>
+									</Widget1>
 								</AutoAnimate>
+							</TabletWidgetWrapper>
+						)}
+						{(fullWidth || desktop || mobile) && (
+							<LogosWrapper>
+								<FilesInner>
+									<PositionWrapper>
+										<AutoAnimate
+											alignment="center"
+											fromParameters={{ yPercent: 110 }}
+											toParameters={{ yPercent: -110 }}
+										>
+											<Logos key={activeIndex}>{files}</Logos>
+										</AutoAnimate>
+									</PositionWrapper>
+								</FilesInner>
 							</LogosWrapper>
 						)}
 					</Left>
@@ -227,38 +301,32 @@ export default function Industry() {
 								</Text>
 							</AutoAnimate>
 						</TextContent>
-						{!desktop && (
+						{tablet && (
 							<LogosWrapper>
-								<AutoAnimate
-									alignment="center"
-									fromParameters={{ yPercent: 110 }}
-									toParameters={{ yPercent: -110 }}
-								>
-									<Logos
-										key={data.allHomeIndustryJson.nodes[activeIndex]?.title}
-									>
-										{data.allHomeIndustryJson.nodes[activeIndex]?.hipaa && (
-											<Logo src={Hipaa} alt="Hipaa Compliant" />
-										)}
-
-										{data.allHomeIndustryJson.nodes[activeIndex]?.soc2 && (
-											<Logo src={Soc2} alt="Soc 2 Compliant" />
-										)}
-									</Logos>
-								</AutoAnimate>
+								<FilesInner>
+									<PositionWrapper>
+										<AutoAnimate
+											alignment="center"
+											fromParameters={{ yPercent: 110 }}
+											toParameters={{ yPercent: -110 }}
+										>
+											<Logos key={activeIndex}>{files}</Logos>
+										</AutoAnimate>
+									</PositionWrapper>
+								</FilesInner>
 							</LogosWrapper>
 						)}
-						{desktop && (
+						{(fullWidth || desktop) && (
 							<DotsWrapper>
 								<StyledDots />
-								<WidgetWrapper>
-									{widgets}
-									{widgets2}
-								</WidgetWrapper>
+								<Connector />
+								{widgets}
+								{widgets2}
 							</DotsWrapper>
 						)}
 					</Right>
 				</Bottom>
+				{mobile && <Buttons>{tabs}</Buttons>}
 			</Inner>
 		</Wrapper>
 	)
@@ -269,6 +337,7 @@ const Wrapper = styled.section`
   display: grid;
   place-items: center;
   overflow: clip;
+  position: relative;
 `
 
 const Inner = styled.div`
@@ -279,13 +348,19 @@ const Inner = styled.div`
 
   ${fresponsive(css`
     height: 1015px;
-    padding: 36px 156px 171px;
+    padding: 36px 156px 170px;
     gap: 47px;
   `)}
 
   ${ftablet(css`
     height: 1172px;
     padding: 85px 68px 121px;
+    gap: 106px;
+  `)}
+
+  ${fmobile(css`
+    height: auto;
+    padding: 85px 29px 170px;
     gap: 30px;
   `)}
 `
@@ -300,6 +375,10 @@ const Top = styled.div`
   ${ftablet(css`
     flex-direction: column;
     gap: 48px;
+  `)}
+
+  ${fmobile(css`
+    margin-bottom: 30px;
   `)}
 `
 
@@ -320,19 +399,45 @@ const Title = styled.h2`
     ${textStyles.h3}
     width: 95%;
   `)}
+
+  ${fmobile(css`
+    ${textStyles.h6}
+    width: 100%;
+  `)}
 `
 
 const Buttons = styled.div`
   display: flex;
   flex-wrap: wrap;
+  height: fit-content;
 
-  ${fresponsive(css`
-    gap: 18px;
-    width: 552px;
-  `)}
+  button {
+    flex-shrink: 0;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+	${fresponsive(css`
+		gap: 18px;
+		width: 552px;
+	`)}
 
   ${ftablet(css`
     width: 650px;
+  `)}
+
+  ${fmobile(css`
+    width: 375px;
+    height: 60px;
+    padding: 0 29px;
+    align-items: center;
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+    position: absolute;
+    bottom: 110px;
+    left: 0;
   `)}
 `
 
@@ -347,6 +452,11 @@ const Bottom = styled.div`
   ${ftablet(css`
     flex-direction: row-reverse;
     gap: 52px;
+  `)}
+
+  ${fmobile(css`
+    flex-direction: column;
+    gap: 56px;
   `)}
 `
 
@@ -371,8 +481,13 @@ const Image = styled(UniversalImage)`
   `)}
 
   ${ftablet(css`
-    width: 480px;
+    width: 460px;
     height: 494px;
+  `)}
+
+  ${fmobile(css`
+    width: 314px;
+    height: 278px;
   `)}
 `
 
@@ -406,6 +521,13 @@ const Assertiveness = styled(Card)`
     left: unset;
     right: -24px;
   `)}
+
+  ${fmobile(css`
+    right: -23px;
+    bottom: -80px;
+    left: unset;
+    top: unset;
+  `)}
 `
 
 const Agent = styled(Card)`
@@ -428,20 +550,93 @@ const Agent = styled(Card)`
     right: -24px;
     left: unset;
   `)}
+
+  ${fmobile(css`
+    position: absolute;
+    top: -29px;
+    left: -13px;
+    z-index: 2;
+  `)}
 `
 
 const LogosWrapper = styled(Card)`
+	${fresponsive(css`
+		border-radius: 24px;
+    width: 243px;
+    height: 134px;
+    padding: 20px;
+	`)}
+
+  ${fmobile(css`
+    display: none;
+  `)}
+`
+
+const FilesInner = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+
   ${fresponsive(css`
-    border-radius: 24px;
+    border-radius: 14px;
+    border: 1.5px dashed ${colors.gray600};
+  `)}
+`
+
+const PositionWrapper = styled.div`
+  position: absolute;
+
+  ${fresponsive(css`
+    top: 20px;
+    left: -61px;
   `)}
 `
 
 const Logos = styled.div`
   display: flex;
-  width: max-content;
+  flex-direction: column;
 
   ${fresponsive(css`
-    gap: 24px;
+    gap: 3px;
+  `)}
+`
+
+const File = styled.div`
+  display: flex;
+  align-items: center;
+  background: ${colors.white};
+
+  ${fresponsive(css`
+    padding: 7.5px;
+    border-radius: 8px;
+    border: 1.5px solid #e4e4e4;
+    width: 210px;
+  `)}
+`
+
+const FileName = styled.span`
+  ${textStyles.bodyS}
+  color: ${colors.black};
+`
+
+const FileIcon = styled(Icon)`
+  ${fresponsive(css`
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+  `)}
+`
+
+const Trash = styled(Icon)`
+  margin-left: auto;
+
+  path {
+    fill: #D9D9D9;
+  }
+
+  ${fresponsive(css`
+    width: 12px;
+    height: 12px;
   `)}
 `
 
@@ -456,7 +651,7 @@ const Right = styled.div`
   ${ftablet(css`
     padding-top: 47px;
     gap: 32px;
-    align-items: flex-start;
+    align-items: flex-end;
   `)}
 `
 
@@ -471,6 +666,10 @@ const TextContent = styled.div`
 
   ${ftablet(css`
     padding-left: 0;
+  `)}
+
+  ${fmobile(css`
+    padding-left: 12px;
   `)}
 `
 
@@ -500,16 +699,22 @@ const Text = styled.p`
     width: 378px;
     height: 184px;
   `)}
+
+  ${fmobile(css`
+    ${textStyles.bodyS}
+    width: 315px;
+    height: 150px;
+  `)}
 `
 
 const DotsWrapper = styled.div`
   background-color: ${colors.gray100};
   position: relative;
-  overflow: hidden;
+  overflow: clip;
 
   ${fresponsive(css`
     border-radius: 24px;
-    width: 576px;
+    width: 560px;
     height: 375px;
   `)}
 `
@@ -521,48 +726,42 @@ const StyledDots = styled(Dots)`
   `)}
 `
 
-const WidgetWrapper = styled.div`
-  position: relative;
-  overflow: clip;
-
-  ${fresponsive(css`
-    border-radius: 24px;
-    width: 576px;
-    height: 375px;
-  `)}
-`
-
-const Widget = styled(Card)`
+const TabletWidgetWrapper = styled.div`
   position: absolute;
 
-  ${fresponsive(css`
-    width: 288px;
-    height: 133px;
-    top: 24px;
-    left: 24px;
-  `)}
-
-  ${ftablet(css`
+ ${ftablet(css`
     top: -30px;
     left: -96px;
     z-index: 2;
   `)}
 `
 
-const Widget2 = styled(Widget)`
-  top: unset;
-  left: unset;
+const Widget1 = styled(Widget)`
+  position: absolute;
+  transform: scale(0.73);
+  transform-origin: top left;
 
   ${fresponsive(css`
-    bottom: 24px;
-    right: 24px;
+    height: 196px;
+    top: 23px;
+    left: 23px;
+  `)}
+
+  ${ftablet(css`
+    position: relative;
+    top: unset;
+    left: unset;
   `)}
 `
 
-const Logo = styled.img`
+const Widget2 = styled(Widget1)`
+  top: unset;
+  left: unset;
+  transform-origin: bottom right;
+
   ${fresponsive(css`
-    width: 42px;
-    height: 42px;
+    bottom: 22px;
+    right: 23px;
   `)}
 `
 
@@ -601,5 +800,22 @@ const StyledIcon = styled(Icon)`
     display: flex;
     width: 30px;
     height: 30px;
+  `)}
+
+  ${fmobile(css`
+    display: flex;
+    width: 30px;
+    height: 30px;
+  `)}
+`
+
+const Connector = styled(LineSVG)`
+  position: absolute;
+
+  ${fresponsive(css`
+    width: 233px;
+    height: 45px;
+    left: 164px;
+    top: 166px;
   `)}
 `
