@@ -1,55 +1,33 @@
 import Button from "components/Buttons/Primary"
 import Kicker from "components/Kicker"
-import { graphql, useStaticQuery } from "gatsby"
+import Unmask from "components/Unmask"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
-import { ReactComponent as ActionSpeakLineSVG } from "images/home/hero/action-speak-line.svg"
 import Background from "images/home/hero/hero-background.png"
-import { ReactComponent as SpeakTestLineSVG } from "images/home/hero/speak-abtest-line.svg"
-import { ReactComponent as SpeakActionLineSVG } from "images/home/hero/speak-action-line.svg"
-import { ReactComponent as SpeakLine1SVG } from "images/home/hero/speak-line-1.svg"
-import { ReactComponent as SpeakLine2SVG } from "images/home/hero/speak-line-2.svg"
-import { ReactComponent as SpeakLine3SVG } from "images/home/hero/speak-line-3.svg"
-import { ReactComponent as SpeakLine4SVG } from "images/home/hero/speak-line-4.svg"
-import { ReactComponent as StartSpeakLineSVG } from "images/home/hero/start-speak-line.svg"
-import { ReactComponent as TestLine1SVG } from "images/home/hero/test-line-1.svg"
-import { ReactComponent as TestSpeakLineSVG } from "images/home/hero/test-speak-line.svg"
-import UniversalImage from "library/UniversalImage"
-import { fresponsive } from "library/fullyResponsive"
+import { ScreenContext } from "library/ScreenContext"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
+import getMedia from "library/getMedia"
 import useAnimation from "library/useAnimation"
-import { useRef } from "react"
+import { getResponsivePixels } from "library/viewportUtils"
+import { useContext, useRef } from "react"
 import styled, { css } from "styled-components"
+import { Dots } from "styles/background"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
 import links from "utils/links"
-import AvatarWidget from "./AvatarWidget"
-import CallWidget from "./CallWidget"
-import IconsWidget from "./IconsWidget"
-import Widget from "./Widget"
+import Lines from "./Lines"
+import Widgets from "./Widgets"
 
 gsap.registerPlugin(DrawSVGPlugin)
 
 export default function Hero() {
+	const { mobile } = useContext(ScreenContext)
 	const wrapperRef = useRef<HTMLElement | null>(null)
-
-	const images: Queries.HomeHeroQuery = useStaticQuery(graphql`
-    query HomeHero {
-      abTest: file(relativePath: { eq: "home/hero/anal-graph.png" }) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-      webhook: file(relativePath: { eq: "home/hero/webhook.png" }) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-    }
-  `)
 
 	useAnimation(
 		() => {
+			if (mobile) return
 			const tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: wrapperRef.current,
@@ -57,8 +35,37 @@ export default function Hero() {
 					end: "bottom 50%",
 					scrub: true,
 				},
+				defaults: {
+					ease: "none",
+				},
 			})
 
+			tl.to(
+				".icons-widget",
+				{
+					x: () => getResponsivePixels(getMedia(80, 80, 20, 40)),
+					yPercent: 100,
+					duration: 1.5,
+				},
+				0,
+			)
+			tl.to(
+				".avatar-widget",
+				{
+					yPercent: 300,
+					opacity: 0,
+					duration: 1.5,
+				},
+				0,
+			)
+			tl.to(
+				".call-widget",
+				{
+					y: -100,
+					opacity: 0,
+				},
+				0,
+			)
 			tl.from(
 				"#start-speak-line",
 				{
@@ -131,7 +138,7 @@ export default function Hero() {
 				"<+=0.5",
 			)
 		},
-		[],
+		[mobile],
 		{
 			scope: wrapperRef,
 		},
@@ -141,8 +148,13 @@ export default function Hero() {
 		<Wrapper ref={wrapperRef}>
 			<Inner>
 				<BackgroundImage src={Background} />
+				<BackgroundTablet>
+					<StyledDots />
+				</BackgroundTablet>
 				<TextContent>
-					<Kicker icon="chev">🚀 Seed round led by Afore & others</Kicker>
+					<Kicker icon="chev">
+						🚀&nbsp;&nbsp;&nbsp;Seed round led by Afore & others
+					</Kicker>
 					<Title>Your phone calls, answered beautifully.</Title>
 					<Text>
 						Businesses trust Thoughtly’s human-like AI agents to answer millions
@@ -159,106 +171,39 @@ export default function Hero() {
 					</Buttons>
 				</TextContent>
 				<Callout1>
-					<span>Inbound and outbound phone calls</span>
-					<h6>From "Hello" to handled in a few clicks.</h6>
-					<p>
-						Anything you can teach your human agents to say on the phone, your
-						Thoughtly agents can do the same. Speak with precision and empathy,
-						just like your top performers.
-					</p>
+					<Unmask>
+						<span>Inbound and outbound phone calls</span>
+					</Unmask>
+					<Unmask>
+						<h6>From "Hello" to handled in a few clicks.</h6>
+					</Unmask>
+					<Unmask>
+						<p>
+							Anything you can teach your human agents to say on the phone, your
+							Thoughtly agents can do the same. Speak with precision and
+							empathy, just like your top performers.
+						</p>
+					</Unmask>
 				</Callout1>
 				<Callout2>
-					<span>A data-driven approach</span>
-					<h6>Analytics that tell your customer's story</h6>
-					<p>
-						Empower your decision-making with comprehensive analytics, detailed
-						reports, and A/B testing. Thoughtly provides real-time data
-						visualization and performance metrics, enabling you to optimize
-						communication strategies, understand customer behavior, and drive
-						conversions more effectively.
-					</p>
-				</Callout2>
-				<StyledCallWidget className="call-widget" />
-				<StyledIconsWidget className="icons-widget" />
-				<StyledAvatarWidget className="avatar-widget" />
-				<StartWidget
-					className="start-widget"
-					title="Start"
-					iconColor={colors.green400}
-					icon="play"
-					bottomConnectors={[""]}
-				>
-					"Thank you for calling Thoughtly, this is Tessa. Who am I speaking
-					with?"
-				</StartWidget>
-				<SpeakWidget
-					className="speak-1-widget"
-					title="Speak"
-					iconColor="#0085E5"
-					icon="speak"
-					bottomConnectors={["New Customer", "Existing Customer"]}
-					topConnectors={[""]}
-				>
-					<p>
-						Hey <Blue>{"{name}"}</Blue>, thanks for reaching out. Can you tell
-						me your email so I can lookup your account?
-					</p>
-				</SpeakWidget>
-				<Speak2Widget
-					className="speak-2-widget"
-					title="Speak"
-					iconColor="#0085E5"
-					icon="speak"
-					bottomConnectors={[
-						"Make\nPayment",
-						"Place\nOrder",
-						"Book\nAppointment",
-						"Something\nElse",
-					]}
-					topConnectors={[""]}
-				>
-					<p>
-						Got it, thanks for being a customer for{" "}
-						<Blue>{"{api.num_years}"}</Blue> incredible years,{" "}
-						<Blue>{"{name}"}</Blue>! So, what can I do for you?
-					</p>
-				</Speak2Widget>
-				<ActionWidget
-					className="action-widget"
-					title="Action"
-					icon="integration"
-					iconColor="#F48A46"
-					topConnectors={[""]}
-					bottomConnectors={[""]}
-				>
-					<ActionImage image={images.webhook} alt="webhook ui" />
-				</ActionWidget>
-				<ABTestWidget
-					className="test-widget"
-					title="A/B Test"
-					icon="shuffle"
-					iconColor="#EED70B"
-					topConnectors={[""]}
-					bottomConnectors={["1", "2"]}
-				>
-					<ABTestContent>
+					<Unmask>
+						<span>A data-driven approach</span>
+					</Unmask>
+					<Unmask>
+						<h6>Analytics that&nbsp;tell your customer's&nbsp;story</h6>
+					</Unmask>
+					<Unmask>
 						<p>
-							Great <Blue>{"{name}"}</Blue>, let's get you in the system and
-							I'll route you to the right place!
+							Empower your decision-making with comprehensive analytics,
+							detailed reports, and A/B testing. Thoughtly provides real-time
+							data visualization and performance metrics, enabling you to
+							optimize communication strategies, understand customer behavior,
+							and drive conversions more effectively.
 						</p>
-						<ABImage image={images.abTest} alt="analytics graph" />
-					</ABTestContent>
-				</ABTestWidget>
-				<StartSpeakLine />
-				<SpeakActionLine />
-				<SpeakTestLine />
-				<ActionSpeakLine />
-				<TestSpeakLine />
-				<TestLine />
-				<SpeakLine1 />
-				<SpeakLine2 />
-				<SpeakLine3 />
-				<SpeakLine4 />
+					</Unmask>
+				</Callout2>
+				<Widgets />
+				<Lines />
 			</Inner>
 		</Wrapper>
 	)
@@ -279,6 +224,16 @@ const Inner = styled.div`
     height: 1926px;
     padding: 144px 156px 60px;
   `)}
+
+	${ftablet(css`
+		height: 2211px;
+		padding: 190px 68px 24px;
+	`)}
+
+	${fmobile(css`
+		height: 2253px;
+		padding: 110px 0;
+	`)}
 `
 
 const BackgroundImage = styled.img`
@@ -292,6 +247,13 @@ const BackgroundImage = styled.img`
     right: 62px;
   `)}
 
+	${ftablet(css`
+		display: none;
+	`)}
+
+	${fmobile(css`
+		display: none;
+	`)}
 `
 
 const TextContent = styled.div`
@@ -303,6 +265,10 @@ const TextContent = styled.div`
   ${fresponsive(css`
     gap: 24px;
   `)}
+
+	${fmobile(css`
+		align-items: center;
+	`)}
 `
 
 const Title = styled.h1`
@@ -312,6 +278,17 @@ const Title = styled.h1`
   ${fresponsive(css`
     width: 620px;
   `)}
+
+	${ftablet(css`
+		${textStyles.h2}
+		width: 100%;
+	`)}
+
+	${fmobile(css`
+		${textStyles.h6}
+		width: 80%;
+		text-align: center;
+	`)}
 `
 
 const Text = styled.p`
@@ -321,6 +298,17 @@ const Text = styled.p`
   ${fresponsive(css`
     width: 380px;
   `)}
+
+	${ftablet(css`
+		${textStyles.bodyXL}
+		width: 456px;
+	`)}
+
+	${fmobile(css`
+		${textStyles.bodyR}
+		width: 318px;
+		text-align: center;
+	`)}
 `
 
 const Buttons = styled.div`
@@ -330,6 +318,11 @@ const Buttons = styled.div`
   ${fresponsive(css`
     gap: 18px;
   `)}
+
+	${fmobile(css`
+		flex-direction: column;
+		gap: 12px;
+	`)}
 `
 
 const Callout = styled.div`
@@ -355,6 +348,14 @@ const Callout = styled.div`
   ${fresponsive(css`
     gap: 14px;
   `)}
+
+	${fmobile(css`
+		gap: 8px;
+
+		h6 {
+			${textStyles.sh1}
+		}
+	`)}
 `
 
 const Callout1 = styled(Callout)`
@@ -372,6 +373,30 @@ const Callout1 = styled(Callout)`
       width: 360px;
     }
   `)}
+
+	${ftablet(css`
+		left: 87px;
+		top: 1097px;
+		width: 290px;
+
+		h6, p {
+			width: 100%;
+		}
+	`)}
+
+	${fmobile(css`
+		left: 33px;
+		top: 977px;
+		width: 247px;
+
+		h6 {
+			width: 100%;
+		}
+
+		p {
+			width: 225px;
+		}
+	`)}
 `
 
 const Callout2 = styled(Callout)`
@@ -389,213 +414,55 @@ const Callout2 = styled(Callout)`
       width: 411px;
     }
   `)}
-`
 
-const StartWidget = styled(Widget)`
-  position: absolute;
+	${ftablet(css`
+		right: 70px;
+		bottom: 152px;
+		width: 330px;
 
-  ${fresponsive(css`
-    top: 372px;
-    right: 226px;
-		height: 178px;
-  `)}
-`
+		h6, p {
+			width: 100%;
+		}
+	`)}
 
-const SpeakWidget = styled(Widget)`
-  position: absolute;
+	${fmobile(css`
+		top: 1471px;
+		left: 33px;
+		width: 247px;
 
-  ${fresponsive(css`
-    top: 762px;
-    right: 346px;
-    height: 196px;
-  `)}
-`
+		h6 {
+			width: 100%;
+		}
 
-const Blue = styled.strong`
-  color: #0085E5D9;
-`
-
-const Speak2Widget = styled(Widget)`
-  position: absolute;
-
-  ${fresponsive(css`
-    top: 1603px;
-    right: 732px;
-    height: 195px;
-  `)}
-`
-
-const ActionWidget = styled(Widget)`
-  position: absolute;
-
-  ${fresponsive(css`
-    top: 1004px;
-    right: 156px;
-  `)}
-`
-
-const ABTestWidget = styled(Widget)`
-  position: absolute;
-
-  ${fresponsive(css`
-    top: 1268px;
-    right: 948px;
-    height: 290px;
-  `)}
-`
-
-const ABTestContent = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-
-const ABImage = styled(UniversalImage)`
-  ${fresponsive(css`
-    width: 326px;
-    height: 113px;
-  `)}
-`
-
-const ActionImage = styled(UniversalImage)`
-  ${fresponsive(css`
-    width: 327px;
-    height: 162px;
-  `)}
-`
-
-const StartSpeakLine = styled(StartSpeakLineSVG)`
-  position: absolute;
-
-  ${fresponsive(css`
-    height: 210px;
-    width: 122px;
-    right: 419px;
-    top: 552px;
-  `)}
-`
-
-const SpeakActionLine = styled(SpeakActionLineSVG)`
-  position: absolute;
-
-  ${fresponsive(css`
-    width: 132px;
-    height: 43px;
-    right: 347px;
-    top: 960px;
-  `)}
-`
-
-const SpeakTestLine = styled(SpeakTestLineSVG)`
-  position: absolute;
-
-  ${fresponsive(css`
-    width: 546px;
-    height: 319px;
-    right: 601px;
-    top: 959px;
-  `)}
-`
-
-const ActionSpeakLine = styled(ActionSpeakLineSVG)`
-  position: absolute;
-
-  ${fresponsive(css`
-    width: 578px;
-    height: 309px;
-    right: 349px;
-    top: 1297px;
-  `)}
-`
-
-const TestSpeakLine = styled(TestSpeakLineSVG)`
-  position: absolute;
-
-  ${fresponsive(css`
-    width: 152px;
-    height: 42px;
-    right: 926px;
-    top: 1560px;
-  `)}
-`
-
-const TestLine = styled(TestLine1SVG)`
-  position: absolute;
-
-  ${fresponsive(css`
-    width: 199px;
-    height: 209px;
-    top: 1560px;
-    right: 1180px;
-  `)}
-`
-
-const SpeakLine1 = styled(SpeakLine1SVG)`
-  position: absolute;
-  
-  ${fresponsive(css`
-    width: 192px;
-    height: 68px;
-    bottom: 60px;
-    right: 1037px;
-  `)}
-`
-
-const SpeakLine2 = styled(SpeakLine2SVG)`
-  position: absolute;
-
-  ${fresponsive(css`
-    width: 192px;
-    height: 68px;
-    bottom: 60px;
-    right: 960px;
-  `)}
-`
-
-const SpeakLine3 = styled(SpeakLine3SVG)`
-  position: absolute;
-
-  ${fresponsive(css`
-    width: 313px;
-    height: 70px;
-    bottom: 60px;
-    right: 763px;
-  `)}
-`
-
-const SpeakLine4 = styled(SpeakLine4SVG)`
-  position: absolute;
-
-  ${fresponsive(css`
-    width: 225px;
-    height: 107px;
-    bottom: 36px;
-    right: 592px;
-  `)}
-`
-
-const StyledCallWidget = styled(CallWidget)`
-	position: absolute;
-
-	${fresponsive(css`
-		top: 150px;
-		right: 229px;
+		p {
+			width: 284px;
+		}
 	`)}
 `
 
-const StyledIconsWidget = styled(IconsWidget)`
+const BackgroundTablet = styled.div`
 	position: absolute;
+	display: none;
+	z-index: 0;
+	background-color: ${colors.gray100};
 
-	${fresponsive(css`
-		top: 150px;
-		right: 157px;
+	${ftablet(css`
+		display: flex;
+		width: 982px;
+		height: 1271px;
+		bottom: 24px;
+		left: 21px;
+		border-radius: 48px;
+	`)}
+
+	${fmobile(css`
+		height: 1269px;
+		width: 358px;
+		display: flex;
+		left: 9px;
+		bottom: 82px;
+		border-radius: 36px;
 	`)}
 `
 
-const StyledAvatarWidget = styled(AvatarWidget)`
-	position: absolute;
-
-	${fresponsive(css`
-		top: 452px;
-		right: 83px;
-	`)}
-`
+const StyledDots = styled(Dots)``

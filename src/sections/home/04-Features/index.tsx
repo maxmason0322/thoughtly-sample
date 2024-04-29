@@ -20,7 +20,12 @@ export default function Features() {
         nodes {
           icon
           title
-          text
+					text
+					link {
+						href
+						text
+					}
+					strokeIcon
           background {
             childImageSharp {
               original {
@@ -28,6 +33,20 @@ export default function Features() {
               }
             }
           }
+					backgroundTablet {
+						childImageSharp {
+							original {
+								src
+							}
+						}
+					}
+					backgroundMobile {
+						childImageSharp {
+							original {
+								src
+							}
+						}
+					}
         }
       }
     }
@@ -41,7 +60,11 @@ export default function Features() {
 				title={item.title ?? ""}
 				text={item.text ?? ""}
 				background={item.background?.childImageSharp?.original?.src}
+				backgroundTablet={item.backgroundTablet?.childImageSharp?.original?.src}
+				backgroundMobile={item.backgroundMobile?.childImageSharp?.original?.src}
 				index={index}
+				strokeIcon={item.strokeIcon}
+				link={item.link}
 			/>
 		)
 	})
@@ -69,7 +92,7 @@ export default function Features() {
 	)
 
 	return (
-		<Wrapper ref={wrapperRef}>
+		<Wrapper id="features" ref={wrapperRef}>
 			<Inner ref={innerRef}>{cards}</Inner>
 		</Wrapper>
 	)
@@ -85,7 +108,7 @@ const Inner = styled.div`
   width: 100%;
   max-width: ${desktopBreakpoint}px;
   display: grid;
-  
+
   ${fresponsive(css`
     padding: 111px 156px 200px;
     gap: 24px 24px;

@@ -5,7 +5,6 @@ dotEnvConfig()
 
 const config: GatsbyConfig = {
 	jsxRuntime: "automatic",
-	// TODO add og image
 	siteMetadata: {
 		/**
 		 * this is the default page title when none is provided
@@ -23,7 +22,7 @@ const config: GatsbyConfig = {
 		 * this is the default og image when none other is provided
 		 * it must be a complete URL (e.g. https://example.com/image.jpg)
 		 */
-		image: "https://thought.ly/",
+		image: "https://thought.ly/og-image.png",
 	},
 	graphqlTypegen: {
 		generateOnBuild: true,
@@ -59,10 +58,10 @@ const config: GatsbyConfig = {
 				name: "Thoughtly Marketing",
 				short_name: "Thoughtly",
 				start_url: "/",
-				background_color: "#ffffff", // TODO add theme color
+				background_color: "#ffffff",
 				theme_color: "#ffffff",
 				display: "minimal-ui",
-				icon: "./src/images/global/icon.png", // TODO add favicon
+				icon: "./src/images/global/favicon.png",
 			},
 		},
 		{

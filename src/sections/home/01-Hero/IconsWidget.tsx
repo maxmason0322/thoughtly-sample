@@ -3,11 +3,7 @@ import { fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 
-export default function IconsWidget({
-	className = "",
-}: {
-	className: string
-}) {
+export default function IconsWidget({ className = "" }: { className: string }) {
 	return (
 		<Wrapper className={className}>
 			<IconWrapper>
@@ -39,7 +35,9 @@ const Wrapper = styled.div`
     width: 48px;
     height: 280px;
     border-radius: 18px;
-    box-shadow: 0 -1px 6px 0 rgba(38 38 38 / 6%) inset, 0 18px 32px 0 rgba(89 89 89 / 4%);
+    box-shadow:
+      0 -1px 6px 0 rgba(38 38 38 / 6%) inset,
+      0 18px 32px 0 rgba(89 89 89 / 4%);
   `)}
 `
 
@@ -58,7 +56,6 @@ const IconWrapper = styled.div`
 `
 
 const StyledIcon = styled(Icon)<{ $stroke?: boolean; $fill?: boolean }>`
-
   path {
     ${({ $fill }) => $fill && "fill: #A5A3A3;"}
     ${({ $stroke }) => $stroke && "stroke: #A5A3A3;"}

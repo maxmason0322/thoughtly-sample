@@ -1,3 +1,4 @@
+import Tag from "components/Tag"
 import UniversalImage, { type UniversalImageData } from "library/UniversalImage"
 import { fresponsive } from "library/fullyResponsive"
 import type { ReactNode } from "react"
@@ -45,20 +46,9 @@ const Top = styled.div`
   justify-content: space-between;
 `
 
-const Tag = styled.div`
-  ${textStyles.t2}
-  color: ${colors.gray800};
-  background-color: ${colors.gray200};
-
-  ${fresponsive(css`
-    padding: 12px;
-    border-radius: 10px;
-  `)}
-`
-
 const Text = styled.p`
   ${textStyles.bodyXS}
-  color: ${colors.gray800};
+  color: ${colors.gray700};
 
   ${fresponsive(css`
     width: 220px;
@@ -67,12 +57,12 @@ const Text = styled.p`
 
 const Logo = styled(UniversalImage)`
   flex-grow: 0;
-  
+
   img {
     object-position: left center;
   }
 
   ${fresponsive(css`
-    height: 32px;
+    height: 40px;
   `)}
 `

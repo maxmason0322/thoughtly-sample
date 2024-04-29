@@ -3,7 +3,7 @@ import gsap from "gsap"
 import UniversalImage from "library/UniversalImage"
 import { fresponsive } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
-import { useEffect, useRef } from "react"
+import { useEffect, useMemo, useRef } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 
@@ -16,7 +16,10 @@ export default function AvatarWidget({
 
 	const images: Queries.AvatarsQuery = useStaticQuery(graphql`
     query Avatars {
-      avatars: allFile(filter: {relativeDirectory: {eq: "global/avatars"}}, sort: {relativePath: ASC}) {
+      avatars: allFile(
+        filter: { relativeDirectory: { eq: "global/avatars" } }
+        sort: { relativePath: ASC }
+      ) {
         nodes {
           id
           childImageSharp {
@@ -27,24 +30,27 @@ export default function AvatarWidget({
     }
   `)
 
-	const avatars = [...images.avatars.nodes, ...images.avatars.nodes].map(
-		(item, index, arr) => {
-			return (
-				<Avatar
-					$zIndex={arr.length - index}
-					className="avatar"
-					image={item}
-					key={item.id + Math.random()}
-					alt="avatar"
-				/>
-			)
-		},
+	const avatars = useMemo(
+		() =>
+			[...images.avatars.nodes, ...images.avatars.nodes].map(
+				(item, index, arr) => {
+					return (
+						<Avatar
+							$zIndex={arr.length - index}
+							className="avatar"
+							image={item}
+							key={item.id + Math.random()}
+							alt="avatar"
+						/>
+					)
+				},
+			),
+		[images],
 	)
 
 	const timeline = useAnimation(
 		() => {
 			const tl = gsap.timeline({
-				paused: true,
 				onUpdate: () => {
 					if (Math.ceil(tl.duration() / 2) + 2 === Math.ceil(tl.time())) {
 						tl.pause()
@@ -113,7 +119,9 @@ const Wrapper = styled.div`
     width: 123px;
     height: 122px;
     border-radius: 18px;
-    box-shadow: 0 -1px 6px 0 rgba(38 38 38 / 6%) inset, 0 18px 32px 0 rgba(89 89 89 / 4%);
+    box-shadow:
+      0 -1px 6px 0 rgba(38 38 38 / 6%) inset,
+      0 18px 32px 0 rgba(89 89 89 / 4%);
   `)}
 `
 
@@ -125,7 +133,7 @@ const Avatar = styled(UniversalImage)<{ $zIndex: number }>`
   ${fresponsive(css`
     border: 1px solid ${colors.white};
     width: 48px;
-    height: 48px; 
+    height: 48px;
     top: 12px;
     left: 12px;
   `)}

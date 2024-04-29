@@ -14,12 +14,6 @@ gsap.registerPlugin(ScrollToPlugin)
 
 export default function Integrations() {
 	const doubleTrack = useMedia(false, false, true, true)
-	const trackGap = useMedia(
-		getResponsivePixels(24),
-		getResponsivePixels(24),
-		getResponsivePixels(24),
-		getResponsivePixels(24),
-	)
 
 	const data: Queries.IntegrationsQuery = useStaticQuery(graphql`
     query Integrations {
@@ -39,22 +33,28 @@ export default function Integrations() {
 
 	const cards = data.allHomeIntegrationsJson.nodes.map((item, index) => {
 		return (
-			<Card key={item.text} logo={item.logo} tag={item.tag}>
+			<Card
+				key={(item?.text ?? "") + Math.random()}
+				logo={item.logo}
+				tag={item.tag}
+			>
 				{item.text}
 			</Card>
 		)
 	})
 
 	return (
-		<Wrapper>
+		<Wrapper id="integrations">
 			<Inner>
 				<Kicker gradient icon="integration" iconLeft>
 					Integrations
 				</Kicker>
 				<Tracks>
-					<InfiniteSideScroll trackGap={trackGap}>{cards}</InfiniteSideScroll>
+					<InfiniteSideScroll trackGap={getResponsivePixels(24)}>
+						{cards}
+					</InfiniteSideScroll>
 					{doubleTrack && (
-						<InfiniteSideScroll key={2} trackGap={trackGap}>
+						<InfiniteSideScroll key={2} trackGap={getResponsivePixels(24)}>
 							{cards}
 						</InfiniteSideScroll>
 					)}

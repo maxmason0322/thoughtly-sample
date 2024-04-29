@@ -37,7 +37,6 @@ const Main = styled.main`
   overflow-x: clip;
 `
 
-// TODO: configure a default text color
 const globalCss = css`
   /* default text styles */
   html {
