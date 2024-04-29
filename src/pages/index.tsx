@@ -7,6 +7,7 @@ import CallCTA from "sections/home/05-CallCTA"
 import Workflows from "sections/home/07-Workflows"
 import Integrations from "sections/home/075-Integrations.tsx"
 import WidgetsAndVideo from "sections/home/08-WidgetsAndVideo"
+import FinalCTA from "sections/home/09-FinalCTA"
 import Pricing from "sections/home/Pricing"
 import SocialProof from "sections/home/SocialProof"
 
@@ -23,6 +24,7 @@ export default function IndexPage() {
 			<Workflows />
 			<Integrations />
 			<Pricing />
+			<FinalCTA />
 		</>
 	)
 }

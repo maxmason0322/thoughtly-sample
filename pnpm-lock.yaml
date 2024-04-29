@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@biomejs/monorepo':
     specifier: github:biomejs/biome
-    version: github.com/biomejs/biome/498dd0889cb39c41602b0d2deeaf19b95ea3dff6
+    version: github.com/biomejs/biome/47489cc1ad37f400429bc9b4da9d213eed27e75c
   '@contentful/rich-text-react-renderer':
     specifier: 15.19.6
     version: 15.19.6(react-dom@18.2.0)(react@18.2.0)
@@ -13201,8 +13201,8 @@ packages:
     version: 3.12.5
     dev: false
 
-  github.com/biomejs/biome/498dd0889cb39c41602b0d2deeaf19b95ea3dff6:
-    resolution: {tarball: https://codeload.github.com/biomejs/biome/tar.gz/498dd0889cb39c41602b0d2deeaf19b95ea3dff6}
+  github.com/biomejs/biome/47489cc1ad37f400429bc9b4da9d213eed27e75c:
+    resolution: {tarball: https://codeload.github.com/biomejs/biome/tar.gz/47489cc1ad37f400429bc9b4da9d213eed27e75c}
     name: '@biomejs/monorepo'
     version: 0.0.0
     dev: false
