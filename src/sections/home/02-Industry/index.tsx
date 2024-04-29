@@ -192,36 +192,33 @@ export default function Industry() {
 								text="Balanced humor and professionalism"
 							/>
 						</Assertiveness>
-						{!mobile && (
-							<Agent>
-								<AutoAnimate>
-									<Avatar
-										key={activeIndex}
-										image={
-											data.allHomeIndustryJson.nodes[activeIndex]?.agent?.avatar
-										}
-										alt={
-											data.allHomeIndustryJson.nodes[activeIndex]?.agent
-												?.name ?? ""
-										}
-									/>
-								</AutoAnimate>
-								<AutoAnimate>
-									<Name key={activeIndex}>
-										{
-											data.allHomeIndustryJson.nodes[activeIndex]?.agent
-												?.country
-										}
-									</Name>
-								</AutoAnimate>
-								<Line />
-								<AutoAnimate>
-									<Name key={activeIndex}>
-										{data.allHomeIndustryJson.nodes[activeIndex]?.agent?.name}
-									</Name>
-								</AutoAnimate>
-							</Agent>
-						)}
+
+						<Agent>
+							<AutoAnimate>
+								<Avatar
+									key={activeIndex}
+									image={
+										data.allHomeIndustryJson.nodes[activeIndex]?.agent?.avatar
+									}
+									alt={
+										data.allHomeIndustryJson.nodes[activeIndex]?.agent?.name ??
+										""
+									}
+								/>
+							</AutoAnimate>
+							<AutoAnimate>
+								<Name key={activeIndex}>
+									{data.allHomeIndustryJson.nodes[activeIndex]?.agent?.country}
+								</Name>
+							</AutoAnimate>
+							<Line />
+							<AutoAnimate>
+								<Name key={activeIndex}>
+									{data.allHomeIndustryJson.nodes[activeIndex]?.agent?.name}
+								</Name>
+							</AutoAnimate>
+						</Agent>
+
 						<AutoAnimate
 							duration={1.25}
 							toParameters={{
@@ -240,11 +237,30 @@ export default function Industry() {
 						>
 							<Image
 								key={activeIndex}
+								objectFit="cover"
 								image={data.allHomeIndustryJson.nodes[activeIndex]?.image}
 								alt={data.allHomeIndustryJson.nodes[activeIndex]?.title ?? ""}
 							/>
 						</AutoAnimate>
-						{tablet && <Widget />}
+						{tablet && (
+							<TabletWidgetWrapper>
+								<AutoAnimate>
+									<Widget1
+										key={activeIndex}
+										title="Start"
+										icon="play"
+										iconColor={colors.green400}
+									>
+										<p>
+											{
+												data.allHomeIndustryJson.nodes[activeIndex]?.widgetOne
+													?.text
+											}
+										</p>
+									</Widget1>
+								</AutoAnimate>
+							</TabletWidgetWrapper>
+						)}
 						{(fullWidth || desktop || mobile) && (
 							<LogosWrapper>
 								<FilesInner>
@@ -338,12 +354,13 @@ const Inner = styled.div`
   ${ftablet(css`
     height: 1172px;
     padding: 85px 68px 121px;
-    gap: 30px;
+    gap: 106px;
   `)}
 
   ${fmobile(css`
     height: auto;
     padding: 85px 29px 117px;
+    gap: 30px;
   `)}
 `
 
@@ -357,6 +374,10 @@ const Top = styled.div`
   ${ftablet(css`
     flex-direction: column;
     gap: 48px;
+  `)}
+
+  ${fmobile(css`
+    margin-bottom: 30px;
   `)}
 `
 
@@ -456,7 +477,7 @@ const Image = styled(UniversalImage)`
   `)}
 
   ${ftablet(css`
-    width: 480px;
+    width: 460px;
     height: 494px;
   `)}
 
@@ -525,6 +546,13 @@ const Agent = styled(Card)`
     right: -24px;
     left: unset;
   `)}
+
+  ${fmobile(css`
+    position: absolute;
+    top: -29px;
+    left: -13px;
+    z-index: 2;
+  `)}
 `
 
 const LogosWrapper = styled(Card)`
@@ -536,10 +564,7 @@ const LogosWrapper = styled(Card)`
 	`)}
 
   ${fmobile(css`
-    position: absolute;
-    top: -29px;
-    left: -13px;
-    z-index: 2;
+    display: none;
   `)}
 `
 
@@ -622,7 +647,7 @@ const Right = styled.div`
   ${ftablet(css`
     padding-top: 47px;
     gap: 32px;
-    align-items: flex-start;
+    align-items: flex-end;
   `)}
 `
 
@@ -697,6 +722,16 @@ const StyledDots = styled(Dots)`
   `)}
 `
 
+const TabletWidgetWrapper = styled.div`
+  position: absolute;
+
+ ${ftablet(css`
+    top: -30px;
+    left: -96px;
+    z-index: 2;
+  `)}
+`
+
 const Widget1 = styled(Widget)`
   position: absolute;
   transform: scale(0.73);
@@ -709,9 +744,9 @@ const Widget1 = styled(Widget)`
   `)}
 
   ${ftablet(css`
-    top: -30px;
-    left: -96px;
-    z-index: 2;
+    position: relative;
+    top: unset;
+    left: unset;
   `)}
 `
 
