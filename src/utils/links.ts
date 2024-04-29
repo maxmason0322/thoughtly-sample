@@ -1,4 +1,7 @@
-const routes = {} as const
+const routes = {
+	home: "/",
+	login: "https://app.thought.ly/",
+} as const
 
 const socials = {} as const
 

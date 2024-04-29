@@ -43,10 +43,10 @@ export default function FourOhFour() {
 					<TitleSpan ref={titleRef}>Page not found...</TitleSpan>
 				</Content>
 				<Buttons>
-					<Primary icon="chev" to="/">
+					<Primary icon="chev" to={links.home}>
 						Back to Homepage
 					</Primary>
-					<Primary to={links.todo} variant="secondary">
+					<Primary to={links.login} variant="secondary">
 						Or give thoughtly a try!
 					</Primary>
 				</Buttons>
