@@ -51,8 +51,8 @@ export default function Card({
 	title: string
 	text: string
 	link?: {
-		href: string
-		text: string
+		href: string | null
+		text: string | null
 	} | null
 	index: number
 	background?: string | null
