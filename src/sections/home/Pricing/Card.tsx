@@ -84,6 +84,10 @@ const Wrapper = styled.div`
   flex-direction: column;
 
   ${fresponsive(css`
+    &:nth-child(2) {
+      height: 475px;
+    }
+
     min-height: 440px;
     width: 360px;
     border-radius: 18px;
@@ -94,9 +98,17 @@ const Wrapper = styled.div`
   ${ftablet(css`
     width: 570px;
     min-height: unset;
+
+    &:nth-child(2) {
+      height: auto;
+    }
   `)}
 
   ${fmobile(css`
+    &:nth-child(2) {
+      height: auto;
+    }
+
     min-height: unset;
   `)}
 `

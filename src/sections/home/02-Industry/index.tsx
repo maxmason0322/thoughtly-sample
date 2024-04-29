@@ -144,10 +144,13 @@ export default function Industry() {
 				},
 				0,
 			)
-			tl.from(
+			tl.fromTo(
 				"#industries-line",
 				{
-					drawSVG: "0",
+					drawSVG: "0%",
+				},
+				{
+					drawSVG: "100%",
 				},
 				1.5,
 			)

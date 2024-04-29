@@ -10,14 +10,16 @@ export default function Kicker({
 	icon,
 	gradient = false,
 	iconLeft = false,
+	iconColor = colors.gray500,
 }: {
 	children: ReactNode
 	icon?: IconType
 	gradient?: boolean
 	iconLeft?: boolean
+	iconColor?: string
 }) {
 	return (
-		<Wrapper $gradient={!!gradient}>
+		<Wrapper $gradient={!!gradient} $iconColor={iconColor}>
 			{icon && iconLeft && <StyledIcon name={icon} />}
 			{children}
 			{icon && !iconLeft && <StyledIcon name={icon} />}
@@ -25,13 +27,20 @@ export default function Kicker({
 	)
 }
 
-const Wrapper = styled.div<{ $gradient: boolean }>`
+const Wrapper = styled.div<{ $gradient: boolean; $iconColor: string }>`
   width: fit-content;
   display: flex;
   align-items: center;
   color: ${colors.gray700};
   ${textStyles.sh4}
   white-space: nowrap;
+
+  svg {
+    path {
+      fill: ${({ $iconColor }) => $iconColor};
+      stroke: ${({ $iconColor }) => $iconColor};
+    }
+  }
 
   ${({ $gradient }) =>
 		$gradient &&

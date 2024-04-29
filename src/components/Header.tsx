@@ -46,21 +46,21 @@ export default function Header() {
 						<Link type="button" onClick={() => scrollTo("#pricing", 250)}>
 							Pricing
 						</Link>
-						<Link to={links.todo}>Support</Link>
+						<Link to={links.helpCenter}>Support</Link>
 					</Links>
 				</Left>
 				<Right>
 					{mobile && (
 						<>
-							<MobileButton to={links.todo}>Sign In</MobileButton>
-							<MobileButton to={links.todo}>
+							<MobileButton to={links.login}>Sign In</MobileButton>
+							<MobileButton to={links.login}>
 								Get Started <StyledIcon name="chev" />
 							</MobileButton>
 						</>
 					)}
 					{!mobile && (
 						<>
-							<PrimaryButton variant="secondary" to={links.todo}>
+							<PrimaryButton variant="secondary" to={links.login}>
 								Sign In
 							</PrimaryButton>
 							<PrimaryButton icon="chev" to={links.todo}>
