@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@biomejs/monorepo':
+    specifier: github:biomejs/biome
+    version: github.com/biomejs/biome/498dd0889cb39c41602b0d2deeaf19b95ea3dff6
   '@contentful/rich-text-react-renderer':
     specifier: 15.19.6
     version: 15.19.6(react-dom@18.2.0)(react@18.2.0)
@@ -100,6 +103,9 @@ devDependencies:
   '@biomejs/biome':
     specifier: 1.6.4
     version: 1.6.4
+  '@types/color-convert':
+    specifier: 2.0.3
+    version: 2.0.3
   '@types/node':
     specifier: 20.12.4
     version: 20.12.4
@@ -3376,6 +3382,16 @@ packages:
       '@types/responselike': 1.0.1
     dev: false
 
+  /@types/color-convert@2.0.3:
+    resolution: {integrity: sha512-2Q6wzrNiuEvYxVQqhh7sXM2mhIhvZR/Paq4FdsQkOMgWsCIkKvSGj8Le1/XalulrmgOzPMqNa0ix+ePY4hTrfg==}
+    dependencies:
+      '@types/color-name': 1.1.4
+    dev: true
+
+  /@types/color-name@1.1.4:
+    resolution: {integrity: sha512-hulKeREDdLFesGQjl96+4aoJSHY5b2GRjagzzcqCfIrWhe5vkCqIvrLbqzBaI1q94Vg8DNJZZqTR5ocdWmWclg==}
+    dev: true
+
   /@types/common-tags@1.8.2:
     resolution: {integrity: sha512-Z5UcOnlqxFm0tCCTEhkcVOfSihWOMyKypIWHtQNSYh6fMdPUIVpNdLBYutDpDXVHsMUrYzI2IczUHXIzpUovmQ==}
     dev: false
@@ -4317,9 +4333,9 @@ packages:
     peerDependencies:
       eslint: '>= 4.12.1'
     dependencies:
-      '@babel/code-frame': 7.24.2
-      '@babel/parser': 7.24.4
-      '@babel/traverse': 7.24.1
+      '@babel/code-frame': 7.22.13
+      '@babel/parser': 7.23.0
+      '@babel/traverse': 7.23.2
       '@babel/types': 7.24.0
       eslint: 7.32.0
       eslint-visitor-keys: 1.3.0
@@ -5431,7 +5447,7 @@ packages:
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0, npm: '>=7.0.0'}
     dependencies:
       mdn-data: 2.0.28
-      source-map-js: 1.2.0
+      source-map-js: 1.0.2
     dev: false
 
   /css-tree@2.3.1:
@@ -13183,6 +13199,12 @@ packages:
     resolution: {integrity: sha512-Q/GR6Bq13T9ulCSt3bIxHtYu5NbeBZwTi9DykpMFGsF1xUNmG5zNHr/B7TtECURU+N9JSFEPoFj9o77gXfVSRw==, tarball: file:gsap-bonus.tgz}
     name: gsap
     version: 3.12.5
+    dev: false
+
+  github.com/biomejs/biome/498dd0889cb39c41602b0d2deeaf19b95ea3dff6:
+    resolution: {tarball: https://codeload.github.com/biomejs/biome/tar.gz/498dd0889cb39c41602b0d2deeaf19b95ea3dff6}
+    name: '@biomejs/monorepo'
+    version: 0.0.0
     dev: false
 
   github.com/reformcollective/stylelint-config-reform/01cf44bad0bb798a7d97561af666675420d3d794:
