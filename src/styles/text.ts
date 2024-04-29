@@ -170,8 +170,9 @@ const textStyles = {
 
 export const strokeText = css`
   /* styled doesn't prefix this property yet */
-  /* stylelint-disable property-no-vendor-prefix */
+/* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-background-clip: text;
+  /* stylelint-disable-next-line property-no-vendor-prefix */
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
@@ -181,8 +182,10 @@ export const strokeText = css`
 `
 
 export const strokeTextTransparent = css`
-  /* stylelint-disable-next-line property-no-vendor-prefix  */
+/* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-background-clip: text;
+ /* stylelint-disable-next-line property-no-vendor-prefix */
+   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
   background-size: 100%;
@@ -191,7 +194,10 @@ export const strokeTextTransparent = css`
 `
 
 export const transparentText = css`
-  -webkit-background-clip: text;
+ /* stylelint-disable-next-line property-no-vendor-prefix */
+ -webkit-background-clip: text;
+ /* stylelint-disable-next-line property-no-vendor-prefix */
+   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
   background-size: 100%;
@@ -201,6 +207,7 @@ export const transparentText = css`
 export const clampText = (lines: number) => css`
   overflow: hidden;
   text-overflow: ellipsis;
+   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;

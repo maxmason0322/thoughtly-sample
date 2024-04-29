@@ -76,6 +76,7 @@ const Track = styled.div`
   overflow-x: scroll;
   display: flex;
   position: relative;
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
   scrollbar-width: none;
   transform: translateZ(0.01);
 

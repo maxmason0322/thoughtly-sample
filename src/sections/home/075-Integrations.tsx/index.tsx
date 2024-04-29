@@ -14,12 +14,6 @@ gsap.registerPlugin(ScrollToPlugin)
 
 export default function Integrations() {
 	const doubleTrack = useMedia(false, false, true, true)
-	const trackGap = useMedia(
-		getResponsivePixels(24),
-		getResponsivePixels(24),
-		getResponsivePixels(24),
-		getResponsivePixels(24),
-	)
 
 	const data: Queries.IntegrationsQuery = useStaticQuery(graphql`
     query Integrations {
@@ -50,15 +44,17 @@ export default function Integrations() {
 	})
 
 	return (
-		<Wrapper>
+		<Wrapper id="integrations">
 			<Inner>
 				<Kicker gradient icon="integration" iconLeft>
 					Integrations
 				</Kicker>
 				<Tracks>
-					<InfiniteSideScroll trackGap={trackGap}>{cards}</InfiniteSideScroll>
+					<InfiniteSideScroll trackGap={getResponsivePixels(24)}>
+						{cards}
+					</InfiniteSideScroll>
 					{doubleTrack && (
-						<InfiniteSideScroll key={2} trackGap={trackGap}>
+						<InfiniteSideScroll key={2} trackGap={getResponsivePixels(24)}>
 							{cards}
 						</InfiniteSideScroll>
 					)}
