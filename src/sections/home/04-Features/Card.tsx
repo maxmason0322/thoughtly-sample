@@ -70,7 +70,8 @@ export default function Card({
 	const columns = COLUMNS[breakpoint][index % 6]
 	const rows = ROWS[breakpoint][index % 6]
 
-	const scrollTo = (section: string) => {
+	const scrollTo = (section: string | null) => {
+		if (!section) return
 		gsap.to(window, {
 			scrollTo: section,
 		})
@@ -82,7 +83,7 @@ export default function Card({
 			<Title>{title}</Title>
 			<Text>{text}</Text>
 			{link && (
-				<Link type="button" onClick={() => scrollTo(link.href)}>
+				<Link type="button" onClick={() => scrollTo(link?.href)}>
 					{link.text}
 				</Link>
 			)}
