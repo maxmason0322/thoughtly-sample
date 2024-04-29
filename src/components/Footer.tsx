@@ -59,9 +59,9 @@ export default function Footer() {
 						{mobile && (
 							<LinkColumn>
 								<Label>Socials</Label>
-								<Link to={links.todo}>Instagram</Link>
-								<Link to={links.todo}>Linkedin</Link>
-								<Link to={links.todo}>X(Twitter)</Link>
+								<Link to={links.instagram}>Instagram</Link>
+								<Link to={links.linkedin}>Linkedin</Link>
+								<Link to={links.twitter}>X(Twitter)</Link>
 							</LinkColumn>
 						)}
 					</Columns>
@@ -70,9 +70,9 @@ export default function Footer() {
 					<BottomTop>
 						{!mobile && (
 							<Socials>
-								<Link to={links.todo}>Instagram</Link>
-								<Link to={links.todo}>LinkedIn</Link>
-								<Link to={links.todo}>X(Twitter)</Link>
+								<Link to={links.instagram}>Instagram</Link>
+								<Link to={links.linkedin}>LinkedIn</Link>
+								<Link to={links.twitter}>X(Twitter)</Link>
 							</Socials>
 						)}
 						<Buttons>
