@@ -3,6 +3,7 @@ import gsap from "gsap"
 import UniversalImage from "library/UniversalImage"
 import { fresponsive } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
+import { getResponsivePixels } from "library/viewportUtils"
 import { useEffect, useMemo, useRef } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
@@ -62,8 +63,8 @@ export default function AvatarWidget({
 			tl.fromTo(
 				".avatar",
 				{
-					y: -60,
-					x: -60,
+					y: () => getResponsivePixels(-60),
+					x: () => getResponsivePixels(-60),
 				},
 				{
 					y: 0,
@@ -75,8 +76,8 @@ export default function AvatarWidget({
 				".avatar",
 				{
 					scale: 1.5,
-					x: 30,
-					y: 30,
+					x: () => getResponsivePixels(30),
+					y: () => getResponsivePixels(30),
 					stagger: 2,
 				},
 				2,
@@ -85,8 +86,8 @@ export default function AvatarWidget({
 				".avatar",
 				{
 					scale: 2,
-					x: 150,
-					y: 150,
+					x: () => getResponsivePixels(150),
+					y: () => getResponsivePixels(150),
 					stagger: 2,
 				},
 				4,

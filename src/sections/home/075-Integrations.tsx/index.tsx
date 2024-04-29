@@ -50,11 +50,9 @@ export default function Integrations() {
 					Integrations
 				</Kicker>
 				<Tracks>
-					<InfiniteSideScroll trackGap={getResponsivePixels(24)}>
-						{cards}
-					</InfiniteSideScroll>
+					<InfiniteSideScroll trackGap={24}>{cards}</InfiniteSideScroll>
 					{doubleTrack && (
-						<InfiniteSideScroll key={2} trackGap={getResponsivePixels(24)}>
+						<InfiniteSideScroll key={2} trackGap={24}>
 							{cards}
 						</InfiniteSideScroll>
 					)}
