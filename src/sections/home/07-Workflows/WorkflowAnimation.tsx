@@ -62,326 +62,331 @@ export default function WorkflowAnimation({
 
 	const [activeIcon, setActiveIcon] = useState(0)
 
-	useAnimation(() => {
-		if (!animationRef.current) return
+	useAnimation(
+		() => {
+			if (!animationRef.current) return
 
-		const processingToComplete = {
-			text: { value: "Complete" },
-			duration: 0.5,
-			onComplete: () => {
-				setProcessStep(1)
-				setAfterContent(false)
-			},
-		}
+			const processingToComplete = {
+				text: { value: "Complete" },
+				duration: 0.5,
+				onComplete: () => {
+					setProcessStep(1)
+					setAfterContent(false)
+				},
+			}
 
-		let activeIndex = 0
+			let activeIndex = 0
 
-		const tl = gsap.timeline({
-			scrollTrigger: {
-				trigger: animationRef.current,
-				start: "bottom bottom",
-				end: "bottom top",
-			},
-			repeat: -1,
-			onStart: () => {
-				processCircleAnimation()
-				setActiveIndex(activeIndex)
-			},
-			onRepeat: () => {
-				activeIndex = activeIndex === 2 ? 0 : activeIndex + 1
-				setActiveIndex(activeIndex)
-			},
-		})
-		// Step 1
-		tl.fromTo(
-			rowText.current,
-			{
-				text: { value: "New Lead" },
-			},
-			{
-				duration: 0.3,
-				text: { value: "New Lead" },
-			},
-			0.3,
-		)
-			.to(
-				processText.current,
-				{
-					text: { value: "Processing" },
-					duration: 0.5,
-					onComplete: () => {
-						setAfterContent(true)
-						setProcessStep(0)
-					},
+			const tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: animationRef.current,
+					start: "bottom bottom",
+					end: "bottom top",
+					toggleActions: "play pause resume pause",
 				},
-				0,
-			)
-			.to(".tags-1", tagStaggerIn, 1)
-			.to(".tags-1 > svg", iconStaggerIn, 1.2)
-			.to(processText.current, processingToComplete, STEP_INTERVAL - 2)
-			.to(
-				".left-connect1",
-				{
-					morphSVG: getMedia(
-						LEFT_CONNECTOR_2,
-						LEFT_CONNECTOR_2,
-						LEFT_CONNECTOR_2T,
-						LEFT_CONNECTOR_2T,
-					),
-					duration: 2,
-					ease: EASE_1,
+				repeat: -1,
+				onStart: () => {
+					processCircleAnimation()
+					setActiveIndex(activeIndex)
 				},
-				STEP_INTERVAL,
-			)
-			.to(
-				leftCardRow.current,
-				{
-					x: () => `-=${getResponsivePixels(24)}`,
-					duration: 2,
-					ease: EASE_1,
+				onRepeat: () => {
+					activeIndex = activeIndex === 2 ? 0 : activeIndex + 1
+					setActiveIndex(activeIndex)
 				},
-				STEP_INTERVAL,
-			)
-			.to(
-				".right-connect1",
-				{
-					morphSVG: getMedia(
-						RIGHT_CONNECTOR_2,
-						RIGHT_CONNECTOR_2,
-						RIGHT_CONNECTOR_2T,
-						RIGHT_CONNECTOR_2T,
-					),
-					duration: 2,
-					ease: EASE_1,
-				},
-				STEP_INTERVAL,
-			)
-			.to(
-				processText.current,
-				{
-					text: { value: "Incoming" },
-					duration: 0.5,
-					onStart: () => {
-						setProcessStep(0)
-						setAfterContent(true)
-					},
-				},
-				STEP_INTERVAL + 1,
-			)
-
-			.to(".tags-1", tagStaggerOut, STEP_INTERVAL)
-			.to(".tags-1 > svg", { scale: 0 }, STEP_INTERVAL + 2)
-			.to(
+			})
+			// Step 1
+			tl.fromTo(
 				rowText.current,
 				{
-					duration: 0.3,
-					text: { value: "" },
-					onStart: () => {
-						setActiveIcon(1)
-					},
+					text: { value: "New Lead" },
 				},
-				STEP_INTERVAL + 1,
-			)
-			.to(
-				rowText.current,
-				{
-					duration: 0.3,
-					text: { value: "New Ticket" },
-				},
-				STEP_INTERVAL + 1.3,
-			)
-			.to(".tags-2", tagStaggerIn, STEP_INTERVAL + 2)
-			.to(".tags-2 > svg", iconStaggerIn, STEP_INTERVAL + 2.2)
-			.to(
-				leftCardRef.current,
-				{
-					y: () => `+=${getResponsivePixels(getMedia(138, 138, 109, 100))}`,
-					duration: 2,
-					ease: EASE_1,
-				},
-				STEP_INTERVAL,
-			)
-			.to(
-				rightCardRef.current,
-				{
-					y: () => `-=${getResponsivePixels(getMedia(171, 171, 132, 171))}`,
-					x: () => `-=${getResponsivePixels(getMedia(0, 0, 18, 0))}`,
-					duration: 2,
-					ease: EASE_1,
-				},
-				STEP_INTERVAL,
-			)
-			.to(processText.current, processingToComplete, STEP_INTERVAL * 2 - 2)
-			.to(
-				processText.current,
-				{
-					text: { value: "Ordering" },
-					duration: 0.5,
-					onStart: () => {
-						setProcessStep(0)
-						setAfterContent(true)
-					},
-				},
-				STEP_INTERVAL * 2 + 1,
-			)
-			.to(
-				".left-connect1",
-				{
-					morphSVG: getMedia(
-						LEFT_CONNECTOR_3,
-						LEFT_CONNECTOR_3,
-						LEFT_CONNECTOR_3T,
-						LEFT_CONNECTOR_3T,
-					),
-					duration: 2,
-					ease: EASE_1,
-				},
-				STEP_INTERVAL * 2,
-			)
-			.to(".tags-2", tagStaggerOut, STEP_INTERVAL * 2)
-			.to(".tags-2 > svg", { scale: 0 }, STEP_INTERVAL * 2 + 2)
-			.to(
-				leftCardRow.current,
-				{
-					x: () => `+=${getResponsivePixels(10)}`,
-					duration: 2,
-					ease: EASE_1,
-				},
-				STEP_INTERVAL * 2,
-			)
-			.to(
-				rowText.current,
-				{
-					duration: 0.3,
-					text: { value: "" },
-					onStart: () => {
-						setActiveIcon(2)
-					},
-				},
-				STEP_INTERVAL * 2 + 1,
-			)
-			.to(".tags-3", tagStaggerIn, STEP_INTERVAL * 2 + 2)
-			.to(".tags-3 > svg", iconStaggerIn, STEP_INTERVAL * 2 + 2.2)
-			.to(
-				rowText.current,
-				{
-					duration: 0.3,
-					text: { value: "Row Updated" },
-				},
-				STEP_INTERVAL * 2 + 1.3,
-			)
-			.to(
-				".right-connect1",
-				{
-					morphSVG: getMedia(
-						RIGHT_CONNECTOR_3,
-						RIGHT_CONNECTOR_3,
-						RIGHT_CONNECTOR_3T,
-						RIGHT_CONNECTOR_3T,
-					),
-					duration: 2,
-					ease: EASE_1,
-				},
-				STEP_INTERVAL * 2,
-			)
-			.to(
-				leftCardRef.current,
-				{
-					y: () => `-=${getResponsivePixels(getMedia(65, 65, 81, 81))}`,
-					duration: 2,
-					ease: EASE_1,
-				},
-				STEP_INTERVAL * 2,
-			)
-			.to(
-				rightCardRef.current,
-				{
-					y: () => `+=${getResponsivePixels(getMedia(72, 72, 48, 0))}`,
-					x: () => `+=${getResponsivePixels(getMedia(43, 43, 18, 0))}`,
-					duration: 2,
-					ease: EASE_1,
-				},
-				STEP_INTERVAL * 2,
-			)
-			.to(processText.current, processingToComplete, STEP_INTERVAL * 3 - 2)
-			.to(
-				".left-connect1",
-				{
-					morphSVG: getMedia(
-						LEFT_CONNECTOR_1,
-						LEFT_CONNECTOR_1,
-						LEFT_CONNECTOR_1T,
-						LEFT_CONNECTOR_1T,
-					),
-					duration: 2,
-					ease: EASE_1,
-				},
-				STEP_INTERVAL * 3,
-			)
-			.to(
-				leftCardRef.current,
-				{
-					y: 0,
-					duration: 2,
-					ease: EASE_1,
-				},
-				STEP_INTERVAL * 3,
-			)
-			.to(".tags-3", tagStaggerOut, STEP_INTERVAL * 3)
-			.to(".tags-3 > svg", { scale: 0 }, STEP_INTERVAL * 3 + 2)
-			.to(
-				rightCardRef.current,
-				{
-					y: 0,
-					x: 0,
-					duration: 2,
-					ease: EASE_1,
-				},
-				STEP_INTERVAL * 3,
-			)
-			.to(
-				".right-connect1",
-				{
-					morphSVG: getMedia(
-						RIGHT_CONNECTOR_1,
-						RIGHT_CONNECTOR_1,
-						RIGHT_CONNECTOR_1T,
-						RIGHT_CONNECTOR_1T,
-					),
-					duration: 2,
-					ease: EASE_1,
-				},
-				STEP_INTERVAL * 3,
-			)
-			.to(
-				leftCardRow.current,
-				{
-					x: 0,
-					duration: 2,
-					ease: EASE_1,
-				},
-				STEP_INTERVAL * 3,
-			)
-			.to(
-				rowText.current,
-				{
-					duration: 0.3,
-					text: { value: "" },
-					onStart: () => {
-						setActiveIcon(0)
-					},
-				},
-				STEP_INTERVAL * 3 + 1,
-			)
-			.to(
-				rowText.current,
 				{
 					duration: 0.3,
 					text: { value: "New Lead" },
 				},
-				STEP_INTERVAL * 3 + 1.3,
+				0.3,
 			)
-	}, [setActiveIndex])
+				.to(
+					processText.current,
+					{
+						text: { value: "Processing" },
+						duration: 0.5,
+						onComplete: () => {
+							setAfterContent(true)
+							setProcessStep(0)
+						},
+					},
+					0,
+				)
+				.to(".tags-1", tagStaggerIn, 1)
+				.to(".tags-1 > svg", iconStaggerIn, 1.2)
+				.to(processText.current, processingToComplete, STEP_INTERVAL - 2)
+				.to(
+					".left-connect1",
+					{
+						morphSVG: getMedia(
+							LEFT_CONNECTOR_2,
+							LEFT_CONNECTOR_2,
+							LEFT_CONNECTOR_2T,
+							LEFT_CONNECTOR_2T,
+						),
+						duration: 2,
+						ease: EASE_1,
+					},
+					STEP_INTERVAL,
+				)
+				.to(
+					leftCardRow.current,
+					{
+						x: () => `-=${getResponsivePixels(24)}`,
+						duration: 2,
+						ease: EASE_1,
+					},
+					STEP_INTERVAL,
+				)
+				.to(
+					".right-connect1",
+					{
+						morphSVG: getMedia(
+							RIGHT_CONNECTOR_2,
+							RIGHT_CONNECTOR_2,
+							RIGHT_CONNECTOR_2T,
+							RIGHT_CONNECTOR_2T,
+						),
+						duration: 2,
+						ease: EASE_1,
+					},
+					STEP_INTERVAL,
+				)
+				.to(
+					processText.current,
+					{
+						text: { value: "Incoming" },
+						duration: 0.5,
+						onStart: () => {
+							setProcessStep(0)
+							setAfterContent(true)
+						},
+					},
+					STEP_INTERVAL + 1,
+				)
+
+				.to(".tags-1", tagStaggerOut, STEP_INTERVAL)
+				.to(".tags-1 > svg", { scale: 0 }, STEP_INTERVAL + 2)
+				.to(
+					rowText.current,
+					{
+						duration: 0.3,
+						text: { value: "" },
+						onStart: () => {
+							setActiveIcon(1)
+						},
+					},
+					STEP_INTERVAL + 1,
+				)
+				.to(
+					rowText.current,
+					{
+						duration: 0.3,
+						text: { value: "New Ticket" },
+					},
+					STEP_INTERVAL + 1.3,
+				)
+				.to(".tags-2", tagStaggerIn, STEP_INTERVAL + 2)
+				.to(".tags-2 > svg", iconStaggerIn, STEP_INTERVAL + 2.2)
+				.to(
+					leftCardRef.current,
+					{
+						y: () => `+=${getResponsivePixels(getMedia(138, 138, 109, 100))}`,
+						duration: 2,
+						ease: EASE_1,
+					},
+					STEP_INTERVAL,
+				)
+				.to(
+					rightCardRef.current,
+					{
+						y: () => `-=${getResponsivePixels(getMedia(171, 171, 132, 171))}`,
+						x: () => `-=${getResponsivePixels(getMedia(0, 0, 18, 0))}`,
+						duration: 2,
+						ease: EASE_1,
+					},
+					STEP_INTERVAL,
+				)
+				.to(processText.current, processingToComplete, STEP_INTERVAL * 2 - 2)
+				.to(
+					processText.current,
+					{
+						text: { value: "Ordering" },
+						duration: 0.5,
+						onStart: () => {
+							setProcessStep(0)
+							setAfterContent(true)
+						},
+					},
+					STEP_INTERVAL * 2 + 1,
+				)
+				.to(
+					".left-connect1",
+					{
+						morphSVG: getMedia(
+							LEFT_CONNECTOR_3,
+							LEFT_CONNECTOR_3,
+							LEFT_CONNECTOR_3T,
+							LEFT_CONNECTOR_3T,
+						),
+						duration: 2,
+						ease: EASE_1,
+					},
+					STEP_INTERVAL * 2,
+				)
+				.to(".tags-2", tagStaggerOut, STEP_INTERVAL * 2)
+				.to(".tags-2 > svg", { scale: 0 }, STEP_INTERVAL * 2 + 2)
+				.to(
+					leftCardRow.current,
+					{
+						x: () => `+=${getResponsivePixels(10)}`,
+						duration: 2,
+						ease: EASE_1,
+					},
+					STEP_INTERVAL * 2,
+				)
+				.to(
+					rowText.current,
+					{
+						duration: 0.3,
+						text: { value: "" },
+						onStart: () => {
+							setActiveIcon(2)
+						},
+					},
+					STEP_INTERVAL * 2 + 1,
+				)
+				.to(".tags-3", tagStaggerIn, STEP_INTERVAL * 2 + 2)
+				.to(".tags-3 > svg", iconStaggerIn, STEP_INTERVAL * 2 + 2.2)
+				.to(
+					rowText.current,
+					{
+						duration: 0.3,
+						text: { value: "Row Updated" },
+					},
+					STEP_INTERVAL * 2 + 1.3,
+				)
+				.to(
+					".right-connect1",
+					{
+						morphSVG: getMedia(
+							RIGHT_CONNECTOR_3,
+							RIGHT_CONNECTOR_3,
+							RIGHT_CONNECTOR_3T,
+							RIGHT_CONNECTOR_3T,
+						),
+						duration: 2,
+						ease: EASE_1,
+					},
+					STEP_INTERVAL * 2,
+				)
+				.to(
+					leftCardRef.current,
+					{
+						y: () => `-=${getResponsivePixels(getMedia(65, 65, 81, 81))}`,
+						duration: 2,
+						ease: EASE_1,
+					},
+					STEP_INTERVAL * 2,
+				)
+				.to(
+					rightCardRef.current,
+					{
+						y: () => `+=${getResponsivePixels(getMedia(72, 72, 48, 0))}`,
+						x: () => `+=${getResponsivePixels(getMedia(43, 43, 18, 0))}`,
+						duration: 2,
+						ease: EASE_1,
+					},
+					STEP_INTERVAL * 2,
+				)
+				.to(processText.current, processingToComplete, STEP_INTERVAL * 3 - 2)
+				.to(
+					".left-connect1",
+					{
+						morphSVG: getMedia(
+							LEFT_CONNECTOR_1,
+							LEFT_CONNECTOR_1,
+							LEFT_CONNECTOR_1T,
+							LEFT_CONNECTOR_1T,
+						),
+						duration: 2,
+						ease: EASE_1,
+					},
+					STEP_INTERVAL * 3,
+				)
+				.to(
+					leftCardRef.current,
+					{
+						y: 0,
+						duration: 2,
+						ease: EASE_1,
+					},
+					STEP_INTERVAL * 3,
+				)
+				.to(".tags-3", tagStaggerOut, STEP_INTERVAL * 3)
+				.to(".tags-3 > svg", { scale: 0 }, STEP_INTERVAL * 3 + 2)
+				.to(
+					rightCardRef.current,
+					{
+						y: 0,
+						x: 0,
+						duration: 2,
+						ease: EASE_1,
+					},
+					STEP_INTERVAL * 3,
+				)
+				.to(
+					".right-connect1",
+					{
+						morphSVG: getMedia(
+							RIGHT_CONNECTOR_1,
+							RIGHT_CONNECTOR_1,
+							RIGHT_CONNECTOR_1T,
+							RIGHT_CONNECTOR_1T,
+						),
+						duration: 2,
+						ease: EASE_1,
+					},
+					STEP_INTERVAL * 3,
+				)
+				.to(
+					leftCardRow.current,
+					{
+						x: 0,
+						duration: 2,
+						ease: EASE_1,
+					},
+					STEP_INTERVAL * 3,
+				)
+				.to(
+					rowText.current,
+					{
+						duration: 0.3,
+						text: { value: "" },
+						onStart: () => {
+							setActiveIcon(0)
+						},
+					},
+					STEP_INTERVAL * 3 + 1,
+				)
+				.to(
+					rowText.current,
+					{
+						duration: 0.3,
+						text: { value: "New Lead" },
+					},
+					STEP_INTERVAL * 3 + 1.3,
+				)
+		},
+		[setActiveIndex],
+		{ scope: animationRef },
+	)
 
 	return (
 		<Animation ref={animationRef}>

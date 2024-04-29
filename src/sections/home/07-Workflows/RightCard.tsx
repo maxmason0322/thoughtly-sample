@@ -9,7 +9,7 @@ const tags1 = [
 	"Asked Questions",
 	"Added Sequence",
 	"Opened Email",
-	" Created Task",
+	"Created Task",
 	"Set Milestones",
 ]
 

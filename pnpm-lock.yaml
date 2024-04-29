@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@biomejs/monorepo':
+    specifier: github:biomejs/biome
+    version: github.com/biomejs/biome/498dd0889cb39c41602b0d2deeaf19b95ea3dff6
   '@contentful/rich-text-react-renderer':
     specifier: 15.19.6
     version: 15.19.6(react-dom@18.2.0)(react@18.2.0)
@@ -13196,6 +13199,12 @@ packages:
     resolution: {integrity: sha512-Q/GR6Bq13T9ulCSt3bIxHtYu5NbeBZwTi9DykpMFGsF1xUNmG5zNHr/B7TtECURU+N9JSFEPoFj9o77gXfVSRw==, tarball: file:gsap-bonus.tgz}
     name: gsap
     version: 3.12.5
+    dev: false
+
+  github.com/biomejs/biome/498dd0889cb39c41602b0d2deeaf19b95ea3dff6:
+    resolution: {tarball: https://codeload.github.com/biomejs/biome/tar.gz/498dd0889cb39c41602b0d2deeaf19b95ea3dff6}
+    name: '@biomejs/monorepo'
+    version: 0.0.0
     dev: false
 
   github.com/reformcollective/stylelint-config-reform/01cf44bad0bb798a7d97561af666675420d3d794:
