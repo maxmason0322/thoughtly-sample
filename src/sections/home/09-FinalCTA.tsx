@@ -121,7 +121,7 @@ export default function FinalCTA() {
 					</Left>
 					<Right>
 						<Row>
-							<Primary to={links.todo} outline>
+							<Primary to={links.login} outline>
 								Build your own Thoughtly
 							</Primary>
 							<Primary to={links.todo} variant="secondary" icon="chev">
