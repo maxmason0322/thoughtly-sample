@@ -53,8 +53,8 @@ export default function Footer() {
 						</LinkColumn>
 						<LinkColumn>
 							<Label>Company</Label>
-							<Link to={links.todo}>Media Inquiries</Link>
-							<Link to={links.todo}>Careers</Link>
+							<Link to={links.mediaInquiries}>Media Inquiries</Link>
+							<Link to={links.careers}>Careers</Link>
 							<Link to={links.todo} tag="Coming Soon">
 								About
 							</Link>
@@ -88,7 +88,7 @@ export default function Footer() {
 							</Socials>
 						)}
 						<Buttons>
-							<Button to={links.todo} outline>
+							<Button to={links.login} outline>
 								Build your own Thoughtly
 							</Button>
 							<Button to={links.todo} variant="secondary" icon="phone">

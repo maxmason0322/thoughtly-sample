@@ -162,7 +162,7 @@ export default function Hero() {
 						time growing your business.
 					</Text>
 					<Buttons>
-						<Button to={links.todo} outline>
+						<Button to={links.login} outline>
 							Build your own Thoughtly
 						</Button>
 						<Button to={links.todo} variant="secondary" icon="phone">

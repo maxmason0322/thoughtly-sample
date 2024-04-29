@@ -12,11 +12,11 @@ const socials = {
 
 const links = {
 	todo: "https://www.google.com",
-	careers:
-		"https://thoughtly.notion.site/Careers-at-Thoughtly-6ce6a0cc4cfb4e8fad4a41c911ae33f0",
+	careers: "https://jobs.ashbyhq.com/thoughtly",
 	login: "https://app.thought.ly",
 	helpCenter: "https://help.thought.ly/en/",
 	apiDocs: "https://api.thought.ly/docs/",
+	mediaInquiries: "mailto:press@thought.ly",
 	...routes,
 	...socials,
 } as const
