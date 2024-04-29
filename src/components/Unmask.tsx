@@ -1,4 +1,5 @@
 import gsap from "gsap"
+import { fresponsive } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import type { ReactNode } from "react"
 import { useRef } from "react"
@@ -30,6 +31,10 @@ const Wrapper = styled.div`
   width: fit-content;
   position: relative;
   display: flex;
+
+	${fresponsive(css`
+		padding-bottom: 5px;
+	`)}
 
   & > * {
     position: relative;

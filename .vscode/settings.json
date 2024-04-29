@@ -20,6 +20,7 @@
 	"stylelint.validate": ["css", "scss", "javascriptreact", "typescriptreact"],
 	"cSpell.words": [
 		"ahooks",
+		"airtable",
 		"biomejs",
 		"bunx",
 		"chev",
@@ -34,6 +35,7 @@
 		"ftablet",
 		"gifs",
 		"gsap",
+		"hubspot",
 		"multipass",
 		"pcms",
 		"preinstall",
