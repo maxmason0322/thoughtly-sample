@@ -337,6 +337,7 @@ const Wrapper = styled.section`
   display: grid;
   place-items: center;
   overflow: clip;
+  position: relative;
 `
 
 const Inner = styled.div`
@@ -347,7 +348,7 @@ const Inner = styled.div`
 
   ${fresponsive(css`
     height: 1015px;
-    padding: 36px 156px 171px;
+    padding: 36px 156px 170px;
     gap: 47px;
   `)}
 
@@ -359,7 +360,7 @@ const Inner = styled.div`
 
   ${fmobile(css`
     height: auto;
-    padding: 85px 29px 117px;
+    padding: 85px 29px 170px;
     gap: 30px;
   `)}
 `
@@ -428,12 +429,15 @@ const Buttons = styled.div`
   `)}
 
   ${fmobile(css`
-    width: 315px;
+    width: 375px;
     height: 60px;
-    padding: 0 8px;
+    padding: 0 29px;
     align-items: center;
     overflow-x: scroll;
     flex-wrap: nowrap;
+    position: absolute;
+    bottom: 110px;
+    left: 0;
   `)}
 `
 
