@@ -185,7 +185,7 @@ export const strokeText = css`
 `
 
 export const strokeTextTransparent = css`
-  /* stylelint-disable-next-line property-no-vendor-prefix  */
+/* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-background-clip: text;
 	  /* stylelint-disable-next-line property-no-vendor-prefix  */
   -webkit-text-fill-color: transparent;
@@ -203,7 +203,6 @@ export const transparentText = css`
 	  /* stylelint-disable-next-line property-no-vendor-prefix  */
   -webkit-text-fill-color: transparent;
 	  /* stylelint-disable-next-line property-no-vendor-prefix  */
-
   -moz-text-fill-color: transparent;
   background-size: 100%;
   background-clip: text;
