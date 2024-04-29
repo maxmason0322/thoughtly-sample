@@ -3,9 +3,11 @@ import Kicker from "components/Kicker"
 import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
 import { ReactComponent as GraphSVG } from "images/home/graph.svg"
+import { ReactComponent as GraphMSVG } from "images/home/graphM.svg"
 import { ReactComponent as GraphTSVG } from "images/home/graphT.svg"
 import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
+import getMedia from "library/getMedia"
 import useAnimation from "library/useAnimation"
 import { useRef } from "react"
 import styled, { css } from "styled-components"
@@ -50,11 +52,12 @@ export default function FinalCTA() {
 		{
 			image: ctaImages.allCtaImages.nodes[2]?.childImageSharp?.gatsbyImageData,
 			alt: "woman playing the piano or keyboard",
-			yOffset: "122px",
+			yOffset: getMedia("122px", "122px", "122px", "61px"),
 		},
 		{
 			image: ctaImages.allCtaImages.nodes[3]?.childImageSharp?.gatsbyImageData,
 			alt: "man using photography equipment",
+			yOffset: getMedia("6px", "6px", "6px", "3.5px"),
 		},
 		{
 			image: ctaImages.allCtaImages.nodes[4]?.childImageSharp?.gatsbyImageData,
@@ -80,11 +83,8 @@ export default function FinalCTA() {
 				scrollTrigger: {
 					trigger: bottom.current,
 					start: "top bottom",
-					end: "top 25%",
+					end: "top 50%",
 					scrub: true,
-				},
-				onComplete: () => {
-					gsap
 				},
 			})
 
@@ -139,6 +139,7 @@ export default function FinalCTA() {
 			<Bottom ref={bottom}>
 				<Graph />
 				<GraphT />
+				<GraphM />
 				<GraphCover ref={graphCover} />
 				<PhotoPanel>{ImageCards}</PhotoPanel>
 			</Bottom>
@@ -160,6 +161,10 @@ const Wrapper = styled.section`
   ${ftablet(css`
     padding-bottom: 98px;
   `)}
+
+  ${fmobile(css`
+    padding-bottom: 56px;
+  `)}
 `
 
 const Inner = styled.div`
@@ -180,7 +185,9 @@ const Inner = styled.div`
   `)}
 
   ${fmobile(css`
+    width: 100%;
     max-width: ${mobileBreakpoint}px;
+    padding: 57px 25px 73px;
   `)}
 `
 
@@ -198,6 +205,12 @@ const Top = styled.div`
     gap: 36px;
     flex-direction: column;
   `)}
+
+
+  ${fmobile(css`
+    gap: 36px;
+    flex-direction: column;
+  `)}
 `
 
 const Left = styled.div`
@@ -209,6 +222,12 @@ const Left = styled.div`
     gap: 18px;
     width: 647px;
   `)}
+
+  ${fmobile(css`
+    gap: 24px;
+    width: 325px;
+    align-items: center;
+  `)}
 `
 
 const Header = styled.h1`
@@ -216,6 +235,11 @@ const Header = styled.h1`
 
   ${ftablet(css`
     ${textStyles.h2};
+  `)}
+
+  ${fmobile(css`
+    ${textStyles.h6};
+    text-align: center;
   `)}
 `
 
@@ -228,6 +252,10 @@ const Right = styled.div`
   ${fresponsive(css`
     gap: 32px;
   `)}
+  ${fmobile(css`
+    flex-direction: column-reverse;
+    align-items: center;
+  `)}
 `
 
 const Row = styled.div`
@@ -236,6 +264,12 @@ const Row = styled.div`
 
   ${fresponsive(css`
     gap: 20px;
+  `)}
+
+  ${fmobile(css`
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
   `)}
 `
 
@@ -249,6 +283,13 @@ const Content = styled.p`
   ${ftablet(css`
     width: 423px;
     ${textStyles.bodyL};
+  `)}
+
+
+  ${fmobile(css`
+    width: 273px;
+    ${textStyles.bodyR};
+    text-align: center;
   `)}
 `
 
@@ -265,6 +306,9 @@ const Graph = styled(GraphSVG)`
   ${ftablet(css`
     display: none;
   `)}
+  ${fmobile(css`
+    display: none;
+  `)}
 `
 
 const GraphT = styled(GraphTSVG)`
@@ -279,6 +323,25 @@ const GraphT = styled(GraphTSVG)`
     width: 1024px;
     height: 449px;
     bottom: 90px;
+  `)}
+
+  ${fmobile(css`
+    display: none;
+  `)}
+`
+
+const GraphM = styled(GraphMSVG)`
+  position: absolute;
+  bottom: 0;
+  ${fresponsive(css`
+    display: none;
+  `)}
+
+  ${fmobile(css`
+    display: inline-block;
+    position: relative;
+    width: 375px;
+    height: 237px;
   `)}
 `
 
@@ -299,8 +362,13 @@ const Bottom = styled.div`
   position: relative;
   width: 100%;
   z-index: 0;
+
   ${fresponsive(css`
     height: 473px;
+  `)}
+
+  ${fmobile(css`
+    height: 237px;
   `)}
 `
 
@@ -320,6 +388,16 @@ const PhotoPanel = styled.div`
     left: -178px;
     transform: translateX(0);
   `)}
+
+  ${fmobile(css`
+    width: 851px;
+    height: 237px;
+    padding-left: 39px;
+    transform: translateX(0);
+    left: -238px;
+    top: 24px;
+    gap: 23px;
+  `)}
 `
 
 const ImageCard = styled.div<{ $yOffset?: string }>`
@@ -334,5 +412,19 @@ const ImageCard = styled.div<{ $yOffset?: string }>`
       border-radius: 18px;
       box-shadow: 0 18px 42px 0 rgba(89 89 89 / 8%);
       padding: 20px;
+    `)}
+
+  ${({ $yOffset }) =>
+		fmobile(css`
+      width: 144px;
+      height: 176px;
+      padding: 10px;
+      border-radius: 9px;
+      top: ${$yOffset};
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
     `)}
 `
