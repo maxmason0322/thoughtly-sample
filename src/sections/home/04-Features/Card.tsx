@@ -53,7 +53,7 @@ export default function Card({
 	link?: {
 		href: string
 		text: string
-	}
+	} | null
 	index: number
 	background?: string | null
 	backgroundTablet?: string | null
