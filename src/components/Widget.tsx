@@ -13,6 +13,7 @@ export default function Widget({
 	className = "",
 	topConnectors,
 	bottomConnectors,
+	id,
 }: {
 	title: string
 	icon: IconType
@@ -20,7 +21,8 @@ export default function Widget({
 	children: ReactNode
 	className?: string
 	topConnectors?: string[]
-	bottomConnectors?: string[]
+	bottomConnectors?: readonly (string | null | undefined)[] | null
+	id?: string
 }) {
 	const topDots = topConnectors?.map((item, index, arr) => {
 		const increment = 100 / (arr.length + 1)
@@ -47,7 +49,7 @@ export default function Widget({
 	})
 
 	return (
-		<Wrapper className={className}>
+		<Wrapper id={id} className={className}>
 			<Top>
 				<IconWrapper $color={iconColor}>
 					<StyledIcon name={icon} />

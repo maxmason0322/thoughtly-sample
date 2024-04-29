@@ -1,7 +1,10 @@
 import Selector from "components/Buttons/Selector"
 import Icon, { type IconType } from "components/Icon"
+import Widget from "components/Widget"
 import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
+import DrawSVGPlugin from "gsap/DrawSVGPlugin"
+import { ReactComponent as LineSVG } from "images/home/industries-line.svg"
 import AutoAnimate from "library/AutoAnimate"
 import { ScreenContext } from "library/ScreenContext"
 import UniversalImage from "library/UniversalImage"
@@ -14,6 +17,8 @@ import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
 import ProgressGroup from "./ProgressGroup"
+
+gsap.registerPlugin(DrawSVGPlugin)
 
 export default function Industry() {
 	const [activeIndex, setActiveIndex] = useState(0)
@@ -28,6 +33,13 @@ export default function Industry() {
           files {
             name
             icon
+          }
+          widgetOne {
+            text
+          }
+          widgetTwo {
+            text
+            bottomConnectors
           }
           assertiveness
           humorLevel
@@ -65,12 +77,39 @@ export default function Industry() {
 	})
 
 	const widgets = data.allHomeIndustryJson.nodes.map((item, index) => {
-		return <Widget key={item.title} className="widget" id={`widget-${index}`} />
+		return (
+			<Widget1
+				key={item.title}
+				className="widget"
+				id={`widget-${index}`}
+				title="Start"
+				icon="play"
+				iconColor={colors.green400}
+				bottomConnectors={[""]}
+			>
+				{item.widgetOne?.text && <p>"{item.widgetOne.text}"</p>}
+			</Widget1>
+		)
 	})
 
 	const widgets2 = data.allHomeIndustryJson.nodes.map((item, index) => {
+		const bottomConnectors = item.widgetTwo?.bottomConnectors?.map((item) =>
+			item?.replace("\\n", "\n"),
+		)
+
 		return (
-			<Widget2 key={item.title} className="widget-2" id={`widget-2-${index}`} />
+			<Widget2
+				key={item.title}
+				className="widget-2"
+				id={`widget-2-${index}`}
+				title="Speak"
+				icon="speak"
+				iconColor="#0085E5"
+				topConnectors={[""]}
+				bottomConnectors={bottomConnectors}
+			>
+				{item.widgetTwo?.text && <p>"{item.widgetTwo.text}"</p>}
+			</Widget2>
 		)
 	})
 
@@ -79,15 +118,13 @@ export default function Industry() {
 			if (!item) return null
 			return (
 				<File key={item.name}>
-					<FileIcon name={item.icon} />
+					{item.icon && <FileIcon name={item.icon as IconType} />}
 					<FileName>{item.name}</FileName>
 					<Trash name="trash" />
 				</File>
 			)
 		},
 	)
-
-	console.log(files)
 
 	useAnimation(
 		() => {
@@ -106,6 +143,13 @@ export default function Industry() {
 					xPercent: 120,
 				},
 				0,
+			)
+			tl.from(
+				"#industries-line",
+				{
+					drawSVG: "0",
+				},
+				1.5,
 			)
 			tl.to(
 				[`#widget-${activeIndex}`, `#widget-2-${activeIndex}`],
@@ -259,10 +303,9 @@ export default function Industry() {
 						{(fullWidth || desktop) && (
 							<DotsWrapper>
 								<StyledDots />
-								<WidgetWrapper>
-									{widgets}
-									{widgets2}
-								</WidgetWrapper>
+								<Connector />
+								{widgets}
+								{widgets2}
 							</DotsWrapper>
 						)}
 					</Right>
@@ -344,12 +387,13 @@ const Title = styled.h2`
 const Buttons = styled.div`
   display: flex;
   flex-wrap: wrap;
+  height: fit-content;
 
   button {
     flex-shrink: 0;
   }
 
-  ::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     display: none;
   }
 
@@ -637,11 +681,11 @@ const Text = styled.p`
 const DotsWrapper = styled.div`
   background-color: ${colors.gray100};
   position: relative;
-  overflow: hidden;
+  overflow: clip;
 
   ${fresponsive(css`
     border-radius: 24px;
-    width: 576px;
+    width: 560px;
     height: 375px;
   `)}
 `
@@ -653,25 +697,15 @@ const StyledDots = styled(Dots)`
   `)}
 `
 
-const WidgetWrapper = styled.div`
-  position: relative;
-  overflow: clip;
-
-  ${fresponsive(css`
-    border-radius: 24px;
-    width: 576px;
-    height: 375px;
-  `)}
-`
-
-const Widget = styled(Card)`
+const Widget1 = styled(Widget)`
   position: absolute;
+  transform: scale(0.73);
+  transform-origin: top left;
 
   ${fresponsive(css`
-    width: 288px;
-    height: 133px;
-    top: 24px;
-    left: 24px;
+    height: 196px;
+    top: 23px;
+    left: 23px;
   `)}
 
   ${ftablet(css`
@@ -681,13 +715,14 @@ const Widget = styled(Card)`
   `)}
 `
 
-const Widget2 = styled(Widget)`
+const Widget2 = styled(Widget1)`
   top: unset;
   left: unset;
+  transform-origin: bottom right;
 
   ${fresponsive(css`
-    bottom: 24px;
-    right: 24px;
+    bottom: 22px;
+    right: 23px;
   `)}
 `
 
@@ -732,5 +767,16 @@ const StyledIcon = styled(Icon)`
     display: flex;
     width: 30px;
     height: 30px;
+  `)}
+`
+
+const Connector = styled(LineSVG)`
+  position: absolute;
+
+  ${fresponsive(css`
+    width: 233px;
+    height: 45px;
+    left: 164px;
+    top: 166px;
   `)}
 `
