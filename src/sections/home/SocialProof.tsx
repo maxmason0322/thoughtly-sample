@@ -43,6 +43,7 @@ const Wrapper = styled.section`
   display: grid;
   place-items: center;
   width: 100%;
+  background-color: ${colors.white};
 `
 
 const Inner = styled.div`
