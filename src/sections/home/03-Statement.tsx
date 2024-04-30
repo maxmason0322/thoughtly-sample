@@ -119,6 +119,7 @@ const Wrapper = styled.section`
   display: grid;
   place-items: center;
   height: 100vh;
+	background-color: ${colors.white};
 
   ${fresponsive(css`
     min-height: 882px;

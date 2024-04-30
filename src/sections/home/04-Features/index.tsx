@@ -6,6 +6,7 @@ import useAnimation from "library/useAnimation"
 import useMedia from "library/useMedia"
 import { useRef } from "react"
 import styled, { css } from "styled-components"
+import colors from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import Card from "./Card"
 
@@ -102,6 +103,7 @@ const Wrapper = styled.section`
   width: 100%;
   display: grid;
   place-items: center;
+	background-color: ${colors.white};
 `
 
 const Inner = styled.div`

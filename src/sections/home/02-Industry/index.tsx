@@ -341,6 +341,7 @@ const Wrapper = styled.section`
   place-items: center;
   overflow: clip;
   position: relative;
+  background-color: ${colors.white};
 `
 
 const Inner = styled.div`

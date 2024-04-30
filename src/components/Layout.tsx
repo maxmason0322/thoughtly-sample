@@ -4,6 +4,7 @@ import Preloader from "components/Preloader"
 import Transition from "components/Transition"
 import { useBackButton } from "library/Loader/TransitionUtils"
 import Scroll from "library/Scroll"
+import { fresponsive } from "library/fullyResponsive"
 import { useTrackPageReady } from "library/pageReady"
 import useTrackFrameTime from "library/useTrackFrameTime"
 import styled, { createGlobalStyle, css } from "styled-components"
@@ -24,11 +25,12 @@ export default function Layout({ children }: LayoutProps) {
 			{/* <Transition />
 			<Preloader /> */}
 			<GlobalStyle />
-			<Scroll>
+			<ScrollIndex>
 				<Header />
 				<Main>{children}</Main>
-				<Footer />
-			</Scroll>
+				<Footer position="static" />
+			</ScrollIndex>
+			<Footer position="fixed" />
 		</>
 	)
 }
@@ -59,3 +61,12 @@ const globalCss = css`
 `
 
 const GlobalStyle = createGlobalStyle`${globalCss}`
+
+const ScrollIndex = styled(Scroll)`
+  z-index: 2;
+  pointer-events: none;
+
+  & #smooth-content > * {
+    pointer-events: auto;
+  }
+`
