@@ -6,7 +6,10 @@ import type { ReactNode } from "react"
 import { useRef, useState } from "react"
 import styled, { css } from "styled-components"
 
-export default function Unmask({ children }: { children: ReactNode }) {
+export default function Unmask({
+	children,
+	parameters,
+}: { children: ReactNode; parameters?: GSAPTweenVars }) {
 	const wrapperRef = useRef<HTMLDivElement | null>(null)
 	const [pageLoad, setPageLoad] = useState(false)
 
@@ -25,13 +28,14 @@ export default function Unmask({ children }: { children: ReactNode }) {
 
 			tl.to(wrapperRef.current?.children, {
 				y: 0,
+				...parameters,
 			})
 		}
 
 		if (pageLoad) {
 			initScrollTrigger()
 		}
-	}, [pageLoad])
+	}, [pageLoad, parameters])
 
 	return <Wrapper ref={wrapperRef}>{children}</Wrapper>
 }
@@ -49,6 +53,6 @@ const Wrapper = styled.div`
 
   & > * {
     position: relative;
-    transform: translateY(100%);
+    transform: translateY(130%);
   }
 `

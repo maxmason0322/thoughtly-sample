@@ -51,6 +51,10 @@ export default function Lines() {
 const StartSpeakLine = styled(StartSpeakLineSVG)`
   position: absolute;
 
+  path {
+    opacity: 0;
+  }
+
   ${fresponsive(css`
     height: 210px;
     width: 122px;
@@ -69,6 +73,10 @@ const StartSpeakLine = styled(StartSpeakLineSVG)`
 
 const SpeakActionLine = styled(SpeakActionLineSVG)`
   position: absolute;
+
+  path {
+    opacity: 0;
+  }
 
   ${fresponsive(css`
     width: 132px;
