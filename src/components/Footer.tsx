@@ -31,6 +31,8 @@ export default function Footer({
 	const mobile = useMedia(false, false, false, true)
 	const pathname = useLocation().pathname
 
+	if (!pathname) return null
+
 	const fixedRoutes = [links.home, links.terms, links.privacy]
 
 	const isFixed = fixedRoutes.some((route) => pathnameMatches(pathname, route))
