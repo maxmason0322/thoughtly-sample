@@ -8,6 +8,12 @@ import { ReactComponent as LineSVG } from "images/home/industries-line.svg"
 import AutoAnimate from "library/AutoAnimate"
 import { ScreenContext } from "library/ScreenContext"
 import UniversalImage from "library/UniversalImage"
+import {
+	DesktopOnly,
+	DesktopTabletOnly,
+	MobileOnly,
+	TabletOnly,
+} from "library/breakpointUtils"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import { useContext, useState } from "react"
@@ -128,6 +134,7 @@ export default function Industry() {
 
 	useAnimation(
 		() => {
+			if (!fullWidth && !desktop) return
 			const tl = gsap.timeline()
 
 			tl.to(
@@ -162,7 +169,7 @@ export default function Industry() {
 				1,
 			)
 		},
-		[activeIndex],
+		[activeIndex, fullWidth, desktop],
 		{
 			kill: true,
 		},
@@ -175,7 +182,9 @@ export default function Industry() {
 					<Title>
 						The future of customer <span>interaction.</span>
 					</Title>
-					{!mobile && <Buttons>{tabs}</Buttons>}
+					<DesktopTabletOnly>
+						<Buttons>{tabs}</Buttons>
+					</DesktopTabletOnly>
 				</Top>
 				<Bottom>
 					<Left>
@@ -210,71 +219,78 @@ export default function Industry() {
 								/>
 							</AutoAnimate>
 							<AutoAnimate>
-								<Name key={activeIndex}>
+								<Name
+									key={
+										data.allHomeIndustryJson.nodes[activeIndex]?.agent?.country
+									}
+								>
 									{data.allHomeIndustryJson.nodes[activeIndex]?.agent?.country}
 								</Name>
 							</AutoAnimate>
 							<Line />
 							<AutoAnimate>
-								<Name key={activeIndex}>
+								<Name
+									key={data.allHomeIndustryJson.nodes[activeIndex]?.agent?.name}
+								>
 									{data.allHomeIndustryJson.nodes[activeIndex]?.agent?.name}
 								</Name>
 							</AutoAnimate>
 						</Agent>
-
-						<AutoAnimate
-							duration={1.25}
-							toParameters={{
-								scale: 0.9,
-								opacity: 0,
-								yPercent: 0,
-								duration: 0.5,
-							}}
-							fromParameters={{
-								scale: 0.9,
-								opacity: 0,
-								yPercent: 0,
-								duration: 0.5,
-								delay: 0.75,
-							}}
-						>
-							<Image
-								key={activeIndex}
-								objectFit="cover"
-								image={data.allHomeIndustryJson.nodes[activeIndex]?.image}
-								alt={data.allHomeIndustryJson.nodes[activeIndex]?.title ?? ""}
-							/>
-						</AutoAnimate>
-						{tablet && (
+						<div>
+							<AutoAnimate
+								duration={1.25}
+								toParameters={{
+									scale: 0.9,
+									opacity: 0,
+									yPercent: 0,
+									duration: 0.5,
+								}}
+								fromParameters={{
+									scale: 0.9,
+									opacity: 0,
+									yPercent: 0,
+									duration: 0.5,
+									delay: 0.75,
+								}}
+							>
+								<Image
+									key={activeIndex}
+									objectFit="cover"
+									image={data.allHomeIndustryJson.nodes[activeIndex]?.image}
+									alt={data.allHomeIndustryJson.nodes[activeIndex]?.title ?? ""}
+								/>
+							</AutoAnimate>
+						</div>
+						<TabletOnly>
 							<TabletWidgetWrapper>
-								<AutoAnimate>
-									<Widget1
-										key={activeIndex}
-										title="Start"
-										icon="play"
-										iconColor={colors.green400}
-									>
-										<p>
-											{
-												data.allHomeIndustryJson.nodes[activeIndex]?.widgetOne
-													?.text
-											}
-										</p>
-									</Widget1>
-								</AutoAnimate>
+								{/* <AutoAnimate> */}
+								<Widget1
+									key={activeIndex}
+									title="Start"
+									icon="play"
+									iconColor={colors.green400}
+								>
+									<p>
+										{
+											data.allHomeIndustryJson.nodes[activeIndex]?.widgetOne
+												?.text
+										}
+									</p>
+								</Widget1>
+								{/* </AutoAnimate> */}
 							</TabletWidgetWrapper>
-						)}
+						</TabletOnly>
 						{(fullWidth || desktop || mobile) && (
 							<LogosWrapper>
 								<FilesInner>
 									<PositionWrapper>
-										<AutoAnimate
+										{/* <AutoAnimate
 											alignment="center"
 											fromParameters={{ yPercent: 110 }}
 											toParameters={{ yPercent: -110 }}
-										>
-											<Logos key={activeIndex}>{files}</Logos>
-										</AutoAnimate>
+										> */}
+										<Logos key={activeIndex}>{files}</Logos>
+										{/* </AutoAnimate> */}
 									</PositionWrapper>
 								</FilesInner>
 							</LogosWrapper>
@@ -282,54 +298,55 @@ export default function Industry() {
 					</Left>
 					<Right>
 						<TextContent>
-							<AutoAnimate>
-								<StyledIcon
-									key={activeIndex}
-									name={
-										data.allHomeIndustryJson.nodes[activeIndex]
-											?.icon as IconType
-									}
-								/>
-							</AutoAnimate>
-							<AutoAnimate>
-								<SubTitle
-									key={data.allHomeIndustryJson.nodes[activeIndex]?.title}
-								>
-									{data.allHomeIndustryJson.nodes[activeIndex]?.title}
-								</SubTitle>
-							</AutoAnimate>
-							<AutoAnimate>
-								<Text key={data.allHomeIndustryJson.nodes[activeIndex]?.title}>
-									{data.allHomeIndustryJson.nodes[activeIndex]?.text}
-								</Text>
-							</AutoAnimate>
+							{/* <AutoAnimate> */}
+							<StyledIcon
+								key={activeIndex}
+								name={
+									data.allHomeIndustryJson.nodes[activeIndex]?.icon as IconType
+								}
+							/>
+							{/* </AutoAnimate> */}
+							{/* <AutoAnimate> */}
+							<SubTitle
+								key={data.allHomeIndustryJson.nodes[activeIndex]?.title}
+							>
+								{data.allHomeIndustryJson.nodes[activeIndex]?.title}
+							</SubTitle>
+							{/* </AutoAnimate> */}
+							{/* <AutoAnimate> */}
+							<Text key={data.allHomeIndustryJson.nodes[activeIndex]?.text}>
+								{data.allHomeIndustryJson.nodes[activeIndex]?.text}
+							</Text>
+							{/* </AutoAnimate> */}
 						</TextContent>
-						{tablet && (
+						<TabletOnly>
 							<LogosWrapper>
 								<FilesInner>
 									<PositionWrapper>
-										<AutoAnimate
+										{/* <AutoAnimate
 											alignment="center"
 											fromParameters={{ yPercent: 110 }}
 											toParameters={{ yPercent: -110 }}
-										>
-											<Logos key={activeIndex}>{files}</Logos>
-										</AutoAnimate>
+										> */}
+										<Logos key={activeIndex}>{files}</Logos>
+										{/* </AutoAnimate> */}
 									</PositionWrapper>
 								</FilesInner>
 							</LogosWrapper>
-						)}
-						{(fullWidth || desktop) && (
+						</TabletOnly>
+						<DesktopOnly>
 							<DotsWrapper>
 								<StyledDots />
 								<Connector />
 								{widgets}
 								{widgets2}
 							</DotsWrapper>
-						)}
+						</DesktopOnly>
 					</Right>
 				</Bottom>
-				{mobile && <Buttons>{tabs}</Buttons>}
+				<MobileOnly>
+					<Buttons>{tabs}</Buttons>
+				</MobileOnly>
 			</Inner>
 		</Wrapper>
 	)
@@ -341,6 +358,7 @@ const Wrapper = styled.section`
   place-items: center;
   overflow: clip;
   position: relative;
+  background-color: ${colors.white};
 `
 
 const Inner = styled.div`
