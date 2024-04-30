@@ -162,7 +162,7 @@ const Wrapper = styled.footer<{
   position: ${({ $position }) => $position};
   bottom: 0;
   left: 0;
-  z-index: 0;
+  z-index: 1;
 
   ${fresponsive(css`
     height: 646px;
