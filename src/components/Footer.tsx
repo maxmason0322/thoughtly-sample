@@ -1,9 +1,11 @@
+import { useLocation } from "@reach/router"
 import Button from "components/Buttons/Primary"
 import gsap from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
 import { ReactComponent as LogoSVG } from "images/global/logo.svg"
 import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
+import { pathnameMatches } from "library/functions"
 import useMedia from "library/useMedia"
 import styled, { css } from "styled-components"
 import { Dots } from "styles/background"
@@ -21,11 +23,27 @@ const scrollTo = (section: string) => {
 	})
 }
 
-export default function Footer() {
+export default function Footer({
+	position,
+}: {
+	position: "fixed" | "static"
+}) {
 	const mobile = useMedia(false, false, false, true)
+	const pathname = useLocation().pathname
+
+	if (!pathname) return null
+
+	const fixedRoutes = [links.home, links.terms, links.privacy]
+
+	const isFixed = fixedRoutes.some((route) => pathnameMatches(pathname, route))
+
+	const primary = isFixed ? "fixed" : "static"
+
+	if (primary === "fixed" && position === "static") return <Spacer />
+	if (primary === "static" && position === "fixed") return null
 
 	return (
-		<Wrapper>
+		<Wrapper $position={position}>
 			<Inner>
 				<StyledDots />
 				<Top>
@@ -116,12 +134,35 @@ export default function Footer() {
 	)
 }
 
-const Wrapper = styled.footer`
+const Spacer = styled.div`
+  pointer-events: none !important;
+
+  ${fresponsive(css`
+    height: 646px;
+    max-height: 100lvh;
+  `)}
+
+  ${ftablet(css`
+    height: 720px;
+  `)}
+
+  ${fmobile(css`
+    height: 868px;
+  `)}
+`
+
+const Wrapper = styled.footer<{
+	$position: "fixed" | "static"
+}>`
   width: 100%;
   display: grid;
   place-items: center;
   background-color: ${colors.gray100};
   overflow: clip;
+  position: ${({ $position }) => $position};
+  bottom: 0;
+  left: 0;
+  z-index: 1;
 
   ${fresponsive(css`
     height: 646px;
