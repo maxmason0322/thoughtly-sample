@@ -5,7 +5,7 @@ import { ReactComponent as CloseIcon } from "images/global/icons/closeVideo.svg"
 import { ReactComponent as Arrow } from "images/global/icons/greenArrow.svg"
 import UniversalLink from "library/Loader/UniversalLink"
 import UniversalImage from "library/UniversalImage"
-import { fresponsive } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import { getResponsivePixels } from "library/viewportUtils"
 import { useMemo, useRef, useState } from "react"
@@ -14,7 +14,12 @@ import colors from "styles/colors"
 import textStyles from "styles/text"
 import { distributeByPosition } from "utils/gsapDistribute"
 
-export default function WidgetsAndVideo() {
+const VIDEO_SOURCES = [
+	"https://www.youtube.com/embed/CoV79mSUc9k?controls=0&autoplay=1&loop=1&playlist=CoV79mSUc9k&autopause=0&mute=1",
+	"https://www.youtube.com/embed/CoV79mSUc9k?&autoplay=1&loop=1&autopause=0&mute=1",
+]
+
+export default function DesktopTablet() {
 	const gridsRef = useRef<HTMLDivElement | null>(null)
 	const videoRef = useRef<HTMLDivElement | null>(null)
 	const innerGrid1 = useRef<HTMLDivElement>(null)
@@ -328,81 +333,74 @@ export default function WidgetsAndVideo() {
 	)
 
 	return (
-		<Wrapper>
-			<Grids ref={gridsRef}>
-				<TopText>
-					<Kicker className="parallax-elements">
-						Unlimited phone agents at your fingertips
-					</Kicker>
-					<Title className="parallax-elements">
-						Finally, AI that works full-time for your business.
-					</Title>
-				</TopText>
-				<Grid1 ref={innerGrid1}>
-					{allGrid1Widgets}
-					<BottomText className="parallax-elements">
-						Scale your operations up or down—and pay only for the talk time you
-						need. Tailored efficiency, because your business isn't
-						one-size-fits-all.
-					</BottomText>
-				</Grid1>
+		<Grids ref={gridsRef}>
+			<TopText>
+				<Kicker className="parallax-elements">
+					Unlimited phone agents at your fingertips
+				</Kicker>
+				<Title className="parallax-elements">
+					Finally, AI that works full-time for your business.
+				</Title>
+			</TopText>
+			<Grid1 ref={innerGrid1}>
+				{allGrid1Widgets}
+				<BottomText className="parallax-elements">
+					Scale your operations up or down—and pay only for the talk time you
+					need. Tailored efficiency, because your business isn't
+					one-size-fits-all.
+				</BottomText>
+			</Grid1>
 
-				<Grid2 ref={innerGrid2}>
-					{allGrid2Widgets}
-					<VideoBGFrame ref={videoRef} className="parallax-elements">
-						<CloseButton
-							className="close-video-button"
-							type="button"
-							ariaLabel="Close Video"
-							onClick={() => setOpen(false)}
-						>
-							<CloseIcon />
-						</CloseButton>
-						<VideoWrapper ref={videoWrapper}>
-							<ScreenFrame ref={innerFrame}>
-								<VideoIframe
-									className="video-iframe"
-									width="100%"
-									height="100%"
-									src="https://www.youtube.com/embed/CoV79mSUc9k?controls=0?autoplay=1"
-									title="Thoughtly D5"
-									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-									allowFullScreen={true}
-								/>
-							</ScreenFrame>
-							<Row ref={rowRef}>
-								<PlayButton type="button" onClick={() => setOpen(true)}>
-									<div>Full Screen</div>
-									<Arrow />
-								</PlayButton>
-								<Text>
-									See how Thoughtly can free up your schedule by seamlessly
-									answering all of your calls.
-								</Text>
-							</Row>
-						</VideoWrapper>
-					</VideoBGFrame>
-				</Grid2>
-			</Grids>
-		</Wrapper>
+			<Grid2 ref={innerGrid2}>
+				{allGrid2Widgets}
+				<VideoBGFrame ref={videoRef} className="parallax-elements">
+					<CloseButton
+						className="close-video-button"
+						type="button"
+						ariaLabel="Close Video"
+						onClick={() => setOpen(false)}
+					>
+						<CloseIcon />
+					</CloseButton>
+					<VideoWrapper ref={videoWrapper}>
+						<ScreenFrame ref={innerFrame}>
+							<VideoIframe
+								className="video-iframe"
+								width="100%"
+								height="100%"
+								src={VIDEO_SOURCES[open ? 1 : 0]}
+								title="Thoughtly D5"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+								allowFullScreen={true}
+							/>
+						</ScreenFrame>
+						<Row ref={rowRef}>
+							<PlayButton type="button" onClick={() => setOpen(true)}>
+								<div>Full Screen</div>
+								<Arrow />
+							</PlayButton>
+							<Text>
+								See how Thoughtly can free up your schedule by seamlessly
+								answering all of your calls.
+							</Text>
+						</Row>
+					</VideoWrapper>
+				</VideoBGFrame>
+			</Grid2>
+		</Grids>
 	)
 }
-
-const Wrapper = styled.section`
-  position: relative;
-	background-color: ${colors.white};
-	
-  ${fresponsive(css`
-    height: 1525px;
-    width: 100%;
-  `)}
-`
 
 const Title = styled.h2`
   ${textStyles.h3}
   ${fresponsive(css`
     color: ${colors.black};
     margin-top: 18px;
+  `)}
+
+  ${fmobile(css`
+    ${textStyles.h6};
+    text-align: center;
   `)}
 `
 
@@ -412,6 +410,16 @@ const TopText = styled.div`
     width: 697px;
     top: 269px;
     right: 321px;
+  `)}
+
+  ${ftablet(css`
+    right: 480px;
+  `)}
+
+  ${fmobile(css`
+    top: -216px;
+    width: 290px;
+    right: 790px;
   `)}
 `
 
@@ -424,6 +432,10 @@ const Grids = styled.div`
     width: 1865px;
     height: 1390px;
     top: 126px;
+  `)}
+
+  ${fmobile(css`
+    top: 640px;
   `)}
 `
 
@@ -447,6 +459,22 @@ const BottomText = styled.p`
     left: 327px;
     bottom: 221px;
   `)}
+
+  ${ftablet(css`
+    ${textStyles.bodyXL}
+    width: 575px;
+    text-align: left;
+    bottom: -120px;
+    left: 780px;
+  `)}
+
+  ${fmobile(css`
+    ${textStyles.bodyR};
+    width: 164.53px;
+    bottom: 0;
+    left: 160px;
+    text-align: center;
+  `)}
 `
 
 const Grid1 = styled.div`
@@ -466,8 +494,28 @@ const Grid1 = styled.div`
       "widget6 widget6 widget7 widget7 widget8 widget8 widget8 ." 131px
       "widget6 widget6 widget9 widget9 widget8 widget8 widget8 widget10" 176px
       "widget6 widget6 .  .  . widget11 widget11 widget11" 176px
-      ". nowidget2 . . . . widget12 widget12" 131px
+      ". . . . . . widget12 widget12" 131px
       / 209px 70px 184px 43px 77px 45px 51px 176px;
+  `)}
+
+  ${ftablet(css`
+    left: -160px;
+  `)}
+
+  ${fmobile(css`
+    width: 511.5px;
+    height: 595px;
+    grid-gap: 12px;
+    grid-template:
+      "widget1 . . . . . . ." 28px
+      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 96.5px
+      "widget4 widget4 widget5 widget2 widget2 widget2 widget2 ." 87.5px
+      "widget6 widget6 widget7 widget7 widget8 widget8 widget8 ." 65.5px
+      "widget6 widget6 widget9 widget9 widget8 widget8 widget8 widget10" 88px
+      "widget6 widget6 .  .  . widget11 widget11 widget11" 88px
+      ". . . . . . widget12 widget12" 65.5px
+      / 104.5px 35px 92px 21.5px 38.5px 22.5px 25.5px 88px;
+    left: 700px;
   `)}
 `
 
@@ -497,6 +545,14 @@ const Grid2 = styled.div`
       ". . widget2-4" 176px
       / 278px 202px 290px;
   `)}
+
+  ${ftablet(css`
+    right: 160px;
+  `)}
+
+  ${fmobile(css`
+    display: none;
+  `)}
 `
 
 const VideoIframe = styled.iframe`
@@ -521,6 +577,10 @@ const VideoWrapper = styled.div`
     padding: 24px;
     border-radius: 18px;
   `)}
+
+  ${fmobile(css`
+    padding: 14px 14px 20px;
+  `)}
 `
 
 const GridImage = styled(UniversalImage)`
@@ -537,6 +597,10 @@ const Row = styled.div`
     width: 100%;
     gap: 36px;
   `)}
+
+  ${fmobile(css`
+    gap: 17px;
+  `)}
 `
 
 const Text = styled.p`
@@ -548,6 +612,11 @@ const Text = styled.p`
 
     /* No Style for this */
     font-size: 13px;
+  `)}
+
+  ${fmobile(css`
+    width: 180px;
+    ${textStyles.bodyXS};
   `)}
 `
 
@@ -561,6 +630,7 @@ const PlayButton = styled(UniversalLink)`
     border: 1.5px solid ${colors.gray200};
     border-radius: 12px;
     height: 49px;
+    white-space: pre;
 
     svg {
       width: 17px;
@@ -582,6 +652,13 @@ const VideoBGFrame = styled.div`
   ${fresponsive(css`
     border-radius: 18px;
     backdrop-filter: blur(9px);
+  `)}
+
+  ${fmobile(css`
+    grid-area: none;
+    width: 358px;
+    height: 318px;
+    margin-left: 9px;
   `)}
 `
 
@@ -610,5 +687,9 @@ const ScreenFrame = styled.div`
 
   ${fresponsive(css`
     height: 267px;
+  `)}
+
+  ${fmobile(css`
+    height: 214px;
   `)}
 `

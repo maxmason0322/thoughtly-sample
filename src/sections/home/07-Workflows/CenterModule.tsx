@@ -146,10 +146,6 @@ const CenterModuleWrapper = styled.div`
 
   ${ftablet(css`
     width: 264px;
-
-    ${LeftNode}, ${RightNode} {
-      top: 94.68px;
-    }
   `)}
 `
 
