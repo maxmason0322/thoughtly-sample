@@ -5,7 +5,7 @@ import { ReactComponent as CloseIcon } from "images/global/icons/closeVideo.svg"
 import { ReactComponent as Arrow } from "images/global/icons/greenArrow.svg"
 import UniversalLink from "library/Loader/UniversalLink"
 import UniversalImage from "library/UniversalImage"
-import { fresponsive } from "library/fullyResponsive"
+import { fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import { getResponsivePixels } from "library/viewportUtils"
 import { useMemo, useRef, useState } from "react"
@@ -110,6 +110,10 @@ export default function WidgetsAndVideo() {
 			{
 				image: images.widget1.edges[10].node.childImageSharp.gatsbyImageData,
 				name: "widget11",
+			},
+			{
+				image: images.widget1.edges[11].node.childImageSharp.gatsbyImageData,
+				name: "widget12",
 			},
 		],
 		[images.widget1.edges],
@@ -411,6 +415,10 @@ const TopText = styled.div`
     top: 269px;
     right: 321px;
   `)}
+
+  ${ftablet(css`
+    right: 480px;
+  `)}
 `
 
 const Grids = styled.div`
@@ -445,6 +453,14 @@ const BottomText = styled.p`
     left: 327px;
     bottom: 221px;
   `)}
+
+  ${ftablet(css`
+    ${textStyles.bodyXL}
+    width: 575px;
+    text-align: left;
+    bottom: -120px;
+    left: 780px;
+  `)}
 `
 
 const Grid1 = styled.div`
@@ -466,6 +482,10 @@ const Grid1 = styled.div`
       "widget6 widget6 .  .  . widget11 widget11 widget11" 176px
       ". nowidget2 . . . . widget12 widget12" 131px
       / 209px 70px 184px 43px 77px 45px 51px 176px;
+  `)}
+
+  ${ftablet(css`
+    left: -160px;
   `)}
 `
 
@@ -494,6 +514,10 @@ const Grid2 = styled.div`
       "video video widget2-4" 203px
       ". . widget2-4" 176px
       / 278px 202px 290px;
+  `)}
+
+  ${ftablet(css`
+    right: 160px;
   `)}
 `
 
