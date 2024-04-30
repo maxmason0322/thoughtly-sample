@@ -7,7 +7,7 @@ import UniversalLink from "library/Loader/UniversalLink"
 import { ScreenContext } from "library/ScreenContext"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
-import { useContext, useEffect, useRef } from "react"
+import { useContext, useRef } from "react"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
@@ -44,15 +44,9 @@ export default function Header() {
 		return tl
 	}, [])
 
-	useEffect(() => {
-		const onLoad = () => {
-			initTimeline?.play()
-		}
-
-		loader.addEventListener("anyEnd", onLoad)
-
-		return loader.removeEventListener("anyEnd", onLoad)
-	}, [initTimeline])
+	loader.useEventListener("anyEnd", () => {
+		initTimeline?.play()
+	})
 
 	return (
 		<Wrapper>

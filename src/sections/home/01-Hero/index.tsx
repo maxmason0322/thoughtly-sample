@@ -10,7 +10,7 @@ import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import getMedia from "library/getMedia"
 import useAnimation from "library/useAnimation"
 import { getResponsivePixels } from "library/viewportUtils"
-import { useContext, useEffect, useRef } from "react"
+import { useContext, useRef } from "react"
 import styled, { css } from "styled-components"
 import { Dots } from "styles/background"
 import colors, { gradients } from "styles/colors"
@@ -197,17 +197,9 @@ export default function Hero() {
 		return tl
 	}, [])
 
-	useEffect(() => {
-		const onLoad = () => {
-			initTimeline?.play()
-		}
-
-		loader.addEventListener("anyEnd", onLoad)
-
-		return () => {
-			loader.removeEventListener("anyEnd", onLoad)
-		}
-	}, [initTimeline])
+	loader.useEventListener("anyEnd", () => {
+		initTimeline?.play()
+	})
 
 	return (
 		<Wrapper ref={wrapperRef}>
