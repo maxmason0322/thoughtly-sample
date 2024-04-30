@@ -16,10 +16,10 @@ export default function IndexPage() {
 		<>
 			<Hero />
 			<SocialProof />
-			<Industry />
-			<Statement />
-			<Features />
-			<CallCTA />
+			{/* <Industry />
+      <Statement />
+      <Features />
+      <CallCTA /> */}
 			<WidgetsAndVideo />
 			<Workflows />
 			<Integrations />
