@@ -1,6 +1,6 @@
 import gsap from "gsap"
 import loader from "library/Loader"
-import { fresponsive } from "library/fullyResponsive"
+import { fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import type { ReactNode } from "react"
 import { useRef, useState } from "react"
@@ -49,6 +49,10 @@ const Wrapper = styled.div`
 
 	${fresponsive(css`
 		padding-bottom: 5px;
+	`)}
+
+	${ftablet(css`
+		padding-bottom: 8px;
 	`)}
 
   & > * {

@@ -217,11 +217,11 @@ export default function Hero() {
 					<StyledDots />
 				</BackgroundTablet>
 				<TextContent>
-					<Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
+					{/* <Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
 						<Kicker icon="chev">
 							🚀&nbsp;&nbsp;&nbsp;Seed round led by Afore & others
 						</Kicker>
-					</Unmask>
+					</Unmask> */}
 					<Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
 						<Title>Your phone calls, answered beautifully.</Title>
 					</Unmask>
@@ -360,12 +360,12 @@ const Title = styled.h1`
 
 	${ftablet(css`
 		${textStyles.h2}
-		width: 100%;
+		width: 800px;
 	`)}
 
 	${fmobile(css`
 		${textStyles.h6}
-		width: 80%;
+		width: 300px;
 		text-align: center;
 	`)}
 `
