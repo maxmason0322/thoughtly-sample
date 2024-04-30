@@ -48,69 +48,28 @@ export default function Mobile() {
   `)
 
 	const grid1Widgets = [
-		{
-			imageIndex: 0,
-			name: "widget1",
-		},
-		{
-			imageIndex: 1,
-			name: "widget2",
-		},
-
-		{
-			imageIndex: 2,
-			name: "widget3",
-		},
-		{
-			imageIndex: 3,
-			name: "widget4",
-		},
-		{
-			imageIndex: 4,
-			name: "widget5",
-		},
-		{
-			imageIndex: 5,
-			name: "widget6",
-		},
-		{
-			imageIndex: 6,
-			name: "widget7",
-		},
-		{
-			imageIndex: 7,
-			name: "widget8",
-		},
-		{
-			imageIndex: 8,
-			name: "widget9",
-		},
-		{
-			imageIndex: 9,
-			name: "widget10",
-		},
-		{
-			imageIndex: 10,
-			name: "widget11",
-		},
-		{
-			imageIndex: 11,
-			name: "widget12",
-		},
+		"widget1",
+		"widget2",
+		"widget3",
+		"widget4",
+		"widget5",
+		"widget6",
+		"widget7",
+		"widget8",
+		"widget9",
+		"widget10",
+		"widget11",
+		"widget12",
 	]
 
-	const allGrid1Widgets = grid1Widgets.map((widget) => {
-		const { imageIndex } = widget
+	const allGrid1Widgets = grid1Widgets.map((widget, i) => {
 		return (
 			<GridElement
-				$gridArea={widget.name}
+				$gridArea={widget}
 				className="parallax-elements"
-				key={widget.name}
+				key={widget}
 			>
-				<GridImage
-					image={images?.widget1?.edges?.[imageIndex]?.node}
-					alt={widget.name}
-				/>
+				<GridImage image={images?.widget1?.edges?.[i]?.node} alt={widget} />
 			</GridElement>
 		)
 	})
