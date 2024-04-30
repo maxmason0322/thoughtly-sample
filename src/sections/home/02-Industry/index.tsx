@@ -263,34 +263,34 @@ export default function Industry() {
 						</div>
 						<TabletOnly>
 							<TabletWidgetWrapper>
-								{/* <AutoAnimate> */}
-								<Widget1
-									key={activeIndex}
-									title="Start"
-									icon="play"
-									iconColor={colors.green400}
-								>
-									<p>
-										{
-											data.allHomeIndustryJson.nodes[activeIndex]?.widgetOne
-												?.text
-										}
-									</p>
-								</Widget1>
-								{/* </AutoAnimate> */}
+								<AutoAnimate>
+									<Widget1
+										key={activeIndex}
+										title="Start"
+										icon="play"
+										iconColor={colors.green400}
+									>
+										<p>
+											{
+												data.allHomeIndustryJson.nodes[activeIndex]?.widgetOne
+													?.text
+											}
+										</p>
+									</Widget1>
+								</AutoAnimate>
 							</TabletWidgetWrapper>
 						</TabletOnly>
 						{(fullWidth || desktop || mobile) && (
 							<LogosWrapper>
 								<FilesInner>
 									<PositionWrapper>
-										{/* <AutoAnimate
+										<AutoAnimate
 											alignment="center"
 											fromParameters={{ yPercent: 110 }}
 											toParameters={{ yPercent: -110 }}
-										> */}
-										<Logos key={activeIndex}>{files}</Logos>
-										{/* </AutoAnimate> */}
+										>
+											<Logos key={activeIndex}>{files}</Logos>
+										</AutoAnimate>
 									</PositionWrapper>
 								</FilesInner>
 							</LogosWrapper>
@@ -298,38 +298,45 @@ export default function Industry() {
 					</Left>
 					<Right>
 						<TextContent>
-							{/* <AutoAnimate> */}
-							<StyledIcon
-								key={activeIndex}
-								name={
-									data.allHomeIndustryJson.nodes[activeIndex]?.icon as IconType
-								}
-							/>
-							{/* </AutoAnimate> */}
-							{/* <AutoAnimate> */}
-							<SubTitle
-								key={data.allHomeIndustryJson.nodes[activeIndex]?.title}
-							>
-								{data.allHomeIndustryJson.nodes[activeIndex]?.title}
-							</SubTitle>
-							{/* </AutoAnimate> */}
-							{/* <AutoAnimate> */}
-							<Text key={data.allHomeIndustryJson.nodes[activeIndex]?.text}>
-								{data.allHomeIndustryJson.nodes[activeIndex]?.text}
-							</Text>
-							{/* </AutoAnimate> */}
+							<div>
+								<AutoAnimate>
+									<StyledIcon
+										key={activeIndex}
+										name={
+											data.allHomeIndustryJson.nodes[activeIndex]
+												?.icon as IconType
+										}
+									/>
+								</AutoAnimate>
+							</div>
+							<div>
+								<AutoAnimate>
+									<SubTitle
+										key={data.allHomeIndustryJson.nodes[activeIndex]?.title}
+									>
+										{data.allHomeIndustryJson.nodes[activeIndex]?.title}
+									</SubTitle>
+								</AutoAnimate>
+							</div>
+							<div>
+								<AutoAnimate>
+									<Text key={data.allHomeIndustryJson.nodes[activeIndex]?.text}>
+										{data.allHomeIndustryJson.nodes[activeIndex]?.text}
+									</Text>
+								</AutoAnimate>
+							</div>
 						</TextContent>
 						<TabletOnly>
 							<LogosWrapper>
 								<FilesInner>
 									<PositionWrapper>
-										{/* <AutoAnimate
+										<AutoAnimate
 											alignment="center"
 											fromParameters={{ yPercent: 110 }}
 											toParameters={{ yPercent: -110 }}
-										> */}
-										<Logos key={activeIndex}>{files}</Logos>
-										{/* </AutoAnimate> */}
+										>
+											<Logos key={activeIndex}>{files}</Logos>
+										</AutoAnimate>
 									</PositionWrapper>
 								</FilesInner>
 							</LogosWrapper>
