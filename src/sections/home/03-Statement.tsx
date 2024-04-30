@@ -1,6 +1,7 @@
 import gsap from "gsap"
 import { CSSPlugin } from "gsap"
 import SplitText from "gsap/SplitText"
+import { usePinType } from "library/Scroll"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import { useRef } from "react"
@@ -14,6 +15,7 @@ gsap.registerPlugin(SplitText, CSSPlugin)
 
 export default function Statement() {
 	const wrapperRef = useRef<HTMLElement | null>(null)
+	const pinType = usePinType()
 
 	useAnimation(
 		() => {
@@ -52,6 +54,7 @@ export default function Statement() {
 					start: "top top",
 					pin: true,
 					scrub: true,
+					pinType,
 				},
 			})
 			const nonGradientArrayLength = Array.from(nonGradient.words).length
@@ -85,7 +88,7 @@ export default function Statement() {
 				tl.add(animation, nonGradientArrayLength + i)
 			})
 		},
-		[],
+		[pinType],
 		{
 			scope: wrapperRef,
 		},
@@ -119,6 +122,7 @@ const Wrapper = styled.section`
   display: grid;
   place-items: center;
   height: 100vh;
+	background-color: ${colors.white};
 
   ${fresponsive(css`
     min-height: 882px;

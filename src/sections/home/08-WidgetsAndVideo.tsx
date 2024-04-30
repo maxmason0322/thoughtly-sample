@@ -390,6 +390,8 @@ export default function WidgetsAndVideo() {
 
 const Wrapper = styled.section`
   position: relative;
+	background-color: ${colors.white};
+	
   ${fresponsive(css`
     height: 1525px;
     width: 100%;

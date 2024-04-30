@@ -284,6 +284,9 @@ const Wrapper = styled.section`
   width: 100%;
   display: grid;
   place-items: center;
+	background-color: ${colors.white};
+	position: relative;
+	z-index: 3;
 `
 
 const Inner = styled.div`
