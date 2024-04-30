@@ -5,8 +5,8 @@ import gsap from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
 import { fresponsive } from "library/fullyResponsive"
 import useMedia from "library/useMedia"
-import { getResponsivePixels } from "library/viewportUtils"
 import styled, { css } from "styled-components"
+import colors from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import Card from "./Card"
 
@@ -66,6 +66,7 @@ const Wrapper = styled.section`
   width: 100%;
   display: grid;
   place-content: center;
+  background-color: ${colors.white};
 `
 
 const Inner = styled.div`

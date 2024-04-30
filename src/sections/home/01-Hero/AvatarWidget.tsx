@@ -101,7 +101,7 @@ export default function AvatarWidget({
 
 	useEffect(() => {
 		if (!timeline) return
-		timeline.play(3)
+		timeline.play()
 	}, [timeline])
 
 	return (
@@ -114,6 +114,7 @@ export default function AvatarWidget({
 const Wrapper = styled.div`
   background: ${gradients.surface1};
   overflow: clip;
+	opacity: 0;
 
   ${fresponsive(css`
     border: 1.5px solid ${colors.gray300};
