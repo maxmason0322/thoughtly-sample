@@ -1,8 +1,37 @@
 import legalStyles from "components/Legal/LegalStyles"
+import gsap from "gsap"
+import useAnimation from "library/useAnimation"
+import { getResponsivePixels } from "library/viewportUtils"
+import { useRef } from "react"
 
 export default function Terms() {
+	const wrapperRef = useRef<HTMLElement | null>(null)
+	useAnimation(
+		() => {
+			const tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: wrapperRef.current,
+					start: "bottom bottom",
+					scrub: true,
+				},
+			})
+			tl.set(wrapperRef.current, {
+				transformOrigin: "center bottom",
+			})
+			tl.to(wrapperRef.current, {
+				borderBottomLeftRadius: () => getResponsivePixels(140),
+				borderBottomRightRadius: () => getResponsivePixels(140),
+				scale: 0.75,
+			})
+		},
+		[],
+		{
+			scope: wrapperRef,
+		},
+	)
+
 	return (
-		<legalStyles.Wrapper>
+		<legalStyles.Wrapper ref={wrapperRef}>
 			<legalStyles.Inner>
 				<legalStyles.Top>
 					<legalStyles.Title>Terms and Conditions</legalStyles.Title>

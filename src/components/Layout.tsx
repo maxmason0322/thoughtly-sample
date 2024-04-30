@@ -37,6 +37,7 @@ export default function Layout({ children }: LayoutProps) {
 
 const Main = styled.main`
   overflow-x: clip;
+  background-color: ${colors.gray100};
 `
 
 const globalCss = css`

@@ -9,6 +9,7 @@ import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import getMedia from "library/getMedia"
 import useAnimation from "library/useAnimation"
+import { getResponsivePixels } from "library/viewportUtils"
 import { useRef } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
@@ -21,6 +22,7 @@ import textStyles from "styles/text"
 import links from "utils/links"
 
 export default function FinalCTA() {
+	const wrapperRef = useRef<HTMLElement | null>(null)
 	const bottom = useRef<HTMLDivElement | null>(null)
 	const graphCover = useRef<HTMLDivElement | null>(null)
 	const ctaImages: Queries.CTAImagesQuery = useStaticQuery(graphql`
@@ -92,6 +94,7 @@ export default function FinalCTA() {
 				".cta-image-card",
 				{
 					yPercent: -90,
+					opacity: 1,
 					stagger: {
 						from: "random",
 						each: 0.05,
@@ -111,8 +114,32 @@ export default function FinalCTA() {
 		{ scope: bottom },
 	)
 
+	useAnimation(
+		() => {
+			const tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: wrapperRef.current,
+					start: "bottom bottom",
+					scrub: true,
+				},
+			})
+			tl.set(wrapperRef.current, {
+				transformOrigin: "center bottom",
+			})
+			tl.to(wrapperRef.current, {
+				borderBottomLeftRadius: () => getResponsivePixels(140),
+				borderBottomRightRadius: () => getResponsivePixels(140),
+				scale: 0.75,
+			})
+		},
+		[],
+		{
+			scope: wrapperRef,
+		},
+	)
+
 	return (
-		<Wrapper>
+		<Wrapper ref={wrapperRef}>
 			<Inner>
 				<Top>
 					<Left>
@@ -404,6 +431,8 @@ const PhotoPanel = styled.div`
 const ImageCard = styled.div<{ $yOffset?: string }>`
   position: relative;
   background: ${gradients.surface1};
+  opacity: 0;
+
   ${({ $yOffset }) =>
 		fresponsive(css`
       width: 288px;
