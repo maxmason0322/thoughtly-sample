@@ -2,10 +2,12 @@ import PrimaryButton from "components/Buttons/Primary"
 import gsap from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
 import { ReactComponent as LogoSVG } from "images/global/logo.svg"
+import loader from "library/Loader"
 import UniversalLink from "library/Loader/UniversalLink"
 import { ScreenContext } from "library/ScreenContext"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
-import { useContext } from "react"
+import useAnimation from "library/useAnimation"
+import { useContext, useRef } from "react"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
@@ -18,6 +20,7 @@ gsap.registerPlugin(ScrollToPlugin)
 
 export default function Header() {
 	const { mobile } = useContext(ScreenContext)
+	const innerRef = useRef<HTMLDivElement | null>(null)
 
 	const scrollTo = (section: string, offset: number) => {
 		gsap.to(window, {
@@ -28,9 +31,26 @@ export default function Header() {
 		})
 	}
 
+	const initTimeline = useAnimation(() => {
+		const tl = gsap.timeline()
+
+		tl.to(innerRef.current, {
+			y: 0,
+			duration: 2,
+			ease: "power3.out",
+			delay: 0.25,
+		})
+
+		return tl
+	}, [])
+
+	loader.useEventListener("anyEnd", () => {
+		initTimeline?.play()
+	})
+
 	return (
 		<Wrapper>
-			<Inner>
+			<Inner ref={innerRef}>
 				<Left>
 					<StyledLogoSVG />
 					<Links>
@@ -89,9 +109,10 @@ const Inner = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
+  
   ${fresponsive(css`
     padding: 32px 156px 0;
+    transform: translateY(-200px);
   `)}
 
   ${ftablet(css`

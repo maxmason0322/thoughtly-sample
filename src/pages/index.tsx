@@ -9,13 +9,13 @@ import Integrations from "sections/home/075-Integrations.tsx"
 import WidgetsAndVideo from "sections/home/08-WidgetsAndVideo"
 import FinalCTA from "sections/home/09-FinalCTA"
 import Pricing from "sections/home/Pricing"
-import SocialProof from "sections/home/SocialProof"
+// import SocialProof from "sections/home/SocialProof"
 
 export default function IndexPage() {
 	return (
 		<>
 			<Hero />
-			<SocialProof />
+			{/* <SocialProof /> */}
 			<Industry />
 			<Statement />
 			<Features />

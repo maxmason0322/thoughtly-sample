@@ -4,6 +4,7 @@ import Unmask from "components/Unmask"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
 import Background from "images/home/hero/hero-background.png"
+import loader from "library/Loader"
 import { ScreenContext } from "library/ScreenContext"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import getMedia from "library/getMedia"
@@ -40,6 +41,13 @@ export default function Hero() {
 				},
 			})
 
+			tl.set(
+				["#start-speak-line", "#speak-action-line"],
+				{
+					opacity: 1,
+				},
+				0,
+			)
 			tl.to(
 				".icons-widget",
 				{
@@ -73,10 +81,17 @@ export default function Hero() {
 				},
 				0,
 			)
-			tl.from(".speak-1-widget", {
-				y: 50,
-				opacity: 0,
-			})
+			tl.fromTo(
+				".speak-1-widget",
+				{
+					y: 50,
+					opacity: 0,
+				},
+				{
+					y: 0,
+					opacity: 1,
+				},
+			)
 			tl.from("#speak-action-line", {
 				drawSVG: 0,
 			})
@@ -144,6 +159,48 @@ export default function Hero() {
 		},
 	)
 
+	const initTimeline = useAnimation(() => {
+		const tl = gsap.timeline({
+			delay: 0.25,
+		})
+
+		tl.fromTo(
+			[".icons-widget", ".call-widget"],
+			{
+				opacity: 0,
+				y: 200,
+			},
+			{
+				opacity: 1,
+				y: 0,
+				ease: "power4.out",
+				duration: 2,
+			},
+			0,
+		)
+
+		tl.fromTo(
+			[".avatar-widget", ".start-widget"],
+			{
+				opacity: 0,
+				y: 300,
+			},
+			{
+				opacity: 1,
+				y: 0,
+				ease: "power4.out",
+				duration: 2,
+			},
+			0,
+		)
+
+		return tl
+	}, [])
+
+	loader.useEventListener("anyEnd", () => {
+		initTimeline?.play()
+	})
+
 	return (
 		<Wrapper ref={wrapperRef}>
 			<Inner>
@@ -152,22 +209,36 @@ export default function Hero() {
 					<StyledDots />
 				</BackgroundTablet>
 				<TextContent>
-					<Kicker icon="chev">
-						🚀&nbsp;&nbsp;&nbsp;Seed round led by Afore & others
-					</Kicker>
-					<Title>Your phone calls, answered beautifully.</Title>
-					<Text>
-						Businesses trust Thoughtly’s human-like AI agents to answer millions
-						of phone calls, instantly. Spend less time on the phone and more
-						time growing your business.
-					</Text>
+					{/* <Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
+						<Kicker icon="chev">
+							🚀&nbsp;&nbsp;&nbsp;Seed round led by Afore & others
+						</Kicker>
+					</Unmask> */}
+					<Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
+						<Title>Your phone calls, answered beautifully.</Title>
+					</Unmask>
+					<Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
+						<Text>
+							Businesses trust Thoughtly’s human-like AI agents to answer
+							millions of phone calls, instantly. Spend less time on the phone
+							and more time growing your business.
+						</Text>
+					</Unmask>
 					<Buttons>
-						<Button to={links.login} outline>
-							Build your own Thoughtly
-						</Button>
-						<Button to={links.todo} variant="secondary" icon="phone">
-							Book a Demo
-						</Button>
+						<Unmask
+							parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}
+						>
+							<Button to={links.login} outline>
+								Build your own Thoughtly
+							</Button>
+						</Unmask>
+						<Unmask
+							parameters={{ delay: 0.45, ease: "power4.out", duration: 2 }}
+						>
+							<Button to={links.todo} variant="secondary" icon="phone">
+								Book a Demo
+							</Button>
+						</Unmask>
 					</Buttons>
 				</TextContent>
 				<Callout1>
@@ -284,12 +355,12 @@ const Title = styled.h1`
 
 	${ftablet(css`
 		${textStyles.h2}
-		width: 100%;
+		width: 800px;
 	`)}
 
 	${fmobile(css`
 		${textStyles.h6}
-		width: 80%;
+		width: 300px;
 		text-align: center;
 	`)}
 `
