@@ -120,16 +120,19 @@ export default function FinalCTA() {
 				scrollTrigger: {
 					trigger: wrapperRef.current,
 					start: "bottom bottom",
+					end: "clamp(bottom top)",
 					scrub: true,
 				},
 			})
 			tl.set(wrapperRef.current, {
 				transformOrigin: "center bottom",
+				willChange: "transform",
 			})
 			tl.to(wrapperRef.current, {
 				borderBottomLeftRadius: () => getResponsivePixels(140),
 				borderBottomRightRadius: () => getResponsivePixels(140),
-				scale: 0.75,
+				scale: 0.8,
+				ease: "power2.in",
 			})
 		},
 		[],
