@@ -2,9 +2,10 @@ import Footer from "components/Footer"
 import Header from "components/Header"
 import { useBackButton } from "library/Loader/TransitionUtils"
 import Scroll from "library/Scroll"
+import { isBrowser } from "library/deviceDetection"
 import { useTrackPageReady } from "library/pageReady"
 import useTrackFrameTime from "library/useTrackFrameTime"
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { PopupModal } from "react-calendly"
 import styled, { createGlobalStyle, css } from "styled-components"
 import colors from "styles/colors"
@@ -21,22 +22,32 @@ export default function Layout({ children }: LayoutProps) {
 	useTrackFrameTime()
 
 	const { setModalOpen, modalOpen } = useContext(CalendlyModalContext)
+	const [rootElement, setRootElement] = useState<HTMLElement | undefined>()
+
+	useEffect(() => {
+		if (!isBrowser) return
+
+		const rootElementClient = isBrowser
+			? document.getElementById("___gatsby")
+			: document.createElement("div")
+
+		setRootElement(rootElementClient ?? undefined)
+	}, [])
 
 	return (
 		<>
 			{/* <Transition />
 			<Preloader /> */}
-			<PopupModal
-				url="https://calendly.com/d/cpxn-sxr-85f"
-				onModalClose={() => setModalOpen(false)}
-				open={modalOpen}
-				rootElement={
-					typeof window !== "undefined"
-						? (document.getElementById("___gatsby") as HTMLElement) ||
-							document.createElement("div")
-						: document.createElement("div")
-				}
-			/>
+
+			{rootElement && (
+				<PopupModal
+					url="https://calendly.com/d/cpxn-sxr-85f"
+					onModalClose={() => setModalOpen(false)}
+					open={modalOpen}
+					rootElement={rootElement}
+				/>
+			)}
+
 			<GlobalStyle />
 			<ScrollIndex>
 				<Header />
@@ -85,3 +96,5 @@ const ScrollIndex = styled(Scroll)`
     pointer-events: auto;
   }
 `
+
+const Div = styled.div``
