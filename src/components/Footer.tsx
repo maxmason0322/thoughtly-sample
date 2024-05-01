@@ -7,6 +7,7 @@ import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import { pathnameMatches } from "library/functions"
 import useMedia from "library/useMedia"
+import { useContext } from "react"
 import styled, { css } from "styled-components"
 import { Dots } from "styles/background"
 import colors from "styles/colors"
@@ -14,6 +15,7 @@ import { desktopBreakpoint } from "styles/media"
 import textStyles from "styles/text"
 import links from "utils/links"
 import Link from "./Buttons/Link"
+import { CalendlyModalContext } from "./Providers/CalendlyModalProvider"
 
 gsap.registerPlugin(ScrollToPlugin)
 
@@ -23,13 +25,10 @@ const scrollTo = (section: string) => {
 	})
 }
 
-export default function Footer({
-	position,
-}: {
-	position: "fixed" | "static"
-}) {
+export default function Footer({ position }: { position: "fixed" | "static" }) {
 	const mobile = useMedia(false, false, false, true)
 	const pathname = useLocation().pathname
+	const { setModalOpen } = useContext(CalendlyModalContext)
 
 	if (!pathname) return null
 
@@ -84,7 +83,9 @@ export default function Footer({
 							<Label>Support</Label>
 							<Link to={links.helpCenter}>Help Center</Link>
 							<Link to={links.apiDocs}>API Docs</Link>
-							<Link to={links.todo}>Contact Us</Link>
+							<Link type="button" onClick={() => setModalOpen(true)}>
+								Contact Us
+							</Link>
 						</LinkColumn>
 						{mobile && (
 							<LinkColumn>
@@ -109,7 +110,12 @@ export default function Footer({
 							<Button to={links.login} outline>
 								Build your own Thoughtly
 							</Button>
-							<Button to={links.todo} variant="secondary" icon="phone">
+							<Button
+								type="button"
+								onClick={() => setModalOpen(true)}
+								variant="secondary"
+								icon="phone"
+							>
 								Call Demo
 							</Button>
 						</Buttons>
@@ -184,7 +190,7 @@ const StyledDots = styled(Dots)`
   transform: translateX(-50%);
   left: 50%;
   z-index: 0;
-  
+
   ${fresponsive(css`
     width: 1320px;
     height: 100%;
@@ -221,7 +227,7 @@ const Top = styled.div`
   justify-content: space-between;
   position: relative;
   z-index: 2;
-  
+
   ${ftablet(css`
     justify-content: flex-start;
     gap: 81px;
