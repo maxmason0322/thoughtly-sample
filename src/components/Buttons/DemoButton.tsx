@@ -38,8 +38,8 @@ const Inner = styled.div`
   ${fresponsive(css`
     border-radius: 10px;
     padding: 12px 18px;
-    border: 1.5px solid #E4E4E4;
+    border: 1.5px solid #e4e4e4;
     box-shadow: 0 18px 42px 0 rgba(89 89 89 / 4%);
-    background: linear-gradient(210deg, #FFF 2.03%, #F7F7F7 255.34%);
+    background: linear-gradient(210deg, #fff 2.03%, #f7f7f7 255.34%);
   `)}
 `

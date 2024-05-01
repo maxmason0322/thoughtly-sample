@@ -43,8 +43,7 @@ const Highlight = styled.div`
   `)}
 `
 
-const Wrapper = styled.button`
-  cursor: pointer;
+const Wrapper = styled.div`
   position: relative;
   background: ${gradients.surface2Reverse};
   display: flex;

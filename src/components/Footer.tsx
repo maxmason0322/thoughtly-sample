@@ -41,7 +41,7 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 				<StyledDots />
 				<Top>
 					<LogoAddress>
-						<UniversalLink to={links.home}>
+						<UniversalLink to={links.home} ariaLabel="Thoughtly">
 							<Logo />
 						</UniversalLink>
 						<Address>41 E 11th St, 11th Floor, New York, NY 10003</Address>

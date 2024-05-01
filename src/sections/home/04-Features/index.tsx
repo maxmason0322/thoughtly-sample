@@ -4,6 +4,7 @@ import gsap from "gsap"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import useMedia from "library/useMedia"
+import { getResponsivePixels } from "library/viewportUtils"
 import { useRef } from "react"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
@@ -21,12 +22,12 @@ export default function Features() {
         nodes {
           icon
           title
-					text
-					link {
-						href
-						text
-					}
-					strokeIcon
+          text
+          link {
+            href
+            text
+          }
+          strokeIcon
           background {
             childImageSharp {
               original {
@@ -34,20 +35,20 @@ export default function Features() {
               }
             }
           }
-					backgroundTablet {
-						childImageSharp {
-							original {
-								src
-							}
-						}
-					}
-					backgroundMobile {
-						childImageSharp {
-							original {
-								src
-							}
-						}
-					}
+          backgroundTablet {
+            childImageSharp {
+              original {
+                src
+              }
+            }
+          }
+          backgroundMobile {
+            childImageSharp {
+              original {
+                src
+              }
+            }
+          }
         }
       }
     }
@@ -82,9 +83,27 @@ export default function Features() {
 				},
 			})
 
-			tl.from(innerRef.current, {
-				rowGap: 200,
+			/**
+			 * we're roughly simulating a row gap here,
+			 * but that's bad for performance
+			 * so doing it with transforms instead
+			 */
+
+			const children = Array.from(innerRef.current?.children ?? [])
+
+			const lastChild = children.at(-1) ?? null
+			const midKids = children.slice(2).filter((child) => child !== lastChild)
+
+			tl.from(midKids, {
+				y: () => getResponsivePixels(150),
 			})
+			tl.from(
+				lastChild,
+				{
+					y: () => getResponsivePixels(300),
+				},
+				0,
+			)
 		},
 		[mobile],
 		{
@@ -103,7 +122,7 @@ const Wrapper = styled.section`
   width: 100%;
   display: grid;
   place-items: center;
-	background-color: ${colors.white};
+  background-color: ${colors.white};
 `
 
 const Inner = styled.div`
@@ -118,16 +137,16 @@ const Inner = styled.div`
     grid-template-columns: 360px 192px 192px 360px;
   `)}
 
-	${ftablet(css`
-		grid-auto-rows: 348px 306px 306px 276px;
-		grid-template-columns: 432px 93px 339px;
-		padding: 0 68px 202px;
-	`)}
+  ${ftablet(css`
+    grid-auto-rows: 348px 306px 306px 276px;
+    grid-template-columns: 432px 93px 339px;
+    padding: 0 68px 202px;
+  `)}
 
 	${fmobile(css`
-		padding: 0 30px 24px;
-		grid-template-columns: 315px;
-		grid-auto-rows: 360px 360px 360px 360px 360px 420px;
-		gap: 12px;
-	`)}
+    padding: 0 30px 24px;
+    grid-template-columns: 315px;
+    grid-auto-rows: 360px 360px 360px 360px 360px 420px;
+    gap: 12px;
+  `)}
 `

@@ -2,11 +2,13 @@ import Circle from "components/Buttons/Circle"
 import MouseFollower from "components/MouseFollower"
 import gsap from "gsap"
 import ConstantMarquee from "library/ConstantMarquee"
-import UniversalLink from "library/Loader/UniversalLink"
+import UniversalLink, {
+	type UniversalLinkRef,
+} from "library/Loader/UniversalLink"
 import { ScreenContext } from "library/ScreenContext"
 import useCanHover from "library/canHover"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
-import { useContext } from "react"
+import { useContext, useRef } from "react"
 import styled, { css } from "styled-components"
 import { Dots } from "styles/background"
 import colors, { gradients } from "styles/colors"
@@ -20,19 +22,20 @@ import { transparentText } from "styles/text"
 
 export default function CallCTA() {
 	const { mobile } = useContext(ScreenContext)
+	const phoneRef = useRef<UniversalLinkRef>(null)
 	const canHover = useCanHover()
 
 	const handleMouseEnter = () => {
 		if (!canHover) return
-		gsap.to(".phoneNumber", {
+
+		gsap.to(phoneRef.current?.querySelectorAll(".phoneNumber") ?? [], {
 			duration: 0.25,
 			backgroundImage: gradients.greenGreen,
 		})
 	}
 
 	const handleMouseLeave = () => {
-		if (!canHover) return
-		gsap.to(".phoneNumber", {
+		gsap.to(phoneRef.current?.querySelectorAll(".phoneNumber") ?? [], {
 			duration: 0.25,
 			backgroundImage: gradients.grayGray,
 		})
@@ -53,16 +56,16 @@ export default function CallCTA() {
 				<Bottom>
 					<MarqueeWrapper>
 						{canHover && <MouseFollower />}
-						<MarqueeBorder>
+						<MarqueeBorder
+							onMouseEnter={handleMouseEnter}
+							onMouseLeave={handleMouseLeave}
+							to="tel:+18557170250"
+							forwardRef={phoneRef}
+						>
 							<Dots />
 							<Marquee timing={mobile ? 7 : 10}>
 								<MarqueeSpan>
-									<PhoneNumber
-										onMouseEnter={handleMouseEnter}
-										onMouseLeave={handleMouseLeave}
-										className="phoneNumber"
-										to="tel:+18557170250"
-									>
+									<PhoneNumber className="phoneNumber">
 										+1 (855) 717-0250
 									</PhoneNumber>
 									<Circle />
@@ -71,12 +74,7 @@ export default function CallCTA() {
 							{mobile && (
 								<Marquee timing={mobile ? 7 : 10} reversed>
 									<MarqueeSpan>
-										<PhoneNumber
-											onMouseEnter={handleMouseEnter}
-											onMouseLeave={handleMouseLeave}
-											className="phoneNumber reverse"
-											to="tel:+18557170250"
-										>
+										<PhoneNumber className="phoneNumber">
 											+1 (855) 717-0250
 										</PhoneNumber>
 										<Circle />
@@ -196,7 +194,7 @@ const TextSpan = styled.span`
   background-image: ${gradients.greenBlue};
 `
 
-const PhoneNumber = styled(UniversalLink)`
+const PhoneNumber = styled.div`
   ${textStyles.h2};
   ${transparentText};
   background-image: ${gradients.grayGray};
@@ -211,7 +209,7 @@ const PhoneNumber = styled(UniversalLink)`
   `)}
 `
 
-const MarqueeBorder = styled.div`
+const MarqueeBorder = styled(UniversalLink)`
   display: flex;
   align-items: center;
   position: relative;
@@ -238,11 +236,10 @@ const MarqueeBorder = styled.div`
 
 const MarqueeSpan = styled.span`
   display: flex;
-  align-items: center; 
+  align-items: center;
 `
 
 const Marquee = styled(ConstantMarquee)`
-
   ${ftablet(css`
     transform: translateZ(0);
   `)}

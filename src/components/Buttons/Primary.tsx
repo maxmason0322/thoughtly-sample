@@ -144,8 +144,8 @@ const Inner = styled.div<{ $secondary: boolean }>`
     ${({ $secondary }) =>
 			$secondary &&
 			css`
-      background: ${gradients.surface1Reverse};
-    `}
+        background: ${gradients.surface1Reverse};
+      `}
   }
 `
 

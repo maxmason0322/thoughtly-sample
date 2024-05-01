@@ -62,9 +62,9 @@ const StartSpeakLine = styled(StartSpeakLineSVG)`
     top: 552px;
   `)}
 
-	${ftablet(css`
-		display: none;
-	`)}
+  ${ftablet(css`
+    display: none;
+  `)}
 
   ${fmobile(css`
     display: none;
@@ -85,9 +85,9 @@ const SpeakActionLine = styled(SpeakActionLineSVG)`
     top: 960px;
   `)}
 
-	${ftablet(css`
-		display: none;
-	`)}
+  ${ftablet(css`
+    display: none;
+  `)}
 
   ${fmobile(css`
     display: none;
@@ -104,9 +104,9 @@ const SpeakTestLine = styled(SpeakTestLineSVG)`
     top: 959px;
   `)}
 
-	${ftablet(css`
-		display: none;
-	`)}
+  ${ftablet(css`
+    display: none;
+  `)}
 
   ${fmobile(css`
     display: none;
@@ -123,9 +123,9 @@ const ActionSpeakLine = styled(ActionSpeakLineSVG)`
     top: 1297px;
   `)}
 
-	${ftablet(css`
-		display: none;
-	`)}
+  ${ftablet(css`
+    display: none;
+  `)}
 
   ${fmobile(css`
     display: none;
@@ -142,9 +142,9 @@ const TestSpeakLine = styled(TestSpeakLineSVG)`
     top: 1560px;
   `)}
 
-	${ftablet(css`
-		display: none;
-	`)}
+  ${ftablet(css`
+    display: none;
+  `)}
 
   ${fmobile(css`
     display: none;
@@ -161,9 +161,9 @@ const TestLine = styled(TestLine1SVG)`
     right: 1180px;
   `)}
 
-	${ftablet(css`
-		display: none;
-	`)}
+  ${ftablet(css`
+    display: none;
+  `)}
 
   ${fmobile(css`
     display: none;
@@ -180,9 +180,9 @@ const SpeakLine1 = styled(SpeakLine1SVG)`
     right: 1037px;
   `)}
 
-	${ftablet(css`
-		display: none;
-	`)}
+  ${ftablet(css`
+    display: none;
+  `)}
 
   ${fmobile(css`
     display: none;
@@ -199,9 +199,9 @@ const SpeakLine2 = styled(SpeakLine2SVG)`
     right: 960px;
   `)}
 
-	${ftablet(css`
-		display: none;
-	`)}
+  ${ftablet(css`
+    display: none;
+  `)}
 
   ${fmobile(css`
     display: none;
@@ -218,9 +218,9 @@ const SpeakLine3 = styled(SpeakLine3SVG)`
     right: 763px;
   `)}
 
-	${ftablet(css`
-		display: none;
-	`)}
+  ${ftablet(css`
+    display: none;
+  `)}
 
   ${fmobile(css`
     display: none;
@@ -237,9 +237,9 @@ const SpeakLine4 = styled(SpeakLine4SVG)`
     right: 592px;
   `)}
 
-	${ftablet(css`
-		display: none;
-	`)}
+  ${ftablet(css`
+    display: none;
+  `)}
 
   ${fmobile(css`
     display: none;

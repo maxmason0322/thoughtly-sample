@@ -120,7 +120,7 @@ const Content = styled.div`
   `)}
 `
 
-const Title = styled.h5`
+const Title = styled.h1`
   ${textStyles.h5}
   color: ${colors.black};
   text-align: center;
