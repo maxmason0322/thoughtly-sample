@@ -104,21 +104,19 @@ export default function Statement() {
 		<div>
 			<Wrapper ref={wrapperRef}>
 				<Inner>
-					<DotsWrapper>
+					<Content>
 						<Dots />
-						<Content>
-							<Title>
-								<span className="non-gradient">
-									Thoughtly reimagines phone calls with AI that speaks your
-									language. Our mission is to make every call your best yet,
-									merging tradition with tomorrow&apos;s tech.
-								</span>
-								<span className="gradient">
-									&nbsp; Welcome to the future of customer interaction.
-								</span>
-							</Title>
-						</Content>
-					</DotsWrapper>
+						<Title>
+							<span className="non-gradient">
+								Thoughtly reimagines phone calls with AI that speaks your
+								language. Our mission is to make every call your best yet,
+								merging tradition with tomorrow&apos;s tech.
+							</span>
+							<span className="gradient">
+								&nbsp; Welcome to the future of customer interaction.
+							</span>
+						</Title>
+					</Content>
 				</Inner>
 			</Wrapper>
 		</div>
@@ -142,7 +140,7 @@ const Inner = styled.div`
   max-width: ${desktopBreakpoint}px;
 
   ${fresponsive(css`
-    padding: 92px 60px;
+    padding: 92px 61px;
   `)}
 
   ${ftablet(css`
@@ -156,36 +154,15 @@ const Inner = styled.div`
   `)}
 `
 
-const DotsWrapper = styled.div`
-  background-color: ${colors.gray100};
-  position: relative;
-  overflow: hidden;
-
-  ${fresponsive(css`
-    border-radius: 60px;
-    width: 1318px;
-    height: 694px;
-  `)}
-
-  ${ftablet(css`
-    border-radius: 48px;
-    width: 982px;
-    height: 694px;
-  `)}
-
-	${fmobile(css`
-    border-radius: 36px;
-    width: 358px;
-    height: 448px;
-  `)}
-`
-
 const Content = styled.div`
   width: 100%;
+	overflow: clip;
+	position: relative;
 
   ${fresponsive(css`
     height: 694px;
     padding: 84px 96px;
+		border-radius: 60px;
   `)}
 
   ${ftablet(css`
@@ -196,6 +173,7 @@ const Content = styled.div`
   ${fmobile(css`
     height: 448px;
     padding: 65px 47px 0 22px;
+		border-radius: 36px;
   `)}
 `
 

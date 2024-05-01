@@ -1,19 +1,20 @@
 import DotSVG from "images/global/icons/Dot.svg"
-import { fmobile, fresponsive } from "library/fullyResponsive"
+import { fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
+import colors from "./colors"
 
 export const Dots = styled.div`
   position: absolute;
   background-image: url(${DotSVG});
   background-repeat: repeat;
-  background-position: center center;
-
+  background-color: ${colors.gray100};
+  width: 100%;
+  height: 100%;
+  
   ${fresponsive(css`
-    inset: 15px;
+    left: 0;
+    top: 0;
+    background-position: 22px 22px; 
     background-size: 24px 24px;
-  `)}
-
-  ${fmobile(css`
-    inset: 9px;
   `)}
 `
