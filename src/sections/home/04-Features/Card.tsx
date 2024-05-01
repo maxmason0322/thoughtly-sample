@@ -118,7 +118,7 @@ const Wrapper = styled.div<{
 	`)}
 `
 
-const Title = styled.h6`
+const Title = styled.h1`
   ${textStyles.sh2}
   color: ${colors.black};
 

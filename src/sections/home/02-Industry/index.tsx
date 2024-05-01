@@ -704,7 +704,7 @@ const TextContent = styled.div`
   `)}
 `
 
-const SubTitle = styled.h6`
+const SubTitle = styled.h1`
   ${textStyles.sh1}
   color: ${colors.black};
   width: fit-content;

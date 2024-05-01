@@ -245,7 +245,7 @@ export default function Hero() {
 						<span>Inbound and outbound phone calls</span>
 					</Unmask>
 					<Unmask>
-						<h6>From "Hello" to handled in a few clicks.</h6>
+						<h1>From "Hello" to handled in a few clicks.</h1>
 					</Unmask>
 					<Unmask>
 						<p>
@@ -260,7 +260,7 @@ export default function Hero() {
 						<span>A data-driven approach</span>
 					</Unmask>
 					<Unmask>
-						<h6>Analytics that&nbsp;tell your customer's&nbsp;story</h6>
+						<h1>Analytics that&nbsp;tell your customer's&nbsp;story</h1>
 					</Unmask>
 					<Unmask>
 						<p>
@@ -408,7 +408,7 @@ const Callout = styled.div`
     background-image: ${gradients.greenBlue};
   }
 
-  h6 {
+  h1 {
     ${textStyles.h6}
     color: ${colors.black};
   }
@@ -425,7 +425,7 @@ const Callout = styled.div`
 	${fmobile(css`
 		gap: 8px;
 
-		h6 {
+		h1 {
 			${textStyles.sh1}
 		}
 	`)}
@@ -438,7 +438,7 @@ const Callout1 = styled(Callout)`
     left: 156px;
     top: 826px;
 
-    h6 {
+    h1 {
       width: 450px;
     }
 
@@ -452,7 +452,7 @@ const Callout1 = styled(Callout)`
 		top: 1097px;
 		width: 290px;
 
-		h6, p {
+		h1, p {
 			width: 100%;
 		}
 	`)}
@@ -462,7 +462,7 @@ const Callout1 = styled(Callout)`
 		top: 977px;
 		width: 247px;
 
-		h6 {
+		h1 {
 			width: 100%;
 		}
 
@@ -479,7 +479,7 @@ const Callout2 = styled(Callout)`
     right: 229px;
     bottom: 247px;
 
-    h6 {
+    h1 {
       width: 420px;
     }
 
@@ -493,7 +493,7 @@ const Callout2 = styled(Callout)`
 		bottom: 152px;
 		width: 330px;
 
-		h6, p {
+		h1, p {
 			width: 100%;
 		}
 	`)}
@@ -503,7 +503,7 @@ const Callout2 = styled(Callout)`
 		left: 33px;
 		width: 247px;
 
-		h6 {
+		h1 {
 			width: 100%;
 		}
 

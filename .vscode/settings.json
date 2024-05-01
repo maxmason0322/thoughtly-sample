@@ -37,6 +37,7 @@
 		"gifs",
 		"gsap",
 		"hubspot",
+		"MSVG",
 		"multipass",
 		"pcms",
 		"preinstall",
@@ -48,8 +49,10 @@
 		"svgr",
 		"TCPA",
 		"Thoughtly",
+		"TSVG",
 		"Typegen",
 		"UCITA",
+		"Whyte",
 		"yoyo"
 	],
 	"cSpell.ignorePaths": [

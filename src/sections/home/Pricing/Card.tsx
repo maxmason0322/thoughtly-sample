@@ -32,6 +32,8 @@ export default function Card({
 		<CheckTag key={item}>{item}</CheckTag>
 	))
 
+	const duration = 0.3
+
 	return (
 		<Wrapper>
 			<Top>
@@ -39,12 +41,12 @@ export default function Card({
 					<Info>
 						<StyledIcon name="analytics" />
 						<div>
-							<AutoAnimate>
+							<AutoAnimate duration={duration}>
 								<Title key={activeIndex}>{titles[activeIndex]}</Title>
 							</AutoAnimate>
 						</div>
 						<div>
-							<AutoAnimate>
+							<AutoAnimate duration={duration}>
 								<Text key={activeIndex}>{text[activeIndex]}</Text>
 							</AutoAnimate>
 						</div>
@@ -54,7 +56,7 @@ export default function Card({
 					</StyledButton>
 				</Row>
 				<Price>
-					<AutoAnimate>
+					<AutoAnimate duration={duration}>
 						<div key={activeIndex}>{prices[activeIndex]}</div>
 					</AutoAnimate>
 					{!hideMonth && <span>/mo.</span>}
@@ -63,16 +65,21 @@ export default function Card({
 					<>
 						<Minutes>
 							Minutes Per Month
-							<AutoAnimate>
+							<AutoAnimate duration={duration}>
 								<span key={activeIndex}>{minutes?.[activeIndex]}</span>
 							</AutoAnimate>
 						</Minutes>
 						<Slider
-							value={activeIndex}
+							defaultValue={0}
+							aria-label="call volume, adjust to view different plans"
 							type="range"
 							min="0"
-							max="4"
-							onChange={(e) => setActiveIndex(Number.parseInt(e.target.value))}
+							max="4000"
+							onChange={(e) =>
+								setActiveIndex(
+									Math.round(Number.parseInt(e.target.value) / 1000),
+								)
+							}
 						/>
 					</>
 				)}
@@ -190,7 +197,7 @@ const StyledButton = styled(Button)`
   flex-shrink: 0;
 `
 
-const Price = styled.h6`
+const Price = styled.h1`
   ${textStyles.h6}
   color: ${colors.black};
   display: flex;
