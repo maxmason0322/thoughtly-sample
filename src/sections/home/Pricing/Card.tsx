@@ -38,12 +38,16 @@ export default function Card({
 				<Row>
 					<Info>
 						<StyledIcon name="analytics" />
-						<AutoAnimate>
-							<Title key={activeIndex}>{titles[activeIndex]}</Title>
-						</AutoAnimate>
-						<AutoAnimate>
-							<Text key={activeIndex}>{text[activeIndex]}</Text>
-						</AutoAnimate>
+						<div>
+							<AutoAnimate>
+								<Title key={activeIndex}>{titles[activeIndex]}</Title>
+							</AutoAnimate>
+						</div>
+						<div>
+							<AutoAnimate>
+								<Text key={activeIndex}>{text[activeIndex]}</Text>
+							</AutoAnimate>
+						</div>
 					</Info>
 					<StyledButton to={links.todo} variant="secondary">
 						Get Started

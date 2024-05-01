@@ -103,6 +103,7 @@ export default function Widgets() {
 
 const StartWidget = styled(Widget)`
   position: absolute;
+	opacity: 0;
 
   ${fresponsive(css`
     top: 372px;
@@ -125,6 +126,7 @@ const StartWidget = styled(Widget)`
 
 const SpeakWidget = styled(Widget)`
   position: absolute;
+	opacity: 0;
 
   ${fresponsive(css`
     top: 762px;
