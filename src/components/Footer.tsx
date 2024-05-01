@@ -37,9 +37,9 @@ export default function Footer({
 
 	const isFixed = fixedRoutes.some((route) => pathnameMatches(pathname, route))
 
-	const primary = isFixed ? "fixed" : "static"
+	const primary = isFixed && !mobile ? "fixed" : "static"
 
-	if (primary === "fixed" && !mobile && position === "static") return <Spacer />
+	if (primary === "fixed" && position === "static") return <Spacer />
 	if (primary === "static" && position === "fixed") return null
 
 	return (
