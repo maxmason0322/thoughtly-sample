@@ -1,5 +1,6 @@
 import { config as dotEnvConfig } from "dotenv"
 import type { GatsbyConfig } from "gatsby"
+import adapter from "gatsby-adapter-netlify"
 
 dotEnvConfig()
 
@@ -22,8 +23,9 @@ const config: GatsbyConfig = {
 		 * this is the default og image when none other is provided
 		 * it must be a complete URL (e.g. https://example.com/image.jpg)
 		 */
-		image: "https://thought.ly/og-image.png",
+		image: `${process.env.URL}/og-image.png`,
 	},
+	adapter: adapter(),
 	graphqlTypegen: {
 		generateOnBuild: true,
 		typesOutputPath: "./src/types/gatsby-types.d.ts",
@@ -31,7 +33,6 @@ const config: GatsbyConfig = {
 	plugins: [
 		"gatsby-plugin-pnpm-gatsby-5",
 		"gatsby-plugin-sitemap",
-		"gatsby-plugin-netlify",
 		"gatsby-plugin-image",
 		"gatsby-transformer-sharp",
 		{

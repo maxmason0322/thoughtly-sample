@@ -1,20 +1,15 @@
 import Footer from "components/Footer"
 import Header from "components/Header"
-import Preloader from "components/Preloader"
-import Transition from "components/Transition"
 import { useBackButton } from "library/Loader/TransitionUtils"
 import Scroll from "library/Scroll"
-import { fresponsive } from "library/fullyResponsive"
 import { useTrackPageReady } from "library/pageReady"
 import useTrackFrameTime from "library/useTrackFrameTime"
-import { useContext, useEffect, useState } from "react"
+import { useContext } from "react"
 import { PopupModal } from "react-calendly"
 import styled, { createGlobalStyle, css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
-import CalendlyModalProvider, {
-	CalendlyModalContext,
-} from "./Providers/CalendlyModalProvider"
+import { CalendlyModalContext } from "./Providers/CalendlyModalProvider"
 
 interface LayoutProps {
 	children: React.ReactNode

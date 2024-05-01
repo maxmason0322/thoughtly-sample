@@ -1,5 +1,4 @@
 import Button from "components/Buttons/Primary"
-import Kicker from "components/Kicker"
 import Unmask from "components/Unmask"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"

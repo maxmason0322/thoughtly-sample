@@ -2,7 +2,6 @@ import Icon from "components/Icon"
 import { fresponsive } from "library/fullyResponsive"
 import type { ReactNode } from "react"
 import styled, { css } from "styled-components"
-import colors from "styles/colors"
 import textStyles from "styles/text"
 
 export default function CheckTag({
