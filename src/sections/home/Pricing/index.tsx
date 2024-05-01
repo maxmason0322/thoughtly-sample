@@ -1,13 +1,16 @@
 import Button from "components/Buttons/Primary"
+import { CalendlyModalContext } from "components/Providers/CalendlyModalProvider"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
+import { useContext } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
-import links from "utils/links"
 import Card from "./Card"
 
 export default function Pricing() {
+	const { setModalOpen } = useContext(CalendlyModalContext)
+
 	return (
 		<Wrapper id="pricing">
 			<Inner>
@@ -22,7 +25,11 @@ export default function Pricing() {
 								Pay by minute or try one of our scaleable plans to fit your
 								ambitions
 							</Text>
-							<Button to={links.todo} icon="chev">
+							<Button
+								type="button"
+								onClick={() => setModalOpen(true)}
+								icon="chev"
+							>
 								Contact Us
 							</Button>
 						</Row>
@@ -122,7 +129,7 @@ const Wrapper = styled.section`
   width: 100%;
   display: grid;
   place-items: center;
-	background-color: ${colors.white};
+  background-color: ${colors.white};
 `
 
 const Inner = styled.div`
@@ -132,7 +139,7 @@ const Inner = styled.div`
   ${fresponsive(css`
     padding: 123px 114px 168px;
   `)}
-  
+
   ${ftablet(css`
     padding: 123px 94.5px;
   `)}
@@ -146,7 +153,7 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-top: 1px solid #EAEAEA;
+  border-top: 1px solid #eaeaea;
 
   ${fresponsive(css`
     padding-top: 81px;

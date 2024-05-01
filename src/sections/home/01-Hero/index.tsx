@@ -1,4 +1,5 @@
 import Button from "components/Buttons/Primary"
+import { CalendlyModalContext } from "components/Providers/CalendlyModalProvider"
 import Unmask from "components/Unmask"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
@@ -24,7 +25,7 @@ gsap.registerPlugin(DrawSVGPlugin)
 export default function Hero() {
 	const { mobile } = useContext(ScreenContext)
 	const wrapperRef = useRef<HTMLElement | null>(null)
-
+	const { setModalOpen } = useContext(CalendlyModalContext)
 	useAnimation(
 		() => {
 			if (mobile) return
@@ -234,7 +235,12 @@ export default function Hero() {
 						<Unmask
 							parameters={{ delay: 0.45, ease: "power4.out", duration: 2 }}
 						>
-							<Button to={links.todo} variant="secondary" icon="phone">
+							<Button
+								type="button"
+								onClick={() => setModalOpen(true)}
+								variant="secondary"
+								icon="phone"
+							>
 								Book a Demo
 							</Button>
 						</Unmask>
@@ -283,9 +289,9 @@ const Wrapper = styled.section`
   width: 100%;
   display: grid;
   place-items: center;
-	background-color: ${colors.white};
-	position: relative;
-	z-index: 3;
+  background-color: ${colors.white};
+  position: relative;
+  z-index: 3;
 `
 
 const Inner = styled.div`
@@ -298,15 +304,15 @@ const Inner = styled.div`
     padding: 144px 156px 60px;
   `)}
 
-	${ftablet(css`
-		height: 2211px;
-		padding: 190px 68px 24px;
-	`)}
+  ${ftablet(css`
+    height: 2211px;
+    padding: 190px 68px 24px;
+  `)}
 
 	${fmobile(css`
-		height: 2253px;
-		padding: 110px 0;
-	`)}
+    height: 2253px;
+    padding: 110px 0;
+  `)}
 `
 
 const BackgroundImage = styled.img`
@@ -320,13 +326,13 @@ const BackgroundImage = styled.img`
     right: 62px;
   `)}
 
-	${ftablet(css`
-		display: none;
-	`)}
+  ${ftablet(css`
+    display: none;
+  `)}
 
 	${fmobile(css`
-		display: none;
-	`)}
+    display: none;
+  `)}
 `
 
 const TextContent = styled.div`
@@ -339,9 +345,9 @@ const TextContent = styled.div`
     gap: 24px;
   `)}
 
-	${fmobile(css`
-		align-items: center;
-	`)}
+  ${fmobile(css`
+    align-items: center;
+  `)}
 `
 
 const Title = styled.h1`
@@ -352,16 +358,16 @@ const Title = styled.h1`
     width: 620px;
   `)}
 
-	${ftablet(css`
-		${textStyles.h2}
-		width: 800px;
-	`)}
+  ${ftablet(css`
+    ${textStyles.h2}
+    width: 800px;
+  `)}
 
 	${fmobile(css`
-		${textStyles.h6}
-		width: 300px;
-		text-align: center;
-	`)}
+    ${textStyles.h6}
+    width: 300px;
+    text-align: center;
+  `)}
 `
 
 const Text = styled.p`
@@ -372,16 +378,16 @@ const Text = styled.p`
     width: 380px;
   `)}
 
-	${ftablet(css`
-		${textStyles.bodyXL}
-		width: 456px;
-	`)}
+  ${ftablet(css`
+    ${textStyles.bodyXL}
+    width: 456px;
+  `)}
 
 	${fmobile(css`
-		${textStyles.bodyR}
-		width: 318px;
-		text-align: center;
-	`)}
+    ${textStyles.bodyR}
+    width: 318px;
+    text-align: center;
+  `)}
 `
 
 const Buttons = styled.div`
@@ -390,14 +396,14 @@ const Buttons = styled.div`
 
   ${fresponsive(css`
     gap: 18px;
-		padding: 3px;
-		margin: -3px;
+    padding: 3px;
+    margin: -3px;
   `)}
 
-	${fmobile(css`
-		flex-direction: column;
-		gap: 12px;
-	`)}
+  ${fmobile(css`
+    flex-direction: column;
+    gap: 12px;
+  `)}
 `
 
 const Callout = styled.div`
@@ -424,13 +430,13 @@ const Callout = styled.div`
     gap: 14px;
   `)}
 
-	${fmobile(css`
-		gap: 8px;
+  ${fmobile(css`
+    gap: 8px;
 
-		h6 {
-			${textStyles.sh1}
-		}
-	`)}
+    h6 {
+      ${textStyles.sh1}
+    }
+  `)}
 `
 
 const Callout1 = styled(Callout)`
@@ -449,29 +455,30 @@ const Callout1 = styled(Callout)`
     }
   `)}
 
-	${ftablet(css`
-		left: 87px;
-		top: 1097px;
-		width: 290px;
+  ${ftablet(css`
+    left: 87px;
+    top: 1097px;
+    width: 290px;
 
-		h6, p {
-			width: 100%;
-		}
-	`)}
+    h6,
+    p {
+      width: 100%;
+    }
+  `)}
 
 	${fmobile(css`
-		left: 33px;
-		top: 977px;
-		width: 247px;
+    left: 33px;
+    top: 977px;
+    width: 247px;
 
-		h6 {
-			width: 100%;
-		}
+    h6 {
+      width: 100%;
+    }
 
-		p {
-			width: 225px;
-		}
-	`)}
+    p {
+      width: 225px;
+    }
+  `)}
 `
 
 const Callout2 = styled(Callout)`
@@ -490,54 +497,55 @@ const Callout2 = styled(Callout)`
     }
   `)}
 
-	${ftablet(css`
-		right: 70px;
-		bottom: 130px;
-		width: 330px;
+  ${ftablet(css`
+    right: 70px;
+    bottom: 130px;
+    width: 330px;
 
-		h6, p {
-			width: 100%;
-		}
-	`)}
+    h6,
+    p {
+      width: 100%;
+    }
+  `)}
 
 	${fmobile(css`
-		top: 1471px;
-		left: 33px;
-		width: 247px;
+    top: 1471px;
+    left: 33px;
+    width: 247px;
 
-		h6 {
-			width: 100%;
-		}
+    h6 {
+      width: 100%;
+    }
 
-		p {
-			width: 284px;
-		}
-	`)}
+    p {
+      width: 284px;
+    }
+  `)}
 `
 
 const BackgroundTablet = styled.div`
-	position: absolute;
-	display: none;
-	z-index: 0;
-	background-color: ${colors.gray100};
+  position: absolute;
+  display: none;
+  z-index: 0;
+  background-color: ${colors.gray100};
 
-	${ftablet(css`
-		display: flex;
-		width: 982px;
-		height: 1271px;
-		bottom: 24px;
-		left: 21px;
-		border-radius: 48px;
-	`)}
+  ${ftablet(css`
+    display: flex;
+    width: 982px;
+    height: 1271px;
+    bottom: 24px;
+    left: 21px;
+    border-radius: 48px;
+  `)}
 
-	${fmobile(css`
-		height: 1269px;
-		width: 358px;
-		display: flex;
-		left: 9px;
-		bottom: 82px;
-		border-radius: 36px;
-	`)}
+  ${fmobile(css`
+    height: 1269px;
+    width: 358px;
+    display: flex;
+    left: 9px;
+    bottom: 82px;
+    border-radius: 36px;
+  `)}
 `
 
 const StyledDots = styled(Dots)``
