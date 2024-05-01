@@ -15,7 +15,6 @@ interface MouseFollowerProps {
 
 export default function MouseFollower({ trackElement }: MouseFollowerProps) {
 	const wrapperRef = useRef<HTMLDivElement>(null)
-	const [rotation, setRotation] = useState(0)
 
 	const [isClient, setIsClient] = useState(false)
 	useEffect(() => {
@@ -31,16 +30,21 @@ export default function MouseFollower({ trackElement }: MouseFollowerProps) {
 
 			const deltaX = clientX - centerX
 			const deltaY = clientY - centerY
-			const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY)
 
-			const maxDistance = Math.sqrt(centerX * centerX + centerY * centerY)
-			let rotationAngle: number
+			const distance = deltaX * deltaX + deltaY * deltaY
+			const maxDistance = centerX * centerX + centerY * centerY
+
+			let rotationAngle: number | undefined
+
 			if (deltaX > 0) {
 				rotationAngle = (distance / maxDistance) * 10
 			} else {
 				rotationAngle = -(distance / maxDistance) * 10
 			}
-			setRotation(rotationAngle)
+
+			gsap.set(wrapperRef.current?.children ?? null, {
+				transform: `rotate(${rotationAngle}deg)`,
+			})
 		}
 
 		window.addEventListener("mousemove", handleMouseMove)
@@ -140,9 +144,7 @@ export default function MouseFollower({ trackElement }: MouseFollowerProps) {
 	if (!isClient) return null
 	return (
 		<Wrapper ref={wrapperRef}>
-			<StyledDemoButton $rotation={rotation} to="tel:+18557170250">
-				Call for a Live Demo
-			</StyledDemoButton>
+			<DemoButton to="tel:+18557170250">Call for a Live Demo</DemoButton>
 		</Wrapper>
 	)
 }
@@ -155,8 +157,4 @@ const Wrapper = styled.div`
   pointer-events: none;
   z-index: 10;
   color: #000;
-`
-
-const StyledDemoButton = styled(DemoButton)<{ $rotation: number }>`
-  transform: rotate(${({ $rotation }) => $rotation}deg);
 `
