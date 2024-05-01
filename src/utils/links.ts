@@ -4,6 +4,13 @@ const routes = {
 	privacy: "/privacy",
 } as const
 
+const sections = {
+	industries: "/#industries",
+	features: "/#features",
+	integrations: "/#integrations",
+	pricing: "/#pricing",
+}
+
 const socials = {
 	linkedin: "https://www.linkedin.com/company/thoughtly-ai/",
 	twitter: "https://twitter.com/thoughtlyai",
@@ -17,7 +24,9 @@ const links = {
 	helpCenter: "https://help.thought.ly/en/",
 	apiDocs: "https://api.thought.ly/docs/",
 	mediaInquiries: "mailto:press@thought.ly",
+	contact: "mailto:support@thought.ly",
 	...routes,
+	...sections,
 	...socials,
 } as const
 

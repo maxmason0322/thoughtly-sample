@@ -19,12 +19,6 @@ import { CalendlyModalContext } from "./Providers/CalendlyModalProvider"
 
 gsap.registerPlugin(ScrollToPlugin)
 
-const scrollTo = (section: string) => {
-	gsap.to(window, {
-		scrollTo: section,
-	})
-}
-
 export default function Footer({ position }: { position: "fixed" | "static" }) {
 	const mobile = useMedia(false, false, false, true)
 	const pathname = useLocation().pathname
@@ -55,9 +49,7 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 					<Columns>
 						<LinkColumn>
 							<Label>Product</Label>
-							<Link type="button" onClick={() => scrollTo("#pricing")}>
-								Pricing
-							</Link>
+							<Link to={links.pricing}>Pricing</Link>
 							<Link to={links.todo} tag="Coming Soon">
 								Platform
 							</Link>

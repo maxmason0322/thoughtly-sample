@@ -24,15 +24,6 @@ export default function Header() {
 	const innerRef = useRef<HTMLDivElement | null>(null)
 	const { setModalOpen } = useContext(CalendlyModalContext)
 
-	const scrollTo = (section: string, offset: number) => {
-		gsap.to(window, {
-			scrollTo: {
-				y: section,
-				offsetY: offset,
-			},
-		})
-	}
-
 	const initTimeline = useAnimation(() => {
 		const tl = gsap.timeline()
 
@@ -56,18 +47,10 @@ export default function Header() {
 				<Left>
 					<StyledLogoSVG />
 					<Links>
-						<Link type="button" onClick={() => scrollTo("#industries", 0)}>
-							Industries
-						</Link>
-						<Link type="button" onClick={() => scrollTo("#features", 0)}>
-							Features
-						</Link>
-						<Link type="button" onClick={() => scrollTo("#integrations", 500)}>
-							Integrations
-						</Link>
-						<Link type="button" onClick={() => scrollTo("#pricing", 250)}>
-							Pricing
-						</Link>
+						<Link to={links.industries}>Industries</Link>
+						<Link to={links.features}>Features</Link>
+						<Link to={links.integrations}>Integrations</Link>
+						<Link to={links.pricing}>Pricing</Link>
 						<Link to={links.helpCenter}>Support</Link>
 					</Links>
 				</Left>
