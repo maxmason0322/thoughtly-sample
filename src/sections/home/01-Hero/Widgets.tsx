@@ -103,7 +103,7 @@ export default function Widgets() {
 
 const StartWidget = styled(Widget)`
   position: absolute;
-	opacity: 0;
+  opacity: 0;
 
   ${fresponsive(css`
     top: 372px;
@@ -111,22 +111,22 @@ const StartWidget = styled(Widget)`
     height: 178px;
   `)}
 
-	${ftablet(css`
-		top: 857px;
-		right: 199px;
-	`)}
+  ${ftablet(css`
+    top: 857px;
+    right: 199px;
+  `)}
 
 	${fmobile(css`
-		right: 31.5px;
-		top: 788px;
-		transform-origin: top right;
-		transform: scale(0.73);
-	`)}
+    right: 31.5px;
+    top: 788px;
+    transform-origin: top right;
+    transform: scale(0.73);
+  `)}
 `
 
 const SpeakWidget = styled(Widget)`
   position: absolute;
-	opacity: 0;
+  opacity: 0;
 
   ${fresponsive(css`
     top: 762px;
@@ -134,17 +134,17 @@ const SpeakWidget = styled(Widget)`
     height: 196px;
   `)}
 
-	${ftablet(css`
-		top: 1131px;
-		right: 118px;
-	`)}
+  ${ftablet(css`
+    top: 1131px;
+    right: 118px;
+  `)}
 
 	${fmobile(css`
-		transform-origin: top right;
-		transform: scale(0.73);
-		top: 1116px;
-		right: -204.5px;
-	`)}
+    transform-origin: top right;
+    transform: scale(0.73);
+    top: 1116px;
+    right: -204.5px;
+  `)}
 `
 
 const Blue = styled.strong`
@@ -160,17 +160,17 @@ const Speak2Widget = styled(Widget)`
     height: 195px;
   `)}
 
-	${ftablet(css`
-		top: 1941px;
-		right: 476px;
-	`)}
+  ${ftablet(css`
+    top: 1941px;
+    right: 476px;
+  `)}
 
 	${fmobile(css`
-		transform-origin: top right;
-		transform: scale(0.73);
-		top: 1952px;
-		right: 103.5px;
-	`)}
+    transform-origin: top right;
+    transform: scale(0.73);
+    top: 1952px;
+    right: 103.5px;
+  `)}
 `
 
 const ActionWidget = styled(Widget)`
@@ -181,17 +181,17 @@ const ActionWidget = styled(Widget)`
     right: 156px;
   `)}
 
-	${ftablet(css`
-		top: 1396px;
-		right: 44px;
-	`)}
+  ${ftablet(css`
+    top: 1396px;
+    right: 44px;
+  `)}
 
 	${fmobile(css`
-		transform-origin: top right;
-		transform: scale(0.73);
-		top: 1210px;
-		right: 103.5px;
-	`)}
+    transform-origin: top right;
+    transform: scale(0.73);
+    top: 1210px;
+    right: 103.5px;
+  `)}
 `
 
 const ABTestWidget = styled(Widget)`
@@ -203,17 +203,17 @@ const ABTestWidget = styled(Widget)`
     height: 290px;
   `)}
 
-	${ftablet(css`
-		top: 1558px;
-		right: 597px;
-	`)}
+  ${ftablet(css`
+    top: 1558px;
+    right: 597px;
+  `)}
 
 	${fmobile(css`
-		transform-origin: top right;
-		transform: scale(0.73);
-		right: -36.5px;
-		top: 1714px;
-	`)}
+    transform-origin: top right;
+    transform: scale(0.73);
+    right: -36.5px;
+    top: 1714px;
+  `)}
 `
 
 const ABTestContent = styled.div`
@@ -244,17 +244,17 @@ const StyledCallWidget = styled(CallWidget)`
     right: 229px;
   `)}
 
-	${ftablet(css`
-		top: 633px;
-		right: 126px;
-	`)}
+  ${ftablet(css`
+    top: 633px;
+    right: 126px;
+  `)}
 
 	${fmobile(css`
-		transform-origin: top right;
-		top: 629.25px;
-		right: 127.75px;
-		transform: scale(0.75);
-	`)}
+    transform-origin: top right;
+    top: 629.25px;
+    right: 127.75px;
+    transform: scale(0.75);
+  `)}
 `
 
 const StyledIconsWidget = styled(IconsWidget)`
@@ -266,14 +266,14 @@ const StyledIconsWidget = styled(IconsWidget)`
     right: 157px;
   `)}
 
-	${ftablet(css`
-		top: 550px;
-		right: 53px;
-	`)}
+  ${ftablet(css`
+    top: 550px;
+    right: 53px;
+  `)}
 
 	${fmobile(css`
-		display: none;
-	`)}
+    display: none;
+  `)}
 `
 
 const StyledAvatarWidget = styled(AvatarWidget)`
@@ -285,15 +285,15 @@ const StyledAvatarWidget = styled(AvatarWidget)`
     right: 83px;
   `)}
 
-	${ftablet(css`
-		top: 857px;
-		right: 53px;
-	`)}
+  ${ftablet(css`
+    top: 857px;
+    right: 53px;
+  `)}
 	
 	${fmobile(css`
-		right: 26px;
-		top: 687px;
-		transform: scale(0.73);
-		transform-origin: top right;
-	`)}
+    right: 26px;
+    top: 687px;
+    transform: scale(0.73);
+    transform-origin: top right;
+  `)}
 `

@@ -57,117 +57,117 @@ export default function FourOhFour() {
 }
 
 const Wrapper = styled.section`
-	width: 100%;
-	display: grid;
-	place-items: center;
+  width: 100%;
+  display: grid;
+  place-items: center;
 
-	${fresponsive(css`
-		padding: 150px 157px 120px;
-	`)}
+  ${fresponsive(css`
+    padding: 150px 157px 120px;
+  `)}
 
-	${ftablet(css`
-		padding: 160px 69px 56px;
-	`)}
+  ${ftablet(css`
+    padding: 160px 69px 56px;
+  `)}
 
 	${fmobile(css`
-		padding: 120px 8px 109px;
-	`)}
+    padding: 120px 8px 109px;
+  `)}
 `
 
 const Inner = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	overflow: hidden;
-	position: relative;
-	background-color: ${colors.gray100};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  background-color: ${colors.gray100};
 
-	${fresponsive(css`
-		width: 1126px;
-		height: 694px;
-		border-radius: 60px;
-		gap: 24px;
-		padding-top: 161px;
-	`)}
+  ${fresponsive(css`
+    width: 1126px;
+    height: 694px;
+    border-radius: 60px;
+    gap: 24px;
+    padding-top: 161px;
+  `)}
 
-	${ftablet(css`
-		width: 886px;
-		height: 1174px;
-		gap: 36px;
-		padding-top: 342px;
-	`)}
+  ${ftablet(css`
+    width: 886px;
+    height: 1174px;
+    gap: 36px;
+    padding-top: 342px;
+  `)}
 
 	${fmobile(css`
-		width: 358px;
-		height: 671px;
-		padding-top: 144px;
-		border-radius: 36px;
-	`)}
+    width: 358px;
+    height: 671px;
+    padding-top: 144px;
+    border-radius: 36px;
+  `)}
 `
 
 const Content = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	
-	${fresponsive(css`
-		gap: 6px;
-	`)}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 
-	${ftablet(css`
-		gap: 0;
-	`)}
+  ${fresponsive(css`
+    gap: 6px;
+  `)}
+
+  ${ftablet(css`
+    gap: 0;
+  `)}
 `
 
 const Text = styled.p`
-	${textStyles.sh4};
-	${transparentText};
+  ${textStyles.sh4};
+  ${transparentText};
   background-image: ${gradients.greenBlue};
 
-	${ftablet(css`
-		${textStyles.sh2};
-	`)}
+  ${ftablet(css`
+    ${textStyles.sh2};
+  `)}
 `
 
 const TitleSpan = styled.div`
-	${textStyles.h2};
-	color: ${colors.black};
-	z-index: 1;
+  ${textStyles.h2};
+  color: ${colors.black};
+  z-index: 1;
 
-	${fresponsive(css`
-		width: 552px;
-	`)}
+  ${fresponsive(css`
+    width: 552px;
+  `)}
 
-	${ftablet(css`
-		${textStyles.h1};
-		width: 717px;
-	`)}
+  ${ftablet(css`
+    ${textStyles.h1};
+    width: 717px;
+  `)}
 
 	${fmobile(css`
-		${textStyles.h4};
-		width: 316px;
-	`)}
+    ${textStyles.h4};
+    width: 316px;
+  `)}
 `
 
 const Buttons = styled.div`
-	display: flex;
-	flex-direction: row;
+  display: flex;
+  flex-direction: row;
 
-	${fresponsive(css`
-		gap: 12px;
-	`)}
+  ${fresponsive(css`
+    gap: 12px;
+  `)}
 
-	${ftablet(css`
-		gap: 18px;
-		width: 468px;
-		height: 58px;
-	`)}
+  ${ftablet(css`
+    gap: 18px;
+    width: 468px;
+    height: 58px;
+  `)}
 
 	${fmobile(css`
-		flex-direction: column;
-		gap: 12px;
-	`)}
+    flex-direction: column;
+    gap: 12px;
+  `)}
 `
 
 export function Head() {
