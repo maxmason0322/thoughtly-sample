@@ -23,6 +23,9 @@ dependencies:
   '@total-typescript/ts-reset':
     specifier: 0.5.1
     version: 0.5.1
+  '@types/segment-analytics':
+    specifier: 0.0.38
+    version: 0.0.38
   '@uidotdev/usehooks':
     specifier: 2.4.1
     version: 2.4.1(react-dom@18.2.0)(react@18.2.0)
@@ -35,6 +38,9 @@ dependencies:
   gatsby:
     specifier: 5.13.3
     version: 5.13.3(babel-eslint@10.1.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.4)
+  gatsby-plugin-clarity:
+    specifier: 1.0.1
+    version: 1.0.1
   gatsby-plugin-contentful-optional-fields:
     specifier: 2.2.2
     version: 2.2.2
@@ -53,6 +59,9 @@ dependencies:
   gatsby-plugin-robots-txt:
     specifier: 1.8.0
     version: 1.8.0(gatsby@5.13.3)
+  gatsby-plugin-segment-js:
+    specifier: 5.0.0
+    version: 5.0.0(gatsby@5.13.3)
   gatsby-plugin-sharp:
     specifier: 5.13.1
     version: 5.13.1(gatsby@5.13.3)(graphql@16.8.1)
@@ -83,9 +92,15 @@ dependencies:
   react:
     specifier: 18.2.0
     version: 18.2.0
+  react-calendly:
+    specifier: 4.3.0
+    version: 4.3.0(react-dom@18.2.0)(react@18.2.0)
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
+  react-use-intercom:
+    specifier: 5.4.0
+    version: 5.4.0(react-dom@18.2.0)(react@18.2.0)
   styled-components:
     specifier: 6.1.8
     version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
@@ -3575,6 +3590,10 @@ packages:
     resolution: {integrity: sha512-9jWta97bBVC027/MShr3gLab8gPhKy4l6qpb+UJLF5pDm3501NvA7uvqVCW+REFtx00oTi6Cq9JzLwgq6evVgw==}
     dependencies:
       '@types/node': 20.12.4
+    dev: false
+
+  /@types/segment-analytics@0.0.38:
+    resolution: {integrity: sha512-0clAuA7t6HxtpyXl4veE/oNVdcQFhlxnxgYlk0LeEYSoW3s3zZV5xa6DVHcOtozUO4u15Ipet5TdP88GbwKHvg==}
     dev: false
 
   /@types/semver@7.5.4:
@@ -7147,6 +7166,13 @@ packages:
       '@parcel/transformer-json': 2.8.3(@parcel/core@2.8.3)
     dev: false
 
+  /gatsby-plugin-clarity@1.0.1:
+    resolution: {integrity: sha512-1GKF7GkuScINEDl9Jzhw/8CVABKvVl7NW5PUjOCfwfVQnxX1RP9C4Dj67XD7NSVyBA9ozD8g5Zv04Dzx6/FZwQ==}
+    engines: {node: '>=12.13.0'}
+    dependencies:
+      '@babel/runtime': 7.23.2
+    dev: false
+
   /gatsby-plugin-contentful-optional-fields@2.2.2:
     resolution: {integrity: sha512-ywMy04iFM6h13vky3//Gi53Xkp9LxK+Ne123Sl2hChgaEB2KAr7Zt2zUZrH2qiYM7DAvwLKSIU4273L2DjjJow==}
     dev: false
@@ -7266,6 +7292,14 @@ packages:
       '@babel/runtime': 7.23.2
       gatsby: 5.13.3(babel-eslint@10.1.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.4)
       generate-robotstxt: 8.0.3
+    dev: false
+
+  /gatsby-plugin-segment-js@5.0.0(gatsby@5.13.3):
+    resolution: {integrity: sha512-28CYSRdOgcrxv6oF8WFqXEtllZDo17vNa8FPRMuJjonRos/uo6EgwZNHxQeLW5TP7jbavuu5WlWqHW/lvV2anw==}
+    peerDependencies:
+      gatsby: ^2 || ^3 || ^4 || ^5
+    dependencies:
+      gatsby: 5.13.3(babel-eslint@10.1.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.4)
     dev: false
 
   /gatsby-plugin-sharp@5.13.1(gatsby@5.13.3)(graphql@16.8.1):
@@ -10760,6 +10794,17 @@ packages:
       strip-json-comments: 2.0.1
     dev: false
 
+  /react-calendly@4.3.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-JFZzYhyJBaoZDseB3UqzeOx1rbzCK24nr5pqH/6zJEh7CZ/pn5R49rkIJ0g5E7j5WQ3K7xBSgBD7WgM36v3gZw==}
+    engines: {node: '>=8', npm: '>=5'}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /react-composer@5.0.3(react@18.2.0):
     resolution: {integrity: sha512-1uWd07EME6XZvMfapwZmc7NgCZqDemcvicRi3wMJzXsQLvZ3L7fTHVyPy1bZdnWXM4iPjYuNE+uJ41MLKeTtnA==}
     peerDependencies:
@@ -10861,6 +10906,16 @@ packages:
       neo-async: 2.6.2
       react: 18.2.0
       webpack: 5.89.0
+    dev: false
+
+  /react-use-intercom@5.4.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-fMOfylJoFQbXdVNbsXbNZrK+Qwc45AqjZFzkq8gclxiK72FcZl7IUKbm3g+EVKd6QoNX2AHpDD7sqAEwMvzFaQ==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /react-use-measure@2.1.1(react-dom@18.2.0)(react@18.2.0):

@@ -7,9 +7,14 @@ import Scroll from "library/Scroll"
 import { fresponsive } from "library/fullyResponsive"
 import { useTrackPageReady } from "library/pageReady"
 import useTrackFrameTime from "library/useTrackFrameTime"
+import { useContext, useEffect, useState } from "react"
+import { PopupModal } from "react-calendly"
 import styled, { createGlobalStyle, css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
+import CalendlyModalProvider, {
+	CalendlyModalContext,
+} from "./Providers/CalendlyModalProvider"
 
 interface LayoutProps {
 	children: React.ReactNode
@@ -20,10 +25,23 @@ export default function Layout({ children }: LayoutProps) {
 	useBackButton()
 	useTrackFrameTime()
 
+	const { setModalOpen, modalOpen } = useContext(CalendlyModalContext)
+
 	return (
 		<>
 			{/* <Transition />
 			<Preloader /> */}
+			<PopupModal
+				url="https://calendly.com/d/cpxn-sxr-85f"
+				onModalClose={() => setModalOpen(false)}
+				open={modalOpen}
+				rootElement={
+					typeof window !== "undefined"
+						? (document.getElementById("___gatsby") as HTMLElement) ||
+							document.createElement("div")
+						: document.createElement("div")
+				}
+			/>
 			<GlobalStyle />
 			<ScrollIndex>
 				<Header />
@@ -45,6 +63,7 @@ const globalCss = css`
   html {
     /* if your project uses a dark color for most text, set that here */
     color: ${colors.black};
+    background: ${colors.gray100};
     font-family: sans-serif;
     ${textStyles.bodyR}
   }

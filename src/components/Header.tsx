@@ -15,12 +15,14 @@ import textStyles from "styles/text"
 import links from "utils/links"
 import Link from "./Buttons/Link"
 import Icon from "./Icon"
+import { CalendlyModalContext } from "./Providers/CalendlyModalProvider"
 
 gsap.registerPlugin(ScrollToPlugin)
 
 export default function Header() {
 	const { mobile } = useContext(ScreenContext)
 	const innerRef = useRef<HTMLDivElement | null>(null)
+	const { setModalOpen } = useContext(CalendlyModalContext)
 
 	const scrollTo = (section: string, offset: number) => {
 		gsap.to(window, {
@@ -83,7 +85,11 @@ export default function Header() {
 							<PrimaryButton variant="secondary" to={links.login}>
 								Sign In
 							</PrimaryButton>
-							<PrimaryButton icon="chev" to={links.todo}>
+							<PrimaryButton
+								type="button"
+								icon="chev"
+								onClick={() => setModalOpen(true)}
+							>
 								Get Started
 							</PrimaryButton>
 						</>
@@ -109,7 +115,7 @@ const Inner = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  
+
   ${fresponsive(css`
     padding: 32px 156px 0;
     transform: translateY(-200px);
