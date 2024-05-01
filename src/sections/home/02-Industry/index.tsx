@@ -341,6 +341,7 @@ const Wrapper = styled.section`
   place-items: center;
   overflow: clip;
   position: relative;
+  margin-top: -1px;
 `
 
 const Inner = styled.div`
