@@ -140,6 +140,7 @@ const CenterModuleWrapper = styled.div`
     padding: 40px 133px 28px;
 
     ${LeftNode}, ${RightNode} {
+      z-index: 10;
       top: 117.68px;
     }
   `)}
