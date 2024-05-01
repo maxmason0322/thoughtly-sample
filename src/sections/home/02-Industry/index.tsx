@@ -298,26 +298,28 @@ export default function Industry() {
 					</Left>
 					<Right>
 						<TextContent>
-							<div>
-								<AutoAnimate>
-									<StyledIcon
-										key={activeIndex}
-										name={
-											data.allHomeIndustryJson.nodes[activeIndex]
-												?.icon as IconType
-										}
-									/>
-								</AutoAnimate>
-							</div>
-							<div>
-								<AutoAnimate>
-									<SubTitle
-										key={data.allHomeIndustryJson.nodes[activeIndex]?.title}
-									>
-										{data.allHomeIndustryJson.nodes[activeIndex]?.title}
-									</SubTitle>
-								</AutoAnimate>
-							</div>
+							<IconTitle>
+								<div>
+									<AutoAnimate>
+										<StyledIcon
+											key={activeIndex}
+											name={
+												data.allHomeIndustryJson.nodes[activeIndex]
+													?.icon as IconType
+											}
+										/>
+									</AutoAnimate>
+								</div>
+								<div>
+									<AutoAnimate>
+										<SubTitle
+											key={data.allHomeIndustryJson.nodes[activeIndex]?.title}
+										>
+											{data.allHomeIndustryJson.nodes[activeIndex]?.title}
+										</SubTitle>
+									</AutoAnimate>
+								</div>
+							</IconTitle>
 							<div>
 								<AutoAnimate>
 									<Text key={data.allHomeIndustryJson.nodes[activeIndex]?.text}>
@@ -358,6 +360,25 @@ export default function Industry() {
 		</Wrapper>
 	)
 }
+
+const IconTitle = styled.div`
+  display: flex;
+  align-items: center;
+
+  ${fresponsive(css`
+    gap: 15px;
+  `)}
+
+  ${ftablet(css`
+    flex-direction: column;
+    align-items: flex-start;
+  `)}
+
+  ${fmobile(css`
+    flex-direction: column;
+    align-items: flex-start;
+  `)}
+`
 
 const Wrapper = styled.section`
   width: 100%;
@@ -817,21 +838,13 @@ const Line = styled.div`
 `
 
 const StyledIcon = styled(Icon)`
-  display: none;
 
   path,
   circle {
     fill: ${colors.gray500};
   }
 
-  ${ftablet(css`
-    display: flex;
-    width: 30px;
-    height: 30px;
-  `)}
-
-  ${fmobile(css`
-    display: flex;
+  ${fresponsive(css`
     width: 30px;
     height: 30px;
   `)}
