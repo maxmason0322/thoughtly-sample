@@ -19,10 +19,11 @@ import textStyles from "styles/text"
 import { transparentText } from "styles/text"
 
 export default function CallCTA() {
-	const { tablet, mobile } = useContext(ScreenContext)
+	const { mobile } = useContext(ScreenContext)
+	const canHover = useCanHover()
 
 	const handleMouseEnter = () => {
-		if (tablet || mobile) return
+		if (!canHover) return
 		gsap.to(".phoneNumber", {
 			duration: 0.25,
 			backgroundImage: gradients.greenGreen,
@@ -30,7 +31,7 @@ export default function CallCTA() {
 	}
 
 	const handleMouseLeave = () => {
-		if (tablet || mobile) return
+		if (!canHover) return
 		gsap.to(".phoneNumber", {
 			duration: 0.25,
 			backgroundImage: gradients.grayGray,
@@ -51,7 +52,7 @@ export default function CallCTA() {
 				</Top>
 				<Bottom>
 					<MarqueeWrapper>
-						{useCanHover() && <MouseFollower />}
+						{canHover && <MouseFollower />}
 						<MarqueeBorder>
 							<Dots />
 							<Marquee timing={mobile ? 7 : 10}>
@@ -73,7 +74,7 @@ export default function CallCTA() {
 										<PhoneNumber
 											onMouseEnter={handleMouseEnter}
 											onMouseLeave={handleMouseLeave}
-											className="reversePhoneNumber"
+											className="phoneNumber reverse"
 											to="tel:+18557170250"
 										>
 											+1 (855) 717-0250
