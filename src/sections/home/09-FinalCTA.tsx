@@ -127,9 +127,11 @@ export default function FinalCTA() {
 				transformOrigin: "center bottom",
 			})
 			tl.to(wrapperRef.current, {
-				borderBottomLeftRadius: () => getResponsivePixels(140),
-				borderBottomRightRadius: () => getResponsivePixels(140),
-				scale: 0.75,
+				borderBottomLeftRadius: () =>
+					getResponsivePixels(getMedia(140, 140, 140, 48)),
+				borderBottomRightRadius: () =>
+					getResponsivePixels(getMedia(140, 140, 140, 48)),
+				scale: () => getMedia(0.75, 0.75, 0.75, 0.9),
 			})
 		},
 		[],

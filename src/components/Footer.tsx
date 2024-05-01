@@ -39,7 +39,7 @@ export default function Footer({
 
 	const primary = isFixed ? "fixed" : "static"
 
-	if (primary === "fixed" && position === "static") return <Spacer />
+	if (primary === "fixed" && !mobile && position === "static") return <Spacer />
 	if (primary === "static" && position === "fixed") return null
 
 	return (
