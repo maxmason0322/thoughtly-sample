@@ -15,12 +15,6 @@ import Link from "./Buttons/Link"
 
 gsap.registerPlugin(ScrollToPlugin)
 
-const scrollTo = (section: string) => {
-	gsap.to(window, {
-		scrollTo: section,
-	})
-}
-
 export default function Footer() {
 	const mobile = useMedia(false, false, false, true)
 
@@ -38,9 +32,7 @@ export default function Footer() {
 					<Columns>
 						<LinkColumn>
 							<Label>Product</Label>
-							<Link type="button" onClick={() => scrollTo("#pricing")}>
-								Pricing
-							</Link>
+							<Link to={links.pricing}>Pricing</Link>
 							<Link to={links.todo} tag="Coming Soon">
 								Platform
 							</Link>

@@ -2,6 +2,7 @@ const routes = {
 	home: "/",
 	terms: "/terms",
 	privacy: "/privacy",
+	pricing: "/#pricing",
 } as const
 
 const socials = {
