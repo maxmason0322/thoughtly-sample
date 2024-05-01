@@ -317,7 +317,8 @@ const Buttons = styled.div`
 
   ${fresponsive(css`
     gap: 18px;
-		padding: 1px;
+		padding: 3px;
+		margin: -3px;
   `)}
 
 	${fmobile(css`
