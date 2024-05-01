@@ -722,7 +722,7 @@ const Bottom = styled.div`
 
   ${fmobile(css`
     flex-direction: column;
-    gap: 56px;
+    gap: 100px;
   `)}
 `
 
