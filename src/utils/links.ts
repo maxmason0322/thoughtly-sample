@@ -17,6 +17,7 @@ const links = {
 	helpCenter: "https://help.thought.ly/en/",
 	apiDocs: "https://api.thought.ly/docs/",
 	mediaInquiries: "mailto:press@thought.ly",
+	contact: "mailto:support@thought.ly",
 	...routes,
 	...socials,
 } as const

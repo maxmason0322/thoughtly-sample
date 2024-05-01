@@ -66,7 +66,7 @@ export default function Footer() {
 							<Label>Support</Label>
 							<Link to={links.helpCenter}>Help Center</Link>
 							<Link to={links.apiDocs}>API Docs</Link>
-							<Link to={links.todo}>Contact Us</Link>
+							<Link to={links.contact}>Contact Us</Link>
 						</LinkColumn>
 						{mobile && (
 							<LinkColumn>
