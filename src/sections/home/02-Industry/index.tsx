@@ -602,6 +602,7 @@ const Wrapper = styled.section`
   place-items: center;
   overflow: clip;
   position: relative;
+  margin-top: -1px;
   background-color: ${colors.white};
 `
 

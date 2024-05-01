@@ -1,9 +1,10 @@
 import DemoButton from "components/Buttons/DemoButton"
 import gsap from "gsap"
 import { isBrowser } from "library/deviceDetection"
+import { fresponsive } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import { useEffect, useRef, useState } from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 interface MouseFollowerProps {
 	/**
@@ -149,12 +150,16 @@ export default function MouseFollower({ trackElement }: MouseFollowerProps) {
 
 const Wrapper = styled.div`
   position: absolute;
-  top: -3%;
-  left: 0;
-  transform: translate(-50%, -50%) scale(0);
   pointer-events: none;
   z-index: 10;
   color: #000;
+	transform-origin: center;
+
+	${fresponsive(css`
+		left: -85px;
+		top: -35px;
+		transform: scale(0);
+	`)}
 `
 
 const StyledDemoButton = styled(DemoButton)<{ $rotation: number }>`
