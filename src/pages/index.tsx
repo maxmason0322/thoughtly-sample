@@ -1,7 +1,7 @@
 import Seo from "components/Seo"
-import { lazy } from "react"
+import { Suspense, lazy } from "react"
 
-const Hero = lazy(() => import("sections/home/01-Hero"))
+import Hero from "sections/home/01-Hero"
 const Industry = lazy(() => import("sections/home/02-Industry"))
 const Statement = lazy(() => import("sections/home/03-Statement"))
 const Features = lazy(() => import("sections/home/04-Features"))
@@ -18,15 +18,17 @@ export default function IndexPage() {
 		<>
 			<Hero />
 			{/* <SocialProof /> */}
-			<Industry />
-			<Statement />
-			<Features />
-			<CallCTA />
-			<WidgetsAndVideo />
-			<Workflows />
-			<Integrations />
-			<Pricing />
-			<FinalCTA />
+			<Suspense fallback={<div>Loading...</div>}>
+				<Industry />
+				<Statement />
+				<Features />
+				<CallCTA />
+				<WidgetsAndVideo />
+				<Workflows />
+				<Integrations />
+				<Pricing />
+				<FinalCTA />
+			</Suspense>
 		</>
 	)
 }
