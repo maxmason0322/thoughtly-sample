@@ -1,5 +1,5 @@
 import { fresponsive, ftablet } from "library/fullyResponsive"
-import styled, { css, keyframes } from "styled-components"
+import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
 
