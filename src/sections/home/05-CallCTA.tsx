@@ -241,6 +241,11 @@ const MarqueeSpan = styled.span`
 `
 
 const Marquee = styled(ConstantMarquee)`
+
+  ${ftablet(css`
+    transform: translateZ(0);
+  `)}
+
   ${fmobile(css`
     height: 70px;
     display: flex;
