@@ -180,6 +180,7 @@ const MarqueeWrapper = styled.div`
 
   ${ftablet(css`
     width: 982px;
+    height: 382px;
   `)}
 
     ${fmobile(css`
