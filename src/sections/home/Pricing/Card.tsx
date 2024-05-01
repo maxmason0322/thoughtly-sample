@@ -1,13 +1,13 @@
 import Button from "components/Buttons/Primary"
 import CheckTag from "components/CheckTag"
 import Icon from "components/Icon"
+import { CalendlyModalContext } from "components/Providers/CalendlyModalProvider"
 import AutoAnimate from "library/AutoAnimate"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
-import links from "utils/links"
 
 export default function Card({
 	titles,
@@ -27,7 +27,7 @@ export default function Card({
 	showProgress?: boolean
 }) {
 	const [activeIndex, setActiveIndex] = useState(0)
-
+	const { setModalOpen } = useContext(CalendlyModalContext)
 	const tagEls = tags[activeIndex]?.map((item) => (
 		<CheckTag key={item}>{item}</CheckTag>
 	))
@@ -49,7 +49,11 @@ export default function Card({
 							</AutoAnimate>
 						</div>
 					</Info>
-					<StyledButton to={links.todo} variant="secondary">
+					<StyledButton
+						type="button"
+						onClick={() => setModalOpen(true)}
+						variant="secondary"
+					>
 						Get Started
 					</StyledButton>
 				</Row>
@@ -199,7 +203,7 @@ const Price = styled.h6`
   color: ${colors.black};
   display: flex;
   align-items: flex-end;
-  
+
   span {
     ${textStyles.bodyS}
   }
@@ -219,15 +223,15 @@ const Thumb = css`
 
   ${fresponsive(css`
     border: 1px solid ${colors.white};
-    width: 15px; 
-    height: 15px; 
+    width: 15px;
+    height: 15px;
   `)}
 `
 
 const Slider = styled.input`
   appearance: none;
-  width: 100%; 
-  background: #ECECEC;
+  width: 100%;
+  background: #ececec;
   outline: none;
   border-radius: 99vw;
 

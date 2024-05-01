@@ -257,10 +257,6 @@ packages:
     resolution: {integrity: sha512-HBwaojN0xFRx4yIvpwGqxiV2tUfl7401jlok564NgB9EHS1y6QT17FmKWm4ztqjeVdXLuC4fSvHc5ePpQjoTbw==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/helper-plugin-utils@7.22.5':
-    resolution: {integrity: sha512-uLls06UVKgFG9QD4OeFYLEGteMIAa5kpTPcFL28yuCIIzsf6ZyKZMllKVOCZFhiZ5ptnwX4mtKdWCBE/uT4amg==}
-    engines: {node: '>=6.9.0'}
-
   '@babel/helper-plugin-utils@7.24.0':
     resolution: {integrity: sha512-9cUznXMG0+FxRuJfvL82QlTqIzhVW9sL0KjMPHhAOOvpQGL8QtdxnBKILjBqxlHyliz0yCa1G903ZXI/FuHy2w==}
     engines: {node: '>=6.9.0'}
@@ -7291,8 +7287,6 @@ snapshots:
     dependencies:
       '@babel/types': 7.24.0
 
-  '@babel/helper-plugin-utils@7.22.5': {}
-
   '@babel/helper-plugin-utils@7.24.0': {}
 
   '@babel/helper-remap-async-to-generator@7.22.20(@babel/core@7.23.2)':
@@ -7758,7 +7752,7 @@ snapshots:
   '@babel/plugin-transform-react-constant-elements@7.22.5(@babel/core@7.23.2)':
     dependencies:
       '@babel/core': 7.23.2
-      '@babel/helper-plugin-utils': 7.22.5
+      '@babel/helper-plugin-utils': 7.24.0
 
   '@babel/plugin-transform-react-display-name@7.22.5(@babel/core@7.23.2)':
     dependencies:
@@ -9000,7 +8994,7 @@ snapshots:
 
   '@svgr/hast-util-to-babel-ast@8.0.0':
     dependencies:
-      '@babel/types': 7.23.0
+      '@babel/types': 7.24.0
       entities: 4.5.0
 
   '@svgr/plugin-jsx@8.1.0(@svgr/core@8.1.0(typescript@5.4.5))':
