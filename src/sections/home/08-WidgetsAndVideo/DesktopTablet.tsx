@@ -494,7 +494,7 @@ const Grid1 = styled.div`
     left: 0;
     grid-template:
       "widget1 . . . . . . ." 56px
-      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 19px
+      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 192.5px
       "widget4 widget4 widget5 widget2 widget2 widget2 widget2 ." 175px
       "widget6 widget6 widget7 widget7 widget8 widget8 widget8 ." 131px
       "widget6 widget6 widget9 widget9 widget8 widget8 widget8 widget10" 176px
@@ -589,8 +589,7 @@ const VideoWrapper = styled.div`
 `
 
 const GridImage = styled(UniversalImage)`
-  width: 100%;
-  height: 100%;
+  object-fit: scale-down;
 `
 
 const Row = styled.div`
