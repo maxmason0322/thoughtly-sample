@@ -382,13 +382,13 @@ const Inner = styled.div`
 
   ${ftablet(css`
     height: 1172px;
-    padding: 85px 68px 121px;
+    padding: 85px 68px 0;
     gap: 106px;
   `)}
 
   ${fmobile(css`
     height: auto;
-    padding: 85px 29px 170px;
+    padding: 85px 29px 100px;
     gap: 30px;
   `)}
 `
@@ -464,7 +464,7 @@ const Buttons = styled.div`
     overflow-x: scroll;
     flex-wrap: nowrap;
     position: absolute;
-    bottom: 110px;
+    bottom: 40px;
     left: 0;
   `)}
 `
