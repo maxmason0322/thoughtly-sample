@@ -562,14 +562,12 @@ export default function Industry() {
 								</FilesInner>
 							</LogosWrapper>
 						</TabletOnly>
-						<DesktopOnly>
-							<DotsWrapper>
-								<StyledDots />
-								<Connector />
-								{widgets}
-								{widgets2}
-							</DotsWrapper>
-						</DesktopOnly>
+						<DesktopWidgetsWrapper>
+							<StyledDots />
+							<Connector />
+							{widgets}
+							{widgets2}
+						</DesktopWidgetsWrapper>
 					</Right>
 				</Bottom>
 				<MobileOnly>
@@ -976,7 +974,7 @@ const Text = styled.p`
   `)}
 `
 
-const DotsWrapper = styled.div`
+const DesktopWidgetsWrapper = styled(DesktopOnly)`
   background-color: ${colors.gray100};
   position: relative;
   overflow: clip;
@@ -990,7 +988,6 @@ const DotsWrapper = styled.div`
 
 const StyledDots = styled(Dots)`
   ${fresponsive(css`
-    inset: 0;
     background-position: 10px 18px;
   `)}
 `
@@ -1057,17 +1054,17 @@ const Line = styled.div`
   `)}
 `
 
-const StyledIcon = styled(Icon)`
-  path,
-  circle {
-    fill: ${colors.gray500};
-  }
+// const StyledIcon = styled(Icon)`
+//   path,
+//   circle {
+//     fill: ${colors.gray500};
+//   }
 
-  ${fresponsive(css`
-    width: 30px;
-    height: 30px;
-  `)}
-`
+//   ${fresponsive(css`
+//     width: 30px;
+//     height: 30px;
+//   `)}
+// `
 
 const Connector = styled(LineSVG)`
   position: absolute;
