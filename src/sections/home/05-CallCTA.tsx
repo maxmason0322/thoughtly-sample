@@ -236,11 +236,10 @@ const MarqueeBorder = styled(UniversalLink)`
 
 const MarqueeSpan = styled.span`
   display: flex;
-  align-items: center; 
+  align-items: center;
 `
 
 const Marquee = styled(ConstantMarquee)`
-
   ${ftablet(css`
     transform: translateZ(0);
   `)}

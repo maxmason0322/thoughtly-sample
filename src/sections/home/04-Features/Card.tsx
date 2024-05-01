@@ -113,9 +113,9 @@ const Wrapper = styled.div<{
     box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
   `)}
 
-	${fmobile(css`
-		border: unset;
-	`)}
+  ${fmobile(css`
+    border: unset;
+  `)}
 `
 
 const Title = styled.h1`
@@ -126,9 +126,9 @@ const Title = styled.h1`
     width: 140px;
   `)}
 
-	${fmobile(css`
-		width: 100%;
-	`)}
+  ${fmobile(css`
+    width: 100%;
+  `)}
 `
 
 const Text = styled.p`
@@ -137,11 +137,11 @@ const Text = styled.p`
 
   ${fresponsive(css`
     width: 310px;
-  `)} 
+  `)}
 
-	${fmobile(css`
-		width: 100%;
-	`)}
+  ${fmobile(css`
+    width: 100%;
+  `)}
 `
 
 const StyledIcon = styled(Icon)<{ $stroke: boolean }>`
@@ -163,7 +163,7 @@ const StyledIcon = styled(Icon)<{ $stroke: boolean }>`
 `
 
 const Link = styled(UniversalLink)`
-	color: ${colors.green600};
-	text-decoration: underline;
-	${textStyles.bodyS}
+  color: ${colors.green600};
+  text-decoration: underline;
+  ${textStyles.bodyS}
 `

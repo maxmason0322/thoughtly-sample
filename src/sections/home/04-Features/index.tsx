@@ -22,12 +22,12 @@ export default function Features() {
         nodes {
           icon
           title
-					text
-					link {
-						href
-						text
-					}
-					strokeIcon
+          text
+          link {
+            href
+            text
+          }
+          strokeIcon
           background {
             childImageSharp {
               original {
@@ -35,20 +35,20 @@ export default function Features() {
               }
             }
           }
-					backgroundTablet {
-						childImageSharp {
-							original {
-								src
-							}
-						}
-					}
-					backgroundMobile {
-						childImageSharp {
-							original {
-								src
-							}
-						}
-					}
+          backgroundTablet {
+            childImageSharp {
+              original {
+                src
+              }
+            }
+          }
+          backgroundMobile {
+            childImageSharp {
+              original {
+                src
+              }
+            }
+          }
         }
       }
     }
@@ -122,7 +122,7 @@ const Wrapper = styled.section`
   width: 100%;
   display: grid;
   place-items: center;
-	background-color: ${colors.white};
+  background-color: ${colors.white};
 `
 
 const Inner = styled.div`
@@ -137,16 +137,16 @@ const Inner = styled.div`
     grid-template-columns: 360px 192px 192px 360px;
   `)}
 
-	${ftablet(css`
-		grid-auto-rows: 348px 306px 306px 276px;
-		grid-template-columns: 432px 93px 339px;
-		padding: 0 68px 202px;
-	`)}
+  ${ftablet(css`
+    grid-auto-rows: 348px 306px 306px 276px;
+    grid-template-columns: 432px 93px 339px;
+    padding: 0 68px 202px;
+  `)}
 
 	${fmobile(css`
-		padding: 0 30px 24px;
-		grid-template-columns: 315px;
-		grid-auto-rows: 360px 360px 360px 360px 360px 420px;
-		gap: 12px;
-	`)}
+    padding: 0 30px 24px;
+    grid-template-columns: 315px;
+    grid-auto-rows: 360px 360px 360px 360px 360px 420px;
+    gap: 12px;
+  `)}
 `

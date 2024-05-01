@@ -155,11 +155,11 @@ const Wrapper = styled.div`
   pointer-events: none;
   z-index: 10;
   color: #000;
-	transform-origin: center;
+  transform-origin: center;
 
-	${fresponsive(css`
-		left: -85px;
-		top: -35px;
-		transform: scale(0);
-	`)}
+  ${fresponsive(css`
+    left: -85px;
+    top: -35px;
+    transform: scale(0);
+  `)}
 `

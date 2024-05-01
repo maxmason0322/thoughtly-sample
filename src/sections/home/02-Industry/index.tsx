@@ -688,10 +688,10 @@ const Buttons = styled.div`
     display: none;
   }
 
-	${fresponsive(css`
-		gap: 18px;
-		width: 511px;
-	`)}
+  ${fresponsive(css`
+    gap: 18px;
+    width: 511px;
+  `)}
 
   ${ftablet(css`
     width: 650px;
@@ -829,12 +829,12 @@ const Agent = styled(Card)`
 `
 
 const LogosWrapper = styled(Card)`
-	${fresponsive(css`
-		border-radius: 24px;
+  ${fresponsive(css`
+    border-radius: 24px;
     width: 243px;
     height: 134px;
     padding: 20px;
-	`)}
+  `)}
 
   ${fmobile(css`
     display: none;
@@ -900,7 +900,7 @@ const Trash = styled(Icon)`
   margin-left: auto;
 
   path {
-    fill: #D9D9D9;
+    fill: #d9d9d9;
   }
 
   ${fresponsive(css`
@@ -998,7 +998,7 @@ const StyledDots = styled(Dots)`
 const TabletWidgetWrapper = styled.div`
   position: absolute;
 
- ${ftablet(css`
+  ${ftablet(css`
     top: -30px;
     left: -96px;
     z-index: 2;
@@ -1058,7 +1058,6 @@ const Line = styled.div`
 `
 
 const StyledIcon = styled(Icon)`
-
   path,
   circle {
     fill: ${colors.gray500};
