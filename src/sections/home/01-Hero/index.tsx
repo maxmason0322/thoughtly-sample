@@ -68,7 +68,7 @@ export default function Hero() {
 			tl.to(
 				".call-widget",
 				{
-					y: -100,
+					y: () => getResponsivePixels(-100),
 					opacity: 0,
 				},
 				0,
@@ -83,7 +83,7 @@ export default function Hero() {
 			tl.fromTo(
 				".speak-1-widget",
 				{
-					y: 50,
+					y: () => getResponsivePixels(50),
 					opacity: 0,
 				},
 				{
@@ -105,7 +105,7 @@ export default function Hero() {
 			tl.from(
 				".action-widget",
 				{
-					y: 50,
+					y: () => getResponsivePixels(50),
 					opacity: 0,
 				},
 				"<+=0.5",
@@ -113,7 +113,7 @@ export default function Hero() {
 			tl.from(
 				".test-widget",
 				{
-					y: 50,
+					y: () => getResponsivePixels(50),
 					opacity: 0,
 				},
 				">",
@@ -134,7 +134,7 @@ export default function Hero() {
 				"<+=1",
 			)
 			tl.from(".speak-2-widget", {
-				y: 50,
+				y: () => getResponsivePixels(50),
 				opacity: 0,
 			})
 			tl.from(
@@ -492,7 +492,7 @@ const Callout2 = styled(Callout)`
 
 	${ftablet(css`
 		right: 70px;
-		bottom: 152px;
+		bottom: 130px;
 		width: 330px;
 
 		h6, p {
