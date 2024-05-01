@@ -27,7 +27,7 @@ export default function Selector({ children, active, ...props }: Props) {
 
 const Border = styled.div`
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   width: 90%;
   height: 90%;
   left: 50%;
@@ -51,6 +51,8 @@ const Inner = styled.div`
   align-items: center;
   ${textStyles.sh3}
   color: ${colors.black};
+  position: relative;
+  z-index: 1;
 
   ${fresponsive(css`
     border-radius: 12px;
