@@ -206,7 +206,10 @@ export default function Industry() {
 						</Assertiveness>
 
 						<Agent>
-							<AutoAnimate>
+							<AutoAnimate
+								fromParameters={{ yPercent: 110 }}
+								toParameters={{ yPercent: -110 }}
+							>
 								<Avatar
 									key={activeIndex}
 									image={
