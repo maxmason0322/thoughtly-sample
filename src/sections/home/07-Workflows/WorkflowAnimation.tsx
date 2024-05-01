@@ -452,6 +452,7 @@ const Animation = styled.div`
 
 const LeftConnector = styled.div`
   position: relative;
+  z-index: 10;
   ${fresponsive(css`
     width: 115px;
     height: 239px;
