@@ -89,7 +89,7 @@ const Wrapper = styled.div`
 
   ${fresponsive(css`
     &:nth-child(2) {
-      height: 475px;
+      height: 490px;
     }
 
     min-height: 440px;
@@ -180,6 +180,10 @@ const Text = styled.p`
   ${textStyles.bodyS}
   color: ${colors.gray600};
 
+  ${fresponsive(css`
+    height: 56px;
+  `)}
+
   ${ftablet(css`
     ${textStyles.bodyR}
     width: 250px;
@@ -206,6 +210,20 @@ const Price = styled.h6`
   `)}
 `
 
+const Thumb = css`
+  appearance: none;
+  cursor: pointer;
+  background: ${colors.green400};
+  border-radius: 99vw;
+  filter: drop-shadow(0 4.266px 9.67px rgba(119 119 119 / 21%));
+
+  ${fresponsive(css`
+    border: 1px solid ${colors.white};
+    width: 15px; 
+    height: 15px; 
+  `)}
+`
+
 const Slider = styled.input`
   appearance: none;
   width: 100%; 
@@ -217,18 +235,12 @@ const Slider = styled.input`
     height: 9px;
   `)}
 
-  &::-webkit-slider-thumb {
-    appearance: none;
-    cursor: pointer;
-    background: ${colors.green400};
-    border-radius: 99vw;
-    filter: drop-shadow(0 4.266px 9.67px rgba(119 119 119 / 21%));
+  &::-moz-range-thumb {
+    ${Thumb}
+  }
 
-    ${fresponsive(css`
-      border: 1px solid ${colors.white};
-      width: 15px; 
-      height: 15px; 
-    `)}
+  &::-webkit-slider-thumb {
+    ${Thumb}
   }
 `
 
