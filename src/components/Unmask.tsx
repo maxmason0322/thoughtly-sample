@@ -48,11 +48,13 @@ const Wrapper = styled.div`
   display: flex;
 
 	${fresponsive(css`
-		padding-bottom: 5px;
+		padding: 6px;
+		margin: -6px;
 	`)}
 
 	${ftablet(css`
-		padding-bottom: 8px;
+		padding: 8px;
+		margin: -8px;
 	`)}
 
   & > * {
