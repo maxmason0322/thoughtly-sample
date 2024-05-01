@@ -141,6 +141,7 @@ export default function Mobile() {
 				<VideoWrapper ref={videoWrapper}>
 					<ScreenFrame ref={innerFrame}>
 						<VideoIframe
+							loading="lazy"
 							className="video-iframe"
 							width="100%"
 							height="100%"

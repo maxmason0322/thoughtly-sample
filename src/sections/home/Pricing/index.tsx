@@ -181,7 +181,7 @@ const TextContent = styled.div`
   `)}
 `
 
-const Title = styled.h5`
+const Title = styled.h1`
   ${textStyles.h4}
   color: ${colors.black};
 

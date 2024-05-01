@@ -9,7 +9,10 @@ import styled, { css } from "styled-components"
 export default function Unmask({
 	children,
 	parameters,
-}: { children: ReactNode; parameters?: GSAPTweenVars }) {
+}: {
+	children: ReactNode
+	parameters?: GSAPTweenVars
+}) {
 	const wrapperRef = useRef<HTMLDivElement | null>(null)
 	const [pageLoad, setPageLoad] = useState(false)
 
@@ -47,15 +50,15 @@ const Wrapper = styled.div`
   position: relative;
   display: flex;
 
-	${fresponsive(css`
-		padding: 6px;
-		margin: -6px;
-	`)}
+  ${fresponsive(css`
+    padding: 6px;
+    margin: -6px;
+  `)}
 
-	${ftablet(css`
-		padding: 8px;
-		margin: -8px;
-	`)}
+  ${ftablet(css`
+    padding: 8px;
+    margin: -8px;
+  `)}
 
   & > * {
     position: relative;

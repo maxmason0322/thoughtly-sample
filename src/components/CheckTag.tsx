@@ -4,11 +4,7 @@ import type { ReactNode } from "react"
 import styled, { css } from "styled-components"
 import textStyles from "styles/text"
 
-export default function CheckTag({
-	children,
-}: {
-	children: ReactNode
-}) {
+export default function CheckTag({ children }: { children: ReactNode }) {
 	return (
 		<Wrapper>
 			<StyledIcon name="check" /> {children}
@@ -19,7 +15,7 @@ export default function CheckTag({
 const Wrapper = styled.div`
   width: fit-content;
   position: relative;
-  background: #F7F7F7;
+  background: #f7f7f7;
   color: #727272;
   display: flex;
   ${textStyles.bodyXS};
@@ -33,7 +29,7 @@ const Wrapper = styled.div`
 
 const StyledIcon = styled(Icon)`
   ${fresponsive(css`
-      width: 14px;
-      height: 14px;
+    width: 14px;
+    height: 14px;
   `)}
 `

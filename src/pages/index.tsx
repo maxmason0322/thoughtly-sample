@@ -1,31 +1,34 @@
 import Seo from "components/Seo"
-import Hero from "sections/home/01-Hero"
-import Industry from "sections/home/02-Industry"
-import Statement from "sections/home/03-Statement"
-import Features from "sections/home/04-Features"
-import CallCTA from "sections/home/05-CallCTA"
-import Workflows from "sections/home/07-Workflows"
-import Integrations from "sections/home/075-Integrations.tsx"
-import WidgetsAndVideo from "sections/home/08-WidgetsAndVideo"
-import FinalCTA from "sections/home/09-FinalCTA"
-import Pricing from "sections/home/Pricing"
+import { Suspense, lazy } from "react"
 
-// import SocialProof from "sections/home/SocialProof"
+import Hero from "sections/home/01-Hero"
+const Industry = lazy(() => import("sections/home/02-Industry"))
+const Statement = lazy(() => import("sections/home/03-Statement"))
+const Features = lazy(() => import("sections/home/04-Features"))
+const CallCTA = lazy(() => import("sections/home/05-CallCTA"))
+const Workflows = lazy(() => import("sections/home/07-Workflows"))
+const Integrations = lazy(() => import("sections/home/075-Integrations.tsx"))
+const WidgetsAndVideo = lazy(() => import("sections/home/08-WidgetsAndVideo"))
+const FinalCTA = lazy(() => import("sections/home/09-FinalCTA"))
+const Pricing = lazy(() => import("sections/home/Pricing"))
+// const SocialProof = lazy(() => import("sections/home/SocialProof"))
 
 export default function IndexPage() {
 	return (
 		<>
 			<Hero />
 			{/* <SocialProof /> */}
-			<Industry />
-			<Statement />
-			<Features />
-			<CallCTA />
-			<WidgetsAndVideo />
-			<Workflows />
-			<Integrations />
-			<Pricing />
-			<FinalCTA />
+			<Suspense fallback={<div>Loading...</div>}>
+				<Industry />
+				<Statement />
+				<Features />
+				<CallCTA />
+				<WidgetsAndVideo />
+				<Workflows />
+				<Integrations />
+				<Pricing />
+				<FinalCTA />
+			</Suspense>
 		</>
 	)
 }

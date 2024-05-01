@@ -3,6 +3,7 @@ import { CSSPlugin } from "gsap"
 import SplitText from "gsap/SplitText"
 import { usePinType } from "library/Scroll"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
+import createSmoothPin from "library/smoothPin"
 import useAnimation from "library/useAnimation"
 import { useRef } from "react"
 import styled, { css } from "styled-components"
@@ -52,10 +53,15 @@ export default function Statement() {
 				scrollTrigger: {
 					trigger: wrapperRef.current,
 					start: "top top",
-					pin: true,
+					end: "bottom top",
 					scrub: true,
-					pinType,
 				},
+			})
+			createSmoothPin({
+				trigger: wrapperRef.current,
+				pinType,
+				start: "top top",
+				end: "bottom top",
 			})
 			const nonGradientArrayLength = Array.from(nonGradient.words).length
 
@@ -124,7 +130,7 @@ const Wrapper = styled.section`
   display: grid;
   place-items: center;
   height: 100vh;
-	background-color: ${colors.white};
+  background-color: ${colors.white};
 
   ${fresponsive(css`
     min-height: 882px;
@@ -193,7 +199,7 @@ const Content = styled.div`
   `)}
 `
 
-const Title = styled.h3`
+const Title = styled.h2`
   ${textStyles.quoteXL};
 
   .gradient {
