@@ -47,6 +47,9 @@ const Wrapper = styled.div<{ $gradient: boolean; $iconColor: string }>`
 		css`
       ${transparentText}
       background-image: ${gradients.greenBlue};
+      background-size: 90% 90%;
+      background-repeat: no-repeat;
+      background-position: center center;
     `}
 
   ${fresponsive(css`
