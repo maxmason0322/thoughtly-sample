@@ -2,6 +2,7 @@ import { fresponsive } from "library/fullyResponsive"
 import useMedia from "library/useMedia"
 import { useEffect, useState } from "react"
 import styled, { css } from "styled-components"
+import colors from "styles/colors"
 import DesktopTablet from "./DesktopTablet"
 import Mobile from "./Mobile"
 
@@ -26,6 +27,7 @@ export default function WidgetsAndVideo() {
 
 const Wrapper = styled.section`
   position: relative;
+  background: ${colors.white};
   ${fresponsive(css`
     height: 1525px;
     width: 100%;

@@ -32,6 +32,7 @@ const Wrapper = styled.div`
 const Inner = styled.span`
   background-color: ${colors.green100};
   ${fresponsive(css`
+    white-space: nowrap;
     border-radius: 3px;
     padding: 4px 5px;
   `)}

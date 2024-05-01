@@ -45,6 +45,21 @@ const config: GatsbyConfig = {
 				},
 			},
 		},
+		{
+			resolve: "gatsby-plugin-clarity",
+			options: {
+				clarity_project_id: "iwlym1iqcj",
+				enable_on_dev_env: false,
+			},
+		},
+		{
+			resolve: "gatsby-plugin-segment-js",
+			options: {
+				prodKey: "qi1VKe4zhGsGpMQPEtkdv4GTGI47hLqG",
+				devKey: "jIDe0ZNs3rFmi0GdacZYkBIS3AspDFfb",
+				trackPage: false,
+			},
+		},
 		// TODO setup a contentful space
 		// {
 		//   resolve: "gatsby-source-contentful",
@@ -77,6 +92,14 @@ const config: GatsbyConfig = {
 			options: {
 				name: "data",
 				path: "./src/data",
+			},
+		},
+		{
+			resolve: "gatsby-plugin-segment-js",
+			options: {
+				prodKey: "qi1VKe4zhGsGpMQPEtkdv4GTGI47hLqG",
+				devKey: "jIDe0ZNs3rFmi0GdacZYkBIS3AspDFfb",
+				trackPage: false,
 			},
 		},
 		{

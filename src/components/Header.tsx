@@ -15,21 +15,14 @@ import textStyles from "styles/text"
 import links from "utils/links"
 import Link from "./Buttons/Link"
 import Icon from "./Icon"
+import { CalendlyModalContext } from "./Providers/CalendlyModalProvider"
 
 gsap.registerPlugin(ScrollToPlugin)
 
 export default function Header() {
 	const { mobile } = useContext(ScreenContext)
 	const innerRef = useRef<HTMLDivElement | null>(null)
-
-	const scrollTo = (section: string, offset: number) => {
-		gsap.to(window, {
-			scrollTo: {
-				y: section,
-				offsetY: offset,
-			},
-		})
-	}
+	const { setModalOpen } = useContext(CalendlyModalContext)
 
 	const initTimeline = useAnimation(() => {
 		const tl = gsap.timeline()
@@ -54,18 +47,10 @@ export default function Header() {
 				<Left>
 					<StyledLogoSVG />
 					<Links>
-						<Link type="button" onClick={() => scrollTo("#industries", 0)}>
-							Industries
-						</Link>
-						<Link type="button" onClick={() => scrollTo("#features", 0)}>
-							Features
-						</Link>
-						<Link type="button" onClick={() => scrollTo("#integrations", 500)}>
-							Integrations
-						</Link>
-						<Link type="button" onClick={() => scrollTo("#pricing", 250)}>
-							Pricing
-						</Link>
+						<Link to={links.industries}>Industries</Link>
+						<Link to={links.features}>Features</Link>
+						<Link to={links.integrations}>Integrations</Link>
+						<Link to={links.pricing}>Pricing</Link>
 						<Link to={links.helpCenter}>Support</Link>
 					</Links>
 				</Left>
@@ -83,7 +68,11 @@ export default function Header() {
 							<PrimaryButton variant="secondary" to={links.login}>
 								Sign In
 							</PrimaryButton>
-							<PrimaryButton icon="chev" to={links.todo}>
+							<PrimaryButton
+								type="button"
+								icon="chev"
+								onClick={() => setModalOpen(true)}
+							>
 								Get Started
 							</PrimaryButton>
 						</>
@@ -109,7 +98,7 @@ const Inner = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  
+
   ${fresponsive(css`
     padding: 32px 156px 0;
     transform: translateY(-200px);

@@ -1,5 +1,6 @@
 import Primary from "components/Buttons/Primary"
 import Kicker from "components/Kicker"
+import { CalendlyModalContext } from "components/Providers/CalendlyModalProvider"
 import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
 import { ReactComponent as GraphSVG } from "images/home/graph.svg"
@@ -10,7 +11,7 @@ import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import getMedia from "library/getMedia"
 import useAnimation from "library/useAnimation"
 import { getResponsivePixels } from "library/viewportUtils"
-import { useRef } from "react"
+import { useContext, useRef } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import {
@@ -25,6 +26,7 @@ export default function FinalCTA() {
 	const wrapperRef = useRef<HTMLElement | null>(null)
 	const bottom = useRef<HTMLDivElement | null>(null)
 	const graphCover = useRef<HTMLDivElement | null>(null)
+	const { setModalOpen } = useContext(CalendlyModalContext)
 	const ctaImages: Queries.CTAImagesQuery = useStaticQuery(graphql`
     query CTAImages {
       allCtaImages: allFile(
@@ -129,10 +131,11 @@ export default function FinalCTA() {
 				willChange: "transform",
 			})
 			tl.to(wrapperRef.current, {
-				borderBottomLeftRadius: () => getResponsivePixels(140),
-				borderBottomRightRadius: () => getResponsivePixels(140),
-				scale: 0.8,
-				ease: "power2.in",
+				borderBottomLeftRadius: () =>
+					getResponsivePixels(getMedia(140, 140, 140, 48)),
+				borderBottomRightRadius: () =>
+					getResponsivePixels(getMedia(140, 140, 140, 48)),
+				scale: () => getMedia(0.8, 0.8, 0.8, 0.9),
 			})
 		},
 		[],
@@ -154,7 +157,12 @@ export default function FinalCTA() {
 							<Primary to={links.login} outline>
 								Build your own Thoughtly
 							</Primary>
-							<Primary to={links.todo} variant="secondary" icon="chev">
+							<Primary
+								type="button"
+								onClick={() => setModalOpen(true)}
+								variant="secondary"
+								icon="chev"
+							>
 								Book a Demo
 							</Primary>
 						</Row>

@@ -140,11 +140,11 @@ const Inner = styled.div`
 	${ftablet(css`
 		grid-auto-rows: 348px 306px 306px 276px;
 		grid-template-columns: 432px 93px 339px;
-		padding: 85px 68px 202px;
+		padding: 0 68px 202px;
 	`)}
 
 	${fmobile(css`
-		padding: 24px 30px;
+		padding: 0 30px 24px;
 		grid-template-columns: 315px;
 		grid-auto-rows: 360px 360px 360px 360px 360px 420px;
 		gap: 12px;

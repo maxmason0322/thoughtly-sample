@@ -116,6 +116,10 @@ export default function DesktopTablet() {
 				image: images.widget1.edges[10].node.childImageSharp.gatsbyImageData,
 				name: "widget11",
 			},
+			{
+				image: images.widget1.edges[11].node.childImageSharp.gatsbyImageData,
+				name: "widget12",
+			},
 		],
 		[images.widget1.edges],
 	)
@@ -238,7 +242,7 @@ export default function DesktopTablet() {
 						x: 0,
 						y: 0,
 						gap: () => getResponsivePixels(24),
-						borderRadius: 18,
+						borderRadius: () => getResponsivePixels(18),
 						zIndex: 1,
 						duration: 0.5,
 						padding: 0,
@@ -490,7 +494,7 @@ const Grid1 = styled.div`
     left: 0;
     grid-template:
       "widget1 . . . . . . ." 56px
-      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 193px
+      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 19px
       "widget4 widget4 widget5 widget2 widget2 widget2 widget2 ." 175px
       "widget6 widget6 widget7 widget7 widget8 widget8 widget8 ." 131px
       "widget6 widget6 widget9 widget9 widget8 widget8 widget8 widget10" 176px

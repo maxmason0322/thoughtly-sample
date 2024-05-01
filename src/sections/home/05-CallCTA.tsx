@@ -55,7 +55,7 @@ export default function CallCTA() {
 				</Top>
 				<Bottom>
 					<MarqueeWrapper>
-						{useCanHover() && <MouseFollower />}
+						{canHover && <MouseFollower />}
 						<MarqueeBorder
 							onMouseEnter={handleMouseEnter}
 							onMouseLeave={handleMouseLeave}
@@ -179,6 +179,7 @@ const MarqueeWrapper = styled.div`
 
   ${ftablet(css`
     width: 982px;
+    height: 382px;
   `)}
 
     ${fmobile(css`
@@ -239,6 +240,11 @@ const MarqueeSpan = styled.span`
 `
 
 const Marquee = styled(ConstantMarquee)`
+
+  ${ftablet(css`
+    transform: translateZ(0);
+  `)}
+
   ${fmobile(css`
     height: 70px;
     display: flex;

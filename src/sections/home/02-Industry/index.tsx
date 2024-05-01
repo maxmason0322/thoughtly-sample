@@ -1,13 +1,21 @@
 import Selector from "components/Buttons/Selector"
 import Icon, { type IconType } from "components/Icon"
 import Widget from "components/Widget"
-import { graphql, useStaticQuery } from "gatsby"
+import Gabriel from "data/home-industry/agents/gabriel.jpg"
+import James from "data/home-industry/agents/james.jpg"
+import Phillip from "data/home-industry/agents/phillip.jpg"
+import Tessa from "data/home-industry/agents/tessa.jpg"
+import GovernmentImg from "data/home-industry/industries/government.png"
+import HealthcareImg from "data/home-industry/industries/healthcare.jpg"
+import InsuranceImg from "data/home-industry/industries/insurance.png"
+import LegalImg from "data/home-industry/industries/legal.png"
+import RealEstateImg from "data/home-industry/industries/real-estate.png"
+import ServicesImg from "data/home-industry/industries/services.png"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
 import { ReactComponent as LineSVG } from "images/home/industries-line.svg"
 import AutoAnimate from "library/AutoAnimate"
 import { ScreenContext } from "library/ScreenContext"
-import UniversalImage from "library/UniversalImage"
 import {
 	DesktopOnly,
 	DesktopTabletOnly,
@@ -26,50 +34,283 @@ import ProgressGroup from "./ProgressGroup"
 
 gsap.registerPlugin(DrawSVGPlugin)
 
+const Blue = styled.strong`
+  color: #0085e5d9;
+`
+
+const data = [
+	{
+		title: "Healthcare",
+		text: "Our agents automate complex processes, from benefits explanation to medication adherence support, ensuring clarity and compliance across all interactions. Enhance operational workflows, reduce administrative burdens, and deliver superior member service with AI that understands the nuances of pharmacy benefits and healthcare planning.",
+		assertiveness: 20,
+		humorLevel: 25,
+		files: [
+			{
+				name: "Patient Information.xls",
+				icon: "csv",
+			},
+			{
+				name: "Voice & Tone Guide.pdf",
+				icon: "pdf",
+			},
+			{
+				name: "Plan Directory.mp3",
+				icon: "audio",
+			},
+		],
+		image: HealthcareImg,
+		icon: "verified",
+		agent: {
+			name: "Phillip",
+			country: "🇬🇧",
+			avatar: Phillip,
+		},
+		widgetOne: {
+			text: (
+				<p>"Thank you for calling ABC Medicare, who am I speaking with?"</p>
+			),
+		},
+		widgetTwo: {
+			text: (
+				<p>
+					"Got it, great to meet you <Blue>{"{name}"}</Blue>! Are you calling
+					about a new plan, an existing plan, or something else?"
+				</p>
+			),
+			bottomConnectors: ["new\\nplan", "existing\\nplan", "something\\nelse"],
+		},
+	},
+	{
+		title: "Real Estate",
+		text: "Scale your sales operations like never before Whether you're a broker, a firm, or a wholesaler, never miss a lead again! Your own AI ISA at your service.",
+		assertiveness: 70,
+		humorLevel: 60,
+		files: [
+			{
+				name: "Pricing Sheet.xls",
+				icon: "csv",
+			},
+			{
+				name: "Customer Calls.mp3",
+				icon: "audio",
+			},
+			{
+				name: "Current Services.pdf",
+				icon: "pdf",
+			},
+		],
+		image: RealEstateImg,
+		icon: "verified",
+		agent: {
+			name: "Gabriel",
+			country: "🇲🇽",
+			avatar: Gabriel,
+		},
+		widgetOne: {
+			text: (
+				<p>
+					"Hello! This is Monica from Chandler Bing Brokerages. I saw you
+					requested information about our listing in Beverly Hills. Are you
+					looking to schedule an appointment?"
+				</p>
+			),
+		},
+		widgetTwo: {
+			text: (
+				<p>
+					"Got it, yes this is the <Blue>{"{api.numSqft}"}</Blue> Square Foot
+					property, right on Monte Cielo, in the heart of Beverly Hills."
+				</p>
+			),
+			bottomConnectors: ["book a showing", "price\\ninquiry", "financing"],
+		},
+	},
+	{
+		title: "Government",
+		text: "Drive political engagement and make every voice heard with technology that bridges gaps and fosters democracy. Designed for PACs, campaigns, and advocacy groups, our agents not only streamline outreach and personalize interactions with voters but also seamlessly facilitate connections between constituents and their representatives.",
+		assertiveness: 20,
+		humorLevel: 30,
+		files: [
+			{
+				name: "Voter Registration.xls",
+				icon: "csv",
+			},
+			{
+				name: "Party Voice and Tone.mp3",
+				icon: "audio",
+			},
+			{
+				name: "Calls to Action.pdf",
+				icon: "pdf",
+			},
+		],
+		image: GovernmentImg,
+		icon: "verified",
+		agent: {
+			name: "James",
+			country: "🇺🇸",
+			avatar: James,
+		},
+		widgetOne: {
+			text: (
+				<p>
+					"Hi <Blue>{"{name}"}</Blue>, hope you're doing well! How is{" "}
+					<Blue>{"{api.interest}"}</Blue> going? Just calling in to see if you
+					registered to vote for the upcoming Primary elections!"
+				</p>
+			),
+		},
+		widgetTwo: {
+			text: (
+				<p>
+					"It's crucial help elect <Blue>{"{api.nominee}"}</Blue> so they can
+					help voters like you! Are you interested in committing?"
+				</p>
+			),
+			bottomConnectors: ["not right now", "yes", "in the future"],
+		},
+	},
+	{
+		title: "Insurance",
+		text: "Scale your sales operations like never before Whether you're a broker, a firm, or a wholesaler, never miss a lead again! Your own AI ISA at your service.",
+		assertiveness: 30,
+		humorLevel: 10,
+		files: [
+			{
+				name: "Coverages.xls",
+				icon: "csv",
+			},
+			{
+				name: "Customer Calls.mp3",
+				icon: "audio",
+			},
+			{
+				name: "Premiums.pdf",
+				icon: "pdf",
+			},
+		],
+		image: InsuranceImg,
+		icon: "verified",
+		agent: {
+			name: "James",
+			country: "🇺🇸",
+			avatar: James,
+		},
+		widgetOne: {
+			text: (
+				<p>
+					"Thank you for calling XYZ Car Insurance. Are you calling about your
+					policy for <Blue>{"{api.carType}"}</Blue>?"
+				</p>
+			),
+		},
+		widgetTwo: {
+			text: (
+				<p>
+					"Got it. You've been in an accident. I'm going to ask you a few
+					questions before transferring, first, are you ok?"
+				</p>
+			),
+			bottomConnectors: ["yes", "no"],
+		},
+	},
+	{
+		title: "Legal",
+		text: "Our AI Agents screen leads, welcome new clients, pencil in appointments, handle payments, pass along your messages with outbound calls, and do so much more!",
+		assertiveness: 20,
+		humorLevel: 30,
+		files: [
+			{
+				name: "Legal Services.pdf",
+				icon: "pdf",
+			},
+			{
+				name: "Patents.xls",
+				icon: "csv",
+			},
+			{
+				name: "Pricing and Billing.pdf",
+				icon: "pdf",
+			},
+		],
+		image: LegalImg,
+		icon: "verified",
+		agent: {
+			name: "James",
+			country: "🇺🇸",
+			avatar: James,
+		},
+		widgetOne: {
+			text: (
+				<p>
+					"Hello <Blue>{"{name}"}</Blue>, thank you for calling T&C Legal. Let
+					me check your account real quick!"
+				</p>
+			),
+		},
+		widgetTwo: {
+			text: (
+				<p>
+					"Thanks for waiting. Looks like you <Blue>{"{api.numDocs}"}</Blue>{" "}
+					with us. Where you looking to discuss those or start a new service
+					with us?"
+				</p>
+			),
+			bottomConnectors: ["current\\ncontracts", "new\\ncontracts", "transfer"],
+		},
+	},
+	{
+		title: "Services/Utilities",
+		text: "Revolutionize your scheduling, appointment setting, and everything else with AI that understands your client's needs. Perfect for hospitality & travel, consumer services, financial services, and more.",
+		assertiveness: 20,
+		humorLevel: 70,
+		files: [
+			{
+				name: "Pricing Sheet.xls",
+				icon: "csv",
+			},
+			{
+				name: "Customer Calls.mp3",
+				icon: "audio",
+			},
+			{
+				name: "Current Services.pdf",
+				icon: "pdf",
+			},
+		],
+		image: ServicesImg,
+		icon: "verified",
+		agent: {
+			name: "Tessa",
+			country: "🇺🇸",
+			avatar: Tessa,
+		},
+		widgetOne: {
+			text: (
+				<p>"Thank you for calling Acme Home Remodeling, how can I help?"</p>
+			),
+		},
+		widgetTwo: {
+			text: (
+				<p>
+					"Sure, we can definitely help out with your dream home renovation
+					project. Is this a full home or partial renovation?""
+				</p>
+			),
+			bottomConnectors: [
+				"full\\nhome",
+				"partial\\nrenovation",
+				"transfer\\nto billing",
+			],
+		},
+	},
+]
+
 export default function Industry() {
 	const [activeIndex, setActiveIndex] = useState(0)
 	const { fullWidth, desktop, tablet, mobile } = useContext(ScreenContext)
 
-	const data: Queries.IndustryQuery = useStaticQuery(graphql`
-    query Industry {
-      allHomeIndustryJson {
-        nodes {
-          title
-          text
-          files {
-            name
-            icon
-          }
-          widgetOne {
-            text
-          }
-          widgetTwo {
-            text
-            bottomConnectors
-          }
-          assertiveness
-          humorLevel
-          icon
-          image {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-          agent {
-            name
-            country
-            avatar {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
-	const tabs = data.allHomeIndustryJson.nodes.map((item, index) => {
+	const tabs = data.map((item, index) => {
 		return (
 			<Selector
 				key={item.title}
@@ -82,7 +323,7 @@ export default function Industry() {
 		)
 	})
 
-	const widgets = data.allHomeIndustryJson.nodes.map((item, index) => {
+	const widgets = data.map((item, index) => {
 		return (
 			<Widget1
 				key={item.title}
@@ -93,12 +334,12 @@ export default function Industry() {
 				iconColor={colors.green400}
 				bottomConnectors={[""]}
 			>
-				{item.widgetOne?.text && <p>"{item.widgetOne.text}"</p>}
+				{item.widgetOne.text}
 			</Widget1>
 		)
 	})
 
-	const widgets2 = data.allHomeIndustryJson.nodes.map((item, index) => {
+	const widgets2 = data.map((item, index) => {
 		const bottomConnectors = item.widgetTwo?.bottomConnectors?.map((item) =>
 			item?.replace("\\n", "\n"),
 		)
@@ -114,23 +355,21 @@ export default function Industry() {
 				topConnectors={[""]}
 				bottomConnectors={bottomConnectors}
 			>
-				{item.widgetTwo?.text && <p>"{item.widgetTwo.text}"</p>}
+				{item.widgetTwo?.text}
 			</Widget2>
 		)
 	})
 
-	const files = data.allHomeIndustryJson.nodes[activeIndex]?.files?.map(
-		(item) => {
-			if (!item) return null
-			return (
-				<File key={item.name}>
-					{item.icon && <FileIcon name={item.icon as IconType} />}
-					<FileName>{item.name}</FileName>
-					<Trash name="trash" />
-				</File>
-			)
-		},
-	)
+	const files = data[activeIndex]?.files?.map((item) => {
+		if (!item) return null
+		return (
+			<File key={item.name}>
+				{item.icon && <FileIcon name={item.icon as IconType} />}
+				<FileName>{item.name}</FileName>
+				<Trash name="trash" />
+			</File>
+		)
+	})
 
 	useAnimation(
 		() => {
@@ -190,16 +429,12 @@ export default function Industry() {
 					<Left>
 						<Assertiveness>
 							<ProgressGroup
-								progress={
-									data.allHomeIndustryJson.nodes[activeIndex]?.assertiveness
-								}
+								progress={data[activeIndex]?.assertiveness}
 								title="Assertiveness"
 								text="Use softer suggestions"
 							/>
 							<ProgressGroup
-								progress={
-									data.allHomeIndustryJson.nodes[activeIndex]?.humorLevel
-								}
+								progress={data[activeIndex]?.humorLevel}
 								title="Humor Level"
 								text="Balanced humor and professionalism"
 							/>
@@ -212,30 +447,19 @@ export default function Industry() {
 							>
 								<Avatar
 									key={activeIndex}
-									image={
-										data.allHomeIndustryJson.nodes[activeIndex]?.agent?.avatar
-									}
-									alt={
-										data.allHomeIndustryJson.nodes[activeIndex]?.agent?.name ??
-										""
-									}
+									src={data[activeIndex]?.agent?.avatar}
+									alt={data[activeIndex]?.agent?.name ?? ""}
 								/>
 							</AutoAnimate>
 							<AutoAnimate>
-								<Name
-									key={
-										data.allHomeIndustryJson.nodes[activeIndex]?.agent?.country
-									}
-								>
-									{data.allHomeIndustryJson.nodes[activeIndex]?.agent?.country}
+								<Name key={data[activeIndex]?.agent?.country}>
+									{data[activeIndex]?.agent?.country}
 								</Name>
 							</AutoAnimate>
 							<Line />
 							<AutoAnimate>
-								<Name
-									key={data.allHomeIndustryJson.nodes[activeIndex]?.agent?.name}
-								>
-									{data.allHomeIndustryJson.nodes[activeIndex]?.agent?.name}
+								<Name key={data[activeIndex]?.agent?.name}>
+									{data[activeIndex]?.agent?.name}
 								</Name>
 							</AutoAnimate>
 						</Agent>
@@ -258,9 +482,8 @@ export default function Industry() {
 							>
 								<Image
 									key={activeIndex}
-									objectFit="cover"
-									image={data.allHomeIndustryJson.nodes[activeIndex]?.image}
-									alt={data.allHomeIndustryJson.nodes[activeIndex]?.title ?? ""}
+									src={data[activeIndex]?.image}
+									alt={data[activeIndex]?.title ?? ""}
 								/>
 							</AutoAnimate>
 						</div>
@@ -273,12 +496,7 @@ export default function Industry() {
 										icon="play"
 										iconColor={colors.green400}
 									>
-										<p>
-											{
-												data.allHomeIndustryJson.nodes[activeIndex]?.widgetOne
-													?.text
-											}
-										</p>
+										<p>{data[activeIndex]?.widgetOne?.text}</p>
 									</Widget1>
 								</AutoAnimate>
 							</TabletWidgetWrapper>
@@ -301,30 +519,30 @@ export default function Industry() {
 					</Left>
 					<Right>
 						<TextContent>
+							<IconTitle>
+								{/* <div>
+									<AutoAnimate>
+										<StyledIcon
+											key={activeIndex}
+											name={
+												data[activeIndex]
+													?.icon as IconType
+											}
+										/>
+									</AutoAnimate>
+								</div> */}
+								<div>
+									<AutoAnimate>
+										<SubTitle key={data[activeIndex]?.title}>
+											{data[activeIndex]?.title}
+										</SubTitle>
+									</AutoAnimate>
+								</div>
+							</IconTitle>
 							<div>
 								<AutoAnimate>
-									<StyledIcon
-										key={activeIndex}
-										name={
-											data.allHomeIndustryJson.nodes[activeIndex]
-												?.icon as IconType
-										}
-									/>
-								</AutoAnimate>
-							</div>
-							<div>
-								<AutoAnimate>
-									<SubTitle
-										key={data.allHomeIndustryJson.nodes[activeIndex]?.title}
-									>
-										{data.allHomeIndustryJson.nodes[activeIndex]?.title}
-									</SubTitle>
-								</AutoAnimate>
-							</div>
-							<div>
-								<AutoAnimate>
-									<Text key={data.allHomeIndustryJson.nodes[activeIndex]?.text}>
-										{data.allHomeIndustryJson.nodes[activeIndex]?.text}
+									<Text key={data[activeIndex]?.text}>
+										{data[activeIndex]?.text}
 									</Text>
 								</AutoAnimate>
 							</div>
@@ -362,12 +580,32 @@ export default function Industry() {
 	)
 }
 
+const IconTitle = styled.div`
+  display: flex;
+  align-items: center;
+
+  ${fresponsive(css`
+    gap: 15px;
+  `)}
+
+  ${ftablet(css`
+    flex-direction: column;
+    align-items: flex-start;
+  `)}
+
+  ${fmobile(css`
+    flex-direction: column;
+    align-items: flex-start;
+  `)}
+`
+
 const Wrapper = styled.section`
   width: 100%;
   display: grid;
   place-items: center;
   overflow: clip;
   position: relative;
+  margin-top: -1px;
   background-color: ${colors.white};
 `
 
@@ -385,13 +623,13 @@ const Inner = styled.div`
 
   ${ftablet(css`
     height: 1172px;
-    padding: 85px 68px 121px;
+    padding: 85px 68px 0;
     gap: 106px;
   `)}
 
   ${fmobile(css`
     height: auto;
-    padding: 85px 29px 170px;
+    padding: 85px 29px 100px;
     gap: 30px;
   `)}
 `
@@ -452,7 +690,7 @@ const Buttons = styled.div`
 
 	${fresponsive(css`
 		gap: 18px;
-		width: 552px;
+		width: 511px;
 	`)}
 
   ${ftablet(css`
@@ -467,7 +705,7 @@ const Buttons = styled.div`
     overflow-x: scroll;
     flex-wrap: nowrap;
     position: absolute;
-    bottom: 110px;
+    bottom: 40px;
     left: 0;
   `)}
 `
@@ -502,7 +740,7 @@ const Left = styled.div`
   `)}
 `
 
-const Image = styled(UniversalImage)`
+const Image = styled.img`
   background-color: ${colors.gray800};
 
   ${fresponsive(css`
@@ -796,7 +1034,7 @@ const Widget2 = styled(Widget1)`
   `)}
 `
 
-const Avatar = styled(UniversalImage)`
+const Avatar = styled.img`
   border-radius: 99vw;
 
   ${fresponsive(css`
@@ -820,21 +1058,13 @@ const Line = styled.div`
 `
 
 const StyledIcon = styled(Icon)`
-  display: none;
 
   path,
   circle {
     fill: ${colors.gray500};
   }
 
-  ${ftablet(css`
-    display: flex;
-    width: 30px;
-    height: 30px;
-  `)}
-
-  ${fmobile(css`
-    display: flex;
+  ${fresponsive(css`
     width: 30px;
     height: 30px;
   `)}
