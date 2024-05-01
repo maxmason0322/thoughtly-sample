@@ -12,6 +12,10 @@ declare global {
 		 * special object that can be used to detect if running in firefox
 		 */
 		netscape: unknown
+		/**
+		 * special object that can be used to detect if running in edge
+		 */
+		analytics: unknown
 	}
 }
 

@@ -1,6 +1,6 @@
 import Tag from "components/Tag"
 import UniversalImage, { type UniversalImageData } from "library/UniversalImage"
-import { fresponsive } from "library/fullyResponsive"
+import { fmobile, fresponsive } from "library/fullyResponsive"
 import type { ReactNode } from "react"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
@@ -38,6 +38,13 @@ const Wrapper = styled.div`
     width: 331px;
     box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
   `)}
+
+  ${fmobile(css`
+    padding: 18px 24px;
+    gap: 12px;
+    width: 232px;
+    height: 106px;
+  `)}
 `
 
 const Top = styled.div`
@@ -53,6 +60,10 @@ const Text = styled.p`
   ${fresponsive(css`
     width: 220px;
   `)}
+
+  ${fmobile(css`
+    width: 184px;
+  `)}
 `
 
 const Logo = styled(UniversalImage)`
@@ -64,5 +75,9 @@ const Logo = styled(UniversalImage)`
 
   ${fresponsive(css`
     height: 40px;
+  `)}
+
+  ${fmobile(css`
+    height: 30px;
   `)}
 `

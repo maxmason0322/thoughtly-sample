@@ -9,9 +9,11 @@ gsap.registerPlugin(ScrollToPlugin)
 export default function InfiniteSideScroll({
 	children,
 	trackGap,
+	offsetLeft = 0,
 }: {
 	children: ReactNode[]
 	trackGap: number
+	offsetLeft?: number
 }) {
 	const [scrollOffset, setScrollOffset] = useState(0)
 	const [trackEl, setTrackEl] = useState<HTMLDivElement | null>(null)
@@ -60,7 +62,11 @@ export default function InfiniteSideScroll({
 	}
 
 	return (
-		<Track ref={(ref) => setTrackEl(ref)} onScroll={handleScroll}>
+		<Track
+			ref={(ref) => setTrackEl(ref)}
+			onScroll={handleScroll}
+			offsetLeft={offsetLeft}
+		>
 			<Gradient2 />
 			<TrackInner ref={(ref) => setTrackInnerEl(ref)} $gap={trackGap}>
 				{children}
@@ -72,7 +78,7 @@ export default function InfiniteSideScroll({
 	)
 }
 
-const Track = styled.div`
+const Track = styled.div<{ offsetLeft: number }>`
   overflow-x: scroll;
   display: flex;
   position: relative;
@@ -84,9 +90,12 @@ const Track = styled.div`
     display: none;
   }
 
-  ${fresponsive(css`
-    width: 1440px;
-  `)}
+  ${({ offsetLeft }) =>
+		fresponsive(css`
+      padding: 50px 0 50px ${offsetLeft}px;
+      margin: -50px 0;
+      width: 1440px;
+    `)}
 
   ${ftablet(css`
     width: 1024px;
