@@ -491,7 +491,7 @@ const Callout2 = styled(Callout)`
 
 	${ftablet(css`
 		right: 70px;
-		bottom: 152px;
+		bottom: 130px;
 		width: 330px;
 
 		h6, p {
