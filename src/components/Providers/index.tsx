@@ -1,6 +1,6 @@
 import { ScreenProvider } from "library/ScreenContext"
 import StyledManager from "library/StyledManager"
-import { IntercomProvider, useIntercom } from "react-use-intercom"
+import { IntercomProvider } from "react-use-intercom"
 import CalendlyModalProvider from "./CalendlyModalProvider"
 
 interface ProvidersProps {
