@@ -95,25 +95,27 @@ export default function Statement() {
 	)
 
 	return (
-		<Wrapper ref={wrapperRef}>
-			<Inner>
-				<DotsWrapper>
-					<Dots />
-					<Content>
-						<Title>
-							<span className="non-gradient">
-								Thoughtly reimagines phone calls with AI that speaks your
-								language. Our mission is to make every call your best yet,
-								merging tradition with tomorrow&apos;s tech.
-							</span>
-							<span className="gradient">
-								&nbsp; Welcome to the future of customer interaction.
-							</span>
-						</Title>
-					</Content>
-				</DotsWrapper>
-			</Inner>
-		</Wrapper>
+		<div>
+			<Wrapper ref={wrapperRef}>
+				<Inner>
+					<DotsWrapper>
+						<Dots />
+						<Content>
+							<Title>
+								<span className="non-gradient">
+									Thoughtly reimagines phone calls with AI that speaks your
+									language. Our mission is to make every call your best yet,
+									merging tradition with tomorrow&apos;s tech.
+								</span>
+								<span className="gradient">
+									&nbsp; Welcome to the future of customer interaction.
+								</span>
+							</Title>
+						</Content>
+					</DotsWrapper>
+				</Inner>
+			</Wrapper>
+		</div>
 	)
 }
 
