@@ -1,10 +1,10 @@
 import { graphql, useStaticQuery } from "gatsby"
-import BackgroundImg from "images/home/workflows-background.png"
 import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useMedia from "library/useMedia"
 import { useState } from "react"
 import styled, { css } from "styled-components"
+import { Dots } from "styles/background"
 import colors from "styles/colors"
 import {
 	desktopBreakpoint,
@@ -33,6 +33,7 @@ export default function Workflows() {
 		<Wrapper>
 			<Inner>
 				<Content>
+					<StyledDots />
 					<AgentCard activeIndex={activeIndex} />
 					<Title>Human-like agents, fully integrated into your business.</Title>
 					<Text>
@@ -76,15 +77,29 @@ const Inner = styled.div`
   `)}
 `
 
+const StyledDots = styled(Dots)`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: ${colors.gray100};
+  z-index: 0;
+  ${fresponsive(css`
+    top: 0;
+    left: 0;
+    border-radius: 60px;
+  `)}
+
+  ${fmobile(css`
+    border-radius: 36px;
+  `)}
+`
+
 const Content = styled.div`
   position: relative;
   width: 100%;
 
   /* Todo: replace background image with dot component  */
-  background-image: url(${BackgroundImg});
-  background-size: 100% 100%;
-  background-position: center center;
-  background-repeat: no-repeat;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -109,7 +124,7 @@ const Title = styled.h1`
   ${textStyles.h5}
   color: ${colors.black};
   text-align: center;
-
+  z-index: 1;
   ${fresponsive(css`
     margin-bottom: 36px;
   `)}
@@ -123,6 +138,7 @@ const Title = styled.h1`
 const Text = styled.p`
   ${textStyles.bodyR}
   text-align: center;
+  z-index: 1;
 
   ${fresponsive(css`
     width: 346px;
