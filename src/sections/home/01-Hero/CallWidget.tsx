@@ -13,8 +13,8 @@ export default function CallWidget({ className = "" }: { className: string }) {
 			<Content>
 				<Phone />
 				<PhoneNumber>
-					<span>+1(855)717-0250</span>
-					<span>+1(855)717-0250</span>
+					<span>+1 (855) 717-0250</span>
+					<span>+1 (855) 717-0250</span>
 				</PhoneNumber>
 				<Text>Incoming Call</Text>
 				<Audio />
