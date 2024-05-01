@@ -2,8 +2,14 @@ const routes = {
 	home: "/",
 	terms: "/terms",
 	privacy: "/privacy",
-	pricing: "/#pricing",
 } as const
+
+const sections = {
+	industries: "/#industries",
+	features: "/#features",
+	integrations: "/#integrations",
+	pricing: "/#pricing",
+}
 
 const socials = {
 	linkedin: "https://www.linkedin.com/company/thoughtly-ai/",
@@ -20,6 +26,7 @@ const links = {
 	mediaInquiries: "mailto:press@thought.ly",
 	contact: "mailto:support@thought.ly",
 	...routes,
+	...sections,
 	...socials,
 } as const
 
