@@ -180,7 +180,6 @@ const Wrapper = styled.footer<{
 const StyledDots = styled(Dots)`
   position: absolute;
   top: 0;
-  display: flex;
   transform: translateX(-50%);
   left: 50%;
   z-index: 0;
