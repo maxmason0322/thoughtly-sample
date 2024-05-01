@@ -4,6 +4,7 @@ import gsap from "gsap"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import useMedia from "library/useMedia"
+import { getResponsivePixels } from "library/viewportUtils"
 import { useRef } from "react"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
@@ -82,9 +83,27 @@ export default function Features() {
 				},
 			})
 
-			tl.from(innerRef.current, {
-				rowGap: 200,
+			/**
+			 * we're roughly simulating a row gap here,
+			 * but that's bad for performance
+			 * so doing it with transforms instead
+			 */
+
+			const children = Array.from(innerRef.current?.children ?? [])
+
+			const lastChild = children.at(-1) ?? null
+			const midKids = children.slice(2).filter((child) => child !== lastChild)
+
+			tl.from(midKids, {
+				y: () => getResponsivePixels(150),
 			})
+			tl.from(
+				lastChild,
+				{
+					y: () => getResponsivePixels(300),
+				},
+				0,
+			)
 		},
 		[mobile],
 		{
