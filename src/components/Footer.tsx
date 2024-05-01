@@ -36,7 +36,7 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 
 	const isFixed = fixedRoutes.some((route) => pathnameMatches(pathname, route))
 
-	const primary = isFixed ? "fixed" : "static"
+	const primary = isFixed && !mobile ? "fixed" : "static"
 
 	if (primary === "fixed" && position === "static") return <Spacer />
 	if (primary === "static" && position === "fixed") return null
@@ -186,7 +186,6 @@ const Wrapper = styled.footer<{
 const StyledDots = styled(Dots)`
   position: absolute;
   top: 0;
-  display: flex;
   transform: translateX(-50%);
   left: 50%;
   z-index: 0;

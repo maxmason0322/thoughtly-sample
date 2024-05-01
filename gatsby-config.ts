@@ -95,6 +95,14 @@ const config: GatsbyConfig = {
 			},
 		},
 		{
+			resolve: "gatsby-plugin-segment-js",
+			options: {
+				prodKey: "qi1VKe4zhGsGpMQPEtkdv4GTGI47hLqG",
+				devKey: "jIDe0ZNs3rFmi0GdacZYkBIS3AspDFfb",
+				trackPage: false,
+			},
+		},
+		{
 			resolve: "gatsby-plugin-svgr",
 			options: {
 				prettier: true,
