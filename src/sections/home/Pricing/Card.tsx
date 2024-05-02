@@ -43,20 +43,20 @@ export default function Card({
 			<Top>
 				<Row>
 					<Info>
-						<div>
+						<IconWrapper>
 							<AutoAnimate duration={duration}>
 								<StyledIcon
-									$stroke={iconStroke[activeIndex]}
+									$stroke={!!iconStroke[activeIndex]}
 									key={activeIndex}
 									name={icons[activeIndex] as IconType}
 								/>
 							</AutoAnimate>
-						</div>
-						<div>
+						</IconWrapper>
+						<TitleWrapper>
 							<AutoAnimate duration={duration}>
 								<Title key={activeIndex}>{titles[activeIndex]}</Title>
 							</AutoAnimate>
-						</div>
+						</TitleWrapper>
 						<div>
 							<AutoAnimate duration={duration}>
 								<Text key={activeIndex}>{text[activeIndex]}</Text>
@@ -179,6 +179,12 @@ const Info = styled.div`
   `)}
 `
 
+const IconWrapper = styled.div`
+  ${fresponsive(css`
+    height: 16px;
+  `)}
+`
+
 const StyledIcon = styled(Icon)<{ $stroke: boolean }>`
   path {
     ${({ $stroke }) =>
@@ -188,6 +194,12 @@ const StyledIcon = styled(Icon)<{ $stroke: boolean }>`
   ${fresponsive(css`
     width: 16px;
     height: 16px;
+  `)}
+`
+
+const TitleWrapper = styled.div`
+  ${fresponsive(css`
+    height: 22px;
   `)}
 `
 
@@ -231,6 +243,7 @@ const Price = styled.h1`
   ${fresponsive(css`
     gap: 5px;
     margin-top: 28px;
+    height: 50px;
   `)}
 `
 
