@@ -1,4 +1,5 @@
 import Seo from "components/Seo"
+import ClientOnly from "library/ClientOnly"
 import { Suspense, lazy } from "react"
 
 import Hero from "sections/home/01-Hero"
@@ -24,27 +25,29 @@ export default function IndexPage() {
 			<Suspense fallback={<div>Loading...</div>}>
 				<Statement />
 			</Suspense>
-			<Suspense fallback={<div>Loading...</div>}>
-				<Features />
-			</Suspense>
-			<Suspense fallback={<div>Loading...</div>}>
-				<CallCTA />
-			</Suspense>
-			<Suspense fallback={<div>Loading...</div>}>
-				<WidgetsAndVideo />
-			</Suspense>
-			<Suspense fallback={<div>Loading...</div>}>
-				<Workflows />
-			</Suspense>
-			<Suspense fallback={<div>Loading...</div>}>
-				<Integrations />
-			</Suspense>
-			<Suspense fallback={<div>Loading...</div>}>
-				<Pricing />
-			</Suspense>
-			<Suspense fallback={<div>Loading...</div>}>
-				<FinalCTA />
-			</Suspense>
+			<ClientOnly>
+				<Suspense fallback={<div>Loading...</div>}>
+					<Features />
+				</Suspense>
+				<Suspense fallback={<div>Loading...</div>}>
+					<CallCTA />
+				</Suspense>
+				<Suspense fallback={<div>Loading...</div>}>
+					<WidgetsAndVideo />
+				</Suspense>
+				<Suspense fallback={<div>Loading...</div>}>
+					<Workflows />
+				</Suspense>
+				<Suspense fallback={<div>Loading...</div>}>
+					<Integrations />
+				</Suspense>
+				<Suspense fallback={<div>Loading...</div>}>
+					<Pricing />
+				</Suspense>
+				<Suspense fallback={<div>Loading...</div>}>
+					<FinalCTA />
+				</Suspense>
+			</ClientOnly>
 		</>
 	)
 }
