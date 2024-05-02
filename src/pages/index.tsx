@@ -1,8 +1,8 @@
 import Seo from "components/Seo"
+import ClientOnly from "library/ClientOnly"
 import { Suspense, lazy } from "react"
 
 import Hero from "sections/home/01-Hero"
-import DelayRender from "utils/DelayRender"
 const Industry = lazy(() => import("sections/home/02-Industry"))
 const Statement = lazy(() => import("sections/home/03-Statement"))
 const Features = lazy(() => import("sections/home/04-Features"))
@@ -22,10 +22,10 @@ export default function IndexPage() {
 			<Suspense fallback={<div>Loading...</div>}>
 				<Industry />
 			</Suspense>
-			<DelayRender>
-				<Suspense fallback={<div>Loading...</div>}>
-					<Statement />
-				</Suspense>
+			<Suspense fallback={<div>Loading...</div>}>
+				<Statement />
+			</Suspense>
+			<ClientOnly>
 				<Suspense fallback={<div>Loading...</div>}>
 					<Features />
 				</Suspense>
@@ -47,7 +47,7 @@ export default function IndexPage() {
 				<Suspense fallback={<div>Loading...</div>}>
 					<FinalCTA />
 				</Suspense>
-			</DelayRender>
+			</ClientOnly>
 		</>
 	)
 }
