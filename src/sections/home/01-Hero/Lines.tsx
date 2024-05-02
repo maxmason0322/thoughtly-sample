@@ -120,7 +120,7 @@ const ActionSpeakLine = styled(ActionSpeakLineSVG)`
     width: 578px;
     height: 309px;
     right: 349px;
-    top: 1297px;
+    top: 1296px;
   `)}
 
   ${ftablet(css`
@@ -155,10 +155,10 @@ const TestLine = styled(TestLine1SVG)`
   position: absolute;
 
   ${fresponsive(css`
-    width: 199px;
+    width: 200px;
     height: 209px;
     top: 1560px;
-    right: 1180px;
+    right: 1179px;
   `)}
 
   ${ftablet(css`

@@ -42,8 +42,14 @@ const data = [
 	{
 		title: "Healthcare",
 		text: "Our agents automate complex processes, from benefits explanation to medication adherence support, ensuring clarity and compliance across all interactions. Enhance operational workflows, reduce administrative burdens, and deliver superior member service with AI that understands the nuances of pharmacy benefits and healthcare planning.",
-		assertiveness: 20,
-		humorLevel: 25,
+		assertiveness: {
+			val: 20,
+			text: "Use softer suggestions",
+		},
+		humorLevel: {
+			val: 25,
+			text: "Serious, minimal humor",
+		},
 		files: [
 			{
 				name: "Patient Information.xls",
@@ -83,8 +89,14 @@ const data = [
 	{
 		title: "Real Estate",
 		text: "Scale your sales operations like never before Whether you're a broker, a firm, or a wholesaler, never miss a lead again! Your own AI ISA at your service.",
-		assertiveness: 70,
-		humorLevel: 60,
+		assertiveness: {
+			val: 70,
+			text: "Assertive yet kind",
+		},
+		humorLevel: {
+			val: 60,
+			text: "Humor in every response",
+		},
 		files: [
 			{
 				name: "Pricing Sheet.xls",
@@ -128,8 +140,14 @@ const data = [
 	{
 		title: "Government",
 		text: "Drive political engagement and make every voice heard with technology that bridges gaps and fosters democracy. Designed for PACs, campaigns, and advocacy groups, our agents not only streamline outreach and personalize interactions with voters but also seamlessly facilitate connections between constituents and their representatives.",
-		assertiveness: 20,
-		humorLevel: 30,
+		assertiveness: {
+			val: 20,
+			text: "Assertive yet kind",
+		},
+		humorLevel: {
+			val: 30,
+			text: "Balanced humor and professionalism ",
+		},
 		files: [
 			{
 				name: "Voter Registration.xls",
@@ -173,8 +191,14 @@ const data = [
 	{
 		title: "Insurance",
 		text: "Scale your sales operations like never before Whether you're a broker, a firm, or a wholesaler, never miss a lead again! Your own AI ISA at your service.",
-		assertiveness: 30,
-		humorLevel: 10,
+		assertiveness: {
+			val: 30,
+			text: "Use softer suggestions",
+		},
+		humorLevel: {
+			val: 10,
+			text: "Balanced humor and professionalism ",
+		},
 		files: [
 			{
 				name: "Coverages.xls",
@@ -217,8 +241,14 @@ const data = [
 	{
 		title: "Legal",
 		text: "Our AI Agents screen leads, welcome new clients, pencil in appointments, handle payments, pass along your messages with outbound calls, and do so much more!",
-		assertiveness: 20,
-		humorLevel: 30,
+		assertiveness: {
+			val: 20,
+			text: "Assertive yet kind",
+		},
+		humorLevel: {
+			val: 30,
+			text: "Serious, minimal humor",
+		},
 		files: [
 			{
 				name: "Legal Services.pdf",
@@ -262,8 +292,14 @@ const data = [
 	{
 		title: "Services/Utilities",
 		text: "Revolutionize your scheduling, appointment setting, and everything else with AI that understands your client's needs. Perfect for hospitality & travel, consumer services, financial services, and more.",
-		assertiveness: 20,
-		humorLevel: 70,
+		assertiveness: {
+			val: 20,
+			text: "Very assertive, direct outcome",
+		},
+		humorLevel: {
+			val: 70,
+			text: "Humor in every response",
+		},
 		files: [
 			{
 				name: "Pricing Sheet.xls",
@@ -429,14 +465,16 @@ export default function Industry() {
 					<Left>
 						<Assertiveness>
 							<ProgressGroup
-								progress={data[activeIndex]?.assertiveness}
+								progress={data[activeIndex]?.assertiveness.val}
 								title="Assertiveness"
-								text="Use softer suggestions"
+								index={activeIndex}
+								text={data[activeIndex]?.assertiveness.text}
 							/>
 							<ProgressGroup
-								progress={data[activeIndex]?.humorLevel}
+								progress={data[activeIndex]?.humorLevel.val}
 								title="Humor Level"
-								text="Balanced humor and professionalism"
+								index={activeIndex}
+								text={data[activeIndex]?.humorLevel.text}
 							/>
 						</Assertiveness>
 
@@ -741,6 +779,7 @@ const Left = styled.div`
 
 const Image = styled.img`
   background-color: ${colors.gray800};
+	object-fit: cover;
 
   ${fresponsive(css`
     width: 528px;

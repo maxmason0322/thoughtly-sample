@@ -1,3 +1,4 @@
+import AutoAnimate from "library/AutoAnimate"
 import { fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
@@ -7,10 +8,12 @@ export default function ProgressGroup({
 	title,
 	text,
 	progress = 0,
+	index,
 }: {
 	title: string
-	text: string
+	text: string | undefined
 	progress?: number | null
+	index: number
 }) {
 	return (
 		<Wrapper>
@@ -18,7 +21,11 @@ export default function ProgressGroup({
 			<Track>
 				<Ball $progress={progress ? progress : 0} />
 			</Track>
-			<Text>{text}</Text>
+			<Text>
+				<AutoAnimate>
+					<p key={index}>{text}</p>
+				</AutoAnimate>
+			</Text>
 		</Wrapper>
 	)
 }
@@ -38,9 +45,13 @@ const Title = styled.span`
   color: ${colors.black};
 `
 
-const Text = styled.span`
+const Text = styled.div`
   ${textStyles.bodyXS}
   color: ${colors.gray600};
+
+  ${fresponsive(css`
+    height: 15px;
+  `)}
 `
 
 const Track = styled.div`
