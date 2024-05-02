@@ -214,9 +214,9 @@ export default function Hero() {
 							🚀&nbsp;&nbsp;&nbsp;Seed round led by Afore & others
 						</Kicker>
 					</Unmask> */}
-					<Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
-						<Title>Your phone calls, answered beautifully.</Title>
-					</Unmask>
+					{/* <Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}> */}
+					<Title>Your phone calls, answered beautifully.</Title>
+					{/* </Unmask> */}
 					<Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
 						<Text>
 							Businesses trust Thoughtly’s human-like AI agents to answer
