@@ -118,7 +118,7 @@ const StartWidget = styled(Widget)`
 
 	${fmobile(css`
     right: 31.5px;
-    top: 788px;
+    top: 768px;
     transform-origin: top right;
     transform: scale(0.73);
   `)}
@@ -251,7 +251,7 @@ const StyledCallWidget = styled(CallWidget)`
 
 	${fmobile(css`
     transform-origin: top right;
-    top: 629.25px;
+    top: 609.25px;
     right: 127.75px;
     transform: scale(0.75);
   `)}
@@ -292,7 +292,7 @@ const StyledAvatarWidget = styled(AvatarWidget)`
 	
 	${fmobile(css`
     right: 26px;
-    top: 687px;
+    top: 667px;
     transform: scale(0.73);
     transform-origin: top right;
   `)}
