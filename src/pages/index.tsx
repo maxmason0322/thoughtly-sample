@@ -20,13 +20,29 @@ export default function IndexPage() {
 			{/* <SocialProof /> */}
 			<Suspense fallback={<div>Loading...</div>}>
 				<Industry />
+			</Suspense>
+			<Suspense fallback={<div>Loading...</div>}>
 				<Statement />
+			</Suspense>
+			<Suspense fallback={<div>Loading...</div>}>
 				<Features />
+			</Suspense>
+			<Suspense fallback={<div>Loading...</div>}>
 				<CallCTA />
+			</Suspense>
+			<Suspense fallback={<div>Loading...</div>}>
 				<WidgetsAndVideo />
+			</Suspense>
+			<Suspense fallback={<div>Loading...</div>}>
 				<Workflows />
+			</Suspense>
+			<Suspense fallback={<div>Loading...</div>}>
 				<Integrations />
+			</Suspense>
+			<Suspense fallback={<div>Loading...</div>}>
 				<Pricing />
+			</Suspense>
+			<Suspense fallback={<div>Loading...</div>}>
 				<FinalCTA />
 			</Suspense>
 		</>
