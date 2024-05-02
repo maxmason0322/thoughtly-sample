@@ -1,10 +1,6 @@
 import Selector from "components/Buttons/Selector"
 import Icon, { type IconType } from "components/Icon"
 import Widget from "components/Widget"
-import Gabriel from "data/home-industry/agents/gabriel.jpg"
-import James from "data/home-industry/agents/james.jpg"
-import Phillip from "data/home-industry/agents/phillip.jpg"
-import Tessa from "data/home-industry/agents/tessa.jpg"
 import GovernmentImg from "data/home-industry/industries/government.png"
 import HealthcareImg from "data/home-industry/industries/healthcare.jpg"
 import InsuranceImg from "data/home-industry/industries/insurance.png"
@@ -13,6 +9,12 @@ import RealEstateImg from "data/home-industry/industries/real-estate.png"
 import ServicesImg from "data/home-industry/industries/services.png"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
+import Gabriel from "images/global/avatars/gabriel.png"
+import James from "images/global/avatars/james.png"
+import Lisa from "images/global/avatars/lisa.png"
+import Micheal from "images/global/avatars/micheal.png"
+import Sanjay from "images/global/avatars/sanjay.png"
+import Stacey from "images/global/avatars/stacey.png"
 import { ReactComponent as LineSVG } from "images/home/industries-line.svg"
 import AutoAnimate from "library/AutoAnimate"
 import { ScreenContext } from "library/ScreenContext"
@@ -67,9 +69,9 @@ const data = [
 		image: HealthcareImg,
 		icon: "verified",
 		agent: {
-			name: "Phillip",
-			country: "🇬🇧",
-			avatar: Phillip,
+			name: "James",
+			country: "🇺🇸",
+			avatar: James,
 		},
 		widgetOne: {
 			text: (
@@ -114,9 +116,9 @@ const data = [
 		image: RealEstateImg,
 		icon: "verified",
 		agent: {
-			name: "Gabriel",
-			country: "🇲🇽",
-			avatar: Gabriel,
+			name: "Stacey",
+			country: "🇬🇧",
+			avatar: Stacey,
 		},
 		widgetOne: {
 			text: (
@@ -165,9 +167,9 @@ const data = [
 		image: GovernmentImg,
 		icon: "verified",
 		agent: {
-			name: "James",
-			country: "🇺🇸",
-			avatar: James,
+			name: "Gabriel",
+			country: "🇲🇽",
+			avatar: Gabriel,
 		},
 		widgetOne: {
 			text: (
@@ -216,9 +218,9 @@ const data = [
 		image: InsuranceImg,
 		icon: "verified",
 		agent: {
-			name: "James",
+			name: "Lisa",
 			country: "🇺🇸",
-			avatar: James,
+			avatar: Lisa,
 		},
 		widgetOne: {
 			text: (
@@ -266,9 +268,9 @@ const data = [
 		image: LegalImg,
 		icon: "verified",
 		agent: {
-			name: "James",
+			name: "Sanjay",
 			country: "🇺🇸",
-			avatar: James,
+			avatar: Sanjay,
 		},
 		widgetOne: {
 			text: (
@@ -317,9 +319,9 @@ const data = [
 		image: ServicesImg,
 		icon: "verified",
 		agent: {
-			name: "Tessa",
-			country: "🇺🇸",
-			avatar: Tessa,
+			name: "Micheal",
+			country: "🇨🇦",
+			avatar: Micheal,
 		},
 		widgetOne: {
 			text: (
@@ -868,6 +870,7 @@ const FilesInner = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+	background-color: ${colors.gray100};
 
   ${fresponsive(css`
     border-radius: 14px;
