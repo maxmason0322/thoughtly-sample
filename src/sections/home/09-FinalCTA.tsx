@@ -120,7 +120,7 @@ export default function FinalCTA() {
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: wrapperRef.current,
-				start: "bottom bottom",
+				start: "top top",
 				end: "clamp(bottom top)",
 				scrub: true,
 			},

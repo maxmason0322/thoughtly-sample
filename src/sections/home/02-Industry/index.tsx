@@ -1,10 +1,6 @@
 import Selector from "components/Buttons/Selector"
 import Icon, { type IconType } from "components/Icon"
 import Widget from "components/Widget"
-import Gabriel from "data/home-industry/agents/gabriel.jpg"
-import James from "data/home-industry/agents/james.jpg"
-import Phillip from "data/home-industry/agents/phillip.jpg"
-import Tessa from "data/home-industry/agents/tessa.jpg"
 import GovernmentImg from "data/home-industry/industries/government.png"
 import HealthcareImg from "data/home-industry/industries/healthcare.jpg"
 import InsuranceImg from "data/home-industry/industries/insurance.png"
@@ -13,6 +9,12 @@ import RealEstateImg from "data/home-industry/industries/real-estate.png"
 import ServicesImg from "data/home-industry/industries/services.png"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
+import Gabriel from "images/global/avatars/gabriel.png"
+import James from "images/global/avatars/james.png"
+import Lisa from "images/global/avatars/lisa.png"
+import Micheal from "images/global/avatars/micheal.png"
+import Sanjay from "images/global/avatars/sanjay.png"
+import Stacey from "images/global/avatars/stacey.png"
 import { ReactComponent as LineSVG } from "images/home/industries-line.svg"
 import AutoAnimate from "library/AutoAnimate"
 import { ScreenContext } from "library/ScreenContext"
@@ -36,14 +38,21 @@ gsap.registerPlugin(DrawSVGPlugin)
 
 const Blue = styled.strong`
   color: #0085e5d9;
+	font-weight: bold;
 `
 
 const data = [
 	{
 		title: "Healthcare",
 		text: "Our agents automate complex processes, from benefits explanation to medication adherence support, ensuring clarity and compliance across all interactions. Enhance operational workflows, reduce administrative burdens, and deliver superior member service with AI that understands the nuances of pharmacy benefits and healthcare planning.",
-		assertiveness: 20,
-		humorLevel: 25,
+		assertiveness: {
+			val: 20,
+			text: "Use softer suggestions",
+		},
+		humorLevel: {
+			val: 25,
+			text: "Serious, minimal humor",
+		},
 		files: [
 			{
 				name: "Patient Information.xls",
@@ -61,9 +70,9 @@ const data = [
 		image: HealthcareImg,
 		icon: "verified",
 		agent: {
-			name: "Phillip",
-			country: "🇬🇧",
-			avatar: Phillip,
+			name: "James",
+			country: "🇺🇸",
+			avatar: James,
 		},
 		widgetOne: {
 			text: (
@@ -83,8 +92,14 @@ const data = [
 	{
 		title: "Real Estate",
 		text: "Scale your sales operations like never before Whether you're a broker, a firm, or a wholesaler, never miss a lead again! Your own AI ISA at your service.",
-		assertiveness: 70,
-		humorLevel: 60,
+		assertiveness: {
+			val: 70,
+			text: "Assertive yet kind",
+		},
+		humorLevel: {
+			val: 60,
+			text: "Humor in every response",
+		},
 		files: [
 			{
 				name: "Pricing Sheet.xls",
@@ -102,9 +117,9 @@ const data = [
 		image: RealEstateImg,
 		icon: "verified",
 		agent: {
-			name: "Gabriel",
-			country: "🇲🇽",
-			avatar: Gabriel,
+			name: "Stacey",
+			country: "🇬🇧",
+			avatar: Stacey,
 		},
 		widgetOne: {
 			text: (
@@ -128,8 +143,14 @@ const data = [
 	{
 		title: "Government",
 		text: "Drive political engagement and make every voice heard with technology that bridges gaps and fosters democracy. Designed for PACs, campaigns, and advocacy groups, our agents not only streamline outreach and personalize interactions with voters but also seamlessly facilitate connections between constituents and their representatives.",
-		assertiveness: 20,
-		humorLevel: 30,
+		assertiveness: {
+			val: 20,
+			text: "Assertive yet kind",
+		},
+		humorLevel: {
+			val: 30,
+			text: "Balanced humor and professionalism ",
+		},
 		files: [
 			{
 				name: "Voter Registration.xls",
@@ -147,9 +168,9 @@ const data = [
 		image: GovernmentImg,
 		icon: "verified",
 		agent: {
-			name: "James",
-			country: "🇺🇸",
-			avatar: James,
+			name: "Gabriel",
+			country: "🇲🇽",
+			avatar: Gabriel,
 		},
 		widgetOne: {
 			text: (
@@ -173,8 +194,14 @@ const data = [
 	{
 		title: "Insurance",
 		text: "Scale your sales operations like never before Whether you're a broker, a firm, or a wholesaler, never miss a lead again! Your own AI ISA at your service.",
-		assertiveness: 30,
-		humorLevel: 10,
+		assertiveness: {
+			val: 30,
+			text: "Use softer suggestions",
+		},
+		humorLevel: {
+			val: 10,
+			text: "Balanced humor and professionalism ",
+		},
 		files: [
 			{
 				name: "Coverages.xls",
@@ -192,9 +219,9 @@ const data = [
 		image: InsuranceImg,
 		icon: "verified",
 		agent: {
-			name: "James",
+			name: "Lisa",
 			country: "🇺🇸",
-			avatar: James,
+			avatar: Lisa,
 		},
 		widgetOne: {
 			text: (
@@ -217,8 +244,14 @@ const data = [
 	{
 		title: "Legal",
 		text: "Our AI Agents screen leads, welcome new clients, pencil in appointments, handle payments, pass along your messages with outbound calls, and do so much more!",
-		assertiveness: 20,
-		humorLevel: 30,
+		assertiveness: {
+			val: 20,
+			text: "Assertive yet kind",
+		},
+		humorLevel: {
+			val: 30,
+			text: "Serious, minimal humor",
+		},
 		files: [
 			{
 				name: "Legal Services.pdf",
@@ -236,9 +269,9 @@ const data = [
 		image: LegalImg,
 		icon: "verified",
 		agent: {
-			name: "James",
+			name: "Sanjay",
 			country: "🇺🇸",
-			avatar: James,
+			avatar: Sanjay,
 		},
 		widgetOne: {
 			text: (
@@ -262,8 +295,14 @@ const data = [
 	{
 		title: "Services/Utilities",
 		text: "Revolutionize your scheduling, appointment setting, and everything else with AI that understands your client's needs. Perfect for hospitality & travel, consumer services, financial services, and more.",
-		assertiveness: 20,
-		humorLevel: 70,
+		assertiveness: {
+			val: 20,
+			text: "Very assertive, direct outcome",
+		},
+		humorLevel: {
+			val: 70,
+			text: "Humor in every response",
+		},
 		files: [
 			{
 				name: "Pricing Sheet.xls",
@@ -281,9 +320,9 @@ const data = [
 		image: ServicesImg,
 		icon: "verified",
 		agent: {
-			name: "Tessa",
-			country: "🇺🇸",
-			avatar: Tessa,
+			name: "Micheal",
+			country: "🇨🇦",
+			avatar: Micheal,
 		},
 		widgetOne: {
 			text: (
@@ -294,7 +333,7 @@ const data = [
 			text: (
 				<p>
 					"Sure, we can definitely help out with your dream home renovation
-					project. Is this a full home or partial renovation?""
+					project. Is this a full home or partial renovation?"
 				</p>
 			),
 			bottomConnectors: [
@@ -429,14 +468,16 @@ export default function Industry() {
 					<Left>
 						<Assertiveness>
 							<ProgressGroup
-								progress={data[activeIndex]?.assertiveness}
+								progress={data[activeIndex]?.assertiveness.val}
 								title="Assertiveness"
-								text="Use softer suggestions"
+								index={activeIndex}
+								text={data[activeIndex]?.assertiveness.text}
 							/>
 							<ProgressGroup
-								progress={data[activeIndex]?.humorLevel}
+								progress={data[activeIndex]?.humorLevel.val}
 								title="Humor Level"
-								text="Balanced humor and professionalism"
+								index={activeIndex}
+								text={data[activeIndex]?.humorLevel.text}
 							/>
 						</Assertiveness>
 
@@ -547,29 +588,12 @@ export default function Industry() {
 								</AutoAnimate>
 							</div>
 						</TextContent>
-						<TabletOnly>
-							<LogosWrapper>
-								<FilesInner>
-									<PositionWrapper>
-										<AutoAnimate
-											alignment="center"
-											fromParameters={{ yPercent: 110 }}
-											toParameters={{ yPercent: -110 }}
-										>
-											<Logos key={activeIndex}>{files}</Logos>
-										</AutoAnimate>
-									</PositionWrapper>
-								</FilesInner>
-							</LogosWrapper>
-						</TabletOnly>
-						<DesktopOnly>
-							<DotsWrapper>
-								<StyledDots />
-								<Connector />
-								{widgets}
-								{widgets2}
-							</DotsWrapper>
-						</DesktopOnly>
+						<DesktopWidgetsWrapper>
+							<StyledDots />
+							<Connector />
+							{widgets}
+							{widgets2}
+						</DesktopWidgetsWrapper>
 					</Right>
 				</Bottom>
 				<MobileOnly>
@@ -698,6 +722,7 @@ const Buttons = styled.div`
   `)}
 
   ${fmobile(css`
+		gap: 8px;
     width: 375px;
     height: 60px;
     padding: 0 29px;
@@ -725,7 +750,7 @@ const Bottom = styled.div`
 
   ${fmobile(css`
     flex-direction: column;
-    gap: 56px;
+    gap: 100px;
   `)}
 `
 
@@ -742,6 +767,7 @@ const Left = styled.div`
 
 const Image = styled.img`
   background-color: ${colors.gray800};
+  object-fit: cover;
 
   ${fresponsive(css`
     width: 528px;
@@ -845,6 +871,7 @@ const FilesInner = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+	background-color: ${colors.gray100};
 
   ${fresponsive(css`
     border-radius: 14px;
@@ -884,7 +911,7 @@ const File = styled.div`
 `
 
 const FileName = styled.span`
-  ${textStyles.bodyS}
+  ${textStyles.sh4}
   color: ${colors.black};
 `
 
@@ -976,7 +1003,7 @@ const Text = styled.p`
   `)}
 `
 
-const DotsWrapper = styled.div`
+const DesktopWidgetsWrapper = styled(DesktopOnly)`
   background-color: ${colors.gray100};
   position: relative;
   overflow: clip;
@@ -990,7 +1017,6 @@ const DotsWrapper = styled.div`
 
 const StyledDots = styled(Dots)`
   ${fresponsive(css`
-    inset: 0;
     background-position: 10px 18px;
   `)}
 `
@@ -1000,7 +1026,7 @@ const TabletWidgetWrapper = styled.div`
 
   ${ftablet(css`
     top: -30px;
-    left: -96px;
+    left: -40px;
     z-index: 2;
   `)}
 `
@@ -1013,7 +1039,7 @@ const Widget1 = styled(Widget)`
   ${fresponsive(css`
     height: 196px;
     top: 23px;
-    left: 23px;
+    left: 22px;
   `)}
 
   ${ftablet(css`
@@ -1030,7 +1056,7 @@ const Widget2 = styled(Widget1)`
 
   ${fresponsive(css`
     bottom: 22px;
-    right: 23px;
+    right: 22px;
   `)}
 `
 
@@ -1044,7 +1070,7 @@ const Avatar = styled.img`
 `
 
 const Name = styled.span`
-  ${textStyles.bodyR}
+  ${textStyles.sh3}
   color: ${colors.black};
 `
 
@@ -1057,25 +1083,25 @@ const Line = styled.div`
   `)}
 `
 
-const StyledIcon = styled(Icon)`
-  path,
-  circle {
-    fill: ${colors.gray500};
-  }
+// const StyledIcon = styled(Icon)`
+//   path,
+//   circle {
+//     fill: ${colors.gray500};
+//   }
 
-  ${fresponsive(css`
-    width: 30px;
-    height: 30px;
-  `)}
-`
+//   ${fresponsive(css`
+//     width: 30px;
+//     height: 30px;
+//   `)}
+// `
 
 const Connector = styled(LineSVG)`
   position: absolute;
 
   ${fresponsive(css`
-    width: 233px;
-    height: 45px;
-    left: 164px;
-    top: 166px;
+    width: 235px;
+    height: 50px;
+    left: 163px;
+    top: 163px;
   `)}
 `

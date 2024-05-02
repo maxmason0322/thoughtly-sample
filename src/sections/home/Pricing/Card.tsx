@@ -1,6 +1,6 @@
 import Button from "components/Buttons/Primary"
 import CheckTag from "components/CheckTag"
-import Icon from "components/Icon"
+import Icon, { type IconType } from "components/Icon"
 import { CalendlyModalContext } from "components/Providers/CalendlyModalProvider"
 import AutoAnimate from "library/AutoAnimate"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
@@ -10,6 +10,8 @@ import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
 
 export default function Card({
+	icons,
+	iconStroke,
 	titles,
 	text,
 	prices,
@@ -18,6 +20,8 @@ export default function Card({
 	tags,
 	showProgress,
 }: {
+	icons: IconType[]
+	iconStroke: boolean[]
 	titles: string[]
 	text: string[]
 	prices: string[]
@@ -39,12 +43,20 @@ export default function Card({
 			<Top>
 				<Row>
 					<Info>
-						<StyledIcon name="analytics" />
-						<div>
+						<IconWrapper>
+							<AutoAnimate duration={duration}>
+								<StyledIcon
+									$stroke={!!iconStroke[activeIndex]}
+									key={activeIndex}
+									name={icons[activeIndex] as IconType}
+								/>
+							</AutoAnimate>
+						</IconWrapper>
+						<TitleWrapper>
 							<AutoAnimate duration={duration}>
 								<Title key={activeIndex}>{titles[activeIndex]}</Title>
 							</AutoAnimate>
-						</div>
+						</TitleWrapper>
 						<div>
 							<AutoAnimate duration={duration}>
 								<Text key={activeIndex}>{text[activeIndex]}</Text>
@@ -167,14 +179,27 @@ const Info = styled.div`
   `)}
 `
 
-const StyledIcon = styled(Icon)`
+const IconWrapper = styled.div`
+  ${fresponsive(css`
+    height: 16px;
+  `)}
+`
+
+const StyledIcon = styled(Icon)<{ $stroke: boolean }>`
   path {
-    fill: ${colors.gray500};
+    ${({ $stroke }) =>
+			$stroke ? `stroke: ${colors.gray500}` : `fill: ${colors.gray500}`};
   }
 
   ${fresponsive(css`
     width: 16px;
     height: 16px;
+  `)}
+`
+
+const TitleWrapper = styled.div`
+  ${fresponsive(css`
+    height: 22px;
   `)}
 `
 
@@ -218,6 +243,7 @@ const Price = styled.h1`
   ${fresponsive(css`
     gap: 5px;
     margin-top: 28px;
+    height: 50px;
   `)}
 `
 

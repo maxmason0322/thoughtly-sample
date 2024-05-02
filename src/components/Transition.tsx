@@ -2,6 +2,7 @@ import gsap from "gsap"
 import { useRegisterTransition } from "library/Loader/TransitionUtils"
 import { useRef } from "react"
 import styled from "styled-components"
+import colors from "styles/colors"
 import textStyles from "styles/text"
 
 export default function Transition() {
@@ -35,6 +36,7 @@ export default function Transition() {
 		)
 	}
 
+	// register two page transitions
 	useRegisterTransition("fade", {
 		in: fadeIn,
 		out: fadeOut,
@@ -51,7 +53,7 @@ const Wrapper = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  background-color: transparent;
+  background-color: ${colors.white};
   z-index: 100;
   opacity: 0;
   pointer-events: none;

@@ -118,7 +118,7 @@ const StartWidget = styled(Widget)`
 
 	${fmobile(css`
     right: 31.5px;
-    top: 788px;
+    top: 768px;
     transform-origin: top right;
     transform: scale(0.73);
   `)}
@@ -149,6 +149,7 @@ const SpeakWidget = styled(Widget)`
 
 const Blue = styled.strong`
   color: #0085e5d9;
+  font-weight: bold;
 `
 
 const Speak2Widget = styled(Widget)`
@@ -230,7 +231,7 @@ const ABImage = styled(UniversalImage)`
 
 const ActionImage = styled(UniversalImage)`
   ${fresponsive(css`
-    width: 327px;
+    width: 338px;
     height: 162px;
   `)}
 `
@@ -251,7 +252,7 @@ const StyledCallWidget = styled(CallWidget)`
 
 	${fmobile(css`
     transform-origin: top right;
-    top: 629.25px;
+    top: 609.25px;
     right: 127.75px;
     transform: scale(0.75);
   `)}
@@ -292,7 +293,7 @@ const StyledAvatarWidget = styled(AvatarWidget)`
 	
 	${fmobile(css`
     right: 26px;
-    top: 687px;
+    top: 667px;
     transform: scale(0.73);
     transform-origin: top right;
   `)}

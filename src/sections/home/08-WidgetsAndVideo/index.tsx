@@ -1,4 +1,4 @@
-import { fresponsive } from "library/fullyResponsive"
+import { fmobile, fresponsive } from "library/fullyResponsive"
 import useMedia from "library/useMedia"
 import { useEffect, useState } from "react"
 import styled, { css } from "styled-components"
@@ -32,4 +32,8 @@ const Wrapper = styled.section`
     height: 1525px;
     width: 100%;
   `)}
+
+	${fmobile(css`
+		height: 1350px;
+	`)}
 `

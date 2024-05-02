@@ -78,14 +78,8 @@ const Inner = styled.div`
 `
 
 const StyledDots = styled(Dots)`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: ${colors.gray100};
   z-index: 0;
   ${fresponsive(css`
-    top: 0;
-    left: 0;
     border-radius: 60px;
   `)}
 
@@ -115,7 +109,7 @@ const Content = styled.div`
   `)}
 
   ${fmobile(css`
-    height: 867px;
+    height: 862px;
     padding: 60px 0;
   `)}
 `

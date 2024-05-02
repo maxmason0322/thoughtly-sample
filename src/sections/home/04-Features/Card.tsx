@@ -2,6 +2,7 @@ import Icon, { type IconType } from "components/Icon"
 import gsap from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
 import UniversalLink from "library/Loader/UniversalLink"
+import UniversalImage, { type UniversalImageData } from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useMedia from "library/useMedia"
 import styled, { css } from "styled-components"
@@ -56,9 +57,9 @@ export default function Card({
 		text: string | null
 	} | null
 	index: number
-	background?: string | null
-	backgroundTablet?: string | null
-	backgroundMobile?: string | null
+	background?: UniversalImageData
+	backgroundTablet?: UniversalImageData
+	backgroundMobile?: UniversalImageData
 	textWidths: number
 	strokeIcon?: boolean | null
 }) {
@@ -80,7 +81,8 @@ export default function Card({
 	}
 
 	return (
-		<Wrapper $columns={columns} $rows={rows} $background={backgroundResp}>
+		<Wrapper $columns={columns} $rows={rows}>
+			<Image image={backgroundResp} alt="" />
 			<StyledIcon $stroke={!!strokeIcon} name={icon} />
 			<Title>{title}</Title>
 			<Text $textWidth={textWidths}>{text}</Text>
@@ -96,7 +98,6 @@ export default function Card({
 const Wrapper = styled.div<{
 	$columns?: string
 	$rows?: string
-	$background?: string | null
 }>`
   display: flex;
   flex-direction: column;
@@ -104,8 +105,13 @@ const Wrapper = styled.div<{
   justify-content: flex-end;
   grid-column: ${({ $columns }) => $columns};
   grid-row: ${({ $rows }) => $rows};
-  background-image: ${({ $background }) => `url(${$background})`};
-  background-size: 100% 100%;
+  position: relative;
+  overflow: clip;
+
+  > * {
+    position: relative;
+    z-index: 2;
+  }
 
   ${fresponsive(css`
     border: 2px solid ${colors.gray300};
@@ -115,9 +121,26 @@ const Wrapper = styled.div<{
     box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
   `)}
 
+  ${ftablet(css`
+    padding-bottom: 15px;
+  `)}
+
   ${fmobile(css`
     border: unset;
   `)}
+`
+
+const Image = styled(UniversalImage)`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  z-index: 1;
+
+  img {
+    object-fit: contain;
+    object-position: top left;
+  }
 `
 
 const Title = styled.h1`
@@ -126,9 +149,11 @@ const Title = styled.h1`
 
   ${fresponsive(css`
     width: 140px;
+    white-space: pre;
   `)}
 
   ${fmobile(css`
+    white-space: normal;
     width: 100%;
   `)}
 `
@@ -145,6 +170,7 @@ const Text = styled.p<{ $textWidth: number }>`
 		ftablet(css`
       width: ${$textWidth}px;
     `)}
+
   ${fmobile(css`
     width: 100%;
   `)}

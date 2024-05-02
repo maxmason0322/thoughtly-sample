@@ -30,23 +30,17 @@ export default function Features() {
           strokeIcon
           background {
             childImageSharp {
-              original {
-                src
-              }
+              gatsbyImageData
             }
           }
           backgroundTablet {
             childImageSharp {
-              original {
-                src
-              }
+              gatsbyImageData
             }
           }
           backgroundMobile {
             childImageSharp {
-              original {
-                src
-              }
+              gatsbyImageData
             }
           }
         }
@@ -63,9 +57,9 @@ export default function Features() {
 				icon={item.icon as IconType}
 				title={item.title ?? ""}
 				text={item.text ?? ""}
-				background={item.background?.childImageSharp?.original?.src}
-				backgroundTablet={item.backgroundTablet?.childImageSharp?.original?.src}
-				backgroundMobile={item.backgroundMobile?.childImageSharp?.original?.src}
+				background={item.background}
+				backgroundTablet={item.backgroundTablet}
+				backgroundMobile={item.backgroundMobile}
 				index={index}
 				textWidths={textWidths[index] ?? 0}
 				strokeIcon={item.strokeIcon}

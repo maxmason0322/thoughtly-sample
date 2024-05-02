@@ -1,7 +1,7 @@
 [
 	{
 		"icon": "calendar",
-		"title": "Appointment Scheduling",
+		"title": "Appointment \nScheduling",
 		"text": "Your Thoughtly agent syncs with your calendar, working alongside callers to pinpoint the perfect meeting time. Coordinate effortlessly.",
 		"background": "./backgrounds/feature-0.png",
 		"backgroundTablet": "./backgrounds/feature-0.png",
@@ -10,7 +10,7 @@
 	},
 	{
 		"icon": "verified",
-		"title": "Lead Qualification",
+		"title": "Lead \nQualification",
 		"text": "Every incoming call is an opportunity. Your Thoughtly agent will never miss a call from a potential lead, intuitively directing them to the ideal point of contact. Perfect routing, every time, ready to convert.",
 		"background": "./backgrounds/feature-1.png",
 		"backgroundTablet": "./backgrounds/feature-1-tablet.png",
@@ -18,7 +18,7 @@
 	},
 	{
 		"icon": "analytics",
-		"title": "Analytics & Reporting",
+		"title": "Analytics & \nReporting",
 		"text": "Optimize your communication strategies by leveraging industry-leading analytics and data collection.",
 		"background": "./backgrounds/feature-2.png",
 		"backgroundTablet": "./backgrounds/feature-2-tablet.png",
@@ -26,7 +26,7 @@
 	},
 	{
 		"icon": "routing",
-		"title": "Call Routing",
+		"title": "Call \nRouting",
 		"text": "Build a human-like receptionist to route calls based on natural requests from your customers– all with zero hold time.",
 		"background": "./backgrounds/feature-3.png",
 		"backgroundTablet": "./backgrounds/feature-3-tablet.png",
@@ -34,7 +34,7 @@
 	},
 	{
 		"icon": "atom",
-		"title": "Custom Knowledge Base",
+		"title": "Custom \nKnowledge Base",
 		"text": "Train your agent on hours of call recordings, unstructured text, and even your website. Your agent will learn from your data and improve over time.",
 		"background": "./backgrounds/feature-4.png",
 		"backgroundTablet": "./backgrounds/feature-4-tablet.png",
@@ -42,7 +42,7 @@
 	},
 	{
 		"icon": "integration",
-		"title": "Built for your Tech Stack",
+		"title": "Built for your \nTech Stack",
 		"text": "Arm your agents with advanced automation capabilities to authenticate callers quickly and resolve customer service issues seamlessly. Thoughtly connects directly to your CRM, scheduling tools, SaaS platforms, and more. ",
 		"background": "./backgrounds/feature-5.png",
 		"backgroundTablet": "./backgrounds/feature-5-tablet.png",

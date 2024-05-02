@@ -1,11 +1,12 @@
 import Button from "components/Buttons/Primary"
 import { CalendlyModalContext } from "components/Providers/CalendlyModalProvider"
-import Unmask from "components/Unmask"
+import Unmask, { cssUnmask } from "components/Unmask"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
 import Background from "images/home/hero/hero-background.png"
 import loader from "library/Loader"
 import { ScreenContext } from "library/ScreenContext"
+import { eases } from "library/eases"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import getMedia from "library/getMedia"
 import useAnimation from "library/useAnimation"
@@ -61,7 +62,7 @@ export default function Hero() {
 			tl.to(
 				".avatar-widget",
 				{
-					yPercent: 300,
+					yPercent: () => getMedia(300, 300, 0, 0),
 					opacity: 0,
 					duration: 1.5,
 				},
@@ -70,7 +71,7 @@ export default function Hero() {
 			tl.to(
 				".call-widget",
 				{
-					y: () => getResponsivePixels(-100),
+					y: () => getResponsivePixels(getMedia(-100, -100, 0, 0)),
 					opacity: 0,
 				},
 				0,
@@ -157,6 +158,7 @@ export default function Hero() {
 		[mobile],
 		{
 			scope: wrapperRef,
+			recreateOnResize: true,
 		},
 	)
 
@@ -215,9 +217,9 @@ export default function Hero() {
 							🚀&nbsp;&nbsp;&nbsp;Seed round led by Afore & others
 						</Kicker>
 					</Unmask> */}
-					<Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
-						<Title>Your phone calls, answered beautifully.</Title>
-					</Unmask>
+					{/* <Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}> */}
+					<Title>Your phone calls, answered beautifully.</Title>
+					{/* </Unmask> */}
 					<Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
 						<Text>
 							Businesses trust Thoughtly’s human-like AI agents to answer
@@ -354,6 +356,7 @@ const TextContent = styled.div`
 const Title = styled.h1`
   ${textStyles.h3}
   color: ${colors.black};
+  animation: ${cssUnmask} 1.5s ${eases.quart.out};
 
   ${fresponsive(css`
     width: 620px;
@@ -529,6 +532,7 @@ const BackgroundTablet = styled.div`
   display: none;
   z-index: 0;
   background-color: ${colors.gray100};
+	overflow: clip;
 
   ${ftablet(css`
     display: flex;

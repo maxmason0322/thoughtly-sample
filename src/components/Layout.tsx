@@ -1,11 +1,12 @@
-import Footer from "components/Footer"
 import Header from "components/Header"
+import Transition from "components/Transition"
 import { useBackButton } from "library/Loader/TransitionUtils"
 import Scroll from "library/Scroll"
 import { useTrackPageReady } from "library/pageReady"
 import useMedia from "library/useMedia"
 import useTrackFrameTime from "library/useTrackFrameTime"
 import { useContext } from "react"
+import { Suspense, lazy } from "react"
 import type { MouseEvent } from "react"
 import { InlineWidget } from "react-calendly"
 import styled, { createGlobalStyle, css } from "styled-components"
@@ -13,7 +14,7 @@ import colors from "styles/colors"
 import textStyles from "styles/text"
 import Preloader from "./Preloader"
 import { CalendlyModalContext } from "./Providers/CalendlyModalProvider"
-import Transition from "./Transition"
+const Footer = lazy(() => import("components/Footer"))
 
 interface LayoutProps {
 	children: React.ReactNode
@@ -57,11 +58,14 @@ export default function Layout({ children }: LayoutProps) {
 
 			<GlobalStyle />
 			<ScrollIndex>
+				{/* for some reason, this cannot be suspended (it breaks scrolling) */}
 				<Header />
 				<Main id="main">{children}</Main>
 				<Footer position="static" />
 			</ScrollIndex>
-			<Footer position="fixed" />
+			<Suspense>
+				<Footer position="fixed" />
+			</Suspense>
 		</>
 	)
 }
