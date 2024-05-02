@@ -19,7 +19,7 @@ export default function DelayRender({
 	fallback?: React.ReactNode
 }): JSX.Element | null {
 	const [isIdle, setIsIdle] = useState(false)
-	/* if the page has existed for more than 10 seconds, always start rendered */
+	/* if the page has existed for more than 10 seconds, always start rendered (for the sake of dev) */
 	const override = isBrowser && performance.now() > 10_000
 	const [pageHasLoaded, setPageHasLoaded] = useState(override)
 
