@@ -1,3 +1,4 @@
+import { useClientOnly } from "library/ClientOnly"
 import { ScreenProvider } from "library/ScreenContext"
 import StyledManager from "library/StyledManager"
 import { IntercomProvider } from "react-use-intercom"
@@ -7,10 +8,7 @@ interface ProvidersProps {
 	children: React.ReactNode
 }
 
-/**
- * providers here will be mounted once, and will never unmount
- */
-export function RootProviders({ children }: ProvidersProps) {
+const Intercom = ({ children }: { children: React.ReactNode }) => {
 	const onIntercomUserEmailSupplied = () => {
 		if (typeof window !== "undefined") {
 			// window.gtag("event", "conversion", {
@@ -20,15 +18,28 @@ export function RootProviders({ children }: ProvidersProps) {
 		}
 	}
 
+	const isReady = useClientOnly(true)
+
+	return isReady ? (
+		<IntercomProvider
+			appId={"uii3kkuk"}
+			autoBoot={true}
+			onUserEmailSupplied={onIntercomUserEmailSupplied}
+		>
+			{children}
+		</IntercomProvider>
+	) : null
+}
+
+/**
+ * providers here will be mounted once, and will never unmount
+ */
+export function RootProviders({ children }: ProvidersProps) {
 	return (
 		<ScreenProvider>
-			<IntercomProvider
-				appId={"uii3kkuk"}
-				autoBoot={true}
-				onUserEmailSupplied={onIntercomUserEmailSupplied}
-			>
+			<Intercom>
 				<CalendlyModalProvider>{children}</CalendlyModalProvider>
-			</IntercomProvider>
+			</Intercom>
 		</ScreenProvider>
 	)
 }
