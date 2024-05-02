@@ -1,16 +1,15 @@
-import Footer from "components/Footer"
-import Header from "components/Header"
 import { useBackButton } from "library/Loader/TransitionUtils"
 import Scroll from "library/Scroll"
-import { isBrowser } from "library/deviceDetection"
 import { useTrackPageReady } from "library/pageReady"
 import useTrackFrameTime from "library/useTrackFrameTime"
-import { useContext, useEffect, useState } from "react"
-import { PopupModal } from "react-calendly"
+import { Suspense, lazy } from "react"
 import styled, { createGlobalStyle, css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
-import { CalendlyModalContext } from "./Providers/CalendlyModalProvider"
+
+const Footer = lazy(() => import("components/Footer"))
+const Header = lazy(() => import("components/Header"))
+const Calendly = lazy(() => import("components/CalendlyModal"))
 
 interface LayoutProps {
 	children: React.ReactNode
@@ -21,40 +20,26 @@ export default function Layout({ children }: LayoutProps) {
 	useBackButton()
 	useTrackFrameTime()
 
-	const { setModalOpen, modalOpen } = useContext(CalendlyModalContext)
-	const [rootElement, setRootElement] = useState<HTMLElement | undefined>()
-
-	useEffect(() => {
-		if (!isBrowser) return
-
-		const rootElementClient = isBrowser
-			? document.getElementById("___gatsby")
-			: document.createElement("div")
-
-		setRootElement(rootElementClient ?? undefined)
-	}, [])
-
 	return (
 		<>
 			{/* <Transition />
 			<Preloader /> */}
 
-			{rootElement && (
-				<PopupModal
-					url="https://calendly.com/d/cpxn-sxr-85f"
-					onModalClose={() => setModalOpen(false)}
-					open={modalOpen}
-					rootElement={rootElement}
-				/>
-			)}
-
+			<Suspense>
+				<Calendly />
+			</Suspense>
 			<GlobalStyle />
 			<ScrollIndex>
+				{/* for some reason, this cannot be suspended */}
 				<Header />
 				<Main>{children}</Main>
-				<Footer position="static" />
+				<Suspense>
+					<Footer position="static" />
+				</Suspense>
 			</ScrollIndex>
-			<Footer position="fixed" />
+			<Suspense>
+				<Footer position="fixed" />
+			</Suspense>
 		</>
 	)
 }
