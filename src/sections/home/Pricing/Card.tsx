@@ -1,6 +1,6 @@
 import Button from "components/Buttons/Primary"
 import CheckTag from "components/CheckTag"
-import Icon from "components/Icon"
+import Icon, { type IconType } from "components/Icon"
 import { CalendlyModalContext } from "components/Providers/CalendlyModalProvider"
 import AutoAnimate from "library/AutoAnimate"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
@@ -10,6 +10,8 @@ import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
 
 export default function Card({
+	icons,
+	iconStroke,
 	titles,
 	text,
 	prices,
@@ -18,6 +20,8 @@ export default function Card({
 	tags,
 	showProgress,
 }: {
+	icons: IconType[]
+	iconStroke: boolean[]
 	titles: string[]
 	text: string[]
 	prices: string[]
@@ -39,7 +43,15 @@ export default function Card({
 			<Top>
 				<Row>
 					<Info>
-						<StyledIcon name="analytics" />
+						<div>
+							<AutoAnimate duration={duration}>
+								<StyledIcon
+									$stroke={iconStroke[activeIndex]}
+									key={activeIndex}
+									name={icons[activeIndex] as IconType}
+								/>
+							</AutoAnimate>
+						</div>
 						<div>
 							<AutoAnimate duration={duration}>
 								<Title key={activeIndex}>{titles[activeIndex]}</Title>
@@ -167,9 +179,10 @@ const Info = styled.div`
   `)}
 `
 
-const StyledIcon = styled(Icon)`
+const StyledIcon = styled(Icon)<{ $stroke: boolean }>`
   path {
-    fill: ${colors.gray500};
+    ${({ $stroke }) =>
+			$stroke ? `stroke: ${colors.gray500}` : `fill: ${colors.gray500}`};
   }
 
   ${fresponsive(css`
