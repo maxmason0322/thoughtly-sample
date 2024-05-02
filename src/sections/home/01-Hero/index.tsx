@@ -354,7 +354,7 @@ const TextContent = styled.div`
 const Title = styled.h1`
   ${textStyles.h3}
   color: ${colors.black};
-  animation: ${cssUnmask} 2s ${eases.quart.out};
+  animation: ${cssUnmask} 1.5s ${eases.quart.out};
 
   ${fresponsive(css`
     width: 620px;

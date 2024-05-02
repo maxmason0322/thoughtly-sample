@@ -46,7 +46,7 @@ export default function Unmask({
 export const cssUnmask = keyframes`
 	0% {
 		translate: 0 100%;
-		clip-path: inset(0 0 100% 0);
+		clip-path: inset(0 0 90% 0);
 	}
 	100% {
 		translate: 0 0;
