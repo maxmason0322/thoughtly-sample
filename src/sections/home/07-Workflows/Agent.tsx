@@ -125,7 +125,7 @@ const Avatar = styled(UniversalImage)`
 `
 
 const Name = styled.span`
-  ${textStyles.bodyS}
+  ${textStyles.sh3}
   color: ${colors.black};
 `
 

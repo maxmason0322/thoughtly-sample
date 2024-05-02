@@ -95,7 +95,7 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 							<Socials>
 								<Link to={links.instagram}>Instagram</Link>
 								<Link to={links.linkedin}>LinkedIn</Link>
-								<Link to={links.twitter}>X(Twitter)</Link>
+								<Link to={links.twitter}>X (Twitter)</Link>
 							</Socials>
 						)}
 						<Buttons>

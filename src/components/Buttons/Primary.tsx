@@ -63,9 +63,7 @@ const Border = styled.div`
   width: 90%;
   height: 90%;
   transform: translate(-50%, -50%);
-  transition:
-    width 0.25s,
-    height 0.25s;
+  transition: width 0.25s, height 0.25s;
 
   ${fresponsive(css`
     border-radius: 14px;
@@ -124,7 +122,11 @@ const Inner = styled.div<{ $secondary: boolean }>`
 					? "unset"
 					: "0 2px 1.5px 0 rgba(216 250 206 / 75%) inset, 0 -2px 1px 0 rgba(23 122 12 / 16%) inset"
 			};
-      background: ${$secondary ? colors.white : colors.green300};
+      background: ${
+				$secondary
+					? `linear-gradient(${colors.white}, ${colors.white})`
+					: colors.green300
+			};
     `)}
 
   ${ftablet(css`

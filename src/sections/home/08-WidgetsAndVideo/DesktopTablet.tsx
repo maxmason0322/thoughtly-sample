@@ -1,8 +1,8 @@
+import Primary from "components/Buttons/Primary"
 import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
 import { ScrollSmoother } from "gsap/ScrollSmoother"
 import { ReactComponent as CloseIcon } from "images/global/icons/closeVideo.svg"
-import { ReactComponent as Arrow } from "images/global/icons/greenArrow.svg"
 import UniversalLink from "library/Loader/UniversalLink"
 import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
@@ -146,10 +146,11 @@ export default function DesktopTablet() {
 		[images.widget2.edges],
 	)
 
-	const allGrid1Widgets = grid1Widgets.map((widget) => {
+	const allGrid1Widgets = grid1Widgets.map((widget, i) => {
 		return (
 			<GridElement
 				$gridArea={widget.name}
+				$noBoxShadow={i === 5}
 				className="parallax-elements"
 				key={widget.name}
 			>
@@ -380,9 +381,13 @@ export default function DesktopTablet() {
 							/>
 						</ScreenFrame>
 						<Row ref={rowRef}>
-							<PlayButton type="button" onClick={() => setOpen(true)}>
-								<div>Full Screen</div>
-								<Arrow />
+							<PlayButton
+								type="button"
+								icon="play"
+								variant="secondary"
+								onClick={() => setOpen(true)}
+							>
+								Full Screen
 							</PlayButton>
 							<Text>
 								See how Thoughtly can free up your schedule by seamlessly
@@ -524,13 +529,14 @@ const Grid1 = styled.div`
   `)}
 `
 
-const GridElement = styled.div<{ $gridArea: string }>`
+const GridElement = styled.div<{ $gridArea: string; $noBoxShadow?: boolean }>`
   grid-area: ${({ $gridArea }) => $gridArea};
 
-  ${fresponsive(css`
-    border-radius: 18px;
-    box-shadow: 0 18px 42px 0 rgba(89 89 89 /4%);
-  `)}
+  ${({ $noBoxShadow }) =>
+		fresponsive(css`
+      border-radius: 18px;
+      box-shadow: ${$noBoxShadow ? "none" : "0 18px 42px 0 rgba(89 89 89 /4%)"};
+    `)}
 `
 
 const Grid2 = styled.div`
@@ -624,23 +630,10 @@ const Text = styled.p`
   `)}
 `
 
-const PlayButton = styled(UniversalLink)`
+const PlayButton = styled(Primary)`
+  ${textStyles.sh3};
   ${fresponsive(css`
-    gap: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px 24px;
-    border: 1.5px solid ${colors.gray200};
-    border-radius: 12px;
-    height: 49px;
     white-space: pre;
-
-    svg {
-      width: 17px;
-      height: 16px;
-      transform: translateY(1px);
-    }
   `)}
 `
 

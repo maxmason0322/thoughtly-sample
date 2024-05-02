@@ -60,6 +60,7 @@ const Wrapper = styled.section`
   width: 100%;
   display: grid;
   place-items: center;
+  background: ${colors.white};
 
   ${fresponsive(css`
     padding: 150px 157px 120px;

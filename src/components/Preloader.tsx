@@ -1,10 +1,7 @@
 import gsap from "gsap"
-import loader from "library/Loader"
-import {
-	registerLoaderCallback,
-	unregisterLoaderCallback,
-} from "library/Loader/LoaderUtils"
-import { useEffect, useRef, useState } from "react"
+import { ScrollSmoother } from "gsap/ScrollSmoother"
+import { useRegisterLoaderCallback } from "library/Loader/LoaderUtils"
+import { useRef, useState } from "react"
 import styled from "styled-components"
 import textStyles from "styles/text"
 
@@ -12,40 +9,19 @@ export default function Preloader() {
 	const wrapperRef = useRef<HTMLDivElement>(null)
 	const [progress, setProgress] = useState(0)
 
-	useEffect(() => {
-		const updateProgress = (newProgress: number) => {
-			setProgress(newProgress)
-		}
+	useRegisterLoaderCallback({
+		duration: 1,
+		callback: () => {
+			ScrollSmoother.get()?.scrollTop(0)
 
-		const slideOut = () => {
 			gsap.to(wrapperRef.current, {
 				y: "-100vh",
 				duration: 1,
 			})
-		}
+		},
+	})
 
-		// register a loader
-		registerLoaderCallback({
-			duration: 1,
-			callback: slideOut,
-		})
-
-		// save percentage
-		loader.addEventListener("progressUpdated", updateProgress)
-
-		return () => {
-			// clean up loader
-			loader.removeEventListener("progressUpdated", updateProgress)
-			unregisterLoaderCallback(slideOut)
-		}
-	}, [])
-
-	return (
-		<Wrapper ref={wrapperRef}>
-			<h1>BLUE TRANSITION</h1>
-			<h1>{Math.round(progress)}</h1>
-		</Wrapper>
-	)
+	return <Wrapper ref={wrapperRef} />
 }
 
 const Wrapper = styled.div`
@@ -54,7 +30,6 @@ const Wrapper = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  background-color: dodgerblue;
   z-index: 100;
   pointer-events: none;
   display: grid;
