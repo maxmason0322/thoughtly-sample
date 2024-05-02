@@ -231,7 +231,7 @@ const ABImage = styled(UniversalImage)`
 
 const ActionImage = styled(UniversalImage)`
   ${fresponsive(css`
-    width: 327px;
+    width: 338px;
     height: 162px;
   `)}
 `
