@@ -1,11 +1,12 @@
 import Button from "components/Buttons/Primary"
 import { CalendlyModalContext } from "components/Providers/CalendlyModalProvider"
-import Unmask from "components/Unmask"
+import Unmask, { cssUnmask } from "components/Unmask"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
 import Background from "images/home/hero/hero-background.png"
 import loader from "library/Loader"
 import { ScreenContext } from "library/ScreenContext"
+import { eases } from "library/eases"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import getMedia from "library/getMedia"
 import useAnimation from "library/useAnimation"
@@ -353,6 +354,7 @@ const TextContent = styled.div`
 const Title = styled.h1`
   ${textStyles.h3}
   color: ${colors.black};
+  animation: ${cssUnmask} 2s ${eases.quart.out};
 
   ${fresponsive(css`
     width: 620px;

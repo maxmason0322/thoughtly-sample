@@ -4,7 +4,7 @@ import { fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import type { ReactNode } from "react"
 import { useRef, useState } from "react"
-import styled, { css } from "styled-components"
+import styled, { css, keyframes } from "styled-components"
 
 export default function Unmask({
 	children,
@@ -42,6 +42,17 @@ export default function Unmask({
 
 	return <Wrapper ref={wrapperRef}>{children}</Wrapper>
 }
+
+export const cssUnmask = keyframes`
+	0% {
+		translate: 0 100%;
+		clip-path: inset(0 0 100% 0);
+	}
+	100% {
+		translate: 0 0;
+		clip-path: inset(0 0 -20% 0);
+	}
+`
 
 const Wrapper = styled.div`
   overflow: clip;
