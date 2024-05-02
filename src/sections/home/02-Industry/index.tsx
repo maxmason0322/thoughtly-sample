@@ -38,6 +38,7 @@ gsap.registerPlugin(DrawSVGPlugin)
 
 const Blue = styled.strong`
   color: #0085e5d9;
+	font-weight: bold;
 `
 
 const data = [
@@ -332,7 +333,7 @@ const data = [
 			text: (
 				<p>
 					"Sure, we can definitely help out with your dream home renovation
-					project. Is this a full home or partial renovation?""
+					project. Is this a full home or partial renovation?"
 				</p>
 			),
 			bottomConnectors: [
@@ -910,7 +911,7 @@ const File = styled.div`
 `
 
 const FileName = styled.span`
-  ${textStyles.bodyS}
+  ${textStyles.sh4}
   color: ${colors.black};
 `
 
@@ -1038,7 +1039,7 @@ const Widget1 = styled(Widget)`
   ${fresponsive(css`
     height: 196px;
     top: 23px;
-    left: 23px;
+    left: 22px;
   `)}
 
   ${ftablet(css`
@@ -1055,7 +1056,7 @@ const Widget2 = styled(Widget1)`
 
   ${fresponsive(css`
     bottom: 22px;
-    right: 23px;
+    right: 22px;
   `)}
 `
 
@@ -1069,7 +1070,7 @@ const Avatar = styled.img`
 `
 
 const Name = styled.span`
-  ${textStyles.bodyR}
+  ${textStyles.sh3}
   color: ${colors.black};
 `
 
@@ -1098,9 +1099,9 @@ const Connector = styled(LineSVG)`
   position: absolute;
 
   ${fresponsive(css`
-    width: 233px;
-    height: 45px;
-    left: 164px;
-    top: 166px;
+    width: 235px;
+    height: 50px;
+    left: 163px;
+    top: 163px;
   `)}
 `

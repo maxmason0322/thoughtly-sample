@@ -149,6 +149,7 @@ const SpeakWidget = styled(Widget)`
 
 const Blue = styled.strong`
   color: #0085e5d9;
+  font-weight: bold;
 `
 
 const Speak2Widget = styled(Widget)`

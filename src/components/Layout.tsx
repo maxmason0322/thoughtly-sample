@@ -1,4 +1,5 @@
 import Header from "components/Header"
+import Transition from "components/Transition"
 import { useBackButton } from "library/Loader/TransitionUtils"
 import Scroll from "library/Scroll"
 import { useTrackPageReady } from "library/pageReady"
@@ -22,9 +23,8 @@ export default function Layout({ children }: LayoutProps) {
 
 	return (
 		<>
-			{/* <Transition />
-			<Preloader /> */}
-
+			<Transition />
+			{/* <Preloader /> */}
 			<Suspense>
 				<Calendly />
 			</Suspense>
