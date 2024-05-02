@@ -1,6 +1,7 @@
 import loader from "library/Loader"
 import { isBrowser } from "library/deviceDetection"
 import { useEffect, useState } from "react"
+import { createGlobalStyle } from "styled-components"
 
 const queue: VoidFunction[] = []
 let queueIsRunning = false
@@ -47,8 +48,21 @@ export default function DelayRender({
 		)
 	}
 
-	return isIdle ? <>{children}</> : <>{fallback}</>
+	return isIdle ? (
+		<>{children}</>
+	) : (
+		<>
+			{fallback}
+			{delay === 0 && <GlobalStyle />}
+		</>
+	)
 }
+
+const GlobalStyle = createGlobalStyle`
+	body {
+		min-height: 9999vh;
+	}
+`
 
 const runQueue = () => {
 	queueIsRunning = true
