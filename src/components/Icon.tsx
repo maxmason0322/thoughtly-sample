@@ -13,16 +13,26 @@ import { ReactComponent as RoutingSVG } from "images/global/icons/Routing.svg"
 import { ReactComponent as TargetSVG } from "images/global/icons/Target.svg"
 import { ReactComponent as TrashSVG } from "images/global/icons/Trash.svg"
 import { ReactComponent as VerifiedSVG } from "images/global/icons/Verified.svg"
+import { ReactComponent as AgencySVG } from "images/global/icons/agency.svg"
 import { ReactComponent as AtomSVG } from "images/global/icons/atom.svg"
 import { ReactComponent as AudioSVG } from "images/global/icons/audio.svg"
+import { ReactComponent as BusinessSVG } from "images/global/icons/business.svg"
 import { ReactComponent as CheckSVG } from "images/global/icons/check.svg"
 import { ReactComponent as CsvSVG } from "images/global/icons/csv.svg"
 import { ReactComponent as PdfSVG } from "images/global/icons/pdf.svg"
 import { ReactComponent as PlaySVG } from "images/global/icons/play.svg"
+import { ReactComponent as ProSVG } from "images/global/icons/pro.svg"
+import { ReactComponent as RocketSVG } from "images/global/icons/rocket.svg"
 import { ReactComponent as ShuffleSVG } from "images/global/icons/shuffle.svg"
 import { ReactComponent as SpeakSVG } from "images/global/icons/speak.svg"
+import { ReactComponent as StarterSVG } from "images/global/icons/starter.svg"
 
 const iconMap = {
+	rocket: RocketSVG,
+	pro: ProSVG,
+	agency: AgencySVG,
+	business: BusinessSVG,
+	starter: StarterSVG,
 	calendar: CalendarSVG,
 	chev: ChevSVG,
 	trash: TrashSVG,

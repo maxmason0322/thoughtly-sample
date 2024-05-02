@@ -119,6 +119,10 @@ const Wrapper = styled.div<{
     box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
   `)}
 
+	${ftablet(css`
+		padding-bottom: 15px;
+	`)}
+
   ${fmobile(css`
     border: unset;
   `)}
@@ -159,6 +163,10 @@ const Text = styled.p`
   ${fresponsive(css`
     width: 310px;
   `)}
+
+	${ftablet(css`
+		width: 240px;
+	`)}
 
   ${fmobile(css`
     width: 100%;

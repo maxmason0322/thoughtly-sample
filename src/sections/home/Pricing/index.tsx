@@ -36,6 +36,8 @@ export default function Pricing() {
 					</TextContent>
 					<Prices>
 						<Card
+							icons={["starter"]}
+							iconStroke={[true]}
 							titles={["Starter Plan"]}
 							text={["Get started building Thoughtly agents for free."]}
 							prices={["$30"]}
@@ -49,6 +51,8 @@ export default function Pricing() {
 							]}
 						/>
 						<Card
+							icons={["starter", "pro", "business", "agency", "rocket"]}
+							iconStroke={[true, false, false, true, false]}
 							titles={[
 								"Starter Plan",
 								"Pro",
@@ -103,6 +107,8 @@ export default function Pricing() {
 							]}
 						/>
 						<Card
+							icons={["rocket"]}
+							iconStroke={[false]}
 							titles={["Enterprise"]}
 							text={["Automate your enterprise using conversational AI."]}
 							prices={["Contact Us"]}

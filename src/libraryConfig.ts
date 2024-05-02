@@ -3,7 +3,7 @@ import { type Config, defaultConfig } from "library/defaultConfig"
 /**
  * The transition names that can be used in the page transition
  */
-export type TransitionNames = "fade" | "slide"
+export type TransitionNames = "fade"
 
 const config: Config = {
 	...defaultConfig,

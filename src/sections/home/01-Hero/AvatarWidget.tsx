@@ -133,7 +133,6 @@ const Avatar = styled(UniversalImage)<{ $zIndex: number }>`
   z-index: ${({ $zIndex }) => $zIndex};
 
   ${fresponsive(css`
-    border: 1px solid ${colors.white};
     width: 48px;
     height: 48px;
     top: 12px;

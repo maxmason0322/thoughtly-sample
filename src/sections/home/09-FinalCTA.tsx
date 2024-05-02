@@ -121,7 +121,7 @@ export default function FinalCTA() {
 			const tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: wrapperRef.current,
-					start: "bottom bottom",
+					start: "top top",
 					end: "clamp(bottom top)",
 					scrub: true,
 				},
@@ -132,9 +132,9 @@ export default function FinalCTA() {
 			})
 			tl.to(wrapperRef.current, {
 				borderBottomLeftRadius: () =>
-					getResponsivePixels(getMedia(140, 140, 140, 48)),
+					getResponsivePixels(getMedia(100, 100, 140, 48)),
 				borderBottomRightRadius: () =>
-					getResponsivePixels(getMedia(140, 140, 140, 48)),
+					getResponsivePixels(getMedia(100, 100, 140, 48)),
 				scale: () => getMedia(0.8, 0.8, 0.8, 0.9),
 			})
 		},
