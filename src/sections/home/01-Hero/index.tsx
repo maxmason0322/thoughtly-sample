@@ -60,7 +60,7 @@ export default function Hero() {
 			tl.to(
 				".avatar-widget",
 				{
-					yPercent: 300,
+					yPercent: () => getMedia(300, 300, 0, 0),
 					opacity: 0,
 					duration: 1.5,
 				},
@@ -69,7 +69,7 @@ export default function Hero() {
 			tl.to(
 				".call-widget",
 				{
-					y: () => getResponsivePixels(-100),
+					y: () => getResponsivePixels(getMedia(-100, -100, 0, 0)),
 					opacity: 0,
 				},
 				0,
@@ -156,6 +156,7 @@ export default function Hero() {
 		[mobile],
 		{
 			scope: wrapperRef,
+			recreateOnResize: true,
 		},
 	)
 

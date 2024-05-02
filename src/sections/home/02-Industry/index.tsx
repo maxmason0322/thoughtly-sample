@@ -585,21 +585,6 @@ export default function Industry() {
 								</AutoAnimate>
 							</div>
 						</TextContent>
-						<TabletOnly>
-							<LogosWrapper>
-								<FilesInner>
-									<PositionWrapper>
-										<AutoAnimate
-											alignment="center"
-											fromParameters={{ yPercent: 110 }}
-											toParameters={{ yPercent: -110 }}
-										>
-											<Logos key={activeIndex}>{files}</Logos>
-										</AutoAnimate>
-									</PositionWrapper>
-								</FilesInner>
-							</LogosWrapper>
-						</TabletOnly>
 						<DesktopWidgetsWrapper>
 							<StyledDots />
 							<Connector />
@@ -1037,7 +1022,7 @@ const TabletWidgetWrapper = styled.div`
 
   ${ftablet(css`
     top: -30px;
-    left: -96px;
+    left: -40px;
     z-index: 2;
   `)}
 `
