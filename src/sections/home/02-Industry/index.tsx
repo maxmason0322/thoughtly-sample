@@ -696,6 +696,7 @@ const Buttons = styled.div`
   `)}
 
   ${fmobile(css`
+		gap: 8px;
     width: 375px;
     height: 60px;
     padding: 0 29px;
