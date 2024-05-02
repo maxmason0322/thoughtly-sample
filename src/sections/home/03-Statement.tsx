@@ -5,6 +5,7 @@ import { usePinType } from "library/Scroll"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import createSmoothPin from "library/smoothPin"
 import useAnimation from "library/useAnimation"
+import useMedia from "library/useMedia"
 import { useRef } from "react"
 import styled, { css } from "styled-components"
 import { Dots } from "styles/background"
@@ -17,6 +18,7 @@ gsap.registerPlugin(SplitText, CSSPlugin)
 export default function Statement() {
 	const wrapperRef = useRef<HTMLElement | null>(null)
 	const pinType = usePinType()
+	const mobile = useMedia(false, false, false, true)
 
 	useAnimation(
 		() => {
@@ -52,17 +54,19 @@ export default function Statement() {
 			const tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: wrapperRef.current,
-					start: "top top",
-					end: "bottom top",
+					start: mobile ? "top 50%" : "top top",
+					end: mobile ? "bottom 80%" : "bottom top",
 					scrub: true,
 				},
 			})
-			createSmoothPin({
-				trigger: wrapperRef.current,
-				pinType,
-				start: "top top",
-				end: "bottom top",
-			})
+			if (!mobile) {
+				createSmoothPin({
+					trigger: wrapperRef.current,
+					pinType,
+					start: "top top",
+					end: "bottom top",
+				})
+			}
 			const nonGradientArrayLength = Array.from(nonGradient.words).length
 
 			tl.to(nonGradient.words, {
@@ -94,7 +98,7 @@ export default function Statement() {
 				tl.add(animation, nonGradientArrayLength + i)
 			})
 		},
-		[pinType],
+		[pinType, mobile],
 		{
 			scope: wrapperRef,
 		},
