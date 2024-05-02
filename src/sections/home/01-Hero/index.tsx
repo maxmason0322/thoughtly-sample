@@ -528,6 +528,7 @@ const BackgroundTablet = styled.div`
   display: none;
   z-index: 0;
   background-color: ${colors.gray100};
+	overflow: clip;
 
   ${ftablet(css`
     display: flex;
