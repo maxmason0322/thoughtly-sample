@@ -1,5 +1,5 @@
 import { ReactComponent as AudioSVG } from "images/home/hero/audio.svg"
-import Background from "images/home/hero/call-widget-background.jpg"
+import Background from "images/home/hero/call-widget-background.webp"
 import { ReactComponent as PhoneSVG } from "images/home/hero/phone.svg"
 import { fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"

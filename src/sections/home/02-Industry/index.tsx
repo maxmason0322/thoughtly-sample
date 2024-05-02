@@ -766,7 +766,7 @@ const Left = styled.div`
 
 const Image = styled.img`
   background-color: ${colors.gray800};
-	object-fit: cover;
+  object-fit: cover;
 
   ${fresponsive(css`
     width: 528px;
