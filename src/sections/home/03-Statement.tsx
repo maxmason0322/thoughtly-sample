@@ -156,13 +156,13 @@ const Inner = styled.div`
 
 const Content = styled.div`
   width: 100%;
-	overflow: clip;
-	position: relative;
+  overflow: clip;
+  position: relative;
 
   ${fresponsive(css`
     height: 694px;
     padding: 84px 96px;
-		border-radius: 60px;
+    border-radius: 60px;
   `)}
 
   ${ftablet(css`
@@ -173,7 +173,7 @@ const Content = styled.div`
   ${fmobile(css`
     height: 448px;
     padding: 65px 47px 0 22px;
-		border-radius: 36px;
+    border-radius: 36px;
   `)}
 `
 
