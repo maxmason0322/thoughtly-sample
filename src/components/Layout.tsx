@@ -1,3 +1,4 @@
+import Header from "components/Header"
 import { useBackButton } from "library/Loader/TransitionUtils"
 import Scroll from "library/Scroll"
 import { useTrackPageReady } from "library/pageReady"
@@ -8,7 +9,6 @@ import colors from "styles/colors"
 import textStyles from "styles/text"
 
 const Footer = lazy(() => import("components/Footer"))
-const Header = lazy(() => import("components/Header"))
 const Calendly = lazy(() => import("components/CalendlyModal"))
 
 interface LayoutProps {
@@ -30,7 +30,7 @@ export default function Layout({ children }: LayoutProps) {
 			</Suspense>
 			<GlobalStyle />
 			<ScrollIndex>
-				{/* for some reason, this cannot be suspended */}
+				{/* for some reason, this cannot be suspended (it breaks scrolling) */}
 				<Header />
 				<Main>{children}</Main>
 				<Suspense>

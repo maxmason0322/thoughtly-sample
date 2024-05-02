@@ -107,8 +107,8 @@ const Wrapper = styled.div<{
   overflow: clip;
 
   > * {
-	position: relative;
-	z-index: 2;
+    position: relative;
+    z-index: 2;
   }
 
   ${fresponsive(css`
@@ -125,16 +125,16 @@ const Wrapper = styled.div<{
 `
 
 const Image = styled(UniversalImage)`
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	inset: 0;
-	z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  z-index: 1;
 
-	img {
-		object-fit: contain;
-		object-position: top left;
-	}
+  img {
+    object-fit: contain;
+    object-position: top left;
+  }
 `
 
 const Title = styled.h1`
@@ -143,11 +143,11 @@ const Title = styled.h1`
 
   ${fresponsive(css`
     width: 140px;
-	white-space: pre;
+    white-space: pre;
   `)}
 
   ${fmobile(css`
-  	white-space: normal;
+    white-space: normal;
     width: 100%;
   `)}
 `
