@@ -40,16 +40,6 @@ export default function InfiniteSideScroll({
 		})
 	}, [trackEl, scrollOffset])
 
-	// useAnimation(() => {
-	//   gsap.to(trackEl, {
-	//     onUpdate: (a, b, c) => {
-	//       console.log(a, b, c)
-	//     },
-	//     ease: "none",
-	//     duration: 20
-	//   })
-	// }, [trackEl, trackInnerEl])
-
 	useEffect(() => {
 		const offset =
 			(trackInnerEl?.clientWidth ?? 0) / 2 - (trackEl?.clientWidth ?? 0) / 2
