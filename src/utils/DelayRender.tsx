@@ -49,7 +49,10 @@ export default function DelayRender({
 	}
 
 	return isIdle ? (
-		<>{children}</>
+		<>
+			{children}
+			<IdleGlobalStyle />
+		</>
 	) : (
 		<>
 			{fallback}
@@ -57,6 +60,12 @@ export default function DelayRender({
 		</>
 	)
 }
+
+const IdleGlobalStyle = createGlobalStyle`
+  body {
+    min-height: unset;
+  }
+`
 
 const GlobalStyle = createGlobalStyle`
 	body {
