@@ -61,7 +61,6 @@ export default function Pricing() {
 								"Automate your enterprise using conversational AI.",
 							]}
 							prices={["$30", "$150", "$300", "$1,000", "$10,000"]}
-							minutes={["300", "900", "1,700", "2,500", "10,000+"]}
 							showProgress
 							tags={[
 								[
