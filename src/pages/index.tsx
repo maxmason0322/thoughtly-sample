@@ -55,8 +55,8 @@ export default function IndexPage() {
 export function Head() {
 	return (
 		<Seo
-			title="Home"
-			description="This is the thoughtly homepage"
+			title="Thoughtly | The easiest way to build AI voice agents"
+			description="Thoughtly helps teams build and deploy AI voice agents in minutes, not months."
 			pathname="/"
 		/>
 	)
