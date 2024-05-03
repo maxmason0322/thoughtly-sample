@@ -4,7 +4,7 @@ import Icon, { type IconType } from "components/Icon"
 import { CalendlyModalContext } from "components/Providers/CalendlyModalProvider"
 import AutoAnimate from "library/AutoAnimate"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
@@ -15,7 +15,6 @@ export default function Card({
 	titles,
 	text,
 	prices,
-	minutes,
 	hideMonth,
 	tags,
 	showProgress,
@@ -25,16 +24,30 @@ export default function Card({
 	titles: string[]
 	text: string[]
 	prices: string[]
-	minutes?: string[]
 	hideMonth?: boolean
 	tags: string[][]
 	showProgress?: boolean
 }) {
 	const [activeIndex, setActiveIndex] = useState(0)
 	const { setModalOpen } = useContext(CalendlyModalContext)
+	const [minutes, setMinutes] = useState(300)
 	const tagEls = tags[activeIndex]?.map((item) => (
 		<CheckTag key={item}>{item}</CheckTag>
 	))
+
+	useEffect(() => {
+		if (minutes < 400) {
+			setActiveIndex(0)
+		} else if (minutes < 1500) {
+			setActiveIndex(1)
+		} else if (minutes < 3100) {
+			setActiveIndex(2)
+		} else if (minutes < 10000) {
+			setActiveIndex(3)
+		} else {
+			setActiveIndex(4)
+		}
+	}, [minutes])
 
 	const duration = 0.3
 
@@ -81,21 +94,20 @@ export default function Card({
 					<>
 						<Minutes>
 							Minutes Per Month
-							<AutoAnimate duration={duration}>
-								<span key={activeIndex}>{minutes?.[activeIndex]}</span>
-							</AutoAnimate>
+							{/* <AutoAnimate duration={duration}> */}
+							<span>
+								{minutes}
+								{minutes === 10000 && "+"}
+							</span>
+							{/* </AutoAnimate> */}
 						</Minutes>
 						<Slider
-							defaultValue={0}
+							defaultValue={300}
 							aria-label="call volume, adjust to view different plans"
 							type="range"
-							min="0"
-							max="4000"
-							onChange={(e) =>
-								setActiveIndex(
-									Math.round(Number.parseInt(e.target.value) / 1000),
-								)
-							}
+							min="300"
+							max="10000"
+							onChange={(e) => setMinutes(Number.parseInt(e.target.value))}
 						/>
 					</>
 				)}
