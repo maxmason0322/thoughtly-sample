@@ -48,8 +48,6 @@ export default function DelayRender({
 		)
 	}
 
-	console.log(isIdle)
-
 	return isIdle ? (
 		<>
 			{children}
