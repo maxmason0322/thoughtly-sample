@@ -1,9 +1,8 @@
 import gsap from "gsap"
 import loader from "library/Loader"
 import { fresponsive, ftablet } from "library/fullyResponsive"
-import useAnimation from "library/useAnimation"
 import type { ReactNode } from "react"
-import { useRef, useState } from "react"
+import { useRef } from "react"
 import styled, { css, keyframes } from "styled-components"
 
 export default function Unmask({
@@ -14,31 +13,24 @@ export default function Unmask({
 	parameters?: GSAPTweenVars
 }) {
 	const wrapperRef = useRef<HTMLDivElement | null>(null)
-	const [pageLoad, setPageLoad] = useState(false)
 
-	loader.useEventListener("anyEnd", () => setPageLoad(true))
+	const initScrollTrigger = () => {
+		if (!wrapperRef.current) return
 
-	useAnimation(() => {
-		const initScrollTrigger = () => {
-			if (!wrapperRef.current) return
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: wrapperRef.current,
+				start: "top 75%",
+			},
+		})
 
-			const tl = gsap.timeline({
-				scrollTrigger: {
-					trigger: wrapperRef.current,
-					start: "top 75%",
-				},
-			})
+		tl.to(wrapperRef.current?.children, {
+			y: 0,
+			...parameters,
+		})
+	}
 
-			tl.to(wrapperRef.current?.children, {
-				y: 0,
-				...parameters,
-			})
-		}
-
-		if (pageLoad) {
-			initScrollTrigger()
-		}
-	}, [pageLoad, parameters])
+	loader.useEventListener("anyEnd", initScrollTrigger)
 
 	return <Wrapper ref={wrapperRef}>{children}</Wrapper>
 }
