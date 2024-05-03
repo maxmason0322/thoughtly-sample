@@ -8,7 +8,6 @@ import useTrackFrameTime from "library/useTrackFrameTime"
 import { useContext } from "react"
 import { Suspense, lazy } from "react"
 import type { MouseEvent } from "react"
-import { InlineWidget } from "react-calendly"
 import styled, { createGlobalStyle, css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
@@ -42,7 +41,7 @@ export default function Layout({ children }: LayoutProps) {
 			<Transition />
 			<Preloader />
 
-			<CalendlyModal
+			{/* <CalendlyModal
 				role="presentation"
 				$modalOpen={modalOpen}
 				onClick={(e) => handleClick(e)}
@@ -54,7 +53,7 @@ export default function Layout({ children }: LayoutProps) {
 					}}
 					url="https://calendly.com/d/cpxn-sxr-85f"
 				/>
-			</CalendlyModal>
+			</CalendlyModal> */}
 
 			<GlobalStyle />
 			<ScrollIndex>

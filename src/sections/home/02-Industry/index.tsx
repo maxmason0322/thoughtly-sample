@@ -728,7 +728,6 @@ const Buttons = styled.div`
     padding: 0 29px;
     align-items: center;
     overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
     flex-wrap: nowrap;
     position: absolute;
     bottom: 40px;
