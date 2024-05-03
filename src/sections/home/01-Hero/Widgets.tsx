@@ -44,12 +44,12 @@ export default function Widgets() {
 				title="Speak"
 				iconColor="#0085E5"
 				icon="speak"
-				bottomConnectors={["New Customer", "Existing Customer"]}
+				bottomConnectors={["Yes", "No, new email"]}
 				topConnectors={[""]}
 			>
 				<p>
-					Hey <Blue>{"{name}"}</Blue>, thanks for reaching out. Can you tell me
-					your email so I can lookup your account?
+					"hello <Blue>{"{api.name}"}</Blue>, is your email address still{" "}
+					<Blue>{"{api.email}"}</Blue>?
 				</p>
 			</SpeakWidget>
 			<Speak2Widget

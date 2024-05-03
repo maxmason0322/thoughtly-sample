@@ -38,7 +38,7 @@ gsap.registerPlugin(DrawSVGPlugin)
 
 const Blue = styled.strong`
   color: #0085e5d9;
-  font-weight: bold;
+	font-weight: 500;
 `
 
 const data = [
@@ -714,7 +714,7 @@ const Buttons = styled.div`
 
   ${fresponsive(css`
     gap: 18px;
-    width: 511px;
+    width: 550px;
   `)}
 
   ${ftablet(css`

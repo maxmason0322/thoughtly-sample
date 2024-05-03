@@ -29,7 +29,6 @@ const Wrapper = styled.div`
   background: ${gradients.surface1};
   display: flex;
   flex-direction: column;
-  opacity: 0;
 
   ${fresponsive(css`
     border: 1.5px solid ${colors.gray300};

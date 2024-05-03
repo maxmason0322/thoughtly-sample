@@ -20,7 +20,7 @@ export default function Unmask({
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: wrapperRef.current,
-				start: "top 75%",
+				start: "top 90%",
 			},
 		})
 

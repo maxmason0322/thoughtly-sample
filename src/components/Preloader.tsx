@@ -16,6 +16,11 @@ export default function Preloader() {
 			gsap.to(wrapperRef.current, {
 				autoAlpha: 0,
 				duration: 0.25,
+				onComplete: () => {
+					gsap.set(wrapperRef.current, {
+						display: "none",
+					})
+				},
 			})
 		},
 	})
