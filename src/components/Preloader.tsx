@@ -1,22 +1,21 @@
 import gsap from "gsap"
 import { ScrollSmoother } from "gsap/ScrollSmoother"
 import { useRegisterLoaderCallback } from "library/Loader/LoaderUtils"
-import { useRef, useState } from "react"
+import { useRef } from "react"
 import styled from "styled-components"
-import textStyles from "styles/text"
+import colors from "styles/colors"
 
 export default function Preloader() {
 	const wrapperRef = useRef<HTMLDivElement>(null)
-	const [progress, setProgress] = useState(0)
 
 	useRegisterLoaderCallback({
-		duration: 1,
+		duration: 0.25,
 		callback: () => {
 			ScrollSmoother.get()?.scrollTop(0)
 
 			gsap.to(wrapperRef.current, {
-				y: "-100vh",
-				duration: 1,
+				autoAlpha: 0,
+				duration: 0.25,
 			})
 		},
 	})
@@ -34,5 +33,5 @@ const Wrapper = styled.div`
   pointer-events: none;
   display: grid;
   place-items: center;
-  ${textStyles.h1}
+  background-color: ${colors.white};
 `

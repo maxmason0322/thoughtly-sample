@@ -25,7 +25,9 @@ export default function Header() {
 	const { setModalOpen } = useContext(CalendlyModalContext)
 
 	const initTimeline = useAnimation(() => {
-		const tl = gsap.timeline()
+		const tl = gsap.timeline({
+			paused: true,
+		})
 
 		tl.to(innerRef.current, {
 			y: 0,

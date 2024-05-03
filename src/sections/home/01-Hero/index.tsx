@@ -165,6 +165,7 @@ export default function Hero() {
 	const initTimeline = useAnimation(() => {
 		const tl = gsap.timeline({
 			delay: 0.25,
+			paused: true,
 		})
 
 		tl.fromTo(
@@ -217,9 +218,9 @@ export default function Hero() {
 							🚀&nbsp;&nbsp;&nbsp;Seed round led by Afore & others
 						</Kicker>
 					</Unmask> */}
-					{/* <Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}> */}
-					<Title>Your phone calls, answered beautifully.</Title>
-					{/* </Unmask> */}
+					<Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
+						<Title>Your phone calls, answered beautifully.</Title>
+					</Unmask>
 					<Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
 						<Text>
 							Businesses trust Thoughtly’s human-like AI agents to answer
@@ -321,6 +322,7 @@ const Inner = styled.div`
 const BackgroundImage = styled.img`
   position: absolute;
   z-index: 0;
+  opacity: 0;
 
   ${fresponsive(css`
     width: 1318px;
