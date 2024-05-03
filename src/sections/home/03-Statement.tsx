@@ -105,7 +105,7 @@ export default function Statement() {
 	)
 
 	return (
-		<div>
+		<Outer>
 			<Wrapper ref={wrapperRef}>
 				<Inner>
 					<Content>
@@ -123,7 +123,7 @@ export default function Statement() {
 					</Content>
 				</Inner>
 			</Wrapper>
-		</div>
+		</Outer>
 	)
 }
 
@@ -210,4 +210,8 @@ const Title = styled.h2`
     ${textStyles.sh1};
     width: 289px;
   `)}
+`
+
+const Outer = styled.div`
+  background-color: ${colors.white};
 `
