@@ -198,7 +198,7 @@ const Inner = styled.div`
   position: relative;
 
   ${fresponsive(css`
-    padding: 100px 156px 50px;
+    padding: 100px 156px 36px;
   `)}
 
   ${ftablet(css`

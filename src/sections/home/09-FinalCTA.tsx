@@ -132,9 +132,9 @@ export default function FinalCTA() {
 		tl.to("#main", { backgroundColor: "#00000000", duration: 0 }, 0)
 		tl.to([wrapperRef.current], {
 			borderBottomLeftRadius: () =>
-				getResponsivePixels(getMedia(140, 140, 140, 48)),
+				getResponsivePixels(getMedia(80, 80, 80, 48)),
 			borderBottomRightRadius: () =>
-				getResponsivePixels(getMedia(140, 140, 140, 48)),
+				getResponsivePixels(getMedia(80, 80, 80, 48)),
 			scale: () => getMedia(0.8, 0.8, 0.8, 0.9),
 		})
 	}, [])
