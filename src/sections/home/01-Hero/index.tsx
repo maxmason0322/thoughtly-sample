@@ -3,6 +3,7 @@ import { CalendlyModalContext } from "components/Providers/CalendlyModalProvider
 import Unmask from "components/Unmask"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
+import ScrollSmoother from "gsap/ScrollSmoother"
 import Background from "images/home/hero/hero-background.png"
 import loader from "library/Loader"
 import { ScreenContext } from "library/ScreenContext"
@@ -58,8 +59,12 @@ export default function Hero() {
 				},
 				0,
 			)
-			tl.to(
+			tl.fromTo(
 				".avatar-widget",
+				{
+					yPercent: 0,
+					opacity: 1,
+				},
 				{
 					yPercent: () => getMedia(300, 300, 0, 0),
 					opacity: 0,
@@ -67,8 +72,12 @@ export default function Hero() {
 				},
 				0,
 			)
-			tl.to(
+			tl.fromTo(
 				".call-widget",
+				{
+					y: 0,
+					opacity: 1,
+				},
 				{
 					y: () => getResponsivePixels(getMedia(-100, -100, 0, 0)),
 					opacity: 0,
@@ -162,9 +171,13 @@ export default function Hero() {
 	)
 
 	const initTimeline = useAnimation(() => {
+		ScrollSmoother.get()?.paused(true)
 		const tl = gsap.timeline({
 			delay: 0.25,
 			paused: true,
+			onComplete: () => {
+				ScrollSmoother.get()?.paused(false)
+			},
 		})
 
 		tl.fromTo(
