@@ -1,15 +1,17 @@
 import Seo from "components/Seo"
+import { Suspense, lazy } from "react"
 
 import Hero from "sections/home/01-Hero"
-import Industry from "sections/home/02-Industry"
-import Statement from "sections/home/03-Statement"
-import Features from "sections/home/04-Features"
-import CallCTA from "sections/home/05-CallCTA"
-import Workflows from "sections/home/07-Workflows"
-import Integrations from "sections/home/075-Integrations.tsx"
-import WidgetsAndVideo from "sections/home/08-WidgetsAndVideo"
-import FinalCTA from "sections/home/09-FinalCTA"
-import Pricing from "sections/home/Pricing"
+import DelayRender from "utils/DelayRender"
+const Industry = lazy(() => import("sections/home/02-Industry"))
+const Statement = lazy(() => import("sections/home/03-Statement"))
+const Features = lazy(() => import("sections/home/04-Features"))
+const CallCTA = lazy(() => import("sections/home/05-CallCTA"))
+const Workflows = lazy(() => import("sections/home/07-Workflows"))
+const Integrations = lazy(() => import("sections/home/075-Integrations.tsx"))
+const WidgetsAndVideo = lazy(() => import("sections/home/08-WidgetsAndVideo"))
+const FinalCTA = lazy(() => import("sections/home/09-FinalCTA"))
+const Pricing = lazy(() => import("sections/home/Pricing"))
 // const SocialProof = lazy(() => import("sections/home/SocialProof"))
 
 export default function IndexPage() {
@@ -17,15 +19,35 @@ export default function IndexPage() {
 		<>
 			<Hero />
 			{/* <SocialProof /> */}
-			<Industry />
-			<Statement />
-			<Features />
-			<CallCTA />
-			<WidgetsAndVideo />
-			<Workflows />
-			<Integrations />
-			<Pricing />
-			<FinalCTA />
+			<DelayRender>
+				<Suspense fallback={<div>Loading...</div>}>
+					<Industry />
+				</Suspense>
+				<Suspense fallback={<div>Loading...</div>}>
+					<Statement />
+				</Suspense>
+				<Suspense fallback={<div>Loading...</div>}>
+					<Features />
+				</Suspense>
+				<Suspense fallback={<div>Loading...</div>}>
+					<CallCTA />
+				</Suspense>
+				<Suspense fallback={<div>Loading...</div>}>
+					<WidgetsAndVideo />
+				</Suspense>
+				<Suspense fallback={<div>Loading...</div>}>
+					<Workflows />
+				</Suspense>
+				<Suspense fallback={<div>Loading...</div>}>
+					<Integrations />
+				</Suspense>
+				<Suspense fallback={<div>Loading...</div>}>
+					<Pricing />
+				</Suspense>
+				<Suspense fallback={<div>Loading...</div>}>
+					<FinalCTA />
+				</Suspense>
+			</DelayRender>
 		</>
 	)
 }
