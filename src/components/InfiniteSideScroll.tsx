@@ -1,5 +1,6 @@
 import gsap from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
+import ConstantMarquee from "library/ConstantMarquee"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import { type ReactNode, useCallback, useEffect, useRef, useState } from "react"
 import styled, { css } from "styled-components"
@@ -10,10 +11,12 @@ export default function InfiniteSideScroll({
 	children,
 	trackGap,
 	offsetLeft = 0,
+	reversed,
 }: {
 	children: ReactNode[]
 	trackGap: number
 	offsetLeft?: number
+	reversed?: boolean
 }) {
 	const [scrollOffset, setScrollOffset] = useState(0)
 	const [trackEl, setTrackEl] = useState<HTMLDivElement | null>(null)
@@ -68,11 +71,13 @@ export default function InfiniteSideScroll({
 			$offsetLeft={offsetLeft}
 		>
 			<Gradient2 />
-			<TrackInner ref={(ref) => setTrackInnerEl(ref)} $gap={trackGap}>
-				{children}
-				{children}
-				{children}
-			</TrackInner>
+			<ConstantMarquee timing={250} reversed={!!reversed}>
+				<TrackInner ref={(ref) => setTrackInnerEl(ref)} $gap={trackGap}>
+					{children}
+					{children}
+					{children}
+				</TrackInner>
+			</ConstantMarquee>
 			<Gradient />
 		</Track>
 	)
@@ -114,7 +119,7 @@ const TrackInner = styled.div<{ $gap: number }>`
   ${({ $gap }) =>
 		fresponsive(css`
       gap: ${$gap}px;
-      padding: 0 ${$gap}px;
+      padding: 0 ${$gap}px 0 0;
     `)}
 `
 
