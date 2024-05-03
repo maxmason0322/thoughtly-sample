@@ -72,16 +72,16 @@ const legalStyles = {
       padding-bottom: 12px;
     `)}
   `,
-	Paragraph: styled(Base).attrs({ as: "p" })<{ noPadding: boolean }>`
-    padding-bottom: ${({ noPadding }) => (noPadding ? 0 : "24px")};
+	Paragraph: styled(Base).attrs({ as: "p" })<{ $noPadding: boolean }>`
+    padding-bottom: ${({ $noPadding }) => ($noPadding ? 0 : "24px")};
   `,
-	OList: styled(Base).attrs({ as: "ol" })<{ noPadding: boolean }>`
-    padding-bottom: ${({ noPadding }) => (noPadding ? 0 : "24px")};
+	OList: styled(Base).attrs({ as: "ol" })<{ $noPadding: boolean }>`
+    padding-bottom: ${({ $noPadding }) => ($noPadding ? 0 : "24px")};
     list-style: decimal;
     padding-left: 24px;
   `,
-	UList: styled(Base).attrs({ as: "ul" })<{ noPadding: boolean }>`
-    padding-bottom: ${({ noPadding }) => (noPadding ? 0 : "24px")};
+	UList: styled(Base).attrs({ as: "ul" })<{ $noPadding: boolean }>`
+    padding-bottom: ${({ $noPadding }) => ($noPadding ? 0 : "24px")};
     list-style: disc;
     padding-left: 24px;
   `,

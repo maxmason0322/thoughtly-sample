@@ -441,7 +441,7 @@ const Grids = styled.div`
   ${fresponsive(css`
     width: 1865px;
     height: 1390px;
-    top: 126px;
+    top: 66px;
   `)}
 
   ${fmobile(css`

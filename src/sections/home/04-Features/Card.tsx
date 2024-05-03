@@ -137,10 +137,19 @@ const Image = styled(UniversalImage)`
   inset: 0;
   z-index: 1;
 
-  img {
-    object-fit: contain;
-    object-position: top left;
-  }
+  ${ftablet(css`
+    img {
+      object-fit: contain;
+      object-position: top left;
+    }
+  `)}
+
+  ${fmobile(css`
+    img {
+      object-fit: contain;
+      object-position: top left;
+    }
+  `)}
 `
 
 const Title = styled.h1`
@@ -162,12 +171,8 @@ const Text = styled.p<{ $textWidth: number }>`
   ${textStyles.bodyS}
   color: ${colors.gray700};
 
-  ${fresponsive(css`
-    width: 310px;
-  `)}
-
   ${({ $textWidth }) =>
-		ftablet(css`
+		fresponsive(css`
       width: ${$textWidth}px;
     `)}
 
