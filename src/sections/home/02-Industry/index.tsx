@@ -91,7 +91,7 @@ const data = [
 	},
 	{
 		title: "Real Estate",
-		text: "Scale your sales operations like never before Whether you're a broker, a firm, or a wholesaler, never miss a lead again! Your own AI ISA at your service.",
+		text: "Scale your sales operations like never before. Whether you're a broker, a firm, or a wholesaler, never miss a lead again! Your own AI ISA at your service.",
 		assertiveness: {
 			val: 70,
 			text: "Assertive yet kind",
@@ -193,7 +193,7 @@ const data = [
 	},
 	{
 		title: "Insurance",
-		text: "Scale your sales operations like never before Whether you're a broker, a firm, or a wholesaler, never miss a lead again! Your own AI ISA at your service.",
+		text: "Scale your sales operations like never before. Whether you're a broker, a firm, or a wholesaler, never miss a lead again! Your own AI ISA at your service.",
 		assertiveness: {
 			val: 30,
 			text: "Use softer suggestions",
@@ -722,7 +722,7 @@ const Buttons = styled.div`
   `)}
 
   ${fmobile(css`
-		gap: 8px;
+    gap: 8px;
     width: 375px;
     height: 60px;
     padding: 0 29px;
@@ -871,7 +871,7 @@ const FilesInner = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-	background-color: ${colors.gray100};
+  background-color: ${colors.gray100};
 
   ${fresponsive(css`
     border-radius: 14px;

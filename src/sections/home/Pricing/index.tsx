@@ -38,17 +38,10 @@ export default function Pricing() {
 						<Card
 							icons={["starter"]}
 							iconStroke={[true]}
-							titles={["Starter Plan"]}
+							titles={["Free"]}
 							text={["Get started building Thoughtly agents for free."]}
-							prices={["$30"]}
-							tags={[
-								[
-									"Unlimited Seats",
-									"Industry-leading agent editor",
-									"Inbound and outbound calling",
-									"Genius knowledge database",
-								],
-							]}
+							prices={["Free"]}
+							tags={[["10 minutes per month", "Unlimited Seats"]]}
 						/>
 						<Card
 							icons={["starter", "pro", "business", "agency", "rocket"]}

@@ -65,7 +65,7 @@ export default function InfiniteSideScroll({
 		<Track
 			ref={(ref) => setTrackEl(ref)}
 			onScroll={handleScroll}
-			offsetLeft={offsetLeft}
+			$offsetLeft={offsetLeft}
 		>
 			<Gradient2 />
 			<TrackInner ref={(ref) => setTrackInnerEl(ref)} $gap={trackGap}>
@@ -78,7 +78,7 @@ export default function InfiniteSideScroll({
 	)
 }
 
-const Track = styled.div<{ offsetLeft: number }>`
+const Track = styled.div<{ $offsetLeft: number }>`
   overflow-x: scroll;
   display: flex;
   position: relative;
@@ -90,9 +90,9 @@ const Track = styled.div<{ offsetLeft: number }>`
     display: none;
   }
 
-  ${({ offsetLeft }) =>
+  ${({ $offsetLeft }) =>
 		fresponsive(css`
-      padding: 50px 0 50px ${offsetLeft}px;
+      padding: 50px 0 50px ${$offsetLeft}px;
       margin: -50px 0;
       width: 1440px;
     `)}
