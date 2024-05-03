@@ -32,6 +32,13 @@ export default function Integrations() {
     }
   `)
 
+	const halfOfElements = (arr: JSX.Element[], secondHalf?: boolean) => {
+		if (secondHalf) {
+			return arr.slice(Math.ceil(arr.length / 2))
+		}
+		return arr.slice(0, Math.ceil(arr.length / 2))
+	}
+
 	const cards = data.allHomeIntegrationsJson.nodes.map((item, index) => {
 		return (
 			<Card
@@ -47,16 +54,21 @@ export default function Integrations() {
 	return (
 		<Wrapper id="integrations" data-anchor-offset="350">
 			<Inner>
-				<Kicker gradient icon="integration" iconLeft>
+				<Kicker
+					gradient
+					icon="integration"
+					iconColor={colors.green400}
+					iconLeft
+				>
 					Integrations
 				</Kicker>
 				<Tracks>
 					<InfiniteSideScroll offsetLeft={offsetLeft} trackGap={24}>
-						{cards}
+						{doubleTrack ? halfOfElements(cards) : cards}
 					</InfiniteSideScroll>
 					{doubleTrack && (
 						<InfiniteSideScroll key={2} trackGap={24}>
-							{cards}
+							{halfOfElements(cards, true)}
 						</InfiniteSideScroll>
 					)}
 				</Tracks>

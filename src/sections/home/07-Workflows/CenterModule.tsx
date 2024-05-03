@@ -32,12 +32,12 @@ export default function CenterModule({
 
 			<Processing>
 				<ProcessIconContainer>
-					<AutoAnimate
+					<StyledAutoAnimate
 						fromParameters={{ opacity: 0 }}
 						toParameters={{ opacity: 1 }}
 					>
 						{processIcons[processStep]}
-					</AutoAnimate>
+					</StyledAutoAnimate>
 				</ProcessIconContainer>
 				<ProcessText>
 					<Dots $afterContent={afterContent} />
@@ -87,10 +87,16 @@ const spin = keyframes`
 const SpinningCircle = styled.div`
   position: relative;
   animation: ${spin} 1s linear infinite;
-  transform-origin: center;
+  transform-origin: center center;
   ${fresponsive(css`
     width: 14px;
     height: 14px;
+    padding: 1px;
+    margin: -1px;
+
+    img {
+      overflow: visible;
+    }
   `)}
 `
 
@@ -217,6 +223,7 @@ const ProcessIconContainer = styled.div`
   position: relative;
   display: grid;
   place-items: center;
+  transform-origin: center center;
   ${fresponsive(css`
     width: 14px;
     height: 14px;
@@ -224,3 +231,10 @@ const ProcessIconContainer = styled.div`
 `
 
 const ProcessTextWord = styled.p``
+
+const StyledAutoAnimate = styled(AutoAnimate)`
+  ${fresponsive(css`
+    padding: 2px;
+    margin: -2px;
+  `)}
+`

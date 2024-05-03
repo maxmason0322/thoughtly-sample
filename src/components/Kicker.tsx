@@ -38,7 +38,6 @@ const Wrapper = styled.div<{ $gradient: boolean; $iconColor: string }>`
   svg {
     path {
       fill: ${({ $iconColor }) => $iconColor};
-      stroke: ${({ $iconColor }) => $iconColor};
     }
   }
 

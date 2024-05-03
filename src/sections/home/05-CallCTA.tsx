@@ -124,6 +124,10 @@ const Top = styled.div`
     border-top: 1.5px solid ${colors.gray300};
   `)}
 
+  ${ftablet(css`
+    width: 888px;
+  `)}
+
   ${fmobile(css`
     width: 320px;
     padding: 60px 27px 48px;
@@ -165,7 +169,7 @@ const Bottom = styled.div`
   `)}
 
     ${fmobile(css`
-    padding: 0 9px 88px;
+    padding: 0 9px 68px;
   `)}
 `
 
@@ -200,7 +204,8 @@ const PhoneNumber = styled.div`
   background-image: ${gradients.grayGray};
 
   ${fresponsive(css`
-    padding: 0 54px;
+    padding: 10px 54px;
+    margin: -10px auto;
   `)}
 
   ${fmobile(css`

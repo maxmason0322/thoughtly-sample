@@ -46,6 +46,7 @@ export default function Card({
 	background,
 	backgroundTablet,
 	backgroundMobile,
+	textWidths,
 	strokeIcon,
 }: {
 	icon: IconType
@@ -59,6 +60,7 @@ export default function Card({
 	background?: UniversalImageData
 	backgroundTablet?: UniversalImageData
 	backgroundMobile?: UniversalImageData
+	textWidths: number
 	strokeIcon?: boolean | null
 }) {
 	const breakpoint = useMedia("desktop", "desktop", "tablet", "mobile")
@@ -83,7 +85,7 @@ export default function Card({
 			<Image image={backgroundResp} alt="" />
 			<StyledIcon $stroke={!!strokeIcon} name={icon} />
 			<Title>{title}</Title>
-			<Text>{text}</Text>
+			<Text $textWidth={textWidths}>{text}</Text>
 			{link && (
 				<Link type="button" onClick={() => scrollTo(link?.href)}>
 					{link.text}
@@ -119,9 +121,9 @@ const Wrapper = styled.div<{
     box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
   `)}
 
-	${ftablet(css`
-		padding-bottom: 15px;
-	`)}
+  ${ftablet(css`
+    padding-bottom: 15px;
+  `)}
 
   ${fmobile(css`
     border: unset;
@@ -156,7 +158,7 @@ const Title = styled.h1`
   `)}
 `
 
-const Text = styled.p`
+const Text = styled.p<{ $textWidth: number }>`
   ${textStyles.bodyS}
   color: ${colors.gray700};
 
@@ -164,9 +166,10 @@ const Text = styled.p`
     width: 310px;
   `)}
 
-	${ftablet(css`
-		width: 240px;
-	`)}
+  ${({ $textWidth }) =>
+		ftablet(css`
+      width: ${$textWidth}px;
+    `)}
 
   ${fmobile(css`
     width: 100%;

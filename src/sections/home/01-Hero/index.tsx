@@ -27,6 +27,7 @@ export default function Hero() {
 	const { mobile } = useContext(ScreenContext)
 	const wrapperRef = useRef<HTMLElement | null>(null)
 	const { setModalOpen } = useContext(CalendlyModalContext)
+
 	useAnimation(
 		() => {
 			if (mobile) return
@@ -182,7 +183,7 @@ export default function Hero() {
 		)
 
 		tl.fromTo(
-			[".avatar-widget", ".start-widget"],
+			[".avatar-widget", ".start-widget", ".home-hero-bg"],
 			{
 				opacity: 0,
 				y: 300,
@@ -206,7 +207,7 @@ export default function Hero() {
 	return (
 		<Wrapper ref={wrapperRef}>
 			<Inner>
-				<BackgroundImage src={Background} />
+				<BackgroundImage className="home-hero-bg" src={Background} />
 				<BackgroundTablet>
 					<StyledDots />
 				</BackgroundTablet>

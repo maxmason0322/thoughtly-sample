@@ -63,6 +63,7 @@ export default function Mobile() {
 		return (
 			<GridElement
 				$gridArea={widget}
+				$noBoxShadow={i === 5}
 				className="parallax-elements"
 				key={widget}
 			>
@@ -227,7 +228,7 @@ const Grids = styled.div`
   `)}
 
   ${fmobile(css`
-    top: 640px;
+    top: 680px;
   `)}
 `
 
@@ -299,8 +300,8 @@ const Grid1 = styled.div`
     height: 595px;
     grid-gap: 12px;
     grid-template:
-      "widget1 . . . . . . ." 28px
-      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 96.5px
+      "widget1 . . . . . . ." 33px
+      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 97px
       "widget4 widget4 widget5 widget2 widget2 widget2 widget2 ." 87.5px
       "widget6 widget6 widget7 widget7 widget8 widget8 widget8 ." 65.5px
       "widget6 widget6 widget9 widget9 widget8 widget8 widget8 widget10" 88px
@@ -311,13 +312,14 @@ const Grid1 = styled.div`
   `)}
 `
 
-const GridElement = styled.div<{ $gridArea: string }>`
+const GridElement = styled.div<{ $gridArea: string; $noBoxShadow?: boolean }>`
   grid-area: ${({ $gridArea }) => $gridArea};
 
-  ${fresponsive(css`
-    border-radius: 18px;
-    box-shadow: 0 18px 42px 0 rgba(89 89 89 /4%);
-  `)}
+  ${({ $noBoxShadow }) =>
+		fresponsive(css`
+      border-radius: 18px;
+      box-shadow: ${$noBoxShadow ? "none" : "0 18px 42px 0 rgba(89 89 89 /4%)"};
+    `)}
 `
 
 const VideoIframe = styled.iframe`

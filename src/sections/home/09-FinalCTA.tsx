@@ -87,7 +87,7 @@ export default function FinalCTA() {
 				scrollTrigger: {
 					trigger: bottom.current,
 					start: "top bottom",
-					end: "top 50%",
+					end: "top 30%",
 					scrub: true,
 				},
 			})
@@ -96,11 +96,11 @@ export default function FinalCTA() {
 				".cta-image-card",
 				{
 					yPercent: -90,
-					opacity: 1,
 					stagger: {
 						from: "random",
 						each: 0.05,
 					},
+					ease: "power3.out",
 				},
 				0,
 			).to(
@@ -116,33 +116,28 @@ export default function FinalCTA() {
 		{ scope: bottom },
 	)
 
-	useAnimation(
-		() => {
-			const tl = gsap.timeline({
-				scrollTrigger: {
-					trigger: wrapperRef.current,
-					start: "top top",
-					end: "clamp(bottom top)",
-					scrub: true,
-				},
-			})
-			tl.set(wrapperRef.current, {
-				transformOrigin: "center bottom",
-				willChange: "transform",
-			})
-			tl.to(wrapperRef.current, {
-				borderBottomLeftRadius: () =>
-					getResponsivePixels(getMedia(100, 100, 140, 48)),
-				borderBottomRightRadius: () =>
-					getResponsivePixels(getMedia(100, 100, 140, 48)),
-				scale: () => getMedia(0.8, 0.8, 0.8, 0.9),
-			})
-		},
-		[],
-		{
-			scope: wrapperRef,
-		},
-	)
+	useAnimation(() => {
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: wrapperRef.current,
+				start: "top top",
+				end: "clamp(bottom top)",
+				scrub: true,
+			},
+		})
+		tl.set(wrapperRef.current, {
+			transformOrigin: "center bottom",
+			willChange: "transform",
+		})
+		tl.to("#main", { backgroundColor: "#00000000", duration: 0 }, 0)
+		tl.to([wrapperRef.current], {
+			borderBottomLeftRadius: () =>
+				getResponsivePixels(getMedia(140, 140, 140, 48)),
+			borderBottomRightRadius: () =>
+				getResponsivePixels(getMedia(140, 140, 140, 48)),
+			scale: () => getMedia(0.8, 0.8, 0.8, 0.9),
+		})
+	}, [])
 
 	return (
 		<Wrapper ref={wrapperRef}>
@@ -192,6 +187,7 @@ const Wrapper = styled.section`
   flex-direction: column;
   align-items: center;
   background-color: ${colors.white};
+  overflow: clip;
 
   ${fresponsive(css`
     padding-bottom: 182px;
@@ -442,8 +438,7 @@ const PhotoPanel = styled.div`
 const ImageCard = styled.div<{ $yOffset?: string }>`
   position: relative;
   background: ${gradients.surface1};
-  opacity: 0;
-
+  border: 1.5px solid ${colors.gray200};
   ${({ $yOffset }) =>
 		fresponsive(css`
       width: 288px;

@@ -49,6 +49,8 @@ export default function Features() {
   `)
 
 	const cards = data.allHomeFeaturesJson.nodes.map((item, index) => {
+		const textWidths = [291, 326, 232, 246, 279, 444]
+
 		return (
 			<Card
 				key={item.title}
@@ -59,6 +61,7 @@ export default function Features() {
 				backgroundTablet={item.backgroundTablet}
 				backgroundMobile={item.backgroundMobile}
 				index={index}
+				textWidths={textWidths[index] ?? 0}
 				strokeIcon={item.strokeIcon}
 				link={item.link}
 			/>

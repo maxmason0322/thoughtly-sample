@@ -133,6 +133,7 @@ const Wrapper = styled.section`
   place-items: center;
   height: 100vh;
   background-color: ${colors.white};
+  will-change: transform;
 
   ${fresponsive(css`
     min-height: 882px;

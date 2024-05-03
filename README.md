@@ -4,4 +4,4 @@
 
 # Thoughtly Marketing Site
 
-Built with Gatsby. Install with `pnpm install` and run with `pnpm start`
+Built with Gatsby. Install with `pnpm install` and run  `pnpm start`
