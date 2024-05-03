@@ -7,6 +7,7 @@ import type { MutableRefObject } from "react"
 import styled, { css, keyframes } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
+import { generateGradientBorder } from "utils/generateGradientBorder"
 
 export default function CenterModule({
 	afterContent,
@@ -28,34 +29,30 @@ export default function CenterModule({
 		<CenterModuleWrapper>
 			<LeftNode />
 			<RightNode />
-			<StyledProcessingIcon />
+			<Inner>
+				<StyledProcessingIcon />
 
-			<Processing>
-				<ProcessIconContainer>
-					<StyledAutoAnimate
-						fromParameters={{ opacity: 0 }}
-						toParameters={{ opacity: 1 }}
-					>
-						{processIcons[processStep]}
-					</StyledAutoAnimate>
-				</ProcessIconContainer>
-				<ProcessText>
-					<Dots $afterContent={afterContent} />
-					<ProcessTextWord ref={processText} />
-				</ProcessText>
-			</Processing>
+				<Processing>
+					<ProcessIconContainer>
+						<StyledAutoAnimate
+							fromParameters={{ opacity: 0 }}
+							toParameters={{ opacity: 1 }}
+						>
+							{processIcons[processStep]}
+						</StyledAutoAnimate>
+					</ProcessIconContainer>
+					<ProcessText>
+						<Dots $afterContent={afterContent} />
+						<ProcessTextWord ref={processText} />
+					</ProcessText>
+				</Processing>
+			</Inner>
 		</CenterModuleWrapper>
 	)
 }
 
 const animationCardStyle = css`
   background: ${gradients.surface1};
-
-  ${fresponsive(css`
-    box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
-    border-radius: 18px;
-    border: 1.5px solid ${`${colors.gray200}90`};
-  `)}
 `
 
 const Processing = styled.div`
@@ -130,7 +127,7 @@ const RightNode = styled.div`
   `)}
 `
 
-const CenterModuleWrapper = styled.div`
+const Inner = styled.div`
   position: relative;
   ${animationCardStyle};
   display: flex;
@@ -138,17 +135,14 @@ const CenterModuleWrapper = styled.div`
   align-items: center;
   height: 100%;
   flex-direction: column;
+  overflow: clip;
 
   ${fresponsive(css`
     width: 357px;
     height: 239px;
     gap: 44px;
     padding: 40px 133px 28px;
-
-    ${LeftNode}, ${RightNode} {
-      z-index: 10;
-      top: 117.68px;
-    }
+    border-radius: 18px;
   `)}
 
   ${ftablet(css`
@@ -236,5 +230,19 @@ const StyledAutoAnimate = styled(AutoAnimate)`
   ${fresponsive(css`
     padding: 2px;
     margin: -2px;
+  `)}
+`
+
+const CenterModuleWrapper = styled.div`
+  position: relative;
+  ${generateGradientBorder(gradients.surfaceOutline, 1.5)};
+
+  ${fresponsive(css`
+    box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
+    border-radius: 19px;
+    ${LeftNode}, ${RightNode} {
+      z-index: 10;
+      top: 117.68px;
+    }
   `)}
 `

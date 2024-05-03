@@ -20,6 +20,7 @@ import {
 	tabletBreakpoint,
 } from "styles/media"
 import textStyles from "styles/text"
+import { generateGradientBorder } from "utils/generateGradientBorder"
 import links from "utils/links"
 
 export default function FinalCTA() {
@@ -73,8 +74,10 @@ export default function FinalCTA() {
 	const ImageCards = allCardData.map((node) => {
 		const { image, yOffset, alt } = node
 		return (
-			<ImageCard className="cta-image-card" key={alt} $yOffset={yOffset}>
-				<UniversalImage image={image} alt="cta image" />
+			<ImageCard key={alt} className="cta-image-card" $yOffset={yOffset}>
+				<Frame>
+					<UniversalImage image={image} alt="cta image" />
+				</Frame>
 			</ImageCard>
 		)
 	})
@@ -368,6 +371,7 @@ const GraphT = styled(GraphTSVG)`
 const GraphM = styled(GraphMSVG)`
   position: absolute;
   bottom: 0;
+
   ${fresponsive(css`
     display: none;
   `)}
@@ -438,7 +442,8 @@ const PhotoPanel = styled.div`
 const ImageCard = styled.div<{ $yOffset?: string }>`
   position: relative;
   background: ${gradients.surface1};
-  border: 1.5px solid ${colors.gray200};
+  overflow: clip;
+  ${generateGradientBorder(gradients.surfaceOutline, 1.5)};
   ${({ $yOffset }) =>
 		fresponsive(css`
       width: 288px;
@@ -447,7 +452,6 @@ const ImageCard = styled.div<{ $yOffset?: string }>`
       transform: translateY(75%);
       border-radius: 18px;
       box-shadow: 0 18px 42px 0 rgba(89 89 89 / 8%);
-      padding: 20px;
     `)}
 
   ${({ $yOffset }) =>
@@ -463,4 +467,18 @@ const ImageCard = styled.div<{ $yOffset?: string }>`
         height: 100%;
       }
     `)}
+`
+
+const Frame = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: ${gradients.surface1};
+
+  ${fresponsive(css`
+    padding: 20px;
+    border-radius: 18px;
+  `)}
 `

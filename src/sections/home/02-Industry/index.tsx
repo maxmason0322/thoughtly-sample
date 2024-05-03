@@ -38,7 +38,7 @@ gsap.registerPlugin(DrawSVGPlugin)
 
 const Blue = styled.strong`
   color: #0085e5d9;
-	font-weight: 500;
+  font-weight: 500;
 `
 
 const data = [
@@ -561,17 +561,6 @@ export default function Industry() {
 					<Right>
 						<TextContent>
 							<IconTitle>
-								{/* <div>
-									<AutoAnimate>
-										<StyledIcon
-											key={activeIndex}
-											name={
-												data[activeIndex]
-													?.icon as IconType
-											}
-										/>
-									</AutoAnimate>
-								</div> */}
 								<div>
 									<AutoAnimate>
 										<SubTitle key={data[activeIndex]?.title}>
@@ -1033,12 +1022,12 @@ const TabletWidgetWrapper = styled.div`
 
 const Widget1 = styled(Widget)`
   position: absolute;
-  transform: scale(0.73);
+  transform: scale(0.75);
   transform-origin: top left;
 
   ${fresponsive(css`
     height: 196px;
-    top: 23px;
+    top: 19px;
     left: 22px;
   `)}
 
@@ -1055,7 +1044,7 @@ const Widget2 = styled(Widget1)`
   transform-origin: bottom right;
 
   ${fresponsive(css`
-    bottom: 22px;
+    bottom: 19px;
     right: 22px;
   `)}
 `
@@ -1099,9 +1088,9 @@ const Connector = styled(LineSVG)`
   position: absolute;
 
   ${fresponsive(css`
-    width: 235px;
+    width: 227px;
     height: 50px;
-    left: 163px;
+    left: 166px;
     top: 163px;
   `)}
 `
