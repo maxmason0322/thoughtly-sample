@@ -39,6 +39,7 @@ export default function AvatarWidget({
 						<Avatar
 							$zIndex={arr.length - index}
 							className="avatar"
+							objectFit="cover"
 							image={item}
 							key={item.id + Math.random()}
 							alt="avatar"
@@ -114,7 +115,6 @@ export default function AvatarWidget({
 const Wrapper = styled.div`
   background: ${gradients.surface1};
   overflow: clip;
-  opacity: 0;
 
   ${fresponsive(css`
     border: 1.5px solid ${colors.gray300};
@@ -131,6 +131,11 @@ const Avatar = styled(UniversalImage)<{ $zIndex: number }>`
   position: absolute;
   border-radius: 99vw;
   z-index: ${({ $zIndex }) => $zIndex};
+  isolation: isolate;
+
+  img {
+    border-radius: 99vw;
+  }
 
   ${fresponsive(css`
     width: 48px;

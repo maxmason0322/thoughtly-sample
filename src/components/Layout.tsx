@@ -3,17 +3,13 @@ import Transition from "components/Transition"
 import { useBackButton } from "library/Loader/TransitionUtils"
 import Scroll from "library/Scroll"
 import { useTrackPageReady } from "library/pageReady"
-import useMedia from "library/useMedia"
 import useTrackFrameTime from "library/useTrackFrameTime"
-import { useContext } from "react"
 import { Suspense, lazy } from "react"
-import type { MouseEvent } from "react"
-import { InlineWidget } from "react-calendly"
 import styled, { createGlobalStyle, css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
 import Preloader from "./Preloader"
-import { CalendlyModalContext } from "./Providers/CalendlyModalProvider"
+const Calendly = lazy(() => import("components/CalendlyModal"))
 const Footer = lazy(() => import("components/Footer"))
 
 interface LayoutProps {
@@ -24,38 +20,15 @@ export default function Layout({ children }: LayoutProps) {
 	useTrackPageReady()
 	useBackButton()
 	useTrackFrameTime()
-	const contentHeight = useMedia("650px", "45.139vw", "77.938vw", "133.333vw")
-	const contentWidth = useMedia("600px", "41.667vw", "71.942vw", "92vw")
-
-	const { setModalOpen, modalOpen } = useContext(CalendlyModalContext)
-
-	const handleClick = (
-		e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>,
-	) => {
-		if (e.target === e.currentTarget) {
-			setModalOpen(false)
-		}
-	}
 
 	return (
 		<>
 			<Transition />
 			<Preloader />
 
-			<CalendlyModal
-				role="presentation"
-				$modalOpen={modalOpen}
-				onClick={(e) => handleClick(e)}
-			>
-				<InlineWidget
-					styles={{
-						height: `${contentHeight}`,
-						width: `${contentWidth}`,
-					}}
-					url="https://calendly.com/d/cpxn-sxr-85f"
-				/>
-			</CalendlyModal>
-
+			<Suspense>
+				<Calendly />
+			</Suspense>
 			<GlobalStyle />
 			<ScrollIndex>
 				{/* for some reason, this cannot be suspended (it breaks scrolling) */}
@@ -106,27 +79,4 @@ const ScrollIndex = styled(Scroll)`
   & #smooth-content > * {
     pointer-events: auto;
   }
-`
-
-const CalendlyModal = styled.div<{ $modalOpen: boolean }>`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  opacity: 0;
-  z-index: 100;
-  pointer-events: none;
-  display: grid;
-  place-items: center;
-  background: ${colors.gray100}50;
-  backdrop-filter: blur(10px);
-  transition: all 0.4s;
-
-  ${({ $modalOpen }) =>
-		$modalOpen &&
-		css`
-      opacity: 1;
-      pointer-events: auto;
-    `}
 `
