@@ -13,6 +13,7 @@ import colors from "styles/colors"
 import textStyles from "styles/text"
 import Preloader from "./Preloader"
 import { CalendlyModalContext } from "./Providers/CalendlyModalProvider"
+const Calendly = lazy(() => import("components/CalendlyModal"))
 const Footer = lazy(() => import("components/Footer"))
 
 interface LayoutProps {
@@ -41,20 +42,9 @@ export default function Layout({ children }: LayoutProps) {
 			<Transition />
 			<Preloader />
 
-			{/* <CalendlyModal
-				role="presentation"
-				$modalOpen={modalOpen}
-				onClick={(e) => handleClick(e)}
-			>
-				<InlineWidget
-					styles={{
-						height: `${contentHeight}`,
-						width: `${contentWidth}`,
-					}}
-					url="https://calendly.com/d/cpxn-sxr-85f"
-				/>
-			</CalendlyModal> */}
-
+			<Suspense>
+				<Calendly />
+			</Suspense>
 			<GlobalStyle />
 			<ScrollIndex>
 				{/* for some reason, this cannot be suspended (it breaks scrolling) */}
