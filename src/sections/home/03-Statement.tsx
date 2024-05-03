@@ -32,13 +32,13 @@ export default function Statement() {
 			})
 
 			const gradientColors = [
-				"linear-gradient(53deg, #A5CFF9 0%, #8FD5C8 100%)",
-				"linear-gradient(53deg,#8FD5C8 0%, #8BD6BF 100%)",
-				"linear-gradient(53deg, #8BD6BF 0%, #85D7B2 100%)",
-				"linear-gradient(53deg,  #7ADA9A 0%, #76DB91 100%)",
+				"linear-gradient(-53deg, #82f6a9 0%, #8BD6BF 100%)",
+				"linear-gradient(53deg,#8BD6BF 0%, #52d375 100%)",
+				"linear-gradient(53deg, #52d375 0%, #76DB91 100%)",
+				"linear-gradient(-53deg,  #76DB91 0%, #7ADA9A 100%)",
 				"linear-gradient(53deg, #7ADA9A 0%, #76DB91 100%)",
-				"linear-gradient(53deg,  #76DB91 0%, #66DF6D 100%)",
-				"linear-gradient(53deg,  #53E443 0%, #37EB05 100%)",
+				"linear-gradient(53deg,  #49d96f 0%, #53E443 100%)",
+				"linear-gradient(-53deg,  #53E443 0%, #37EB05 100%)",
 			]
 
 			for (const el of gradient.words) {
@@ -166,7 +166,7 @@ const Content = styled.div`
 
   ${fresponsive(css`
     height: 694px;
-    padding: 84px 96px;
+    padding: 79px 96px;
     border-radius: 60px;
   `)}
 
