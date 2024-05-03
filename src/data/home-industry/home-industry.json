@@ -23,7 +23,7 @@
 		"agent": {
 			"name": "Phillip",
 			"country": "🇬🇧",
-			"avatar": "./agents/phillip.jpg"
+			"avatar": "./agents/phillip.png"
 		},
 		"widgetOne": {
 			"text": "Thank you for calling ABC Medicare, who am I speaking with?"
@@ -35,7 +35,7 @@
 	},
 	{
 		"title": "Real Estate",
-		"text": "Scale your sales operations like never before Whether you're a broker, a firm, or a wholesaler, never miss a lead again! Your own AI ISA at your service.",
+		"text": "Scale your sales operations like never before. Whether you're a broker, a firm, or a wholesaler, never miss a lead again! Your own AI ISA at your service.",
 		"assertiveness": 70,
 		"humorLevel": 60,
 		"files": [
@@ -57,7 +57,7 @@
 		"agent": {
 			"name": "Gabriel",
 			"country": "🇲🇽",
-			"avatar": "./agents/gabriel.jpg"
+			"avatar": "./agents/gabriel.png"
 		},
 		"widgetOne": {
 			"text": "Hello! This is Monica from Chandler Bing Brokerages. I saw you requested information about our listing in Beverly Hills. Are you looking to schedule an appointment?"
@@ -91,7 +91,7 @@
 		"agent": {
 			"name": "James",
 			"country": "🇺🇸",
-			"avatar": "./agents/james.jpg"
+			"avatar": "./agents/james.png"
 		},
 		"widgetOne": {
 			"text": "Hi {name}, hope you're doing well! How is {api.interest} going? Just calling in to see if you registered to vote for the upcoming Primary elections!"
@@ -103,7 +103,7 @@
 	},
 	{
 		"title": "Insurance",
-		"text": "Scale your sales operations like never before Whether you're a broker, a firm, or a wholesaler, never miss a lead again! Your own AI ISA at your service.",
+		"text": "Scale your sales operations like never before. Whether you're a broker, a firm, or a wholesaler, never miss a lead again! Your own AI ISA at your service.",
 		"assertiveness": 30,
 		"humorLevel": 10,
 		"files": [
@@ -125,7 +125,7 @@
 		"agent": {
 			"name": "James",
 			"country": "🇺🇸",
-			"avatar": "./agents/james.jpg"
+			"avatar": "./agents/james.png"
 		},
 		"widgetOne": {
 			"text": "Thank you for calling XYZ Car Insurance. Are you calling about your policy for {api.carType}?"
@@ -159,7 +159,7 @@
 		"agent": {
 			"name": "James",
 			"country": "🇺🇸",
-			"avatar": "./agents/james.jpg"
+			"avatar": "./agents/james.png"
 		},
 		"widgetOne": {
 			"text": "Hello {name}, thank you for calling T&C Legal. Let me check your account real quick!"

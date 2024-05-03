@@ -2,6 +2,7 @@ import type { IconType } from "components/Icon"
 import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
+import getMedia from "library/getMedia"
 import useAnimation from "library/useAnimation"
 import useMedia from "library/useMedia"
 import { getResponsivePixels } from "library/viewportUtils"
@@ -49,7 +50,14 @@ export default function Features() {
   `)
 
 	const cards = data.allHomeFeaturesJson.nodes.map((item, index) => {
-		const textWidths = [291, 326, 232, 246, 279, 444]
+		const textWidths = [
+			291,
+			326,
+			getMedia(220, 220, 232, 232),
+			getMedia(264, 264, 246, 246),
+			getMedia(309, 309, 279, 279),
+			getMedia(334, 334, 444, 444),
+		]
 
 		return (
 			<Card

@@ -46,16 +46,16 @@ export default function Terms() {
 					<legalStyles.SectionHeader>
 						AGREEMENT TO OUR LEGAL TERMS
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						We are Thoughtly, Inc. ('Company,' 'we,' 'us,' 'our'), a company
 						registered in Delaware, United States.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						We operate the website https://thought.ly (the 'Site'), as well as
 						any other related products and services that refer or link to these
 						legal terms (the 'Legal Terms') (collectively, the 'Services').
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						Thoughtly is a cutting-edge SaaS platform that revolutionizes
 						content creation by integrating AI-powered interviewers,
 						streamlining the process of generating diverse content forms—from
@@ -65,28 +65,28 @@ export default function Terms() {
 						either conduct or forward interviews, democratizing content creation
 						by making it more cost-effective and time-efficient.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						Whether you're building a personal brand, gathering research
 						insights, or crafting PR strategies, Thoughtly lets you lead the
 						narrative by simply initiating a conversation.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						You can contact us by email at support@thought.ly.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						These Legal Terms constitute a legally binding agreement made
 						between you, whether personally or on behalf of an entity ('you'),
 						and Thoughtly, Inc., concerning your access to and use of the
 						Services.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						You agree that by accessing the Services, you have read, understood,
 						and agreed to be bound by all of these Legal Terms. IF YOU DO NOT
 						AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY
 						PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE
 						IMMEDIATELY.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						We will provide you with prior notice of any scheduled changes to
 						the Services you are using. The modified Legal Terms will become
 						effective upon posting or notifying you by support@thought.ly, as
@@ -94,19 +94,19 @@ export default function Terms() {
 						the effective date of any changes, you agree to be bound by the
 						modified terms.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						The Services are intended for users who are at least 18 years old.
 						Persons under the age of 18 are not permitted to use or register for
 						the Services.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						We recommend that you print a copy of these Legal Terms for your
 						records.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>1. OUR SERVICES</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						The information provided when using the Services is not intended for
 						distribution to or use by any person or entity in any jurisdiction
 						or country where such distribution or use would be contrary to law
@@ -124,7 +124,7 @@ export default function Terms() {
 					<legalStyles.SectionSubheader>
 						Our Intellectual Property
 					</legalStyles.SectionSubheader>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						We are the owner or the licensee of all intellectual property rights
 						in our Services, including all source code, databases,
 						functionality, software, website designs, audio, video, text,
@@ -135,7 +135,7 @@ export default function Terms() {
 					<legalStyles.SectionSubheader>
 						Your use of our Services
 					</legalStyles.SectionSubheader>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						Subject to your compliance with these Legal Terms, including the
 						"PROHIBITED ACTIVITIES" section below, we grant you a non-exclusive,
 						non-transferable, revocable license to:access the Services; and
@@ -149,7 +149,7 @@ export default function Terms() {
 						any commercial purpose whatsoever, without our express prior written
 						permission.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						If you wish to make any use of the Services, Content, or Marks other
 						than as set out in this section or elsewhere in our Legal Terms,
 						please address your request to: support@thought.ly. If we ever grant
@@ -166,7 +166,7 @@ export default function Terms() {
 					<legalStyles.SectionSubheader>
 						Your submissions and contributions
 					</legalStyles.SectionSubheader>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						Please review this section and the "PROHIBITED ACTIVITIES" section
 						carefully prior to using our Services to understand the (a) rights
 						you give us and (b) obligations you have when you post or upload any
@@ -178,7 +178,7 @@ export default function Terms() {
 						and dissemination for any lawful purpose, commercial or otherwise,
 						without acknowledgment or compensation to you.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						Contributions: The Services may invite you to chat, contribute to,
 						or participate in blogs, message boards, online forums, and other
 						functionality during which you may create, submit, post, display,
@@ -191,7 +191,7 @@ export default function Terms() {
 						be viewable by other users of the Services and possibly through
 						third-party websites.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						When you post Contributions, you grant us a license (including use
 						of your name, trademarks, and logos): By posting any Contributions,
 						you grant us an unrestricted, unlimited, irrevocable, perpetual,
@@ -210,7 +210,7 @@ export default function Terms() {
 						service marks, trade names, logos, and personal and commercial
 						images you provide.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						You are responsible for what you post or upload: By sending us
 						Submissions and/or posting Contributions through any part of the
 						Services or making Contributions accessible through the Services by
@@ -247,7 +247,7 @@ export default function Terms() {
 					<legalStyles.SectionHeader>
 						3. USER REPRESENTATIONS
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						By using the Services, you represent and warrant that: (1) all
 						registration information you submit will be true, accurate, current,
 						and complete; (2) you will maintain the accuracy of such information
@@ -260,7 +260,7 @@ export default function Terms() {
 						and (7) your use of the Services will not violate any applicable law
 						or regulation.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						If you provide any information that is untrue, inaccurate, not
 						current, or incomplete, we have the right to suspend or terminate
 						your account and refuse any and all current or future use of the
@@ -271,7 +271,7 @@ export default function Terms() {
 					<legalStyles.SectionHeader>
 						4. USER REGISTRATION
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						You may be required to register to use the Services. You agree to
 						keep your password confidential and will be responsible for all use
 						of your account and password. We reserve the right to remove,
@@ -284,7 +284,7 @@ export default function Terms() {
 					<legalStyles.SectionHeader>
 						5. PURCHASES AND PAYMENT
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						We accept the following forms of payment: - Visa - Mastercard -
 						American Express - Discover - PayPal You agree to provide current,
 						complete, and accurate purchase and account information for all
@@ -295,7 +295,7 @@ export default function Terms() {
 						be added to the price of purchases as deemed required by us. We may
 						change prices at any time. All payments shall be in US dollars.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						You agree to pay all charges at the prices then in effect for your
 						purchases and any applicable shipping fees, and you authorize us to
 						charge your chosen payment provider for any such amounts upon
@@ -306,7 +306,7 @@ export default function Terms() {
 						reserve the right to correct any errors or mistakes in pricing, even
 						if we have already requested or received payment.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						We reserve the right to refuse any order placed through the
 						Services. We may, in our sole discretion, limit or cancel quantities
 						purchased per person, per household, or per order. These
@@ -319,7 +319,7 @@ export default function Terms() {
 				</legalStyles.Section>
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>6. CANCELLATION</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						You can cancel your subscription at any time by contacting us using
 						the contact information provided below. Your cancellation will take
 						effect at the end of the current paid term.If you are unsatisfied
@@ -333,7 +333,7 @@ export default function Terms() {
 					<legalStyles.SectionSubheader>
 						As a user of the Services, you agree not to:
 					</legalStyles.SectionSubheader>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						Systematically retrieve data or other content from the Services to
 						create or compile, directly or indirectly, a collection,
 						compilation, database, or directory without written permission from
@@ -345,7 +345,7 @@ export default function Terms() {
 						limitations on the use of the Services and/or the Content contained
 						therein.
 					</legalStyles.Paragraph>
-					<legalStyles.OList noPadding>
+					<legalStyles.OList $noPadding>
 						<legalStyles.ListItem>
 							Disparage, tarnish, or otherwise harm, in our opinion, us and/or
 							the Services.
@@ -513,7 +513,7 @@ export default function Terms() {
 					<legalStyles.SectionHeader>
 						8. USER GENERATED CONTRIBUTIONS
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						The Services may invite you to chat, contribute to, or participate
 						in blogs, message boards, online forums, and other functionality,
 						and may provide you with the opportunity to create, submit, post,
@@ -527,7 +527,7 @@ export default function Terms() {
 						non-confidential and non-proprietary. When you create or make
 						available any Contributions, you thereby represent and warrant that:
 					</legalStyles.Paragraph>
-					<legalStyles.OList noPadding={false}>
+					<legalStyles.OList $noPadding={false}>
 						<legalStyles.ListItem>
 							The creation, distribution, transmission, public display, or
 							performance, and the accessing, downloading, or copying of your
@@ -594,7 +594,7 @@ export default function Terms() {
 							applicable law or regulation.
 						</legalStyles.ListItem>
 					</legalStyles.OList>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						Any use of the Services in violation of the foregoing violates these
 						Legal Terms and may result in, among other things, termination or
 						suspension of your rights to use the Services.
@@ -604,7 +604,7 @@ export default function Terms() {
 					<legalStyles.SectionHeader>
 						9. CONTRIBUTION LICENSE
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						By posting your Contributions to any part of the Services or making
 						Contributions accessible to the Services by linking your account
 						from the Services to any of your social networking accounts, you
@@ -622,7 +622,7 @@ export default function Terms() {
 						The use and distribution may occur in any media formats and through
 						any media channels.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						This license will apply to any form, media, or technology now known
 						or hereafter developed, and includes our use of your name, company
 						name, and franchise name, as applicable, and any of the trademarks,
@@ -631,7 +631,7 @@ export default function Terms() {
 						Contributions, and you warrant that moral rights have not otherwise
 						been asserted in your Contributions.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						We do not assert any ownership over your Contributions. You retain
 						full ownership of all of your Contributions and any intellectual
 						property rights or other proprietary rights associated with your
@@ -642,7 +642,7 @@ export default function Terms() {
 						all responsibility and to refrain from any legal action against us
 						regarding your Contributions.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						We have the right, in our sole and absolute discretion, (1) to edit,
 						redact, or otherwise change any Contributions; (2) to re-categorize
 						any Contributions to place them in more appropriate locations on the
@@ -655,7 +655,7 @@ export default function Terms() {
 					<legalStyles.SectionHeader>
 						10. GUIDELINES FOR REVIEWS
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						We may provide you areas on the Services to leave reviews or
 						ratings. When posting a review, you must comply with the following
 						criteria: (1) you should have firsthand experience with the
@@ -671,7 +671,7 @@ export default function Terms() {
 						may not organize a campaign encouraging others to post reviews,
 						whether positive or negative.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						We may accept, reject, or remove reviews in our sole discretion. We
 						have absolutely no obligation to screen reviews or to delete
 						reviews, even if anyone considers reviews objectionable or
@@ -690,7 +690,7 @@ export default function Terms() {
 					<legalStyles.SectionHeader>
 						11. SOCIAL MEDIA
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						As part of the functionality of the Services, you may link your
 						account with online accounts you have with third-party service
 						providers (each such account, a "Third-Party Account") by either:
@@ -745,7 +745,7 @@ export default function Terms() {
 					<legalStyles.SectionHeader>
 						12. THIRD-PARTY WEBSITES AND CONTENT
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						The Services may contain (or you may be sent via the Site) links to
 						other websites ("Third-Party Websites") as well as articles,
 						photographs, text, graphics, pictures, designs, music, sound, video,
@@ -785,7 +785,7 @@ export default function Terms() {
 					<legalStyles.SectionHeader>
 						13. SERVICES MANAGEMENT
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						The Services may contain (or you may be sent via the Site) links to
 						other websites ("Third-Party Websites") as well as articles,
 						photographs, text, graphics, pictures, designs, music, sound, video,
@@ -825,7 +825,7 @@ export default function Terms() {
 					<legalStyles.SectionHeader>
 						14. PRIVACY POLICY
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						We care about data privacy and security. Please review our Privacy
 						Policy: https://thought.ly/privacy. By using the Services, you agree
 						to be bound by our Privacy Policy, which is incorporated into these
@@ -843,7 +843,7 @@ export default function Terms() {
 					<legalStyles.SectionHeader>
 						15. TERM AND TERMINATION
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						These Legal Terms shall remain in full force and effect while you
 						use the Services. WITHOUT LIMITING ANY OTHER PROVISION OF THESE
 						LEGAL TERMS, WE RESERVE THE RIGHT TO, IN OUR SOLE DISCRETION AND
@@ -867,7 +867,7 @@ export default function Terms() {
 					<legalStyles.SectionHeader>
 						16. MODIFICATIONS AND INTERRUPTIONS
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						We reserve the right to change, modify, or remove the contents of
 						the Services at any time or for any reason at our sole discretion
 						without notice. However, we have no obligation to update any
@@ -875,7 +875,7 @@ export default function Terms() {
 						third party for any modification, price change, suspension, or
 						discontinuance of the Services.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						We cannot guarantee the Services will be available at all times. We
 						may experience hardware, software, or other problems or need to
 						perform maintenance related to the Services, resulting in
@@ -894,7 +894,7 @@ export default function Terms() {
 					<legalStyles.SectionHeader>
 						17. GOVERNING LAW
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						These Legal Terms and your use of the Services are governed by and
 						construed in accordance with the laws of the State of Delaware
 						applicable to agreements made and to be entirely performed within
@@ -909,7 +909,7 @@ export default function Terms() {
 					<legalStyles.SectionSubheader>
 						Binding Arbitration
 					</legalStyles.SectionSubheader>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						If the Parties are unable to resolve a Dispute through informal
 						negotiations, the Dispute (except those Disputes expressly excluded
 						below) will be finally and exclusively resolved by binding
@@ -935,7 +935,7 @@ export default function Terms() {
 						confirm, modify, vacate, or enter judgment on the award entered by
 						the arbitrator.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						If for any reason, a Dispute proceeds in court rather than
 						arbitration, the Dispute shall be commenced or prosecuted in the
 						state and federal courts located in Kent County, Delaware, and the
@@ -946,7 +946,7 @@ export default function Terms() {
 						Sale of Goods and the Uniform Computer Information Transaction Act
 						(UCITA) are excluded from these Legal Terms.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						In no event shall any Dispute brought by either Party related in any
 						way to the Services be commenced more than one (1) years after the
 						cause of action arose. If this provision is found to be illegal or
@@ -960,7 +960,7 @@ export default function Terms() {
 					<legalStyles.SectionSubheader>
 						Restrictions
 					</legalStyles.SectionSubheader>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						Binding ArbitrationIf the Parties are unable to resolve a Dispute
 						through informal negotiations, the Dispute (except those Disputes
 						expressly excluded below) will be finally and exclusively resolved
@@ -986,7 +986,7 @@ export default function Terms() {
 						confirm, modify, vacate, or enter judgment on the award entered by
 						the arbitrator.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						If for any reason, a Dispute proceeds in court rather than
 						arbitration, the Dispute shall be commenced or prosecuted in the
 						state and federal courts located in Kent County, Delaware, and the
@@ -997,7 +997,7 @@ export default function Terms() {
 						Sale of Goods and the Uniform Computer Information Transaction Act
 						(UCITA) are excluded from these Legal Terms.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						In no event shall any Dispute brought by either Party related in any
 						way to the Services be commenced more than one (1) years after the
 						cause of action arose. If this provision is found to be illegal or
@@ -1011,7 +1011,7 @@ export default function Terms() {
 					<legalStyles.SectionSubheader>
 						Exceptions to Arbitration
 					</legalStyles.SectionSubheader>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						The Parties agree that the following Disputes are not subject to the
 						above provisions concerning binding arbitration: (a) any Disputes
 						seeking to enforce or protect, or concerning the validity of, any of
@@ -1029,7 +1029,7 @@ export default function Terms() {
 				</legalStyles.Section>
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>19. CORRECTIONS</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						There may be information on the Services that contains typographical
 						errors, inaccuracies, or omissions, including descriptions, pricing,
 						availability, and various other information. We reserve the right to
@@ -1040,7 +1040,7 @@ export default function Terms() {
 				</legalStyles.Section>
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>20. DISCLAIMER</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						THE SERVICES ARE PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU
 						AGREE THAT YOUR USE OF THE SERVICES WILL BE AT YOUR SOLE RISK. TO
 						THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES,
@@ -1078,7 +1078,7 @@ export default function Terms() {
 					<legalStyles.SectionHeader>
 						21. LIMITATIONS OF LIABILITY
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE
 						TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL,
 						EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST
@@ -1100,7 +1100,7 @@ export default function Terms() {
 					<legalStyles.SectionHeader>
 						22. TCPA Compliance and Acknowledgment
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						By signing up for and utilizing AI-generated text-to-speech
 						technology for phone calls provided by Thoughtly, you acknowledge
 						having read and understood this TCPA Compliance Disclaimer. You
@@ -1108,7 +1108,7 @@ export default function Terms() {
 						compliance with the Telephone Consumer Protection Act (TCPA),
 						codified at 47 U.S.C. § 227, and any other relevant laws.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						In utilizing AI-generated text-to-speech technology for phone calls,
 						it is critical to ensure full compliance with the Telephone Consumer
 						Protection Act (TCPA). The TCPA imposes stringent regulations on the
@@ -1119,7 +1119,7 @@ export default function Terms() {
 					<legalStyles.SectionSubheader>
 						Prior Express Consent
 					</legalStyles.SectionSubheader>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						Ensure that you have obtained prior express consent from all
 						recipients before making calls using AI-generated text-to-speech
 						technology, especially when contacting mobile phones or delivering
@@ -1130,7 +1130,7 @@ export default function Terms() {
 					<legalStyles.SectionSubheader>
 						Residential and Special Service Numbers
 					</legalStyles.SectionSubheader>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						Exercise caution when making AI-generated calls to residential lines
 						or numbers assigned to emergency services, healthcare facilities,
 						elderly homes, and services where the recipient incurs charges for
@@ -1140,7 +1140,7 @@ export default function Terms() {
 					<legalStyles.SectionSubheader>
 						Established Business Relationship (EBR)
 					</legalStyles.SectionSubheader>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						While calls to individuals with whom you have an established
 						business relationship may be exempt from certain restrictions, it is
 						essential to verify that such exemptions apply under the current
@@ -1149,7 +1149,7 @@ export default function Terms() {
 					<legalStyles.SectionSubheader>
 						Identification and Contact Information
 					</legalStyles.SectionSubheader>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						Calls must include a clear and concise identification of the
 						business, individual, or entity initiating the call at the outset of
 						the message, along with contact information, allowing recipients to
@@ -1158,7 +1158,7 @@ export default function Terms() {
 					<legalStyles.SectionSubheader>
 						National Do Not Call Registry Compliance
 					</legalStyles.SectionSubheader>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						Confirm that numbers dialed are not listed on the national Do Not
 						Call Registry, unless an exemption applies. Regularly check the
 						registry to update your contact lists accordingly.
@@ -1166,7 +1166,7 @@ export default function Terms() {
 					<legalStyles.SectionSubheader>
 						Limitation of Liability
 					</legalStyles.SectionSubheader>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						Thoughtly provides AI-generated text-to-speech technology as a tool
 						for communication purposes. While we strive to ensure our services
 						are compliant with all applicable regulations, the responsibility
@@ -1184,7 +1184,7 @@ export default function Terms() {
 					<legalStyles.SectionHeader>
 						23. INDEMNIFICATION
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						You agree to defend, indemnify, and hold us harmless, including our
 						subsidiaries, affiliates, and all of our respective officers,
 						agents, partners, and employees, from and against any loss, damage,
@@ -1206,7 +1206,7 @@ export default function Terms() {
 				</legalStyles.Section>
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>24. USER DATA</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						We will maintain certain data that you transmit to the Services for
 						the purpose of managing the performance of the Services, as well as
 						data relating to your use of the Services. Although we perform
@@ -1222,7 +1222,7 @@ export default function Terms() {
 					<legalStyles.SectionHeader>
 						25. ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						Visiting the Services, sending us emails, and completing online
 						forms constitute electronic communications. You consent to receive
 						electronic communications, and you agree that all agreements,
@@ -1243,7 +1243,7 @@ export default function Terms() {
 					<legalStyles.SectionHeader>
 						26. MISCELLANEOUS
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						These Legal Terms and any policies or operating rules posted by us
 						on the Services or in respect to the Services constitute the entire
 						agreement and understanding between you and us. Our failure to
@@ -1268,16 +1268,18 @@ export default function Terms() {
 				</legalStyles.Section>
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>27. CONTACT US</legalStyles.SectionHeader>
-					<legalStyles.Paragraph noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
 						In order to resolve a complaint regarding the Services or to receive
 						further information regarding use of the Services, please contact us
 						at:
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
 						Thoughtly, Inc.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding>United States</legalStyles.Paragraph>
-					<legalStyles.Paragraph noPadding>
+					<legalStyles.Paragraph $noPadding>
+						United States
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding>
 						support@thought.ly
 					</legalStyles.Paragraph>
 				</legalStyles.Section>

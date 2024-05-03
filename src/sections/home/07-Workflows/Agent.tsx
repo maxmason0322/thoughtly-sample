@@ -30,8 +30,6 @@ export default function AgentCard({ activeIndex }: { activeIndex: number }) {
     }
   `)
 
-	// Todo delete if we don't end up animating the agent card
-
 	useAnimation(
 		() => {
 			const tl = gsap.timeline()
@@ -66,24 +64,24 @@ export default function AgentCard({ activeIndex }: { activeIndex: number }) {
 
 	return (
 		<Agent>
-			<AutoAnimate>
+			<AvatarWrapper>
 				<Avatar
 					key={activeIndex}
 					image={data.allHomeIndustryJson.nodes[activeIndex]?.agent?.avatar}
 					alt={data.allHomeIndustryJson.nodes[activeIndex]?.agent?.name ?? ""}
 				/>
-			</AutoAnimate>
-			<AutoAnimate>
+			</AvatarWrapper>
+			<AvatarWrapper>
 				<Name key={activeIndex}>
 					{data.allHomeIndustryJson.nodes[activeIndex]?.agent?.country}
 				</Name>
-			</AutoAnimate>
+			</AvatarWrapper>
 			<Line />
-			<AutoAnimate>
+			<AvatarWrapper>
 				<Name key={activeIndex}>
 					{data.allHomeIndustryJson.nodes[activeIndex]?.agent?.name}
 				</Name>
-			</AutoAnimate>
+			</AvatarWrapper>
 		</Agent>
 	)
 }
@@ -105,8 +103,8 @@ const Agent = styled(Card)`
   align-items: center;
 
   ${fresponsive(css`
-    width: 170px;
-    height: 45px;
+    width: 172px;
+    height: 48px;
     top: -24px;
     left: 50%;
     transform: translateX(-50%);
@@ -116,12 +114,10 @@ const Agent = styled(Card)`
 `
 
 const Avatar = styled(UniversalImage)`
-  border-radius: 99vw;
-
   ${fresponsive(css`
     width: 26.6px;
     height: 26.6px;
-  `)}
+  `)};
 `
 
 const Name = styled.span`
@@ -135,5 +131,13 @@ const Line = styled.div`
   ${fresponsive(css`
     width: 1.5px;
     height: 10.3px;
+  `)}
+`
+
+const AvatarWrapper = styled(AutoAnimate)`
+  position: relative;
+
+  ${fresponsive(css`
+    border-radius: 99vw;
   `)}
 `

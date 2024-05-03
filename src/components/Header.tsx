@@ -47,7 +47,9 @@ export default function Header() {
 		<Wrapper>
 			<Inner ref={innerRef}>
 				<Left>
-					<StyledLogoSVG />
+					<UniversalLink to={links.home}>
+						<StyledLogoSVG />
+					</UniversalLink>
 					<Links>
 						<Link to={links.industries}>Industries</Link>
 						<Link to={links.features}>Features</Link>
