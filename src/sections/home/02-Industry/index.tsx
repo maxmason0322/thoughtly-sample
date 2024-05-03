@@ -714,7 +714,7 @@ const Buttons = styled.div`
 
   ${fresponsive(css`
     gap: 18px;
-    width: 511px;
+    width: 550px;
   `)}
 
   ${ftablet(css`
