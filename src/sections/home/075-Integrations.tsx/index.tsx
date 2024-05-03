@@ -67,7 +67,7 @@ export default function Integrations() {
 						{doubleTrack ? halfOfElements(cards) : cards}
 					</InfiniteSideScroll>
 					{doubleTrack && (
-						<InfiniteSideScroll key={2} trackGap={24}>
+						<InfiniteSideScroll key={2} trackGap={24} reversed>
 							{halfOfElements(cards, true)}
 						</InfiniteSideScroll>
 					)}
