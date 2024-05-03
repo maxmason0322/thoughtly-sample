@@ -73,7 +73,7 @@ export default function Card({
 				</Row>
 				<Price>
 					<AutoAnimate duration={duration}>
-						<div key={activeIndex}>{prices[activeIndex]}</div>
+						<PriceText key={activeIndex}>{prices[activeIndex]}</PriceText>
 					</AutoAnimate>
 					{!hideMonth && <span>/mo.</span>}
 				</Price>
@@ -295,5 +295,12 @@ const Minutes = styled.div`
   ${fresponsive(css`
     margin-bottom: 12px;
     margin-top: 12px;
+  `)}
+`
+
+const PriceText = styled.div`
+  ${fresponsive(css`
+    padding: 0 10px 0 0;
+    margin: 0 -10px 0 0;
   `)}
 `
