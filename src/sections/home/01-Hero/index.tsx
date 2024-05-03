@@ -545,7 +545,7 @@ const BackgroundTablet = styled.div`
   display: none;
   z-index: 0;
   background-color: ${colors.gray100};
-	overflow: clip;
+  overflow: clip;
 
   ${ftablet(css`
     display: flex;
@@ -566,4 +566,8 @@ const BackgroundTablet = styled.div`
   `)}
 `
 
-const StyledDots = styled(Dots)``
+const StyledDots = styled(Dots)`
+  ${ftablet(css`
+    inset: 0 0 16px;
+  `)}
+`
