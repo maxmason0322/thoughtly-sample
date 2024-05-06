@@ -6,9 +6,8 @@ import UniversalImage, { type UniversalImageData } from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useMedia from "library/useMedia"
 import styled, { css } from "styled-components"
-import colors, { gradients } from "styles/colors"
+import colors from "styles/colors"
 import textStyles from "styles/text"
-import { generateGradientBorder } from "utils/generateGradientBorder"
 
 gsap.registerPlugin(ScrollToPlugin)
 
@@ -115,8 +114,7 @@ const Wrapper = styled.div<{
   }
 
   ${fresponsive(css`
-    ${generateGradientBorder(gradients.surfaceOutline, 1.5)};
-
+    border: 1.5px solid ${colors.gray200};
     border-radius: 18px;
     padding: 24px;
     gap: 12px;
