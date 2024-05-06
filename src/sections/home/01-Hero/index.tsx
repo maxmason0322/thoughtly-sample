@@ -171,13 +171,19 @@ export default function Hero() {
 	)
 
 	const initTimeline = useAnimation(() => {
-		ScrollSmoother.get()?.paused(true)
 		const tl = gsap.timeline({
 			delay: 0.25,
 			paused: true,
+			onStart: () => {
+				ScrollSmoother.get()?.paused(true)
+			},
 			onComplete: () => {
 				ScrollSmoother.get()?.paused(false)
 			},
+		})
+
+		tl.set([".call-widget", ".avatar-widget"], {
+			display: "flex",
 		})
 
 		tl.fromTo(

@@ -226,12 +226,7 @@ const ProcessIconContainer = styled.div`
 
 const ProcessTextWord = styled.p``
 
-const StyledAutoAnimate = styled(AutoAnimate)`
-  ${fresponsive(css`
-    padding: 2px;
-    margin: -2px;
-  `)}
-`
+const StyledAutoAnimate = styled(AutoAnimate)``
 
 const CenterModuleWrapper = styled.div`
   position: relative;
