@@ -113,6 +113,7 @@ const RightNode = styled.div`
   ${fresponsive(css`
     left: unset;
     right: -4.7px;
+    z-index: 5;
   `)}
 `
 
