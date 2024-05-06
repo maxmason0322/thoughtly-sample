@@ -235,6 +235,7 @@ const Text = styled.p`
   ${ftablet(css`
     ${textStyles.bodyR}
     width: 250px;
+    height: 70px;
   `)}
 `
 
