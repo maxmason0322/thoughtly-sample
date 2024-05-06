@@ -117,8 +117,8 @@ const StartWidget = styled(Widget)`
   `)}
 
 	${fmobile(css`
-    right: 31.5px;
-    top: 768px;
+    right: 33px;
+    top: 767px;
     transform-origin: top right;
     transform: scale(0.73);
   `)}
@@ -144,6 +144,7 @@ const SpeakWidget = styled(Widget)`
     transform: scale(0.73);
     top: 1116px;
     right: -204.5px;
+    opacity: 1;
   `)}
 `
 
