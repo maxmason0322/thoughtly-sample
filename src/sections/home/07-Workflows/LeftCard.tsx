@@ -127,7 +127,6 @@ const Inner = styled.div`
     border-radius: 17px;
     width: 280px;
     height: 150px;
-    border-radius: 18px;
   `)}
 
   ${ftablet(css`

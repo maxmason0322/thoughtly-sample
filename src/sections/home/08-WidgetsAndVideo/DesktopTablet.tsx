@@ -15,8 +15,8 @@ import textStyles from "styles/text"
 import { distributeByPosition } from "utils/gsapDistribute"
 
 const VIDEO_SOURCES = [
-	"https://www.youtube.com/embed/CoV79mSUc9k?controls=0&autoplay=1&loop=1&playlist=CoV79mSUc9k&autopause=0&mute=1",
-	"https://www.youtube.com/embed/CoV79mSUc9k?&autoplay=1&loop=1&autopause=0&mute=1",
+	"https://www.youtube.com/embed/KzHVSHHe8ss?controls=0&autoplay=1&loop=1&playlist=KzHVSHHe8ss&autopause=0&mute=1",
+	"https://www.youtube.com/embed/KzHVSHHe8ss?&autoplay=1&loop=1&autopause=0&mute=1",
 ]
 
 export default function DesktopTablet() {
