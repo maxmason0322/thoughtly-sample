@@ -25,6 +25,7 @@ const links = {
 	apiDocs: "https://api.thought.ly/docs/",
 	mediaInquiries: "mailto:press@thought.ly",
 	contact: "mailto:support@thought.ly",
+	phone: "tel:+18557170250",
 	...routes,
 	...sections,
 	...socials,

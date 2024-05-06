@@ -19,6 +19,7 @@ import {
 } from "styles/media"
 import textStyles from "styles/text"
 import { transparentText } from "styles/text"
+import links from "utils/links"
 
 export default function CallCTA() {
 	const { mobile } = useContext(ScreenContext)
@@ -59,7 +60,7 @@ export default function CallCTA() {
 						<MarqueeBorder
 							onMouseEnter={handleMouseEnter}
 							onMouseLeave={handleMouseLeave}
-							to="tel:+18557170250"
+							to={links.phone}
 							forwardRef={phoneRef}
 						>
 							<Dots />
