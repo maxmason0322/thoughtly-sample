@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   background: ${gradients.greenGreen};
   ${textStyles.t3};
   color: ${colors.green700};
-  padding: 0.5px;
+  padding: 0.75px;
   ${fresponsive(css`
     border-radius: 4px;
   `)}
