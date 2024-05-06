@@ -1,7 +1,11 @@
 import Widget from "components/Widget"
 import { graphql, useStaticQuery } from "gatsby"
+import gsap from "gsap"
+import { ReactComponent as GraphSVG } from "images/home/hero/anal-graph.svg"
 import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
+import useAnimation from "library/useAnimation"
+import { useRef } from "react"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import AvatarWidget from "./AvatarWidget"
@@ -9,13 +13,10 @@ import CallWidget from "./CallWidget"
 import IconsWidget from "./IconsWidget"
 
 export default function Widgets() {
+	const bar1Ref = useRef<HTMLDivElement>(null)
+	const bar2Ref = useRef<HTMLDivElement>(null)
 	const images: Queries.HomeHeroQuery = useStaticQuery(graphql`
     query HomeHero {
-      abTest: file(relativePath: { eq: "home/hero/anal-graph.png" }) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
       webhook: file(relativePath: { eq: "home/hero/webhook.png" }) {
         childImageSharp {
           gatsbyImageData
@@ -23,6 +24,41 @@ export default function Widgets() {
       }
     }
   `)
+
+	useAnimation(() => {
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: ".test-widget",
+				start: "start center",
+				end: "bottom top",
+				toggleActions: "play reset play none",
+			},
+		})
+		tl.from(
+			[bar1Ref.current, bar2Ref.current],
+			{
+				width: 0,
+				duration: 2,
+				stagger: 0.5,
+				ease: "power2.out",
+				innerText: "0%",
+				modifiers: {
+					innerText: gsap.utils.unitize((text: number) => Math.round(text)),
+				},
+			},
+			0.2,
+		)
+		tl.from(
+			[bar1Ref.current, bar2Ref.current],
+			{
+				stagger: 0.5,
+				padding: 0,
+				duration: 0.3,
+				ease: "power2.in",
+			},
+			0,
+		)
+	}, [])
 
 	return (
 		<>
@@ -94,7 +130,11 @@ export default function Widgets() {
 						Great <Blue>{"{name}"}</Blue>, let's get you in the system and I'll
 						route you to the right place!
 					</p>
-					<ABImage image={images.abTest} alt="analytics graph" />
+					<GraphWrapper>
+						<Flow1Bar ref={bar1Ref}>82%</Flow1Bar>
+						<Flow2Bar ref={bar2Ref}>34%</Flow2Bar>
+						<GraphSVG />
+					</GraphWrapper>
 				</ABTestContent>
 			</ABTestWidget>
 		</>
@@ -221,12 +261,50 @@ const ABTestWidget = styled(Widget)`
 const ABTestContent = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 10px;
+
+  p {
+    ${fmobile(css`
+      width: 291px;
+    `)}
+  }
 `
 
-const ABImage = styled(UniversalImage)`
+const GraphWrapper = styled.div`
+  position: relative;
+  color: #FFF;
+  font-family: Whyte, sans-serif;
+  font-size: 10.5px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 10.8px */
+  letter-spacing: -0.27px;
+`
+
+const Flow1Bar = styled.div`
+  position: absolute;
+  overflow: clip;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  background: linear-gradient(5deg, #1C6DF2 -20.25%, #98CCFB 93.91%);
+
   ${fresponsive(css`
-    width: 326px;
-    height: 113px;
+    border-radius: 3px;
+    height: 16px;
+    width: 191px;
+    left: 77px;
+    top: 50px;
+    padding-right: 10px;
+  `)}
+`
+
+const Flow2Bar = styled(Flow1Bar)`
+  background: linear-gradient(10deg, #32CB08 -4.03%, #72FA4C 101.71%);
+
+  ${fresponsive(css`
+    width: 80px;
+    top: 80px;
   `)}
 `
 
