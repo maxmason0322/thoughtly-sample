@@ -2,7 +2,7 @@ import Icon, { type IconType } from "components/Icon"
 import gsap from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
 import UniversalLink from "library/Loader/UniversalLink"
-import UniversalImage, { type UniversalImageData } from "library/UniversalImage"
+import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useMedia from "library/useMedia"
 import styled, { css } from "styled-components"
@@ -57,9 +57,9 @@ export default function Card({
 		text: string | null
 	} | null
 	index: number
-	background?: UniversalImageData
-	backgroundTablet?: UniversalImageData
-	backgroundMobile?: UniversalImageData
+	background?: string | null
+	backgroundTablet?: string | null
+	backgroundMobile?: string | null
 	textWidths: number
 	strokeIcon?: boolean | null
 }) {
@@ -81,8 +81,7 @@ export default function Card({
 	}
 
 	return (
-		<Wrapper $columns={columns} $rows={rows}>
-			<Image image={backgroundResp} alt="" objectFit="contain" />
+		<Wrapper $columns={columns} $rows={rows} $background={backgroundResp}>
 			<StyledIcon $stroke={!!strokeIcon} name={icon} />
 			<Title>{title}</Title>
 			<Text $textWidth={textWidths}>{text}</Text>
@@ -98,7 +97,10 @@ export default function Card({
 const Wrapper = styled.div<{
 	$columns?: string
 	$rows?: string
+	$background?: string | null
 }>`
+  background-image: url(${({ $background }) => $background});
+  background-size: 100% 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -107,6 +109,7 @@ const Wrapper = styled.div<{
   grid-row: ${({ $rows }) => $rows};
   position: relative;
   overflow: clip;
+  will-change: transform;
 
   > * {
     position: relative;
@@ -157,6 +160,8 @@ const Image = styled(UniversalImage)`
 const Title = styled.h1`
   ${textStyles.sh2}
   color: ${colors.black};
+  position: relative;
+  z-index: 2;
 
   ${fresponsive(css`
     width: 140px;
@@ -172,6 +177,8 @@ const Title = styled.h1`
 const Text = styled.p<{ $textWidth: number }>`
   ${textStyles.bodyS}
   color: ${colors.gray700};
+  position: relative;
+  z-index: 2;
 
   ${({ $textWidth }) =>
 		fresponsive(css`
@@ -190,6 +197,9 @@ const StyledIcon = styled(Icon)<{ $stroke: boolean }>`
     stroke: ${({ $stroke }) => $stroke && colors.gray600};
   }
 
+  position: relative;
+  z-index: 2;
+
   ${fresponsive(css`
     width: 15px;
     height: 15px;
@@ -205,4 +215,6 @@ const Link = styled(UniversalLink)`
   color: ${colors.green600};
   text-decoration: underline;
   ${textStyles.bodyS}
+  position: relative;
+  z-index: 2;
 `
