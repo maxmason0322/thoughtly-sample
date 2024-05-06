@@ -126,6 +126,7 @@ const Inner = styled.div`
   ${fresponsive(css`
     width: 280px;
     height: 150px;
+    border-radius: 18px;
   `)}
 
   ${ftablet(css`
@@ -194,7 +195,7 @@ const StyledAutoAnimate = styled(AutoAnimate)``
 
 const LeftCardWrapper = styled.div`
   position: absolute;
-  overflow: clip;
+
   ${generateGradientBorder(gradients.surfaceOutline, 1.5)};
 
   ${RightNode} {
@@ -205,7 +206,7 @@ const LeftCardWrapper = styled.div`
 
   ${fresponsive(css`
     right: calc(100% - 2px);
-    top: -1px;
+    top: -2px;
     width: 282px;
     height: 152px;
     box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);

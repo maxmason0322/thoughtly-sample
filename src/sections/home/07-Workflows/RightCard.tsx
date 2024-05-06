@@ -88,7 +88,6 @@ const LeftNode = styled.div`
 const RightCardWrapper = styled.div`
   ${generateGradientBorder(gradients.surfaceOutline, 1.5)};
   position: absolute;
-  overflow: clip;
 
   ${LeftNode} {
     top: 50%;
@@ -97,7 +96,7 @@ const RightCardWrapper = styled.div`
 
   ${fresponsive(css`
     left: 539px;
-    top: 123px;
+    top: 122px;
     width: 332px;
     height: 170px;
     min-height: 126px;
@@ -120,6 +119,7 @@ const Inner = styled.div`
   ${fresponsive(css`
     width: 330px;
     height: 168px;
+    border-radius: 18px;
   `)}
 
   ${ftablet(css`
