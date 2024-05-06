@@ -295,9 +295,12 @@ const Grid1 = styled.div`
 
   ${fmobile(css`
     grid-gap: 12px;
+    width: 511px;
+    height: 595px;
     grid-template:
-      "widget1 . . . . . . ." 32px
-      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 100.5px
+      "widget1 . . . . . . ." 28px
+      "widget1 . . widget2 widget2 widget2 widget2 ." 6.5px
+      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 82.25px
       "widget4 widget4 widget5 widget2 widget2 widget2 widget2 ." 87.5px
       "widget6 widget6 widget7 widget7 widget8 widget8 widget8 ." 65.5px
       "widget6 widget6 widget9 widget9 widget8 widget8 widget8 widget10" 88px
@@ -305,11 +308,6 @@ const Grid1 = styled.div`
       ". . . . . . widget12 widget12" 65.5px
       / 104.5px 35px 92px 21.5px 38.5px 22.5px 25.5px 88px;
     left: 700px;
-
-    img {
-      width: 100%;
-      height: auto;
-    }
   `)}
 `
 
