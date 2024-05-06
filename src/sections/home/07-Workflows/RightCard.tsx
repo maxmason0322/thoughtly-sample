@@ -81,7 +81,7 @@ const NodeStyle = css`
 
 const LeftNode = styled.div`
   position: absolute;
-  z-index: 2;
+  z-index: 9;
   ${NodeStyle}
   ${fresponsive(css`
     left: -4.7px;
