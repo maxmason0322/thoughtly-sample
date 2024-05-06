@@ -62,7 +62,7 @@ export default function Header() {
 					{mobile && (
 						<>
 							<MobileButton to={links.login}>Sign In</MobileButton>
-							<MobileButton to={links.login}>
+							<MobileButton type="button" onClick={() => setModalOpen(true)}>
 								Get Started <StyledIcon name="chev" />
 							</MobileButton>
 						</>

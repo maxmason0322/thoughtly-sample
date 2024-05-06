@@ -385,7 +385,7 @@ export default function WorkflowAnimation({
 				)
 		},
 		[setActiveIndex],
-		{ scope: animationRef },
+		{ scope: animationRef, recreateOnResize: true },
 	)
 
 	return (
