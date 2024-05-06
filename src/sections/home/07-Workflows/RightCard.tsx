@@ -119,7 +119,8 @@ const Inner = styled.div`
   ${fresponsive(css`
     width: 330px;
     height: 168px;
-    border-radius: 18px;
+    border-radius: 17px;
+
   `)}
 
   ${ftablet(css`
