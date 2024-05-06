@@ -499,7 +499,8 @@ const Grid1 = styled.div`
     left: 0;
     grid-template:
       "widget1 . . . . . . ." 56px
-      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 192.5px
+      "widget1 . . widget2 widget2 widget2 widget2 ." 13px
+      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 164.5px
       "widget4 widget4 widget5 widget2 widget2 widget2 widget2 ." 175px
       "widget6 widget6 widget7 widget7 widget8 widget8 widget8 ." 131px
       "widget6 widget6 widget9 widget9 widget8 widget8 widget8 widget10" 176px
@@ -513,12 +514,13 @@ const Grid1 = styled.div`
   `)}
 
   ${fmobile(css`
-    width: 511.5px;
-    height: 595px;
     grid-gap: 12px;
+    width: 511px;
+    height: 595px;
     grid-template:
       "widget1 . . . . . . ." 28px
-      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 96.5px
+      "widget1 . . widget2 widget2 widget2 widget2 ." 6.5px
+      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 82.25px
       "widget4 widget4 widget5 widget2 widget2 widget2 widget2 ." 87.5px
       "widget6 widget6 widget7 widget7 widget8 widget8 widget8 ." 65.5px
       "widget6 widget6 widget9 widget9 widget8 widget8 widget8 widget10" 88px
@@ -594,9 +596,7 @@ const VideoWrapper = styled.div`
   `)}
 `
 
-const GridImage = styled(UniversalImage)`
-  object-fit: scale-down;
-`
+const GridImage = styled(UniversalImage)``
 
 const Row = styled.div`
   display: flex;
