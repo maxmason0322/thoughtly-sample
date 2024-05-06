@@ -114,7 +114,7 @@ const Wrapper = styled.div<{
   }
 
   ${fresponsive(css`
-    border: 2px solid ${colors.gray300};
+    border: 1.5px solid ${colors.gray200};
     border-radius: 18px;
     padding: 24px;
     gap: 12px;
