@@ -56,6 +56,7 @@ const Top = styled.div`
 const Text = styled.p`
   ${textStyles.bodyXS}
   color: ${colors.gray700};
+  white-space: normal;
 
   ${fresponsive(css`
     width: 220px;

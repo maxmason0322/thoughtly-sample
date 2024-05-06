@@ -18,7 +18,7 @@ gsap.registerPlugin(SplitText, CSSPlugin)
 export default function Statement() {
 	const wrapperRef = useRef<HTMLElement | null>(null)
 	const pinType = usePinType()
-	const mobile = useMedia(false, false, false, true)
+	const noPin = useMedia(false, false, true, true)
 
 	useAnimation(
 		() => {
@@ -54,12 +54,12 @@ export default function Statement() {
 			const tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: wrapperRef.current,
-					start: mobile ? "top 50%" : "top top",
-					end: mobile ? "bottom 80%" : "bottom top",
+					start: noPin ? "top 50%" : "top top",
+					end: noPin ? "bottom 80%" : "bottom top",
 					scrub: true,
 				},
 			})
-			if (!mobile) {
+			if (!noPin) {
 				createSmoothPin({
 					trigger: wrapperRef.current,
 					pinType,
@@ -98,7 +98,7 @@ export default function Statement() {
 				tl.add(animation, nonGradientArrayLength + i)
 			})
 		},
-		[pinType, mobile],
+		[pinType, noPin],
 		{
 			scope: wrapperRef,
 		},
