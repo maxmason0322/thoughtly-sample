@@ -16,7 +16,7 @@
 	},
 	{
 		"logo": "./logos/calendly.png",
-		"tag": "coming soon",
+		"tag": "",
 		"text": "Have Thoughtly book appointments directly on your calendar"
 	},
 	{
@@ -36,7 +36,7 @@
 	},
 	{
 		"logo": "./logos/zapier.png",
-		"tag": "coming soon",
+		"tag": "",
 		"text": "Connect Thoughtly with 1000s of other apps and make your dream workflows"
 	},
 	{
@@ -56,7 +56,7 @@
 	},
 	{
 		"logo": "./logos/highlevel.png",
-		"tag": "coming soon",
-		"text": "Build a Thoughtly agency to elevate your marketinng and sales"
+		"tag": "",
+		"text": "Build a Thoughtly agency to elevate your marketing and sales"
 	}
 ]
