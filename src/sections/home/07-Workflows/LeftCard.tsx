@@ -124,6 +124,7 @@ const Inner = styled.div`
   place-items: center;
 
   ${fresponsive(css`
+    border-radius: 17px;
     width: 280px;
     height: 150px;
   `)}
@@ -194,7 +195,6 @@ const StyledAutoAnimate = styled(AutoAnimate)``
 
 const LeftCardWrapper = styled.div`
   position: absolute;
-  overflow: clip;
   ${generateGradientBorder(gradients.surfaceOutline, 1.5)};
 
   ${RightNode} {
