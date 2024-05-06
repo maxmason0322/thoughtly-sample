@@ -85,9 +85,9 @@ export default function Card({
 					</StyledButton>
 				</Row>
 				<Price>
-					<AutoAnimate duration={duration}>
+					<PriceAnimate duration={duration}>
 						<PriceText key={activeIndex}>{prices[activeIndex]}</PriceText>
-					</AutoAnimate>
+					</PriceAnimate>
 					{!hideMonth && <span>/mo.</span>}
 				</Price>
 				{showProgress && (
@@ -314,5 +314,12 @@ const PriceText = styled.div`
   ${fresponsive(css`
     padding: 0 10px 0 0;
     margin: 0 -10px 0 0;
+  `)}
+`
+
+const PriceAnimate = styled(AutoAnimate)`
+  ${fresponsive(css`
+    padding-right: 5px;
+    margin-right: -5px;
   `)}
 `
