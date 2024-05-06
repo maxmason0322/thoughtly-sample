@@ -147,7 +147,7 @@ export default function Mobile() {
 							width="100%"
 							height="100%"
 							src={
-								"https://www.youtube.com/embed/CoV79mSUc9k?controls=1&autoplay=1&loop=1&playlist=CoV79mSUc9k&autopause=0&mute=1"
+								"https://www.youtube.com/embed/KzHVSHHe8ss?controls=1&autoplay=1&loop=1&playlist=KzHVSHHe8ss&autopause=0&mute=1"
 							}
 							title="Thoughtly D5"
 							allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
