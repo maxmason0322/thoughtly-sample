@@ -557,7 +557,7 @@ const BackgroundTablet = styled.div`
   `)}
 
   ${fmobile(css`
-    height: 1269px;
+    height: 1389px;
     width: 358px;
     display: flex;
     left: 9px;
