@@ -82,7 +82,7 @@ export default function Card({
 
 	return (
 		<Wrapper $columns={columns} $rows={rows}>
-			<Image image={backgroundResp} alt="" />
+			<Image image={backgroundResp} alt="" objectFit="contain" />
 			<StyledIcon $stroke={!!strokeIcon} name={icon} />
 			<Title>{title}</Title>
 			<Text $textWidth={textWidths}>{text}</Text>
@@ -135,6 +135,8 @@ const Image = styled(UniversalImage)`
   width: 100%;
   height: 100%;
   inset: 0;
+  top: 0;
+  left: 0;
   z-index: 1;
 
   ${ftablet(css`

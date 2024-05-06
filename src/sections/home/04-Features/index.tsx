@@ -138,8 +138,8 @@ const Inner = styled.div`
   ${fresponsive(css`
     padding: 111px 156px 200px;
     gap: 24px 24px;
-    grid-auto-rows: 329px 420px;
-    grid-template-columns: 360px 192px 192px 360px;
+    grid-auto-rows: 329px 420px 289px;
+    grid-template-columns: 360px 168px 168px 360px;
   `)}
 
   ${ftablet(css`

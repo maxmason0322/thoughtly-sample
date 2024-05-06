@@ -84,7 +84,7 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 								<Label>Socials</Label>
 								<Link to={links.instagram}>Instagram</Link>
 								<Link to={links.linkedin}>Linkedin</Link>
-								<Link to={links.twitter}>X(Twitter)</Link>
+								<Link to={links.twitter}>X (Twitter)</Link>
 							</LinkColumn>
 						)}
 					</Columns>
@@ -102,12 +102,7 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 							<Button to={links.login} outline>
 								Build your own Thoughtly
 							</Button>
-							<Button
-								type="button"
-								onClick={() => setModalOpen(true)}
-								variant="secondary"
-								icon="phone"
-							>
+							<Button to={links.phone} variant="secondary" icon="phone">
 								Call Demo
 							</Button>
 						</Buttons>
