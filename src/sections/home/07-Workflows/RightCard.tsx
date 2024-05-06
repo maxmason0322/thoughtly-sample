@@ -96,7 +96,7 @@ const RightCardWrapper = styled.div`
 
   ${fresponsive(css`
     left: 539px;
-    top: 123px;
+    top: 122px;
     width: 332px;
     height: 170px;
     min-height: 126px;
@@ -120,6 +120,7 @@ const Inner = styled.div`
     width: 330px;
     height: 168px;
     border-radius: 17px;
+
   `)}
 
   ${ftablet(css`

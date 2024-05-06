@@ -5,7 +5,7 @@ import { ScrollSmoother } from "gsap/ScrollSmoother"
 import { ReactComponent as CloseIcon } from "images/global/icons/closeVideo.svg"
 import UniversalLink from "library/Loader/UniversalLink"
 import UniversalImage from "library/UniversalImage"
-import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
+import { fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import { getResponsivePixels } from "library/viewportUtils"
 import { useMemo, useRef, useState } from "react"
@@ -15,8 +15,8 @@ import textStyles from "styles/text"
 import { distributeByPosition } from "utils/gsapDistribute"
 
 const VIDEO_SOURCES = [
-	"https://www.youtube.com/embed/CoV79mSUc9k?controls=0&autoplay=1&loop=1&playlist=CoV79mSUc9k&autopause=0&mute=1",
-	"https://www.youtube.com/embed/CoV79mSUc9k?&autoplay=1&loop=1&autopause=0&mute=1",
+	"https://www.youtube.com/embed/KzHVSHHe8ss?controls=0&autoplay=1&loop=1&playlist=KzHVSHHe8ss&autopause=0&mute=1",
+	"https://www.youtube.com/embed/KzHVSHHe8ss?&autoplay=1&loop=1&autopause=0&mute=1",
 ]
 
 export default function DesktopTablet() {
@@ -407,11 +407,6 @@ const Title = styled.h2`
     color: ${colors.black};
     margin-top: 18px;
   `)}
-
-  ${fmobile(css`
-    ${textStyles.h6};
-    text-align: center;
-  `)}
 `
 
 const TopText = styled.div`
@@ -425,12 +420,6 @@ const TopText = styled.div`
   ${ftablet(css`
     right: 480px;
   `)}
-
-  ${fmobile(css`
-    top: -216px;
-    width: 290px;
-    right: 790px;
-  `)}
 `
 
 const Grids = styled.div`
@@ -442,10 +431,6 @@ const Grids = styled.div`
     width: 1865px;
     height: 1390px;
     top: 66px;
-  `)}
-
-  ${fmobile(css`
-    top: 640px;
   `)}
 `
 
@@ -477,14 +462,6 @@ const BottomText = styled.p`
     bottom: -120px;
     left: 780px;
   `)}
-
-  ${fmobile(css`
-    ${textStyles.bodyR};
-    width: 164.53px;
-    bottom: 0;
-    left: 160px;
-    text-align: center;
-  `)}
 `
 
 const Grid1 = styled.div`
@@ -499,7 +476,8 @@ const Grid1 = styled.div`
     left: 0;
     grid-template:
       "widget1 . . . . . . ." 56px
-      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 192.5px
+      "widget1 . . widget2 widget2 widget2 widget2 ." 13px
+      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 164.5px
       "widget4 widget4 widget5 widget2 widget2 widget2 widget2 ." 175px
       "widget6 widget6 widget7 widget7 widget8 widget8 widget8 ." 131px
       "widget6 widget6 widget9 widget9 widget8 widget8 widget8 widget10" 176px
@@ -510,22 +488,6 @@ const Grid1 = styled.div`
 
   ${ftablet(css`
     left: -160px;
-  `)}
-
-  ${fmobile(css`
-    width: 511.5px;
-    height: 595px;
-    grid-gap: 12px;
-    grid-template:
-      "widget1 . . . . . . ." 28px
-      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 96.5px
-      "widget4 widget4 widget5 widget2 widget2 widget2 widget2 ." 87.5px
-      "widget6 widget6 widget7 widget7 widget8 widget8 widget8 ." 65.5px
-      "widget6 widget6 widget9 widget9 widget8 widget8 widget8 widget10" 88px
-      "widget6 widget6 .  .  . widget11 widget11 widget11" 88px
-      ". . . . . . widget12 widget12" 65.5px
-      / 104.5px 35px 92px 21.5px 38.5px 22.5px 25.5px 88px;
-    left: 700px;
   `)}
 `
 
@@ -560,10 +522,6 @@ const Grid2 = styled.div`
   ${ftablet(css`
     right: 160px;
   `)}
-
-  ${fmobile(css`
-    display: none;
-  `)}
 `
 
 const VideoIframe = styled.iframe`
@@ -588,15 +546,9 @@ const VideoWrapper = styled.div`
     padding: 24px;
     border-radius: 18px;
   `)}
-
-  ${fmobile(css`
-    padding: 14px 14px 20px;
-  `)}
 `
 
-const GridImage = styled(UniversalImage)`
-  object-fit: scale-down;
-`
+const GridImage = styled(UniversalImage)``
 
 const Row = styled.div`
   display: flex;
@@ -606,10 +558,6 @@ const Row = styled.div`
   ${fresponsive(css`
     width: 100%;
     gap: 36px;
-  `)}
-
-  ${fmobile(css`
-    gap: 17px;
   `)}
 `
 
@@ -622,11 +570,6 @@ const Text = styled.p`
 
     /* No Style for this */
     font-size: 13px;
-  `)}
-
-  ${fmobile(css`
-    width: 180px;
-    ${textStyles.bodyXS};
   `)}
 `
 
@@ -649,13 +592,6 @@ const VideoBGFrame = styled.div`
   ${fresponsive(css`
     border-radius: 18px;
     backdrop-filter: blur(9px);
-  `)}
-
-  ${fmobile(css`
-    grid-area: none;
-    width: 358px;
-    height: 318px;
-    margin-left: 9px;
   `)}
 `
 
@@ -684,9 +620,5 @@ const ScreenFrame = styled.div`
 
   ${fresponsive(css`
     height: 267px;
-  `)}
-
-  ${fmobile(css`
-    height: 214px;
   `)}
 `

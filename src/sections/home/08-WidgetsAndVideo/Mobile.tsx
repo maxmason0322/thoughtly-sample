@@ -147,7 +147,7 @@ export default function Mobile() {
 							width="100%"
 							height="100%"
 							src={
-								"https://www.youtube.com/embed/CoV79mSUc9k?controls=1&autoplay=1&loop=1&playlist=CoV79mSUc9k&autopause=0&mute=1"
+								"https://www.youtube.com/embed/KzHVSHHe8ss?controls=1&autoplay=1&loop=1&playlist=KzHVSHHe8ss&autopause=0&mute=1"
 							}
 							title="Thoughtly D5"
 							allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
@@ -272,32 +272,18 @@ const BottomText = styled.p`
 
 const Grid1 = styled.div`
   display: grid;
-  ${fresponsive(css`
-    display: grid;
-    grid-gap: 24px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    grid-template:
-      "widget1 . . . . . . ." 56px
-      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 210px
-      "widget4 widget4 widget5 widget2 widget2 widget2 widget2 ." 175px
-      "widget6 widget6 widget7 widget7 widget8 widget8 widget8 ." 131px
-      "widget6 widget6 widget9 widget9 widget8 widget8 widget8 widget10" 176px
-      "widget6 widget6 .  .  . widget11 widget11 widget11" 176px
-      ". . . . . . widget12 widget12" 131px
-      / 209px 70px 184px 43px 77px 55px 51px 176px;
-  `)}
-
-  ${ftablet(css`
-    left: -160px;
-  `)}
+  position: absolute;
+  top: 0;
+  left: 0;
 
   ${fmobile(css`
     grid-gap: 12px;
+    width: 511px;
+    height: 595px;
     grid-template:
-      "widget1 . . . . . . ." 32px
-      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 100.5px
+      "widget1 . . . . . . ." 28px
+      "widget1 . . widget2 widget2 widget2 widget2 ." 6.5px
+      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 82.25px
       "widget4 widget4 widget5 widget2 widget2 widget2 widget2 ." 87.5px
       "widget6 widget6 widget7 widget7 widget8 widget8 widget8 ." 65.5px
       "widget6 widget6 widget9 widget9 widget8 widget8 widget8 widget10" 88px
@@ -305,11 +291,6 @@ const Grid1 = styled.div`
       ". . . . . . widget12 widget12" 65.5px
       / 104.5px 35px 92px 21.5px 38.5px 22.5px 25.5px 88px;
     left: 700px;
-
-    img {
-      width: 100%;
-      height: auto;
-    }
   `)}
 `
 
@@ -347,13 +328,9 @@ const VideoWrapper = styled.div`
   height: 100%;
   background: ${colors.white};
 
-  ${fresponsive(css`
-    padding: 24px;
-    border-radius: 18px;
-  `)}
-
   ${fmobile(css`
     padding: 14px 14px 20px;
+    border-radius: 18px;
   `)}
 `
 
@@ -367,26 +344,14 @@ const Row = styled.div`
   align-items: center;
   position: relative;
 
-  ${fresponsive(css`
-    width: 100%;
-    gap: 36px;
-  `)}
-
   ${fmobile(css`
+    width: 100%;
     gap: 17px;
   `)}
 `
 
 const Text = styled.p`
   color: ${colors.gray800};
-  ${textStyles.bodyS};
-
-  ${fresponsive(css`
-    width: 264px;
-
-    /* No Style for this */
-    font-size: 13px;
-  `)}
 
   ${fmobile(css`
     width: 100%;
@@ -403,12 +368,10 @@ const VideoBGFrame = styled.div`
   overflow: clip;
   transform-origin: bottom right;
   object-fit: cover;
-  ${fresponsive(css`
-    border-radius: 18px;
-    backdrop-filter: blur(9px);
-  `)}
 
   ${fmobile(css`
+    border-radius: 18px;
+    backdrop-filter: blur(9px);
     object-fit: contain;
     grid-area: none;
     width: 358px;
@@ -439,10 +402,6 @@ const CloseButton = styled(UniversalLink)`
 const ScreenFrame = styled.div`
   position: relative;
   width: 100%;
-
-  ${fresponsive(css`
-    height: 267px;
-  `)}
 
   ${fmobile(css`
     height: 214px;
