@@ -275,20 +275,18 @@ const Grid1 = styled.div`
   ${fresponsive(css`
     display: grid;
     grid-gap: 24px;
-    width: 1023px;
-    height: 1190px;
     position: absolute;
     top: 0;
     left: 0;
     grid-template:
       "widget1 . . . . . . ." 56px
-      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 193px
+      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 210px
       "widget4 widget4 widget5 widget2 widget2 widget2 widget2 ." 175px
       "widget6 widget6 widget7 widget7 widget8 widget8 widget8 ." 131px
       "widget6 widget6 widget9 widget9 widget8 widget8 widget8 widget10" 176px
       "widget6 widget6 .  .  . widget11 widget11 widget11" 176px
       ". . . . . . widget12 widget12" 131px
-      / 209px 70px 184px 43px 77px 45px 51px 176px;
+      / 209px 70px 184px 43px 77px 55px 51px 176px;
   `)}
 
   ${ftablet(css`
@@ -296,12 +294,10 @@ const Grid1 = styled.div`
   `)}
 
   ${fmobile(css`
-    width: 511.5px;
-    height: 595px;
     grid-gap: 12px;
     grid-template:
-      "widget1 . . . . . . ." 33px
-      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 97px
+      "widget1 . . . . . . ." 32px
+      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 100.5px
       "widget4 widget4 widget5 widget2 widget2 widget2 widget2 ." 87.5px
       "widget6 widget6 widget7 widget7 widget8 widget8 widget8 ." 65.5px
       "widget6 widget6 widget9 widget9 widget8 widget8 widget8 widget10" 88px
@@ -309,6 +305,11 @@ const Grid1 = styled.div`
       ". . . . . . widget12 widget12" 65.5px
       / 104.5px 35px 92px 21.5px 38.5px 22.5px 25.5px 88px;
     left: 700px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   `)}
 `
 
@@ -444,8 +445,8 @@ const ScreenFrame = styled.div`
   `)}
 
   ${fmobile(css`
-    display: grid;
-    place-items: center;
-    height: 100%;
+    height: 214px;
+    overflow: clip;
+    border-radius: 14px;
   `)}
 `
