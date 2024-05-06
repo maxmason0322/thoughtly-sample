@@ -852,6 +852,7 @@ const Agent = styled(Card)`
     top: -29px;
     left: -13px;
     z-index: 2;
+		justify-content: center;
   `)}
 `
 
