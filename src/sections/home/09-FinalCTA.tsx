@@ -139,6 +139,7 @@ export default function FinalCTA() {
 			borderBottomRightRadius: () =>
 				getResponsivePixels(getMedia(80, 80, 80, 48)),
 			scale: () => getMedia(0.8, 0.8, 0.8, 0.9),
+			y: () => -getResponsivePixels(20),
 		})
 	}, [])
 

@@ -25,6 +25,7 @@ export default function Terms() {
 				borderBottomRightRadius: () =>
 					getResponsivePixels(getMedia(140, 140, 140, 48)),
 				scale: () => getMedia(0.75, 0.75, 0.75, 0.9),
+				y: () => getResponsivePixels(-20),
 			})
 		},
 		[],
