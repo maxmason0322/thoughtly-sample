@@ -317,6 +317,7 @@ const ActionImage = styled(UniversalImage)`
 const StyledCallWidget = styled(CallWidget)`
   position: absolute;
   z-index: 1;
+  display: none;
 
   ${fresponsive(css`
     top: 150px;
@@ -358,6 +359,7 @@ const StyledIconsWidget = styled(IconsWidget)`
 const StyledAvatarWidget = styled(AvatarWidget)`
   position: absolute;
   z-index: 1;
+  display: none;
 
   ${fresponsive(css`
     top: 452px;
