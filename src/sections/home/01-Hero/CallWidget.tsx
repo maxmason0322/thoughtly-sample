@@ -68,7 +68,6 @@ const Wrapper = styled.div`
   background: ${gradients.surface1};
   display: flex;
   align-items: center;
-  opacity: 0;
 
   &:hover {
     ${Image} {

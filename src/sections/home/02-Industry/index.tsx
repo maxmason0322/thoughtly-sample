@@ -482,29 +482,35 @@ export default function Industry() {
 						</Assertiveness>
 
 						<Agent>
-							<AutoAnimate
-								fromParameters={{ yPercent: 110 }}
-								toParameters={{ yPercent: -110 }}
-							>
-								<Avatar
-									key={activeIndex}
-									src={data[activeIndex]?.agent?.avatar}
-									alt={data[activeIndex]?.agent?.name ?? ""}
-								/>
-							</AutoAnimate>
-							<AutoAnimate>
-								<Name key={data[activeIndex]?.agent?.country}>
-									{data[activeIndex]?.agent?.country}
-								</Name>
-							</AutoAnimate>
+							<AvatarWrapper>
+								<AutoAnimate
+									fromParameters={{ yPercent: 110 }}
+									toParameters={{ yPercent: -110 }}
+								>
+									<Avatar
+										key={activeIndex}
+										src={data[activeIndex]?.agent?.avatar}
+										alt={data[activeIndex]?.agent?.name ?? ""}
+									/>
+								</AutoAnimate>
+							</AvatarWrapper>
+							<NameWrapper>
+								<AutoAnimate>
+									<Name key={data[activeIndex]?.agent?.country}>
+										{data[activeIndex]?.agent?.country}
+									</Name>
+								</AutoAnimate>
+							</NameWrapper>
 							<Line />
-							<AutoAnimate>
-								<Name key={data[activeIndex]?.agent?.name}>
-									{data[activeIndex]?.agent?.name}
-								</Name>
-							</AutoAnimate>
+							<NameWrapper>
+								<AutoAnimate>
+									<Name key={data[activeIndex]?.agent?.name}>
+										{data[activeIndex]?.agent?.name}
+									</Name>
+								</AutoAnimate>
+							</NameWrapper>
 						</Agent>
-						<div>
+						<ImageWrapper>
 							<AutoAnimate
 								duration={1.25}
 								toParameters={{
@@ -527,7 +533,7 @@ export default function Industry() {
 									alt={data[activeIndex]?.title ?? ""}
 								/>
 							</AutoAnimate>
-						</div>
+						</ImageWrapper>
 						<TabletOnly>
 							<TabletWidgetWrapper>
 								<AutoAnimate>
@@ -592,6 +598,12 @@ export default function Industry() {
 		</Wrapper>
 	)
 }
+
+const NameWrapper = styled.div`
+	${fresponsive(css`
+		height: 18px;
+	`)}
+`
 
 const IconTitle = styled.div`
   display: flex;
@@ -840,6 +852,7 @@ const Agent = styled(Card)`
     top: -29px;
     left: -13px;
     z-index: 2;
+		justify-content: center;
   `)}
 `
 
@@ -874,6 +887,7 @@ const PositionWrapper = styled.div`
   ${fresponsive(css`
     top: 20px;
     left: -61px;
+		height: 105px;
   `)}
 `
 
@@ -1093,4 +1107,22 @@ const Connector = styled(LineSVG)`
     left: 166px;
     top: 163px;
   `)}
+`
+
+const ImageWrapper = styled.div`
+	${fresponsive(css`
+		height: 375px;
+	`)}
+
+	${ftablet(css`
+		height: 494px;
+	`)}
+
+	${fmobile(css`
+		height: 278px;
+	`)}
+`
+
+const AvatarWrapper = styled.div`
+	height: 36px;
 `
