@@ -120,7 +120,7 @@ const Avatar = styled(UniversalImage)`
   `)};
 `
 
-const Name = styled.span`
+const Name = styled.div`
   ${textStyles.sh3}
   color: ${colors.black};
 `
@@ -134,10 +134,4 @@ const Line = styled.div`
   `)}
 `
 
-const AvatarWrapper = styled(AutoAnimate)`
-  position: relative;
-
-  ${fresponsive(css`
-    border-radius: 99vw;
-  `)}
-`
+const AvatarWrapper = styled(AutoAnimate)``
