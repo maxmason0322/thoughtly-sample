@@ -3,7 +3,6 @@ import { CSSPlugin } from "gsap"
 import SplitText from "gsap/SplitText"
 import { usePinType } from "library/Scroll"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
-import createSmoothPin from "library/smoothPin"
 import useAnimation from "library/useAnimation"
 import useMedia from "library/useMedia"
 import { useRef } from "react"
@@ -57,16 +56,10 @@ export default function Statement() {
 					start: noPin ? "top 50%" : "top top",
 					end: noPin ? "bottom 80%" : "bottom top",
 					scrub: true,
+					pin: !noPin,
+					pinType,
 				},
 			})
-			if (!noPin) {
-				createSmoothPin({
-					trigger: wrapperRef.current,
-					pinType,
-					start: "top top",
-					end: "bottom top",
-				})
-			}
 			const nonGradientArrayLength = Array.from(nonGradient.words).length
 
 			tl.to(nonGradient.words, {

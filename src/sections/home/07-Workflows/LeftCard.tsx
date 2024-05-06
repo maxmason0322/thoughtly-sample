@@ -12,6 +12,7 @@ import { MorphSVGPlugin, TextPlugin } from "gsap/all"
 import AutoAnimate from "library/AutoAnimate"
 
 import UniversalImage from "library/UniversalImage"
+import { generateGradientBorder } from "utils/generateGradientBorder"
 
 gsap.registerPlugin(MorphSVGPlugin, TextPlugin)
 
@@ -75,27 +76,23 @@ export default function LeftCard({
 	return (
 		<LeftCardWrapper ref={leftCardRef}>
 			<RightNode />
-			<Row ref={leftCardRow}>
-				<Icons>
-					<AutoAnimate>{allIcons[activeIconIndex]}</AutoAnimate>
-				</Icons>
-				<CenterLine />
-				<RowText>
-					<TextInner ref={rowText} />
-				</RowText>
-			</Row>
+			<Inner>
+				<Row ref={leftCardRow}>
+					<Icons>
+						<StyledAutoAnimate>{allIcons[activeIconIndex]}</StyledAutoAnimate>
+					</Icons>
+					<CenterLine />
+					<RowText>
+						<TextInner ref={rowText} />
+					</RowText>
+				</Row>
+			</Inner>
 		</LeftCardWrapper>
 	)
 }
 
 export const animationCardStyle = css`
   background: ${gradients.surface1};
-
-  ${fresponsive(css`
-    box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
-    border-radius: 18px;
-    border: 1.5px solid ${`${colors.gray200}90`};
-  `)}
 `
 
 const NodeStyle = css`
@@ -119,27 +116,20 @@ const RightNode = styled.div`
   `)}
 `
 
-const LeftCardWrapper = styled.div`
+const Inner = styled.div`
   ${animationCardStyle};
+
   position: absolute;
   display: grid;
   place-items: center;
 
-  ${RightNode} {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
   ${fresponsive(css`
-    right: calc(100% - 2px);
-    top: -1px;
+    border-radius: 17px;
     width: 280px;
     height: 150px;
   `)}
 
   ${ftablet(css`
-    right: calc(100% - 2px);
-    top: 3px;
     width: 265px;
     height: 150px;
   `)}
@@ -155,6 +145,7 @@ const Row = styled.div`
   ${fresponsive(css`
     gap: 16px;
     width: fit-content;
+    height: 52px;
   `)}
 `
 
@@ -197,5 +188,33 @@ const CenterLine = styled.div`
   ${fresponsive(css`
     width: 1.5px;
     height: 24px;
+  `)}
+`
+
+const StyledAutoAnimate = styled(AutoAnimate)``
+
+const LeftCardWrapper = styled.div`
+  position: absolute;
+  ${generateGradientBorder(gradients.surfaceOutline, 1.5)};
+
+  ${RightNode} {
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+  }
+
+  ${fresponsive(css`
+    right: calc(100% - 2px);
+    top: -2px;
+    width: 282px;
+    height: 152px;
+    box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
+    border-radius: 18px;
+  `)}
+
+  ${ftablet(css`
+    top: 3px;
+    width: 265px;
+    height: 150px;
   `)}
 `

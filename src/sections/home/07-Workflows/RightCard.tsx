@@ -4,6 +4,7 @@ import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
 
 import { ReactComponent as CheckMarkSVG } from "images/home/complete.svg"
+import { generateGradientBorder } from "utils/generateGradientBorder"
 
 const tags1 = [
 	"Asked Questions",
@@ -50,22 +51,18 @@ export default function RightCard({
 
 	return (
 		<RightCardWrapper ref={rightCardRef}>
-			<LeftNode />
-			<TaskGroup>{taskGroup1}</TaskGroup>
-			<TaskGroup>{taskGroup2}</TaskGroup>
-			<TaskGroup>{taskGroup3}</TaskGroup>
+			<Inner>
+				<LeftNode />
+				<TaskGroup>{taskGroup1}</TaskGroup>
+				<TaskGroup>{taskGroup2}</TaskGroup>
+				<TaskGroup>{taskGroup3}</TaskGroup>
+			</Inner>
 		</RightCardWrapper>
 	)
 }
 
 const animationCardStyle = css`
   background: ${gradients.surface1};
-
-  ${fresponsive(css`
-    box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
-    border-radius: 18px;
-    border: 1.5px solid ${`${colors.gray200}90`};
-  `)}
 `
 
 const NodeStyle = css`
@@ -89,7 +86,7 @@ const LeftNode = styled.div`
 `
 
 const RightCardWrapper = styled.div`
-  ${animationCardStyle};
+  ${generateGradientBorder(gradients.surfaceOutline, 1.5)};
   position: absolute;
 
   ${LeftNode} {
@@ -99,10 +96,12 @@ const RightCardWrapper = styled.div`
 
   ${fresponsive(css`
     left: 539px;
-    top: 123px;
-    width: 330px;
-    height: 168px;
+    top: 122px;
+    width: 332px;
+    height: 170px;
     min-height: 126px;
+    box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
+    border-radius: 18px;
   `)}
 
   ${ftablet(css`
@@ -110,6 +109,23 @@ const RightCardWrapper = styled.div`
     height: 252px;
     left: 444px;
     top: 58px;
+  `)}
+`
+
+const Inner = styled.div`
+  ${animationCardStyle};
+  position: relative;
+
+  ${fresponsive(css`
+    width: 330px;
+    height: 168px;
+    border-radius: 17px;
+
+  `)}
+
+  ${ftablet(css`
+    width: 194px;
+    height: 252px;
   `)}
 `
 

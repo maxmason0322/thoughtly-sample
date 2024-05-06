@@ -482,4 +482,9 @@ const Frame = styled.div`
     padding: 20px;
     border-radius: 18px;
   `)}
+
+  ${fmobile(css`
+    padding: 10px;
+    border-radius: 8px;
+  `)}
 `
