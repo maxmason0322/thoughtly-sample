@@ -83,6 +83,7 @@ const Wrapper = styled.div`
 const Top = styled.div`
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 
   ${fresponsive(css`
     border-bottom: 1.5px solid ${colors.gray200};
@@ -132,10 +133,6 @@ const Bottom = styled.div`
 
   ${fresponsive(css`
     padding: 18px 24px 36px;
-
-    p {
-      margin-bottom: 24px;
-    }
   `)}
 `
 

@@ -172,13 +172,19 @@ export default function Hero() {
 	)
 
 	const initTimeline = useAnimation(() => {
-		ScrollSmoother.get()?.paused(true)
 		const tl = gsap.timeline({
 			delay: 0.25,
 			paused: true,
+			onStart: () => {
+				ScrollSmoother.get()?.paused(true)
+			},
 			onComplete: () => {
 				ScrollSmoother.get()?.paused(false)
 			},
+		})
+
+		tl.set([".call-widget", ".avatar-widget"], {
+			display: "flex",
 		})
 
 		tl.fromTo(
@@ -558,7 +564,7 @@ const BackgroundTablet = styled.div`
   `)}
 
   ${fmobile(css`
-    height: 1269px;
+    height: 1389px;
     width: 358px;
     display: flex;
     left: 9px;
