@@ -52,7 +52,6 @@ const Wrapper = styled.div`
   width: fit-content;
   position: relative;
   display: flex;
-
   ${fresponsive(css`
     padding: 8px;
     margin: -8px;
@@ -66,6 +65,5 @@ const Wrapper = styled.div`
   & > * {
     position: relative;
     transform: translateY(130%);
-    will-change: transform;
   }
 `

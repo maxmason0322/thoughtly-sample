@@ -4,14 +4,13 @@ import Unmask from "components/Unmask"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
 import ScrollSmoother from "gsap/ScrollSmoother"
-import Background from "images/home/hero/hero-background.png"
 import loader from "library/Loader"
 import { ScreenContext } from "library/ScreenContext"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import getMedia from "library/getMedia"
 import useAnimation from "library/useAnimation"
 import { getResponsivePixels } from "library/viewportUtils"
-import { useContext, useRef, useState } from "react"
+import { useContext, useRef } from "react"
 import styled, { css } from "styled-components"
 import { Dots } from "styles/background"
 import colors, { gradients } from "styles/colors"
@@ -25,7 +24,6 @@ gsap.registerPlugin(DrawSVGPlugin)
 
 export default function Hero() {
 	const { mobile } = useContext(ScreenContext)
-	const [playTL, setPlayTL] = useState(false)
 	const wrapperRef = useRef<HTMLElement | null>(null)
 	const { setModalOpen } = useContext(CalendlyModalContext)
 
@@ -223,10 +221,10 @@ export default function Hero() {
 	return (
 		<Wrapper ref={wrapperRef}>
 			<Inner>
-				<BackgroundImage className="home-hero-bg" src={Background} />
-				<BackgroundTablet>
-					<StyledDots />
-				</BackgroundTablet>
+				{/* <BackgroundImage className="home-hero-bg" src={Background} />
+        <BackgroundTablet>
+          <StyledDots />
+        </BackgroundTablet> */}
 				<TextContent>
 					{/* <Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
 						<Kicker icon="chev">
