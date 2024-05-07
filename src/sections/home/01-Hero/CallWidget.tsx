@@ -1,10 +1,12 @@
 import { ReactComponent as AudioSVG } from "images/home/hero/audio.svg"
 import Background from "images/home/hero/call-widget-background.webp"
 import { ReactComponent as PhoneSVG } from "images/home/hero/phone.svg"
+import UniversalLink from "library/Loader/UniversalLink"
 import { fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
+import links from "utils/links"
 
 export default function CallWidget({ className = "" }: { className: string }) {
 	return (
@@ -12,7 +14,7 @@ export default function CallWidget({ className = "" }: { className: string }) {
 			<Image />
 			<Content>
 				<Phone />
-				<PhoneNumber>
+				<PhoneNumber to={links.phone}>
 					<span>+1 (855) 717-0250</span>
 					<span>+1 (855) 717-0250</span>
 				</PhoneNumber>
@@ -37,7 +39,7 @@ const Image = styled.div`
   `)}
 `
 
-const PhoneNumber = styled.span`
+const PhoneNumber = styled(UniversalLink)`
   ${textStyles.sh2}
   color: ${colors.black};
   overflow: clip;

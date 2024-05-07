@@ -262,7 +262,7 @@ export default function Hero() {
 								type="button"
 								onClick={() => setModalOpen(true)}
 								variant="secondary"
-								icon="phone"
+								icon="calendar"
 							>
 								Book a Demo
 							</Button>
