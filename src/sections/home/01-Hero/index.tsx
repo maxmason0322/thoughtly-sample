@@ -64,11 +64,11 @@ export default function Hero() {
 				".avatar-widget",
 				{
 					yPercent: 0,
-					opacity: 1,
+					autoAlpha: 1,
 				},
 				{
 					yPercent: () => getMedia(300, 300, 0, 0),
-					opacity: 0,
+					autoAlpha: 0,
 					duration: 1.5,
 				},
 				0,
@@ -77,11 +77,11 @@ export default function Hero() {
 				".call-widget",
 				{
 					y: 0,
-					opacity: 1,
+					autoAlpha: 1,
 				},
 				{
 					y: () => getResponsivePixels(getMedia(-100, -100, 0, 0)),
-					opacity: 0,
+					autoAlpha: 0,
 				},
 				0,
 			)
@@ -96,11 +96,11 @@ export default function Hero() {
 				".speak-1-widget",
 				{
 					y: () => getResponsivePixels(50),
-					opacity: 0,
+					autoAlpha: 0,
 				},
 				{
 					y: 0,
-					opacity: 1,
+					autoAlpha: 1,
 				},
 			)
 			tl.from("#speak-action-line", {
@@ -118,7 +118,7 @@ export default function Hero() {
 				".action-widget",
 				{
 					y: () => getResponsivePixels(50),
-					opacity: 0,
+					autoAlpha: 0,
 				},
 				"<+=0.5",
 			)
@@ -126,7 +126,7 @@ export default function Hero() {
 				".test-widget",
 				{
 					y: () => getResponsivePixels(50),
-					opacity: 0,
+					autoAlpha: 0,
 				},
 				">",
 			)
@@ -147,7 +147,7 @@ export default function Hero() {
 			)
 			tl.from(".speak-2-widget", {
 				y: () => getResponsivePixels(50),
-				opacity: 0,
+				autoAlpha: 0,
 			})
 			tl.from(
 				"#test-line-1",
@@ -189,11 +189,11 @@ export default function Hero() {
 		tl.fromTo(
 			[".icons-widget", ".call-widget"],
 			{
-				opacity: 0,
+				autoAlpha: 0,
 				y: 200,
 			},
 			{
-				opacity: 1,
+				autoAlpha: 1,
 				y: 0,
 				ease: "power4.out",
 				duration: 2,
@@ -204,11 +204,11 @@ export default function Hero() {
 		tl.fromTo(
 			[".avatar-widget", ".start-widget", ".home-hero-bg"],
 			{
-				opacity: 0,
+				autoAlpha: 0,
 				y: 300,
 			},
 			{
-				opacity: 1,
+				autoAlpha: 1,
 				y: 0,
 				ease: "power4.out",
 				duration: 2,
