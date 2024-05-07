@@ -91,7 +91,7 @@ const data = [
 	},
 	{
 		title: "Real Estate",
-		text: "Scale your sales operations like never before. Whether you're a broker, a firm, or a wholesaler, never miss a lead again! Your own AI ISA at your service.",
+		text: "Selling your customers that dream condo, beach home, or building has never been easier. Instantly respond to every inquiry, re-engage with previous leads, and get showings scheduled at a scale previously unimaginable. Empower your agents to connect with buyers using the most powerful conversational technology on the market.",
 		assertiveness: {
 			val: 70,
 			text: "Assertive yet kind",
@@ -193,7 +193,7 @@ const data = [
 	},
 	{
 		title: "Insurance",
-		text: "Scale your sales operations like never before. Whether you're a broker, a firm, or a wholesaler, never miss a lead again! Your own AI ISA at your service.",
+		text: "Streamline client interactions, enhance claim processing, and optimize your overall customer service experience. Deliver superior service and make data-driven decisions faster than ever before.",
 		assertiveness: {
 			val: 30,
 			text: "Use softer suggestions",
@@ -243,7 +243,7 @@ const data = [
 	},
 	{
 		title: "Legal",
-		text: "Our AI Agents screen leads, welcome new clients, pencil in appointments, handle payments, pass along your messages with outbound calls, and do so much more!",
+		text: "Elevate your law practice with our AI-driven communication tool. Tailored for legal professionals, our AI Agents screen leads, welcome new clients, pencil in appointments, handle payments, pass along your messages with outbound calls, and do so much more! Boost productivity and client satisfaction.",
 		assertiveness: {
 			val: 20,
 			text: "Assertive yet kind",
@@ -276,8 +276,8 @@ const data = [
 		widgetOne: {
 			text: (
 				<p>
-					"Hello <Blue>{"{name}"}</Blue>, thank you for calling T&C Legal. Let
-					me check your account real quick!"
+					"Hello <Blue>{"{name}"}</Blue>, thank you for calling T&C Legal.
+					Please wait while I pull up your account details"
 				</p>
 			),
 		},
@@ -600,9 +600,9 @@ export default function Industry() {
 }
 
 const NameWrapper = styled.div`
-	${fresponsive(css`
-		height: 18px;
-	`)}
+  ${fresponsive(css`
+    height: 18px;
+  `)}
 `
 
 const IconTitle = styled.div`
@@ -664,14 +664,17 @@ const Top = styled.div`
 
   ${fresponsive(css`
     gap: 63px;
+    align-items: flex-end;
   `)}
 
   ${ftablet(css`
     flex-direction: column;
+    align-items: unset;
     gap: 48px;
   `)}
 
   ${fmobile(css`
+    align-items: unset;
     margin-bottom: 30px;
   `)}
 `
@@ -852,7 +855,7 @@ const Agent = styled(Card)`
     top: -29px;
     left: -13px;
     z-index: 2;
-		justify-content: center;
+    justify-content: center;
   `)}
 `
 
@@ -887,7 +890,7 @@ const PositionWrapper = styled.div`
   ${fresponsive(css`
     top: 20px;
     left: -61px;
-		height: 105px;
+    height: 105px;
   `)}
 `
 
@@ -1110,19 +1113,19 @@ const Connector = styled(LineSVG)`
 `
 
 const ImageWrapper = styled.div`
-	${fresponsive(css`
-		height: 375px;
-	`)}
+  ${fresponsive(css`
+    height: 375px;
+  `)}
 
-	${ftablet(css`
-		height: 494px;
-	`)}
+  ${ftablet(css`
+    height: 494px;
+  `)}
 
 	${fmobile(css`
-		height: 278px;
-	`)}
+    height: 278px;
+  `)}
 `
 
 const AvatarWrapper = styled.div`
-	height: 36px;
+  height: 36px;
 `
