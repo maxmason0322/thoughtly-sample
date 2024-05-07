@@ -53,7 +53,7 @@ const Top = styled.div`
   justify-content: space-between;
 `
 
-const Text = styled.p`
+const Text = styled.div`
   ${textStyles.bodyXS}
   color: ${colors.gray700};
   white-space: normal;

@@ -66,5 +66,6 @@ const Wrapper = styled.div`
   & > * {
     position: relative;
     transform: translateY(130%);
+    will-change: transform;
   }
 `

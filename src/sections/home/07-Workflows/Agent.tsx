@@ -4,13 +4,13 @@ import AutoAnimate from "library/AutoAnimate"
 import UniversalImage from "library/UniversalImage"
 import { fresponsive } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
-import useMedia from "library/useMedia"
+import { useRef } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
 
 export default function AgentCard({ activeIndex }: { activeIndex: number }) {
-	const desktop = useMedia(true, true, false, false)
+	const agentRef = useRef<HTMLDivElement | null>(null)
 
 	const data: Queries.IndustryAgentQuery = useStaticQuery(graphql`
     query IndustryAgent {
@@ -59,11 +59,12 @@ export default function AgentCard({ activeIndex }: { activeIndex: number }) {
 		[activeIndex],
 		{
 			kill: true,
+			scope: agentRef,
 		},
 	)
 
 	return (
-		<Agent>
+		<Agent ref={agentRef}>
 			<AvatarWrapper>
 				<Avatar
 					key={activeIndex}

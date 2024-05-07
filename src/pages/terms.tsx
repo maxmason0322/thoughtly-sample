@@ -1,4 +1,5 @@
 import legalStyles from "components/Legal/LegalStyles"
+import Seo from "components/Seo"
 import gsap from "gsap"
 import getMedia from "library/getMedia"
 import useAnimation from "library/useAnimation"
@@ -1286,5 +1287,15 @@ export default function Terms() {
 				</legalStyles.Section>
 			</legalStyles.Inner>
 		</legalStyles.Wrapper>
+	)
+}
+
+export function Head() {
+	return (
+		<Seo
+			title="Thoughtly | Terms and Conditions"
+			description="Thoughtly helps teams build and deploy AI voice agents in minutes, not months."
+			pathname="/terms"
+		/>
 	)
 }

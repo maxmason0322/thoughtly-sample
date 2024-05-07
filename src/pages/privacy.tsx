@@ -1,4 +1,5 @@
 import legalStyles from "components/Legal/LegalStyles"
+import Seo from "components/Seo"
 import gsap from "gsap"
 import getMedia from "library/getMedia"
 import useAnimation from "library/useAnimation"
@@ -608,5 +609,15 @@ export default function Privacy() {
 				</legalStyles.Section>
 			</legalStyles.Inner>
 		</legalStyles.Wrapper>
+	)
+}
+
+export function Head() {
+	return (
+		<Seo
+			title="Thoughtly | Privacy Policy"
+			description="Thoughtly helps teams build and deploy AI voice agents in minutes, not months."
+			pathname="/privacy"
+		/>
 	)
 }

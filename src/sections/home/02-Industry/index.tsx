@@ -543,7 +543,7 @@ export default function Industry() {
 										icon="play"
 										iconColor={colors.green400}
 									>
-										<p>{data[activeIndex]?.widgetOne?.text}</p>
+										{data[activeIndex]?.widgetOne?.text}
 									</Widget1>
 								</AutoAnimate>
 							</TabletWidgetWrapper>
@@ -983,7 +983,7 @@ const SubTitle = styled.h1`
   `)}
 `
 
-const Text = styled.p`
+const Text = styled.div`
   ${textStyles.bodyS}
   color: ${colors.gray800};
   overflow: clip;
