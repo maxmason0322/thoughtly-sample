@@ -272,7 +272,7 @@ const ABTestContent = styled.div`
 
 const GraphWrapper = styled.div`
   position: relative;
-  color: #FFF;
+  color: #fff;
   font-family: Whyte, sans-serif;
   font-size: 10.5px;
   font-style: normal;
@@ -287,7 +287,7 @@ const Flow1Bar = styled.div`
   display: flex;
   justify-content: end;
   align-items: center;
-  background: linear-gradient(5deg, #1C6DF2 -20.25%, #98CCFB 93.91%);
+  background: linear-gradient(5deg, #1c6df2 -20.25%, #98ccfb 93.91%);
 
   ${fresponsive(css`
     border-radius: 3px;
@@ -300,7 +300,7 @@ const Flow1Bar = styled.div`
 `
 
 const Flow2Bar = styled(Flow1Bar)`
-  background: linear-gradient(10deg, #32CB08 -4.03%, #72FA4C 101.71%);
+  background: linear-gradient(10deg, #32cb08 -4.03%, #72fa4c 101.71%);
 
   ${fresponsive(css`
     width: 80px;
@@ -341,6 +341,7 @@ const StyledCallWidget = styled(CallWidget)`
 const StyledIconsWidget = styled(IconsWidget)`
   position: absolute;
   z-index: 1;
+  display: none;
 
   ${fresponsive(css`
     top: 150px;

@@ -87,7 +87,7 @@ export default function WorkflowAnimation({
 				repeat: -1,
 				onStart: () => {
 					processCircleAnimation()
-					setActiveIndex(activeIndex)
+					setActiveIndex(0)
 				},
 				onRepeat: () => {
 					activeIndex = activeIndex === 2 ? 0 : activeIndex + 1

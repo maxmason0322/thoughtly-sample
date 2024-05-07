@@ -11,7 +11,7 @@ import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import getMedia from "library/getMedia"
 import useAnimation from "library/useAnimation"
 import { getResponsivePixels } from "library/viewportUtils"
-import { useContext, useRef } from "react"
+import { useContext, useRef, useState } from "react"
 import styled, { css } from "styled-components"
 import { Dots } from "styles/background"
 import colors, { gradients } from "styles/colors"
@@ -25,6 +25,7 @@ gsap.registerPlugin(DrawSVGPlugin)
 
 export default function Hero() {
 	const { mobile } = useContext(ScreenContext)
+	const [playTL, setPlayTL] = useState(false)
 	const wrapperRef = useRef<HTMLElement | null>(null)
 	const { setModalOpen } = useContext(CalendlyModalContext)
 
@@ -171,10 +172,9 @@ export default function Hero() {
 		},
 	)
 
-	const initTimeline = useAnimation(() => {
+	const initTimeline = () => {
 		const tl = gsap.timeline({
 			delay: 0.25,
-			paused: true,
 			onStart: () => {
 				ScrollSmoother.get()?.paused(true)
 			},
@@ -183,7 +183,7 @@ export default function Hero() {
 			},
 		})
 
-		tl.set([".call-widget", ".avatar-widget"], {
+		tl.set([".call-widget", ".avatar-widget", ".icons-widget"], {
 			display: "flex",
 		})
 
@@ -216,13 +216,9 @@ export default function Hero() {
 			},
 			0,
 		)
+	}
 
-		return tl
-	}, [])
-
-	loader.useEventListener("anyEnd", () => {
-		initTimeline?.play()
-	})
+	loader.useEventListener("anyEnd", initTimeline)
 
 	return (
 		<Wrapper ref={wrapperRef}>
