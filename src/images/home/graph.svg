@@ -10,7 +10,7 @@
         stroke="url(#paint3_linear_3093_17218)" stroke-width="5" />
     <rect x="80" y="115" width="102" height="504" fill="url(#paint2_linear_3093_17218)" />
     <rect x="1650" y="652" width="102" height="644" transform="rotate(180 1658 647)"
-        fill="url(#paint3_linear_3093_17218)" />
+        fill="url(#paint2_linear_3093_17218)" />
     <defs>
         <linearGradient id="paint0_linear_3093_17218" x1="771.02" y1="122.79" x2="836.601"
             y2="534.963" gradientUnits="userSpaceOnUse">
@@ -29,8 +29,8 @@
         </linearGradient>
         <linearGradient id="paint3_linear_3093_17218" x1="1674.4" y1="981.157" x2="1736.62"
             y2="978.109" gradientUnits="userSpaceOnUse">
-            <stop stop-color="white" />
-            <stop offset="1" stop-color="white" stop-opacity="0" />
+            <stop stop-color="#32E825" />
+            <stop offset="1" stop-color="#53D5EC" />
         </linearGradient>
     </defs>
 </svg>
