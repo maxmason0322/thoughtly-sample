@@ -31,7 +31,6 @@ export default function Layout({ children }: LayoutProps) {
 			</Suspense>
 			<GlobalStyle />
 			<ScrollIndex>
-				{/* for some reason, this cannot be suspended (it breaks scrolling) */}
 				<Header />
 				<Main id="main">{children}</Main>
 				<Footer position="static" />

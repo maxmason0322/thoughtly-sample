@@ -1,4 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby"
+import { isBrowser } from "library/deviceDetection"
+import { useEffect } from "react"
 
 interface SEOProps {
 	/**
@@ -60,6 +62,18 @@ export default function Seo({
 		url: `${siteUrl}${pathname}`,
 		creator,
 	}
+
+	useEffect(() => {
+		if (!isBrowser || !window.analytics || !seo.title) return
+
+		analytics.page(seo.title, {
+			path: window.location.pathname,
+			referrer: document.referrer,
+			search: window.location.search,
+			title: document.title,
+			url: seo.url,
+		})
+	}, [seo.title, seo.url])
 
 	return (
 		<>

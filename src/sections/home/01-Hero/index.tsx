@@ -31,6 +31,7 @@ export default function Hero() {
 	useAnimation(
 		() => {
 			if (mobile) return
+
 			const tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: wrapperRef.current,
