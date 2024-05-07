@@ -98,6 +98,7 @@ export const animationCardStyle = css`
 const NodeStyle = css`
   border-radius: 99vw;
   background: ${colors.white};
+  z-index: 5;
   ${fresponsive(css`
     border: 1.5px solid ${colors.gray200};
     width: 9px;

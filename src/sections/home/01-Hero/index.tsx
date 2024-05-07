@@ -46,7 +46,7 @@ export default function Hero() {
 			tl.set(
 				["#start-speak-line", "#speak-action-line"],
 				{
-					opacity: 1,
+					autoAlpha: 1,
 				},
 				0,
 			)
