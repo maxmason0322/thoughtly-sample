@@ -4,6 +4,7 @@ import Unmask from "components/Unmask"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
 import ScrollSmoother from "gsap/ScrollSmoother"
+import Background from "images/home/hero/hero-background.png"
 import loader from "library/Loader"
 import { ScreenContext } from "library/ScreenContext"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
@@ -221,10 +222,10 @@ export default function Hero() {
 	return (
 		<Wrapper ref={wrapperRef}>
 			<Inner>
-				{/* <BackgroundImage className="home-hero-bg" src={Background} />
-        <BackgroundTablet>
-          <StyledDots />
-        </BackgroundTablet> */}
+				<BackgroundImage className="home-hero-bg" src={Background} />
+				<BackgroundTablet>
+					<StyledDots />
+				</BackgroundTablet>
 				<TextContent>
 					{/* <Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
 						<Kicker icon="chev">
