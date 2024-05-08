@@ -182,7 +182,7 @@ export default function Hero() {
 			},
 		})
 
-		tl.set([".call-widget", ".avatar-widget", ".icons-widget"], {
+		tl.set([".call-widget", ".avatar-widget", !mobile && ".icons-widget"], {
 			display: "flex",
 		})
 
