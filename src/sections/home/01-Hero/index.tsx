@@ -24,13 +24,13 @@ import Widgets from "./Widgets"
 gsap.registerPlugin(DrawSVGPlugin)
 
 export default function Hero() {
-	const { mobile } = useContext(ScreenContext)
+	const { mobile, tablet } = useContext(ScreenContext)
 	const wrapperRef = useRef<HTMLElement | null>(null)
 	const { setModalOpen } = useContext(CalendlyModalContext)
 
 	useAnimation(
 		() => {
-			if (mobile) return
+			if (mobile || tablet) return
 
 			const tl = gsap.timeline({
 				scrollTrigger: {
@@ -164,7 +164,7 @@ export default function Hero() {
 				"<+=0.5",
 			)
 		},
-		[mobile],
+		[mobile, tablet],
 		{
 			scope: wrapperRef,
 			recreateOnResize: true,
@@ -187,10 +187,10 @@ export default function Hero() {
 		})
 
 		tl.fromTo(
-			[".icons-widget", ".call-widget"],
+			[".icons-widget", ".call-widget", ".speak-1-widget"],
 			{
 				autoAlpha: 0,
-				y: 200,
+				y: () => getMedia(200, 200, 0, 0),
 			},
 			{
 				autoAlpha: 1,
@@ -205,7 +205,7 @@ export default function Hero() {
 			[".avatar-widget", ".start-widget", ".home-hero-bg"],
 			{
 				autoAlpha: 0,
-				y: 300,
+				y: () => getMedia(300, 300, 0, 0),
 			},
 			{
 				autoAlpha: 1,

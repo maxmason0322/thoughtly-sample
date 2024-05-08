@@ -26,6 +26,7 @@ export default function Unmask({
 
 		tl.to(wrapperRef.current?.children, {
 			y: 0,
+			opacity: 1,
 			...parameters,
 		})
 	}
@@ -54,5 +55,10 @@ const Wrapper = styled.div`
   & > * {
     position: relative;
     transform: translateY(130%);
+
+    ${ftablet(css`
+      opacity: 0;
+      transform: translateY(0);
+    `)}
   }
 `

@@ -130,6 +130,7 @@ export default function WorkflowAnimation({
 							LEFT_CONNECTOR_2T,
 							LEFT_CONNECTOR_2T,
 						),
+						zIndex: 3,
 						duration: 2,
 						ease: EASE_1,
 					},
@@ -154,6 +155,7 @@ export default function WorkflowAnimation({
 							RIGHT_CONNECTOR_2T,
 						),
 						duration: 2,
+						zIndex: 3,
 						ease: EASE_1,
 					},
 					STEP_INTERVAL,
@@ -199,6 +201,9 @@ export default function WorkflowAnimation({
 					{
 						y: () => `+=${getResponsivePixels(getMedia(138, 138, 109, 100))}`,
 						duration: 2,
+						onStart: () => {
+							gsap.set(leftCardRef.current, { zIndex: 5 })
+						},
 						ease: EASE_1,
 					},
 					STEP_INTERVAL,
@@ -209,6 +214,9 @@ export default function WorkflowAnimation({
 						y: () => `-=${getResponsivePixels(getMedia(171, 171, 132, 171))}`,
 						x: () => `-=${getResponsivePixels(getMedia(0, 0, 18, 0))}`,
 						duration: 2,
+						onStart: () => {
+							gsap.set(leftCardRef.current, { zIndex: 5 })
+						},
 						ease: EASE_1,
 					},
 					STEP_INTERVAL,
@@ -236,6 +244,7 @@ export default function WorkflowAnimation({
 							LEFT_CONNECTOR_3T,
 						),
 						duration: 2,
+						zIndex: 3,
 						ease: EASE_1,
 					},
 					STEP_INTERVAL * 2,
@@ -282,6 +291,7 @@ export default function WorkflowAnimation({
 							RIGHT_CONNECTOR_3T,
 						),
 						duration: 2,
+						zIndex: 3,
 						ease: EASE_1,
 					},
 					STEP_INTERVAL * 2,
@@ -291,6 +301,9 @@ export default function WorkflowAnimation({
 					{
 						y: () => `-=${getResponsivePixels(getMedia(65, 65, 81, 81))}`,
 						duration: 2,
+						onStart: () => {
+							gsap.set(leftCardRef.current, { zIndex: 5 })
+						},
 						ease: EASE_1,
 					},
 					STEP_INTERVAL * 2,
@@ -301,6 +314,9 @@ export default function WorkflowAnimation({
 						y: () => `+=${getResponsivePixels(getMedia(72, 72, 48, 0))}`,
 						x: () => `+=${getResponsivePixels(getMedia(43, 43, 18, 0))}`,
 						duration: 2,
+						onStart: () => {
+							gsap.set(leftCardRef.current, { zIndex: 5 })
+						},
 						ease: EASE_1,
 					},
 					STEP_INTERVAL * 2,
@@ -316,6 +332,7 @@ export default function WorkflowAnimation({
 							LEFT_CONNECTOR_1T,
 						),
 						duration: 2,
+						zIndex: 3,
 						ease: EASE_1,
 					},
 					STEP_INTERVAL * 3,
@@ -325,6 +342,9 @@ export default function WorkflowAnimation({
 					{
 						y: 0,
 						duration: 2,
+						onStart: () => {
+							gsap.set(leftCardRef.current, { zIndex: 5 })
+						},
 						ease: EASE_1,
 					},
 					STEP_INTERVAL * 3,
@@ -337,6 +357,9 @@ export default function WorkflowAnimation({
 						y: 0,
 						x: 0,
 						duration: 2,
+						onStart: () => {
+							gsap.set(leftCardRef.current, { zIndex: 5 })
+						},
 						ease: EASE_1,
 					},
 					STEP_INTERVAL * 3,
@@ -351,6 +374,7 @@ export default function WorkflowAnimation({
 							RIGHT_CONNECTOR_1T,
 						),
 						duration: 2,
+						zIndex: 3,
 						ease: EASE_1,
 					},
 					STEP_INTERVAL * 3,
@@ -452,7 +476,7 @@ const Animation = styled.div`
 
 const LeftConnector = styled.div`
   position: relative;
-  z-index: 10;
+  z-index: 4;
   ${fresponsive(css`
     width: 115px;
     height: 239px;
@@ -478,6 +502,7 @@ const LeftConnectorT = styled.div`
   }
 
   ${ftablet(css`
+    z-index: 4;
     display: block;
     width: 64px;
     height: 238px;

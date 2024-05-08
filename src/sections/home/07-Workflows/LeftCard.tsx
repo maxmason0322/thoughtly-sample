@@ -215,7 +215,8 @@ const LeftCardWrapper = styled.div`
   `)}
 
   ${ftablet(css`
-    top: 3px;
+    top: 2px;
+    right: calc(100%);
     width: 267px;
     height: 152px;
   `)}

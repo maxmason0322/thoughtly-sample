@@ -175,6 +175,7 @@ const SpeakWidget = styled(Widget)`
   `)}
 
   ${ftablet(css`
+    opacity: 0;
     top: 1131px;
     right: 118px;
   `)}
