@@ -1,5 +1,5 @@
 import Icon from "components/Icon"
-import { fresponsive } from "library/fullyResponsive"
+import { fmobile, fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 
@@ -37,6 +37,10 @@ const Wrapper = styled.div`
     border-radius: 18px;
     box-shadow: 0 -1px 6px 0 rgba(38 38 38 / 6%) inset,
       0 18px 32px 0 rgba(89 89 89 / 4%);
+  `)}
+
+  ${fmobile(css`
+    display: none;
   `)}
 `
 
