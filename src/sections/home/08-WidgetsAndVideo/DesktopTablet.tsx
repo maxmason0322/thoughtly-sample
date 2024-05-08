@@ -307,7 +307,6 @@ export default function DesktopTablet() {
 					start: "top 80%",
 					end: "top -10%",
 					scrub: true,
-					once: true,
 				},
 				onComplete: () => {
 					setCanAnimateVideo(true)

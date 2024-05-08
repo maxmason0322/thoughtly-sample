@@ -23,6 +23,9 @@ importers:
       '@total-typescript/ts-reset':
         specifier: 0.5.1
         version: 0.5.1
+      '@types/gtag.js':
+        specifier: 0.0.19
+        version: 0.0.19
       '@types/segment-analytics':
         specifier: 0.0.38
         version: 0.0.38
@@ -47,6 +50,9 @@ importers:
       gatsby-plugin-contentful-optional-fields:
         specifier: 2.2.2
         version: 2.2.2
+      gatsby-plugin-google-gtag:
+        specifier: 5.13.1
+        version: 5.13.1(gatsby@5.13.4(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@3.13.1)(typescript@5.4.5))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       gatsby-plugin-image:
         specifier: 3.13.1
         version: 3.13.1(@babel/core@7.23.2)(gatsby-plugin-sharp@5.13.1(gatsby@5.13.4(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@3.13.1)(typescript@5.4.5))(graphql@16.8.1))(gatsby-source-filesystem@5.13.1(gatsby@5.13.4(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@3.13.1)(typescript@5.4.5)))(gatsby@5.13.4(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@3.13.1)(typescript@5.4.5))(graphql@16.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1806,6 +1812,9 @@ packages:
 
   '@types/glob@5.0.38':
     resolution: {integrity: sha512-rTtf75rwyP9G2qO5yRpYtdJ6aU1QqEhWbtW55qEgquEDa6bXW0s2TWZfDm02GuppjEozOWG/F2UnPq5hAQb+gw==}
+
+  '@types/gtag.js@0.0.19':
+    resolution: {integrity: sha512-KHoDzrf9rSd0mooKN576PjExpdk/XRrNu4RQnmigsScSTSidwyOUe9kDrHz9UPKjiBrx2QEsSkexbJSgS0j72w==}
 
   '@types/http-cache-semantics@4.0.2':
     resolution: {integrity: sha512-FD+nQWA2zJjh4L9+pFXqWOi0Hs1ryBCfI+985NjluQ1p8EYtoLvjLOKidXBtZ4/IcxDX4o8/E8qDS3540tNliw==}
@@ -3723,6 +3732,14 @@ packages:
 
   gatsby-plugin-contentful-optional-fields@2.2.2:
     resolution: {integrity: sha512-ywMy04iFM6h13vky3//Gi53Xkp9LxK+Ne123Sl2hChgaEB2KAr7Zt2zUZrH2qiYM7DAvwLKSIU4273L2DjjJow==}
+
+  gatsby-plugin-google-gtag@5.13.1:
+    resolution: {integrity: sha512-aaJKIDwUWwhooJnalse1uvcusBmCwCVK33pp1IrDU02E7IohMen3eR5TsjLbfKO7Z+SbfKJEqUoi/r0ozrJarA==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      gatsby: ^5.0.0-next
+      react: ^18.0.0 || ^0.0.0
+      react-dom: ^18.0.0 || ^0.0.0
 
   gatsby-plugin-image@3.13.1:
     resolution: {integrity: sha512-v5jGXxjr//iLk7LzpW6RW/9H4KNVezxee2Sgy9mxvdvekTuFQLYoQmtk2jOZINMZMP3Vm+Rl3MqWWVMfhHuWFw==}
@@ -9147,6 +9164,8 @@ snapshots:
       '@types/minimatch': 5.1.2
       '@types/node': 20.12.7
 
+  '@types/gtag.js@0.0.19': {}
+
   '@types/http-cache-semantics@4.0.2': {}
 
   '@types/http-proxy@1.17.12':
@@ -11628,6 +11647,14 @@ snapshots:
       '@babel/runtime': 7.23.2
 
   gatsby-plugin-contentful-optional-fields@2.2.2: {}
+
+  gatsby-plugin-google-gtag@5.13.1(gatsby@5.13.4(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@3.13.1)(typescript@5.4.5))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      '@babel/runtime': 7.23.2
+      gatsby: 5.13.4(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@3.13.1)(typescript@5.4.5)
+      minimatch: 3.1.2
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   gatsby-plugin-image@3.13.1(@babel/core@7.23.2)(gatsby-plugin-sharp@5.13.1(gatsby@5.13.4(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@3.13.1)(typescript@5.4.5))(graphql@16.8.1))(gatsby-source-filesystem@5.13.1(gatsby@5.13.4(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@3.13.1)(typescript@5.4.5)))(gatsby@5.13.4(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@3.13.1)(typescript@5.4.5))(graphql@16.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:

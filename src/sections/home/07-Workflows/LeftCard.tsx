@@ -98,6 +98,7 @@ export const animationCardStyle = css`
 const NodeStyle = css`
   border-radius: 99vw;
   background: ${colors.white};
+  z-index: 5;
   ${fresponsive(css`
     border: 1.5px solid ${colors.gray200};
     width: 9px;
@@ -214,8 +215,9 @@ const LeftCardWrapper = styled.div`
   `)}
 
   ${ftablet(css`
-    top: 3px;
-    width: 265px;
-    height: 150px;
+    top: 2px;
+    right: calc(100%);
+    width: 267px;
+    height: 152px;
   `)}
 `

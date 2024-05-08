@@ -116,7 +116,7 @@ export default function FinalCTA() {
 			)
 		},
 		[],
-		{ scope: bottom },
+		{ scope: bottom, recreateOnResize: true },
 	)
 
 	useAnimation(() => {

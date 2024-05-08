@@ -3,7 +3,7 @@ import loader from "library/Loader"
 import { fresponsive, ftablet } from "library/fullyResponsive"
 import type { ReactNode } from "react"
 import { useRef } from "react"
-import styled, { css, keyframes } from "styled-components"
+import styled, { css } from "styled-components"
 
 export default function Unmask({
 	children,
@@ -26,6 +26,7 @@ export default function Unmask({
 
 		tl.to(wrapperRef.current?.children, {
 			y: 0,
+			opacity: 1,
 			...parameters,
 		})
 	}
@@ -35,24 +36,12 @@ export default function Unmask({
 	return <Wrapper ref={wrapperRef}>{children}</Wrapper>
 }
 
-export const cssUnmask = keyframes`
-	0% {
-		translate: 0 100%;
-		clip-path: inset(0 0 90% 0);
-	}
-	100% {
-		translate: 0 0;
-		clip-path: inset(0 0 -20% 0);
-	}
-`
-
 const Wrapper = styled.div`
   overflow: clip;
   height: min-content;
   width: fit-content;
   position: relative;
   display: flex;
-
   ${fresponsive(css`
     padding: 8px;
     margin: -8px;
@@ -66,6 +55,10 @@ const Wrapper = styled.div`
   & > * {
     position: relative;
     transform: translateY(130%);
-    will-change: transform;
+
+    ${ftablet(css`
+      opacity: 0;
+      transform: translateY(0);
+    `)}
   }
 `

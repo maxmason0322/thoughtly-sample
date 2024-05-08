@@ -24,13 +24,13 @@ import Widgets from "./Widgets"
 gsap.registerPlugin(DrawSVGPlugin)
 
 export default function Hero() {
-	const { mobile } = useContext(ScreenContext)
+	const { mobile, tablet } = useContext(ScreenContext)
 	const wrapperRef = useRef<HTMLElement | null>(null)
 	const { setModalOpen } = useContext(CalendlyModalContext)
 
 	useAnimation(
 		() => {
-			if (mobile) return
+			if (mobile || tablet) return
 
 			const tl = gsap.timeline({
 				scrollTrigger: {
@@ -47,7 +47,7 @@ export default function Hero() {
 			tl.set(
 				["#start-speak-line", "#speak-action-line"],
 				{
-					opacity: 1,
+					autoAlpha: 1,
 				},
 				0,
 			)
@@ -64,11 +64,11 @@ export default function Hero() {
 				".avatar-widget",
 				{
 					yPercent: 0,
-					opacity: 1,
+					autoAlpha: 1,
 				},
 				{
 					yPercent: () => getMedia(300, 300, 0, 0),
-					opacity: 0,
+					autoAlpha: 0,
 					duration: 1.5,
 				},
 				0,
@@ -77,11 +77,11 @@ export default function Hero() {
 				".call-widget",
 				{
 					y: 0,
-					opacity: 1,
+					autoAlpha: 1,
 				},
 				{
 					y: () => getResponsivePixels(getMedia(-100, -100, 0, 0)),
-					opacity: 0,
+					autoAlpha: 0,
 				},
 				0,
 			)
@@ -96,11 +96,11 @@ export default function Hero() {
 				".speak-1-widget",
 				{
 					y: () => getResponsivePixels(50),
-					opacity: 0,
+					autoAlpha: 0,
 				},
 				{
 					y: 0,
-					opacity: 1,
+					autoAlpha: 1,
 				},
 			)
 			tl.from("#speak-action-line", {
@@ -118,7 +118,7 @@ export default function Hero() {
 				".action-widget",
 				{
 					y: () => getResponsivePixels(50),
-					opacity: 0,
+					autoAlpha: 0,
 				},
 				"<+=0.5",
 			)
@@ -126,7 +126,7 @@ export default function Hero() {
 				".test-widget",
 				{
 					y: () => getResponsivePixels(50),
-					opacity: 0,
+					autoAlpha: 0,
 				},
 				">",
 			)
@@ -147,7 +147,7 @@ export default function Hero() {
 			)
 			tl.from(".speak-2-widget", {
 				y: () => getResponsivePixels(50),
-				opacity: 0,
+				autoAlpha: 0,
 			})
 			tl.from(
 				"#test-line-1",
@@ -164,17 +164,16 @@ export default function Hero() {
 				"<+=0.5",
 			)
 		},
-		[mobile],
+		[mobile, tablet],
 		{
 			scope: wrapperRef,
 			recreateOnResize: true,
 		},
 	)
 
-	const initTimeline = useAnimation(() => {
+	const initTimeline = () => {
 		const tl = gsap.timeline({
 			delay: 0.25,
-			paused: true,
 			onStart: () => {
 				ScrollSmoother.get()?.paused(true)
 			},
@@ -183,18 +182,18 @@ export default function Hero() {
 			},
 		})
 
-		tl.set([".call-widget", ".avatar-widget"], {
+		tl.set([".call-widget", ".avatar-widget", !mobile && ".icons-widget"], {
 			display: "flex",
 		})
 
 		tl.fromTo(
-			[".icons-widget", ".call-widget"],
+			[!mobile && ".icons-widget", ".call-widget", tablet && ".speak-1-widget"],
 			{
-				opacity: 0,
-				y: 200,
+				autoAlpha: 0,
+				y: () => getMedia(200, 200, 0, 0),
 			},
 			{
-				opacity: 1,
+				autoAlpha: 1,
 				y: 0,
 				ease: "power4.out",
 				duration: 2,
@@ -205,24 +204,20 @@ export default function Hero() {
 		tl.fromTo(
 			[".avatar-widget", ".start-widget", ".home-hero-bg"],
 			{
-				opacity: 0,
-				y: 300,
+				autoAlpha: 0,
+				y: () => getMedia(300, 300, 0, 0),
 			},
 			{
-				opacity: 1,
+				autoAlpha: 1,
 				y: 0,
 				ease: "power4.out",
 				duration: 2,
 			},
 			0,
 		)
+	}
 
-		return tl
-	}, [])
-
-	loader.useEventListener("anyEnd", () => {
-		initTimeline?.play()
-	})
+	loader.useEventListener("anyEnd", initTimeline)
 
 	return (
 		<Wrapper ref={wrapperRef}>
