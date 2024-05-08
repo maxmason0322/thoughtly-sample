@@ -1,3 +1,4 @@
+import { isBrowser } from "library/deviceDetection"
 import type React from "react"
 import { createContext, useEffect, useMemo, useState } from "react"
 import { useCalendlyEventListener } from "react-calendly"
@@ -19,10 +20,10 @@ export default function CalendlyModalProvider({
 
 	useCalendlyEventListener({
 		onEventScheduled: () => {
-			if (typeof window !== "undefined") {
-				// (window as any).gtag('event', 'conversion', {
-				//     send_to: 'AW-11413179986/Mm_RCPOB7IkZENKcncIq',
-				// })
+			if (isBrowser) {
+				window.gtag("event", "conversion", {
+					send_to: "AW-11413179986/ZG_JCN7UiPcYENKcncIq",
+				})
 				window.analytics.track("Calendly Event Scheduled")
 			}
 		},
