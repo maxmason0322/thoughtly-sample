@@ -187,7 +187,7 @@ export default function Hero() {
 		})
 
 		tl.fromTo(
-			[".icons-widget", ".call-widget", tablet && ".speak-1-widget"],
+			[!mobile && ".icons-widget", ".call-widget", tablet && ".speak-1-widget"],
 			{
 				autoAlpha: 0,
 				y: () => getMedia(200, 200, 0, 0),
