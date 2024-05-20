@@ -67,9 +67,7 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 							<Link to={links.todo} tag="Coming Soon">
 								About
 							</Link>
-							<Link to={links.todo} tag="Coming Soon">
-								Blog
-							</Link>
+							<Link to={links.blog}>Blog</Link>
 						</LinkColumn>
 						<LinkColumn>
 							<Label>Support</Label>

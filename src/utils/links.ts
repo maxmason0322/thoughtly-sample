@@ -2,6 +2,7 @@ const routes = {
 	home: "/",
 	terms: "/terms",
 	privacy: "/privacy",
+	blog: "/blog",
 } as const
 
 const sections = {

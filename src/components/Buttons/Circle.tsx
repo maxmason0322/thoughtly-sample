@@ -1,14 +1,17 @@
-import { ReactComponent as PhoneSVG } from "images/global/icons/Phone.svg"
+import Icon, { type IconType } from "components/Icon"
 import { fmobile, fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 
-export default function Circle() {
+export default function Circle({
+	icon = "phone",
+	iconColor = colors.white,
+}: { icon?: IconType; iconColor?: string }) {
 	return (
 		<Wrapper>
 			<Inner>
 				<Highlight />
-				<PhoneIcon />
+				<StyledIcon name={icon} />
 			</Inner>
 		</Wrapper>
 	)
@@ -97,7 +100,7 @@ const Inner = styled.div`
   `)}
 `
 
-const PhoneIcon = styled(PhoneSVG)`
+const StyledIcon = styled(Icon)`
   position: absolute;
   transform: translateX(-50%);
   left: 50%;

@@ -4,6 +4,7 @@ import { fmobile, fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles, { trim } from "styles/text"
+import Author from "./Author"
 import RichText from "./RichComponents"
 import Share from "./Share"
 
@@ -15,14 +16,7 @@ export default function PostContent({ post }) {
 			<Title>{title}</Title>
 			{author && (
 				<Row>
-					<Author>
-						<ProfilePhoto
-							image={author.photo?.gatsbyImageData}
-							alt={`Profile photo of ${author.fullName}`}
-						/>
-						<div>{author.fullName}</div>
-						<div>{author.roleAndCompany}</div>
-					</Author>
+					<Author data={author} />
 				</Row>
 			)}
 			<ArticleImage
@@ -46,10 +40,13 @@ export default function PostContent({ post }) {
 }
 
 const Wrapper = styled.div`
-  /* border-bottom: 1px solid ${colors.charcoal200}; */
+  display: flex;
+  flex-direction: column;
+
   ${fresponsive(css`
-    margin-top: 30px;
+    border-bottom: 1.5px solid ${colors.gray300};
     padding-bottom: 32px;
+    gap: 24px;
   `)}
   ${fmobile(css`
     margin-top: 45px;
@@ -58,83 +55,36 @@ const Wrapper = styled.div`
 
 const Title = styled.h1`
   ${textStyles.h6}
-  ${fresponsive(css`
-    margin-bottom: 20px;
-  `)}
-  ${fmobile(css`
-    margin-bottom: 30px;
-  `)}
-`
-
-const Author = styled.div`
-  ${textStyles.bodyXS};
-  /* color: ${colors.charcoal500}; */
-  display: grid;
-  place-items: center start;
-  grid-template-columns: auto 1fr;
-  ${fresponsive(css`
-    gap: 0 8px;
-  `)}
-  ${fmobile(css`
-    ${textStyles.bodyS}
-  `)}
-`
-
-const ProfilePhoto = styled(UniversalImage)`
-  ${fresponsive(css`
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    isolation: isolate;
-    overflow: clip;
-    grid-row: span 2;
-  `)}
-  ${fmobile(css`
-    width: 48px;
-    height: 48px;
-  `)}
 `
 
 const ArticleImage = styled(UniversalImage)`
+  aspect-ratio: 680 / 442;
+  width: 100%;
+
   ${fresponsive(css`
-    width: 670px;
-    height: 442px;
-    margin-top: 12px;
-    margin-bottom: 16px;
-    border-radius: 16px;
-  `)}
-  ${fmobile(css`
-    width: 318px;
-    height: 208px;
-    margin-top: 22px;
-    margin-bottom: 22px;
+    border-radius: 24px;
   `)}
 `
 
 const Categories = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+
   ${fresponsive(css`
-    display: flex;
     gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 32px;
   `)}
 `
 
 const Category = styled(UniversalLink)`
   ${trim(1.3)}
-  ${fresponsive(css`
-    display: flex;
-    padding: 11px 13px;
-    gap: 8px;
-    border-radius: 24px;
+  display: flex;
+  ${textStyles.sh4}
 
-    /* background: ${colors.greenPastel01};
-    color: ${colors.greenGray01}; */
-    font-family: Denim, sans-serif;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 130%; /* 15.6px */
+  ${fresponsive(css`
+    padding: 12px 24px;
+    border-radius: 10px;
+    border: 1.5px solid ${colors.gray200};
+    color: ${colors.gray700};
   `)}
 `
 

@@ -1,3 +1,5 @@
+import Button from "components/Buttons/Primary"
+import Icon from "components/Icon"
 import Seo from "components/Seo"
 import PostContent from "components/blog/PostContent"
 import Share from "components/blog/Share"
@@ -15,7 +17,9 @@ import { getResponsivePixels } from "library/viewportUtils"
 import { useRef } from "react"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
+import { desktopBreakpoint } from "styles/media"
 import textStyles from "styles/text"
+import links from "utils/links"
 
 export default function BlogPostPage({
 	data: {
@@ -45,29 +49,32 @@ export default function BlogPostPage({
 
 	return (
 		<Wrapper>
-			<Heading>
-				<UniversalLink to="/blog">Blog</UniversalLink>
-				{/* <Arrow /> */}
-				<Light>Article</Light>
-				<UniversalLink to="/blog/">Back to Home</UniversalLink>
-			</Heading>
-			<Content>
-				<div />
-				{post ? <PostContent post={post} /> : "Post not found."}
-				<DesktopTabletOnly>
-					<Socials ref={pin}>
-						<Share title={post?.title} />
-					</Socials>
-				</DesktopTabletOnly>
-			</Content>
-			<Related>
-				<RelatedHeading>
-					{relatedArticles ? "Related Articles" : "Recent Articles"}
-				</RelatedHeading>
-				{(relatedArticles ?? recentArticles).map((article) => (
-					<SmallCard key={article.slug} data={article} />
-				))}
-			</Related>
+			<Inner>
+				<Heading>
+					<Link to={links.blog}>Blog</Link>
+					<StyledIcon name="chev" />
+					<Light>{post?.title}</Light>
+					<Link to={links.blog}>Back to Home</Link>
+				</Heading>
+				<Content>
+					<div />
+					{post ? <PostContent post={post} /> : "Post not found."}
+					<DesktopTabletOnly>
+						<Socials ref={pin}>
+							<Share title={post?.title} />
+						</Socials>
+					</DesktopTabletOnly>
+				</Content>
+				<Related>
+					<RelatedHeading>Recent Articles</RelatedHeading>
+					{(relatedArticles ?? recentArticles).map((article) => (
+						<SmallCard key={article.slug} data={article} />
+					))}
+				</Related>
+				<Button icon="chev" to={links.blog} variant="secondary">
+					See All Articles
+				</Button>
+			</Inner>
 		</Wrapper>
 	)
 }
@@ -83,55 +90,78 @@ export function Head({ data }: PageProps<Queries.BlogPostQuery>) {
 	)
 }
 
-const Wrapper = styled.div`
+const StyledIcon = styled(Icon)`
   ${fresponsive(css`
-    width: 1220px;
-    padding: 172px 0 99px;
+    width: 12px;
+    height: 12px;
   `)}
-  ${ftablet(css`
-    width: 883px;
-    padding: 204px 0 67px;
+`
+
+const Wrapper = styled.div`
+  width: 100%;
+  display: grid;
+  place-items: center;
+  background-color: ${colors.white};
+`
+
+const Inner = styled.div`
+  width: 100%;
+  max-width: ${desktopBreakpoint}px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  ${fresponsive(css`
+    padding: 164px 156px 102px;
+    gap: 48px;
   `)}
-  ${fmobile(css`
-    width: 318px;
-    padding: 130px 0 68px;
-  `)}
+`
+
+const Link = styled(UniversalLink)`
+  ${textStyles.sh4}
+  color: ${colors.gray800};
+
+  &:last-of-type {
+    color: ${colors.green400};
+  }
 `
 
 const Heading = styled.div`
-  /* border-bottom: 1px solid ${colors.charcoal200}; */
-  ${fresponsive(css`
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  width: 100%;
 
-    /* color: ${colors.greenDark01}; */
+  ${fresponsive(css`
     gap: 14px;
-    padding-bottom: 16px;
+    padding: 0 10px 20px;
+    border-bottom: 1.5px solid ${colors.gray300};
   `)}
 `
 
-// const Arrow = styled(ArrowIconSVG)`
-//   ${fresponsive(css`
-//     width: 11px;
-//     height: 11px;
-//   `)}
-// `
-
 const Light = styled.div`
-  /* color: ${colors.charcoal300}; */
+  ${textStyles.sh4}
+  color: ${colors.gray600};
   margin-right: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
 `
 
 const Content = styled.div`
+  display: grid;
+  width: 100%;
+  
   ${fresponsive(css`
-    display: grid;
-    grid-template-columns: 1fr 670px 1fr;
-    margin-bottom: 181px;
+    grid-template-columns: 1fr 680px 1fr;
+    margin-bottom: 70px;
   `)}
+
   ${ftablet(css`
     margin-top: 20px;
     margin-bottom: 127px;
   `)}
+
   ${fmobile(css`
     grid-template-columns: 0 318px 0;
     margin-bottom: 64px;
@@ -142,8 +172,7 @@ const Socials = styled.div`
   ${fresponsive(css`
     display: grid;
     place-items: start end;
-    gap: 15px;
-    padding-top: 30px;
+    gap: 16px;
   `)}
   ${ftablet(css`
     padding-right: 22px;
@@ -153,15 +182,18 @@ const Socials = styled.div`
 const Related = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  margin: 0 auto;
+
   ${fresponsive(css`
-    width: 902px;
-    margin: 0 auto;
-    gap: 48px 31px;
+    gap: 48px 24px;
   `)}
+
   ${ftablet(css`
     width: 884px;
     gap: 80px 22px;
   `)}
+
   ${fmobile(css`
     grid-template-columns: 1fr;
     width: 318px;
@@ -172,7 +204,9 @@ const Related = styled.div`
 const RelatedHeading = styled.div`
   grid-column: span 3;
   text-align: center;
-  ${textStyles.h4};
+  ${textStyles.h6};
+  color: ${colors.gray700};
+
   ${fmobile(css`
     grid-column: span 1;
     ${textStyles.h6};
@@ -187,7 +221,6 @@ export const query = graphql`
       title
       slug
       articleTextPreview
-      createdAt(formatString: "MMMM Do, YYYY")
       author {
         id
         headshot {
@@ -195,7 +228,7 @@ export const query = graphql`
           createdAt
         }
         fullName
-        # roleAndCompany
+        roleAndCompany
       }
       mainImage {
         file {
@@ -213,6 +246,12 @@ export const query = graphql`
             title
             description
             gatsbyImageData(width: 1000)
+            __typename
+          }
+          ... on ContentfulComponentQuote {
+            contentful_id
+            quote
+            quotee
             __typename
           }
         }
@@ -255,7 +294,7 @@ export const query = graphql`
             createdAt
           }
           fullName
-          # roleAndCompany
+          roleAndCompany
         }
         title
         mainImage {

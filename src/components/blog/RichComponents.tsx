@@ -1,8 +1,8 @@
 import type { Options } from "@contentful/rich-text-react-renderer"
 import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types"
-// import { ContactLink } from "components/Contact/ContactLink"
 import type { IGatsbyImageData } from "gatsby-plugin-image"
-// import blogListArrow from "images/blog/blogListArrow.svg"
+import ChevronSVG from "images/global/icons/chev.svg"
+import UniversalLink from "library/Loader/UniversalLink"
 import renderContent from "library/RichText/renderContent"
 import UniversalImage from "library/UniversalImage"
 import { fresponsive } from "library/fullyResponsive"
@@ -37,19 +37,20 @@ const Sup = styled.sup`
 `
 
 const H1 = styled.h1`
-  ${textStyles.h6}
+  ${textStyles.sh1}
 `
 
 const H2 = styled.h2`
-  /* ${textStyles.titleL} */
+  ${textStyles.sh2}
 `
 
 const P = styled.p`
   ${textStyles.bodyR}
+	color: ${colors.gray900};
 `
 
 const Ul = styled.ul`
-  /* list-style-image: url(${blogListArrow}); */
+  list-style-image: url(${ChevronSVG});
   padding-inline-start: 2.3ch;
   ${fresponsive(css`
     display: grid;
@@ -69,29 +70,12 @@ const Ol = styled.ol`
 const Li = styled.li``
 
 const Hr = styled.hr`
-  /* border-bottom: 1px solid ${colors.charcoal200}; */
+  border-bottom: 1px solid ${colors.gray700};
 `
 
-const A = styled.a`
-  /* color: ${colors.greenDark02}; */
+const A = styled(UniversalLink)`
+	color: ${colors.green500};
   text-decoration: underline;
-`
-
-const Quote = styled.div`
-  ${textStyles.bodyXL}
-  ${fresponsive(css`
-    /* color: ${colors.greenDark01}; */
-    display: flex;
-	flex-direction: column;
-    padding: 40px;
-    align-items: flex-start;
-    gap: 30px;
-    border-radius: 20px;
-
-    /* background: ${colors.greenPastel02}; */
-  `)}
-
-
 `
 
 const Image = styled(UniversalImage)`
@@ -113,11 +97,7 @@ const isGatsbyImageData = (obj: unknown): obj is IGatsbyImageData => {
 	return isObject(obj) && "images" in obj
 }
 
-const HOSTS = new Set([
-	"campfire-internal.netlify.app",
-	"meetcampfire.com",
-	"www.meetcampfire.com",
-])
+const HOSTS = new Set(["thoughtly-internal.netlify.app", "thought.ly"])
 
 /**
  * checks if the URL is internal, and if so returns the pathname (and hash/queries)
@@ -159,7 +139,6 @@ const options: Options = {
 				return <A to={uri}>{children}</A>
 			}
 		},
-		[BLOCKS.QUOTE]: (node, children) => <Quote>{children}</Quote>,
 		// images
 		[BLOCKS.EMBEDDED_ASSET]: (node) => {
 			const { data } = node
@@ -185,6 +164,14 @@ const options: Options = {
 
 			return <span>Invalid Image</span>
 		},
+		[BLOCKS.EMBEDDED_ENTRY]: (node) => {
+			return (
+				<Quote>
+					<Text>{node.data.target.quote}</Text>
+					<Quotee>{node.data.target.quotee}</Quotee>
+				</Quote>
+			)
+		},
 	},
 }
 
@@ -202,6 +189,28 @@ export default function RichText({ content }: RichTextProps) {
 const Wrapper = styled.div`
   ${fresponsive(css`
     display: grid;
-    gap: 30px;
+    gap: 32px;
   `)}
+`
+
+const Quote = styled.div`
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: ${colors.gray200};
+	
+	${fresponsive(css`
+		border-radius: 24px;
+		padding: 40px;
+		gap: 24px;
+	`)}
+`
+
+const Text = styled.p`
+	${textStyles.bodyXL}
+`
+
+const Quotee = styled.span`
+	${textStyles.t2}
+	color: ${colors.gray800};
 `
