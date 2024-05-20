@@ -1,8 +1,7 @@
 import * as Form from "@radix-ui/react-form"
-import { ReactComponent as CrossSVG } from "images/blog/formError.svg"
-import { ReactComponent as SuccessSVG } from "images/blog/formSubmit.svg"
-import { ReactComponent as ArrowSVG } from "images/global/buttonArrow.svg"
-import { ReactComponent as CampfireSVG } from "images/global/icon.svg"
+// import { ReactComponent as CrossSVG } from "images/blog/formError.svg"
+// import { ReactComponent as SuccessSVG } from "images/blog/formSubmit.svg"
+// import { ReactComponent as ArrowSVG } from "images/global/buttonArrow.svg"
 import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive } from "library/fullyResponsive"
 import { useState } from "react"
@@ -63,7 +62,7 @@ export default function EmailInput() {
 				}
 			}}
 		>
-			<Logo />
+			{/* <Logo /> */}
 			<Title>
 				{state === "success"
 					? "Thanks for subscribing to the circle!"
@@ -76,15 +75,15 @@ export default function EmailInput() {
 					<Message match="typeMismatch">Invalid Email</Message>
 					{/* forbid dotless domains */}
 					<Message match={(v) => !/@.*\./.test(v)}>Invalid Email</Message>
-					<ErrorIcon />
+					{/* <ErrorIcon /> */}
 				</Field>
-				{state === "success" ? (
+				{/* {state === "success" ? (
 					<SuccessIcon />
 				) : (
 					<Submit ariaLabel="submit email" type="submit">
 						<SubmitArrow />
 					</Submit>
-				)}
+				)} */}
 			</Row>
 		</Wrapper>
 	)
@@ -110,15 +109,15 @@ const Wrapper = styled(Form.Root)`
   `)}
 `
 
-const Logo = styled(CampfireSVG)`
-  ${fresponsive(css`
-    width: 38px;
-    margin-left: 6px;
-  `)}
-  ${fmobile(css`
-    display: none;
-  `)}
-`
+// const Logo = styled(CampfireSVG)`
+//   ${fresponsive(css`
+//     width: 38px;
+//     margin-left: 6px;
+//   `)}
+//   ${fmobile(css`
+//     display: none;
+//   `)}
+// `
 
 const Title = styled.div`
   ${trim(1.2)};
@@ -143,25 +142,25 @@ const Row = styled.div`
   `)}
 `
 
-const ErrorIcon = styled(CrossSVG)`
-  ${fresponsive(css`
-    width: 16px;
-    height: 16px;
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    display: none;
-  `)}
-`
+// const ErrorIcon = styled(CrossSVG)`
+//   ${fresponsive(css`
+//     width: 16px;
+//     height: 16px;
+//     position: absolute;
+//     top: 16px;
+//     right: 16px;
+//     display: none;
+//   `)}
+// `
 
 const Field = styled(Form.Field)`
   position: relative;
 
-  &[data-invalid] {
+  /* &[data-invalid] {
     ${ErrorIcon} {
       display: block;
     }
-  }
+  } */
 
   ${fmobile(css`
     width: 100%;
@@ -213,14 +212,14 @@ const Message = styled(Form.Message)`
   `)}
 `
 
-const SuccessIcon = styled(SuccessSVG)`
-  ${fresponsive(css`
-    width: 36px;
-    height: 36px;
-    flex-shrink: 0;
-    margin-top: 6px;
-  `)}
-`
+// const SuccessIcon = styled(SuccessSVG)`
+//   ${fresponsive(css`
+//     width: 36px;
+//     height: 36px;
+//     flex-shrink: 0;
+//     margin-top: 6px;
+//   `)}
+// `
 
 const Submit = styled(UniversalLink)`
   ${fresponsive(css`
@@ -236,9 +235,9 @@ const Submit = styled(UniversalLink)`
   `)}
 `
 
-const SubmitArrow = styled(ArrowSVG)`
-  ${fresponsive(css`
-    width: 16px;
-    height: 16px;
-  `)}
-`
+// const SubmitArrow = styled(ArrowSVG)`
+//   ${fresponsive(css`
+//     width: 16px;
+//     height: 16px;
+//   `)}
+// `

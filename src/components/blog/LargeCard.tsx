@@ -8,16 +8,7 @@ import textStyles, { trim } from "styles/text"
 // import type { BlogCard } from "types/aliases"
 
 export default function LargeCard({ data }) {
-	const {
-		author,
-		mainImage,
-		title,
-		articleTextPreview,
-		slug,
-		createdAt,
-		overridePublishedDate,
-	} = data
-	const date = overridePublishedDate ?? createdAt
+	const { author, mainImage, title, articleTextPreview, slug } = data
 
 	return (
 		<Wrapper
@@ -30,7 +21,6 @@ export default function LargeCard({ data }) {
 				image={mainImage?.gatsbyImageData}
 				alt={mainImage?.description ?? ""}
 			/>
-			<PublishDate>{date}</PublishDate>
 			<Title>{title}</Title>
 			<Details>
 				<Description>{articleTextPreview}</Description>
@@ -162,16 +152,5 @@ const CustomWidthButton = styled(Button)`
   `)}
   ${fmobile(css`
     width: 100%;
-  `)}
-`
-
-const PublishDate = styled.div`
-  /* color: ${colors.charcoal300}; */
-  ${fresponsive(css`
-  ${textStyles.bodyXS};
-  `)}
-
-  ${ftablet(css`
-  ${textStyles.bodyS};
   `)}
 `

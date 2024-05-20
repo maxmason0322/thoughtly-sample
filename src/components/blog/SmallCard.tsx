@@ -19,13 +19,10 @@ import textStyles, { clampText, trim } from "styles/text"
 // }
 
 export default function SmallCard({ data }) {
-	const { slug, author, mainImage, title, createdAt, overridePublishedDate } =
-		data
-	const date = overridePublishedDate ?? createdAt
+	const { slug, author, mainImage, title } = data
 
 	return (
 		<Wrapper to={`/blog/${slug}`}>
-			<PublishDate>{date}</PublishDate>
 			<Image
 				image={mainImage?.gatsbyImageData}
 				alt={mainImage?.description ?? ""}

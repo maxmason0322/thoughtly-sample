@@ -1,5 +1,5 @@
-import { ReactComponent as ClearIconSVG } from "images/blog/clearFilterIcon.svg"
-import { ReactComponent as SearchIconSVG } from "images/blog/search.svg"
+// import { ReactComponent as ClearIconSVG } from "images/blog/clearFilterIcon.svg"
+// import { ReactComponent as SearchIconSVG } from "images/blog/search.svg"
 import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive } from "library/fullyResponsive"
 import { useParamState } from "library/useParamState"
@@ -15,7 +15,7 @@ export default function SearchBar() {
 	return (
 		<Wrapper>
 			<Row>
-				<SearchIcon />
+				{/* <SearchIcon /> */}
 				<Input
 					name="search"
 					value={query ?? ""}
@@ -34,7 +34,7 @@ export default function SearchBar() {
 						setShowAll(null)
 					}}
 				>
-					<ClearIcon />
+					{/* <ClearIcon /> */}
 					Clear Filters / Categories
 				</ClearButton>
 			) : null}
@@ -58,13 +58,13 @@ const Row = styled.div`
   flex-grow: 1;
 `
 
-const SearchIcon = styled(SearchIconSVG)`
-  ${fresponsive(css`
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-  `)}
-`
+// const SearchIcon = styled(SearchIconSVG)`
+//   ${fresponsive(css`
+//     width: 24px;
+//     height: 24px;
+//     flex-shrink: 0;
+//   `)}
+// `
 
 const Input = styled.input`
   ${fresponsive(css`
@@ -100,9 +100,9 @@ const ClearButton = styled(UniversalLink)`
   `)}
 `
 
-const ClearIcon = styled(ClearIconSVG)`
-  ${fresponsive(css`
-    width: 16px;
-    height: 16px;
-  `)}
-`
+// const ClearIcon = styled(ClearIconSVG)`
+//   ${fresponsive(css`
+//     width: 16px;
+//     height: 16px;
+//   `)}
+// `

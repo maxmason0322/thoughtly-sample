@@ -1,4 +1,4 @@
-import Social from "components/Buttons/Social"
+import Social from "components/Buttons/Circle"
 import { isBrowser } from "library/functions"
 
 const getCurrentURL = () => {

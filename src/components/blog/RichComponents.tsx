@@ -1,8 +1,8 @@
 import type { Options } from "@contentful/rich-text-react-renderer"
 import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types"
-import { ContactLink } from "components/Contact/ContactLink"
+// import { ContactLink } from "components/Contact/ContactLink"
 import type { IGatsbyImageData } from "gatsby-plugin-image"
-import blogListArrow from "images/blog/blogListArrow.svg"
+// import blogListArrow from "images/blog/blogListArrow.svg"
 import renderContent from "library/RichText/renderContent"
 import UniversalImage from "library/UniversalImage"
 import { fresponsive } from "library/fullyResponsive"
@@ -49,7 +49,7 @@ const P = styled.p`
 `
 
 const Ul = styled.ul`
-  list-style-image: url(${blogListArrow});
+  /* list-style-image: url(${blogListArrow}); */
   padding-inline-start: 2.3ch;
   ${fresponsive(css`
     display: grid;
@@ -72,7 +72,7 @@ const Hr = styled.hr`
   /* border-bottom: 1px solid ${colors.charcoal200}; */
 `
 
-const A = styled(ContactLink)`
+const A = styled.a`
   /* color: ${colors.greenDark02}; */
   text-decoration: underline;
 `

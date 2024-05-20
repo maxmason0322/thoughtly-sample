@@ -5,7 +5,7 @@ import SmallCard from "components/blog/SmallCard"
 import type { PageProps } from "gatsby"
 import { graphql } from "gatsby"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { ReactComponent as ArrowIconSVG } from "images/blog/blogArrow.svg"
+// import { ReactComponent as ArrowIconSVG } from "images/blog/blogArrow.svg"
 import UniversalLink from "library/Loader/UniversalLink"
 import { usePinType } from "library/Scroll"
 import { DesktopTabletOnly } from "library/breakpointUtils"
@@ -47,7 +47,7 @@ export default function BlogPostPage({
 		<Wrapper>
 			<Heading>
 				<UniversalLink to="/blog">Blog</UniversalLink>
-				<Arrow />
+				{/* <Arrow /> */}
 				<Light>Article</Light>
 				<UniversalLink to="/blog/">Back to Home</UniversalLink>
 			</Heading>
@@ -110,12 +110,12 @@ const Heading = styled.div`
   `)}
 `
 
-const Arrow = styled(ArrowIconSVG)`
-  ${fresponsive(css`
-    width: 11px;
-    height: 11px;
-  `)}
-`
+// const Arrow = styled(ArrowIconSVG)`
+//   ${fresponsive(css`
+//     width: 11px;
+//     height: 11px;
+//   `)}
+// `
 
 const Light = styled.div`
   /* color: ${colors.charcoal300}; */

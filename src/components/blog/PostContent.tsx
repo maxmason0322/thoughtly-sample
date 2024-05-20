@@ -1,29 +1,17 @@
 import UniversalLink from "library/Loader/UniversalLink"
 import UniversalImage from "library/UniversalImage"
-import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
+import { fmobile, fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles, { trim } from "styles/text"
-// import type { BlogPost } from "types/aliases"
-
-import { DesktopTabletOnly, MobileOnly } from "library/breakpointUtils"
 import RichText from "./RichComponents"
 import Share from "./Share"
 
 export default function PostContent({ post }) {
-	const {
-		author,
-		title,
-		mainImage,
-		categories,
-		articleText,
-		createdAt,
-		overridePublishedDate,
-	} = post
-	const date = overridePublishedDate ?? createdAt
+	const { author, title, mainImage, categories, articleText } = post
+
 	return (
 		<Wrapper>
-			<PublishDateMobile>{date}</PublishDateMobile>
 			<Title>{title}</Title>
 			{author && (
 				<Row>
@@ -35,7 +23,6 @@ export default function PostContent({ post }) {
 						<div>{author.fullName}</div>
 						<div>{author.roleAndCompany}</div>
 					</Author>
-					<PublishDate>{date}</PublishDate>
 				</Row>
 			)}
 			<ArticleImage
@@ -166,23 +153,4 @@ const MobileSocials = styled.div`
 const Row = styled.div`
 display: flex;
 justify-content: space-between;
-`
-
-const PublishDate = styled(DesktopTabletOnly)`
- ${fresponsive(css`
-    ${textStyles.bodyXS};
-    /* color: ${colors.charcoal300}; */
-  `)}
-
-  ${ftablet(css`
-    ${textStyles.bodyS};
-  `)}
-`
-
-const PublishDateMobile = styled(MobileOnly)`
-  /* color: ${colors.charcoal300}; */
-  ${fmobile(css`
-    ${textStyles.bodyS};
-    margin-bottom: 22px;
-  `)}
 `

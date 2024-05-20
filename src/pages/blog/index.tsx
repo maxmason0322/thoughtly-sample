@@ -187,10 +187,9 @@ export const query = graphql`
       nodes {
         slug
         id
-        createdAt(formatString: "MMMM Do, YYYY")
         author {
           id
-          photo {
+          headshot {
             gatsbyImageData
             createdAt
           }
@@ -204,15 +203,13 @@ export const query = graphql`
         }
         categories
         articleTextPreview
-        overridePublishedDate(formatString: "MMMM Do, YYYY")
       }
     }
-    contentfulPageBlogHub(id: {eq: "915c0af9-dce8-5739-b87b-61d25efdc438"}) {
+    contentfulPageBlogHub {
       id
       featuredBlogPost {
         slug
         id
-        createdAt(formatString: "MMMM Do, YYYY")
         author {
           id
           headshot {

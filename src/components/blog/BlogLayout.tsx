@@ -6,9 +6,11 @@ import { useParamState } from "library/useParamState"
 import { getResponsivePixels } from "library/viewportUtils"
 import { type ReactNode, useRef } from "react"
 import styled, { css } from "styled-components"
-import colors from "styles/colors"
-import textStyles from "styles/text"
+import colors, { gradients } from "styles/colors"
+import textStyles, { transparentText } from "styles/text"
 
+import Kicker from "components/Kicker"
+import { desktopBreakpoint } from "styles/media"
 import Categories from "./Categories"
 import EmailInput from "./EmailInput"
 import SearchBar from "./SearchBar"
@@ -44,32 +46,38 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 
 	return (
 		<BlogWrapper>
-			<Header>
-				What’s new at Campfire
-				<Description>
-					Product announcements, customer stories, and best practices for
-					accounting and finance teams.
-				</Description>
-			</Header>
-			<SearchBar />
-			<Columns>
-				<Left>
-					<div ref={pin}>
-						<Categories />
-						<EmailInput />
-					</div>
-				</Left>
-				<Right>{children}</Right>
-			</Columns>
+			<BlogInner>
+				<Header>
+					<Kicker icon="phone" iconLeft iconColor={colors.green400}>
+						Blog
+					</Kicker>
+					<h1>
+						Thoughts by <span>Thoughtly</span>
+					</h1>
+					<Description>
+						Product announcements, customer stories, and best practices for
+						accounting and finance teams.
+					</Description>
+				</Header>
+				<SearchBar />
+				<Columns>
+					<Left>
+						<div ref={pin}>
+							<Categories />
+							<EmailInput />
+						</div>
+					</Left>
+					<Right>{children}</Right>
+				</Columns>
+			</BlogInner>
 		</BlogWrapper>
 	)
 }
 
 const BlogWrapper = styled.div`
-  ${fresponsive(css`
-    width: 1220px;
-    margin-bottom: 108px;
-  `)}
+  width: 100%;
+  display: grid;
+  place-items: center;
 
   ${ftablet(css`
     width: 884px;
@@ -80,20 +88,42 @@ const BlogWrapper = styled.div`
   `)}
 `
 
+const BlogInner = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: ${desktopBreakpoint}px;
+  background-color: ${colors.white};
+
+  ${fresponsive(css`
+    padding: 134px 110px 0;
+  `)}
+`
+
 const Header = styled.div`
   ${textStyles.h5};
-  /* border-bottom: 1px solid ${colors.charcoal200}; */
+  background-color: ${colors.gray100};
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+
+  span {
+    ${transparentText}
+    background-image: ${gradients.greenBlue};
+  }
+
   ${fresponsive(css`
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    margin-top: 172px;
-    margin-bottom: 8px;
-    padding-bottom: 20px;
+    border-radius: 24px;
+    gap: 10px;
+    padding: 32px 48px 46px;
   `)}
+
   ${ftablet(css`
     margin-bottom: 25px;
   `)}
+
   ${fmobile(css`
     flex-direction: column;
     gap: 25px;
@@ -103,29 +133,19 @@ const Header = styled.div`
   `)}
 `
 
-const Circle = styled.div`
-  ${fresponsive(css`
-    width: 30px;
-    height: 30px;
-    position: relative;
-  `)}
-  ${fmobile(css`
-    display: none;
-  `)}
-`
-
 const Description = styled.div`
   ${textStyles.bodyS};
+  color: ${colors.gray700};
+
   ${fresponsive(css`
     width: 350px;
-    text-align: right;
-    margin-left: auto;
-
-    /* color: ${colors.charcoal500}; */
+    text-align: left;
   `)}
+
   ${ftablet(css`
     width: 254px;
   `)}
+
   ${fmobile(css`
     text-align: left;
     width: 288px;
