@@ -1,5 +1,18 @@
+import { leadingTrim } from "leading-trim"
 import { fresponsive } from "library/fullyResponsive"
 import { css } from "styled-components"
+
+export const trim = (lineHeight: number) =>
+	leadingTrim({
+		lineHeight, // unitless `line-height` that you want for the text
+		reference: {
+			// reference numbers for the `@font-face` you'll use
+			fontSize: 160, // `font-size` in px
+			lineHeight: 1, // unitless `line-height`
+			topCrop: 26, // height to remove from the top in px
+			bottomCrop: 21, // height to remove from the bottom in px
+		},
+	})
 
 const textStyles = {
 	h1: fresponsive(css`
