@@ -5,6 +5,8 @@ import useAnimation from "library/useAnimation"
 import { useParamState } from "library/useParamState"
 import { getResponsivePixels } from "library/viewportUtils"
 import { type ReactNode, useRef } from "react"
+import AvatarWidget from "sections/home/01-Hero/AvatarWidget"
+import CallWidget from "sections/home/01-Hero/CallWidget"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles, { transparentText } from "styles/text"
@@ -48,6 +50,8 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 		<BlogWrapper>
 			<BlogInner>
 				<Header>
+					<StyledCall />
+					<StyledAvatar />
 					<Kicker icon="phone" iconLeft iconColor={colors.green400}>
 						Blog
 					</Kicker>
@@ -59,10 +63,10 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 						accounting and finance teams.
 					</Description>
 				</Header>
-				<SearchBar />
 				<Columns>
 					<Left>
 						<div ref={pin}>
+							<SearchBar />
 							<Categories />
 							<EmailInput />
 						</div>
@@ -98,6 +102,7 @@ const BlogInner = styled.div`
 
   ${fresponsive(css`
     padding: 134px 110px 0;
+    gap: 50px;
   `)}
 `
 
@@ -108,6 +113,8 @@ const Header = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
+  position: relative;
+  overflow: clip;
 
   span {
     ${transparentText}
@@ -158,20 +165,25 @@ const Columns = styled.div`
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
-    gap: 40px;
+    padding: 0 50px;
+    width: 100%;
   `)}
+
   ${ftablet(css`
     margin-top: 42px;
     gap: 30px;
   `)}
+
   ${fmobile(css`
     margin-top: 30px;
   `)}
 `
 
-const Left = styled.div`
-  /* border-right: 1px solid ${colors.charcoal200}; */
- 
+const Left = styled.div` 
+  ${fresponsive(css`
+    width: 269px;
+  `)}
+
   ${fmobile(css`
     display: none;
   `)}
@@ -179,12 +191,32 @@ const Left = styled.div`
 
 const Right = styled.div`
   ${fresponsive(css`
-    width: 884px;
+    width: 768px;
   `)}
   ${ftablet(css`
     width: 585px;
   `)}
   ${fmobile(css`
     width: 318px;
+  `)}
+`
+
+const StyledCall = styled(CallWidget)`
+  position: absolute;
+
+  ${fresponsive(css`
+    left: unset;
+    bottom: unset;
+    top: -19px;
+    right: 165px;
+  `)}
+`
+
+const StyledAvatar = styled(AvatarWidget)`
+  position: absolute;
+
+  ${fresponsive(css`
+    bottom: 14px;
+    right: 22px;
   `)}
 `

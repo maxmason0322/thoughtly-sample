@@ -2,8 +2,8 @@ import UniversalLink from "library/Loader/UniversalLink"
 import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
-import colors from "styles/colors"
 import textStyles, { clampText, trim } from "styles/text"
+import Author from "./Author"
 // import type { BlogCard } from "types/aliases"
 
 // : {
@@ -28,10 +28,7 @@ export default function SmallCard({ data }) {
 				alt={mainImage?.description ?? ""}
 			/>
 			<Title>{title}</Title>
-			<Author>
-				<div>{author?.fullName}</div>
-				<div>{author?.roleAndCompany}</div>
-			</Author>
+			<Author data={author} />
 		</Wrapper>
 	)
 }
@@ -39,16 +36,18 @@ export default function SmallCard({ data }) {
 const Wrapper = styled(UniversalLink)`
   ${fresponsive(css`
     display: grid;
-    gap: 16px;
+    gap: 12px;
   `)}
 `
 
 const Image = styled(UniversalImage)`
+  width: 100%;
+  
   ${fresponsive(css`
-    width: 280px;
-    height: 180px;
-    border-radius: 16px;
+    aspect-ratio: 372 / 215;
+    border-radius: 18px;
   `)}
+  
   ${fmobile(css`
     width: 318px;
     height: 205px;
@@ -58,33 +57,10 @@ const Image = styled(UniversalImage)`
 const Title = styled.div`
   ${trim(1.2)}
   ${clampText(2)}
-  /* ${textStyles.titleR};
-  color: ${colors.greenDark01}; */
+  ${textStyles.sh1};
 
   ${fresponsive(css`
-   padding: 4px 0;
-   margin: -4px 0;
+    padding: 4px 0;
+    margin: -4px 0;
   `)}
-`
-
-const Author = styled.div`
-  div {
-
-    ${textStyles.bodyXS};
-  }
-
-  ${fresponsive(css`
-    /* color: ${colors.charcoal500}; */
-    display: grid;
-    gap: 8px;
-  `)}
-`
-
-const PublishDate = styled.div`
-${textStyles.bodyXS};
-  /* color: ${colors.charcoal300}; */
-  ${fresponsive(css`
-  margin-bottom: -5px;
-  `)}
- 
 `

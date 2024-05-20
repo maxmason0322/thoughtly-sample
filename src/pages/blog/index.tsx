@@ -19,7 +19,7 @@ import { useSearchResults } from "utils/useSearchResults"
 
 export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {
 	const unfilteredCards = data.allContentfulPageBlogPost.nodes
-	const featuredCard = data.contentfulBlogHubPage?.featuredCaseStudy
+	const featuredCard = data.contentfulPageBlogHub?.featuredBlogPost
 
 	const restOfCards = unfilteredCards.filter(
 		(card) => card.id !== featuredCard?.id,
@@ -124,15 +124,16 @@ export function Head() {
 }
 
 const Header = styled.div`
-  ${textStyles.h6}
+  ${textStyles.sh1}
   ${trim(1.2)}
+	color: ${colors.gray700};
+
   ${fresponsive(css`
-    margin-bottom: 22px;
+    margin-bottom: 18px;
   `)}
+
   ${fmobile(css`
     margin-bottom: 30px;
-
-    /* ${textStyles.titleL}; */
   `)}
 `
 
@@ -147,8 +148,8 @@ const LightHeader = styled(Header)`
 const CardGroup = styled.div`
   ${fresponsive(css`
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 48px 23px;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px 24px;
     margin-bottom: 55px;
   `)}
   ${ftablet(css`
@@ -183,7 +184,7 @@ const MobileEmail = styled(MobileOnly)`
 
 export const query = graphql`
   query BlogPage {
-    allContentfulPageBlogPost(filter: {id: {ne: "e1d582e5-f8d2-52c5-a1eb-a758ee4a4f72"}} sort: { createdAt: DESC }) {
+    allContentfulPageBlogPost(sort: { createdAt: DESC }) {
       nodes {
         slug
         id

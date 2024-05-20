@@ -4,7 +4,8 @@ import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
-import textStyles, { trim } from "styles/text"
+import textStyles, { trim, clampText } from "styles/text"
+import Author from "./Author"
 // import type { BlogCard } from "types/aliases"
 
 export default function LargeCard({ data }) {
@@ -24,18 +25,9 @@ export default function LargeCard({ data }) {
 			<Title>{title}</Title>
 			<Details>
 				<Description>{articleTextPreview}</Description>
-				<ProfilePhoto
-					image={author?.photo?.gatsbyImageData}
-					alt={author?.fullName ?? ""}
-				/>
-				{author && (
-					<Author>
-						<div>{author.fullName}</div>
-						<div>{author.roleAndCompany}</div>
-					</Author>
-				)}
+				{author && <Author data={author} />}
 			</Details>
-			<CustomWidthButton to={`/blog/${slug}`} variant="green">
+			<CustomWidthButton icon="chev" to={`/blog/${slug}`} variant="secondary">
 				Continue Reading
 			</CustomWidthButton>
 		</Wrapper>
@@ -43,15 +35,19 @@ export default function LargeCard({ data }) {
 }
 
 const Wrapper = styled.div`
+  display: grid;
+  cursor: pointer;
+  
   ${fresponsive(css`
-    display: grid;
+    width: 768px;
     gap: 26px;
     margin-bottom: 60px;
-    cursor: pointer;
   `)}
+
   ${ftablet(css`
     margin-bottom: 66px;
   `)}
+
   ${fmobile(css`
     margin-bottom: 50px;
     margin-top: 20px;
@@ -61,7 +57,7 @@ const Wrapper = styled.div`
 const Image = styled(UniversalImage)`
   ${fresponsive(css`
     width: 100%;
-    aspect-ratio: 886 / 440;
+    aspect-ratio: 768 / 440;
     border-radius: 16px;
   `)}
   ${ftablet(css`
@@ -73,9 +69,12 @@ const Image = styled(UniversalImage)`
 `
 
 const Title = styled.div`
-  ${trim(1.2)}
+  ${clampText(2)}
   ${textStyles.h6};
-  /* color: ${colors.greenDark01}; */
+
+  ${fresponsive(css`
+    padding-bottom: 4px;
+  `)}
 `
 
 const Details = styled.div`
@@ -84,6 +83,7 @@ const Details = styled.div`
     grid-template-columns: auto 1fr;
     gap: 16px 8px;
   `)}
+
   ${ftablet(css`
     gap: 28px 10px;
     margin-bottom: 10px;
@@ -97,52 +97,24 @@ const Details = styled.div`
 
 const Description = styled.div`
   ${trim(1.25)}
+  ${clampText(2)}
   ${textStyles.bodyS};
-  /* color: ${colors.charcoal500}; */
+  color: ${colors.gray700};
   grid-column: span 2;
-  ${ftablet(css`
-    ${textStyles.bodyR};
-    ${trim(1.2)};
-    margin-top: 10px;
-  `)}
-  ${fmobile(css`
-    ${textStyles.bodyR};
-    ${trim(1.2)};
-    margin-top: 10px;
-  `)}
-`
 
-const ProfilePhoto = styled(UniversalImage)`
   ${fresponsive(css`
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    isolation: isolate;
-    overflow: clip;
+    padding-bottom: 2px;
   `)}
-  ${ftablet(css`
-    width: 48px;
-    height: 48px;
-  `)}
-  ${fmobile(css`
-    width: 48px;
-    height: 48px;
-  `)}
-`
 
-const Author = styled.div`
-  ${textStyles.bodyXS};
-  /* color: ${colors.charcoal500}; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   ${ftablet(css`
-    ${textStyles.bodyS};
-    gap: 3px;
+    ${textStyles.bodyR};
+    ${trim(1.2)};
+    margin-top: 10px;
   `)}
   ${fmobile(css`
-    ${textStyles.bodyS};
-    gap: 3px;
+    ${textStyles.bodyR};
+    ${trim(1.2)};
+    margin-top: 10px;
   `)}
 `
 

@@ -1,3 +1,4 @@
+import Icon from "components/Icon"
 import { graphql, useStaticQuery } from "gatsby"
 // import { ReactComponent as CategoryIconSVG } from "images/blog/categoryIcon.svg"
 import UniversalLink from "library/Loader/UniversalLink"
@@ -31,8 +32,8 @@ export default function Categories() {
 	return (
 		<Wrapper>
 			<CategoryHeader>
-				{/* <CategoryIcon /> */}
 				Categories
+				<CategoryIcon name="category" />
 			</CategoryHeader>
 			{categoriesEls}
 		</Wrapper>
@@ -41,7 +42,6 @@ export default function Categories() {
 
 const Wrapper = styled.div`
   ${fresponsive(css`
-    /* color: ${colors.greenDark01}; */
     display: grid;
     gap: 5px;
     grid-row: 1 / -2;
@@ -59,39 +59,43 @@ const Wrapper = styled.div`
     padding-top: 25px;
     padding-bottom: 50px;
     margin-bottom: 20px;
-
-    /* border-top: 1px solid ${colors.charcoal200};
-    border-bottom: 1px solid ${colors.charcoal200}; */
   `)}
 `
 
 const CategoryHeader = styled.div`
-  ${textStyles.bodyL};
+  ${textStyles.sh2};
+  color: ${colors.black};
+
   ${fresponsive(css`
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 27px;
+    gap: 6px;
+    margin-bottom: 10px;
   `)}
+
   ${ftablet(css`
     margin-bottom: 32px;
   `)}
+
   ${fmobile(css`
     grid-row: 1 / 7;
-
-    /* ${textStyles.titleL} */
   `)}
 `
 
-// const CategoryIcon = styled(CategoryIconSVG)`
-//   ${fresponsive(css`
-//     width: 18px;
-//     height: 18px;
-//   `)}
-// `
+const CategoryIcon = styled(Icon)`
+  ${fresponsive(css`
+    width: 18px;
+    height: 18px;
+  `)}
+`
 
 const Category = styled(UniversalLink)`
-  ${textStyles.bodyS}
+  ${textStyles.sh4}
+  color: ${colors.gray800};
+
+  ${fresponsive(css`
+    padding: 8px 10px;
+  `)}
 
   ${ftablet(css`
     ${textStyles.bodyL}

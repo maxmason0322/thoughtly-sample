@@ -1,5 +1,4 @@
-// import { ReactComponent as ClearIconSVG } from "images/blog/clearFilterIcon.svg"
-// import { ReactComponent as SearchIconSVG } from "images/blog/search.svg"
+import Icon from "components/Icon"
 import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive } from "library/fullyResponsive"
 import { useParamState } from "library/useParamState"
@@ -15,7 +14,6 @@ export default function SearchBar() {
 	return (
 		<Wrapper>
 			<Row>
-				{/* <SearchIcon /> */}
 				<Input
 					name="search"
 					value={query ?? ""}
@@ -23,6 +21,7 @@ export default function SearchBar() {
 					type="text"
 					placeholder="Search the blog..."
 				/>
+				<SearchIcon name="search" />
 			</Row>
 
 			{Boolean(category) || Boolean(query) || Boolean(showAll) ? (
@@ -45,6 +44,14 @@ export default function SearchBar() {
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  background-color: ${colors.gray100};
+
+  ${fresponsive(css`
+    margin-bottom: 32px;
+    padding: 12px;
+    border-radius: 12px;
+  `)}
+
   ${fmobile(css`
     flex-direction: column;
     align-items: stretch;
@@ -58,23 +65,23 @@ const Row = styled.div`
   flex-grow: 1;
 `
 
-// const SearchIcon = styled(SearchIconSVG)`
-//   ${fresponsive(css`
-//     width: 24px;
-//     height: 24px;
-//     flex-shrink: 0;
-//   `)}
-// `
+const SearchIcon = styled(Icon)`
+  ${fresponsive(css`
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+  `)}
+`
 
 const Input = styled.input`
+  ${textStyles.bodyS}
   ${fresponsive(css`
-    padding: 0 16px;
-    height: 40px;
+    height: 20px;
     width: 100%;
   `)}
 
   &::placeholder {
-    /* color: ${colors.charcoal300}; */
+    color: ${colors.gray800};
   }
 
   &:focus {

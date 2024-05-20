@@ -17,15 +17,19 @@ import { ReactComponent as AgencySVG } from "images/global/icons/agency.svg"
 import { ReactComponent as AtomSVG } from "images/global/icons/atom.svg"
 import { ReactComponent as AudioSVG } from "images/global/icons/audio.svg"
 import { ReactComponent as BusinessSVG } from "images/global/icons/business.svg"
+import { ReactComponent as CategorySVG } from "images/global/icons/category.svg"
 import { ReactComponent as CheckSVG } from "images/global/icons/check.svg"
+import { ReactComponent as CheckTwoSVG } from "images/global/icons/checkTwo.svg"
 import { ReactComponent as CsvSVG } from "images/global/icons/csv.svg"
 import { ReactComponent as PdfSVG } from "images/global/icons/pdf.svg"
 import { ReactComponent as PlaySVG } from "images/global/icons/play.svg"
 import { ReactComponent as ProSVG } from "images/global/icons/pro.svg"
 import { ReactComponent as RocketSVG } from "images/global/icons/rocket.svg"
+import { ReactComponent as SearchSVG } from "images/global/icons/search.svg"
 import { ReactComponent as ShuffleSVG } from "images/global/icons/shuffle.svg"
 import { ReactComponent as SpeakSVG } from "images/global/icons/speak.svg"
 import { ReactComponent as StarterSVG } from "images/global/icons/starter.svg"
+import { ReactComponent as XSVG } from "images/global/icons/x.svg"
 
 const iconMap = {
 	rocket: RocketSVG,
@@ -34,6 +38,7 @@ const iconMap = {
 	business: BusinessSVG,
 	starter: StarterSVG,
 	calendar: CalendarSVG,
+	category: CategorySVG,
 	chev: ChevSVG,
 	trash: TrashSVG,
 	nodes: NodesSVG,
@@ -56,6 +61,9 @@ const iconMap = {
 	pdf: PdfSVG,
 	audio: AudioSVG,
 	atom: AtomSVG,
+	search: SearchSVG,
+	x: XSVG,
+	checkTwo: CheckTwoSVG,
 }
 
 export type IconType = keyof typeof iconMap
