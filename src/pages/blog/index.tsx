@@ -121,13 +121,7 @@ export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {
 }
 
 export function Head() {
-	return (
-		<Seo
-			title="Campfire | Blog"
-			description="Campfire is an immersive leadership development program that builds better managers by blending authentic peer connection, actionable content, and scalable technology."
-			pathname="/blog"
-		/>
-	)
+	return <Seo title="Thoughtly | Blog" description="" pathname="/blog" />
 }
 
 const Header = styled.div`
@@ -140,6 +134,7 @@ const Header = styled.div`
   `)}
 
   ${fmobile(css`
+		${textStyles.sh2}
     margin-bottom: 30px;
   `)}
 `
@@ -152,6 +147,12 @@ const HeaderWrapper = styled.div`
 	${fresponsive(css`
 		padding-top: 12px;
 		margin-bottom: 20px;
+	`)}
+
+	${fmobile(css`
+		flex-direction: column-reverse;
+		align-items: flex-start;
+		gap: 24px;
 	`)}
 `
 

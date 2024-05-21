@@ -116,6 +116,11 @@ const Inner = styled.div`
   ${ftablet(css`
     padding: 166px 68px 100px;
   `)}
+
+  ${fmobile(css`
+    padding: 140px 24px;
+    gap: 42px;
+  `)}
 `
 
 const Link = styled(UniversalLink)`
@@ -141,6 +146,10 @@ const Heading = styled.div`
     padding: 0 10px 20px;
     border-bottom: 1.5px solid ${colors.gray300};
   `)}
+
+  ${fmobile(css`
+    gap: 12px;
+  `)}
 `
 
 const Light = styled.div`
@@ -154,6 +163,10 @@ const Light = styled.div`
 
   ${ftablet(css`
     ${textStyles.sh3}
+  `)}
+
+  ${fmobile(css`
+    max-width: 85px;
   `)}
 `
 
@@ -172,8 +185,8 @@ const Content = styled.div`
   `)}
 
   ${fmobile(css`
-    grid-template-columns: 0 318px 0;
-    margin-bottom: 64px;
+    grid-template-columns: 0 314px 0;
+    margin-bottom: 76px;
   `)}
 `
 
@@ -182,6 +195,10 @@ const Socials = styled.div`
     display: grid;
     place-items: start end;
     gap: 16px;
+  `)}
+
+  ${fmobile(css`
+    display: none;
   `)}
 `
 
@@ -197,7 +214,6 @@ const Related = styled.div`
 
   ${fmobile(css`
     grid-template-columns: 1fr;
-    width: 318px;
     gap: 36px;
   `)}
 `
@@ -210,8 +226,8 @@ const RelatedHeading = styled.div`
 
   ${fmobile(css`
     grid-column: span 1;
-    ${textStyles.h6};
-    text-align: left;
+    ${textStyles.sh1};
+    text-align: center;
     margin-bottom: -6px;
   `)}
 `

@@ -12,6 +12,7 @@ import colors, { gradients } from "styles/colors"
 import textStyles, { transparentText } from "styles/text"
 
 import Kicker from "components/Kicker"
+import { MobileOnly } from "library/breakpointUtils"
 import { desktopBreakpoint } from "styles/media"
 import Categories from "./Categories"
 import EmailInput from "./EmailInput"
@@ -72,8 +73,10 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 						</div>
 					</Left>
 					<Right>
-						<Line />
-						<SearchBar />
+						<MobileOnly>
+							<Line />
+							<SearchBar />
+						</MobileOnly>
 						{children}
 					</Right>
 				</Columns>

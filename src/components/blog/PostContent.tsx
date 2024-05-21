@@ -7,7 +7,6 @@ import textStyles, { trim } from "styles/text"
 import type { BlogPost } from "types/aliases"
 import Author from "./Author"
 import RichText from "./RichComponents"
-import Share from "./Share"
 
 export default function PostContent({ post }: { post: BlogPost }) {
 	const { author, title, mainImage, categories, articleText } = post
@@ -32,10 +31,6 @@ export default function PostContent({ post }: { post: BlogPost }) {
 				))}
 			</Categories>
 			<RichText content={articleText} />
-
-			<MobileSocials>
-				<Share title={title} />
-			</MobileSocials>
 		</Wrapper>
 	)
 }
@@ -43,6 +38,7 @@ export default function PostContent({ post }: { post: BlogPost }) {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   ${fresponsive(css`
     border-bottom: 1.5px solid ${colors.gray300};
@@ -53,14 +49,14 @@ const Wrapper = styled.div`
   ${ftablet(css`
     padding-bottom: 0;
   `)}
-
-  ${fmobile(css`
-    margin-top: 45px;
-  `)}
 `
 
 const Title = styled.h1`
   ${textStyles.h6}
+
+  ${fmobile(css`
+    ${textStyles.sh1}
+  `)}
 `
 
 const ArticleImage = styled(UniversalImage)`
@@ -73,6 +69,10 @@ const ArticleImage = styled(UniversalImage)`
 
   ${ftablet(css`
     aspect-ratio: 600 / 442;
+  `)}
+
+  ${fmobile(css`
+    aspect-ratio: 314 / 186;
   `)}
 `
 
@@ -95,18 +95,6 @@ const Category = styled(UniversalLink)`
     border-radius: 10px;
     border: 1.5px solid ${colors.gray200};
     color: ${colors.gray700};
-  `)}
-`
-
-const MobileSocials = styled.div`
-  display: none;
-  
-  ${fmobile(css`
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    padding: 44px;
-    margin-top: 30px;
   `)}
 `
 
