@@ -72,6 +72,19 @@ const legalStyles = {
       padding-bottom: 12px;
     `)}
   `,
+	BoldText: styled.span`
+    ${textStyles.bodyS};
+    ${colors.black};
+    font-weight: 500;
+  `,
+	Link: styled.a`
+    ${textStyles.bodyS};
+    text-decoration: underline;
+
+    &:hover {
+      color: ${colors.green500};
+    }
+  `,
 	Paragraph: styled(Base).attrs({ as: "p" })<{ $noPadding: boolean }>`
     padding-bottom: ${({ $noPadding }) => ($noPadding ? 0 : "24px")};
   `,

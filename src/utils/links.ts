@@ -18,11 +18,15 @@ const socials = {
 } as const
 
 const links = {
+	homePage: "https://thought.ly/",
 	todo: "https://www.google.com",
 	careers: "https://jobs.ashbyhq.com/thoughtly",
 	login: "https://app.thought.ly",
 	helpCenter: "https://help.thought.ly/en/",
 	apiDocs: "https://api.thought.ly/docs/",
+	stripe: "https://stripe.com/us/privacy",
+	NAI: "https://optout.networkadvertising.org/",
+	DAA: "https://optout.aboutads.info/",
 	mediaInquiries: "mailto:press@thought.ly",
 	contact: "mailto:support@thought.ly",
 	phone: "tel:+18557170250",
