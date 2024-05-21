@@ -2,6 +2,7 @@ import Primary from "components/Buttons/Primary"
 import Seo from "components/Seo"
 import BlogLayout from "components/blog/BlogLayout"
 import Categories from "components/blog/Categories"
+import ClearButton from "components/blog/ClearButton"
 import EmailInput from "components/blog/EmailInput"
 import LargeCard from "components/blog/LargeCard"
 import SmallCard from "components/blog/SmallCard"
@@ -51,16 +52,22 @@ export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {
 	if (Boolean(query) || Boolean(category))
 		return (
 			<BlogLayout>
-				{query && category ? (
-					<LightHeader>
-						Search results for <span>“{query}”</span> in <span>{category}</span>
-					</LightHeader>
-				) : category ? (
-					<Header>Categories / {category}</Header>
-				) : (
-					<LightHeader>
-						Search results for <span>“{query}”</span>
-					</LightHeader>
+				{(query || category) && (
+					<HeaderWrapper>
+						{query && category ? (
+							<LightHeader>
+								Search results for <span>“{query}”</span> in{" "}
+								<span>{category}</span>
+							</LightHeader>
+						) : category ? (
+							<Header>Categories / {category}</Header>
+						) : (
+							<LightHeader>
+								Search results for <span>“{query}”</span>
+							</LightHeader>
+						)}
+						<ClearButton />
+					</HeaderWrapper>
 				)}
 				<CardGroup>
 					{categorizedCards.map((card) => (
@@ -137,12 +144,23 @@ const Header = styled.div`
   `)}
 `
 
-const LightHeader = styled(Header)`
-  /* color: ${colors.charcoal300}; */
+const HeaderWrapper = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 
-  span {
-    /* color: ${colors.charcoal100}; */
-  }
+	${fresponsive(css`
+		padding-top: 12px;
+		margin-bottom: 20px;
+	`)}
+`
+
+const LightHeader = styled(Header)`
+	margin-bottom: unset;
+
+	span {
+		color: ${colors.gray900};
+	}
 `
 
 const CardGroup = styled.div`

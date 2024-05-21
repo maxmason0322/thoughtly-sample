@@ -82,14 +82,7 @@ const BlogWrapper = styled.div`
   width: 100%;
   display: grid;
   place-items: center;
-
-  ${ftablet(css`
-    width: 884px;
-  `)}
-
-  ${fmobile(css`
-    width: 318px;
-  `)}
+  background-color: ${colors.white};
 `
 
 const BlogInner = styled.div`
@@ -98,10 +91,9 @@ const BlogInner = styled.div`
   align-items: center;
   width: 100%;
   max-width: ${desktopBreakpoint}px;
-  background-color: ${colors.white};
 
   ${fresponsive(css`
-    padding: 134px 110px 0;
+    padding: 134px 110px 150px;
     gap: 50px;
   `)}
 `

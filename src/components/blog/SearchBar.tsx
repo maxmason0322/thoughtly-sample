@@ -1,5 +1,4 @@
 import Icon from "components/Icon"
-import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive } from "library/fullyResponsive"
 import { useParamState } from "library/useParamState"
 import styled, { css } from "styled-components"
@@ -7,9 +6,7 @@ import colors from "styles/colors"
 import textStyles from "styles/text"
 
 export default function SearchBar() {
-	const [category, setCategory] = useParamState("category")
 	const [query, setQuery] = useParamState("query")
-	const [showAll, setShowAll] = useParamState("showAll")
 
 	return (
 		<Wrapper>
@@ -23,20 +20,6 @@ export default function SearchBar() {
 				/>
 				<SearchIcon name="search" />
 			</Row>
-
-			{Boolean(category) || Boolean(query) || Boolean(showAll) ? (
-				<ClearButton
-					type="button"
-					onClick={() => {
-						setCategory(null)
-						setQuery(null)
-						setShowAll(null)
-					}}
-				>
-					{/* <ClearIcon /> */}
-					Clear Filters / Categories
-				</ClearButton>
-			) : null}
 		</Wrapper>
 	)
 }
@@ -88,28 +71,3 @@ const Input = styled.input`
     outline: none;
   }
 `
-
-const ClearButton = styled(UniversalLink)`
-  ${textStyles.bodyS}
-  ${fresponsive(css`
-    display: flex;
-    gap: 12px;
-    align-items: center;
-
-    /* color: ${colors.charcoal500}; */
-    white-space: nowrap;
-    flex-shrink: 0;
-  `)}
-  ${fmobile(css`
-    padding-top: 20px;
-
-    /* border-top: 1px solid ${colors.charcoal200}; */
-  `)}
-`
-
-// const ClearIcon = styled(ClearIconSVG)`
-//   ${fresponsive(css`
-//     width: 16px;
-//     height: 16px;
-//   `)}
-// `
