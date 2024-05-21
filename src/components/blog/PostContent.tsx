@@ -1,6 +1,6 @@
 import UniversalLink from "library/Loader/UniversalLink"
 import UniversalImage from "library/UniversalImage"
-import { fmobile, fresponsive } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles, { trim } from "styles/text"
@@ -49,6 +49,11 @@ const Wrapper = styled.div`
     padding-bottom: 32px;
     gap: 24px;
   `)}
+
+  ${ftablet(css`
+    padding-bottom: 0;
+  `)}
+
   ${fmobile(css`
     margin-top: 45px;
   `)}
@@ -64,6 +69,10 @@ const ArticleImage = styled(UniversalImage)`
 
   ${fresponsive(css`
     border-radius: 24px;
+  `)}
+
+  ${ftablet(css`
+    aspect-ratio: 600 / 442;
   `)}
 `
 
@@ -102,6 +111,6 @@ const MobileSocials = styled.div`
 `
 
 const Row = styled.div`
-display: flex;
-justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 `

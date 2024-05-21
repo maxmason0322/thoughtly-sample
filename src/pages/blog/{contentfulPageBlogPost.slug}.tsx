@@ -112,6 +112,10 @@ const Inner = styled.div`
     padding: 164px 156px 102px;
     gap: 48px;
   `)}
+
+  ${ftablet(css`
+    padding: 166px 68px 100px;
+  `)}
 `
 
 const Link = styled(UniversalLink)`
@@ -121,6 +125,10 @@ const Link = styled(UniversalLink)`
   &:last-of-type {
     color: ${colors.green400};
   }
+
+  ${ftablet(css`
+    ${textStyles.sh3}
+  `)}
 `
 
 const Heading = styled.div`
@@ -143,6 +151,10 @@ const Light = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 200px;
+
+  ${ftablet(css`
+    ${textStyles.sh3}
+  `)}
 `
 
 const Content = styled.div`
@@ -155,8 +167,8 @@ const Content = styled.div`
   `)}
 
   ${ftablet(css`
-    margin-top: 20px;
-    margin-bottom: 127px;
+    grid-template-columns: 1fr 600px 1fr;
+    margin-bottom: 100px;
   `)}
 
   ${fmobile(css`
@@ -171,9 +183,6 @@ const Socials = styled.div`
     place-items: start end;
     gap: 16px;
   `)}
-  ${ftablet(css`
-    padding-right: 22px;
-  `)}
 `
 
 const Related = styled.div`
@@ -184,11 +193,6 @@ const Related = styled.div`
 
   ${fresponsive(css`
     gap: 48px 24px;
-  `)}
-
-  ${ftablet(css`
-    width: 884px;
-    gap: 80px 22px;
   `)}
 
   ${fmobile(css`

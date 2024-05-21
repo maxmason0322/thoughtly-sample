@@ -67,7 +67,9 @@ const Ol = styled.ol`
   `)}
 `
 
-const Li = styled.li``
+const Li = styled.li`
+	${textStyles.sh3}
+`
 
 const Hr = styled.hr`
   border-bottom: 1px solid ${colors.gray700};
