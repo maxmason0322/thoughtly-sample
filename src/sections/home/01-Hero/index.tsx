@@ -237,9 +237,8 @@ export default function Hero() {
 					</Unmask>
 					<Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
 						<Text>
-							Businesses trust Thoughtly’s human-like AI agents to answer
-							millions of phone calls, instantly. Spend less time on the phone
-							and more time growing your business.
+							Thoughtly helps businesses build and deploy human-like AI voice
+							agents in just 17 minutes. Welcome to the future of calling.
 						</Text>
 					</Unmask>
 					<Buttons>
