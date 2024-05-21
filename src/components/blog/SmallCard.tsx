@@ -1,6 +1,6 @@
 import UniversalLink from "library/Loader/UniversalLink"
 import UniversalImage from "library/UniversalImage"
-import { fmobile, fresponsive } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import textStyles, { clampText, trim } from "styles/text"
 import type { BlogCard } from "types/aliases"
@@ -34,6 +34,10 @@ const Image = styled(UniversalImage)`
   ${fresponsive(css`
     aspect-ratio: 372 / 215;
     border-radius: 18px;
+  `)}
+
+  ${ftablet(css`
+    aspect-ratio: 268 / 215;
   `)}
   
   ${fmobile(css`

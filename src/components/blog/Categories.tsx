@@ -74,7 +74,7 @@ const CategoryHeader = styled.div`
   `)}
 
   ${ftablet(css`
-    margin-bottom: 32px;
+    margin-bottom: 10px;
   `)}
 
   ${fmobile(css`

@@ -56,7 +56,7 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 						Blog
 					</Kicker>
 					<h1>
-						Thoughts by <span>Thoughtly</span>
+						Thoughts by <strong>Thoughtly</strong>
 					</h1>
 					<Description>
 						Product announcements, customer stories, and best practices for
@@ -96,6 +96,10 @@ const BlogInner = styled.div`
     padding: 134px 110px 150px;
     gap: 50px;
   `)}
+
+  ${ftablet(css`
+    padding: 158px 20px 150px;
+  `)}
 `
 
 const Header = styled.div`
@@ -108,7 +112,7 @@ const Header = styled.div`
   position: relative;
   overflow: clip;
 
-  span {
+  strong {
     ${transparentText}
     background-image: ${gradients.greenBlue};
   }
@@ -120,7 +124,7 @@ const Header = styled.div`
   `)}
 
   ${ftablet(css`
-    margin-bottom: 25px;
+    gap: 15px;
   `)}
 
   ${fmobile(css`
@@ -141,10 +145,6 @@ const Description = styled.div`
     text-align: left;
   `)}
 
-  ${ftablet(css`
-    width: 254px;
-  `)}
-
   ${fmobile(css`
     text-align: left;
     width: 288px;
@@ -162,12 +162,12 @@ const Columns = styled.div`
   `)}
 
   ${ftablet(css`
-    margin-top: 42px;
-    gap: 30px;
+    gap: 58px;
   `)}
 
   ${fmobile(css`
     margin-top: 30px;
+    padding: 0 45px;
   `)}
 `
 
@@ -186,7 +186,7 @@ const Right = styled.div`
     width: 768px;
   `)}
   ${ftablet(css`
-    width: 585px;
+    width: 560px;
   `)}
   ${fmobile(css`
     width: 318px;
@@ -202,6 +202,11 @@ const StyledCall = styled(CallWidget)`
     top: -19px;
     right: 165px;
   `)}
+
+  ${ftablet(css`
+    right: 12px;
+    top: -50px;
+  `)}
 `
 
 const StyledAvatar = styled(AvatarWidget)`
@@ -210,5 +215,10 @@ const StyledAvatar = styled(AvatarWidget)`
   ${fresponsive(css`
     bottom: 14px;
     right: 22px;
+  `)}
+
+  ${ftablet(css`
+    right: -14px;
+    bottom: -49px;
   `)}
 `

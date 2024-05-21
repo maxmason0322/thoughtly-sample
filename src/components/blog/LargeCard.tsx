@@ -37,15 +37,16 @@ export default function LargeCard({ data }: { data: BlogCard }) {
 const Wrapper = styled.div`
   display: grid;
   cursor: pointer;
+  width: 100%;
   
   ${fresponsive(css`
-    width: 768px;
     gap: 26px;
     margin-bottom: 60px;
   `)}
 
   ${ftablet(css`
-    margin-bottom: 66px;
+    margin-bottom: 48px;
+    gap: 20px;
   `)}
 
   ${fmobile(css`
