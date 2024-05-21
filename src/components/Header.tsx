@@ -52,10 +52,10 @@ export default function Header() {
 					</UniversalLink>
 					<Links>
 						<Link to={links.industries}>Industries</Link>
-						<Link to={links.features}>Features</Link>
 						<Link to={links.integrations}>Integrations</Link>
 						<Link to={links.pricing}>Pricing</Link>
 						<Link to={links.helpCenter}>Support</Link>
+						<Link to={links.blog}>Blog</Link>
 					</Links>
 				</Left>
 				<Right>
