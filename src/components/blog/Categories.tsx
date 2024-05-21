@@ -57,8 +57,9 @@ const Wrapper = styled.div`
     place-items: start;
     gap: 10px 45px;
     padding-top: 25px;
-    padding-bottom: 50px;
-    margin-bottom: 20px;
+    padding-bottom: 30px;
+    margin-bottom: 48px;
+    border-bottom: 1px solid ${colors.gray300};
   `)}
 `
 
@@ -78,6 +79,8 @@ const CategoryHeader = styled.div`
   `)}
 
   ${fmobile(css`
+    padding-top: 8px;
+    margin-bottom: 0;
     grid-row: 1 / 7;
   `)}
 `
@@ -86,6 +89,11 @@ const CategoryIcon = styled(Icon)`
   ${fresponsive(css`
     width: 18px;
     height: 18px;
+  `)}
+
+  ${fmobile(css`
+    width: 16px;
+    height: 16px;
   `)}
 `
 
@@ -106,6 +114,6 @@ const Category = styled(UniversalLink)`
     display: grid;
     place-items: center;
     grid-column: -2;
-    ${textStyles.bodyL}
+    ${textStyles.sh3}
   `)}
 `

@@ -50,8 +50,11 @@ const Wrapper = styled.div`
   `)}
 
   ${fmobile(css`
-    margin-bottom: 50px;
     margin-top: 20px;
+    padding-bottom: 50px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid ${colors.gray300};
+    gap: 16px;
   `)}
 `
 
@@ -65,7 +68,7 @@ const Image = styled(UniversalImage)`
     aspect-ratio: 585 / 440;
   `)}
   ${fmobile(css`
-    aspect-ratio: 318 / 270;
+    aspect-ratio: 313 / 222;
   `)}
 `
 
@@ -75,6 +78,10 @@ const Title = styled.div`
 
   ${fresponsive(css`
     padding-bottom: 4px;
+  `)}
+
+  ${fresponsive(css`
+    ${textStyles.sh1}
   `)}
 `
 
@@ -91,8 +98,7 @@ const Details = styled.div`
   `)}
 
   ${fmobile(css`
-    gap: 28px 10px;
-    margin-bottom: 10px;
+    gap: 16px;
   `)}
 `
 
@@ -113,9 +119,8 @@ const Description = styled.div`
     margin-top: 10px;
   `)}
   ${fmobile(css`
-    ${textStyles.bodyR};
+    ${textStyles.bodyS};
     ${trim(1.2)};
-    margin-top: 10px;
   `)}
 `
 

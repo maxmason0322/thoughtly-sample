@@ -71,7 +71,11 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 							<EmailInput />
 						</div>
 					</Left>
-					<Right>{children}</Right>
+					<Right>
+						<Line />
+						<SearchBar />
+						{children}
+					</Right>
 				</Columns>
 			</BlogInner>
 		</BlogWrapper>
@@ -99,6 +103,11 @@ const BlogInner = styled.div`
 
   ${ftablet(css`
     padding: 158px 20px 150px;
+  `)}
+
+  ${fmobile(css`
+    padding: 112px 8px 100px;
+    gap: 32px;
   `)}
 `
 
@@ -128,10 +137,8 @@ const Header = styled.div`
   `)}
 
   ${fmobile(css`
-    flex-direction: column;
-    gap: 25px;
-    margin-top: 130px;
-    margin-bottom: 25px;
+    ${textStyles.h6}
+    gap: 18px;
     align-items: start;
   `)}
 `
@@ -150,6 +157,22 @@ const Description = styled.div`
     width: 288px;
     margin-left: 0;
   `)}
+
+  ${fmobile(css`
+    width: 100%;
+  `)}
+`
+
+const Line = styled.div`
+  display: none;
+  background-color: ${colors.gray300};
+
+  ${fmobile(css`
+    display: flex;
+    width: 100%;
+    height: 1px;
+    margin-bottom: 32px;
+  `)}
 `
 
 const Columns = styled.div`
@@ -166,8 +189,7 @@ const Columns = styled.div`
   `)}
 
   ${fmobile(css`
-    margin-top: 30px;
-    padding: 0 45px;
+    padding: 0 23px;
   `)}
 `
 
@@ -189,7 +211,7 @@ const Right = styled.div`
     width: 560px;
   `)}
   ${fmobile(css`
-    width: 318px;
+    width: 100%;
   `)}
 `
 
@@ -207,6 +229,10 @@ const StyledCall = styled(CallWidget)`
     right: 12px;
     top: -50px;
   `)}
+
+  ${fmobile(css`
+    display: none;
+  `)}
 `
 
 const StyledAvatar = styled(AvatarWidget)`
@@ -220,5 +246,9 @@ const StyledAvatar = styled(AvatarWidget)`
   ${ftablet(css`
     right: -14px;
     bottom: -49px;
+  `)}
+
+  ${fmobile(css`
+    display: none;
   `)}
 `

@@ -26,6 +26,10 @@ const Wrapper = styled(UniversalLink)`
     display: grid;
     gap: 12px;
   `)}
+
+  ${fmobile(css`
+    width: 273px;
+  `)}
 `
 
 const Image = styled(UniversalImage)`
@@ -41,8 +45,7 @@ const Image = styled(UniversalImage)`
   `)}
   
   ${fmobile(css`
-    width: 318px;
-    height: 205px;
+    aspect-ratio: 273 / 215;
   `)}
 `
 
@@ -54,5 +57,9 @@ const Title = styled.div`
   ${fresponsive(css`
     padding: 4px 0;
     margin: -4px 0;
+  `)}
+
+  ${fmobile(css`
+    ${textStyles.sh2}
   `)}
 `
