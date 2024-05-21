@@ -1,7 +1,7 @@
 import type { Options } from "@contentful/rich-text-react-renderer"
 import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types"
 import type { IGatsbyImageData } from "gatsby-plugin-image"
-import ChevronSVG from "images/global/icons/chev.svg"
+import ChevronSVG from "images/global/icons/Chev.svg"
 import UniversalLink from "library/Loader/UniversalLink"
 import renderContent from "library/RichText/renderContent"
 import UniversalImage from "library/UniversalImage"
