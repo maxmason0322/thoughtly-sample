@@ -8,7 +8,7 @@ import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
 import links from "utils/links"
 
-export default function CallWidget({ className = "" }: { className: string }) {
+export default function CallWidget({ className = "" }: { className?: string }) {
 	return (
 		<Wrapper className={className}>
 			<Image />

@@ -5,10 +5,10 @@ import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles, { trim, clampText } from "styles/text"
+import type { BlogCard } from "types/aliases"
 import Author from "./Author"
-// import type { BlogCard } from "types/aliases"
 
-export default function LargeCard({ data }) {
+export default function LargeCard({ data }: { data: BlogCard }) {
 	const { author, mainImage, title, articleTextPreview, slug } = data
 
 	return (

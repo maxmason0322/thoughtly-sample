@@ -3,22 +3,10 @@ import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import textStyles, { clampText, trim } from "styles/text"
+import type { BlogCard } from "types/aliases"
 import Author from "./Author"
-// import type { BlogCard } from "types/aliases"
 
-// : {
-// 	data: Pick<
-// 		BlogCard,
-// 		| "slug"
-// 		| "author"
-// 		| "mainImage"
-// 		| "title"
-// 		| "overridePublishedDate"
-// 		| "createdAt"
-// 	>
-// }
-
-export default function SmallCard({ data }) {
+export default function SmallCard({ data }: { data: BlogCard }) {
 	const { slug, author, mainImage, title } = data
 
 	return (
@@ -28,7 +16,7 @@ export default function SmallCard({ data }) {
 				alt={mainImage?.description ?? ""}
 			/>
 			<Title>{title}</Title>
-			<Author data={author} />
+			{author && <Author data={author} />}
 		</Wrapper>
 	)
 }

@@ -7,7 +7,6 @@ import SmallCard from "components/blog/SmallCard"
 import type { PageProps } from "gatsby"
 import { graphql } from "gatsby"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-// import { ReactComponent as ArrowIconSVG } from "images/blog/blogArrow.svg"
 import UniversalLink from "library/Loader/UniversalLink"
 import { usePinType } from "library/Scroll"
 import { DesktopTabletOnly } from "library/breakpointUtils"
@@ -45,8 +44,6 @@ export default function BlogPostPage({
 		})
 	}, [pinType])
 
-	const relatedArticles = post?.relatedArticles?.filter(Boolean)
-
 	return (
 		<Wrapper>
 			<Inner>
@@ -67,7 +64,7 @@ export default function BlogPostPage({
 				</Content>
 				<Related>
 					<RelatedHeading>Recent Articles</RelatedHeading>
-					{(relatedArticles ?? recentArticles).map((article) => (
+					{recentArticles.map((article) => (
 						<SmallCard key={article.slug} data={article} />
 					))}
 				</Related>
@@ -85,7 +82,7 @@ export function Head({ data }: PageProps<Queries.BlogPostQuery>) {
 			title={data.contentfulPageBlogPost?.title}
 			description={data.contentfulPageBlogPost?.articleTextPreview}
 			image={data.contentfulPageBlogPost?.mainImage?.file?.url ?? ""}
-			pathname={`blog/${data.contentfulPageBlogPost?.slug ?? ""}`}
+			pathname={`/blog/${data.contentfulPageBlogPost?.slug ?? ""}`}
 		/>
 	)
 }
@@ -256,26 +253,6 @@ export const query = graphql`
           }
         }
       }
-      # relatedArticles {
-      #   title
-      #   slug
-      #   mainImage {
-      #     gatsbyImageData
-      #     description
-      #   }
-      #   articleTextPreview
-      #   overridePublishedDate(formatString: "MMMM Do, YYYY")
-      #   createdAt(formatString: "MMMM Do, YYYY")
-      #   author {
-      #     id
-      #     photo {
-      #       gatsbyImageData
-      #       createdAt
-      #     }
-      #     fullName
-      #     roleAndCompany
-      #   }
-      # }
     }
     # get the three most recent blog posts that are not the current post
     allContentfulPageBlogPost(

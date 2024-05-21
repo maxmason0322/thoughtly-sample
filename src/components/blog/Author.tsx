@@ -3,8 +3,9 @@ import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
+import type { Author as AuthorType } from "types/aliases"
 
-export default function Author({ data }) {
+export default function Author({ data }: { data: AuthorType }) {
 	return (
 		<Wrapper>
 			<ProfilePhoto

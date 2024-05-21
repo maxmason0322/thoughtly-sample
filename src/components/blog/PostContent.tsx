@@ -4,11 +4,12 @@ import { fmobile, fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles, { trim } from "styles/text"
+import type { BlogPost } from "types/aliases"
 import Author from "./Author"
 import RichText from "./RichComponents"
 import Share from "./Share"
 
-export default function PostContent({ post }) {
+export default function PostContent({ post }: { post: BlogPost }) {
 	const { author, title, mainImage, categories, articleText } = post
 
 	return (

@@ -193,7 +193,6 @@ const CustomWidthButton = styled(Primary)`
 `
 
 const MobileEmail = styled(MobileOnly)`
-  /* border-top: 1px solid ${colors.charcoal200}; */
   ${fmobile(css`
     padding-top: 50px;
     margin-top: 50px;

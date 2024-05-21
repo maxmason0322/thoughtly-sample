@@ -11,7 +11,7 @@ import colors, { gradients } from "styles/colors"
 export default function AvatarWidget({
 	className = "",
 }: {
-	className: string
+	className?: string
 }) {
 	const wrapperRef = useRef<HTMLDivElement | null>(null)
 
