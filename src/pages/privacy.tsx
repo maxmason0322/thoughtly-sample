@@ -48,7 +48,7 @@ export default function Privacy() {
 						Your privacy is important to us. This Privacy Policy (“Policy”)
 						applies to services provided by Thoughtly, Inc. (“we”, “us”, or
 						“Thoughtly”) and our website (thought.ly, accessible from{" "}
-						<legalStyles.Link href={links.homePage}>
+						<legalStyles.Link to={links.home}>
 							https://thought.ly/
 						</legalStyles.Link>
 						), product pages, mobile or web applications, or other digital
@@ -140,7 +140,7 @@ export default function Privacy() {
 							applicable privacy policy. As of the effective date of this
 							Privacy Policy listed below, Stripe is the Payment Processor used
 							within the Services and its privacy policy is available at{" "}
-							<legalStyles.Link href={links.stripe}>
+							<legalStyles.Link to={links.stripe}>
 								https://stripe.com/us/privacy
 							</legalStyles.Link>{" "}
 							or such other URL designated by Stripe. In order to facilitate
@@ -667,11 +667,11 @@ export default function Privacy() {
 						other similar feature on your device. You can also make choices
 						about data collection for certain companies by visiting an industry
 						consumer choice platform such as the NAI (
-						<legalStyles.Link href={links.NAI}>
+						<legalStyles.Link to={links.NAI}>
 							https://optout.networkadvertising.org/
 						</legalStyles.Link>
 						) or DAA (
-						<legalStyles.Link href={links.DAA}>
+						<legalStyles.Link to={links.DAA}>
 							https://optout.aboutads.info/
 						</legalStyles.Link>
 						). If you opt-out of interest-based ads, you will still see ads on
@@ -711,7 +711,7 @@ export default function Privacy() {
 						All users may request to review, update, correct or delete the
 						Personal Information furnished by a user in their user account by
 						contacting us at{" "}
-						<legalStyles.Link href={links.contact}>
+						<legalStyles.Link to={links.contact}>
 							support@thought.ly
 						</legalStyles.Link>
 						. For your protection, we may only share and update the Personal
@@ -735,7 +735,7 @@ export default function Privacy() {
 						language) in those communications. For text message communications,
 						you can text back “STOP” and we will send you a text message to
 						confirm that you have been unsubscribed. You can also contact us at{" "}
-						<legalStyles.Link href={links.contact}>
+						<legalStyles.Link to={links.contact}>
 							support@thought.ly
 						</legalStyles.Link>
 						, to opt out. Despite your indicated email preferences, we may send
@@ -778,7 +778,7 @@ export default function Privacy() {
 						believe that we have unknowingly collected any Personal Information
 						from someone under the age of sixteen (16), please contact us
 						immediately at{" "}
-						<legalStyles.Link href={links.contact}>
+						<legalStyles.Link to={links.contact}>
 							support@thought.ly
 						</legalStyles.Link>{" "}
 						and the information will be deleted.
@@ -811,7 +811,7 @@ export default function Privacy() {
 						from a visitor’s browser because we do not track our visitors to
 						provide targeted advertising. To find out more about Do Not Track,
 						please visit{" "}
-						<legalStyles.Link href={links.homePage}>
+						<legalStyles.Link to={links.home}>
 							https://thought.ly/
 						</legalStyles.Link>
 						.
@@ -861,7 +861,7 @@ export default function Privacy() {
 						<legalStyles.BoldText>Exercising your rights:</legalStyles.BoldText>{" "}
 						To the extent applicable under local law, you can exercise privacy
 						rights described in this section by submitting a request through
-						<legalStyles.Link href={links.contact}>
+						<legalStyles.Link to={links.contact}>
 							support@thought.ly
 						</legalStyles.Link>
 						.
@@ -884,7 +884,7 @@ export default function Privacy() {
 						your behalf and you may also be required to independently verify
 						your identity and submit proof of your residency with us. Authorized
 						agent requests can be submitted to{" "}
-						<legalStyles.Link href={links.contact}>
+						<legalStyles.Link to={links.contact}>
 							support@thought.ly
 						</legalStyles.Link>
 						.
@@ -894,7 +894,7 @@ export default function Privacy() {
 						where you live, you may have the right to appeal a decision we make
 						relating to requests to exercise your rights under applicable local
 						law. To appeal a decision, please send your request to
-						<legalStyles.Link href={links.contact}>
+						<legalStyles.Link to={links.contact}>
 							support@thought.ly
 						</legalStyles.Link>
 						.
@@ -1014,7 +1014,7 @@ export default function Privacy() {
 						jurisdictions, we will take steps to help ensure that you are able
 						to exercise your rights regarding Personal Information about you in
 						accordance with applicable law. To do so, you may contact us at{" "}
-						<legalStyles.Link href={links.contact}>
+						<legalStyles.Link to={links.contact}>
 							support@thought.ly
 						</legalStyles.Link>
 						. Please note these rights may be limited in certain circumstances
@@ -1024,7 +1024,7 @@ export default function Privacy() {
 						supervisory authority or other regulatory agency if you believe that
 						we have violated any of the rights concerning Personal Information
 						about you. We encourage you to first reach out to us at{" "}
-						<legalStyles.Link href={links.contact}>
+						<legalStyles.Link to={links.contact}>
 							support@thought.ly
 						</legalStyles.Link>
 						, so we have an opportunity to address your concerns directly before
@@ -1035,7 +1035,7 @@ export default function Privacy() {
 					<legalStyles.SectionHeader>Contact Us</legalStyles.SectionHeader>
 					<legalStyles.Paragraph $noPadding={false}>
 						If you have any questions about this Policy, you can contact us at{" "}
-						<legalStyles.Link href={links.contact}>
+						<legalStyles.Link to={links.contact}>
 							support@thought.ly
 						</legalStyles.Link>
 					</legalStyles.Paragraph>

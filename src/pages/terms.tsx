@@ -72,7 +72,7 @@ export default function Terms() {
 					</legalStyles.Paragraph>
 					<legalStyles.Paragraph $noPadding={false}>
 						We operate the website{" "}
-						<legalStyles.Link href={links.homePage}>
+						<legalStyles.Link to={links.home}>
 							https://thought.ly
 						</legalStyles.Link>{" "}
 						(the "Site"), as well as any other related products and services
@@ -1915,7 +1915,7 @@ export default function Terms() {
 						United States
 					</legalStyles.Paragraph>
 					<legalStyles.Paragraph $noPadding>
-						<legalStyles.Link href={links.contact}>
+						<legalStyles.Link to={links.contact}>
 							support@thought.ly
 						</legalStyles.Link>
 					</legalStyles.Paragraph>

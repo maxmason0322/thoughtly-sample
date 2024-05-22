@@ -1,3 +1,4 @@
+import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
@@ -77,7 +78,7 @@ const legalStyles = {
     ${colors.black};
     font-weight: 500;
   `,
-	Link: styled.a`
+	Link: styled(UniversalLink)`
     ${textStyles.bodyS};
     text-decoration: underline;
 
