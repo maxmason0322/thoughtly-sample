@@ -44,7 +44,7 @@ const Blue = styled.strong`
 const data = [
 	{
 		title: "Healthcare",
-		text: "Our agents automate complex processes, from benefits explanation to medication adherence support, ensuring clarity and compliance across all interactions. Enhance operational workflows, reduce administrative burdens, and deliver superior member service with AI that understands the nuances of pharmacy benefits and healthcare planning.",
+		text: "Our AI voice agents automate complex processes from new patient intake and appointment scheduling to outbound claim status calls. With Thoughtly, you'll reduce your labor costs, free up nurses, and deliver superior member service with AI that understands the nuances of the healthcare industry.",
 		assertiveness: {
 			val: 20,
 			text: "Use softer suggestions",
@@ -91,7 +91,7 @@ const data = [
 	},
 	{
 		title: "Real Estate",
-		text: "Selling your customers that dream condo, beach home, or building has never been easier. Instantly respond to every inquiry, re-engage with previous leads, and get showings scheduled at a scale previously unimaginable. Empower your agents to connect with buyers using the most powerful conversational technology on the market.",
+		text: "Selling your customers that dream condo or beach home has never been easier. Our AI agents instantly respond to every inquiry, re-engage with previous leads, and schedule showings at a scale previously unimaginable. With Thoughtly, you'll connect your buyers to the most powerful and human-like conversational technology on the market.",
 		assertiveness: {
 			val: 70,
 			text: "Assertive yet kind",
@@ -142,7 +142,7 @@ const data = [
 	},
 	{
 		title: "Government",
-		text: "Drive political engagement and make every voice heard with technology that bridges gaps and fosters democracy. Designed for PACs, campaigns, and advocacy groups, our agents not only streamline outreach and personalize interactions with voters but also seamlessly facilitate connections between constituents and their representatives.",
+		text: "Delight constituents with our AI voice agents. Whether you are a PAC, campaign, or advocacy group looking to personalize interactions with voters or a Public Transit Authority looking to automate ride status and ride requests to hit speed to answer SLAs, Thoughtly is here to help!",
 		assertiveness: {
 			val: 20,
 			text: "Assertive yet kind",
@@ -193,7 +193,7 @@ const data = [
 	},
 	{
 		title: "Insurance",
-		text: "Streamline client interactions, enhance claim processing, and optimize your overall customer service experience. Deliver superior service and make data-driven decisions faster than ever before.",
+		text: "Our AI agents streamline member interactions by assisting your members with filing new claims, checking their claim status, answer coverage and benefit questions, and modifying and updating their policies. With Thoughtly you'll deliver superior member service and make data-driven decisions faster than ever before.",
 		assertiveness: {
 			val: 30,
 			text: "Use softer suggestions",
@@ -294,7 +294,7 @@ const data = [
 	},
 	{
 		title: "Services/Utilities",
-		text: "Revolutionize your scheduling, appointment setting, and everything else with AI that understands your client's needs. Perfect for hospitality & travel, consumer services, financial services, and more.",
+		text: "Our AI voice agents intake and qualify new customers, schedule appointments and provide service status updates all on your behalf. With Thoughtly, you'll convert more leads, reduce labor costs and drive more revenue.",
 		assertiveness: {
 			val: 20,
 			text: "Very assertive, direct outcome",
