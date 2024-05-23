@@ -1,4 +1,4 @@
-import loader from "library/Loader"
+import { loader } from "library/Loader"
 import { isBrowser } from "library/deviceDetection"
 import { useEffect, useState } from "react"
 import { createGlobalStyle } from "styled-components"
@@ -31,7 +31,7 @@ export default function DelayRender({
 		if (!queueIsRunning) runQueue()
 	}, [pageHasLoaded])
 
-	loader.useEventListener("anyEnd", () => {
+	loader.useEventListener("end", () => {
 		setTimeout(() => {
 			setPageHasLoaded(true)
 		}, delay)

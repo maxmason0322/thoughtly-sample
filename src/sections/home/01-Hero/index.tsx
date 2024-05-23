@@ -5,7 +5,7 @@ import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
 import ScrollSmoother from "gsap/ScrollSmoother"
 import Background from "images/home/hero/hero-background.png"
-import loader from "library/Loader"
+import { loader } from "library/Loader"
 import { ScreenContext } from "library/ScreenContext"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import getMedia from "library/getMedia"
@@ -217,7 +217,7 @@ export default function Hero() {
 		)
 	}
 
-	loader.useEventListener("anyEnd", initTimeline)
+	loader.useEventListener("end", initTimeline)
 
 	return (
 		<Wrapper ref={wrapperRef}>
