@@ -22,7 +22,7 @@ import Link from "./Buttons/Link"
 gsap.registerPlugin(ScrollToPlugin)
 
 export default function Header() {
-	const { mobile } = useContext(ScreenContext)
+	const { mobile, tablet } = useContext(ScreenContext)
 	const innerRef = useRef<HTMLDivElement | null>(null)
 	const [menuOpen, setMenuOpen] = useState(false)
 	const lineRef1 = useRef<SVGLineElement | null>(null)
@@ -46,7 +46,7 @@ export default function Header() {
   `)
 
 	const openTimeline = useAnimation(() => {
-		if (!mobile) return null
+		if (!mobile && !tablet) return null
 		const tl = gsap.timeline({ paused: true })
 
 		tl.to(
@@ -94,7 +94,7 @@ export default function Header() {
 		tl.fromTo(
 			menuRef.current,
 			{
-				xPercent: 110,
+				xPercent: 150,
 			},
 			{
 				xPercent: 0,
@@ -103,17 +103,17 @@ export default function Header() {
 		)
 
 		return tl
-	}, [mobile])
+	}, [mobile, tablet])
 
 	useEffect(() => {
-		if (openTimeline && mobile) {
+		if (openTimeline) {
 			if (menuOpen) {
 				openTimeline.play()
 			} else {
 				openTimeline.reverse()
 			}
 		}
-	}, [openTimeline, menuOpen, mobile])
+	}, [openTimeline, menuOpen])
 
 	const initTimeline = useAnimation(() => {
 		const tl = gsap.timeline({
@@ -146,7 +146,7 @@ export default function Header() {
 
 	return (
 		<Wrapper>
-			{mobile && (
+			{(mobile || tablet) && (
 				<>
 					<Blur ref={blurRef} />
 					<Menu ref={menuRef}>
@@ -154,9 +154,11 @@ export default function Header() {
 							<PrimaryButton variant="secondary" to={links.login}>
 								Sign In
 							</PrimaryButton>
-							<PrimaryButton icon="chev" to={links.login}>
-								Get Started
-							</PrimaryButton>
+							{!tablet && (
+								<PrimaryButton icon="chev" to={links.login}>
+									Get Started
+								</PrimaryButton>
+							)}
 						</Buttons>
 						<HR />
 						<MobileLinks>
@@ -225,21 +227,19 @@ export default function Header() {
 					</Links>
 				</Left>
 				<Right>
-					{mobile && (
-						<>
-							<Hamburger
-								type="button"
-								onClick={() => setMenuOpen((val) => !val)}
-							>
-								<Lines viewBox="0 0 36 12" overflow="visible">
-									<Line ref={lineRef1} x1={0} x2={36} y1={0.5} y2={0.5} />
-									<Line ref={lineRef2} x1={0} x2={36} y1={6} y2={6} />
-									<Line ref={lineRef3} x1={0} x2={36} y1={11.5} y2={11.5} />
-								</Lines>
-							</Hamburger>
-						</>
+					{tablet && (
+						<PrimaryButton to={links.login}>Get Started</PrimaryButton>
 					)}
-					{!mobile && (
+					{(mobile || tablet) && (
+						<Hamburger type="button" onClick={() => setMenuOpen((val) => !val)}>
+							<Lines viewBox="0 0 36 12" overflow="visible">
+								<Line ref={lineRef1} x1={0} x2={36} y1={0.5} y2={0.5} />
+								<Line ref={lineRef2} x1={0} x2={36} y1={6} y2={6} />
+								<Line ref={lineRef3} x1={0} x2={36} y1={11.5} y2={11.5} />
+							</Lines>
+						</Hamburger>
+					)}
+					{!mobile && !tablet && (
 						<>
 							<PrimaryButton variant="secondary" to={links.login}>
 								Sign In
@@ -278,6 +278,10 @@ const ImageWrapper = styled.div`
   ${fresponsive(css`
     border-radius: 12px;
   `)}
+
+  ${ftablet(css`
+    aspect-ratio: 339 / 159;
+  `)}
 `
 
 const Title = styled(UniversalLink)`
@@ -302,6 +306,12 @@ const Title = styled(UniversalLink)`
       width: 14px;
       height: 14px;
     }
+  `)}
+
+  ${ftablet(css`
+    padding: 16px 9px 8px 14px;
+    ${textStyles.bodyS}
+    height: 60px;
   `)}
 `
 
@@ -368,6 +378,16 @@ const Right = styled.div`
     gap: 16px;
   `)}
 
+  ${ftablet(css`
+    a {
+      width: 286px;
+    }
+
+    div {
+      width: 286px;
+    }
+  `)}
+
   ${fmobile(css`
     gap: 11px;
   `)}
@@ -393,12 +413,20 @@ const Links = styled.div`
 const Hamburger = styled(UniversalLink)`
   display: grid;
   place-items: center;
+
+  ${fresponsive(css`
+    border: 1.5px solid ${colors.gray300};
+    width: 84px;
+  `)}
+
+  ${ftablet(css`
+    height: 58px;
+    border-radius: 12px;
+  `)}
   
   ${fmobile(css`
-    border: 1.5px solid ${colors.gray300};
     box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
     border-radius: 14px;
-    width: 84px;
     height: 50px;
   `)}
 `
@@ -434,14 +462,23 @@ const Menu = styled.div`
   display: flex;
   flex-direction: column;
 
-	${fresponsive(css`
+  ${fresponsive(css`
+    padding: 24px;
+    border: 1.5px solid ${colors.gray300};
+    gap: 24px;
+    border-radius: 14px;
+  `)}
+
+  ${ftablet(css`
+    width: 387px;
+    top: 134px;
+    right: 67px;
+  `)}
+
+	${fmobile(css`
 		width: 319px;
 		top: 86px;
 		left: 28px;
-		padding: 24px;
-		border: 1.5px solid ${colors.gray300};
-		border-radius: 14px;
-    gap: 24px;
 	`)}
 `
 
@@ -449,6 +486,16 @@ const Buttons = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  ${ftablet(css`
+    a {
+      width: 100%;
+    }
+
+    div {
+      width: 100%;
+    }
+  `)}
 `
 
 const HR = styled.hr`
@@ -465,6 +512,11 @@ const MobileLinks = styled.div`
 
   ${fresponsive(css`
     gap: 12px 6px;
+  `)}
+
+  ${ftablet(css`
+    gap: 24px;
+    justify-content: flex-start;
   `)}
 `
 
@@ -485,10 +537,17 @@ const MobileLink = styled(UniversalLink)`
     svg {
       width: 16px;
       height: 16px;
+      flex-shrink: 0;
 
       path {
         fill: ${colors.gray500};
       }
+    }
+  `)}
+
+  ${ftablet(css`
+    span {
+      ${textStyles.sh2}
     }
   `)}
 `
