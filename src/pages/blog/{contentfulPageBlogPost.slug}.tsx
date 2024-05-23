@@ -3,7 +3,9 @@ import Icon from "components/Icon"
 import Seo from "components/Seo"
 import PostContent from "components/blog/PostContent"
 import Share from "components/blog/Share"
-import SmallCard from "components/blog/SmallCard"
+import SmallCard, {
+	Wrapper as SmallCardWrapper,
+} from "components/blog/SmallCard"
 import type { PageProps } from "gatsby"
 import { graphql } from "gatsby"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -64,9 +66,11 @@ export default function BlogPostPage({
 				</Content>
 				<Related>
 					<RelatedHeading>Recent Articles</RelatedHeading>
-					{recentArticles.map((article) => (
-						<SmallCard key={article.slug} data={article} />
-					))}
+					<RelatedCards>
+						{recentArticles.map((article) => (
+							<SmallCard key={article.slug} data={article} />
+						))}
+					</RelatedCards>
 				</Related>
 				<Button icon="chev" to={links.blog} variant="secondary">
 					See All Articles
@@ -203,18 +207,33 @@ const Socials = styled.div`
 `
 
 const Related = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   margin: 0 auto;
 
   ${fresponsive(css`
-    gap: 48px 24px;
+    gap: 48px;
   `)}
 
   ${fmobile(css`
     grid-template-columns: 1fr;
     gap: 36px;
+  `)}
+`
+
+const RelatedCards = styled.div`
+  display: flex;
+  align-items: center;
+
+  
+  ${fresponsive(css`
+    ${SmallCardWrapper} {
+      width: 372px;
+    }
+    
+    gap: 24px;
   `)}
 `
 

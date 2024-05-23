@@ -21,7 +21,7 @@ export default function SmallCard({ data }: { data: BlogCard }) {
 	)
 }
 
-const Wrapper = styled(UniversalLink)`
+export const Wrapper = styled(UniversalLink)`
   width: 100%;
   
   ${fresponsive(css`

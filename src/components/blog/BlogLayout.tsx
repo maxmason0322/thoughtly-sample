@@ -1,8 +1,11 @@
 import { useEventListener } from "ahooks"
 import Kicker from "components/Kicker"
+import { graphql, useStaticQuery } from "gatsby"
 import ScrollSmoother from "gsap/ScrollSmoother"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { ReactComponent as LogoSVG } from "images/global/logo.svg"
 import { usePinType } from "library/Scroll"
+import UniversalImage from "library/UniversalImage"
 import { MobileOnly } from "library/breakpointUtils"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import createSmoothPin from "library/smoothPin"
@@ -11,9 +14,8 @@ import { useParamState } from "library/useParamState"
 import { getResponsivePixels } from "library/viewportUtils"
 import { getBreakpoint } from "library/viewportUtils"
 import { type ReactNode, useEffect, useRef } from "react"
-import AvatarWidget from "sections/home/01-Hero/AvatarWidget"
-import CallWidget from "sections/home/01-Hero/CallWidget"
 import styled, { css } from "styled-components"
+import { Dots } from "styles/background"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
@@ -29,6 +31,21 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 	const [query] = useParamState("query")
 	const [category] = useParamState("category")
 	const [showAll] = useParamState("showAll")
+
+	const images = useStaticQuery(graphql`
+    query BlogLayout {
+      widget1: file(relativePath: {eq: "blog/widget-1.png"}) {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+      widget2: file(relativePath: {eq: "blog/widget-2.png"}) {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+    }
+  `)
 
 	const trigger = useAnimation(() => {
 		if (getBreakpoint() === "mobile") return
@@ -82,13 +99,16 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 		<BlogWrapper>
 			<BlogInner>
 				<Header>
-					<StyledCall />
-					<StyledAvatar />
-					<Kicker icon="phone" iconLeft iconColor={colors.green400}>
+					<StyledDots />
+					<Widget1 image={images.widget1} alt="widget1" />
+					<Widget2 image={images.widget2} alt="widget2" />
+					<StyledKicker icon="phone" iconLeft iconColor={colors.green400}>
 						Blog
-					</Kicker>
+					</StyledKicker>
 					<h1>
-						Thoughts by <strong>Thoughtly</strong>
+						<strong>Thoughts</strong>
+						<ExtraSmall>BY</ExtraSmall>
+						<Logo />
 					</h1>
 					<Description>
 						Product announcements, customer stories, and best practices for
@@ -116,11 +136,43 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 	)
 }
 
+const Widget1 = styled(UniversalImage)` 
+  position: absolute;
+  z-index: 2;
+
+  ${fresponsive(css`
+    border-radius: 18px;
+    width: 288px;
+    height: 352px;
+    right: 285px;
+    top: -136px;
+    box-shadow: 0 18px 42px 0 rgba(89 89 89 / 8%);
+  `)}
+`
+
+const Widget2 = styled(UniversalImage)`
+  position: absolute;
+  z-index: 2;
+
+  ${fresponsive(css`
+    border-radius: 18px;
+    width: 221px;
+    height: 331px;
+    right: 41px;
+    top: 71px;
+    box-shadow: 0 18px 42px 0 rgba(89 89 89 / 8%);
+  `)}
+`
+
 const BlogWrapper = styled.div`
   width: 100%;
   display: grid;
   place-items: center;
   background-color: ${colors.white};
+`
+
+const StyledDots = styled(Dots)`
+  z-index: 0;
 `
 
 const BlogInner = styled.div`
@@ -145,6 +197,32 @@ const BlogInner = styled.div`
   `)}
 `
 
+const StyledKicker = styled(Kicker)`
+  position: relative;
+  z-index: 2;
+`
+
+const Logo = styled(LogoSVG)`
+  position: absolute;
+  height: auto;
+
+  ${fresponsive(css`
+    width: 105px;
+    top: 56px;
+    left: 34px;
+  `)}
+`
+
+const ExtraSmall = styled.div`
+  position: absolute;
+  ${textStyles.t2}
+
+  ${fresponsive(css`
+    top: 64px;
+    left: 17px;
+  `)}
+`
+
 const Header = styled.div`
   ${textStyles.h5};
   background-color: ${colors.gray100};
@@ -155,15 +233,22 @@ const Header = styled.div`
   position: relative;
   overflow: clip;
 
-  strong {
-    ${transparentText}
-    background-image: ${gradients.greenBlue};
-  }
-
   ${fresponsive(css`
     border-radius: 24px;
     gap: 10px;
     padding: 32px 48px 46px;
+    
+    h1 {
+      height: 81px;
+      position: relative;
+      z-index: 2;
+    }
+
+    strong {
+      ${transparentText}
+      background-image: ${gradients.greenBlue};
+      padding-right: 3px;
+    }
   `)}
 
   ${ftablet(css`
@@ -180,6 +265,8 @@ const Header = styled.div`
 const Description = styled.div`
   ${textStyles.bodyS};
   color: ${colors.gray700};
+  position: relative;
+  z-index: 2;
 
   ${fresponsive(css`
     width: 350px;
@@ -246,43 +333,5 @@ const Right = styled.div`
   `)}
   ${fmobile(css`
     width: 100%;
-  `)}
-`
-
-const StyledCall = styled(CallWidget)`
-  position: absolute;
-
-  ${fresponsive(css`
-    left: unset;
-    bottom: unset;
-    top: -19px;
-    right: 165px;
-  `)}
-
-  ${ftablet(css`
-    right: 12px;
-    top: -50px;
-  `)}
-
-  ${fmobile(css`
-    display: none;
-  `)}
-`
-
-const StyledAvatar = styled(AvatarWidget)`
-  position: absolute;
-
-  ${fresponsive(css`
-    bottom: 14px;
-    right: 22px;
-  `)}
-
-  ${ftablet(css`
-    right: -14px;
-    bottom: -49px;
-  `)}
-
-  ${fmobile(css`
-    display: none;
   `)}
 `
