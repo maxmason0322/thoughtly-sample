@@ -7,22 +7,19 @@ import UniversalLink from "library/Loader/UniversalLink"
 import { ScreenContext } from "library/ScreenContext"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
-import { useContext, useRef } from "react"
+import { useContext, useRef, useState } from "react"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
-import textStyles from "styles/text"
 import links from "utils/links"
 import Link from "./Buttons/Link"
-import Icon from "./Icon"
-import { CalendlyModalContext } from "./Providers/CalendlyModalProvider"
 
 gsap.registerPlugin(ScrollToPlugin)
 
 export default function Header() {
 	const { mobile } = useContext(ScreenContext)
 	const innerRef = useRef<HTMLDivElement | null>(null)
-	const { setModalOpen } = useContext(CalendlyModalContext)
+	const [menuOpen, setMenuOpen] = useState(false)
 
 	const initTimeline = useAnimation(() => {
 		const tl = gsap.timeline({
@@ -61,10 +58,16 @@ export default function Header() {
 				<Right>
 					{mobile && (
 						<>
-							<MobileButton to={links.login}>Sign In</MobileButton>
-							<MobileButton to={links.login}>
-								Get Started <StyledIcon name="chev" />
-							</MobileButton>
+							<Hamburger
+								type="button"
+								onClick={() => setMenuOpen((val) => !val)}
+							>
+								<Lines viewBox="0 0 36 12">
+									<Line x1={0} x2={36} y1={0.5} y2={0.5} />
+									<Line x1={0} x2={36} y1={6} y2={6} />
+									<Line x1={0} x2={36} y1={11.5} y2={11.5} />
+								</Lines>
+							</Hamburger>
 						</>
 					)}
 					{!mobile && (
@@ -165,21 +168,27 @@ const Links = styled.div`
   `)}
 `
 
-const MobileButton = styled(UniversalLink)`
-  ${textStyles.sh4}
-  color: ${colors.black};
-  display: flex;
-  align-items: center;
-
-  ${fresponsive(css`
-    padding: 8px 10px;
-    gap: 2px;
+const Hamburger = styled(UniversalLink)`
+  display: grid;
+  place-items: center;
+  
+  ${fmobile(css`
+    border: 1.5px solid ${colors.gray300};
+    box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
+    border-radius: 14px;
+    width: 84px;
+    height: 50px;
   `)}
 `
 
-const StyledIcon = styled(Icon)`
-  ${fmobile(css`
-    width: 12px;
+const Line = styled.line`
+  stroke: ${colors.black};
+  stroke-width: 1px;
+`
+
+const Lines = styled.svg`
+  ${fresponsive(css`
+    width: 36px;
     height: 12px;
   `)}
 `
