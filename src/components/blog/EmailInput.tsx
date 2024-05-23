@@ -64,7 +64,7 @@ export default function EmailInput() {
 			{/* <Logo /> */}
 			<Title>
 				{state === "success"
-					? "Thanks for subscribing to the circle!"
+					? "Thanks for subscribing to thoughts by Thoughly!"
 					: "Get Thoughtly Stories right to your inbox."}
 			</Title>
 			<Row>

@@ -1,19 +1,22 @@
+import { useEventListener } from "ahooks"
+import Kicker from "components/Kicker"
+import ScrollSmoother from "gsap/ScrollSmoother"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { usePinType } from "library/Scroll"
+import { MobileOnly } from "library/breakpointUtils"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
+import createSmoothPin from "library/smoothPin"
 import useAnimation from "library/useAnimation"
 import { useParamState } from "library/useParamState"
 import { getResponsivePixels } from "library/viewportUtils"
-import { type ReactNode, useRef } from "react"
+import { getBreakpoint } from "library/viewportUtils"
+import { type ReactNode, useEffect, useRef } from "react"
 import AvatarWidget from "sections/home/01-Hero/AvatarWidget"
 import CallWidget from "sections/home/01-Hero/CallWidget"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
-import textStyles, { transparentText } from "styles/text"
-
-import Kicker from "components/Kicker"
-import { MobileOnly } from "library/breakpointUtils"
 import { desktopBreakpoint } from "styles/media"
+import textStyles, { transparentText } from "styles/text"
 import Categories from "./Categories"
 import EmailInput from "./EmailInput"
 import SearchBar from "./SearchBar"
@@ -21,31 +24,59 @@ import SearchBar from "./SearchBar"
 export default function BlogLayout({ children }: { children: ReactNode }) {
 	const pin = useRef<HTMLDivElement>(null)
 	const pinType = usePinType()
+	const needsRefresh = useRef(false)
 
 	const [query] = useParamState("query")
 	const [category] = useParamState("category")
 	const [showAll] = useParamState("showAll")
 
-	useAnimation(
-		() => {
-			ScrollTrigger.create({
-				trigger: pin.current,
-				start: () => `top top+=${getResponsivePixels(120)}`,
-				end: () =>
-					// the height of the parent less the height of the pin
-					`+=${
-						(pin.current?.parentElement?.offsetHeight ?? 0) -
-						(pin.current?.offsetHeight ?? 0)
-					}`,
-				pin: true,
-				pinType,
-			})
-		},
-		[pinType],
-		{
-			extraDeps: [query, category, showAll],
-		},
-	)
+	const trigger = useAnimation(() => {
+		if (getBreakpoint() === "mobile") return
+		return createSmoothPin({
+			trigger: pin.current,
+			start: () => `top-=${getResponsivePixels(120)}`,
+			end: () =>
+				// the height of the parent less the height of the pin
+				`+=${
+					(pin.current?.parentElement?.offsetHeight ?? 0) -
+					(pin.current?.offsetHeight ?? 0)
+				}`,
+			pinType,
+			pinSpacing: false,
+			smoothLevel: getResponsivePixels(50),
+		})
+	}, [pinType])
+
+	const onChange = () => {
+		/**
+		 * we need to make sure any triggers related to the virtual scroll are updated, without triggering a refresh
+		 */
+		ScrollSmoother.get()?.scrollTo(0, false)
+		ScrollTrigger.update()
+		ScrollSmoother.get()?.scrollTo(1, false)
+		ScrollTrigger.update()
+		needsRefresh.current = true
+	}
+
+	const onScroll = () => {
+		if (window.scrollY > 1 && needsRefresh.current) {
+			trigger?.refresh()
+			needsRefresh.current = false
+		}
+	}
+
+	useEffect(() => {
+		const onPageSizeChange = () => {
+			needsRefresh.current = true
+		}
+
+		const observer = new ResizeObserver(onPageSizeChange)
+		observer.observe(document.body)
+	}, [])
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies: intentional side effect
+	useEffect(onChange, [query, category])
+	useEventListener("scroll", onScroll)
 
 	return (
 		<BlogWrapper>

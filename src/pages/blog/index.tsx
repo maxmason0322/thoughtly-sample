@@ -1,4 +1,5 @@
 import Primary from "components/Buttons/Primary"
+import Icon from "components/Icon"
 import Seo from "components/Seo"
 import BlogLayout from "components/blog/BlogLayout"
 import Categories from "components/blog/Categories"
@@ -60,7 +61,9 @@ export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {
 								<span>{category}</span>
 							</LightHeader>
 						) : category ? (
-							<Header>Categories / {category}</Header>
+							<Header>
+								Categories <Icon name="chev" /> <span>{category}</span>
+							</Header>
 						) : (
 							<LightHeader>
 								Search results for <span>“{query}”</span>
@@ -128,9 +131,25 @@ const Header = styled.div`
   ${textStyles.sh1}
   ${trim(1.2)}
 	color: ${colors.gray700};
+  display: flex;
+  align-items: center;
+
+  span {
+    color: ${colors.black};
+  }
+
+  svg {
+    ${fresponsive(css`
+      position: relative;
+      top: 2px;
+      width: 18px;
+      height: 18px;
+    `)}
+  }
 
   ${fresponsive(css`
     margin-bottom: 18px;
+    gap: 12px;
   `)}
 
   ${fmobile(css`
