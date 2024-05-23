@@ -32,7 +32,7 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 	const [category] = useParamState("category")
 	const [showAll] = useParamState("showAll")
 
-	const images = useStaticQuery(graphql`
+	const images: Queries.BlogLayoutQuery = useStaticQuery(graphql`
     query BlogLayout {
       widget1: file(relativePath: {eq: "blog/widget-1.png"}) {
         childImageSharp {
