@@ -148,6 +148,10 @@ const Widget1 = styled(UniversalImage)`
     top: -136px;
     box-shadow: 0 18px 42px 0 rgba(89 89 89 / 8%);
   `)}
+
+  ${fmobile(css`
+    display: none;
+  `)}
 `
 
 const Widget2 = styled(UniversalImage)`
@@ -161,6 +165,10 @@ const Widget2 = styled(UniversalImage)`
     right: 41px;
     top: 71px;
     box-shadow: 0 18px 42px 0 rgba(89 89 89 / 8%);
+  `)}
+
+  ${fmobile(css`
+    display: none;
   `)}
 `
 
@@ -240,6 +248,7 @@ const Header = styled.div`
     
     h1 {
       height: 81px;
+      font-size: 68.5px;
       position: relative;
       z-index: 2;
     }
@@ -259,6 +268,7 @@ const Header = styled.div`
     ${textStyles.h6}
     gap: 18px;
     align-items: start;
+    padding: 26px 0 41px 30px;
   `)}
 `
 
