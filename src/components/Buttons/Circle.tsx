@@ -6,9 +6,10 @@ import colors, { gradients } from "styles/colors"
 export default function Circle({
 	icon = "phone",
 	iconColor = colors.white,
-}: { icon?: IconType; iconColor?: string }) {
+	className = "",
+}: { icon?: IconType; iconColor?: string; className?: string }) {
 	return (
-		<Wrapper>
+		<Wrapper className={className}>
 			<Inner>
 				<Highlight />
 				<StyledIcon name={icon} />
@@ -78,14 +79,13 @@ const Inner = styled.div`
   position: absolute;
   transform: translateX(-50%);
   left: 50%;
+  width: 100%;
+  height: 100%;
 
   ${fresponsive(css`
     box-shadow:
       0 2px 1.5px 0 rgba(216 250 206 / 75%) inset,
       0 -2px 1px 0 rgba(23 122 12 / 16%) inset;
-    width: 68px;
-    height: 68px;
-    padding: 16px;
     border-radius: 97.35px;
   `)}
 
@@ -93,21 +93,17 @@ const Inner = styled.div`
     box-shadow:
       0 1px 1.5px 0 rgba(216 250 206 / 75%) inset,
       0 -2px 1px 0 rgba(23 122 12 / 16%) inset;
-    width: 27px;
-    height: 27px;
-    padding: 6.4px;
     border-radius: 38.94px;
   `)}
 `
 
 const StyledIcon = styled(Icon)`
   position: absolute;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   left: 50%;
-  ${fresponsive(css`
-    height: 36px;
-    width: 36px;
-  `)}
+  top: 50%;
+  height: 53%;
+  width: 53%;
 
   ${fmobile(css`
     height: 14.4px;
