@@ -53,8 +53,8 @@ const Title = styled.div`
   ${textStyles.sh1};
 
   ${fresponsive(css`
-    padding: 4px 0;
-    margin: -4px 0;
+    padding: 3px 0;
+    margin: -3px 0;
   `)}
 
   ${fmobile(css`

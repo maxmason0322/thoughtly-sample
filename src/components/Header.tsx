@@ -36,6 +36,7 @@ export default function Header() {
       contentfulPageBlogHub {
         featuredBlogPost {
           title
+          slug
           mainImage {
             gatsbyImageData
           }
@@ -139,6 +140,10 @@ export default function Header() {
 		initTimeline?.play()
 	})
 
+	loader.useEventListener("routeChange", () => {
+		setMenuOpen(false)
+	})
+
 	return (
 		<Wrapper>
 			{mobile && (
@@ -192,7 +197,11 @@ export default function Header() {
 										}
 									/>
 								)}
-								<Title>
+								<Title
+									to={`/blog/${
+										data.contentfulPageBlogHub?.featuredBlogPost?.slug ?? ""
+									}`}
+								>
 									{data.contentfulPageBlogHub?.featuredBlogPost?.title}
 									<Icon name="chev" />
 								</Title>
@@ -271,7 +280,7 @@ const ImageWrapper = styled.div`
   `)}
 `
 
-const Title = styled.div`
+const Title = styled(UniversalLink)`
   position: absolute;
   left: 0;
   bottom: 0;

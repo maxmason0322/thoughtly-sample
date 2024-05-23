@@ -14,6 +14,7 @@ import { usePinType } from "library/Scroll"
 import { DesktopTabletOnly } from "library/breakpointUtils"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
+import useMedia from "library/useMedia"
 import { getResponsivePixels } from "library/viewportUtils"
 import { useRef } from "react"
 import styled, { css } from "styled-components"
@@ -30,6 +31,7 @@ export default function BlogPostPage({
 }: PageProps<Queries.BlogPostQuery>) {
 	const pin = useRef<HTMLDivElement>(null)
 	const pinType = usePinType()
+	const mobile = useMedia(false, false, false, true)
 
 	useAnimation(() => {
 		ScrollTrigger.create({
@@ -58,11 +60,13 @@ export default function BlogPostPage({
 				<Content>
 					<div />
 					{post ? <PostContent post={post} /> : "Post not found."}
-					<DesktopTabletOnly>
-						<Socials ref={pin}>
-							<Share title={post?.title} />
-						</Socials>
-					</DesktopTabletOnly>
+					{!mobile && (
+						<DesktopTabletOnly>
+							<Socials ref={pin}>
+								<Share title={post?.title} />
+							</Socials>
+						</DesktopTabletOnly>
+					)}
 				</Content>
 				<Related>
 					<RelatedHeading>Recent Articles</RelatedHeading>
@@ -99,7 +103,7 @@ const StyledIcon = styled(Icon)`
 `
 
 const Wrapper = styled.div`
-  width: 100%;
+  width: 100vw;
   display: grid;
   place-items: center;
   background-color: ${colors.white};
@@ -124,6 +128,7 @@ const Inner = styled.div`
   ${fmobile(css`
     padding: 140px 24px;
     gap: 42px;
+    width: 100vw;
   `)}
 `
 
@@ -220,6 +225,7 @@ const Related = styled.div`
   ${fmobile(css`
     grid-template-columns: 1fr;
     gap: 36px;
+    align-items: flex-start;
   `)}
 `
 
@@ -227,13 +233,21 @@ const RelatedCards = styled.div`
   display: flex;
   align-items: center;
 
-  
   ${fresponsive(css`
     ${SmallCardWrapper} {
       width: 372px;
     }
     
     gap: 24px;
+  `)}
+
+  ${fmobile(css`
+    flex-direction: column;
+    align-items: flex-start;
+
+    ${SmallCardWrapper} {
+      width: 273px;
+    }
   `)}
 `
 
