@@ -295,7 +295,7 @@ export const query = graphql`
     }
     # get the three most recent blog posts that are not the current post
     allContentfulPageBlogPost(
-      filter: { id: { nin: [$id, "e1d582e5-f8d2-52c5-a1eb-a758ee4a4f72"] } }
+      filter: { id: { nin: [$id, "ddd9a026-ddbb-5750-a712-81382d93815f"] } }
       sort: { createdAt: DESC }
       limit: 3
     ) {

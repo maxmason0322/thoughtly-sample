@@ -12,8 +12,10 @@ export default function Author({ data }: { data: AuthorType }) {
 				image={data?.headshot?.gatsbyImageData}
 				alt={data?.fullName ?? ""}
 			/>
-			<div>{data.fullName}</div>
-			<div>{data.roleAndCompany}</div>
+			<Info>
+				<div>{data.fullName}</div>
+				<div>{data.roleAndCompany}</div>
+			</Info>
 		</Wrapper>
 	)
 }
@@ -34,8 +36,8 @@ const Wrapper = styled.div`
   `)}
   
   ${fmobile(css`
-    ${textStyles.bodyS};
-    gap: 3px;
+    ${textStyles.sh4};
+    gap: 8px;
   `)}
 `
 

@@ -222,7 +222,7 @@ const MobileEmail = styled(MobileOnly)`
 
 export const query = graphql`
   query BlogPage {
-    allContentfulPageBlogPost(sort: { createdAt: DESC }) {
+    allContentfulPageBlogPost(sort: { createdAt: DESC }, filter: { id: { nin: ["ddd9a026-ddbb-5750-a712-81382d93815f"] } }) {
       nodes {
         slug
         id

@@ -1,10 +1,13 @@
 import PrimaryButton from "components/Buttons/Primary"
+import Icon from "components/Icon"
+import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
 import { ReactComponent as LogoSVG } from "images/global/logo.svg"
 import { loader } from "library/Loader"
 import UniversalLink from "library/Loader/UniversalLink"
 import { ScreenContext } from "library/ScreenContext"
+import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import { getResponsivePixels } from "library/viewportUtils"
@@ -12,6 +15,7 @@ import { useContext, useEffect, useRef, useState } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
+import textStyles from "styles/text"
 import links from "utils/links"
 import Link from "./Buttons/Link"
 
@@ -27,7 +31,21 @@ export default function Header() {
 	const blurRef = useRef<HTMLDivElement | null>(null)
 	const menuRef = useRef<HTMLDivElement | null>(null)
 
+	const data: Queries.NavQuery = useStaticQuery(graphql`
+    query Nav {
+      contentfulPageBlogHub {
+        featuredBlogPost {
+          title
+          mainImage {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+  `)
+
 	const openTimeline = useAnimation(() => {
+		if (!mobile) return null
 		const tl = gsap.timeline({ paused: true })
 
 		tl.to(
@@ -84,17 +102,17 @@ export default function Header() {
 		)
 
 		return tl
-	}, [])
+	}, [mobile])
 
 	useEffect(() => {
-		if (openTimeline) {
+		if (openTimeline && mobile) {
 			if (menuOpen) {
 				openTimeline.play()
 			} else {
 				openTimeline.reverse()
 			}
 		}
-	}, [openTimeline, menuOpen])
+	}, [openTimeline, menuOpen, mobile])
 
 	const initTimeline = useAnimation(() => {
 		const tl = gsap.timeline({
@@ -126,7 +144,61 @@ export default function Header() {
 			{mobile && (
 				<>
 					<Blur ref={blurRef} />
-					<Menu ref={menuRef}>poo</Menu>
+					<Menu ref={menuRef}>
+						<Buttons>
+							<PrimaryButton variant="secondary" to={links.login}>
+								Sign In
+							</PrimaryButton>
+							<PrimaryButton icon="chev" to={links.login}>
+								Get Started
+							</PrimaryButton>
+						</Buttons>
+						<HR />
+						<MobileLinks>
+							<MobileLink to={links.industries}>
+								<Icon name="copyPaste" />
+								<span>Industries</span>
+							</MobileLink>
+							<MobileLink to={links.integrations}>
+								<Icon name="copyPaste" />
+								<span>Integrations</span>
+							</MobileLink>
+							<MobileLink to={links.pricing}>
+								<Icon name="copyPaste" />
+								<span>Pricing</span>
+							</MobileLink>
+							<MobileLink to={links.helpCenter}>
+								<Icon name="copyPaste" />
+								<span>Support</span>
+							</MobileLink>
+							<MobileLink to={links.blog}>
+								<Icon name="copyPaste" />
+								<span>Blog</span>
+							</MobileLink>
+						</MobileLinks>
+						<HR />
+						<FeaturedWrapper>
+							<span>Featured</span>
+							<ImageWrapper>
+								{data.contentfulPageBlogHub?.featuredBlogPost?.mainImage && (
+									<FeaturedImage
+										image={
+											data.contentfulPageBlogHub?.featuredBlogPost?.mainImage
+												.gatsbyImageData
+										}
+										alt={
+											data.contentfulPageBlogHub?.featuredBlogPost?.title ??
+											"featured article"
+										}
+									/>
+								)}
+								<Title>
+									{data.contentfulPageBlogHub?.featuredBlogPost?.title}
+									<Icon name="chev" />
+								</Title>
+							</ImageWrapper>
+						</FeaturedWrapper>
+					</Menu>
 				</>
 			)}
 
@@ -173,6 +245,61 @@ export default function Header() {
 		</Wrapper>
 	)
 }
+
+const FeaturedWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  ${fresponsive(css`
+    gap: 12px;
+
+    span {
+      color: ${colors.gray500};
+      ${textStyles.t2}
+    }
+  `)}
+`
+
+const ImageWrapper = styled.div`
+  aspect-ratio: 271 / 128;
+  width: 100%;
+  position: relative;
+  overflow: clip;
+
+  ${fresponsive(css`
+    border-radius: 12px;
+  `)}
+`
+
+const Title = styled.div`
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  ${textStyles.bodyXS}
+  color: ${colors.white};
+  width: 100%;
+
+  ${fresponsive(css`
+    padding: 8px 9px;
+    background: rgba(63 63 63 / 50%);
+    backdrop-filter: blur(3px);
+    height: 44px;
+
+    svg {
+      display: inline-block;
+      position: relative;
+      top: 4px;
+      left: 3px;
+      width: 14px;
+      height: 14px;
+    }
+  `)}
+`
+
+const FeaturedImage = styled(UniversalImage)`
+  height: 100%;
+  width: 100%;
+`
 
 const Wrapper = styled.header`
   width: 100vw;
@@ -295,6 +422,8 @@ const Blur = styled.div`
 const Menu = styled.div`
 	position: absolute;
 	background: ${gradients.surface1};
+  display: flex;
+  flex-direction: column;
 
 	${fresponsive(css`
 		width: 319px;
@@ -303,5 +432,54 @@ const Menu = styled.div`
 		padding: 24px;
 		border: 1.5px solid ${colors.gray300};
 		border-radius: 14px;
+    gap: 24px;
 	`)}
+`
+
+const Buttons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+const HR = styled.hr`
+  width: 100%;
+  background-color: ${colors.gray300};
+  height: 1px;
+`
+
+const MobileLinks = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  ${fresponsive(css`
+    gap: 12px 6px;
+  `)}
+`
+
+const MobileLink = styled(UniversalLink)`
+  display: flex;
+  align-items: center;
+
+  ${fresponsive(css`
+    gap: 4px;
+    width: 128px;
+
+    span {
+      ${textStyles.sh3}
+      color: ${colors.gray900};
+      padding: 8px 10px;
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+
+      path {
+        fill: ${colors.gray500};
+      }
+    }
+  `)}
 `
