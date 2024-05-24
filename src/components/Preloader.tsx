@@ -1,6 +1,6 @@
 import gsap from "gsap"
 import { ScrollSmoother } from "gsap/ScrollSmoother"
-import { useRegisterLoaderCallback } from "library/Loader/LoaderUtils"
+import { usePreloader } from "library/Loader/PreloaderUtils"
 import { useRef } from "react"
 import styled from "styled-components"
 import colors from "styles/colors"
@@ -8,7 +8,7 @@ import colors from "styles/colors"
 export default function Preloader() {
 	const wrapperRef = useRef<HTMLDivElement>(null)
 
-	useRegisterLoaderCallback({
+	usePreloader({
 		duration: 0.25,
 		callback: () => {
 			ScrollSmoother.get()?.scrollTop(0)

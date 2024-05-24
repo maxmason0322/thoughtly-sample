@@ -1,5 +1,5 @@
 import gsap from "gsap"
-import { useRegisterTransition } from "library/Loader/TransitionUtils"
+import { usePageTransition } from "library/Loader/TransitionUtils"
 import { useRef } from "react"
 import styled from "styled-components"
 import colors from "styles/colors"
@@ -37,7 +37,7 @@ export default function Transition() {
 	}
 
 	// register two page transitions
-	useRegisterTransition("fade", {
+	usePageTransition("fade", {
 		in: fadeIn,
 		out: fadeOut,
 		inDuration: 1,

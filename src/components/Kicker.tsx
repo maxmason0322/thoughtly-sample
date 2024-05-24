@@ -34,6 +34,7 @@ const Wrapper = styled.div<{ $gradient: boolean; $iconColor: string }>`
   color: ${colors.gray700};
   ${textStyles.sh4}
   white-space: nowrap;
+  background: ${gradients.surface1};
 
   svg {
     path {
