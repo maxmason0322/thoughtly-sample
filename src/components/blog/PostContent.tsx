@@ -45,10 +45,6 @@ const Wrapper = styled.div`
     padding-bottom: 32px;
     gap: 24px;
   `)}
-
-  ${ftablet(css`
-    padding-bottom: 0;
-  `)}
 `
 
 const Title = styled.h1`
