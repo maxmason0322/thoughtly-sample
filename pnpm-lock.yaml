@@ -4,153 +4,179 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-dependencies:
-  '@contentful/rich-text-react-renderer':
-    specifier: 15.19.6
-    version: 15.19.6(react-dom@18.3.1)(react@18.3.1)
-  '@contentful/rich-text-types':
-    specifier: 16.3.5
-    version: 16.3.5
-  '@react-three/drei':
-    specifier: 9.105.5
-    version: 9.105.5(@react-three/fiber@8.16.3)(@types/react@18.3.1)(@types/three@0.164.0)(react-dom@18.3.1)(react@18.3.1)(three@0.164.1)
-  '@react-three/fiber':
-    specifier: 8.16.3
-    version: 8.16.3(react-dom@18.3.1)(react@18.3.1)(three@0.164.1)
-  '@total-typescript/ts-reset':
-    specifier: 0.5.1
-    version: 0.5.1
-  '@types/gtag.js':
-    specifier: 0.0.19
-    version: 0.0.19
-  '@types/segment-analytics':
-    specifier: 0.0.38
-    version: 0.0.38
-  '@uidotdev/usehooks':
-    specifier: 2.4.1
-    version: 2.4.1(react-dom@18.3.1)(react@18.3.1)
-  ahooks:
-    specifier: 3.7.11
-    version: 3.7.11(react@18.3.1)
-  dotenv:
-    specifier: 16.4.5
-    version: 16.4.5
-  gatsby:
-    specifier: 5.13.4
-    version: 5.13.4(babel-eslint@10.1.0)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.5)
-  gatsby-adapter-netlify:
-    specifier: 1.1.4
-    version: 1.1.4(gatsby@5.13.4)
-  gatsby-plugin-clarity:
-    specifier: 1.0.1
-    version: 1.0.1
-  gatsby-plugin-contentful-optional-fields:
-    specifier: 2.2.2
-    version: 2.2.2
-  gatsby-plugin-google-gtag:
-    specifier: 5.13.1
-    version: 5.13.1(gatsby@5.13.4)(react-dom@18.3.1)(react@18.3.1)
-  gatsby-plugin-image:
-    specifier: 3.13.1
-    version: 3.13.1(@babel/core@7.23.2)(gatsby-plugin-sharp@5.13.1)(gatsby@5.13.4)(graphql@16.8.1)(react-dom@18.3.1)(react@18.3.1)
-  gatsby-plugin-manifest:
-    specifier: 5.13.1
-    version: 5.13.1(gatsby@5.13.4)(graphql@16.8.1)
-  gatsby-plugin-netlify:
-    specifier: 5.1.1
-    version: 5.1.1(gatsby@5.13.4)(webpack@5.89.0)
-  gatsby-plugin-pnpm-gatsby-5:
-    specifier: 1.2.11
-    version: 1.2.11(gatsby@5.13.4)
-  gatsby-plugin-robots-txt:
-    specifier: 1.8.0
-    version: 1.8.0(gatsby@5.13.4)
-  gatsby-plugin-segment-js:
-    specifier: 5.0.0
-    version: 5.0.0(gatsby@5.13.4)
-  gatsby-plugin-sharp:
-    specifier: 5.13.1
-    version: 5.13.1(gatsby@5.13.4)(graphql@16.8.1)
-  gatsby-plugin-sitemap:
-    specifier: 6.13.1
-    version: 6.13.1(gatsby@5.13.4)(react-dom@18.3.1)(react@18.3.1)
-  gatsby-plugin-styled-components:
-    specifier: 6.13.1
-    version: 6.13.1(babel-plugin-styled-components@2.1.4)(gatsby@5.13.4)(react-dom@18.3.1)(react@18.3.1)(styled-components@6.1.9)
-  gatsby-plugin-svgr:
-    specifier: 3.0.0-beta.0
-    version: 3.0.0-beta.0(@svgr/webpack@8.1.0)(gatsby@5.13.4)
-  gatsby-plugin-tsconfig-paths:
-    specifier: 1.0.6
-    version: 1.0.6(gatsby@5.13.4)
-  gatsby-source-contentful:
-    specifier: 8.13.1
-    version: 8.13.1(gatsby-plugin-image@3.13.1)(gatsby-plugin-sharp@5.13.1)(gatsby@5.13.4)(graphql@16.8.1)(react-dom@18.3.1)(react@18.3.1)(sharp@0.32.6)
-  gatsby-transformer-json:
-    specifier: 5.13.1
-    version: 5.13.1(gatsby@5.13.4)
-  gatsby-transformer-sharp:
-    specifier: 5.13.1
-    version: 5.13.1(gatsby-plugin-sharp@5.13.1)(gatsby@5.13.4)(graphql@16.8.1)
-  gsap:
-    specifier: file:gsap-bonus.tgz
-    version: file:gsap-bonus.tgz
-  react:
-    specifier: 18.3.1
-    version: 18.3.1
-  react-calendly:
-    specifier: 4.3.0
-    version: 4.3.0(react-dom@18.3.1)(react@18.3.1)
-  react-dom:
-    specifier: 18.3.1
-    version: 18.3.1(react@18.3.1)
-  react-use-intercom:
-    specifier: 5.4.0
-    version: 5.4.0(react-dom@18.3.1)(react@18.3.1)
-  styled-components:
-    specifier: 6.1.9
-    version: 6.1.9(react-dom@18.3.1)(react@18.3.1)
-  stylis:
-    specifier: 4.3.2
-    version: 4.3.2
-  the-new-css-reset:
-    specifier: 1.11.2
-    version: 1.11.2
+importers:
 
-devDependencies:
-  '@biomejs/biome':
-    specifier: 1.7.1
-    version: 1.7.1
-  '@types/color-convert':
-    specifier: 2.0.3
-    version: 2.0.3
-  '@types/node':
-    specifier: 20.12.7
-    version: 20.12.7
-  '@types/reach__router':
-    specifier: 1.3.15
-    version: 1.3.15
-  '@types/react':
-    specifier: 18.3.1
-    version: 18.3.1
-  '@types/three':
-    specifier: 0.164.0
-    version: 0.164.0
-  husky:
-    specifier: 9.0.11
-    version: 9.0.11
-  lint-staged:
-    specifier: 15.2.2
-    version: 15.2.2
-  stylelint:
-    specifier: 16.4.0
-    version: 16.4.0(typescript@5.4.5)
-  stylelint-config-reform-collective:
-    specifier: github:reformcollective/stylelint-config-reform
-    version: github.com/reformcollective/stylelint-config-reform/01cf44bad0bb798a7d97561af666675420d3d794
-  typescript:
-    specifier: 5.4.5
-    version: 5.4.5
+  .:
+    dependencies:
+      '@contentful/rich-text-react-renderer':
+        specifier: 15.19.6
+        version: 15.19.6(react-dom@18.3.1)(react@18.3.1)
+      '@contentful/rich-text-types':
+        specifier: 16.3.5
+        version: 16.3.5
+      '@react-three/drei':
+        specifier: 9.105.5
+        version: 9.105.5(@react-three/fiber@8.16.3)(@types/react@18.3.1)(@types/three@0.164.0)(react-dom@18.3.1)(react@18.3.1)(three@0.164.1)
+      '@react-three/fiber':
+        specifier: 8.16.3
+        version: 8.16.3(react-dom@18.3.1)(react@18.3.1)(three@0.164.1)
+      '@total-typescript/ts-reset':
+        specifier: 0.5.1
+        version: 0.5.1
+      '@types/gtag.js':
+        specifier: 0.0.19
+        version: 0.0.19
+      '@types/segment-analytics':
+        specifier: 0.0.38
+        version: 0.0.38
+      '@uidotdev/usehooks':
+        specifier: 2.4.1
+        version: 2.4.1(react-dom@18.3.1)(react@18.3.1)
+      ahooks:
+        specifier: 3.7.11
+        version: 3.7.11(react@18.3.1)
+      dotenv:
+        specifier: 16.4.5
+        version: 16.4.5
+      gatsby:
+        specifier: 5.13.4
+        version: 5.13.4(babel-eslint@10.1.0)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.5)
+      gatsby-adapter-netlify:
+        specifier: 1.1.4
+        version: 1.1.4(gatsby@5.13.4)
+      gatsby-plugin-clarity:
+        specifier: 1.0.1
+        version: 1.0.1
+      gatsby-plugin-contentful-optional-fields:
+        specifier: 2.2.2
+        version: 2.2.2
+      gatsby-plugin-google-gtag:
+        specifier: 5.13.1
+        version: 5.13.1(gatsby@5.13.4)(react-dom@18.3.1)(react@18.3.1)
+      gatsby-plugin-image:
+        specifier: 3.13.1
+        version: 3.13.1(@babel/core@7.23.2)(gatsby-plugin-sharp@5.13.1)(gatsby@5.13.4)(graphql@16.8.1)(react-dom@18.3.1)(react@18.3.1)
+      gatsby-plugin-manifest:
+        specifier: 5.13.1
+        version: 5.13.1(gatsby@5.13.4)(graphql@16.8.1)
+      gatsby-plugin-netlify:
+        specifier: 5.1.1
+        version: 5.1.1(gatsby@5.13.4)(webpack@5.89.0)
+      gatsby-plugin-pnpm-gatsby-5:
+        specifier: 1.2.11
+        version: 1.2.11(gatsby@5.13.4)
+      gatsby-plugin-robots-txt:
+        specifier: 1.8.0
+        version: 1.8.0(gatsby@5.13.4)
+      gatsby-plugin-segment-js:
+        specifier: 5.0.0
+        version: 5.0.0(gatsby@5.13.4)
+      gatsby-plugin-sharp:
+        specifier: 5.13.1
+        version: 5.13.1(gatsby@5.13.4)(graphql@16.8.1)
+      gatsby-plugin-sitemap:
+        specifier: 6.13.1
+        version: 6.13.1(gatsby@5.13.4)(react-dom@18.3.1)(react@18.3.1)
+      gatsby-plugin-styled-components:
+        specifier: 6.13.1
+        version: 6.13.1(babel-plugin-styled-components@2.1.4)(gatsby@5.13.4)(react-dom@18.3.1)(react@18.3.1)(styled-components@6.1.9)
+      gatsby-plugin-svgr:
+        specifier: 3.0.0-beta.0
+        version: 3.0.0-beta.0(@svgr/webpack@8.1.0)(gatsby@5.13.4)
+      gatsby-plugin-tsconfig-paths:
+        specifier: 1.0.6
+        version: 1.0.6(gatsby@5.13.4)
+      gatsby-source-contentful:
+        specifier: 8.13.1
+        version: 8.13.1(gatsby-plugin-image@3.13.1)(gatsby-plugin-sharp@5.13.1)(gatsby@5.13.4)(graphql@16.8.1)(react-dom@18.3.1)(react@18.3.1)(sharp@0.32.6)
+      gatsby-transformer-json:
+        specifier: 5.13.1
+        version: 5.13.1(gatsby@5.13.4)
+      gatsby-transformer-sharp:
+        specifier: 5.13.1
+        version: 5.13.1(gatsby-plugin-sharp@5.13.1)(gatsby@5.13.4)(graphql@16.8.1)
+      gsap:
+        specifier: file:gsap-bonus.tgz
+        version: file:gsap-bonus.tgz
+      react:
+        specifier: 18.3.1
+        version: 18.3.1
+      react-calendly:
+        specifier: 4.3.0
+        version: 4.3.0(react-dom@18.3.1)(react@18.3.1)
+      react-dom:
+        specifier: 18.3.1
+        version: 18.3.1(react@18.3.1)
+      react-use-intercom:
+        specifier: 5.4.0
+        version: 5.4.0(react-dom@18.3.1)(react@18.3.1)
+      styled-components:
+        specifier: 6.1.9
+        version: 6.1.9(react-dom@18.3.1)(react@18.3.1)
+      stylis:
+        specifier: 4.3.2
+        version: 4.3.2
+      the-new-css-reset:
+        specifier: 1.11.2
+        version: 1.11.2
+    devDependencies:
+      '@biomejs/biome':
+        specifier: 1.7.1
+        version: 1.7.1
+      '@types/color-convert':
+        specifier: 2.0.3
+        version: 2.0.3
+      '@types/node':
+        specifier: 20.12.7
+        version: 20.12.7
+      '@types/reach__router':
+        specifier: 1.3.15
+        version: 1.3.15
+      '@types/react':
+        specifier: 18.3.1
+        version: 18.3.1
+      '@types/three':
+        specifier: 0.164.0
+        version: 0.164.0
+      husky:
+        specifier: 9.0.11
+        version: 9.0.11
+      lint-staged:
+        specifier: 15.2.2
+        version: 15.2.2
+      stylelint:
+        specifier: 16.4.0
+        version: 16.4.0(typescript@5.4.5)
+      stylelint-config-reform-collective:
+        specifier: github:reformcollective/stylelint-config-reform
+        version: github.com/reformcollective/stylelint-config-reform/01cf44bad0bb798a7d97561af666675420d3d794
+      typescript:
+        specifier: 5.4.5
+        version: 5.4.5
+
+  src/library:
+    dependencies:
+      '@contentful/rich-text-react-renderer':
+        specifier: ^15.20.0
+        version: 15.21.0(react-dom@18.3.1)(react@18.3.1)
+      '@contentful/rich-text-types':
+        specifier: ^16.4.0
+        version: 16.5.0
+      '@react-three/drei':
+        specifier: ^9.105.6
+        version: 9.105.6(@react-three/fiber@8.16.6)(@types/react@18.3.1)(@types/three@0.164.1)(react-dom@18.3.1)(react@18.3.1)(three@0.164.1)
+      '@react-three/fiber':
+        specifier: ^8.16.6
+        version: 8.16.6(react-dom@18.3.1)(react@18.3.1)(three@0.164.1)
+      '@types/three':
+        specifier: ^0.164.1
+        version: 0.164.1
+      ahooks:
+        specifier: ^3.7.11
+        version: 3.7.11(react@18.3.1)
+      use-deep-compare:
+        specifier: 1.2.1
+        version: 1.2.1(react@18.3.1)
 
 packages:
 
@@ -1763,7 +1789,19 @@ packages:
       react: ^16.8.6 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@contentful/rich-text-types': 16.3.5
+      '@contentful/rich-text-types': 16.5.0
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    dev: false
+
+  /@contentful/rich-text-react-renderer@15.21.0(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-wlnvJ2Js4VWMoM9n0KnbDffhRb7Q2HGc+fHWpl8o5JlXbh22yZ5Z9f0XQKZS6heS1t7biAdzsRMGuN4fnpVJ1w==}
+    engines: {node: '>=6.0.0'}
+    peerDependencies:
+      react: ^16.8.6 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@contentful/rich-text-types': 16.5.0
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     dev: false
@@ -1775,6 +1813,11 @@ packages:
 
   /@contentful/rich-text-types@16.3.5:
     resolution: {integrity: sha512-ZLq6p5uyQXg+i1XGDFu4tAc2VYS12S1KA/jIOyyZjNgC1DvDajsi1JzuiBuOuMEhi1sKEUy6Ry3Yr9jsQtOKuQ==}
+    engines: {node: '>=6.0.0'}
+    dev: false
+
+  /@contentful/rich-text-types@16.5.0:
+    resolution: {integrity: sha512-Z5fls/6Hs+ETq6vx+sfiq+n+z3dwurPVJukgLvThdvzs4VlChoPkRIKr4WrBdjzLYqUspawlf7XvtuUpp32glw==}
     engines: {node: '>=6.0.0'}
     dev: false
 
@@ -3072,6 +3115,22 @@ packages:
       three: 0.164.1
     dev: false
 
+  /@react-spring/three@9.6.1(@react-three/fiber@8.16.6)(react@18.3.1)(three@0.164.1):
+    resolution: {integrity: sha512-Tyw2YhZPKJAX3t2FcqvpLRb71CyTe1GvT3V+i+xJzfALgpk10uPGdGaQQ5Xrzmok1340DAeg2pR/MCfaW7b8AA==}
+    peerDependencies:
+      '@react-three/fiber': '>=6.0'
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      three: '>=0.126'
+    dependencies:
+      '@react-spring/animated': 9.6.1(react@18.3.1)
+      '@react-spring/core': 9.6.1(react@18.3.1)
+      '@react-spring/shared': 9.6.1(react@18.3.1)
+      '@react-spring/types': 9.6.1
+      '@react-three/fiber': 8.16.6(react-dom@18.3.1)(react@18.3.1)(three@0.164.1)
+      react: 18.3.1
+      three: 0.164.1
+    dev: false
+
   /@react-spring/types@9.6.1:
     resolution: {integrity: sha512-POu8Mk0hIU3lRXB3bGIGe4VHIwwDsQyoD1F394OK7STTiX9w4dG3cTLljjYswkQN+hDSHRrj4O36kuVa7KPU8Q==}
     dev: false
@@ -3120,8 +3179,93 @@ packages:
       - immer
     dev: false
 
+  /@react-three/drei@9.105.6(@react-three/fiber@8.16.6)(@types/react@18.3.1)(@types/three@0.164.1)(react-dom@18.3.1)(react@18.3.1)(three@0.164.1):
+    resolution: {integrity: sha512-JBgYeV36N9N9f1c3o1ZfLYW4rXZA7UQTq32Y8s3DEF6lwj1/y+RP/yq2VG5I8OzUPl7gsmWdy8fpWZgrlAqUpQ==}
+    peerDependencies:
+      '@react-three/fiber': '>=8.0'
+      react: '>=18.0'
+      react-dom: '>=18.0'
+      three: '>=0.137'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.23.2
+      '@mediapipe/tasks-vision': 0.10.8
+      '@monogrid/gainmap-js': 3.0.5(three@0.164.1)
+      '@react-spring/three': 9.6.1(@react-three/fiber@8.16.6)(react@18.3.1)(three@0.164.1)
+      '@react-three/fiber': 8.16.6(react-dom@18.3.1)(react@18.3.1)(three@0.164.1)
+      '@use-gesture/react': 10.3.0(react@18.3.1)
+      camera-controls: 2.7.2(three@0.164.1)
+      cross-env: 7.0.3
+      detect-gpu: 5.0.37
+      glsl-noise: 0.0.0
+      hls.js: 1.3.5
+      maath: 0.10.7(@types/three@0.164.1)(three@0.164.1)
+      meshline: 3.1.6(three@0.164.1)
+      react: 18.3.1
+      react-composer: 5.0.3(react@18.3.1)
+      react-dom: 18.3.1(react@18.3.1)
+      stats-gl: 2.2.8
+      stats.js: 0.17.0
+      suspend-react: 0.1.3(react@18.3.1)
+      three: 0.164.1
+      three-mesh-bvh: 0.7.4(three@0.164.1)
+      three-stdlib: 2.29.11(three@0.164.1)
+      troika-three-text: 0.49.0(three@0.164.1)
+      tunnel-rat: 0.1.2(@types/react@18.3.1)(react@18.3.1)
+      utility-types: 3.10.0
+      uuid: 9.0.1
+      zustand: 3.7.2(react@18.3.1)
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/three'
+      - immer
+    dev: false
+
   /@react-three/fiber@8.16.3(react-dom@18.3.1)(react@18.3.1)(three@0.164.1):
     resolution: {integrity: sha512-jg37AH0xmJEGbCk7qgO3EwB99UTNVekYYU/1+D5xNPFAn+fPqkUUaHalriaY+S3HLtBy33HYVOenbD9ZKLyC/Q==}
+    peerDependencies:
+      expo: '>=43.0'
+      expo-asset: '>=8.4'
+      expo-file-system: '>=11.0'
+      expo-gl: '>=11.0'
+      react: '>=18.0'
+      react-dom: '>=18.0'
+      react-native: '>=0.64'
+      three: '>=0.133'
+    peerDependenciesMeta:
+      expo:
+        optional: true
+      expo-asset:
+        optional: true
+      expo-file-system:
+        optional: true
+      expo-gl:
+        optional: true
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.23.2
+      '@types/react-reconciler': 0.26.7
+      '@types/webxr': 0.5.5
+      base64-js: 1.5.1
+      buffer: 6.0.3
+      its-fine: 1.1.1(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      react-reconciler: 0.27.0(react@18.3.1)
+      react-use-measure: 2.1.1(react-dom@18.3.1)(react@18.3.1)
+      scheduler: 0.21.0
+      suspend-react: 0.1.3(react@18.3.1)
+      three: 0.164.1
+      zustand: 3.7.2(react@18.3.1)
+    dev: false
+
+  /@react-three/fiber@8.16.6(react-dom@18.3.1)(react@18.3.1)(three@0.164.1):
+    resolution: {integrity: sha512-sKEqocYKRI3deW7z9CAVjedDID1an2i8FwxQVv2reMJxzIxIlyxCYXMIAqXBCgHTFtVX2hWGTZYhLL5nyne8kA==}
     peerDependencies:
       expo: '>=43.0'
       expo-asset: '>=8.4'
@@ -3681,6 +3825,16 @@ packages:
       '@types/webxr': 0.5.5
       fflate: 0.8.2
       meshoptimizer: 0.18.1
+
+  /@types/three@0.164.1:
+    resolution: {integrity: sha512-dR/trWDhyaNqJV38rl1TonlCA9DpnX7OPYDWD81bmBGn/+uEc3+zNalFxQcV4FlPTeDBhCY3SFWKvK6EJwL88g==}
+    dependencies:
+      '@tweenjs/tween.js': 23.1.1
+      '@types/stats.js': 0.17.1
+      '@types/webxr': 0.5.5
+      fflate: 0.8.2
+      meshoptimizer: 0.18.1
+    dev: false
 
   /@types/tmp@0.0.33:
     resolution: {integrity: sha512-gVC1InwyVrO326wbBZw+AO3u2vRXz/iRWq9jYhpG4W8LXyIgDv3ZmcLQ5Q4Gs+gFMyqx+viFoFT+l3p61QFCmQ==}
@@ -5275,7 +5429,7 @@ packages:
     engines: {node: '>=12'}
     requiresBuild: true
     dependencies:
-      '@contentful/rich-text-types': 16.3.5
+      '@contentful/rich-text-types': 16.5.0
       axios: 0.27.2
       contentful-resolve-response: 1.8.1
       contentful-sdk-core: 7.1.0
@@ -7694,7 +7848,7 @@ packages:
       sharp: ^0.32.6
     dependencies:
       '@babel/runtime': 7.23.2
-      '@contentful/rich-text-react-renderer': 15.19.6(react-dom@18.3.1)(react@18.3.1)
+      '@contentful/rich-text-react-renderer': 15.21.0(react-dom@18.3.1)(react@18.3.1)
       '@contentful/rich-text-types': 15.15.1
       '@hapi/joi': 15.1.1
       '@vercel/fetch-retry': 5.1.3(node-fetch@2.7.0)
@@ -9526,6 +9680,16 @@ packages:
       three: '>=0.144.0'
     dependencies:
       '@types/three': 0.164.0
+      three: 0.164.1
+    dev: false
+
+  /maath@0.10.7(@types/three@0.164.1)(three@0.164.1):
+    resolution: {integrity: sha512-zQ2xd7dNOIVTjAS+hj22fyj1EFYmOJX6tzKjZ92r6WDoq8hyFxjuGA2q950tmR4iC/EKXoMQdSipkaJVuUHDTg==}
+    peerDependencies:
+      '@types/three': '>=0.144.0'
+      three: '>=0.144.0'
+    dependencies:
+      '@types/three': 0.164.1
       three: 0.164.1
     dev: false
 
@@ -13191,6 +13355,15 @@ packages:
     dependencies:
       punycode: 1.4.1
       qs: 6.11.2
+    dev: false
+
+  /use-deep-compare@1.2.1(react@18.3.1):
+    resolution: {integrity: sha512-JTnOZAr0fq1ix6CQ4XANoWIh03xAiMFlP/lVAYDdAOZwur6nqBSdATn1/Q9PLIGIW+C7xmFZBCcaA4KLDcQJtg==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      dequal: 2.0.3
+      react: 18.3.1
     dev: false
 
   /use-sync-external-store@1.2.0(react@18.3.1):
