@@ -15,7 +15,7 @@ export default function LargeCard({ data }: { data: BlogCard }) {
 		<Wrapper
 			role="presentation"
 			onClick={() => {
-				loadPage(`/blog/${slug}`).catch(console.error)
+				loadPage(`/blog/${slug}`, "fade").catch(console.error)
 			}}
 		>
 			<Image
