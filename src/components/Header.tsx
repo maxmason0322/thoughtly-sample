@@ -326,6 +326,7 @@ const Wrapper = styled.header`
   place-items: center;
   position: absolute;
   z-index: 9;
+  overflow-x: clip;
 `
 
 const Inner = styled.div`
@@ -433,7 +434,7 @@ const Hamburger = styled(UniversalLink)`
 
 const Line = styled.line`
   stroke: ${colors.black};
-  stroke-width: 1px;
+  stroke-width: 1.5px;
 `
 
 const Lines = styled.svg`
@@ -490,6 +491,18 @@ const Buttons = styled.div`
   ${ftablet(css`
     a {
       width: 100%;
+    }
+
+    div {
+      width: 100%;
+    }
+  `)}
+
+  ${fmobile(css`
+    gap: 12px;
+
+    a {
+      flex-grow: 1;
     }
 
     div {

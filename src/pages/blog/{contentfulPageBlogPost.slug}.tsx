@@ -76,9 +76,9 @@ export default function BlogPostPage({
 						))}
 					</RelatedCards>
 				</Related>
-				<Button icon="chev" to={links.blog} variant="secondary">
+				<SeeAllButton icon="chev" to={links.blog} variant="secondary">
 					See All Articles
-				</Button>
+				</SeeAllButton>
 			</Inner>
 		</Wrapper>
 	)
@@ -262,6 +262,12 @@ const RelatedHeading = styled.div`
     ${textStyles.sh1};
     text-align: center;
     margin-bottom: -6px;
+  `)}
+`
+
+const SeeAllButton = styled(Button)`
+  ${fmobile(css`
+    align-self: flex-start;
   `)}
 `
 

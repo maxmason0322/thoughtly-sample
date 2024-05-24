@@ -52,6 +52,7 @@ const Wrapper = styled.div`
   background: ${gradients.surface2Reverse};
   display: flex;
   align-items: center;
+  overflow: clip;
 
   ${fresponsive(css`
     width: 68px;

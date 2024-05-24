@@ -21,22 +21,12 @@ export default function Author({ data }: { data: AuthorType }) {
 }
 
 const Wrapper = styled.div`
-  ${textStyles.bodyXS};
+  ${textStyles.sh4};
   color: ${colors.gray800};
   display: flex;
   align-items: center;
 
   ${fresponsive(css`
-    gap: 8px;
-  `)}
-
-  ${ftablet(css`
-    ${textStyles.bodyS};
-    gap: 3px;
-  `)}
-  
-  ${fmobile(css`
-    ${textStyles.sh4};
     gap: 8px;
   `)}
 `
