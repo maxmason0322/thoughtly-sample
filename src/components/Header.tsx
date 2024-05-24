@@ -163,23 +163,23 @@ export default function Header() {
 						<HR />
 						<MobileLinks>
 							<MobileLink to={links.industries}>
-								<Icon name="copyPaste" />
+								<Icon name="lock" />
 								<span>Industries</span>
 							</MobileLink>
 							<MobileLink to={links.integrations}>
-								<Icon name="copyPaste" />
+								<Icon name="integration" />
 								<span>Integrations</span>
 							</MobileLink>
 							<MobileLink to={links.pricing}>
-								<Icon name="copyPaste" />
+								<Icon name="card" />
 								<span>Pricing</span>
 							</MobileLink>
 							<MobileLink to={links.helpCenter}>
-								<Icon name="copyPaste" />
+								<Icon name="heart" />
 								<span>Support</span>
 							</MobileLink>
 							<MobileLink to={links.blog}>
-								<Icon name="copyPaste" />
+								<Icon name="feather" />
 								<span>Blog</span>
 							</MobileLink>
 						</MobileLinks>
@@ -553,7 +553,7 @@ const MobileLink = styled(UniversalLink)`
       flex-shrink: 0;
 
       path {
-        fill: ${colors.gray500};
+        fill: ${colors.green500};
       }
     }
   `)}
