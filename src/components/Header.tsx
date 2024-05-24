@@ -2,7 +2,7 @@ import PrimaryButton from "components/Buttons/Primary"
 import gsap from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
 import { ReactComponent as LogoSVG } from "images/global/logo.svg"
-import loader from "library/Loader"
+import { loader } from "library/Loader"
 import UniversalLink from "library/Loader/UniversalLink"
 import { ScreenContext } from "library/ScreenContext"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
@@ -39,7 +39,7 @@ export default function Header() {
 		return tl
 	}, [])
 
-	loader.useEventListener("anyEnd", () => {
+	loader.useEventListener("end", () => {
 		initTimeline?.play()
 	})
 

@@ -1,5 +1,5 @@
 import gsap from "gsap"
-import loader from "library/Loader"
+import { loader } from "library/Loader"
 import { fresponsive, ftablet } from "library/fullyResponsive"
 import type { ReactNode } from "react"
 import { useRef } from "react"
@@ -31,7 +31,7 @@ export default function Unmask({
 		})
 	}
 
-	loader.useEventListener("anyEnd", initScrollTrigger)
+	loader.useEventListener("end", initScrollTrigger)
 
 	return <Wrapper ref={wrapperRef}>{children}</Wrapper>
 }
