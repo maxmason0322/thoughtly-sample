@@ -5,6 +5,7 @@ import getMedia from "library/getMedia"
 import useAnimation from "library/useAnimation"
 import { getResponsivePixels } from "library/viewportUtils"
 import { useRef } from "react"
+import links from "utils/links"
 
 export default function Terms() {
 	const wrapperRef = useRef<HTMLElement | null>(null)
@@ -40,317 +41,458 @@ export default function Terms() {
 			<legalStyles.Inner>
 				<legalStyles.Top>
 					<legalStyles.Title>Terms and Conditions</legalStyles.Title>
-					<legalStyles.Subtitle>
-						Last updated February 8, 2023
-					</legalStyles.Subtitle>
+					<legalStyles.Subtitle>Last updated May 20, 2024</legalStyles.Subtitle>
 				</legalStyles.Top>
 				<legalStyles.Section>
-					<legalStyles.SectionHeader>
-						AGREEMENT TO OUR LEGAL TERMS
-					</legalStyles.SectionHeader>
 					<legalStyles.Paragraph $noPadding={false}>
-						We are Thoughtly, Inc. ('Company,' 'we,' 'us,' 'our'), a company
-						registered in Delaware, United States.
+						These Terms of Service ("Terms") govern your use of the Services
+						(defined below) provided by Thoughtly, Inc. ("Thoughtly," "Company,"
+						"we," "us," or "our"). These Terms are a binding legal agreement
+						between you or the entity you represent ("Customer" or "you"). If
+						you (the person accepting these Terms) are accepting these Terms on
+						behalf of your employer or another entity, you agree that: (i) you
+						have full legal authority to bind your employer or such entity to
+						these Terms, and (ii) you agree to these Terms on behalf of your
+						employer or such entity.{" "}
+						<legalStyles.BoldText>
+							If you are accepting these Terms using an email address from your
+							employer or another entity, then: (i) you will be deemed to
+							represent that party, (ii) your acceptance of these Terms will
+							bind your employer or that entity to these terms, and (iii) the
+							word "you" or "Customer" in these Terms will refer to your
+							employer or that entity.
+						</legalStyles.BoldText>
 					</legalStyles.Paragraph>
 					<legalStyles.Paragraph $noPadding={false}>
-						We operate the website https://thought.ly (the 'Site'), as well as
-						any other related products and services that refer or link to these
-						legal terms (the 'Legal Terms') (collectively, the 'Services').
+						In these Terms, a “user” is you or anyone who accesses, browses, or
+						in any way uses the Services. You must agree to these Terms before
+						you can use the Services. IF YOU DO NOT AGREE WITH ALL OF THESE
+						TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND
+						YOU MUST DISCONTINUE USE IMMEDIATELY.
 					</legalStyles.Paragraph>
 					<legalStyles.Paragraph $noPadding={false}>
-						Thoughtly is a cutting-edge SaaS platform that revolutionizes
-						content creation by integrating AI-powered interviewers,
-						streamlining the process of generating diverse content forms—from
-						blogs and videos to testimonials and social media posts. By
-						producing editable interview outlines tailored to specific topics,
-						Thoughtly empowers professionals, agencies, and researchers to
-						either conduct or forward interviews, democratizing content creation
-						by making it more cost-effective and time-efficient.
+						We operate the website{" "}
+						<legalStyles.Link to={links.home}>
+							https://thought.ly
+						</legalStyles.Link>{" "}
+						(the "Site"), as well as any other related products and services
+						that refer or link to these Terms (collectively, the "Services").
+					</legalStyles.Paragraph>
+					<legalStyles.SectionSubheader>
+						By accessing or using the Services
+					</legalStyles.SectionSubheader>
+					<legalStyles.UList $noPadding={false}>
+						<legalStyles.ListItem>
+							You acknowledge that you have read, understood, and accept these
+							Terms and any additional documents or policies referred to in or
+							incorporated into these Terms, whether you are a visitor to our
+							Site or a user of the Services;
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							You represent and warrant that you are at least eighteen (18)
+							years of age and have the right, authority, and capacity to enter
+							into these Terms, either on behalf of yourself or the entity that
+							you represent; and
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							If these Terms have materially changed since you last access or
+							used the Services, you acknowledge and agree that your continued
+							access or use of the Services constitutes your acceptance of the
+							changed Terms.
+						</legalStyles.ListItem>
+					</legalStyles.UList>
+					<legalStyles.Paragraph $noPadding={false}>
+						Please note that we may revise and update these Terms from time to
+						time in our sole discretion. If we make a change to the Terms, we
+						will post the revised Terms on our Site. You acknowledge and agree
+						that your continued access or use of the Site or Services
+						constitutes your acceptance of the revised Terms.
 					</legalStyles.Paragraph>
 					<legalStyles.Paragraph $noPadding={false}>
-						Whether you're building a personal brand, gathering research
-						insights, or crafting PR strategies, Thoughtly lets you lead the
-						narrative by simply initiating a conversation.
-					</legalStyles.Paragraph>
-					<legalStyles.Paragraph $noPadding={false}>
-						You can contact us by email at support@thought.ly.
-					</legalStyles.Paragraph>
-					<legalStyles.Paragraph $noPadding={false}>
-						These Legal Terms constitute a legally binding agreement made
-						between you, whether personally or on behalf of an entity ('you'),
-						and Thoughtly, Inc., concerning your access to and use of the
-						Services.
-					</legalStyles.Paragraph>
-					<legalStyles.Paragraph $noPadding={false}>
-						You agree that by accessing the Services, you have read, understood,
-						and agreed to be bound by all of these Legal Terms. IF YOU DO NOT
-						AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY
-						PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE
-						IMMEDIATELY.
-					</legalStyles.Paragraph>
-					<legalStyles.Paragraph $noPadding={false}>
-						We will provide you with prior notice of any scheduled changes to
-						the Services you are using. The modified Legal Terms will become
-						effective upon posting or notifying you by support@thought.ly, as
-						stated in the email message. By continuing to use the Services after
-						the effective date of any changes, you agree to be bound by the
-						modified terms.
-					</legalStyles.Paragraph>
-					<legalStyles.Paragraph $noPadding={false}>
-						The Services are intended for users who are at least 18 years old.
-						Persons under the age of 18 are not permitted to use or register for
-						the Services.
+						PLEASE NOTE: CERTAIN SERVICES MAY BE MADE AVAILABLE ON A
+						SUBSCRIPTION BASIS. IF YOU SUBSCRIBE TO THE SERVICES FOR A
+						SUBSCRIPTION TERM, THEN YOUR SUBSCRIPTION AND THESE TERMS WILL BE
+						AUTOMATICALLY RENEWED FOR SUCCESSIVE BILLING PERIODS AT OUR
+						THEN-CURRENT PRICING FOR SUCH SERVICES UNLESS YOU OPT OUT OF THE
+						AUTO-RENEWAL IN ACCORDANCE WITH SECTION 4 BELOW.
 					</legalStyles.Paragraph>
 					<legalStyles.Paragraph $noPadding>
-						We recommend that you print a copy of these Legal Terms for your
-						records.
+						PLEASE NOTE: THAT SECTION 18 OF THIS AGREEMENT CONTAINS AN
+						ARBITRATION AGREEMENT THAT REQUIRES MOST DISPUTES BETWEEN US TO BE
+						RESOLVED ON AN INDIVIDUAL, NON-CLASS ACTION BASIS THROUGH BINDING
+						AND FINAL ARBITRATION INSTEAD OF IN COURT. SEE SECTION 18 FOR MORE
+						INFORMATION REGARDING THIS ARBITRATION CLAUSE AND HOW TO OPT OUT.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>1. OUR SERVICES</legalStyles.SectionHeader>
+					<legalStyles.Paragraph $noPadding={false}>
+						The Services are controlled or operated (or both) from the United
+						States and are not intended to subject us to any non-U.S.
+						jurisdiction or law. The Services may not be appropriate or
+						available for use in some non-U.S. jurisdictions. Any use of the
+						Services is at your own risk, and you must comply with all
+						applicable laws, rules and regulations in doing so. We may limit the
+						Services’ availability at any time, in whole or in part, to any
+						person, geographic area or jurisdiction that we choose.
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding={false}>
+						<legalStyles.BoldText>Access.</legalStyles.BoldText> During the
+						applicable initial or renewal term for your subscription to the
+						Services (“Subscription Term”) identified in the applicable
+						check-out webpage to purchase the Services or other ordering
+						document agreed to by the parties (“Order”), you may access and use,
+						and may allow authorized users to access and use the Services
+						subject to and in accordance with Section 8 below. It is a condition
+						of your use of the Services that the information you provide is
+						correct, current, and complete. You are responsible for making all
+						arrangements necessary for you to have access to the Services. You
+						are responsible for ensuring your access to the Services, and that
+						access may involve third-party fees (such as Internet service
+						provider or airtime charges) and obtaining and maintaining all
+						equipment necessary to access the Services.
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding={false}>
+						<legalStyles.BoldText>Account Registration.</legalStyles.BoldText>{" "}
+						To access the Services in all cases, you must register for an
+						account in accordance with this Section below. To access a Free
+						Trial, Free Tier or a Paid Plan, you must purchase the Services
+						under an Order with us.
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding={false}>
+						You can invite your employees, agents, or other third parties
+						authorized by you to access or use the Services (“Authorized
+						User(s)”) to your account and must designate at least one Authorized
+						User to be an Administrator, who will manage and control the
+						account. (For purposes of these Terms, an "Administrator” means an
+						Authorized User designated by you to manage and control your and
+						Authorized Users’ accounts.) If a user joins an existing account
+						created by another person or organization, that person or
+						organization is the customer and the user is an Authorized User. You
+						are responsible for (and shall ensure) your Administrators’ and
+						Authorized Users’, if applicable, compliance with these Terms.
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding={false}>
+						You may not impersonate someone else to create an account, create or
+						use an account for anyone other than yourself, permit anyone else to
+						use your account, or provide personal information for purposes of
+						account registration other than your own. In order to ensure we can
+						protect and properly administer the Services and our community of
+						users, we have the right to disable or close any user account at any
+						time and for any reason or for no reason. You understand and agree
+						that we may require you to provide information that may be used to
+						confirm your identity and help ensure the security of your account.
+						If your account canceled, terminated or suspended, you and, if
+						applicable, your authorized users, will lose the ability to access
+						and use such account(s) and any of Customer Data (defined below)
+						that you have uploaded or stored using the Services. We may
+						immediately delete Customer Data at the time of cancellation,
+						termination or suspension of such account(s), and we will not be
+						liable to you or any third party in connection with such deletion of
+						Customer Data or your loss of access and use of such account(s).
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding={false}>
+						<legalStyles.BoldText>Account Security.</legalStyles.BoldText> All
+						registration details and other information provided by you is
+						subject to our Privacy Policy. You are responsible for maintaining
+						accurate account information at all times, including a valid email
+						address and billing information and updating such information as
+						necessary. Once you have an account, you are responsible for all
+						activities that occur in connection with your account. You will
+						treat as confidential your account access credentials and will not
+						to disclose it to any third-party. You agree to immediately notify
+						us if you have any reason to believe that your account credentials
+						have been compromised or if there is any unauthorized use of your
+						account or password, or any other breach of security. We ask that
+						you use particular caution when accessing your profile from a public
+						or shared computer, or when using your account in a public space,
+						such as a park or cafe or public library, so that others are not
+						able to view or record your access credentials or other personal
+						information. We will not be liable and you may be liable for losses,
+						damages, liability, expenses, and lawyers’ fees incurred by us or a
+						third party arising from someone else using your account due to your
+						conduct regardless of whether you have notified us of such
+						unauthorized use.
+					</legalStyles.Paragraph>
 					<legalStyles.Paragraph $noPadding>
-						The information provided when using the Services is not intended for
-						distribution to or use by any person or entity in any jurisdiction
-						or country where such distribution or use would be contrary to law
-						or regulation or which would subject us to any registration
-						requirement within such jurisdiction or country. Accordingly, those
-						persons who choose to access the Services from other locations do so
-						on their own initiative and are solely responsible for compliance
-						with local laws, if and to the extent local laws are applicable.
+						<legalStyles.BoldText>White Label.</legalStyles.BoldText> If your
+						product plan includes white-labeling, we grant you a white label
+						license to incorporate the permitted functionality of the Services
+						within your services offering without attribution to Thoughtly
+						solely for your direct business activities, subject to your complete
+						and ongoing compliance with these Terms, including without
+						limitation, all payment obligations. This white label license is
+						worldwide, revocable, non-exclusive, transferable solely to your
+						users as authorized sublicensees within the scope of this license,
+						provided you must require (and are liable for) your sublicensees to
+						compliance with all applicable terms and conditions of these Terms.
+						You are solely responsible for the provision of your products and
+						services to users, and will indemnify and hold harmless Thoughtly
+						from any related claims, liabilities or damages.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>
-						2. INTELLECTUAL PROPERTY RIGHTS
+						2. YOUR RESPONSIBILITIES
 					</legalStyles.SectionHeader>
-					<legalStyles.SectionSubheader>
-						Our Intellectual Property
-					</legalStyles.SectionSubheader>
-					<legalStyles.Paragraph $noPadding={false}>
-						We are the owner or the licensee of all intellectual property rights
-						in our Services, including all source code, databases,
-						functionality, software, website designs, audio, video, text,
-						photographs, and graphics in the Services (collectively, the
-						"Content"), as well as the trademarks, service marks, and logos
-						contained therein (the "Marks").
-					</legalStyles.Paragraph>
-					<legalStyles.SectionSubheader>
-						Your use of our Services
-					</legalStyles.SectionSubheader>
-					<legalStyles.Paragraph $noPadding={false}>
-						Subject to your compliance with these Legal Terms, including the
-						"PROHIBITED ACTIVITIES" section below, we grant you a non-exclusive,
-						non-transferable, revocable license to:access the Services; and
-						download or print a copy of any portion of the Content to which you
-						have properly gained access.solely for your personal, non-commercial
-						use or internal business purpose. Except as set out in this section
-						or elsewhere in our Legal Terms, no part of the Services and no
-						Content or Marks may be copied, reproduced, aggregated, republished,
-						uploaded, posted, publicly displayed, encoded, translated,
-						transmitted, distributed, sold, licensed, or otherwise exploited for
-						any commercial purpose whatsoever, without our express prior written
-						permission.
-					</legalStyles.Paragraph>
-					<legalStyles.Paragraph $noPadding={false}>
-						If you wish to make any use of the Services, Content, or Marks other
-						than as set out in this section or elsewhere in our Legal Terms,
-						please address your request to: support@thought.ly. If we ever grant
-						you the permission to post, reproduce, or publicly display any part
-						of our Services or Content, you must identify us as the owners or
-						licensors of the Services, Content, or Marks and ensure that any
-						copyright or proprietary notice appears or is visible on posting,
-						reproducing, or displaying our Content. We reserve all rights not
-						expressly granted to you in and to the Services, Content, and Marks.
-						Any breach of these Intellectual Property Rights will constitute a
-						material breach of our Legal Terms and your right to use our
-						Services will terminate immediately.
-					</legalStyles.Paragraph>
-					<legalStyles.SectionSubheader>
-						Your submissions and contributions
-					</legalStyles.SectionSubheader>
-					<legalStyles.Paragraph $noPadding={false}>
-						Please review this section and the "PROHIBITED ACTIVITIES" section
-						carefully prior to using our Services to understand the (a) rights
-						you give us and (b) obligations you have when you post or upload any
-						content through the Services.Submissions: By directly sending us any
-						question, comment, suggestion, idea, feedback, or other information
-						about the Services ("Submissions"), you agree to assign to us all
-						intellectual property rights in such Submission. You agree that we
-						shall own this Submission and be entitled to its unrestricted use
-						and dissemination for any lawful purpose, commercial or otherwise,
-						without acknowledgment or compensation to you.
-					</legalStyles.Paragraph>
-					<legalStyles.Paragraph $noPadding={false}>
-						Contributions: The Services may invite you to chat, contribute to,
-						or participate in blogs, message boards, online forums, and other
-						functionality during which you may create, submit, post, display,
-						transmit, publish, distribute, or broadcast content and materials to
-						us or through the Services, including but not limited to text,
-						writings, video, audio, photographs, music, graphics, comments,
-						reviews, rating suggestions, personal information, or other material
-						("Contributions"). Any Submission that is publicly posted shall also
-						be treated as a Contribution.You understand that Contributions may
-						be viewable by other users of the Services and possibly through
-						third-party websites.
-					</legalStyles.Paragraph>
-					<legalStyles.Paragraph $noPadding={false}>
-						When you post Contributions, you grant us a license (including use
-						of your name, trademarks, and logos): By posting any Contributions,
-						you grant us an unrestricted, unlimited, irrevocable, perpetual,
-						non-exclusive, transferable, royalty-free, fully-paid, worldwide
-						right, and license to: use, copy, reproduce, distribute, sell,
-						resell, publish, broadcast, retitle, store, publicly perform,
-						publicly display, reformat, translate, excerpt (in whole or in
-						part), and exploit your Contributions (including, without
-						limitation, your image, name, and voice) for any purpose,
-						commercial, advertising, or otherwise, to prepare derivative works
-						of, or incorporate into other works, your Contributions, and to
-						sublicense the licenses granted in this section. Our use and
-						distribution may occur in any media formats and through any media
-						channels.This license includes our use of your name, company name,
-						and franchise name, as applicable, and any of the trademarks,
-						service marks, trade names, logos, and personal and commercial
-						images you provide.
-					</legalStyles.Paragraph>
 					<legalStyles.Paragraph $noPadding>
-						You are responsible for what you post or upload: By sending us
-						Submissions and/or posting Contributions through any part of the
-						Services or making Contributions accessible through the Services by
+						By sending us submissions and/or posting Customer Data through any
+						part of the Services or making Customer Data through the Services by
 						linking your account through the Services to any of your social
-						networking accounts, you: confirm that you have read and agree with
-						our "PROHIBITED ACTIVITIES" and will not post, send, publish,
-						upload, or transmit through the Services any Submission nor post any
-						Contribution that is illegal, harassing, hateful, harmful,
-						defamatory, obscene, bullying, abusive, discriminatory, threatening
-						to any person or group, sexually explicit, false, inaccurate,
-						deceitful, or misleading; to the extent permissible by applicable
-						law, waive any and all moral rights to any such Submission and/or
-						Contribution; warrant that any such Submission and/or Contributions
-						are original to you or that you have the necessary rights and
-						licenses to submit such Submissions and/or Contributions and that
-						you have full authority to grant us the above-mentioned rights in
-						relation to your Submissions and/or Contributions; and warrant and
-						represent that your Submissions and/or Contributions do not
-						constitute confidential information.You are solely responsible for
-						your Submissions and/or Contributions and you expressly agree to
-						reimburse us for any and all losses that we may suffer because of
-						your breach of (a) this section, (b) any third party’s intellectual
-						property rights, or (c) applicable law.We may remove or edit your
-						Content: Although we have no obligation to monitor any
-						Contributions, we shall have the right to remove or edit any
-						Contributions at any time without notice if in our reasonable
-						opinion we consider such Contributions harmful or in breach of these
-						Legal Terms. If we remove or edit any such Contributions, we may
-						also suspend or disable your account and report you to the
-						authorities.
+						networking accounts, you: confirm that you have read and agree to
+						these Terms, including without limitation Section 6 and Section 9
+						below; to the extent permissible by applicable law, waive any and
+						all moral rights to any such submission and/or contribution;
+						represent and warrant that any such Customer Data are original
+						submission and/or contributions, you have the necessary rights and
+						licenses to submit such submissions and/or contributions and that
+						you have full authorization to grant us the above-mentioned rights
+						in relation to your submissions and/or contributions; and further
+						you agree that your Customer Data and/or contributions do not
+						constitute confidential information. You are responsible for your
+						Customer Data and submissions and/or contributions and you expressly
+						agree to reimburse us for any and all losses to Customer Data
+						because of your breach of (a) these Terms, (b) any third party’s
+						intellectual property rights, or (c) applicable law. Although we
+						have no obligation to monitor any contributions, we shall have the
+						right to remove or edit any Customer Data or Contributions at any
+						time in our sole discretion. If we remove or edit any such Customer
+						Data or contributions, we may also suspend your account and report
+						to law enforcement authorities.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>
-						3. USER REPRESENTATIONS
+						3. YOUR REPRESENTATIONS AND WARRANTIES
 					</legalStyles.SectionHeader>
 					<legalStyles.Paragraph $noPadding={false}>
 						By using the Services, you represent and warrant that: (1) all
-						registration information you submit will be true, accurate, current,
-						and complete; (2) you will maintain the accuracy of such information
-						and promptly update such registration information as necessary; (3)
-						you have the legal capacity and you agree to comply with these Legal
-						Terms; (4) you are not a minor in the jurisdiction in which you
-						reside; (5) you will not access the Services through automated or
-						non-human means, whether through a bot, script or otherwise; (6) you
-						will not use the Services for any illegal or unauthorized purpose;
-						and (7) your use of the Services will not violate any applicable law
-						or regulation.
+						Customer Data (defined below) that you submit will be true,
+						accurate, current, and complete; (2) you will maintain the accuracy
+						of such information and promptly update your Customer Data as
+						necessary; (3) you will not access the Services through automated or
+						non-human means, whether through a bot, script or otherwise; (4) you
+						have the right to upload the Customer Data in and through the
+						Services and that such use does not violate or infringe on any
+						rights of any third party; (5) your use of the Services will not
+						violate any applicable law or regulation; (6) you are aware of your
+						obligations with respect to compliance with laws relating to call
+						recording, telemarketing, spam and privacy; and (7) you will not
+						rely on us for advice or for compliance with such laws.
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding={false}>
+						If you provide any Customer Data or information that is unlawful,
+						untrue, inaccurate, not current, incomplete, or that breaches these
+						Terms, we have the right to suspend or terminate your account and
+						refuse any and all current or future use of the Services (or any
+						portion thereof).
 					</legalStyles.Paragraph>
 					<legalStyles.Paragraph $noPadding>
-						If you provide any information that is untrue, inaccurate, not
-						current, or incomplete, we have the right to suspend or terminate
-						your account and refuse any and all current or future use of the
-						Services (or any portion thereof).
+						Without limiting the above, if any Customer Data violates these
+						Terms or any applicable laws, we may, in our sole discretion, ask
+						you to remove or edit the Customer Data so it is no longer in
+						violation, or we may, but are not obligated to, remove the Customer
+						Data or take action as needed to resolve the issue.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>
-						4. USER REGISTRATION
+						4. PLANS; AUTOMATIC RENEWAL REGISTRATION
 					</legalStyles.SectionHeader>
+					<legalStyles.Paragraph $noPadding={false}>
+						<legalStyles.BoldText>Free Tier; Paid Plans.</legalStyles.BoldText>{" "}
+						We may make the Services available to you for free subject to
+						certain monthly usage limitations ("Free Tier"). We also offer paid
+						access to the Services under various different paid plans as further
+						specified in the Order (each, a "Paid Plan").
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding={false}>
+						<legalStyles.BoldText>
+							Automatic Renewal; Cancellation.
+						</legalStyles.BoldText>{" "}
+						Unless otherwise stated on an Order, each Subscription Term will
+						automatically renew, unless you cancel or downgrade your
+						subscription prior to the end of the then-current billing cycle. You
+						authorize us to charge your credit card on file or invoice you for
+						each renewal until you cancel your subscription. You can cancel your
+						subscription at any time by contacting us using the contact
+						information provided below. Your cancellation will take effect at
+						the end of the current billing cycle for Paid Services.
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding={false}>
+						<legalStyles.BoldText>Downgrades.</legalStyles.BoldText> If you fail
+						to pay Fees (defined below) for the Services displayed on the Order,
+						plus any applicable Taxes when they are due, we may downgrade you to
+						a Free Tier plan upon reasonable notice. If you are downgraded, you
+						may lose access to certain features or functionality, but these
+						Terms will continue to apply.
+					</legalStyles.Paragraph>
 					<legalStyles.Paragraph $noPadding>
-						You may be required to register to use the Services. You agree to
-						keep your password confidential and will be responsible for all use
-						of your account and password. We reserve the right to remove,
-						reclaim, or change a username you select if we determine, in our
-						sole discretion, that such username is inappropriate, obscene, or
-						otherwise objectionable.
+						<legalStyles.BoldText>Price Changes.</legalStyles.BoldText> We may
+						increases or modify our pricing for Paid Plans at any time without
+						notice, in our sole discretion, and the new pricing will go into
+						effect upon the start of the next billing cycle for your Paid Plan
+						subscription. If you do not terminate your Paid Plan subscription
+						before renewal, you authorize us to collect payment for the
+						increased or modified pricing.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>
 						5. PURCHASES AND PAYMENT
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph $noPadding>
-						We accept the following forms of payment: - Visa - Mastercard -
-						American Express - Discover - PayPal You agree to provide current,
-						complete, and accurate purchase and account information for all
-						purchases made via the Services. You further agree to promptly
-						update account and payment information, including email address,
-						payment method, and payment card expiration date, so that we can
-						complete your transactions and contact you as needed. Sales tax will
-						be added to the price of purchases as deemed required by us. We may
-						change prices at any time. All payments shall be in US dollars.
+					<legalStyles.SectionSubheader>Fees</legalStyles.SectionSubheader>
+					<legalStyles.Paragraph $noPadding={false}>
+						You will pay us the fees for the Services as displayed on the Order
+						(“Fees”) in the manner specified by us, plus any applicable Taxes in
+						accordance with this Section. You agree and understand that if you
+						do not pay us the Fees due for the Services within the agreed time
+						period, then we reserve the right to suspend your access and use of
+						the Services until such Fees are paid as provided in this Section.
+						If you reasonably and in good faith believe that we have billed you
+						incorrectly, and reasonably and in good faith dispute the Fees
+						billed to you, then you must contact us no later than thirty (30)
+						days after the invoice date on the invoice in which the error or
+						problem appeared, in order to receive an adjustment or credit (if
+						applicable). All Fees are non-refundable and non-creditable, except
+						as expressly set forth in these Terms.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph $noPadding>
-						You agree to pay all charges at the prices then in effect for your
-						purchases and any applicable shipping fees, and you authorize us to
-						charge your chosen payment provider for any such amounts upon
-						placing your order. If your order is subject to recurring charges,
-						then you consent to our charging your payment method on a recurring
-						basis without requiring your prior approval for each recurring
-						charge, until such time as you cancel the applicable order. We
-						reserve the right to correct any errors or mistakes in pricing, even
-						if we have already requested or received payment.
+					<legalStyles.SectionSubheader>Taxes</legalStyles.SectionSubheader>
+					<legalStyles.Paragraph $noPadding={false}>
+						All Fees and other amounts payable by you under these Terms are
+						exclusive of all government-imposed taxes, levies, or duties,
+						including value-added, sales, use, or withholding taxes, except for
+						taxes based on our net income and similar assessments (“Taxes”). You
+						are responsible for all sales, use and excise Taxes, and any other
+						similar Taxes, duties and charges of any kind imposed by any
+						federal, state or local governmental or regulatory authority on any
+						amounts payable by you hereunder, other than any Taxes imposed on
+						our income.
 					</legalStyles.Paragraph>
+					<legalStyles.SectionSubheader>Payment</legalStyles.SectionSubheader>
+					<legalStyles.Paragraph $noPadding={false}>
+						Unless otherwise provided in an applicable Order, you will pay all
+						Fees due at the time of purchase. You will make all payments
+						hereunder in U.S. dollars. You will make payments to the account
+						specified in the applicable Order or such other account as we may
+						specify in writing from time to time. If you are paying Fees using a
+						credit card or any digital payment method supported by us, you
+						authorize us to charge your account for the Services using that
+						payment method. You must keep all information in its billing account
+						current to ensure that all Fees are charged to the appropriate
+						account and are timely paid. If you notify us to stop using a
+						previously designated payment method and fail to designate an
+						alternative, we may immediately suspend use and access to the
+						Services. Any notice from you changing its billing account will not
+						affect charges we submit to your billing account before we
+						reasonably can act on your request. We may use a third-party
+						intermediary to manage credit card processing, and this intermediary
+						is not permitted to use your credit card information except in
+						connection with your authorized purchases. Notice (including email)
+						from our third-party credit card processor declining your credit
+						card or otherwise relating to your account will be deemed valid
+						notice from us.
+					</legalStyles.Paragraph>
+					<legalStyles.SectionSubheader>
+						Late Payment
+					</legalStyles.SectionSubheader>
 					<legalStyles.Paragraph $noPadding>
-						We reserve the right to refuse any order placed through the
-						Services. We may, in our sole discretion, limit or cancel quantities
-						purchased per person, per household, or per order. These
-						restrictions may include orders placed by or under the same customer
-						account, the same payment method, and/or orders that use the same
-						billing or shipping address. We reserve the right to limit or
-						prohibit orders that, in our sole judgment, appear to be placed by
-						dealers, resellers, or distributors.
+						If you fail to make any payment when due then, in addition to all
+						other remedies that may be available, we may charge interest on the
+						past due amount at the rate of 1.5% per month calculated daily and
+						compounded monthly or, if lower, the highest rate permitted under
+						applicable law. If such failure continues for five (5) days
+						following written notice thereof, we may suspend performance of the
+						Services until all past due amounts and interest thereon have been
+						paid, without incurring any obligation or liability to you by reason
+						of such suspension.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
-				<legalStyles.Section>
-					<legalStyles.SectionHeader>6. CANCELLATION</legalStyles.SectionHeader>
-					<legalStyles.Paragraph $noPadding>
-						You can cancel your subscription at any time by contacting us using
-						the contact information provided below. Your cancellation will take
-						effect at the end of the current paid term.If you are unsatisfied
-						with our Services, please email us at support@thought.ly.
-					</legalStyles.Paragraph>
-				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>
-						7. PROHIBITED ACTIVITIES
+						6. PROHIBITED ACTIVITIES
 					</legalStyles.SectionHeader>
 					<legalStyles.SectionSubheader>
-						As a user of the Services, you agree not to:
+						As a user of the Services, you agree not to (and will not allow any
+						third party to):
 					</legalStyles.SectionSubheader>
-					<legalStyles.Paragraph $noPadding={false}>
-						Systematically retrieve data or other content from the Services to
-						create or compile, directly or indirectly, a collection,
-						compilation, database, or directory without written permission from
-						us.Trick, defraud, or mislead us and other users, especially in any
-						attempt to learn sensitive account information such as user
-						passwords.Circumvent, disable, or otherwise interfere with
-						security-related features of the Services, including features that
-						prevent or restrict the use or copying of any Content or enforce
-						limitations on the use of the Services and/or the Content contained
-						therein.
-					</legalStyles.Paragraph>
-					<legalStyles.OList $noPadding>
+					<legalStyles.OList $noPadding={false}>
+						<legalStyles.ListItem>
+							Modify, copy, display, republish or create derivative works based
+							on the Services or Thoughtly Materials.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Act as a reseller or distributor of, or a service bureau for the
+							Services or otherwise use, exploit, make available or encumber the
+							Services to or for the benefit of any third party.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Access or use the Services without the prior written consent of us
+							if you are or become a direct competitor to us or our affiliates.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Access the Services in order to build a competitive product or
+							service, or copy any ideas, features, functions or graphics of the
+							Services.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Share access, use, or information about the Services with a direct
+							competitor of us.{" "}
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Systematically retrieve data or other content from the Services to
+							create or compile, directly or indirectly, a collection,
+							compilation, database, or directory without written permission
+							from us.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Incorporate or merge the Thoughtly Materials into another software
+							product, or otherwise access or use the Thoughtly Materials and/or
+							Documentation (defined below) to create, modify or enhance any
+							software or competing service.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Combine or use the Services with any third party hardware,
+							networks, code, data, or services that infringes any third party
+							right.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Trick, defraud, or mislead us and other users, especially in any
+							attempt to learn sensitive account information such as user
+							passwords.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Circumvent, disable, or otherwise interfere with security-related
+							features of the Services, including features that prevent or
+							restrict the use or copying of any Content or enforce limitations
+							on the use of the Services and/or the Content contained therein.
+						</legalStyles.ListItem>
 						<legalStyles.ListItem>
 							Disparage, tarnish, or otherwise harm, in our opinion, us and/or
 							the Services.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Take any action that imposes, or may impose, in our sole
+							discretion an unreasonable or disproportionately large load on our
+							infrastructure.{" "}
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Use the Services or any Output to post or send infringing,
+							obscene, threatening, libelous, or otherwise unlawful material.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Use the Services or any Output in violation of applicable laws.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Upload to the Services or use the Services or any Output to send
+							or store viruses, worms, time bombs, Trojan horses or other
+							harmful or malicious code, files, scripts, agents or programs.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
 							Use any information obtained from the Services in order to harass,
@@ -361,20 +503,7 @@ export default function Terms() {
 							of abuse or misconduct.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
-							Use the Services in a manner inconsistent with any applicable laws
-							or regulations.
-						</legalStyles.ListItem>
-						<legalStyles.ListItem>
 							Engage in unauthorized framing of or linking to the Services.
-						</legalStyles.ListItem>
-						<legalStyles.ListItem>
-							Upload or transmit (or attempt to upload or to transmit) viruses,
-							Trojan horses, or other material, including excessive use of
-							capital letters and spamming (continuous posting of repetitive
-							text), that interferes with any party’s uninterrupted use and
-							enjoyment of the Services or modifies, impairs, disrupts, alters,
-							or interferes with the use, features, functions, operation, or
-							maintenance of the Services.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
 							Engage in any automated use of the system, such as using scripts
@@ -398,10 +527,14 @@ export default function Terms() {
 							"spyware" or "passive collection mechanisms" or "pcms").
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
-							Interfere with, disrupt, or create an undue burden on the Services
-							or the networks or services connected to the Services.Harass,
-							annoy, intimidate, or threaten any of our employees or agents
-							engaged in providing any portion of the Services to you.
+							Intentionally or unintentionally interfere with, disrupt the
+							integrity or performance of the Services or the data contained
+							therein, or create an undue burden on the Services or the networks
+							or services connected to the Services.{" "}
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Harass, annoy, intimidate, or threaten any of our employees or
+							agents engaged in providing any portion of the Services to you.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
 							Attempt to bypass any measures of the Services designed to prevent
@@ -411,11 +544,6 @@ export default function Terms() {
 						<legalStyles.ListItem>
 							Copy or adapt the Services software, including but not limited to
 							Flash, PHP, HTML, JavaScript, or other code.
-						</legalStyles.ListItem>
-						<legalStyles.ListItem>
-							Except as permitted by applicable law, decipher, decompile,
-							disassemble, or reverse engineer any of the software comprising or
-							in any way making up a part of the Services.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
 							Except as may be the result of standard search engine or Internet
@@ -435,224 +563,322 @@ export default function Terms() {
 							user accounts by automated means or under false pretenses.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
-							Use the Services as part of any effort to compete with us or
-							otherwise use the Services and/or the Content for any
-							revenue-generating endeavor or commercial enterprise.
+							Sell or otherwise transfer your profile or account.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
-							Sell or otherwise transfer your profile.
+							Use the Services or any Output to create, promote, or distribute
+							content that is illegal, harmful, or violates copyright laws.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
-							Misrepresentation: Using Thoughtly to impersonate another
-							individual, organization, or entity.
+							Manipulate or attempt to manipulate the AI agent in a way that is
+							against the intended use of the Services.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
-							Unlawful Content: Using the platform to create, promote, or
-							distribute content that is illegal, harmful, or violates copyright
+							Use the Services for fraudulent activities, including but not
+							limited to phishing, scams, and financial fraud.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Use the Services or any Output to send spam or otherwise
+							duplicative or unsolicited messages in violation of applicable
 							laws.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
-							Data Mining: Using any automated system, including but not limited
-							to "bots", "spiders", or "scrapers" to access or mine data from
-							Thoughtly.Breach of Privacy: Sharing, distributing, or publishing
-							private or confidential information without explicit consent,
-							including but not limited to personal identification numbers,
-							credit card details, and private addresses.
+							Without the express prior written consent of Thoughtly, conduct
+							any benchmarking or comparative study or analysis involving the
+							Services for any reason or purpose except, to the limited extent
+							absolutely necessary, to determine the suitability of the Services
+							to interoperate with your internal systems.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
-							Malicious Software: Introducing viruses, worms, Trojan horses, or
-							other malicious software to the platform or its users.
+							Claim endorsement from Thoughtly without explicit permission.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
-							Manipulating Services: Interfering with or disrupting the services
-							provided by Thoughtly, including by way of overloading,
-							"flooding", or "crashing" any part of the platform.
+							Use or attempt to use tools to circumvent any security feature of
+							the Thoughtly Services.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
-							Unauthorized Access: Attempting to gain unauthorized access to any
-							part of the Thoughtly platform, systems, or networks.
-						</legalStyles.ListItem>
-						<legalStyles.ListItem>
-							Intellectual Property Violations: Copying, distributing, or
-							displaying copyrighted or trademarked content from Thoughtly
-							without permission.
-						</legalStyles.ListItem>
-						<legalStyles.ListItem>
-							Engaging in Fraud: Using the platform for fraudulent activities,
-							including but not limited to phishing, scams, and financial fraud
-						</legalStyles.ListItem>
-						<legalStyles.ListItem>
-							Misuse of AI Tools: Manipulating or attempting to manipulate the
-							AI interviewers in a way that's against the intended use of the
-							platform.
-						</legalStyles.ListItem>
-						<legalStyles.ListItem>
-							Explicit Content: Uploading, sharing, or promoting sexually
-							explicit or extremely violent content.
-						</legalStyles.ListItem>
-						<legalStyles.ListItem>
-							Endorsement Misrepresentation: Claiming endorsement from Thoughtly
-							without explicit permission.
-						</legalStyles.ListItem>
-						<legalStyles.ListItem>
-							Resale: Reselling Thoughtly's services without explicit
-							authorization.
-						</legalStyles.ListItem>
-						<legalStyles.ListItem>
-							Bypassing Security: Using or attempting to use tools to circumvent
-							any security feature of the Thoughtly platform.
-						</legalStyles.ListItem>
-						<legalStyles.ListItem>
-							Hate Speech: Creating or propagating content that promotes hate,
-							discrimination, or violence against individuals or groups based on
-							race, ethnicity, nationality, religion, gender, gender identity,
-							sexual orientation, disability, or any other identifiable
+							Create or propagate content that promotes hate, discrimination, or
+							violence against individuals or groups based on race, ethnicity,
+							nationality, religion, gender, gender identity, sexual
+							orientation, disability, or any other identifiable
 							characteristics.
 						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Use the Services or any Output to run automated queries to web
+							sites.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Remove or alter any trademark, logo, copyright or other
+							proprietary notices, legends, symbols or labels in the Services;
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Attempt to gain or permit an unauthorized third party unauthorized
+							access to the Services or its related systems or networks by you
+							or an unauthorized third party.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Permit any third party to do any of the foregoing.
+						</legalStyles.ListItem>
 					</legalStyles.OList>
+					<legalStyles.Paragraph $noPadding>
+						In addition, you agree that you shall (a) only permit access to the
+						Services by yourself and, if applicable your authorized users; and
+						(b) not access or use the Services from an embargoed nation or any
+						other country/region that becomes an embargoed nation, in violation
+						of applicable export compliance laws.
+					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>
-						8. USER GENERATED CONTRIBUTIONS
+						7. THOUGHTLY RIGHTS
 					</legalStyles.SectionHeader>
 					<legalStyles.Paragraph $noPadding={false}>
-						The Services may invite you to chat, contribute to, or participate
-						in blogs, message boards, online forums, and other functionality,
-						and may provide you with the opportunity to create, submit, post,
-						display, transmit, perform, publish, distribute, or broadcast
-						content and materials to us or on the Services, including but not
-						limited to text, writings, video, audio, photographs, graphics,
-						comments, suggestions, or personal information or other material
-						(collectively, "Contributions"). Contributions may be viewable by
-						other users of the Services and through third-party websites. As
-						such, any Contributions you transmit may be treated as
-						non-confidential and non-proprietary. When you create or make
-						available any Contributions, you thereby represent and warrant that:
+						We reserve the right to suspend your access to the Services in the
+						event (a) we believe your use of the Services represents an imminent
+						threat to our users or network, (b) of your breach or violation of
+						any laws or regulations applicable to your use of the Services or
+						your breach of these Terms, or (c) if so directed by a court or
+						competent authority. In such cases, we will (i) suspend such the
+						Services only to the extent reasonably necessary to prevent harm to
+						our users or network; (ii) use our best efforts to promptly contact
+						you and give you the opportunity to change the configuration of its
+						server(s) accordingly and/or work with you to resolve the issues
+						causing the suspension of such the Services; and (iii) reinstate any
+						suspended the Services promptly after the issue is abated. Without
+						limiting the foregoing, we reserve the right to manage bandwidth or
+						route traffic across the Internet in a commercially optimal way,
+						provided such actions do not compromise our obligations regarding
+						the Customer Data.
 					</legalStyles.Paragraph>
-					<legalStyles.OList $noPadding={false}>
+					<legalStyles.Paragraph $noPadding={false}>
+						We have the right to (i) remove or limit distribution of Customer
+						Data that we deem reasonably necessary or appropriate if we conclude
+						that any Customer Data violates these Terms, infringes any
+						intellectual property right or other right of any person or entity,
+						threatens the personal safety of any individual or could create
+						liability for us; (ii) take appropriate legal action, including
+						without limitation, referral to law enforcement, for any illegal use
+						of the Services; and (iii) terminate or suspend your access to all
+						or part of the Services for any violation of these Terms.
+						Notwithstanding the foregoing, we are not obligated to review
+						Customer Data before it is posted via the Services, and we cannot
+						ensure prompt removal of objectionable Customer Data after it has
+						been posted. Accordingly, we assume no liability for any action or
+						inaction regarding transmissions, communications or content provided
+						by any Authorized User or third party. We disclaim all liability or
+						responsibility for exercise or nonexercise of our rights under this
+						Section.
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding>
+						We have the right to (i) use or act upon any suggestions, ideas,
+						enhancement requests, feedback, recommendations or other information
+						provided by you relating to the Services; (ii) utilize all other
+						information provided by you (including Customer Data) relating to
+						the Services to the extent necessary to comply with any legal
+						requirements or contractual obligations; and (iii) utilize
+						anonymized and/or aggregated data to protect and improve the
+						Services, provided that you and your authorized users’ identity may
+						not be derived from such data. The foregoing shall in no way limit
+						our confidentiality obligations set forth in these Terms.
+					</legalStyles.Paragraph>
+				</legalStyles.Section>
+
+				<legalStyles.Section>
+					<legalStyles.SectionHeader>
+						8. INTELLECTUAL PROPERTY RIGHTS
+					</legalStyles.SectionHeader>
+					<legalStyles.SectionSubheader>
+						Our Intellectual Property
+					</legalStyles.SectionSubheader>
+					<legalStyles.Paragraph $noPadding={false}>
+						Except as expressly stated, these Terms do not grant any rights,
+						implied or otherwise, to any intellectual property. We own the
+						Services and all of our trademarks, logos, branding, and any other
+						Content that we create in connection with the Services (“Company
+						Content”), including proprietary rights of every kind and nature
+						however denominated throughout the world, registered or
+						unregistered, associated with such Company Content and the Services
+						(collectively, “Thoughtly IP”). Except as expressly and
+						unambiguously provided herein, we do not grant you any express or
+						implied rights, and all rights in and to the Thoughtly IP are
+						retained by us.
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding>
+						We hereby grant to you during the Term a non-exclusive,
+						non-transferable, non-sublicensable, worldwide and irrevocable
+						(subject to our right to terminate these Terms) license to access
+						and use the Services subject to any usage capacity or other
+						limitations set forth in the Order (“Usage Limits”) solely for: (i)
+						in the case of a Paid Plan, your internal business purposes to
+						enable its products and services with artificial intelligence
+						capabilities in accordance with these Terms; (ii) in the case of a
+						Free Trial or access to the Free Tier, your internal, non-commercial
+						evaluation purposes to determine whether you desire to seek paid
+						access to the Services in accordance with these Terms.
+					</legalStyles.Paragraph>
+				</legalStyles.Section>
+
+				<legalStyles.Section>
+					<legalStyles.SectionHeader>
+						9. CUSTOMER DATA
+					</legalStyles.SectionHeader>
+					<legalStyles.Paragraph $noPadding={false}>
+						We do not assert any ownership over your Customer Data. You retain
+						full ownership of all of your Customer Data and any intellectual
+						property rights or other proprietary rights associated with your
+						Customer Data. You are responsible for ensuring all calls, video,
+						audio, or transcription data, images, comments, clips or other
+						content or information submitted or uploaded to the Services by or
+						otherwise collected by us on behalf of you or your authorized users
+						("Customer Data") and any other content or information provided to
+						us or uploaded, posted, recorded, or transmitted to the Services
+						complies with these Terms and all applicable laws, including, but
+						not limited to, laws requiring you to obtain the consent of a third
+						party to collect, record or use the Customer Data and to provide
+						appropriate notices of third-party rights. Under no circumstances
+						will we be liable in any way for any (a) Customer Data that is
+						transmitted or viewed while using the Services, (b) errors or
+						omissions in Customer Data, or (c) any loss or damage of any kind
+						incurred as a result of the use of, access to, or denial of access
+						to Customer Data. You expressly agree to exonerate us from any and
+						all responsibility and to refrain from any legal action against us
+						regarding your Customer Data.
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding={false}>
+						Subject to these Terms, you hereby grants to us a non-exclusive,
+						worldwide, royalty-free right, during the Term, to process the
+						Customer Data solely (a) to the extent necessary to provide the
+						services contemplated by the Services, (b) to provide, protect, and
+						update the Services, (c) to enforce these Terms and exercise its
+						rights hereunder, (d) as required by law, and (e) as otherwise
+						instructed by you.
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding={false}>
+						As between the parties, you own the Customer Data, but you
+						acknowledge that we are in the business of improving and making
+						enhancements to the Services, partially through learnings generated
+						by training Customer Data. Accordingly, you hereby grants to us a
+						non-exclusive, perpetual, irrevocable, transferable, worldwide and
+						royalty-free license to use, reproduce, modify and otherwise exploit
+						the Customer Data for the following purposes: to operate, train,
+						modify, maintain, support, update, enhance, exploit, and otherwise
+						use and improve the Services, Thoughtly IP and all of our current or
+						future products, services and technology. We have the right to grant
+						and authorize sublicenses (through multiple tiers) to the foregoing
+						licenses in this Section in our sole discretion. We remain liable
+						for ensuring sublicensees comply with the scope of the licenses in
+						this Section.
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding={false}>
+						We have the right, in our sole and absolute discretion, (1) to edit,
+						redact, or otherwise change any Customer Data; (2) to re-categorize
+						any Customer Data to place them in more appropriate locations on the
+						Services; and (3) to pre-screen or delete any Customer Data at any
+						time and for any reason, without notice. We have no obligation to
+						monitor your Customer Data.{" "}
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding={false}>
+						You will not and will ensure your authorized users do not upload,
+						post, record, or transmit any harmful, offensive, unlawful, or
+						otherwise objectionable content to us or the Services, including:
+					</legalStyles.Paragraph>
+					<legalStyles.UList $noPadding={false}>
 						<legalStyles.ListItem>
-							The creation, distribution, transmission, public display, or
-							performance, and the accessing, downloading, or copying of your
-							Contributions do not and will not infringe the proprietary rights,
-							including but not limited to the copyright, patent, trademark,
-							trade secret, or moral rights of any third party.
+							Your Customer Data is not false, inaccurate, or misleading.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
-							You are the creator and owner of or have the necessary licenses,
-							rights, consents, releases, and permissions to use and to
-							authorize us, the Services, and other users of the Services to use
-							your Contributions in any manner contemplated by the Services and
-							these Legal Terms.
-						</legalStyles.ListItem>
-						<legalStyles.ListItem>
-							You have the written consent, release, and/or permission of each
-							and every identifiable individual person in your Contributions to
-							use the name or likeness of each and every such identifiable
-							individual person to enable inclusion and use of your
-							Contributions in any manner contemplated by the Services and these
-							Legal Terms.
-						</legalStyles.ListItem>
-						<legalStyles.ListItem>
-							Your Contributions are not false, inaccurate, or misleading.Your
-							Contributions are not unsolicited or unauthorized advertising,
+							Your Customer Data is not unsolicited or unauthorized advertising,
 							promotional materials, pyramid schemes, chain letters, spam, mass
 							mailings, or other forms of solicitation.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
-							Your Contributions are not obscene, lewd, lascivious, filthy,
-							violent, harassing, libelous, slanderous, or otherwise
-							objectionable (as determined by us).
+							Your Customer Data is not hateful, defamatory, vulgar,
+							discriminatory, obscene, lewd, lascivious, filthy, violent,
+							harassing, libelous, slanderous, or otherwise objectionable (as
+							determined by us).
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
-							Your Contributions do not ridicule, mock, disparage, intimidate,
+							Your Customer Data does not ridicule, mock, disparage, intimidate,
 							or abuse anyone.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
-							Your Contributions are not used to harass or threaten (in the
-							legal sense of those terms) any other person and to promote
-							violence against a specific person or class of people.
+							Your Customer Data is not used to harass or threaten (in the legal
+							sense of those terms) any other person and to promote violence
+							against a specific person or class of people.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
-							Your Contributions do not violate any applicable law, regulation,
-							or rule.
+							Your Customer Data does not violate any applicable law,
+							regulation, or rule.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
-							Your Contributions do not violate the privacy or publicity rights
-							of any third party.
+							Your Customer Data does not violate the privacy or publicity
+							rights of any third party, or could give rise to any civil or
+							criminal liability under applicable laws or regulations.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
-							Your Contributions do not violate any applicable law concerning
+							Your Customer Data does not violate any applicable law concerning
 							child pornography, or otherwise intended to protect the health or
 							well-being of minors.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
-							Your Contributions do not include any offensive comments that are
-							connected to race, national origin, gender, sexual preference, or
-							physical handicap.
+							Your Customer Data does not include any offensive comments that
+							are connected to race, national origin, gender, sexual preference,
+							or physical handicap.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
-							Your Contributions do not otherwise violate, or link to material
-							that violates, any provision of these Legal Terms, or any
-							applicable law or regulation.
+							Your Customer Data does not contain pornography or sexually
+							explicit material.
 						</legalStyles.ListItem>
-					</legalStyles.OList>
-					<legalStyles.Paragraph $noPadding>
-						Any use of the Services in violation of the foregoing violates these
-						Legal Terms and may result in, among other things, termination or
-						suspension of your rights to use the Services.
-					</legalStyles.Paragraph>
-				</legalStyles.Section>
-				<legalStyles.Section>
-					<legalStyles.SectionHeader>
-						9. CONTRIBUTION LICENSE
-					</legalStyles.SectionHeader>
+						<legalStyles.ListItem>
+							Your Customer Data does not include or promote sexually explicit
+							or extremely violent content.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Your Customer Data does is not harmful to minors.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Your Customer Data does not promote suicide or self-harm, and does
+							not promote or provide instructional information about illegal
+							activities or promotes physical harm or injury to any group or
+							individual.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Your Customer Data is not likely to deceive or mislead any person.
+						</legalStyles.ListItem>
+					</legalStyles.UList>
 					<legalStyles.Paragraph $noPadding={false}>
-						By posting your Contributions to any part of the Services or making
-						Contributions accessible to the Services by linking your account
-						from the Services to any of your social networking accounts, you
-						automatically grant, and you represent and warrant that you have the
-						right to grant, to us an unrestricted, unlimited, irrevocable,
-						perpetual, non-exclusive, transferable, royalty-free, fully-paid,
-						worldwide right, and license to host, use, copy, reproduce,
-						disclose, sell, resell, publish, broadcast, retitle, archive, store,
-						cache, publicly perform, publicly display, reformat, translate,
-						transmit, excerpt (in whole or in part), and distribute such
-						Contributions (including, without limitation, your image and voice)
-						for any purpose, commercial, advertising, or otherwise, and to
-						prepare derivative works of, or incorporate into other works, such
-						Contributions, and grant and authorize sublicenses of the foregoing.
-						The use and distribution may occur in any media formats and through
-						any media channels.
-					</legalStyles.Paragraph>
-					<legalStyles.Paragraph $noPadding={false}>
-						This license will apply to any form, media, or technology now known
-						or hereafter developed, and includes our use of your name, company
-						name, and franchise name, as applicable, and any of the trademarks,
-						service marks, trade names, logos, and personal and commercial
-						images you provide. You waive all moral rights in your
-						Contributions, and you warrant that moral rights have not otherwise
-						been asserted in your Contributions.
-					</legalStyles.Paragraph>
-					<legalStyles.Paragraph $noPadding={false}>
-						We do not assert any ownership over your Contributions. You retain
-						full ownership of all of your Contributions and any intellectual
-						property rights or other proprietary rights associated with your
-						Contributions. We are not liable for any statements or
-						representations in your Contributions provided by you in any area on
-						the Services. You are solely responsible for your Contributions to
-						the Services and you expressly agree to exonerate us from any and
-						all responsibility and to refrain from any legal action against us
-						regarding your Contributions.
+						You further acknowledge and agree that (i) you have the written
+						consent, release, and/or permission of each and every identifiable
+						individual person in your Customer Data to use the name or likeness
+						of each and every such identifiable individual person to enable
+						inclusion and use of your Customer Data contemplated by the Services
+						and these Terms; (ii) the creation, distribution, transmission,
+						public display, or performance, and the accessing, downloading, or
+						copying of your Customer Data do not and will not infringe the
+						proprietary rights, including but not limited to the copyright,
+						patent, trademark, trade secret, or moral rights of any third party;
+						(iii) your Customer Data does not otherwise violate, or link to
+						material that violates, any provision of these Terms or our Privacy
+						Policy, or any applicable law or regulation; (iv) you are the
+						creator and owner of or have the necessary licenses, rights,
+						consents, releases, and permissions to use and to authorize us, the
+						Services, and other users of the Services to receive, use and access
+						your Customer Data in any manner contemplated by the Services and
+						these Terms; and (v) you have the written consent, release, and/or
+						permission of each and every identifiable individual person in your
+						Customer Data contemplated by the Services and these Terms.
 					</legalStyles.Paragraph>
 					<legalStyles.Paragraph $noPadding>
-						We have the right, in our sole and absolute discretion, (1) to edit,
-						redact, or otherwise change any Contributions; (2) to re-categorize
-						any Contributions to place them in more appropriate locations on the
-						Services; and (3) to pre-screen or delete any Contributions at any
-						time and for any reason, without notice. We have no obligation to
-						monitor your Contributions.
+						You are solely responsible for all data that you transmit or that
+						relates to any activity you have undertaken using the Services. You
+						agree that we shall have no liability to you for any loss or
+						corruption of any such data, and you hereby waive any right of
+						action against us arising from any such loss or corruption of such
+						data.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>
 						10. GUIDELINES FOR REVIEWS
@@ -688,64 +914,101 @@ export default function Terms() {
 						review.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>
-						11. SOCIAL MEDIA
+						11. THIRD-PARTY WEBSITES AND CONTENT
 					</legalStyles.SectionHeader>
+					<legalStyles.Paragraph $noPadding={false}>
+						The Service may contain or may interact with or otherwise be
+						associated with third party platforms, services, plug-ins,
+						applications, ads, tools and/or other content, and/or links to
+						third-party websites or other services that are not owned,
+						controlled or operated by us ("Third-Party Websites") including
+						services operated by advertisers, licensors, licensees, and certain
+						other third parties who may have business relationships with
+						("Third-Party Content"). We may also host our Content, apps and
+						tools on Third-Party Websites. We are not responsible for the
+						content of any Third-Party Websites, and we are not responsible for
+						any Third-Party Websites accessed through the Services or any
+						Third-Party Content posted on, available through, or installed from
+						the Services. Inclusion of, linking to, or permitting the use or
+						installation of any Third-Party Websites or any Third-Party Content
+						does not imply approval or endorsement thereof by us. Your use of a
+						Third-Party Websites linked from the Services is at your own risk
+						and will be governed by such third party's terms and policies. You
+						should review the applicable terms and policies, including privacy
+						and data gathering practices, of any website to which you navigate
+						from the Services or relating to any applications you use or install
+						from the Services.
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding={false}>
+						References on the Services to any names, marks, products, or
+						services of third parties, or links to Third-Party Websites or
+						information are not an endorsement, sponsorship, or recommendation
+						of the third party, its information, products, or services. We are
+						not responsible for the quality or delivery of the products or
+						services offered, accessed, obtained by or advertised at such
+						Third-Party Websites.{" "}
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding={false}>
+						Some Third-Party Websites may impose fees for access to their
+						resources through our Services and/or your account and you are
+						responsible for all such fees.
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding={false}>
+						Finally, we will under no circumstances be liable for any direct,
+						indirect, incidental or special loss or other damage, whether
+						arising from negligence, breach of contract, defamation,
+						infringement of copyright or other intellectual property rights,
+						caused by the exhibition, distribution or exploitation of any
+						information or content contained within these Third-Party Websites.
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding={false}>
+						You hereby grant us an irrevocable perpetual license to use,
+						reproduce, edit, create derivative works from, distribute, display,
+						copy, transmit or otherwise use in any way, commercially or
+						otherwise, any material that you post to any social networking site
+						or other Third-Party Websites in connection with us or our Services.
+					</legalStyles.Paragraph>
+					<legalStyles.SectionSubheader>
+						Third-Party Apps
+					</legalStyles.SectionSubheader>
 					<legalStyles.Paragraph $noPadding>
-						As part of the functionality of the Services, you may link your
-						account with online accounts you have with third-party service
-						providers (each such account, a "Third-Party Account") by either:
-						(1) providing your Third-Party Account login information through the
-						Services; or (2) allowing us to access your Third-Party Account, as
-						is permitted under the applicable terms and conditions that govern
-						your use of each Third-Party Account. You represent and warrant that
-						you are entitled to disclose your Third-Party Account login
-						information to us and/or grant us access to your Third-Party
-						Account, without breach by you of any of the terms and conditions
-						that govern your use of the applicable Third-Party Account, and
-						without obligating us to pay any fees or making us subject to any
-						usage limitations imposed by the third-party service provider of the
-						Third-Party Account. By granting us access to any Third-Party
-						Accounts, you understand that (1) we may access, make available, and
-						store (if applicable) any content that you have provided to and
-						stored in your Third-Party Account (the "Social Network Content") so
-						that it is available on and through the Services via your account,
-						including without limitation any friend lists and (2) we may submit
-						to and receive from your Third-Party Account additional information
-						to the extent you are notified when you link your account with the
-						Third-Party Account. Depending on the Third-Party Accounts you
-						choose and subject to the privacy settings that you have set in such
-						Third-Party Accounts, personally identifiable information that you
-						post to your Third-Party Accounts may be available on and through
-						your account on the Services. Please note that if a Third-Party
-						Account or associated service becomes unavailable or our access to
-						such Third-Party Account is terminated by the third-party service
-						provider, then Social Network Content may no longer be available on
-						and through the Services. You will have the ability to disable the
-						connection between your account on the Services and your Third-Party
-						Accounts at any time. PLEASE NOTE THAT YOUR RELATIONSHIP WITH THE
-						THIRD-PARTY SERVICE PROVIDERS ASSOCIATED WITH YOUR THIRD-PARTY
-						ACCOUNTS IS GOVERNED SOLELY BY YOUR AGREEMENT(S) WITH SUCH
-						THIRD-PARTY SERVICE PROVIDERS. We make no effort to review any
-						Social Network Content for any purpose, including but not limited
-						to, for accuracy, legality, or non-infringement, and we are not
-						responsible for any Social Network Content. You acknowledge and
-						agree that we may access your email address book associated with a
-						Third-Party Account and your contacts list stored on your mobile
-						device or tablet computer solely for purposes of identifying and
-						informing you of those contacts who have also registered to use the
-						Services. You can deactivate the connection between the Services and
-						your Third-Party Account by contacting us using the contact
-						information below or through your account settings (if applicable).
-						We will attempt to delete any information stored on our servers that
-						was obtained through such Third-Party Account, except the username
-						and profile picture that become associated with your account.
+						The Services may contain features designed to interoperate with any
+						third-party applications, integrations, websites, products, or
+						services that are linked in or that interact or interoperate with
+						the Services, including any applications built by third parties
+						using our developer tools that is made available by you or your
+						Authorized Users (“Third-Party App”). To use such features, you or
+						your users may be required to obtain access to such Third-Party App
+						from their providers, and grant us access to your or your users’
+						account(s) on such Third-Party Apps. If you use a Third-Party App
+						with the Services, you grant us permission to allow the Third-Party
+						App and its provider to access Customer Data. By enabling a
+						Third-Party App that uses or accesses Customer Data, you authorize
+						the transfer of that data to the Third-Party App and, if applicable,
+						will ensure that such data transfer complies with all applicable
+						laws. Any acquisition by you of Third-Party Apps, and any exchange
+						of Customer Data between you and any Third-Party App provider,
+						product or service, is solely between you and the applicable
+						Third-Party App provider. We do not warrant or support Third-Party
+						App. We are not responsible for any disclosure, modification or
+						deletion of Customer Data resulting from access by any Third-Party
+						App or its provider. You are solely responsible for ensuring that it
+						has all necessary licenses and rights to use the Third-Party App for
+						the purposes contemplated herein. You understand and agree that
+						Third-Party Apps are subject to their own terms and privacy
+						policies. You are responsible for reviewing those terms and policies
+						before using or enabling any Third-Party Apps. We are not
+						responsible for Third-Party Apps and does not warrant or support
+						them.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>
-						12. THIRD-PARTY WEBSITES AND CONTENT
+						12. SERVICES MANAGEMENT
 					</legalStyles.SectionHeader>
 					<legalStyles.Paragraph $noPadding>
 						The Services may contain (or you may be sent via the Site) links to
@@ -766,7 +1029,7 @@ export default function Terms() {
 						approval or endorsement thereof by us. If you decide to leave the
 						Services and access the Third-Party Websites or to use or install
 						any Third-Party Content, you do so at your own risk, and you should
-						be aware these Legal Terms no longer govern. You should review the
+						be aware these Terms no longer govern. You should review the
 						applicable terms and policies, including privacy and data gathering
 						practices, of any website to which you navigate from the Services or
 						relating to any applications you use or install from the Services.
@@ -783,265 +1046,322 @@ export default function Terms() {
 						Websites.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>
-						13. SERVICES MANAGEMENT
+						13. PRIVACY POLICY
 					</legalStyles.SectionHeader>
+					<legalStyles.Paragraph $noPadding={false}>
+						You understand that by using the Services you consent and agree to
+						the collection and use of certain information about you and your use
+						of the Services in accordance with our Privacy Policy, available
+						https://thought.ly/privacy, which is incorporated by reference into
+						and forms a part of these Terms. If you object to your information
+						being used in this way, please do not use the Services
+					</legalStyles.Paragraph>
 					<legalStyles.Paragraph $noPadding>
-						The Services may contain (or you may be sent via the Site) links to
-						other websites ("Third-Party Websites") as well as articles,
-						photographs, text, graphics, pictures, designs, music, sound, video,
-						information, applications, software, and other content or items
-						belonging to or originating from third parties ("Third-Party
-						Content"). Such Third-Party Websites and Third-Party Content are not
-						investigated, monitored, or checked for accuracy, appropriateness,
-						or completeness by us, and we are not responsible for any
-						Third-Party Websites accessed through the Services or any
-						Third-Party Content posted on, available through, or installed from
-						the Services, including the content, accuracy, offensiveness,
-						opinions, reliability, privacy practices, or other policies of or
-						contained in the Third-Party Websites or the Third-Party Content.
-						Inclusion of, linking to, or permitting the use or installation of
-						any Third-Party Websites or any Third-Party Content does not imply
-						approval or endorsement thereof by us. If you decide to leave the
-						Services and access the Third-Party Websites or to use or install
-						any Third-Party Content, you do so at your own risk, and you should
-						be aware these Legal Terms no longer govern. You should review the
-						applicable terms and policies, including privacy and data gathering
-						practices, of any website to which you navigate from the Services or
-						relating to any applications you use or install from the Services.
-						Any purchases you make through Third-Party Websites will be through
-						other websites and from other companies, and we take no
-						responsibility whatsoever in relation to such purchases which are
-						exclusively between you and the applicable third party. You agree
-						and acknowledge that we do not endorse the products or services
-						offered on Third-Party Websites and you shall hold us blameless from
-						any harm caused by your purchase of such products or services.
-						Additionally, you shall hold us blameless from any losses sustained
-						by you or harm caused to you relating to or resulting in any way
-						from any Third-Party Content or any contact with Third-Party
-						Websites.
+						Please be advised the Services are hosted in the United States. If
+						you access the Services from any other region of the world with laws
+						or other requirements governing personal data collection, use, or
+						disclosure that differ from applicable laws in the United States,
+						then through your continued use of the Services, you are
+						transferring your data to the United States, and you expressly
+						consent to have your data transferred to and processed in the United
+						States.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>
-						14. PRIVACY POLICY
+						14. EXCLUDED DATA
 					</legalStyles.SectionHeader>
 					<legalStyles.Paragraph $noPadding>
-						We care about data privacy and security. Please review our Privacy
-						Policy: https://thought.ly/privacy. By using the Services, you agree
-						to be bound by our Privacy Policy, which is incorporated into these
-						Legal Terms. Please be advised the Services are hosted in the United
-						States. If you access the Services from any other region of the
-						world with laws or other requirements governing personal data
-						collection, use, or disclosure that differ from applicable laws in
-						the United States, then through your continued use of the Services,
-						you are transferring your data to the United States, and you
-						expressly consent to have your data transferred to and processed in
-						the United States.
+						You will not provide us with any Customer Data that is subject to
+						heightened security requirements by law or regulation or contract
+						(examples include but are not limited to the Gramm–Leach–Bliley Act
+						(GLBA), Family Educational Rights and Privacy Act (FERPA), the
+						Child’s Online Privacy Protection Act (COPPA), the standards
+						promulgated by the PCI Security Standards Council (PCI-DSS), and
+						their international equivalents (collectively, “Excluded Data”)).
+						Thoughtly shall have no responsibility or liability for the Excluded
+						Data.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>
 						15. TERM AND TERMINATION
 					</legalStyles.SectionHeader>
+					<legalStyles.SectionSubheader>Term</legalStyles.SectionSubheader>
+					<legalStyles.Paragraph $noPadding={false}>
+						These Terms shall remain in full force and effect while you use the
+						Services.
+					</legalStyles.Paragraph>
+					<legalStyles.SectionSubheader>
+						Suspension or Termination by Thoughtly
+					</legalStyles.SectionSubheader>
+					<legalStyles.Paragraph $noPadding={false}>
+						We may suspend your access to the Services or terminate these Terms
+						and your access to the Services: (a) to the extent required by law,
+						(b) to prevent risk of harm to us, the Services, or our users, or
+						(c) for any violations of these Terms and our policies. If
+						practicable, we may, in our sole discretion, contact you and give
+						you the opportunity to resolve the issue prior to such suspension or
+						termination. If we terminate or suspend your account for any reason,
+						you are prohibited from registering and creating a new account under
+						your name, a fake or borrowed name, or the name of any third party,
+						even if you may be acting on behalf of the third party. In addition
+						to terminating or suspending your account, we reserve the right to
+						take appropriate legal action, including without limitation pursuing
+						civil, criminal, and injunctive redress.
+					</legalStyles.Paragraph>
+					<legalStyles.SectionSubheader>Survival</legalStyles.SectionSubheader>
 					<legalStyles.Paragraph $noPadding>
-						These Legal Terms shall remain in full force and effect while you
-						use the Services. WITHOUT LIMITING ANY OTHER PROVISION OF THESE
-						LEGAL TERMS, WE RESERVE THE RIGHT TO, IN OUR SOLE DISCRETION AND
-						WITHOUT NOTICE OR LIABILITY, DENY ACCESS TO AND USE OF THE SERVICES
-						(INCLUDING BLOCKING CERTAIN IP ADDRESSES), TO ANY PERSON FOR ANY
-						REASON OR FOR NO REASON, INCLUDING WITHOUT LIMITATION FOR BREACH OF
-						ANY REPRESENTATION, WARRANTY, OR COVENANT CONTAINED IN THESE LEGAL
-						TERMS OR OF ANY APPLICABLE LAW OR REGULATION. WE MAY TERMINATE YOUR
-						USE OR PARTICIPATION IN THE SERVICES OR DELETE YOUR ACCOUNT AND ANY
-						CONTENT OR INFORMATION THAT YOU POSTED AT ANY TIME, WITHOUT WARNING,
-						IN OUR SOLE DISCRETION.If we terminate or suspend your account for
-						any reason, you are prohibited from registering and creating a new
-						account under your name, a fake or borrowed name, or the name of any
-						third party, even if you may be acting on behalf of the third party.
-						In addition to terminating or suspending your account, we reserve
-						the right to take appropriate legal action, including without
-						limitation pursuing civil, criminal, and injunctive redress.
+						Terms that are intended by their nature to survive termination will
+						survive, including confidentiality obligations, limitations of
+						liability, and disclaimers.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>
-						16. MODIFICATIONS AND INTERRUPTIONS
+						16. NO GUARANTEE OF SERVICE
 					</legalStyles.SectionHeader>
 					<legalStyles.Paragraph $noPadding={false}>
-						We reserve the right to change, modify, or remove the contents of
-						the Services at any time or for any reason at our sole discretion
-						without notice. However, we have no obligation to update any
-						information on our Services. We will not be liable to you or any
-						third party for any modification, price change, suspension, or
-						discontinuance of the Services.
+						Although we hope to make the Services available at all times in the
+						future, there may be times when we need to disable the Services
+						either temporarily or permanently. We cannot guarantee the Services
+						will be available at all times. We may experience hardware,
+						software, or other problems or need to perform maintenance related
+						to the Services, resulting in interruptions, delays, or errors. We
+						reserve the right to change, modify, interrupt, suspend,
+						discontinue, or remove the contents of the Services at any time or
+						for any reason at our sole discretion without notice or liability.
+						However, we have no obligation to update any information on our
+						Services. We will not be liable to you or any third party at any
+						time for any period of time for any modification, price change,
+						suspension, or discontinuance of the Services.
 					</legalStyles.Paragraph>
 					<legalStyles.Paragraph $noPadding>
-						We cannot guarantee the Services will be available at all times. We
-						may experience hardware, software, or other problems or need to
-						perform maintenance related to the Services, resulting in
-						interruptions, delays, or errors. We reserve the right to change,
-						revise, update, suspend, discontinue, or otherwise modify the
-						Services at any time or for any reason without notice to you. You
-						agree that we have no liability whatsoever for any loss, damage, or
-						inconvenience caused by your inability to access or use the Services
-						during any downtime or discontinuance of the Services. Nothing in
-						these Legal Terms will be construed to obligate us to maintain and
-						support the Services or to supply any corrections, updates, or
+						You agree that we have no liability whatsoever for any loss, damage,
+						or inconvenience caused by your inability to access or use the
+						Services during any downtime or discontinuance of the Services.
+						Nothing in these Terms will be construed to obligate us to maintain
+						and support the Services or to supply any corrections, updates, or
 						releases in connection therewith.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>
 						17. GOVERNING LAW
 					</legalStyles.SectionHeader>
 					<legalStyles.Paragraph $noPadding>
-						These Legal Terms and your use of the Services are governed by and
-						construed in accordance with the laws of the State of Delaware
-						applicable to agreements made and to be entirely performed within
-						the State of Delaware, without regard to its conflict of law
-						principles.
+						These Terms shall be governed by the laws of the State of New York,
+						without respect to its conflict of laws principles. You agree to
+						submit to the personal jurisdiction in the federal courts of the
+						United States or the courts of the State of New York, in each case
+						located in the city of New York.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>
 						18. DISPUTE RESOLUTION
 					</legalStyles.SectionHeader>
-					<legalStyles.SectionSubheader>
-						Binding Arbitration
-					</legalStyles.SectionSubheader>
 					<legalStyles.Paragraph $noPadding={false}>
-						If the Parties are unable to resolve a Dispute through informal
-						negotiations, the Dispute (except those Disputes expressly excluded
-						below) will be finally and exclusively resolved by binding
-						arbitration. YOU UNDERSTAND THAT WITHOUT THIS PROVISION, YOU WOULD
-						HAVE THE RIGHT TO SUE IN COURT AND HAVE A JURY TRIAL. The
-						arbitration shall be commenced and conducted under the Commercial
-						Arbitration Rules of the American Arbitration Association ("AAA")
-						and, where appropriate, the AAA’s Supplementary Procedures for
-						Consumer Related Disputes ("AAA Consumer Rules"), both of which are
-						available at the American Arbitration Association (AAA) website.
-						Your arbitration fees and your share of arbitrator compensation
-						shall be governed by the AAA Consumer Rules and, where appropriate,
-						limited by the AAA Consumer Rules. The arbitration may be conducted
-						in person, through the submission of documents, by phone, or online.
-						The arbitrator will make a decision in writing, but need not provide
-						a statement of reasons unless requested by either Party. The
-						arbitrator must follow applicable law, and any award may be
-						challenged if the arbitrator fails to do so. Except where otherwise
-						required by the applicable AAA rules or applicable law, the
-						arbitration will take place in Kent County, Delaware. Except as
-						otherwise provided herein, the Parties may litigate in court to
-						compel arbitration, stay proceedings pending arbitration, or to
-						confirm, modify, vacate, or enter judgment on the award entered by
-						the arbitrator.
-					</legalStyles.Paragraph>
-					<legalStyles.Paragraph $noPadding={false}>
-						If for any reason, a Dispute proceeds in court rather than
-						arbitration, the Dispute shall be commenced or prosecuted in the
-						state and federal courts located in Kent County, Delaware, and the
-						Parties hereby consent to, and waive all defenses of lack of
-						personal jurisdiction, and forum non conveniens with respect to
-						venue and jurisdiction in such state and federal courts. Application
-						of the United Nations Convention on Contracts for the International
-						Sale of Goods and the Uniform Computer Information Transaction Act
-						(UCITA) are excluded from these Legal Terms.
-					</legalStyles.Paragraph>
-					<legalStyles.Paragraph $noPadding>
-						In no event shall any Dispute brought by either Party related in any
-						way to the Services be commenced more than one (1) years after the
-						cause of action arose. If this provision is found to be illegal or
-						unenforceable, then neither Party will elect to arbitrate any
-						Dispute falling within that portion of this provision found to be
-						illegal or unenforceable and such Dispute shall be decided by a
-						court of competent jurisdiction within the courts listed for
-						jurisdiction above, and the Parties agree to submit to the personal
-						jurisdiction of that court.
+						Please read the following arbitration agreement in this Section
+						("Arbitration Agreement") carefully. It requires you to arbitrate
+						disputes with us and limits the manner in which you can seek relief
+						from us.
 					</legalStyles.Paragraph>
 					<legalStyles.SectionSubheader>
-						Restrictions
+						Agreement to Arbitrate
 					</legalStyles.SectionSubheader>
 					<legalStyles.Paragraph $noPadding={false}>
-						Binding ArbitrationIf the Parties are unable to resolve a Dispute
-						through informal negotiations, the Dispute (except those Disputes
-						expressly excluded below) will be finally and exclusively resolved
-						by binding arbitration. YOU UNDERSTAND THAT WITHOUT THIS PROVISION,
-						YOU WOULD HAVE THE RIGHT TO SUE IN COURT AND HAVE A JURY TRIAL. The
-						arbitration shall be commenced and conducted under the Commercial
-						Arbitration Rules of the American Arbitration Association ("AAA")
-						and, where appropriate, the AAA’s Supplementary Procedures for
-						Consumer Related Disputes ("AAA Consumer Rules"), both of which are
-						available at the American Arbitration Association (AAA) website.
-						Your arbitration fees and your share of arbitrator compensation
-						shall be governed by the AAA Consumer Rules and, where appropriate,
-						limited by the AAA Consumer Rules. The arbitration may be conducted
-						in person, through the submission of documents, by phone, or online.
-						The arbitrator will make a decision in writing, but need not provide
-						a statement of reasons unless requested by either Party. The
-						arbitrator must follow applicable law, and any award may be
-						challenged if the arbitrator fails to do so. Except where otherwise
-						required by the applicable AAA rules or applicable law, the
-						arbitration will take place in Kent County, Delaware. Except as
-						otherwise provided herein, the Parties may litigate in court to
-						compel arbitration, stay proceedings pending arbitration, or to
-						confirm, modify, vacate, or enter judgment on the award entered by
-						the arbitrator.
-					</legalStyles.Paragraph>
-					<legalStyles.Paragraph $noPadding={false}>
-						If for any reason, a Dispute proceeds in court rather than
-						arbitration, the Dispute shall be commenced or prosecuted in the
-						state and federal courts located in Kent County, Delaware, and the
-						Parties hereby consent to, and waive all defenses of lack of
-						personal jurisdiction, and forum non conveniens with respect to
-						venue and jurisdiction in such state and federal courts. Application
-						of the United Nations Convention on Contracts for the International
-						Sale of Goods and the Uniform Computer Information Transaction Act
-						(UCITA) are excluded from these Legal Terms.
-					</legalStyles.Paragraph>
-					<legalStyles.Paragraph $noPadding>
-						In no event shall any Dispute brought by either Party related in any
-						way to the Services be commenced more than one (1) years after the
-						cause of action arose. If this provision is found to be illegal or
-						unenforceable, then neither Party will elect to arbitrate any
-						Dispute falling within that portion of this provision found to be
-						illegal or unenforceable and such Dispute shall be decided by a
-						court of competent jurisdiction within the courts listed for
-						jurisdiction above, and the Parties agree to submit to the personal
-						jurisdiction of that court.
+						This Section 19 is referred to in these Terms as the "Arbitration
+						Agreement." You agree that any and all disputes or claims that have
+						arisen or may arise between you and Thoughtly, whether arising out
+						of or relating to these Terms (including any alleged breach
+						thereof), the Services, any advertising, any aspect of the
+						relationship or transactions between us, shall be resolved
+						exclusively through final and binding arbitration, rather than a
+						court, in accordance with the terms of this Arbitration Agreement,
+						except that you may assert individual claims in small claims court,
+						if your claims qualify. Further, this Arbitration Agreement does not
+						preclude you from bringing issues to the attention of federal,
+						state, or local agencies, and such agencies can, if the law allows,
+						seek relief against us on your behalf. You agree that, by entering
+						into these Terms, you and Thoughtly are each waiving the right to a
+						trial by jury or to participate in a class action. Your rights will
+						be determined by a neutral arbitrator, not a judge or jury. The
+						Federal Arbitration Act governs the interpretation and enforcement
+						of this Arbitration Agreement.
 					</legalStyles.Paragraph>
 					<legalStyles.SectionSubheader>
-						Exceptions to Arbitration
+						Pre-Arbitration Dispute Resolution
+					</legalStyles.SectionSubheader>
+					<legalStyles.Paragraph $noPadding={false}>
+						We always interested in resolving disputes amicably and efficiently,
+						and most of your concerns can be resolved quickly and to your
+						satisfaction by emailing customer support at support@thought.ly. If
+						such efforts prove unsuccessful, a party who intends to seek
+						arbitration must first send to the other, by certified mail, a
+						written notice of dispute ("Notice"). The Notice to Thoughtly should
+						be sent to the address: 041 E 11th St, New York, NY 10003, with copy
+						to support@thought.ly ("Notice Address"). The Notice must (i)
+						describe the nature and basis of the claim or dispute and (ii) set
+						forth the specific relief sought. If you and Thoughtly do not
+						resolve the claim within sixty (60) calendar days after the Notice
+						is received, you or Thoughtly may commence an arbitration
+						proceeding. During the arbitration, the amount of any settlement
+						offer made by Thoughtly or you shall not be disclosed to the
+						arbitrator until after the arbitrator determines the amount, if any,
+						to which you or Thoughtly is entitled.
+					</legalStyles.Paragraph>
+					<legalStyles.SectionSubheader>
+						Prohibition of Class and Representative Actions and
+						Non-Individualized Relief
+					</legalStyles.SectionSubheader>
+					<legalStyles.Paragraph $noPadding={false}>
+						YOU AND THOUGHTLY AGREE THAT EACH OF US MAY BRING CLAIMS AGAINST THE
+						OTHER ONLY ON AN INDIVIDUAL BASIS AND NOT AS A PLAINTIFF OR CLASS
+						MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE ACTION OR
+						PROCEEDING. UNLESS BOTH YOU AND THOUGHTLY AGREE OTHERWISE, THE
+						ARBITRATOR MAY NOT CONSOLIDATE OR JOIN MORE THAN ONE PERSON'S OR
+						PARTY'S CLAIMS AND MAY NOT OTHERWISE PRESIDE OVER ANY FORM OF A
+						CONSOLIDATED, REPRESENTATIVE, OR CLASS PROCEEDING. ALSO, THE
+						ARBITRATOR MAY AWARD RELIEF (INCLUDING MONETARY, INJUNCTIVE, AND
+						DECLARATORY RELIEF) ONLY IN FAVOR OF THE INDIVIDUAL PARTY SEEKING
+						RELIEF AND ONLY TO THE EXTENT NECESSARY TO PROVIDE RELIEF
+						NECESSITATED BY THAT PARTY'S INDIVIDUAL CLAIM(S), EXCEPT THAT YOU
+						MAY PURSUE A CLAIM FOR AND THE ARBITRATOR MAY AWARD PUBLIC
+						INJUNCTIVE RELIEF UNDER APPLICABLE LAW TO THE EXTENT REQUIRED FOR
+						THE ENFORCEABILITY OF THIS PROVISION.
+					</legalStyles.Paragraph>
+					<legalStyles.SectionSubheader>
+						Waiver of Jury Trial
+					</legalStyles.SectionSubheader>
+					<legalStyles.Paragraph $noPadding={false}>
+						YOU AND THOUGHTLY HEREBY WAIVE ANY CONSTITUTIONAL AND STATUTORY
+						RIGHTS TO SUE IN COURT AND HAVE A TRIAL IN FRONT OF A JUDGE OR A
+						JURY. You and Thoughtly are instead electing that all claims and
+						disputes shall be resolved by arbitration under this Arbitration
+						Agreement, except as specified in this Section above. An arbitrator
+						can award on an individual basis the same damages and relief as a
+						court and must follow this Arbitration Agreement as a court would.
+						However, there is no judge or jury in arbitration, and court review
+						of an arbitration award is subject to very limited review.
+					</legalStyles.Paragraph>
+					<legalStyles.SectionSubheader>
+						Arbitration Procedures
+					</legalStyles.SectionSubheader>
+					<legalStyles.Paragraph $noPadding={false}>
+						Arbitration will be conducted by a neutral arbitrator in accordance
+						with the American Arbitration Association's ("AAA") rules and
+						procedures, including the AAA's Consumer Arbitration Rules
+						(collectively, the "AAA Rules"), as modified by this Arbitration
+						Agreement. For information on the AAA, please visit its website,
+						https://www.adr.org. Information about the AAA Rules and fees for
+						consumer disputes can be found at the AAA's consumer arbitration
+						page, https://www.adr.org/consumer_arbitration . If there is any
+						inconsistency between any term of the AAA Rules and any term of this
+						Arbitration Agreement, the applicable terms of this Arbitration
+						Agreement will control unless the arbitrator determines that the
+						application of the inconsistent Arbitration Agreement terms would
+						not result in a fundamentally fair arbitration. The arbitrator must
+						also follow the provisions of these Terms as a court would. All
+						issues are for the arbitrator to decide, including, but not limited
+						to, issues relating to the scope, enforceability, and arbitrability
+						of this Arbitration Agreement. Although arbitration proceedings are
+						usually simpler and more streamlined than trials and other judicial
+						proceedings, the arbitrator can award the same damages and relief on
+						an individual basis that a court can award to an individual under
+						the Terms and applicable law. Decisions by the arbitrator are
+						enforceable in court and may be overturned by a court only for very
+						limited reasons. Unless Thoughtly and you agree otherwise, any
+						arbitration hearings will take place in a reasonably convenient
+						location for both parties with due consideration of their ability to
+						travel and other pertinent circumstances. If the parties are unable
+						to agree on a location, the determination shall be made by AAA. If
+						your claim is for $10,000 or less, Thoughtly agrees that you may
+						choose whether the arbitration will be conducted solely on the basis
+						of documents submitted to the arbitrator, through a telephonic
+						hearing, or by an in-person hearing as established by the AAA Rules.
+						If your claim exceeds $10,000, the right to a hearing will be
+						determined by the AAA Rules. Regardless of the manner in which the
+						arbitration is conducted, the arbitrator shall issue a reasoned
+						written decision sufficient to explain the essential findings and
+						conclusions on which the award is based.
+					</legalStyles.Paragraph>
+					<legalStyles.SectionSubheader>
+						Costs of Arbitration
+					</legalStyles.SectionSubheader>
+					<legalStyles.Paragraph $noPadding={false}>
+						Payment of all filing, administration, and arbitrator fees
+						(collectively, the "Arbitration Fees") will be governed by the AAA
+						Rules, unless otherwise provided in this Arbitration Agreement. If
+						the value of the relief sought is $75,000 or less, at your request,
+						Thoughtly may elect to pay all Arbitration Fees. If the value of
+						relief sought is more than $75,000 and you are able to demonstrate
+						to the arbitrator that you are economically unable to pay your
+						portion of the Arbitration Fees or if the arbitrator otherwise
+						determines for any reason that you should not be required to pay
+						your portion of the Arbitration Fees, Thoughtly may elect to pay
+						your portion of such fees. In addition, if you demonstrate to the
+						arbitrator that the costs of arbitration will be prohibitive as
+						compared to the costs of litigation, Thoughtly may elect to pay as
+						much of the Arbitration Fees as the arbitrator deems necessary to
+						prevent the arbitration from being cost-prohibitive. Any payment of
+						attorneys' fees will be governed by the AAA Rules.
+					</legalStyles.Paragraph>
+					<legalStyles.SectionSubheader>
+						Confidentiality
+					</legalStyles.SectionSubheader>
+					<legalStyles.Paragraph $noPadding={false}>
+						All aspects of the arbitration proceeding, and any ruling, decision,
+						or award by the arbitrator, will be strictly confidential for the
+						benefit of all parties.
+					</legalStyles.Paragraph>
+					<legalStyles.SectionSubheader>
+						Severability
+					</legalStyles.SectionSubheader>
+					<legalStyles.Paragraph $noPadding={false}>
+						If a court or the arbitrator decides that any term or provision of
+						this Arbitration Agreement (other than the subsection titled
+						"Prohibition of Class and Representative Actions and
+						Non-Individualized Relief" above) is invalid or unenforceable, the
+						parties agree to replace such term or provision with a term or
+						provision that is valid and enforceable and that comes closest to
+						expressing the intention of the invalid or unenforceable term or
+						provision, and this Arbitration Agreement shall be enforceable as so
+						modified. If a court or the arbitrator decides that any of the
+						provisions of subsection above titled "Prohibition of Class and
+						Representative Actions and Non-Individualized Relief" are invalid or
+						unenforceable, then the entirety of this Arbitration Agreement shall
+						be null and void, unless such provisions are deemed to be invalid or
+						unenforceable solely with respect to claims for public injunctive
+						relief. The remainder of the Terms will continue to apply.
+					</legalStyles.Paragraph>
+					<legalStyles.SectionSubheader>
+						Future Changes to Arbitration Agreement
 					</legalStyles.SectionSubheader>
 					<legalStyles.Paragraph $noPadding>
-						The Parties agree that the following Disputes are not subject to the
-						above provisions concerning binding arbitration: (a) any Disputes
-						seeking to enforce or protect, or concerning the validity of, any of
-						the intellectual property rights of a Party; (b) any Dispute related
-						to, or arising from, allegations of theft, piracy, invasion of
-						privacy, or unauthorized use; and (c) any claim for injunctive
-						relief. If this provision is found to be illegal or unenforceable,
-						then neither Party will elect to arbitrate any Dispute falling
-						within that portion of this provision found to be illegal or
-						unenforceable and such Dispute shall be decided by a court of
-						competent jurisdiction within the courts listed for jurisdiction
-						above, and the Parties agree to submit to the personal jurisdiction
-						of that court.
+						Notwithstanding any provision in these Terms to the contrary,
+						Thoughtly agrees that if it makes any future change to this
+						Arbitration Agreement (other than a change to the Notice Address)
+						while you are a user of the Services, you may reject any such change
+						by sending us written notice within thirty (30) calendar days of the
+						change to the Notice Address provided above. By rejecting any future
+						change, you are agreeing that you will arbitrate any dispute between
+						us in accordance with the language of this Arbitration Agreement as
+						of the date you first accepted these Terms (or accepted any
+						subsequent changes to these Terms).
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
-					<legalStyles.SectionHeader>19. CORRECTIONS</legalStyles.SectionHeader>
-					<legalStyles.Paragraph $noPadding>
-						There may be information on the Services that contains typographical
-						errors, inaccuracies, or omissions, including descriptions, pricing,
-						availability, and various other information. We reserve the right to
-						correct any errors, inaccuracies, or omissions and to change or
-						update the information on the Services at any time, without prior
-						notice.
-					</legalStyles.Paragraph>
-				</legalStyles.Section>
-				<legalStyles.Section>
-					<legalStyles.SectionHeader>20. DISCLAIMER</legalStyles.SectionHeader>
+					<legalStyles.SectionHeader>19. DISCLAIMER</legalStyles.SectionHeader>
 					<legalStyles.Paragraph $noPadding>
 						THE SERVICES ARE PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU
 						AGREE THAT YOUR USE OF THE SERVICES WILL BE AT YOUR SOLE RISK. TO
@@ -1050,37 +1370,37 @@ export default function Terms() {
 						THEREOF, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
 						MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
 						NON-INFRINGEMENT. WE MAKE NO WARRANTIES OR REPRESENTATIONS ABOUT THE
-						ACCURACY OR COMPLETENESS OF THE SERVICES' CONTENT OR THE CONTENT OF
-						ANY WEBSITES OR MOBILE APPLICATIONS LINKED TO THE SERVICES AND WE
-						WILL ASSUME NO LIABILITY OR RESPONSIBILITY FOR ANY (1) ERRORS,
-						MISTAKES, OR INACCURACIES OF CONTENT AND MATERIALS, (2) PERSONAL
-						INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM
-						YOUR ACCESS TO AND USE OF THE SERVICES, (3) ANY UNAUTHORIZED ACCESS
-						TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL
-						INFORMATION AND/OR FINANCIAL INFORMATION STORED THEREIN, (4) ANY
-						INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE SERVICES,
-						(5) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE WHICH MAY BE
-						TRANSMITTED TO OR THROUGH THE SERVICES BY ANY THIRD PARTY, AND/OR
-						(6) ANY ERRORS OR OMISSIONS IN ANY CONTENT AND MATERIALS OR FOR ANY
-						LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF ANY
-						CONTENT POSTED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE
-						SERVICES. WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME
-						RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A
-						THIRD PARTY THROUGH THE SERVICES, ANY HYPERLINKED WEBSITE, OR ANY
-						WEBSITE OR MOBILE APPLICATION FEATURED IN ANY BANNER OR OTHER
-						ADVERTISING, AND WE WILL NOT BE A PARTY TO OR IN ANY WAY BE
-						RESPONSIBLE FOR MONITORING ANY TRANSACTION BETWEEN YOU AND ANY
-						THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES. AS WITH THE PURCHASE
-						OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT,
-						YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE CAUTION WHERE
-						APPROPRIATE.
+						ACCURACY OR COMPLETENESS OF THE SERVICES, OUTPUT OR THE SERVICES
+						CONTENT OR CONTENT OF ANY WEBSITES OR MOBILE APPLICATIONS LINKED TO
+						THE SERVICES AND WE WILL ASSUME NO LIABILITY OR RESPONSIBILITY FOR
+						ANY (1) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT AND MATERIALS,
+						(2) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER,
+						RESULTING FROM YOUR ACCESS TO AND USE OF THE SERVICES, (3) ANY
+						UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND
+						ALL INFORMATION STORED THEREIN, (4) ANY INTERRUPTION OR CESSATION OF
+						TRANSMISSION TO OR FROM THE SERVICES, (5) ANY BUGS, VIRUSES, TROJAN
+						HORSES, OR THE LIKE WHICH MAY BE TRANSMITTED TO OR THROUGH THE
+						SERVICES BY ANY THIRD PARTY, AND/OR (6) ANY ERRORS OR OMISSIONS IN
+						ANY CONTENT AND MATERIALS OR FOR ANY LOSS OR DAMAGE OF ANY KIND
+						INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, TRANSMITTED,
+						OR OTHERWISE MADE AVAILABLE VIA THE SERVICES. WE DO NOT WARRANT,
+						ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR
+						SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE SERVICES,
+						ANY HYPERLINKED WEBSITE, OR ANY WEBSITE OR MOBILE APPLICATION
+						FEATURED IN ANY BANNER OR OTHER ADVERTISING, AND WE WILL NOT BE A
+						PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION
+						BETWEEN YOU AND ANY THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES.
+						AS WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR
+						IN ANY ENVIRONMENT, YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE
+						CAUTION WHERE APPROPRIATE.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>
-						21. LIMITATIONS OF LIABILITY
+						20. LIMITATIONS OF LIABILITY
 					</legalStyles.SectionHeader>
-					<legalStyles.Paragraph $noPadding>
+					<legalStyles.Paragraph $noPadding={false}>
 						IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE
 						TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL,
 						EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST
@@ -1097,79 +1417,155 @@ export default function Terms() {
 						DISCLAIMERS OR LIMITATIONS MAY NOT APPLY TO YOU, AND YOU MAY HAVE
 						ADDITIONAL RIGHTS.
 					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding>
+						IF YOU ARE A RESIDENT OF A JURISDICTION THAT REQUIRES A SPECIFIC
+						STATEMENT REGARDING RELEASE, THEN THE FOLLOWING APPLIES. FOR
+						EXAMPLE, (1) CALIFORNIA RESIDENTS MUST, AS A CONDITION OF THIS
+						AGREEMENT, WAIVE THE APPLICABILITY OF CALIFORNIA CIVIL CODE SECTION
+						1542, WHICH STATES, "A GENERAL RELEASE DOES NOT EXTEND TO CLAIMS
+						THAT THE CREDITOR OR RELEASING PARTY DOES NOT KNOW OR SUSPECT TO
+						EXIST IN HIS OR HER FAVOR AT THE TIME OF EXECUTING THE RELEASE AND
+						THAT, IF KNOWN BY HIM OR HER, WOULD HAVE MATERIALLY AFFECTED HIS OR
+						HER SETTLEMENT WITH THE DEBTOR OR RELEASED PARTY" AND (2) NEW JERSEY
+						RESIDENTS MUST, AS A CONDITION OF THIS AGREEMENT, WAIVE THE
+						APPLICABILITY OF THE TRUTH IN CONSUMER CONTRACT, WARRANTY, AND
+						NOTICE ACT (X) SECTION 15, WHICH STATES, AMONG OTHER THINGS, THAT
+						“NO SELLERS…SHALL IN THE COURSE OF HIS BUSINESS OFFER TO ANY
+						CONSUMER OR PROSPECTIVE CONSUMER OR ENTER INTO ANY WRITTEN CONSUMER
+						CONTRACT OR GIVE OR DISPLAY ANY WRITTEN CONSUMER WARRANTY, NOTICE OR
+						SIGN…WHICH INCLUDES ANY PROVISION THAT VIOLATES ANY CLEARLY
+						ESTABLISHED LEGAL RIGHT OF A CONSUMER OR RESPONSIBILITY OF A
+						SELLER…” AND (Y) SECTION 16, WHICH STATES, AMONG OTHER THINGS, THAT
+						“…NO CONSUMER CONTRACT, NOTICE OR SIGN SHALL STATE THAT ANY OF ITS
+						PROVISIONS IS OR MAY BE VOID, UNENFORCEABLE OR INAPPLICABLE IN SOME
+						JURISDICTIONS WITHOUT SPECIFYING WHICH PROVISIONS ARE OR ARE NOT
+						VOID, UNENFORCEABLE OR INAPPLICABLE WITHIN THE STATE OF NEW
+						JERSEY…”. YOU HEREBY WAIVE, AS APPLICABLE, THESE SECTIONS OF THE
+						CALIFORNIA CIVIL CODE AND NEW JERSEY TRUTH IN CONSUMER CONTRACT,
+						WARRANTY, AND NOTICE ACT. YOU HEREBY WAIVE ANY SIMILAR PROVISION IN
+						LAW, REGULATION, OR CODE THAT HAS THE SAME INTENT OR EFFECT AS THE
+						AFOREMENTIONED PROVISIONS.
+					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>
-						22. TCPA Compliance and Acknowledgment
+						21. BETA SERVICES
+					</legalStyles.SectionHeader>
+					<legalStyles.Paragraph $noPadding>
+						You may choose to use services or features identified as “alpha,”
+						“beta,” “preview,” “early access,” or “evaluation,” or words or
+						phrases with similar meanings (“Beta Services”) in your sole
+						discretion. Notwithstanding anything to the contrary in these Terms
+						or otherwise: (a) Beta Services may not be supported and may be
+						changed or terminated at any time without notice; (b) Beta Services
+						may not be as reliable or available as the Services; (c) Beta
+						Services have not been subjected to the same security requirements,
+						measures, and auditing as the Services; (d) Beta Services constitute
+						Thoughtly’s Confidential Information; and (e) BETA SERVICES ARE
+						PROVIDED “AS IS” WITHOUT ANY WARRANTY, INDEMNITY OR SUPPORT AND
+						THOUGHTLY’S LIABILITY FOR BETA SERVICES WILL NOT EXCEED FIFTY
+						DOLLARS (US $50).
+					</legalStyles.Paragraph>
+				</legalStyles.Section>
+
+				<legalStyles.Section>
+					<legalStyles.SectionHeader>
+						22. Compliance and Acknowledgment of Applicable Telemarketing,
+						Dialing and Recording Laws
 					</legalStyles.SectionHeader>
 					<legalStyles.Paragraph $noPadding={false}>
-						By signing up for and utilizing AI-generated text-to-speech
-						technology for phone calls provided by Thoughtly, you acknowledge
-						having read and understood this TCPA Compliance Disclaimer. You
-						agree to abide by all the conditions set forth herein to ensure full
-						compliance with the Telephone Consumer Protection Act (TCPA),
-						codified at 47 U.S.C. § 227, and any other relevant laws.
+						We may monitor, but are not obligated to and bear no responsibility
+						for, uploading of information, databases or audio messages. You
+						agree that you shall comply with and abide by all applicable federal
+						and state laws, rules and regulations governing the use of automated
+						or prerecorded/artificial calls or texts including but not limited
+						to the Telephone Consumer Protection Act (“TCPA”), the Telemarketing
+						Sales Rule and accompanying Do-Not-Call regulations, wiretap and
+						recording laws, and, without limitation, any and all current or
+						future equivalent state telemarketing laws regulating the use of
+						prerecorded or automated calls/texts, state do-not-call regulations,
+						and state telemarketer registration requirements, state wiretap and
+						recording laws, and any other relevant laws.
 					</legalStyles.Paragraph>
-					<legalStyles.Paragraph $noPadding={false}>
-						In utilizing AI-generated text-to-speech technology for phone calls,
-						it is critical to ensure full compliance with the Telephone Consumer
-						Protection Act (TCPA). The TCPA imposes stringent regulations on the
-						use of telephone equipment, including but not limited to artificial
-						or prerecorded voice messages and automatic telephone dialing
-						systems. To align with these regulations:
-					</legalStyles.Paragraph>
+					<legalStyles.UList $noPadding={false}>
+						<legalStyles.ListItem>
+							You will provide accurate, correct, and truthful Caller ID
+							information.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							You will provide all disclosures required by law.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							You agree and acknowledge that compliance with such laws is your
+							sole responsibility.
+						</legalStyles.ListItem>
+					</legalStyles.UList>
 					<legalStyles.SectionSubheader>
-						Prior Express Consent
+						TCPA Disclaimer
 					</legalStyles.SectionSubheader>
 					<legalStyles.Paragraph $noPadding={false}>
-						Ensure that you have obtained prior express consent from all
-						recipients before making calls using AI-generated text-to-speech
-						technology, especially when contacting mobile phones or delivering
-						prerecorded messages. Consent must be clear and unambiguous,
-						indicating the recipient agrees to receive such calls from your
-						organization.
+						The TCPA imposes stringent regulations on the use of telephone
+						equipment, including but not limited to artificial or prerecorded
+						voice messages and automatic telephone dialing systems. To align
+						with these regulations:
 					</legalStyles.Paragraph>
-					<legalStyles.SectionSubheader>
-						Residential and Special Service Numbers
-					</legalStyles.SectionSubheader>
+					<legalStyles.BoldText>Prior Express Consent</legalStyles.BoldText>
 					<legalStyles.Paragraph $noPadding={false}>
-						Exercise caution when making AI-generated calls to residential lines
-						or numbers assigned to emergency services, healthcare facilities,
-						elderly homes, and services where the recipient incurs charges for
-						the call. Such calls require prior express consent, with limited
-						exceptions.
+						You acknowledge and understand that recipient consent is required
+						for certain types of communications. Ensure that you have obtained
+						prior express consent from all recipients before making calls using
+						AI-generated text-to-speech technology, especially when contacting
+						mobile phones or delivering prerecorded messages. Consent must be
+						clear and unambiguous, indicating the recipient agrees to receive
+						such calls from your organization. You understand that there may be
+						different “levels” of consent for different communications.
 					</legalStyles.Paragraph>
-					<legalStyles.SectionSubheader>
+					<legalStyles.BoldText>
 						Established Business Relationship (EBR)
-					</legalStyles.SectionSubheader>
+					</legalStyles.BoldText>
 					<legalStyles.Paragraph $noPadding={false}>
 						While calls to individuals with whom you have an established
 						business relationship may be exempt from certain restrictions, it is
 						essential to verify that such exemptions apply under the current
 						regulations and to respect any revocation of consent.
 					</legalStyles.Paragraph>
-					<legalStyles.SectionSubheader>
+					<legalStyles.Paragraph $noPadding={false}>
+						Without limiting the foregoing, if you do not have either consent or
+						a business relationship with a recipient as required by applicable
+						law or legally valid exemption from, or legally valid exception to,
+						such laws, Subscriber shall not make that communication.
+					</legalStyles.Paragraph>
+					<legalStyles.BoldText>
+						Residential and Special Service Numbers
+					</legalStyles.BoldText>
+					<legalStyles.Paragraph $noPadding={false}>
+						You will exercise caution when making AI-generated calls to
+						residential lines or numbers assigned to emergency services,
+						healthcare facilities, elderly homes, and services where the
+						recipient incurs charges for the call. Such calls require prior
+						express consent, with limited exceptions.
+					</legalStyles.Paragraph>
+					<legalStyles.BoldText>
 						Identification and Contact Information
-					</legalStyles.SectionSubheader>
+					</legalStyles.BoldText>
 					<legalStyles.Paragraph $noPadding={false}>
-						Calls must include a clear and concise identification of the
-						business, individual, or entity initiating the call at the outset of
-						the message, along with contact information, allowing recipients to
-						inquire or opt-out.
+						You will ensure that any calls include a clear and concise
+						identification of the business, individual, or entity initiating the
+						call at the outset of the message, along with contact information,
+						allowing recipients to inquire or opt-out.
 					</legalStyles.Paragraph>
-					<legalStyles.SectionSubheader>
+					<legalStyles.BoldText>
 						National Do Not Call Registry Compliance
-					</legalStyles.SectionSubheader>
+					</legalStyles.BoldText>
 					<legalStyles.Paragraph $noPadding={false}>
-						Confirm that numbers dialed are not listed on the national Do Not
-						Call Registry, unless an exemption applies. Regularly check the
-						registry to update your contact lists accordingly.
+						You will confirm that numbers dialed are not listed on the national
+						Do Not Call Registry, unless an exemption applies. Regularly check
+						the registry to update your contact lists accordingly.
 					</legalStyles.Paragraph>
-					<legalStyles.SectionSubheader>
-						Limitation of Liability
-					</legalStyles.SectionSubheader>
-					<legalStyles.Paragraph $noPadding>
-						Thoughtly provides AI-generated text-to-speech technology as a tool
+					<legalStyles.BoldText>Limitation of Liability</legalStyles.BoldText>
+					<legalStyles.Paragraph $noPadding={false}>
+						Thoughtly utilizes AI-generated text-to-speech technology as a tool
 						for communication purposes. While we strive to ensure our services
 						are compliant with all applicable regulations, the responsibility
 						for adhering to the TCPA and any other relevant laws rests solely
@@ -1177,14 +1573,208 @@ export default function Terms() {
 						or regulations resulting from the use of our technology. Users must
 						ensure that their use of Thoughtly's services complies with all
 						legal requirements, including obtaining necessary consents and
-						adhering to all applicable communication laws. The liability for any
-						breaches of such laws falls on the individual or entity choosing to
-						initiate the calls.
+						adhering to all applicable laws. The liability for any breaches of
+						such laws falls on you as the individual or entity choosing to
+						initiate or record the calls.
+					</legalStyles.Paragraph>
+					<legalStyles.BoldText>Records</legalStyles.BoldText>
+					<legalStyles.Paragraph $noPadding>
+						You (i) have and maintain personally or via a third-party the
+						records to prove that you had the necessary consent, business
+						relationship or legally valid exemption from, or legally valid
+						exception to, such laws at the time of the call or other
+						communication and (ii) will provide certified copies of such records
+						to us promptly upon our request.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>
-						23. INDEMNIFICATION
+						23. COPYRIGHT INFRINGEMENT AND DIGITAL MILLENNIUM COPYRIGHT ACT
+					</legalStyles.SectionHeader>
+					<legalStyles.Paragraph $noPadding={false}>
+						We respect the intellectual property rights of others, and we ask
+						our users to do the same. In accordance with the Digital Millennium
+						Copyright Act (DMCA) and other applicable law, in appropriate
+						circumstances and in our sole discretion, we may terminate the
+						rights of any user to use the Services (or any part thereof) who
+						infringes the intellectual property rights of others. If you believe
+						that your work has been copied in a way that constitutes copyright
+						infringement, or if you are aware of someone so infringing on your
+						rights, please provide the following information to the “Copyright
+						Agent”:
+					</legalStyles.Paragraph>
+					<legalStyles.UList $noPadding>
+						<legalStyles.ListItem>
+							An electronic or physical signature of the person authorized to
+							act on behalf of the owner of the copyright interest.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							A description of the copyrighted work that you claim has been
+							infringed upon.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							A description of where the material that you claim is infringing
+							is located on the Services.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							Your address, telephone number, and email address.
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							A statement that you have a good faith belief that the disputed
+							use is not authorized by the copyright owner, its agent, and/or
+							the law.{" "}
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							A statement by you, made under penalty of perjury, that the above
+							information in your notice is accurate, and that you are the
+							copyright owner or authorized to act on the copyright owner’s
+							behalf.{" "}
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							All notices of copyright infringement claims should go to our
+							Copyright Agent at [copyright@Company.org]
+						</legalStyles.ListItem>
+					</legalStyles.UList>
+				</legalStyles.Section>
+
+				<legalStyles.Section>
+					<legalStyles.SectionHeader>
+						24. ARTIFICIAL INTELLIGENCE TOOLS
+					</legalStyles.SectionHeader>
+					<legalStyles.Paragraph $noPadding={false}>
+						The Services may leverage third party large language models and
+						artificial intelligence algorithms and platforms (“Third-Party
+						Models”) to generate suggested software code made through the
+						Services (collectively, the “Output”) in response to your prompts
+						(“Prompts”). We do not make any representations with respect to
+						Third-Party Models or any Output provided in connection therewith.
+						Such Third-Party Models are not under the control of Thoughtly and
+						do not form part of the Services or related services. We are not
+						responsible for any Third-Party Models or Output generated thereby
+						and you use such Third-Party Models and Output at your own risk.
+						Without limiting the foregoing, you acknowledge and agree to
+						OpenAI’s Terms of Use (currently accessible at
+						https://openai.com/policies/terms-of-use) and its Privacy Policy
+						(currently accessible at
+						https://openai.com/policies/privacy-policy), Google’s AI Studio
+						Terms (currently accessible at https://ai.google.dev/terms) and
+						Privacy Policy (currently accessible at
+						https://policies.google.com/privacy), and Meta AI Terms (currently
+						accessible at
+						https://www.facebook.com/policies/other-policies/ais-terms) and
+						Privacy Policy (currently accessible at
+						https://www.facebook.com/privacy/policy/) and hereby consent and
+						authorize us to share any your content with one or more Third-Party
+						Model providers to the extent required to complete your request.
+					</legalStyles.Paragraph>
+					<legalStyles.SectionSubheader>
+						Ownership of Output
+					</legalStyles.SectionSubheader>
+					<legalStyles.Paragraph $noPadding={false}>
+						As between Thoughtly and you, each of the Prompts and Output are
+						considered “Customer Data” for the purposes of these Terms. You are
+						the owner of Customer Data, and we hereby assign to you all right,
+						title and interest it may have, if any, in and to any Output. You
+						acknowledge and agree that such Prompts may be provided to
+						Third-Party Models in connection with your use of the Services under
+						the Terms, or policies governing the Third-Party Models.
+					</legalStyles.Paragraph>
+					<legalStyles.SectionSubheader>
+						Responsible Use of AI Output
+					</legalStyles.SectionSubheader>
+					<legalStyles.Paragraph $noPadding={false}>
+						You are responsible for reviewing any Output prior to its use and
+						exercising its own business and legal judgment as to its suitability
+						for use. You acknowledge and agree that, notwithstanding the
+						automated suggestions provided by the Services, you remain solely
+						responsible for the content, legality, accuracy, and completeness of
+						the Outputs, and any use thereof. You will evaluate the fitness of
+						any Output as appropriate for your specific use case.
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding>
+						THOUGHTLY MAKES NO WARRANTY OR GUARANTEE THAT THE OUTPUT WILL
+						PROVIDE ACCURATE, TAILORED OR INFORMATIVE RESULTS OR BE FIT FOR THE
+						PARTICULAR PURPOSE OR USE CASE. THOUGHTLY DOES NOT REPRESENT OR
+						WARRANT THAT THE PROMPTS OR OUTPUT ARE PROTECTABLE BY ANY
+						INTELLECTUAL PROPERTY RIGHTS, OR THAT THE OUTPUT DOES NOT
+						INCORPORATE, INFRINGE OR MISAPPROPRIATE THE INTELLECTUAL PROPERTY OR
+						PROPRIETARY RIGHTS OF ANY THIRD PARTY. YOU ACKNOWLEDGE THAT THE
+						SERVICES LEVERAGE THIRD-PARTY MODELS AND THAT THOUGHTLY IS NOT
+						LIABLE, AND YOU AGREE NOT TO SEEK TO HOLD THOUGHTLY LIABLE, FOR
+						THIRD-PARTY MODELS OR ANY OUTPUT THEREOF.
+					</legalStyles.Paragraph>
+				</legalStyles.Section>
+
+				<legalStyles.Section>
+					<legalStyles.SectionHeader>
+						25. DEVELOPER MATERIALS
+					</legalStyles.SectionHeader>
+					<legalStyles.Paragraph $noPadding={false}>
+						In connection with the Services, we may make available and you may
+						have access to (i) client software provided as part of the Services,
+						such as mobile or desktop applications or browser extensions
+						(“Software”), and (ii) application programming interfaces, tools,
+						libraries, scripts, sample source code and similar developer
+						materials made available by us specifically for use with the
+						Services (“Thoughtly Developer Materials”).
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding={false}>
+						For any Thoughtly Developer Materials that we make available to you,
+						we hereby grants you a non-exclusive, limited, revocable,
+						non-transferable, non-sublicensable right to access and use the
+						Software and Thoughtly Developer Materials, in the form made
+						available by or for us, solely to the extent necessary to use the
+						Services and for your internal business purposes and in accordance
+						with our relevant documentation for the Thoughtly Developer
+						Materials. To the extent a component of the Software contains any
+						open source software, the open source license for that software will
+						govern with respect to that component. You agree that you have
+						reviewed and accepted all applicable third party terms and you take
+						sole responsibility for determining, obtaining and complying with
+						all such third party terms. we will have no responsibility for and
+						makes no representations and warranties regarding any Third Party
+						Materials or your use of Third Party Materials, and any third party
+						terms or your compliance with such third party terms. The foregoing
+						rights are and remain subject to and conditioned on your compliance
+						with these Terms including all payment obligations. All Thoughtly
+						Developer Materials are confidential and proprietary to us. You may
+						not and are not authorized to distribute or disclose Thoughtly
+						Developer Materials to any third party or use them for any purpose
+						other than as expressly permitted by these Terms.{" "}
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding={false}>
+						Unless otherwise authorized by us in writing, if you develop any
+						applications, services or modules using all or any portion of the
+						Thoughtly Developer Materials (collectively, “Developed
+						Applications”), you may use your Developed Applications with
+						third-party software or hardware, but only if you remove from your
+						Developed Application all elements of the Thoughtly Developer
+						Materials (including any elements based on the Thoughtly Developer
+						Materials), and your Developed Application (a) does not disclose,
+						make available, incorporate or embody any part of the Thoughtly
+						Developer Materials and (b) do not incorporate or embody any part of
+						the Services or other Thoughtly intellectual property.{" "}
+					</legalStyles.Paragraph>
+					<legalStyles.Paragraph $noPadding>
+						For any Thoughtly Developer Materials that we make available to you,
+						Thoughtly hereby grants you a non-exclusive, limited, revocable,
+						non-transferable, non-sublicensable right to access and use the
+						Thoughtly Developer Materials, in the form made available by or for
+						Thoughtly, solely for your internal business purposes of enabling
+						your application to receive data from the Thoughtly API, and in
+						accordance with the relevant Documentation for the Thoughtly
+						Developer Materials. All Thoughtly Developer Materials are
+						confidential and proprietary to Thoughtly. You may not and are not
+						authorized to distribute or disclose Thoughtly Developer Materials
+						to any third party or use them for any purpose other than as
+						expressly permitted by these Terms.
+					</legalStyles.Paragraph>
+				</legalStyles.Section>
+
+				<legalStyles.Section>
+					<legalStyles.SectionHeader>
+						26. INDEMNIFICATION
 					</legalStyles.SectionHeader>
 					<legalStyles.Paragraph $noPadding>
 						You agree to defend, indemnify, and hold us harmless, including our
@@ -1192,37 +1782,49 @@ export default function Terms() {
 						agents, partners, and employees, from and against any loss, damage,
 						liability, claim, or demand, including reasonable attorneys’ fees
 						and expenses, made by any third party due to or arising out of: (1)
-						your Contributions; (2) use of the Services; (3) breach of these
-						Legal Terms; (4) any breach of your representations and warranties
-						set forth in these Legal Terms; (5) your violation of the rights of
-						a third party, including but not limited to intellectual property
-						rights; or (6) any overt harmful act toward any other user of the
-						Services with whom you connected via the Services. Notwithstanding
-						the foregoing, we reserve the right, at your expense, to assume the
-						exclusive defense and control of any matter for which you are
-						required to indemnify us, and you agree to cooperate, at your
-						expense, with our defense of such claims. We will use reasonable
-						efforts to notify you of any such claim, action, or proceeding which
-						is subject to this indemnification upon becoming aware of it.
+						your Customer Data; (2) use of the Services or Output that violates
+						these Terms or applicable laws, rules or regulations; (3) breach of
+						these Terms; (4) any breach of your representations and warranties
+						set forth in these Terms; (5) your violation of the rights of a
+						third party, including but not limited to intellectual property
+						rights; (6) any overt harmful act toward any other user of the
+						Services with whom you connected via the Services; or (7) the use or
+						display of any Customer Data. Notwithstanding the foregoing, we
+						reserve the right, at your expense, to assume the exclusive defense
+						and control of any matter for which you are required to indemnify
+						us, and you agree to cooperate, at your expense, with our defense of
+						such claims. We will use reasonable efforts to notify you of any
+						such claim, action, or proceeding which is subject to this
+						indemnification upon becoming aware of it.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
-				<legalStyles.Section>
-					<legalStyles.SectionHeader>24. USER DATA</legalStyles.SectionHeader>
-					<legalStyles.Paragraph $noPadding>
-						We will maintain certain data that you transmit to the Services for
-						the purpose of managing the performance of the Services, as well as
-						data relating to your use of the Services. Although we perform
-						regular routine backups of data, you are solely responsible for all
-						data that you transmit or that relates to any activity you have
-						undertaken using the Services. You agree that we shall have no
-						liability to you for any loss or corruption of any such data, and
-						you hereby waive any right of action against us arising from any
-						such loss or corruption of such data.
-					</legalStyles.Paragraph>
-				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>
-						25. ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES
+						27. CONFIDENTIALITY
+					</legalStyles.SectionHeader>
+					<legalStyles.Paragraph $noPadding>
+						We may disclose to you confidential information relating to our
+						business or current or future products and services (“Confidential
+						Information”). You may not disclose Confidential Information to any
+						third party, other than to your employees or contractors with a need
+						to know such information for you to fulfill your obligations under
+						this Agreement. You will not make use of any Confidential
+						Information other than in the performance of rights or obligations
+						under these Terms. You will use at least the same degree of care to
+						avoid disclosure of Confidential Information as you uses with
+						respect to your own confidential information. This Section shall not
+						limit any prior confidentiality agreement between the parties.
+						Confidential Information does not include information: (a) generally
+						available to or known to the public, (b) previously known to you,
+						(c) independently developed by you outside the scope of these Terms,
+						or (d) lawfully disclosed by a third party.
+					</legalStyles.Paragraph>
+				</legalStyles.Section>
+
+				<legalStyles.Section>
+					<legalStyles.SectionHeader>
+						28. ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES
 					</legalStyles.SectionHeader>
 					<legalStyles.Paragraph $noPadding>
 						Visiting the Services, sending us emails, and completing online
@@ -1241,35 +1843,66 @@ export default function Terms() {
 						of credits by any means other than electronic means.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
 					<legalStyles.SectionHeader>
-						26. MISCELLANEOUS
+						29. MISCELLANEOUS
 					</legalStyles.SectionHeader>
 					<legalStyles.Paragraph $noPadding>
-						These Legal Terms and any policies or operating rules posted by us
-						on the Services or in respect to the Services constitute the entire
-						agreement and understanding between you and us. Our failure to
-						exercise or enforce any right or provision of these Legal Terms
-						shall not operate as a waiver of such right or provision. These
-						Legal Terms operate to the fullest extent permissible by law. We may
-						assign any or all of our rights and obligations to others at any
-						time. We shall not be responsible or liable for any loss, damage,
-						delay, or failure to act caused by any cause beyond our reasonable
-						control. If any provision or part of a provision of these Legal
-						Terms is determined to be unlawful, void, or unenforceable, that
-						provision or part of the provision is deemed severable from these
-						Legal Terms and does not affect the validity and enforceability of
-						any remaining provisions. There is no joint venture, partnership,
-						employment or agency relationship created between you and us as a
-						result of these Legal Terms or use of the Services. You agree that
-						these Legal Terms will not be construed against us by virtue of
+						These Terms and any policies or operating rules posted by us on the
+						Services or in respect to the Services constitute the entire
+						agreement and understanding between you and us and supersede all
+						prior and contemporaneous understandings, agreements,
+						representations and warranties, both written and oral, with respect
+						to the Services. Our failure to exercise or enforce any right or
+						provision of these Terms shall not operate as a waiver of such right
+						or provision. These Terms operate to the fullest extent permissible
+						by law. We may assign any or all of our rights and obligations to
+						others at any time. The Terms, and any rights or obligations
+						hereunder, are not assignable, transferable, or sublicensable by you
+						except with our prior written consent, but may be assigned or
+						transferred by us without restriction. Any attempted assignment by
+						you shall violate these Terms and be void. We shall not be
+						responsible or liable for any loss, damage, delay, or failure to act
+						caused by any cause beyond our reasonable control. If any provision
+						or part of a provision of these Terms is determined to be unlawful,
+						void, or unenforceable, that provision or part of the provision is
+						deemed severable from these Terms and does not affect the validity
+						and enforceability of any remaining provisions. If any provision of
+						these Terms is held by a court of competent jurisdiction to be
+						invalid, illegal, or unenforceable for any reason, such provision
+						shall be modified to reflect the parties’ intention or eliminated to
+						the minimum extent such that the remaining provisions of the Terms
+						will continue in full force and effect There is no joint venture,
+						partnership, employment or agency relationship created between you
+						and us as a result of these Terms or use of the Services. You agree
+						that these Terms will not be construed against us by virtue of
 						having drafted them. You hereby waive any and all defenses you may
-						have based on the electronic form of these Legal Terms and the lack
-						of signing by the parties hereto to execute these Legal Terms.
+						have based on the electronic form of these Terms and the lack of
+						signing by the parties hereto to execute these Terms. The section
+						titles in the Terms are for convenience only and have no legal or
+						contractual effect.
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
+
 				<legalStyles.Section>
-					<legalStyles.SectionHeader>27. CONTACT US</legalStyles.SectionHeader>
+					<legalStyles.SectionHeader>30. PUBLICITY</legalStyles.SectionHeader>
+					<legalStyles.Paragraph $noPadding>
+						You agree that we may identify you as a customer and advertise or
+						publicize our provision of the Services to you, including on our
+						website or in our promotional materials. You grant us a
+						non-exclusive, worldwide, right and license to use your company name
+						and logo in marketing, sales, financial, and public relations
+						materials and other communications for purposes of identifying you
+						as a customer. You further agree to allow us to use your name, logo
+						and examples and visuals of how you are using the Services in the
+						public domain, in corporate, promotional and marketing materials and
+						content, and in the normal course of business.
+					</legalStyles.Paragraph>
+				</legalStyles.Section>
+
+				<legalStyles.Section>
+					<legalStyles.SectionHeader>31. CONTACT US</legalStyles.SectionHeader>
 					<legalStyles.Paragraph $noPadding={false}>
 						In order to resolve a complaint regarding the Services or to receive
 						further information regarding use of the Services, please contact us
@@ -1282,7 +1915,9 @@ export default function Terms() {
 						United States
 					</legalStyles.Paragraph>
 					<legalStyles.Paragraph $noPadding>
-						support@thought.ly
+						<legalStyles.Link to={links.contact}>
+							support@thought.ly
+						</legalStyles.Link>
 					</legalStyles.Paragraph>
 				</legalStyles.Section>
 			</legalStyles.Inner>

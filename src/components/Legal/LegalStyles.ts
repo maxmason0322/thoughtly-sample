@@ -1,3 +1,4 @@
+import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
@@ -71,6 +72,19 @@ const legalStyles = {
     ${fresponsive(css`
       padding-bottom: 12px;
     `)}
+  `,
+	BoldText: styled.span`
+    ${textStyles.bodyS};
+    ${colors.black};
+    font-weight: 500;
+  `,
+	Link: styled(UniversalLink)`
+    ${textStyles.bodyS};
+    text-decoration: underline;
+
+    &:hover {
+      color: ${colors.green500};
+    }
   `,
 	Paragraph: styled(Base).attrs({ as: "p" })<{ $noPadding: boolean }>`
     padding-bottom: ${({ $noPadding }) => ($noPadding ? 0 : "24px")};

@@ -233,7 +233,7 @@ export default function Hero() {
 						</Kicker>
 					</Unmask> */}
 					<Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
-						<Title>Your phone calls, answered beautifully.</Title>
+						<Title>Your phone calls, handled beautifully.</Title>
 					</Unmask>
 					<Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
 						<Text>
@@ -272,9 +272,10 @@ export default function Hero() {
 					</Unmask>
 					<Unmask>
 						<p>
-							Anything you can teach your human agents to say on the phone, your
-							Thoughtly agents can do the same. Speak with precision and
-							empathy, just like your top performers.
+							Thoughtly agents expertly handle inbound and outbound calls
+							related to customer service, sales, and marketing. Build your
+							agent yourself or let us assist you in creating the perfect agent
+							to meet your needs.
 						</p>
 					</Unmask>
 				</Callout1>

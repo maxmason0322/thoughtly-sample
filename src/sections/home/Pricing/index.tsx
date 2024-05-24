@@ -102,7 +102,7 @@ export default function Pricing() {
 							icons={["rocket"]}
 							iconStroke={[false]}
 							titles={["Enterprise"]}
-							text={["Automate your enterprise using conversational AI."]}
+							text={["Automate your enterprise with expert setup"]}
 							prices={["Contact Us"]}
 							hideMonth
 							tags={[
@@ -113,6 +113,7 @@ export default function Pricing() {
 									"Genius knowledge database",
 									"Whitelabel support",
 									"Executive coaching",
+									"Agent Accelerator",
 								],
 							]}
 						/>
