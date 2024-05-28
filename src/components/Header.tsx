@@ -174,6 +174,10 @@ export default function Header() {
 								<Icon name="card" />
 								<span>Pricing</span>
 							</MobileLink>
+							<MobileLink to={links.agentAccelerator}>
+								<Icon name="lightning" />
+								<span>Agent Accelerator</span>
+							</MobileLink>
 							<MobileLink to={links.helpCenter}>
 								<Icon name="heart" />
 								<span>Support</span>
@@ -220,8 +224,8 @@ export default function Header() {
 					</UniversalLink>
 					<Links>
 						<Link to={links.industries}>Industries</Link>
-						<Link to={links.integrations}>Integrations</Link>
 						<Link to={links.pricing}>Pricing</Link>
+						<Link to={links.agentAccelerator}>Agent Accelerator</Link>
 						<Link to={links.helpCenter}>Support</Link>
 						<Link to={links.blog}>Blog</Link>
 					</Links>
@@ -521,7 +525,7 @@ const MobileLinks = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   ${fresponsive(css`
     gap: 12px 6px;
@@ -536,6 +540,7 @@ const MobileLinks = styled.div`
 const MobileLink = styled(UniversalLink)`
   display: flex;
   align-items: center;
+	white-space: nowrap;
 
   ${fresponsive(css`
     gap: 4px;
@@ -553,7 +558,7 @@ const MobileLink = styled(UniversalLink)`
       flex-shrink: 0;
 
       path {
-        fill: ${colors.green500};
+        fill: ${colors.gray600};
       }
     }
   `)}

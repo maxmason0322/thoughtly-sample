@@ -25,6 +25,7 @@ import { ReactComponent as CsvSVG } from "images/global/icons/csv.svg"
 import { ReactComponent as FacebookSVG } from "images/global/icons/facebook.svg"
 import { ReactComponent as FeatherSVG } from "images/global/icons/feather.svg"
 import { ReactComponent as HeartSVG } from "images/global/icons/heart.svg"
+import { ReactComponent as LightningSVG } from "images/global/icons/lightning.svg"
 import { ReactComponent as LinkedinSVG } from "images/global/icons/linkedin.svg"
 import { ReactComponent as PdfSVG } from "images/global/icons/pdf.svg"
 import { ReactComponent as PlaySVG } from "images/global/icons/play.svg"
@@ -76,6 +77,7 @@ const iconMap = {
 	heart: HeartSVG,
 	card: CardSVG,
 	feather: FeatherSVG,
+	lightning: LightningSVG,
 }
 
 export type IconType = keyof typeof iconMap
