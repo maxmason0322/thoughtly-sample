@@ -23,7 +23,7 @@ const config: GatsbyConfig = {
 		 * this is the default og image when none other is provided
 		 * it must be a complete URL (e.g. https://example.com/image.jpg)
 		 */
-		image: `${process.env.URL}/og-image.png`,
+		image: `${process.env.URL ?? process.env.VERCEL_URL}/og-image.png`,
 	},
 	adapter: adapter(),
 	graphqlTypegen: {
