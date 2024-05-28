@@ -229,7 +229,7 @@ const LogoAddress = styled.div`
 
   ${fresponsive(css`
     top: -15px;
-    gap: 8px;
+    gap: 4px;
   `)}
 
   ${fmobile(css`
