@@ -25,6 +25,10 @@ const rawColors = {
 	gray300: ["#EBEBEB"],
 	gray200: ["#F2F2F2"],
 	gray100: ["#FAFAFA"],
+	beige500: ["#E3E3DE"],
+	beige400: ["#EDEDE9"],
+	beige300: ["#F1F1EE"],
+	beige200: ["#F6F6F4"],
 } as const satisfies Record<string, [string, string] | [string]>
 
 export type ColorType = keyof typeof rawColors
@@ -41,6 +45,8 @@ export const gradients = {
 	surface2: "linear-gradient(194deg, #FFF 5.12%, #E5E5E5 248.15%)",
 	surface2Reverse: "linear-gradient(18deg, #FFF 3.72%, #E5E5E5 208.64%)",
 	surfaceOutline: "linear-gradient(198deg, #D8D8D8 -45.86%, #F9F9F9 153.9%)",
+	surface3: "linear-gradient(194deg, #FFF 5.12%, #E3E3DE 248.15%)",
+	surface3Reverse: "linear-gradient(33deg, #FFF -14.53%, #E3E3DE 195.23%)",
 } as const
 
 const browserSupportsP3 =
