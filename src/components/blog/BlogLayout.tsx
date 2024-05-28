@@ -111,8 +111,8 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 						<Logo />
 					</h1>
 					<Description>
-						Product announcements, customer stories, and best practices for
-						accounting and finance teams.
+						Best practices, insights, news and customer examples to help you
+						deploy AI voice agents effectively.
 					</Description>
 				</Header>
 				<Columns>
