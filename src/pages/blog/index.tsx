@@ -17,6 +17,7 @@ import { useEffect } from "react"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles, { trim } from "styles/text"
+import type { BlogCard } from "types/aliases"
 import { useSearchResults } from "utils/useSearchResults"
 
 export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {
@@ -24,7 +25,7 @@ export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {
 	const featuredCard = data.contentfulPageBlogHub?.featuredBlogPost
 
 	const restOfCards = unfilteredCards.filter(
-		(card) => card.id !== featuredCard?.id,
+		(card: BlogCard) => card.id !== featuredCard?.id,
 	)
 	const smallCards = restOfCards.slice(0, 9)
 	const hasMoreCards = restOfCards.length > 9
@@ -47,7 +48,9 @@ export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {
 		["articleTextPreview", "author", "slug", "title"],
 	)
 	const categorizedCards = category
-		? searchedCards.filter((card) => card.categories?.includes(category))
+		? searchedCards.filter((card: BlogCard) =>
+				card.categories?.includes(category),
+			)
 		: searchedCards
 
 	if (Boolean(query) || Boolean(category))
@@ -73,7 +76,7 @@ export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {
 					</HeaderWrapper>
 				)}
 				<CardGroup>
-					{categorizedCards.map((card) => (
+					{categorizedCards.map((card: BlogCard) => (
 						<SmallCard key={card.id} data={card} />
 					))}
 					{categorizedCards.length === 0 && <div>No results found</div>}

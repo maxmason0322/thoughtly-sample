@@ -7,25 +7,23 @@ import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles, { trim } from "styles/text"
 
-const portalId = ""
-const formId = ""
-const endpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`
+const orgId = "00DHp000004AeAU"
+const endpoint = `https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=${orgId}`
 
 const sendEmail = async (email: string) => {
+	const formData = new FormData()
+	formData.append("email", email)
+	formData.append("oid", orgId)
+
 	const response = await fetch(endpoint, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
 		},
-		body: JSON.stringify({
-			fields: [
-				{
-					name: "email",
-					value: email,
-				},
-			],
-		}),
+		body: formData,
 	})
+
+	console.log(response)
 
 	if (!response.ok) {
 		throw new Error("Submission failed")
@@ -39,26 +37,24 @@ export default function EmailInput() {
 
 	return (
 		<Wrapper
-			data-portal-id={portalId}
-			data-form-id={formId}
 			onSubmit={(e) => {
 				e.preventDefault()
 				setState("success")
 
-				// const formData = new FormData(e.currentTarget)
-				// const email = formData.get("email")
+				const formData = new FormData(e.currentTarget)
+				const email = formData.get("email")
 
-				// if (typeof email === "string") {
-				// 	setState("loading")
-				// 	sendEmail(email)
-				// 		.then(() => {
-				// 			return setState("success")
-				// 		})
-				// 		.catch((error) => {
-				// 			setState("error")
-				// 			console.error(error)
-				// 		})
-				// }
+				if (typeof email === "string") {
+					setState("loading")
+					sendEmail(email)
+						.then(() => {
+							return setState("success")
+						})
+						.catch((error) => {
+							setState("error")
+							console.error(error)
+						})
+				}
 			}}
 		>
 			{/* <Logo /> */}
@@ -68,6 +64,7 @@ export default function EmailInput() {
 					: "Get Thoughtly Stories right to your inbox."}
 			</Title>
 			<Row>
+				<input type="hidden" name="oid" value="00DHp000004AeAU" />
 				<Field name="email">
 					<Input placeholder="Your Email" type="email" required />
 					<Message match="valueMissing">Invalid Email</Message>
