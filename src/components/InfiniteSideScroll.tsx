@@ -4,6 +4,7 @@ import ConstantMarquee from "library/ConstantMarquee"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import { type ReactNode, useCallback, useEffect, useRef, useState } from "react"
 import styled, { css } from "styled-components"
+import colors from "styles/colors"
 
 gsap.registerPlugin(ScrollToPlugin)
 
@@ -126,7 +127,7 @@ const TrackInner = styled.div<{ $gap: number }>`
 const Gradient = styled.div`
   background: linear-gradient(
     to left,
-    #fff 18.67%,
+    ${colors.beige200} 18.67%,
     rgba(255 255 255 / 0%) 100%
   );
   position: fixed;
@@ -148,7 +149,7 @@ const Gradient = styled.div`
 const Gradient2 = styled(Gradient)`
   background: linear-gradient(
     to right,
-    #fff 18.67%,
+    ${colors.beige200} 18.67%,
     rgba(255 255 255 / 0%) 100%
   );
   right: unset;

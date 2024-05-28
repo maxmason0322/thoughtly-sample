@@ -55,7 +55,7 @@ const Wrapper = styled.section`
   width: 100%;
   display: grid;
   place-items: center;
-  background-color: ${colors.white};
+  background-color: ${colors.beige200};
 `
 
 const Inner = styled.div`

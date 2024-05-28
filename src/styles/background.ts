@@ -7,7 +7,7 @@ export const Dots = styled.div`
   position: absolute;
   background-image: url(${DotSVG});
   background-repeat: repeat;
-  background-color: ${colors.gray100};
+  background-color: ${colors.beige300};
   width: 100%;
   height: 100%;
   

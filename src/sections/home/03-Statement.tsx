@@ -125,7 +125,7 @@ const Wrapper = styled.section`
   display: grid;
   place-items: center;
   height: 100vh;
-  background-color: ${colors.white};
+  background-color: ${colors.beige200};
   will-change: transform;
 
   ${fresponsive(css`
@@ -156,6 +156,7 @@ const Content = styled.div`
   width: 100%;
   overflow: clip;
   position: relative;
+	background-color: ${colors.beige300};
 
   ${fresponsive(css`
     height: 694px;
@@ -206,5 +207,5 @@ const Title = styled.h2`
 `
 
 const Outer = styled.div`
-  background-color: ${colors.white};
+  background-color: ${colors.beige200};
 `

@@ -631,7 +631,7 @@ const Wrapper = styled.section`
   overflow: clip;
   position: relative;
   margin-top: -1px;
-  background-color: ${colors.white};
+  background-color: ${colors.beige200};
 `
 
 const Inner = styled.div`
@@ -1010,7 +1010,7 @@ const Text = styled.div`
 `
 
 const DesktopWidgetsWrapper = styled(DesktopOnly)`
-  background-color: ${colors.gray100};
+  background-color: ${colors.beige300};
   position: relative;
   overflow: clip;
 

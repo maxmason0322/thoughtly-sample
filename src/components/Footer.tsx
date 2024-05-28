@@ -150,7 +150,7 @@ const Wrapper = styled.footer<{
   width: 100%;
   display: grid;
   place-items: center;
-  background-color: ${colors.gray100};
+  background-color: ${colors.beige300};
   overflow: clip;
   position: ${({ $position }) => $position};
   bottom: 0;
@@ -229,7 +229,7 @@ const LogoAddress = styled.div`
 
   ${fresponsive(css`
     top: -15px;
-    gap: 8px;
+    gap: 4px;
   `)}
 
   ${fmobile(css`
