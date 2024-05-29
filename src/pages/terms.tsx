@@ -16,8 +16,8 @@ export default function Terms() {
 		<legalStyles.Wrapper ref={wrapperRef}>
 			<legalStyles.Inner>
 				<legalStyles.Top>
-					<legalStyles.Title>Terms and Conditions</legalStyles.Title>
-					<legalStyles.Subtitle>Last updated May 20, 2024</legalStyles.Subtitle>
+					<legalStyles.Title>Terms of Service</legalStyles.Title>
+					<legalStyles.Subtitle>Last updated May 29, 2024</legalStyles.Subtitle>
 				</legalStyles.Top>
 				<legalStyles.Section>
 					<legalStyles.Paragraph $noPadding={false}>
@@ -63,6 +63,10 @@ export default function Terms() {
 							Terms and any additional documents or policies referred to in or
 							incorporated into these Terms, whether you are a visitor to our
 							Site or a user of the Services;
+						</legalStyles.ListItem>
+						<legalStyles.ListItem>
+							You agree that we may contact and communicate with you (and your
+							users) using pre-recorded or artificial voices.
 						</legalStyles.ListItem>
 						<legalStyles.ListItem>
 							You represent and warrant that you are at least eighteen (18)
@@ -147,12 +151,10 @@ export default function Terms() {
 						created by another person or organization, that person or
 						organization is the customer and the user is an Authorized User. You
 						are responsible for (and shall ensure) your Administrators’ and
-						Authorized Users’, if applicable, compliance with these Terms.
-					</legalStyles.Paragraph>
-					<legalStyles.Paragraph $noPadding={false}>
-						You may not impersonate someone else to create an account, create or
-						use an account for anyone other than yourself, permit anyone else to
-						use your account, or provide personal information for purposes of
+						Authorized Users’, if applicable, compliance with these Terms.You
+						may not impersonate someone else to create an account, create or use
+						an account for anyone other than yourself, permit anyone else to use
+						your account, or provide personal information for purposes of
 						account registration other than your own. In order to ensure we can
 						protect and properly administer the Services and our community of
 						users, we have the right to disable or close any user account at any
@@ -1033,7 +1035,11 @@ export default function Terms() {
 						of the Services in accordance with our Privacy Policy, available
 						https://thought.ly/privacy, which is incorporated by reference into
 						and forms a part of these Terms. If you object to your information
-						being used in this way, please do not use the Services
+						being used in this way, please do not use the Services. Without
+						limiting the foregoing, you consent and agree to receiving
+						communications from Thoughtly through text message, SMS and voice
+						calls. Please see our Privacy Policy for more information on how to
+						opt out of text message communications.
 					</legalStyles.Paragraph>
 					<legalStyles.Paragraph $noPadding>
 						Please be advised the Services are hosted in the United States. If
