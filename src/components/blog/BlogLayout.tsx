@@ -21,7 +21,6 @@ import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
 import Categories from "./Categories"
-import EmailInput from "./EmailInput"
 import SearchBar from "./SearchBar"
 
 export default function BlogLayout({ children }: { children: ReactNode }) {
@@ -126,7 +125,7 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 						<div ref={pin}>
 							<SearchBar />
 							<Categories />
-							<EmailInput />
+							{/* <EmailInput /> */}
 						</div>
 					</Left>
 					<Right>
