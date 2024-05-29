@@ -24,13 +24,13 @@
         </linearGradient>
         <linearGradient id="paint2_linear_3093_17218" x1="96.4044" y1="376.514" x2="158.526"
             y2="372.625" gradientUnits="userSpaceOnUse">
-            <stop stop-color="white" />
-            <stop offset="1" stop-color="white" stop-opacity="0" />
+            <stop stop-color="#F6F6F4" />
+            <stop offset="1" stop-color="#F6F6F4" stop-opacity="0" />
         </linearGradient>
         <linearGradient id="paint3_linear_3093_17218" x1="1674.4" y1="981.157" x2="1736.62"
             y2="978.109" gradientUnits="userSpaceOnUse">
-            <stop stop-color="white" />
-            <stop offset="1" stop-color="white" stop-opacity="0" />
+            <stop stop-color="#F6F6F4" />
+            <stop offset="1" stop-color="#F6F6F4" stop-opacity="0" />
         </linearGradient>
     </defs>
 </svg>

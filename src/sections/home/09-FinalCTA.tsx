@@ -1,4 +1,5 @@
 import Primary from "components/Buttons/Primary"
+import { sectionScale } from "components/Footer"
 import Kicker from "components/Kicker"
 import { CalendlyModalContext } from "components/Providers/CalendlyModalProvider"
 import { graphql, useStaticQuery } from "gatsby"
@@ -10,7 +11,6 @@ import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import getMedia from "library/getMedia"
 import useAnimation from "library/useAnimation"
-import { getResponsivePixels } from "library/viewportUtils"
 import { useContext, useRef } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
@@ -120,27 +120,7 @@ export default function FinalCTA() {
 	)
 
 	useAnimation(() => {
-		const tl = gsap.timeline({
-			scrollTrigger: {
-				trigger: wrapperRef.current,
-				start: "top top",
-				end: "clamp(bottom top)",
-				scrub: true,
-			},
-		})
-		tl.set(wrapperRef.current, {
-			transformOrigin: "center bottom",
-			willChange: "transform",
-		})
-		tl.to("#main", { backgroundColor: "#00000000", duration: 0 }, 0)
-		tl.to([wrapperRef.current], {
-			borderBottomLeftRadius: () =>
-				getResponsivePixels(getMedia(80, 80, 80, 48)),
-			borderBottomRightRadius: () =>
-				getResponsivePixels(getMedia(80, 80, 80, 48)),
-			scale: () => getMedia(0.8, 0.8, 0.8, 0.9),
-			y: () => -getResponsivePixels(20),
-		})
+		sectionScale(wrapperRef.current)
 	}, [])
 
 	return (

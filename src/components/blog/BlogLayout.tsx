@@ -1,4 +1,5 @@
 import { useEventListener } from "ahooks"
+import { sectionScale } from "components/Footer"
 import Kicker from "components/Kicker"
 import { graphql, useStaticQuery } from "gatsby"
 import ScrollSmoother from "gsap/ScrollSmoother"
@@ -25,6 +26,7 @@ import SearchBar from "./SearchBar"
 
 export default function BlogLayout({ children }: { children: ReactNode }) {
 	const pin = useRef<HTMLDivElement>(null)
+	const blogWrapperRef = useRef<HTMLDivElement | null>(null)
 	const pinType = usePinType()
 	const needsRefresh = useRef(false)
 
@@ -95,8 +97,12 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 	useEffect(onChange, [query, category])
 	useEventListener("scroll", onScroll)
 
+	useAnimation(() => {
+		sectionScale(blogWrapperRef.current)
+	}, [])
+
 	return (
-		<BlogWrapper>
+		<BlogWrapper ref={blogWrapperRef}>
 			<BlogInner>
 				<Header>
 					<StyledDots />
