@@ -88,7 +88,7 @@ export default function EmailInput() {
 }
 
 const Wrapper = styled(Form.Root)`
-  background-color: ${colors.gray100};
+  background-color: ${colors.beige300};
 
   ${fresponsive(css`
     display: flex;
