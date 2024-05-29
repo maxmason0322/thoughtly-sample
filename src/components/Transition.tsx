@@ -53,7 +53,7 @@ const Wrapper = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  background-color: ${colors.white};
+  background-color: ${colors.beige200};
   z-index: 100;
   opacity: 0;
   pointer-events: none;

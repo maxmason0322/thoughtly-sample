@@ -49,40 +49,40 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 					<Columns>
 						<LinkColumn>
 							<Label>Product</Label>
-							<Link to={links.pricing}>Pricing</Link>
-							<Link to={links.todo} tag="Coming Soon">
+							<StyledLink to={links.pricing}>Pricing</StyledLink>
+							<StyledLink to={links.todo} tag="Coming Soon">
 								Platform
-							</Link>
-							<Link to={links.todo} tag="Coming Soon">
+							</StyledLink>
+							<StyledLink to={links.todo} tag="Coming Soon">
 								Solutions
-							</Link>
-							<Link to={links.todo} tag="Coming Soon">
+							</StyledLink>
+							<StyledLink to={links.todo} tag="Coming Soon">
 								Customers
-							</Link>
+							</StyledLink>
 						</LinkColumn>
 						<LinkColumn>
 							<Label>Company</Label>
-							<Link to={links.mediaInquiries}>Media Inquiries</Link>
-							<Link to={links.careers}>Careers</Link>
-							<Link to={links.todo} tag="Coming Soon">
+							<StyledLink to={links.mediaInquiries}>Media Inquiries</StyledLink>
+							<StyledLink to={links.careers}>Careers</StyledLink>
+							<StyledLink to={links.todo} tag="Coming Soon">
 								About
-							</Link>
-							<Link to={links.blog}>Blog</Link>
+							</StyledLink>
+							<StyledLink to={links.blog}>Blog</StyledLink>
 						</LinkColumn>
 						<LinkColumn>
 							<Label>Support</Label>
-							<Link to={links.helpCenter}>Help Center</Link>
-							<Link to={links.apiDocs}>API Docs</Link>
-							<Link type="button" onClick={() => setModalOpen(true)}>
+							<StyledLink to={links.helpCenter}>Help Center</StyledLink>
+							<StyledLink to={links.apiDocs}>API Docs</StyledLink>
+							<StyledLink type="button" onClick={() => setModalOpen(true)}>
 								Contact Us
-							</Link>
+							</StyledLink>
 						</LinkColumn>
 						{mobile && (
 							<LinkColumn>
 								<Label>Socials</Label>
-								<Link to={links.instagram}>Instagram</Link>
-								<Link to={links.linkedin}>Linkedin</Link>
-								<Link to={links.twitter}>X (Twitter)</Link>
+								<StyledLink to={links.instagram}>Instagram</StyledLink>
+								<StyledLink to={links.linkedin}>Linkedin</StyledLink>
+								<StyledLink to={links.twitter}>X (Twitter)</StyledLink>
 							</LinkColumn>
 						)}
 					</Columns>
@@ -91,9 +91,9 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 					<BottomTop>
 						{!mobile && (
 							<Socials>
-								<Link to={links.instagram}>Instagram</Link>
-								<Link to={links.linkedin}>LinkedIn</Link>
-								<Link to={links.twitter}>X (Twitter)</Link>
+								<StyledLink to={links.instagram}>Instagram</StyledLink>
+								<StyledLink to={links.linkedin}>LinkedIn</StyledLink>
+								<StyledLink to={links.twitter}>X (Twitter)</StyledLink>
 							</Socials>
 						)}
 						<Buttons>
@@ -148,7 +148,7 @@ const Wrapper = styled.footer<{
   width: 100%;
   display: grid;
   place-items: center;
-  background-color: ${colors.gray100};
+  background-color: ${colors.beige300};
   overflow: clip;
   position: ${({ $position }) => $position};
   bottom: 0;
@@ -227,7 +227,7 @@ const LogoAddress = styled.div`
 
   ${fresponsive(css`
     top: -15px;
-    gap: 8px;
+    gap: 4px;
   `)}
 
   ${fmobile(css`
@@ -384,5 +384,11 @@ const Column = styled.div`
 
   &:last-of-type {
     align-items: flex-end;
+  }
+`
+
+const StyledLink = styled(Link)`
+  &:hover {
+    background-color: ${colors.beige400};
   }
 `

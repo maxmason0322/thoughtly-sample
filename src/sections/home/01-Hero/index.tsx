@@ -307,7 +307,7 @@ const Wrapper = styled.section`
   width: 100%;
   display: grid;
   place-items: center;
-  background-color: ${colors.white};
+  background-color: ${colors.beige200};
   position: relative;
   z-index: 3;
 `
@@ -546,7 +546,7 @@ const BackgroundTablet = styled.div`
   position: absolute;
   display: none;
   z-index: 0;
-  background-color: ${colors.gray100};
+  background-color: ${colors.beige200};
   overflow: clip;
 
   ${ftablet(css`

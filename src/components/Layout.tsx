@@ -44,7 +44,7 @@ export default function Layout({ children }: LayoutProps) {
 
 const Main = styled.main`
   overflow-x: clip;
-  background-color: ${colors.gray100};
+  background-color: ${colors.beige200};
 `
 
 const globalCss = css`
@@ -52,7 +52,7 @@ const globalCss = css`
   html {
     /* if your project uses a dark color for most text, set that here */
     color: ${colors.black};
-    background: ${colors.gray100};
+    background: ${colors.beige300};
     font-family: sans-serif;
     ${textStyles.bodyR}
   }

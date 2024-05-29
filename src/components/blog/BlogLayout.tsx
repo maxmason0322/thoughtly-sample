@@ -176,7 +176,7 @@ const BlogWrapper = styled.div`
   width: 100%;
   display: grid;
   place-items: center;
-  background-color: ${colors.white};
+  background-color: ${colors.beige200};
 `
 
 const StyledDots = styled(Dots)`

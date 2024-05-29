@@ -190,7 +190,7 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${colors.white};
+  background-color: ${colors.beige200};
   overflow: clip;
 
   ${fresponsive(css`
@@ -388,7 +388,7 @@ const GraphM = styled(GraphMSVG)`
 const GraphCover = styled.div`
   position: absolute;
   bottom: 0;
-  background: ${colors.white};
+  background: ${colors.beige200};
   ${fresponsive(css`
     width: 1680px;
     height: 645px;
