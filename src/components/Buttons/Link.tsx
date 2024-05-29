@@ -37,7 +37,7 @@ const Wrapper = styled(UniversalLink)<{ $hasTag: boolean }>`
 
   &:hover {
     background-color: ${({ $hasTag }) =>
-			$hasTag ? "transparent" : colors.gray200};
+			$hasTag ? "transparent" : colors.beige300};
   }
 
   ${fresponsive(css`

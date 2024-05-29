@@ -38,5 +38,5 @@ const Wrapper = styled.div`
   pointer-events: none;
   display: grid;
   place-items: center;
-  background-color: ${colors.white};
+  background-color: ${colors.beige200};
 `
