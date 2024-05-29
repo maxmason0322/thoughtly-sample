@@ -6,7 +6,9 @@ import { ReactComponent as LogoSVG } from "images/global/logo.svg"
 import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import { pathnameMatches } from "library/functions"
+import getMedia from "library/getMedia"
 import useMedia from "library/useMedia"
+import { getResponsivePixels } from "library/viewportUtils"
 import { useContext } from "react"
 import styled, { css } from "styled-components"
 import { Dots } from "styles/background"
@@ -19,6 +21,29 @@ import { CalendlyModalContext } from "./Providers/CalendlyModalProvider"
 
 gsap.registerPlugin(ScrollToPlugin)
 
+export const sectionScale = (section: HTMLElement | null) => {
+	const tl = gsap.timeline({
+		scrollTrigger: {
+			trigger: section,
+			start: "bottom bottom",
+			end: "clamp(bottom top)",
+			scrub: true,
+		},
+	})
+	tl.set(section, {
+		transformOrigin: "center bottom",
+		willChange: "transform",
+	})
+	tl.to("#main", { backgroundColor: "#00000000", duration: 0 }, 0)
+	tl.to([section], {
+		borderBottomLeftRadius: () => getResponsivePixels(getMedia(80, 80, 80, 48)),
+		borderBottomRightRadius: () =>
+			getResponsivePixels(getMedia(80, 80, 80, 48)),
+		scale: () => getMedia(0.8, 0.8, 0.8, 0.9),
+		y: () => -getResponsivePixels(20),
+	})
+}
+
 export default function Footer({ position }: { position: "fixed" | "static" }) {
 	const mobile = useMedia(false, false, false, true)
 	const pathname = useLocation().pathname
@@ -26,7 +51,7 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 
 	if (!pathname) return null
 
-	const fixedRoutes = [links.home, links.terms, links.privacy]
+	const fixedRoutes = [links.home, links.terms, links.privacy, links.blog]
 
 	const isFixed = fixedRoutes.some((route) => pathnameMatches(pathname, route))
 
@@ -67,9 +92,7 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 							<StyledLink to={links.todo} tag="Coming Soon">
 								About
 							</StyledLink>
-							<StyledLink to={links.todo} tag="Coming Soon">
-								Blog
-							</StyledLink>
+							<StyledLink to={links.blog}>Blog</StyledLink>
 						</LinkColumn>
 						<LinkColumn>
 							<Label>Support</Label>

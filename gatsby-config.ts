@@ -60,14 +60,13 @@ const config: GatsbyConfig = {
 				trackPage: false,
 			},
 		},
-		// TODO setup a contentful space
-		// {
-		//   resolve: "gatsby-source-contentful",
-		//   options: {
-		//     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-		//     spaceId: process.env.CONTENTFUL_SPACE_ID,
-		//   },
-		// },
+		{
+			resolve: "gatsby-source-contentful",
+			options: {
+				accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+				spaceId: process.env.CONTENTFUL_SPACE_ID,
+			},
+		},
 		{
 			resolve: "gatsby-plugin-manifest",
 			options: {

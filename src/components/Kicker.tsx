@@ -11,15 +11,21 @@ export default function Kicker({
 	gradient = false,
 	iconLeft = false,
 	iconColor = colors.gray500,
+	className = "",
 }: {
 	children: ReactNode
 	icon?: IconType
 	gradient?: boolean
 	iconLeft?: boolean
 	iconColor?: string
+	className?: string
 }) {
 	return (
-		<Wrapper $gradient={!!gradient} $iconColor={iconColor}>
+		<Wrapper
+			className={className}
+			$gradient={!!gradient}
+			$iconColor={iconColor}
+		>
 			{icon && iconLeft && <StyledIcon name={icon} />}
 			{children}
 			{icon && !iconLeft && <StyledIcon name={icon} />}

@@ -39,9 +39,4 @@ export const eases = {
 		inOut: "cubic-bezier(0.445, 0.05, 0.55, 0.95)",
 		out: "cubic-bezier(0.39, 0.575, 0.565, 1)",
 	},
-	campfire: {
-		in: "cubic-bezier(0.7, 0, 0.38, 1)",
-		inOut: "cubic-bezier(0.7, 0.5, 0.38, 1)",
-		out: "cubic-bezier(0.7, 0.2, 0.38, 1)",
-	},
 } as const

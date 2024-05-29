@@ -1,40 +1,16 @@
+import { sectionScale } from "components/Footer"
 import legalStyles from "components/Legal/LegalStyles"
 import Seo from "components/Seo"
-import gsap from "gsap"
-import getMedia from "library/getMedia"
 import useAnimation from "library/useAnimation"
-import { getResponsivePixels } from "library/viewportUtils"
 import { useRef } from "react"
 import links from "utils/links"
 
 export default function Privacy() {
 	const wrapperRef = useRef<HTMLElement | null>(null)
-	useAnimation(
-		() => {
-			const tl = gsap.timeline({
-				scrollTrigger: {
-					trigger: wrapperRef.current,
-					start: "bottom bottom",
-					scrub: true,
-				},
-			})
-			tl.set(wrapperRef.current, {
-				transformOrigin: "center bottom",
-			})
-			tl.to(wrapperRef.current, {
-				borderBottomLeftRadius: () =>
-					getResponsivePixels(getMedia(140, 140, 140, 48)),
-				borderBottomRightRadius: () =>
-					getResponsivePixels(getMedia(140, 140, 140, 48)),
-				scale: () => getMedia(0.75, 0.75, 0.75, 0.9),
-				y: () => getResponsivePixels(-20),
-			})
-		},
-		[],
-		{
-			scope: wrapperRef,
-		},
-	)
+
+	useAnimation(() => {
+		sectionScale(wrapperRef.current)
+	}, [])
 
 	return (
 		<legalStyles.Wrapper ref={wrapperRef}>

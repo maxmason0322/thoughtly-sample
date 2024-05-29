@@ -2,6 +2,9 @@ const routes = {
 	home: "/",
 	terms: "/terms",
 	privacy: "/privacy",
+	blog: "/blog",
+	agentAccelerator:
+		"/blog/unlock-the-power-of-ai-with-thoughtlys-agent-accelerator-program",
 } as const
 
 const sections = {
