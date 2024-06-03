@@ -137,10 +137,10 @@ export default function FinalCTA() {
 								Build your own Thoughtly
 							</Primary>
 							<Primary
-								type="button"
-								onClick={() => setModalOpen(true)}
+								to={links.bookDemo}
 								variant="secondary"
 								icon="chev"
+								openInNewTab
 							>
 								Book a Demo
 							</Primary>
