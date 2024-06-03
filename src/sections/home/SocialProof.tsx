@@ -1,5 +1,4 @@
 import Kicker from "components/Kicker"
-import { ReactComponent as BatchRoastingSVG } from "images/global/logos/BatchRoasting.svg"
 import { ReactComponent as DopplioSVG } from "images/global/logos/Dopplio.svg"
 import { ReactComponent as EnhanceHealthSVG } from "images/global/logos/EnhanceHealth.svg"
 import { ReactComponent as HonkSVG } from "images/global/logos/Honk.svg"
@@ -23,9 +22,9 @@ export default function SocialProof() {
 					<Logo to={links.selectQuote}>
 						<SelectQuoteSVG />
 					</Logo>
-					<Logo to={links.batchRoasting}>
+					{/* <Logo to={links.batchRoasting}>
 						<BatchRoastingSVG />
-					</Logo>
+					</Logo> */}
 					<HonkLogo to={links.honk}>
 						<HonkSVG />
 					</HonkLogo>
@@ -43,7 +42,7 @@ const Wrapper = styled.section`
   display: grid;
   place-items: center;
   width: 100%;
-  background-color: ${colors.white};
+  background-color: ${colors.beige200};
 `
 
 const Inner = styled.div`
@@ -90,7 +89,7 @@ const Logos = styled.div`
 const Line = styled.hr`
   width: 100%;
   height: 1.5px;
-  background-color: ${colors.gray200};
+  background-color: ${colors.gray300};
 
   ${fmobile(css`
     width: 314px;
@@ -126,7 +125,6 @@ const Logo = styled(UniversalLink)`
 
     ${fmobile(css`
       height: 20px;
-      width: auto;
     `)}
   }
 `
