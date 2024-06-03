@@ -26,9 +26,9 @@ export default function SocialProof() {
 					<Logo to={links.batchRoasting}>
 						<BatchRoastingSVG />
 					</Logo>
-					<HonkLogo to={links.honk}>
+					<Logo to={links.honk}>
 						<HonkSVG />
-					</HonkLogo>
+					</Logo>
 					<Logo to={links.dopplio}>
 						<DopplioSVG />
 					</Logo>
@@ -117,27 +117,4 @@ const Logo = styled(UniversalLink)`
     width: 105px;
     height: 36px;
   `)}
-
-  svg {
-    ${fresponsive(css`
-      height: 40px;
-      width: auto;
-    `)}
-
-    ${fmobile(css`
-      height: 20px;
-    `)}
-  }
-`
-
-const HonkLogo = styled(Logo)`
-  svg {
-    ${fresponsive(css`
-      height: 30px;
-    `)}
-
-    ${fmobile(css`
-      height: 17px;
-    `)}
-  }
 `
