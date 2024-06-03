@@ -2,9 +2,8 @@ import Button from "components/Buttons/Primary"
 import Unmask from "components/Unmask"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
-import ScrollSmoother from "gsap/ScrollSmoother"
 import Background from "images/home/hero/hero-background.png"
-import { loader } from "library/Loader"
+import { usePreloader } from "library/Loader/PreloaderUtils"
 import { ScreenContext } from "library/ScreenContext"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import getMedia from "library/getMedia"
@@ -169,53 +168,19 @@ export default function Hero() {
 		},
 	)
 
-	const initTimeline = () => {
-		const tl = gsap.timeline({
-			delay: 0.25,
-			onStart: () => {
-				ScrollSmoother.get()?.paused(true)
-			},
-			onComplete: () => {
-				ScrollSmoother.get()?.paused(false)
-			},
-		})
-
-		tl.set([".call-widget", ".avatar-widget", !mobile && ".icons-widget"], {
-			display: "flex",
-		})
-
-		tl.fromTo(
-			[!mobile && ".icons-widget", ".call-widget", tablet && ".speak-1-widget"],
-			{
-				autoAlpha: 0,
-				y: () => getMedia(200, 200, 0, 0),
-			},
-			{
-				autoAlpha: 1,
-				y: 0,
-				ease: "power4.out",
-				duration: 2,
-			},
-			0,
-		)
-
-		tl.fromTo(
-			[".avatar-widget", ".start-widget", ".home-hero-bg"],
-			{
-				autoAlpha: 0,
-				y: () => getMedia(300, 300, 0, 0),
-			},
-			{
-				autoAlpha: 1,
-				y: 0,
-				ease: "power4.out",
-				duration: 2,
-			},
-			0,
-		)
-	}
-
-	loader.useEventListener("end", initTimeline)
+	usePreloader({
+		only: "whenAtTop",
+		duration: 2,
+		callback: () => {
+			console.log("CALLBACK")
+			gsap.from(wrapperRef.current, {
+				y: "100lvh",
+				duration: 1,
+				delay: 1,
+				ease: "power3.inOut",
+			})
+		},
+	})
 
 	return (
 		<Wrapper ref={wrapperRef}>
@@ -230,35 +195,23 @@ export default function Hero() {
 							🚀&nbsp;&nbsp;&nbsp;Seed round led by Afore & others
 						</Kicker>
 					</Unmask> */}
-					<Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
-						<Title>Your phone calls, handled beautifully.</Title>
-					</Unmask>
-					<Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
-						<Text>
-							Thoughtly helps businesses build and deploy human-like AI voice
-							agents in just 17 minutes. Welcome to the future of calling.
-						</Text>
-					</Unmask>
+					<Title>Your phone calls, handled beautifully.</Title>
+					<Text>
+						Thoughtly helps businesses build and deploy human-like AI voice
+						agents in just 17 minutes. Welcome to the future of calling.
+					</Text>
 					<Buttons>
-						<Unmask
-							parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}
+						<Button to={links.login} outline>
+							Build your own Thoughtly
+						</Button>
+						<Button
+							to={links.bookDemo}
+							variant="secondary"
+							icon="calendar"
+							openInNewTab
 						>
-							<Button to={links.login} outline>
-								Build your own Thoughtly
-							</Button>
-						</Unmask>
-						<Unmask
-							parameters={{ delay: 0.45, ease: "power4.out", duration: 2 }}
-						>
-							<Button
-								to={links.bookDemo}
-								variant="secondary"
-								icon="calendar"
-								openInNewTab
-							>
-								Book a Demo
-							</Button>
-						</Unmask>
+							Book a Demo
+						</Button>
 					</Buttons>
 				</TextContent>
 				<Callout1>
@@ -334,7 +287,7 @@ const Inner = styled.div`
 const BackgroundImage = styled.img`
   position: absolute;
   z-index: 0;
-  opacity: 0;
+  opacity: 1;
 
   ${fresponsive(css`
     width: 1318px;

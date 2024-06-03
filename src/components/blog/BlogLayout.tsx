@@ -35,12 +35,12 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 
 	const images: Queries.BlogLayoutQuery = useStaticQuery(graphql`
     query BlogLayout {
-      widget1: file(relativePath: {eq: "blog/widget-1.png"}) {
+      widget1: file(relativePath: { eq: "blog/widget-1.png" }) {
         childImageSharp {
           gatsbyImageData
         }
       }
-      widget2: file(relativePath: {eq: "blog/widget-2.png"}) {
+      widget2: file(relativePath: { eq: "blog/widget-2.png" }) {
         childImageSharp {
           gatsbyImageData
         }
@@ -141,7 +141,7 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 	)
 }
 
-const Widget1 = styled(UniversalImage)` 
+const Widget1 = styled(UniversalImage)`
   position: absolute;
   z-index: 2;
 
@@ -250,7 +250,7 @@ const Header = styled.div`
     border-radius: 24px;
     gap: 10px;
     padding: 32px 48px 46px;
-    
+
     h1 {
       height: 81px;
       font-size: 68.5px;
@@ -329,7 +329,7 @@ const Columns = styled.div`
   `)}
 `
 
-const Left = styled.div` 
+const Left = styled.div`
   ${fresponsive(css`
     width: 269px;
   `)}

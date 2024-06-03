@@ -23,7 +23,7 @@ export default function SmallCard({ data }: { data: BlogCard }) {
 
 export const Wrapper = styled(UniversalLink)`
   width: 100%;
-  
+
   ${fresponsive(css`
     display: grid;
     gap: 12px;
@@ -32,7 +32,7 @@ export const Wrapper = styled(UniversalLink)`
 
 const Image = styled(UniversalImage)`
   width: 100%;
-  
+
   ${fresponsive(css`
     aspect-ratio: 372 / 215;
     border-radius: 18px;

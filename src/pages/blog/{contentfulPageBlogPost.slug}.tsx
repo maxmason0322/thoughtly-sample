@@ -182,7 +182,7 @@ const Light = styled.div`
 const Content = styled.div`
   display: grid;
   width: 100%;
-  
+
   ${fresponsive(css`
     grid-template-columns: 1fr 680px 1fr;
     margin-bottom: 70px;
@@ -237,7 +237,7 @@ const RelatedCards = styled.div`
     ${SmallCardWrapper} {
       width: 372px;
     }
-    
+
     gap: 24px;
   `)}
 

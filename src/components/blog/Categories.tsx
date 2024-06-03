@@ -14,7 +14,7 @@ export default function Categories() {
 	const categories: Queries.CategoriesQuery = useStaticQuery(graphql`
     query Categories {
       allContentfulPageBlogPost {
-        items: distinct(field: {categories: SELECT})
+        items: distinct(field: { categories: SELECT })
       }
     }
   `)

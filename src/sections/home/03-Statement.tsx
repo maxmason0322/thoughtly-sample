@@ -156,7 +156,7 @@ const Content = styled.div`
   width: 100%;
   overflow: clip;
   position: relative;
-	background-color: ${colors.beige300};
+  background-color: ${colors.beige300};
 
   ${fresponsive(css`
     height: 694px;

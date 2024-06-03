@@ -63,7 +63,9 @@ const Border = styled.div`
   width: 90%;
   height: 90%;
   transform: translate(-50%, -50%);
-  transition: width 0.25s, height 0.25s;
+  transition:
+    width 0.25s,
+    height 0.25s;
 
   ${fresponsive(css`
     border-radius: 14px;

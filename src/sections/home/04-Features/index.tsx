@@ -32,22 +32,22 @@ export default function Features() {
           background {
             childImageSharp {
               original {
-								src
-							}
+                src
+              }
             }
           }
           backgroundTablet {
             childImageSharp {
-							original {
-								src
-							}
+              original {
+                src
+              }
             }
           }
           backgroundMobile {
             childImageSharp {
-							original {
-								src
-							}
+              original {
+                src
+              }
             }
           }
         }

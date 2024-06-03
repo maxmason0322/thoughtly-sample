@@ -251,7 +251,6 @@ const Marquee = styled(ConstantMarquee)`
   `)}
 
   ${fmobile(css`
-
     height: 70px;
     display: flex;
     align-items: center;

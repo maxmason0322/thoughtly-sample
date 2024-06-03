@@ -156,34 +156,34 @@ const Header = styled.div`
   `)}
 
   ${fmobile(css`
-		${textStyles.sh2}
+    ${textStyles.sh2}
     margin-bottom: 30px;
   `)}
 `
 
 const HeaderWrapper = styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-	${fresponsive(css`
-		padding-top: 12px;
-		margin-bottom: 20px;
-	`)}
+  ${fresponsive(css`
+    padding-top: 12px;
+    margin-bottom: 20px;
+  `)}
 
-	${fmobile(css`
-		flex-direction: column-reverse;
-		align-items: flex-start;
-		gap: 24px;
-	`)}
+  ${fmobile(css`
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 24px;
+  `)}
 `
 
 const LightHeader = styled(Header)`
-	margin-bottom: unset;
+  margin-bottom: unset;
 
-	span {
-		color: ${colors.gray900};
-	}
+  span {
+    color: ${colors.gray900};
+  }
 `
 
 const CardGroup = styled.div`
@@ -217,7 +217,7 @@ const CustomWidthButton = styled(Primary)`
 
 const MobileEmail = styled(MobileOnly)`
   ${fmobile(css`
-		border-top: 1px solid ${colors.gray300};
+    border-top: 1px solid ${colors.gray300};
     padding-top: 50px;
     margin-top: 50px;
   `)}
@@ -225,7 +225,10 @@ const MobileEmail = styled(MobileOnly)`
 
 export const query = graphql`
   query BlogPage {
-    allContentfulPageBlogPost(sort: { createdAt: DESC }, filter: { id: { nin: ["ddd9a026-ddbb-5750-a712-81382d93815f"] } }) {
+    allContentfulPageBlogPost(
+      sort: { createdAt: DESC }
+      filter: { id: { nin: ["ddd9a026-ddbb-5750-a712-81382d93815f"] } }
+    ) {
       nodes {
         slug
         id

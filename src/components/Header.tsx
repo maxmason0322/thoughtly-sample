@@ -5,12 +5,12 @@ import gsap from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
 import { ReactComponent as LogoSVG } from "images/global/logo.svg"
 import { loader } from "library/Loader"
+import { usePreloader } from "library/Loader/PreloaderUtils"
 import UniversalLink from "library/Loader/UniversalLink"
 import { ScreenContext } from "library/ScreenContext"
 import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
-import { getResponsivePixels } from "library/viewportUtils"
 import { useContext, useEffect, useRef, useState } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
@@ -115,29 +115,16 @@ export default function Header() {
 		}
 	}, [openTimeline, menuOpen])
 
-	const initTimeline = useAnimation(() => {
-		const tl = gsap.timeline({
-			paused: true,
-		})
-
-		tl.fromTo(
-			innerRef.current,
-			{
-				y: () => getResponsivePixels(-200),
-			},
-			{
+	usePreloader({
+		duration: 0,
+		callback: () => {
+			gsap.to(innerRef.current, {
 				y: 0,
 				duration: 2,
 				ease: "power3.out",
-				delay: 0.25,
-			},
-		)
-
-		return tl
-	}, [])
-
-	loader.useEventListener("end", () => {
-		initTimeline?.play()
+				delay: 1.5,
+			})
+		},
 	})
 
 	loader.useEventListener("routeChange", () => {
@@ -341,6 +328,7 @@ const Inner = styled.div`
   justify-content: space-between;
 
   ${fresponsive(css`
+    translate: 0 -200%;
     padding: 32px 156px 0;
   `)}
 
@@ -449,21 +437,21 @@ const Lines = styled.svg`
 `
 
 const Blur = styled.div`
-	position: absolute;
-	z-index: 0;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	background: rgba(219 219 219 / 15%);
-	backdrop-filter: blur(4.5px);
-	display: none;
-	opacity: 0;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(219 219 219 / 15%);
+  backdrop-filter: blur(4.5px);
+  display: none;
+  opacity: 0;
 `
 
 const Menu = styled.div`
-	position: absolute;
-	background: ${gradients.surface1};
+  position: absolute;
+  background: ${gradients.surface1};
   display: flex;
   flex-direction: column;
 
@@ -481,10 +469,10 @@ const Menu = styled.div`
   `)}
 
 	${fmobile(css`
-		width: 319px;
-		top: 86px;
-		left: 28px;
-	`)}
+    width: 319px;
+    top: 86px;
+    left: 28px;
+  `)}
 `
 
 const Buttons = styled.div`
@@ -540,7 +528,7 @@ const MobileLinks = styled.div`
 const MobileLink = styled(UniversalLink)`
   display: flex;
   align-items: center;
-	white-space: nowrap;
+  white-space: nowrap;
 
   ${fresponsive(css`
     gap: 4px;

@@ -46,7 +46,7 @@ const H2 = styled.h2`
 
 const P = styled.p`
   ${textStyles.bodyR}
-	color: ${colors.gray900};
+  color: ${colors.gray900};
 `
 
 const Ul = styled.ul`
@@ -68,7 +68,7 @@ const Ol = styled.ol`
 `
 
 const Li = styled.li`
-	${textStyles.sh3}
+  ${textStyles.sh3}
 `
 
 const Hr = styled.hr`
@@ -76,7 +76,7 @@ const Hr = styled.hr`
 `
 
 const A = styled(UniversalLink)`
-	color: ${colors.green500};
+  color: ${colors.green500};
   text-decoration: underline;
 `
 
@@ -196,23 +196,23 @@ const Wrapper = styled.div`
 `
 
 const Quote = styled.div`
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	background-color: ${colors.gray200};
-	
-	${fresponsive(css`
-		border-radius: 24px;
-		padding: 40px;
-		gap: 24px;
-	`)}
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: ${colors.gray200};
+
+  ${fresponsive(css`
+    border-radius: 24px;
+    padding: 40px;
+    gap: 24px;
+  `)}
 `
 
 const Text = styled.p`
-	${textStyles.bodyXL}
+  ${textStyles.bodyXL}
 `
 
 const Quotee = styled.span`
-	${textStyles.t2}
-	color: ${colors.gray800};
+  ${textStyles.t2}
+  color: ${colors.gray800};
 `

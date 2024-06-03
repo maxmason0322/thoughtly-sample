@@ -38,7 +38,7 @@ const Wrapper = styled.div`
   display: grid;
   cursor: pointer;
   width: 100%;
-  
+
   ${fresponsive(css`
     gap: 26px;
     margin-bottom: 60px;

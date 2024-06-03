@@ -7,7 +7,11 @@ export default function Circle({
 	icon = "phone",
 	iconColor = colors.white,
 	className = "",
-}: { icon?: IconType; iconColor?: string; className?: string }) {
+}: {
+	icon?: IconType
+	iconColor?: string
+	className?: string
+}) {
 	return (
 		<Wrapper className={className}>
 			<Inner>
