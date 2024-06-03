@@ -1,9 +1,9 @@
 import Primary from "components/Buttons/Primary"
 import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
-import { ScrollSmoother } from "gsap/ScrollSmoother"
 import { ReactComponent as CloseIcon } from "images/global/icons/closeVideo.svg"
 import UniversalLink from "library/Loader/UniversalLink"
+import { useScrollLock } from "library/Scroll"
 import UniversalImage from "library/UniversalImage"
 import { fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
@@ -171,6 +171,8 @@ export default function DesktopTablet() {
 		)
 	})
 
+	const [_, setScrollIsLocked] = useScrollLock()
+
 	useAnimation(
 		() => {
 			if (
@@ -184,8 +186,7 @@ export default function DesktopTablet() {
 			const tl = gsap.timeline()
 			if (open) {
 				const distance = videoRef.current.getBoundingClientRect()
-				const smoother = ScrollSmoother.get()
-				smoother?.paused(true)
+				setScrollIsLocked(true)
 
 				tl.to(
 					videoRef.current,
@@ -234,7 +235,6 @@ export default function DesktopTablet() {
 						0,
 					)
 			} else {
-				const smoother = ScrollSmoother.get()
 				tl.to(
 					videoRef.current,
 					{
@@ -287,10 +287,10 @@ export default function DesktopTablet() {
 						0,
 					)
 
-				smoother?.paused(false)
+				setScrollIsLocked(false)
 			}
 		},
-		[open, canAnimateVideo],
+		[open, canAnimateVideo, setScrollIsLocked],
 		{ scope: videoRef, recreateOnResize: true },
 	)
 
