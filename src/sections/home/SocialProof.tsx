@@ -1,4 +1,5 @@
 import Kicker from "components/Kicker"
+import { ReactComponent as BatchRoastingSVG } from "images/global/logos/BatchRoasting.svg"
 import { ReactComponent as DopplioSVG } from "images/global/logos/Dopplio.svg"
 import { ReactComponent as EnhanceHealthSVG } from "images/global/logos/EnhanceHealth.svg"
 import { ReactComponent as HonkSVG } from "images/global/logos/Honk.svg"
@@ -22,9 +23,9 @@ export default function SocialProof() {
 					<Logo to={links.selectQuote}>
 						<SelectQuoteSVG />
 					</Logo>
-					{/* <Logo to={links.batchRoasting}>
+					<Logo to={links.batchRoasting}>
 						<BatchRoastingSVG />
-					</Logo> */}
+					</Logo>
 					<HonkLogo to={links.honk}>
 						<HonkSVG />
 					</HonkLogo>
