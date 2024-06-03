@@ -11,13 +11,13 @@ const Integrations = lazy(() => import("sections/home/075-Integrations"))
 const WidgetsAndVideo = lazy(() => import("sections/home/08-WidgetsAndVideo"))
 const FinalCTA = lazy(() => import("sections/home/09-FinalCTA"))
 const Pricing = lazy(() => import("sections/home/Pricing"))
-// const SocialProof = lazy(() => import("sections/home/SocialProof"))
+const SocialProof = lazy(() => import("sections/home/SocialProof"))
 
 export default function IndexPage() {
 	return (
 		<>
 			<Hero />
-			{/* <SocialProof /> */}
+			<SocialProof />
 
 			<Suspense fallback={<div>Loading...</div>}>
 				<Industry />
