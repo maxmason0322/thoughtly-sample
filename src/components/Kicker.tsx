@@ -21,26 +21,34 @@ export default function Kicker({
 	className?: string
 }) {
 	return (
-		<Wrapper
-			className={className}
-			$gradient={!!gradient}
-			$iconColor={iconColor}
-		>
-			{icon && iconLeft && <StyledIcon name={icon} />}
-			{children}
-			{icon && !iconLeft && <StyledIcon name={icon} />}
+		<Wrapper className={className}>
+			<Inner $iconColor={iconColor} $gradient={!!gradient}>
+				{icon && iconLeft && <StyledIcon name={icon} />}
+				{children}
+				{icon && !iconLeft && <StyledIcon name={icon} />}
+			</Inner>
 		</Wrapper>
 	)
 }
 
-const Wrapper = styled.div<{ $gradient: boolean; $iconColor: string }>`
-  width: fit-content;
-  display: flex;
-  align-items: center;
+const Wrapper = styled.div`
+  width: fit-content; 
   color: ${colors.gray700};
   ${textStyles.sh4}
   white-space: nowrap;
-  background: ${gradients.surface1};
+  background-color: ${colors.white};
+
+  ${fresponsive(css`
+    height: 38px;
+    border-radius: 10px;
+    border: 1.5px solid ${colors.gray200};
+  `)}
+`
+
+const Inner = styled.div<{ $gradient: boolean; $iconColor: string }>`
+  display: flex;
+  align-items: center;
+  width: fit-content;
 
   svg {
     path {
@@ -48,23 +56,20 @@ const Wrapper = styled.div<{ $gradient: boolean; $iconColor: string }>`
     }
   }
 
+  ${fresponsive(css`
+    padding: 12px 24px;
+    gap: 8px;
+  `)}
+
   ${({ $gradient }) =>
 		$gradient &&
 		css`
-      ${transparentText}
-      background-image: ${gradients.greenBlue};
-      background-size: 90% 90%;
-      background-repeat: no-repeat;
-      background-position: center center;
-    `}
-
-  ${fresponsive(css`
-    height: 38px;
-    padding: 12px 24px;
-    border-radius: 10px;
-    border: 1.5px solid ${colors.gray200};
-    gap: 8px;
-  `)}
+        ${transparentText}
+        background-image: ${gradients.greenBlue};
+        background-size: 90% 90%;
+        background-repeat: no-repeat;
+        background-position: center center;
+      `}
 `
 
 const StyledIcon = styled(Icon)`
