@@ -75,7 +75,7 @@ export default function Card({
 							</AutoAnimate>
 						</div>
 					</Info>
-					<StyledButton to={links.bookDemo} variant="secondary" openInNewTab>
+					<StyledButton to={links.login} variant="secondary">
 						Get Started
 					</StyledButton>
 				</Row>
