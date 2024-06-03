@@ -8,6 +8,7 @@ import { loader } from "library/Loader"
 import { usePreloader } from "library/Loader/PreloaderUtils"
 import UniversalLink from "library/Loader/UniversalLink"
 import { ScreenContext } from "library/ScreenContext"
+import { useScrollLock } from "library/Scroll"
 import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
@@ -30,6 +31,8 @@ export default function Header() {
 	const lineRef3 = useRef<SVGLineElement | null>(null)
 	const blurRef = useRef<HTMLDivElement | null>(null)
 	const menuRef = useRef<HTMLDivElement | null>(null)
+
+	useScrollLock("lock", menuOpen)
 
 	const data: Queries.NavQuery = useStaticQuery(graphql`
     query Nav {
@@ -149,18 +152,39 @@ export default function Header() {
 						</Buttons>
 						<HR />
 						<MobileLinks>
-							<MobileLink to={links.industries}>
-								<Icon name="lock" />
-								<span>Industries</span>
-							</MobileLink>
-							<MobileLink to={links.integrations}>
-								<Icon name="integration" />
-								<span>Integrations</span>
-							</MobileLink>
-							<MobileLink to={links.pricing}>
-								<Icon name="card" />
-								<span>Pricing</span>
-							</MobileLink>
+							<button
+								type="button"
+								onClick={() => {
+									setMenuOpen(false)
+								}}
+							>
+								<MobileLink to={links.industries}>
+									<Icon name="lock" />
+									<span>Industries</span>
+								</MobileLink>
+							</button>
+							<button
+								type="button"
+								onClick={() => {
+									setMenuOpen(false)
+								}}
+							>
+								<MobileLink to={links.integrations}>
+									<Icon name="integration" />
+									<span>Integrations</span>
+								</MobileLink>
+							</button>
+							<button
+								type="button"
+								onClick={() => {
+									setMenuOpen(false)
+								}}
+							>
+								<MobileLink to={links.pricing}>
+									<Icon name="card" />
+									<span>Pricing</span>
+								</MobileLink>
+							</button>
 							<MobileLink to={links.agentAccelerator}>
 								<Icon name="lightning" />
 								<span>Agent Accelerator</span>
@@ -406,6 +430,7 @@ const Links = styled.div`
 const Hamburger = styled(UniversalLink)`
   display: grid;
   place-items: center;
+	background-color: ${colors.white};
 
   ${fresponsive(css`
     border: 1.5px solid ${colors.gray300};
