@@ -971,7 +971,7 @@ const TextContent = styled.div`
   `)}
 
   ${fmobile(css`
-    padding-left: 12px;
+    padding-left: 0;
   `)}
 `
 
