@@ -34,6 +34,7 @@ const links = {
 	batchRoasting: "https://batchroasting.com/",
 	honk: "https://www.honkforhelp.com/",
 	dopplio: "https://www.dopplio.com/",
+	bookDemo: "https://forms.default.com/448680",
 	mediaInquiries: "mailto:press@thought.ly",
 	contact: "mailto:support@thought.ly",
 	phone: "tel:+18557170250",
