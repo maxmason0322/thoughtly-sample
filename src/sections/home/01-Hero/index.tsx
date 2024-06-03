@@ -1,5 +1,4 @@
 import Button from "components/Buttons/Primary"
-import { CalendlyModalContext } from "components/Providers/CalendlyModalProvider"
 import Unmask from "components/Unmask"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
@@ -26,7 +25,6 @@ gsap.registerPlugin(DrawSVGPlugin)
 export default function Hero() {
 	const { mobile, tablet } = useContext(ScreenContext)
 	const wrapperRef = useRef<HTMLElement | null>(null)
-	const { setModalOpen } = useContext(CalendlyModalContext)
 
 	useAnimation(
 		() => {
@@ -253,10 +251,10 @@ export default function Hero() {
 							parameters={{ delay: 0.45, ease: "power4.out", duration: 2 }}
 						>
 							<Button
-								type="button"
-								onClick={() => setModalOpen(true)}
+								to={links.bookDemo}
 								variant="secondary"
 								icon="calendar"
+								openInNewTab
 							>
 								Book a Demo
 							</Button>

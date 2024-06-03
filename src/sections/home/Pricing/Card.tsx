@@ -1,13 +1,13 @@
 import Button from "components/Buttons/Primary"
 import CheckTag from "components/CheckTag"
 import Icon, { type IconType } from "components/Icon"
-import { CalendlyModalContext } from "components/Providers/CalendlyModalProvider"
 import AutoAnimate from "library/AutoAnimate"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
+import links from "utils/links"
 
 export default function Card({
 	icons,
@@ -29,7 +29,6 @@ export default function Card({
 	showProgress?: boolean
 }) {
 	const [activeIndex, setActiveIndex] = useState(0)
-	const { setModalOpen } = useContext(CalendlyModalContext)
 	const [minutes, setMinutes] = useState(300)
 	const tagEls = tags[activeIndex]?.map((item) => (
 		<CheckTag key={item}>{item}</CheckTag>
@@ -76,11 +75,7 @@ export default function Card({
 							</AutoAnimate>
 						</div>
 					</Info>
-					<StyledButton
-						type="button"
-						onClick={() => setModalOpen(true)}
-						variant="secondary"
-					>
+					<StyledButton to={links.bookDemo} variant="secondary" openInNewTab>
 						Get Started
 					</StyledButton>
 				</Row>
