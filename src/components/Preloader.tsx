@@ -2,7 +2,8 @@ import gsap from "gsap"
 import { ReactComponent as ConnectorSVG } from "images/global/connector.svg"
 import { ReactComponent as LogoSVG } from "images/global/logo.svg"
 import { usePreloader } from "library/Loader/PreloaderUtils"
-import { fresponsive } from "library/fullyResponsive"
+import { fmobile, fresponsive } from "library/fullyResponsive"
+import getMedia from "library/getMedia"
 import useAnimation from "library/useAnimation"
 import { getResponsivePixels } from "library/viewportUtils"
 import { useRef } from "react"
@@ -34,20 +35,23 @@ export default function Preloader() {
 		callback: () => {
 			if (!tl) return
 
+			const scaleFactor = getMedia(1, 1, 1, 2)
+
 			gsap.killTweensOf(tl)
 			gsap.to(tl, { timeScale: 0, duration: 1 })
 			tl.tweenTo(1, { ease: "power1.inOut", duration: 1 })
 
 			gsap.to(clipperRef.current, {
-				x: getResponsivePixels(17 * 7.7),
-				width: getResponsivePixels(17),
+				x: getResponsivePixels(17 * 7.7) / scaleFactor - getMedia(0, 0, 0, 1.5),
+				width: getResponsivePixels(17) / scaleFactor,
 				paddingLeft: getResponsivePixels(1),
+				duration: 0.4,
 			})
 
 			const [logoLeft, logoRight] = [...(wrapperRef.current?.children ?? [])]
 
 			gsap.set([logoLeft, logoRight], { display: "block" })
-			const params = { duration: 1, ease: "power3.inOut", delay: 0.3 }
+			const params = { duration: 0.8, ease: "power3.inOut", delay: 0.3 }
 			gsap.fromTo(
 				logoLeft ?? null,
 				{
@@ -160,4 +164,10 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${colors.beige200};
+
+  ${fmobile(css`
+    & > * {
+      scale: 0.5;
+    }
+  `)}
 `
