@@ -230,7 +230,7 @@ export default function Header() {
 
 			<Inner ref={innerRef}>
 				<Left>
-					<UniversalLink to={links.home}>
+					<UniversalLink to={links.home} ariaLabel="Thoughtly">
 						<StyledLogoSVG />
 					</UniversalLink>
 					<Links>
@@ -246,7 +246,11 @@ export default function Header() {
 						<PrimaryButton to={links.login}>Get Started</PrimaryButton>
 					)}
 					{(mobile || tablet) && (
-						<Hamburger type="button" onClick={() => setMenuOpen((val) => !val)}>
+						<Hamburger
+							type="button"
+							onClick={() => setMenuOpen((val) => !val)}
+							ariaLabel="menu"
+						>
 							<Lines viewBox="0 0 36 12" overflow="visible">
 								<Line ref={lineRef1} x1={0} x2={36} y1={0.5} y2={0.5} />
 								<Line ref={lineRef2} x1={0} x2={36} y1={6} y2={6} />

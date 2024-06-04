@@ -4,7 +4,7 @@ import { useBackButton } from "library/Loader/TransitionUtils"
 import Scroll from "library/Scroll"
 import { useTrackPageReady } from "library/pageReady"
 import useTrackFrameTime from "library/useTrackFrameTime"
-import { Suspense, lazy } from "react"
+import { Suspense, lazy, useEffect, useState } from "react"
 import styled, { createGlobalStyle, css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
@@ -21,6 +21,14 @@ export default function Layout({ children }: LayoutProps) {
 	useBackButton()
 	useTrackFrameTime()
 
+	const [ready, setReady] = useState(false)
+
+	useEffect(() => {
+		setTimeout(() => {
+			setReady(true)
+		}, 100)
+	}, [])
+
 	return (
 		<>
 			<Transition />
@@ -32,7 +40,7 @@ export default function Layout({ children }: LayoutProps) {
 			<GlobalStyle />
 			<ScrollIndex>
 				<Header />
-				<Main id="main">{children}</Main>
+				<Main id="main">{ready ? children : "hi"}</Main>
 				<Footer position="static" />
 			</ScrollIndex>
 			<Suspense>
