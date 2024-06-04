@@ -75,7 +75,8 @@ const Wrapper = styled.div`
     width: 388px;
     border-radius: 18px;
     border: 1.5px solid ${colors.gray300};
-    box-shadow: 0 -1px 6px 0 rgba(38 38 38 / 6%) inset,
+    box-shadow:
+      0 -1px 6px 0 rgba(38 38 38 / 6%) inset,
       0 18px 32px 0 rgba(89 89 89 / 4%);
   `)}
 `

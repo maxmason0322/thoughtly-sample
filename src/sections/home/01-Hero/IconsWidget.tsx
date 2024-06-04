@@ -35,7 +35,8 @@ const Wrapper = styled.div`
     width: 48px;
     height: 280px;
     border-radius: 18px;
-    box-shadow: 0 -1px 6px 0 rgba(38 38 38 / 6%) inset,
+    box-shadow:
+      0 -1px 6px 0 rgba(38 38 38 / 6%) inset,
       0 18px 32px 0 rgba(89 89 89 / 4%);
   `)}
 

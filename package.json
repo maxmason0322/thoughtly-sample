@@ -4,7 +4,7 @@
 	"description": "Thoughlty Marketing Site",
 	"version": "0.1.0",
 	"author": "Reform Collective",
-	"packageManager": "pnpm@9.1.0-0+sha256.c557b24d2298d9b5e3be7086ebf55a28253b008324d545f72645a6de89844102",
+	"packageManager": "pnpm@9.1.4+sha256.30a1801ac4e723779efed13a21f4c39f9eb6c9fbb4ced101bce06b422593d7c9",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/gatsbyjs/thoughtly"

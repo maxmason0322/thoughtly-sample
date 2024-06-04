@@ -33,7 +33,7 @@ const Wrapper = styled.section`
     width: 100%;
   `)}
 
-	${fmobile(css`
-		height: 1350px;
-	`)}
+  ${fmobile(css`
+    height: 1350px;
+  `)}
 `

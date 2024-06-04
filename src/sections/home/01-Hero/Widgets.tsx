@@ -143,7 +143,6 @@ export default function Widgets() {
 
 const StartWidget = styled(Widget)`
   position: absolute;
-  opacity: 0;
 
   ${fresponsive(css`
     top: 372px;
@@ -175,7 +174,7 @@ const SpeakWidget = styled(Widget)`
   `)}
 
   ${ftablet(css`
-    opacity: 0;
+    opacity: 1;
     top: 1131px;
     right: 118px;
   `)}
@@ -319,7 +318,7 @@ const ActionImage = styled(UniversalImage)`
 const StyledCallWidget = styled(CallWidget)`
   position: absolute;
   z-index: 1;
-  display: none;
+  display: flex;
 
   ${fresponsive(css`
     top: 150px;
@@ -342,7 +341,7 @@ const StyledCallWidget = styled(CallWidget)`
 const StyledIconsWidget = styled(IconsWidget)`
   position: absolute;
   z-index: 1;
-  display: none;
+  display: flex;
 
   ${fresponsive(css`
     top: 150px;
@@ -362,7 +361,7 @@ const StyledIconsWidget = styled(IconsWidget)`
 const StyledAvatarWidget = styled(AvatarWidget)`
   position: absolute;
   z-index: 1;
-  display: none;
+  display: flex;
 
   ${fresponsive(css`
     top: 452px;

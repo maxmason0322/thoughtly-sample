@@ -1,9 +1,10 @@
 import gsap from "gsap"
-import { loader } from "library/Loader"
 import { fresponsive, ftablet } from "library/fullyResponsive"
+import useAnimation from "library/useAnimation"
 import type { ReactNode } from "react"
 import { useRef } from "react"
 import styled, { css } from "styled-components"
+import { useDeepCompareMemo } from "use-deep-compare"
 
 export default function Unmask({
 	children,
@@ -13,10 +14,10 @@ export default function Unmask({
 	parameters?: GSAPTweenVars
 }) {
 	const wrapperRef = useRef<HTMLDivElement | null>(null)
+	const stableParameters = useDeepCompareMemo(() => parameters, [parameters])
 
-	const initScrollTrigger = () => {
+	useAnimation(() => {
 		if (!wrapperRef.current) return
-
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: wrapperRef.current,
@@ -24,14 +25,12 @@ export default function Unmask({
 			},
 		})
 
-		tl.to(wrapperRef.current?.children, {
+		tl.to(wrapperRef.current.children, {
 			y: 0,
 			opacity: 1,
-			...parameters,
+			...stableParameters,
 		})
-	}
-
-	loader.useEventListener("end", initScrollTrigger)
+	}, [stableParameters])
 
 	return <Wrapper ref={wrapperRef}>{children}</Wrapper>
 }
@@ -55,6 +54,7 @@ const Wrapper = styled.div`
   & > * {
     position: relative;
     transform: translateY(130%);
+    will-change: transform;
 
     ${ftablet(css`
       opacity: 0;
