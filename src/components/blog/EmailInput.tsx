@@ -23,8 +23,6 @@ const sendEmail = async (email: string) => {
 		body: formData,
 	})
 
-	console.log(response)
-
 	if (!response.ok) {
 		throw new Error("Submission failed")
 	}
