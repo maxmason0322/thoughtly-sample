@@ -103,6 +103,7 @@ const Logo = styled(UniversalLink)`
   justify-content: center;
   filter: grayscale(100%) opacity(45%);
   transition: filter 0.75s ease;
+  isolation: isolate;
 
   &:hover {
     filter: none;
@@ -117,4 +118,9 @@ const Logo = styled(UniversalLink)`
     width: 105px;
     height: 36px;
   `)}
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
 `
