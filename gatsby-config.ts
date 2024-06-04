@@ -75,7 +75,7 @@ const config: GatsbyConfig = {
 				start_url: "/",
 				background_color: "#ffffff",
 				theme_color: "#ffffff",
-				display: "minimal-ui",
+				display: "browser",
 				icon: "./src/images/global/favicon.png",
 			},
 		},

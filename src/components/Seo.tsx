@@ -84,6 +84,7 @@ export default function Seo({
 				name="viewport"
 				content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
 			/>
+			<link rel="preconnect" href="https://s3-us-west-2.amazonaws.com" />
 
 			{/* twitter seo */}
 			<meta name="twitter:card" content="summary_large_image" />

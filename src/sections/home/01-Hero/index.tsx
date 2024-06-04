@@ -172,7 +172,6 @@ export default function Hero() {
 		only: "whenAtTop",
 		duration: 2,
 		callback: () => {
-			console.log("CALLBACK")
 			gsap.from(wrapperRef.current, {
 				y: "100lvh",
 				duration: 1,

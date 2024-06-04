@@ -17,19 +17,19 @@ export default function SocialProof() {
 			<Inner>
 				<Kicker gradient>Trusted By</Kicker>
 				<Logos>
-					<Logo to={links.enhanceHealth}>
+					<Logo to={links.enhanceHealth} ariaLabel="Enhance Health Logo">
 						<EnhanceHealthSVG />
 					</Logo>
-					<Logo to={links.selectQuote}>
+					<Logo to={links.selectQuote} ariaLabel="Select Quote Logo">
 						<SelectQuoteSVG />
 					</Logo>
-					<Logo to={links.batchRoasting}>
+					<Logo to={links.batchRoasting} ariaLabel="Batch Roasting Logo">
 						<BatchRoastingSVG />
 					</Logo>
-					<Logo to={links.honk}>
+					<Logo to={links.honk} ariaLabel="Honk Logo">
 						<HonkSVG />
 					</Logo>
-					<Logo to={links.dopplio}>
+					<Logo to={links.dopplio} ariaLabel="Dopplio Logo">
 						<DopplioSVG />
 					</Logo>
 				</Logos>
