@@ -5,6 +5,7 @@ import { ReactComponent as GraphSVG } from "images/home/hero/anal-graph.svg"
 import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
+import useMedia from "library/useMedia"
 import { useRef } from "react"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
@@ -15,6 +16,7 @@ import IconsWidget from "./IconsWidget"
 export default function Widgets() {
 	const bar1Ref = useRef<HTMLDivElement>(null)
 	const bar2Ref = useRef<HTMLDivElement>(null)
+	const mobile = useMedia(false, false, false, true)
 	const images: Queries.HomeHeroQuery = useStaticQuery(graphql`
     query HomeHero {
       webhook: file(relativePath: { eq: "home/hero/webhook.png" }) {
@@ -63,7 +65,7 @@ export default function Widgets() {
 	return (
 		<>
 			<StyledCallWidget className="call-widget" />
-			<StyledIconsWidget className="icons-widget" />
+			{!mobile && <StyledIconsWidget className="icons-widget" />}
 			<StyledAvatarWidget className="avatar-widget" />
 			<StartWidget
 				className="start-widget"
