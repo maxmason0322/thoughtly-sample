@@ -4,6 +4,7 @@ import { ReactComponent as CalendarSVG } from "images/global/icons/Calendar.svg"
 import { ReactComponent as ChevSVG } from "images/global/icons/Chev.svg"
 import { ReactComponent as ChevDownSVG } from "images/global/icons/ChevDown.svg"
 import { ReactComponent as CopyPasteSVG } from "images/global/icons/CopyPaste.svg"
+import { ReactComponent as CustomersSVG } from "images/global/icons/Customers.svg"
 import { ReactComponent as GeniusSVG } from "images/global/icons/Genius.svg"
 import { ReactComponent as IntegrationSVG } from "images/global/icons/Integration.svg"
 import { ReactComponent as LockSVG } from "images/global/icons/Lock.svg"
@@ -78,6 +79,7 @@ const iconMap = {
 	card: CardSVG,
 	feather: FeatherSVG,
 	lightning: LightningSVG,
+	customers: CustomersSVG,
 }
 
 export type IconType = keyof typeof iconMap
