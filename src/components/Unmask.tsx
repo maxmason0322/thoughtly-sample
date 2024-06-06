@@ -36,29 +36,29 @@ export default function Unmask({
 }
 
 const Wrapper = styled.div`
-  overflow: clip;
-  height: min-content;
-  width: fit-content;
-  position: relative;
-  display: flex;
-  ${fresponsive(css`
-    padding: 8px;
-    margin: -8px;
-  `)}
+	overflow: clip;
+	height: min-content;
+	width: fit-content;
+	position: relative;
+	display: flex;
+	${fresponsive(css`
+		padding: 8px;
+		margin: -8px;
+	`)}
 
-  ${ftablet(css`
-    padding: 8px;
-    margin: -8px;
-  `)}
+	${ftablet(css`
+		padding: 8px;
+		margin: -8px;
+	`)}
 
   & > * {
-    position: relative;
-    transform: translateY(130%);
-    will-change: transform;
+		position: relative;
+		transform: translateY(130%);
+		will-change: transform;
 
-    ${ftablet(css`
-      opacity: 0;
-      transform: translateY(0);
-    `)}
-  }
+		${ftablet(css`
+			opacity: 0;
+			transform: translateY(0);
+		`)}
+	}
 `

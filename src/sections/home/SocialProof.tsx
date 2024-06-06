@@ -40,87 +40,87 @@ export default function SocialProof() {
 }
 
 const Wrapper = styled.section`
-  display: grid;
-  place-items: center;
-  width: 100%;
-  background-color: ${colors.beige200};
+	display: grid;
+	place-items: center;
+	width: 100%;
+	background-color: ${colors.beige200};
 `
 
 const Inner = styled.div`
-  width: 100%;
-  max-width: ${desktopBreakpoint}px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	width: 100%;
+	max-width: ${desktopBreakpoint}px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 
-  ${fresponsive(css`
-    padding: 72px 156px 100px;
-    gap: 70px;
-  `)}
+	${fresponsive(css`
+		padding: 72px 156px 100px;
+		gap: 70px;
+	`)}
 
-  ${ftablet(css`
-    padding: 72px 66px 100px;
-  `)}
+	${ftablet(css`
+		padding: 72px 66px 100px;
+	`)}
 
   ${fmobile(css`
-    padding: 72px 12px 0;
-    gap: 55px;
-  `)}
+		padding: 72px 12px 0;
+		gap: 55px;
+	`)}
 `
 
 const Logos = styled.div`
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 
-  ${fresponsive(css`
-    gap: 60px;
-  `)}
+	${fresponsive(css`
+		gap: 60px;
+	`)}
 
-  ${ftablet(css`
-    gap: 48px;
-  `)}
+	${ftablet(css`
+		gap: 48px;
+	`)}
 
   ${fmobile(css`
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 18px;
-  `)}
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 18px;
+	`)}
 `
 
 const Line = styled.hr`
-  width: 100%;
-  height: 1.5px;
-  background-color: ${colors.gray300};
+	width: 100%;
+	height: 1.5px;
+	background-color: ${colors.gray300};
 
-  ${fmobile(css`
-    width: 314px;
-  `)}
+	${fmobile(css`
+		width: 314px;
+	`)}
 `
 
 const Logo = styled(UniversalLink)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  filter: grayscale(100%) opacity(45%);
-  transition: filter 0.75s ease;
-  isolation: isolate;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	filter: grayscale(100%) opacity(45%);
+	transition: filter 0.75s ease;
+	isolation: isolate;
 
-  &:hover {
-    filter: none;
-  }
+	&:hover {
+		filter: none;
+	}
 
-  ${fresponsive(css`
-    width: 140px;
-    height: 48px;
-  `)}
+	${fresponsive(css`
+		width: 140px;
+		height: 48px;
+	`)}
 
-  ${fmobile(css`
-    width: 105px;
-    height: 36px;
-  `)}
+	${fmobile(css`
+		width: 105px;
+		height: 36px;
+	`)}
 
   svg {
-    width: 100%;
-    height: 100%;
-  }
+		width: 100%;
+		height: 100%;
+	}
 `

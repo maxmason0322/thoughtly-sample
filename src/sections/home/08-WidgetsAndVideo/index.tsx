@@ -26,14 +26,14 @@ export default function WidgetsAndVideo() {
 }
 
 const Wrapper = styled.section`
-  position: relative;
-  background: ${colors.beige200};
-  ${fresponsive(css`
-    height: 1525px;
-    width: 100%;
-  `)}
+	position: relative;
+	background: ${colors.beige200};
+	${fresponsive(css`
+		height: 1525px;
+		width: 100%;
+	`)}
 
-  ${fmobile(css`
-    height: 1350px;
-  `)}
+	${fmobile(css`
+		height: 1350px;
+	`)}
 `

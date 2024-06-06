@@ -29,19 +29,19 @@ export default function FinalCTA() {
 	const graphCover = useRef<HTMLDivElement | null>(null)
 	const { setModalOpen } = useContext(CalendlyModalContext)
 	const ctaImages: Queries.CTAImagesQuery = useStaticQuery(graphql`
-    query CTAImages {
-      allCtaImages: allFile(
-        filter: { relativeDirectory: { eq: "home/cta" } }
-        sort: { relativePath: ASC }
-      ) {
-        nodes {
-          childImageSharp {
-            gatsbyImageData
-          }
-        }
-      }
-    }
-  `)
+		query CTAImages {
+			allCtaImages: allFile(
+				filter: { relativeDirectory: { eq: "home/cta" } }
+				sort: { relativePath: ASC }
+			) {
+				nodes {
+					childImageSharp {
+						gatsbyImageData
+					}
+				}
+			}
+		}
+	`)
 
 	const allCardData = [
 		{
@@ -165,306 +165,306 @@ export default function FinalCTA() {
 }
 
 const Wrapper = styled.section`
-  width: 100%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: ${colors.beige200};
-  overflow: clip;
+	width: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: ${colors.beige200};
+	overflow: clip;
 
-  ${fresponsive(css`
-    padding-bottom: 182px;
-  `)}
+	${fresponsive(css`
+		padding-bottom: 182px;
+	`)}
 
-  ${ftablet(css`
-    padding-bottom: 98px;
-  `)}
+	${ftablet(css`
+		padding-bottom: 98px;
+	`)}
 
   ${fmobile(css`
-    padding-bottom: 56px;
-  `)}
+		padding-bottom: 56px;
+	`)}
 `
 
 const Inner = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  z-index: 1;
-  position: relative;
-  ${fresponsive(css`
-    width: 1440px;
-    max-width: ${desktopBreakpoint}px;
-    padding: 79px 162px 77px 156px;
-  `)}
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	z-index: 1;
+	position: relative;
+	${fresponsive(css`
+		width: 1440px;
+		max-width: ${desktopBreakpoint}px;
+		padding: 79px 162px 77px 156px;
+	`)}
 
-  ${ftablet(css`
-    max-width: ${tabletBreakpoint}px;
-    padding: 86px 69px 129px 68px;
-  `)}
+	${ftablet(css`
+		max-width: ${tabletBreakpoint}px;
+		padding: 86px 69px 129px 68px;
+	`)}
 
   ${fmobile(css`
-    width: 100%;
-    max-width: ${mobileBreakpoint}px;
-    padding: 57px 25px 73px;
-  `)}
+		width: 100%;
+		max-width: ${mobileBreakpoint}px;
+		padding: 57px 25px 73px;
+	`)}
 `
 
 const Top = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 
-  ${fresponsive(css`
-    gap: 98px;
-    width: 100%;
-  `)}
+	${fresponsive(css`
+		gap: 98px;
+		width: 100%;
+	`)}
 
-  ${ftablet(css`
-    gap: 36px;
-    flex-direction: column;
-  `)}
+	${ftablet(css`
+		gap: 36px;
+		flex-direction: column;
+	`)}
 
 
   ${fmobile(css`
-    gap: 36px;
-    flex-direction: column;
-  `)}
+		gap: 36px;
+		flex-direction: column;
+	`)}
 `
 
 const Left = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 
-  ${fresponsive(css`
-    gap: 18px;
-    width: 647px;
-  `)}
+	${fresponsive(css`
+		gap: 18px;
+		width: 647px;
+	`)}
 
-  ${fmobile(css`
-    gap: 24px;
-    width: 325px;
-    align-items: center;
-  `)}
+	${fmobile(css`
+		gap: 24px;
+		width: 325px;
+		align-items: center;
+	`)}
 `
 
 const Header = styled.h1`
-  ${textStyles.h3}
+	${textStyles.h3}
 
-  ${ftablet(css`
-    ${textStyles.h2};
-  `)}
+	${ftablet(css`
+		${textStyles.h2};
+	`)}
 
   ${fmobile(css`
-    ${textStyles.h6};
-    text-align: center;
-  `)}
+		${textStyles.h6};
+		text-align: center;
+	`)}
 `
 
 const Right = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  flex-shrink: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	flex-shrink: 0;
 
-  ${fresponsive(css`
-    gap: 32px;
-  `)}
-  ${fmobile(css`
-    flex-direction: column-reverse;
-    align-items: center;
-  `)}
+	${fresponsive(css`
+		gap: 32px;
+	`)}
+	${fmobile(css`
+		flex-direction: column-reverse;
+		align-items: center;
+	`)}
 `
 
 const Row = styled.div`
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
 
-  ${fresponsive(css`
-    gap: 20px;
-  `)}
+	${fresponsive(css`
+		gap: 20px;
+	`)}
 
-  ${fmobile(css`
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-  `)}
+	${fmobile(css`
+		flex-direction: column;
+		gap: 12px;
+		align-items: center;
+	`)}
 `
 
 const Content = styled.p`
-  ${textStyles.bodyR}
+	${textStyles.bodyR}
 
-  ${fresponsive(css`
-    width: 374px;
-  `)}
+	${fresponsive(css`
+		width: 374px;
+	`)}
 
   ${ftablet(css`
-    width: 423px;
-    ${textStyles.bodyL};
-  `)}
+		width: 423px;
+		${textStyles.bodyL};
+	`)}
 
 
   ${fmobile(css`
-    width: 273px;
-    ${textStyles.bodyR};
-    text-align: center;
-  `)}
+		width: 273px;
+		${textStyles.bodyR};
+		text-align: center;
+	`)}
 `
 
 const Graph = styled(GraphSVG)`
-  position: absolute;
-  bottom: 0;
-  ${fresponsive(css`
-    width: 1680px;
-    height: 645px;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 60px;
-  `)}
-  ${ftablet(css`
-    display: none;
-  `)}
+	position: absolute;
+	bottom: 0;
+	${fresponsive(css`
+		width: 1680px;
+		height: 645px;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 60px;
+	`)}
+	${ftablet(css`
+		display: none;
+	`)}
   ${fmobile(css`
-    display: none;
-  `)}
+		display: none;
+	`)}
 `
 
 const GraphT = styled(GraphTSVG)`
-  position: absolute;
-  bottom: 0;
-  ${fresponsive(css`
-    display: none;
-  `)}
+	position: absolute;
+	bottom: 0;
+	${fresponsive(css`
+		display: none;
+	`)}
 
-  ${ftablet(css`
-    display: inline-block;
-    width: 1024px;
-    height: 449px;
-    bottom: 90px;
-  `)}
+	${ftablet(css`
+		display: inline-block;
+		width: 1024px;
+		height: 449px;
+		bottom: 90px;
+	`)}
 
   ${fmobile(css`
-    display: none;
-  `)}
+		display: none;
+	`)}
 `
 
 const GraphM = styled(GraphMSVG)`
-  position: absolute;
-  bottom: 0;
+	position: absolute;
+	bottom: 0;
 
-  ${fresponsive(css`
-    display: none;
-  `)}
+	${fresponsive(css`
+		display: none;
+	`)}
 
-  ${fmobile(css`
-    display: inline-block;
-    position: relative;
-    width: 375px;
-    height: 237px;
-  `)}
+	${fmobile(css`
+		display: inline-block;
+		position: relative;
+		width: 375px;
+		height: 237px;
+	`)}
 `
 
 const GraphCover = styled.div`
-  position: absolute;
-  bottom: 0;
-  background: ${colors.beige200};
-  ${fresponsive(css`
-    width: 1680px;
-    height: 645px;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 60px;
-  `)}
+	position: absolute;
+	bottom: 0;
+	background: ${colors.beige200};
+	${fresponsive(css`
+		width: 1680px;
+		height: 645px;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 60px;
+	`)}
 `
 
 const Bottom = styled.div`
-  position: relative;
-  width: 100%;
-  z-index: 0;
+	position: relative;
+	width: 100%;
+	z-index: 0;
 
-  ${fresponsive(css`
-    height: 473px;
-  `)}
+	${fresponsive(css`
+		height: 473px;
+	`)}
 
-  ${fmobile(css`
-    height: 237px;
-  `)}
+	${fmobile(css`
+		height: 237px;
+	`)}
 `
 
 const PhotoPanel = styled.div`
-  position: absolute;
-  display: flex;
-  ${fresponsive(css`
-    padding-left: 56px;
-    gap: 46px;
-    width: 1680px;
-    height: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-  `)}
+	position: absolute;
+	display: flex;
+	${fresponsive(css`
+		padding-left: 56px;
+		gap: 46px;
+		width: 1680px;
+		height: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+	`)}
 
-  ${ftablet(css`
-    left: -178px;
-    transform: translateX(0);
-  `)}
+	${ftablet(css`
+		left: -178px;
+		transform: translateX(0);
+	`)}
 
   ${fmobile(css`
-    width: 851px;
-    height: 237px;
-    padding-left: 39px;
-    transform: translateX(0);
-    left: -238px;
-    top: 24px;
-    gap: 23px;
-  `)}
+		width: 851px;
+		height: 237px;
+		padding-left: 39px;
+		transform: translateX(0);
+		left: -238px;
+		top: 24px;
+		gap: 23px;
+	`)}
 `
 
 const ImageCard = styled.div<{ $yOffset?: string }>`
-  position: relative;
-  background: ${gradients.surface1};
-  overflow: clip;
-  ${generateGradientBorder(gradients.surfaceOutline, 1.5)};
-  ${({ $yOffset }) =>
+	position: relative;
+	background: ${gradients.surface1};
+	overflow: clip;
+	${generateGradientBorder(gradients.surfaceOutline, 1.5)};
+	${({ $yOffset }) =>
 		fresponsive(css`
-      width: 288px;
-      height: 352px;
-      top: ${$yOffset};
-      transform: translateY(75%);
-      border-radius: 18px;
-      box-shadow: 0 18px 42px 0 rgba(89 89 89 / 8%);
-    `)}
+			width: 288px;
+			height: 352px;
+			top: ${$yOffset};
+			transform: translateY(75%);
+			border-radius: 18px;
+			box-shadow: 0 18px 42px 0 rgba(89 89 89 / 8%);
+		`)}
 
-  ${({ $yOffset }) =>
+	${({ $yOffset }) =>
 		fmobile(css`
-      width: 144px;
-      height: 176px;
-      padding: 10px;
-      border-radius: 9px;
-      top: ${$yOffset};
+			width: 144px;
+			height: 176px;
+			padding: 10px;
+			border-radius: 9px;
+			top: ${$yOffset};
 
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    `)}
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		`)}
 `
 
 const Frame = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: ${gradients.surface1};
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: ${gradients.surface1};
 
-  ${fresponsive(css`
-    padding: 20px;
-    border-radius: 18px;
-  `)}
+	${fresponsive(css`
+		padding: 20px;
+		border-radius: 18px;
+	`)}
 
-  ${fmobile(css`
-    padding: 10px;
-    border-radius: 8px;
-  `)}
+	${fmobile(css`
+		padding: 10px;
+		border-radius: 8px;
+	`)}
 `

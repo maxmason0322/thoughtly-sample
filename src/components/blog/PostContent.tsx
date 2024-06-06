@@ -36,65 +36,65 @@ export default function PostContent({ post }: { post: BlogPost }) {
 }
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 
-  ${fresponsive(css`
-    border-bottom: 1.5px solid ${colors.gray300};
-    padding-bottom: 32px;
-    gap: 24px;
-  `)}
+	${fresponsive(css`
+		border-bottom: 1.5px solid ${colors.gray300};
+		padding-bottom: 32px;
+		gap: 24px;
+	`)}
 `
 
 const Title = styled.h1`
-  ${textStyles.h6}
+	${textStyles.h6}
 
-  ${fmobile(css`
-    ${textStyles.sh1}
-  `)}
+	${fmobile(css`
+		${textStyles.sh1}
+	`)}
 `
 
 const ArticleImage = styled(UniversalImage)`
-  aspect-ratio: 680 / 442;
-  width: 100%;
+	aspect-ratio: 680 / 442;
+	width: 100%;
 
-  ${fresponsive(css`
-    border-radius: 24px;
-  `)}
+	${fresponsive(css`
+		border-radius: 24px;
+	`)}
 
-  ${ftablet(css`
-    aspect-ratio: 600 / 442;
-  `)}
+	${ftablet(css`
+		aspect-ratio: 600 / 442;
+	`)}
 
   ${fmobile(css`
-    aspect-ratio: 314 / 186;
-  `)}
+		aspect-ratio: 314 / 186;
+	`)}
 `
 
 const Categories = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
 
-  ${fresponsive(css`
-    gap: 8px;
-  `)}
+	${fresponsive(css`
+		gap: 8px;
+	`)}
 `
 
 const Category = styled(UniversalLink)`
-  ${trim(1.3)}
-  display: flex;
-  ${textStyles.sh4}
+	${trim(1.3)}
+	display: flex;
+	${textStyles.sh4}
 
-  ${fresponsive(css`
-    padding: 12px 24px;
-    border-radius: 10px;
-    border: 1.5px solid ${colors.gray200};
-    color: ${colors.gray700};
-  `)}
+	${fresponsive(css`
+		padding: 12px 24px;
+		border-radius: 10px;
+		border: 1.5px solid ${colors.gray200};
+		color: ${colors.gray700};
+	`)}
 `
 
 const Row = styled.div`
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 `

@@ -36,17 +36,17 @@ export default function Seo({
 	creator,
 }: SEOProps) {
 	const data: Queries.SeoQuery = useStaticQuery(graphql`
-    query Seo {
-      site {
-        siteMetadata {
-          title
-          description
-          image
-          siteUrl
-        }
-      }
-    }
-  `)
+		query Seo {
+			site {
+				siteMetadata {
+					title
+					description
+					image
+					siteUrl
+				}
+			}
+		}
+	`)
 
 	const {
 		title: defaultTitle,

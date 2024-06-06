@@ -13,23 +13,23 @@ export default function CheckTag({ children }: { children: ReactNode }) {
 }
 
 const Wrapper = styled.div`
-  width: fit-content;
-  position: relative;
-  background: #f7f7f7;
-  color: #727272;
-  display: flex;
-  ${textStyles.bodyXS};
+	width: fit-content;
+	position: relative;
+	background: #f7f7f7;
+	color: #727272;
+	display: flex;
+	${textStyles.bodyXS};
 
-  ${fresponsive(css`
-    gap: 10px;
-    padding: 10px;
-    border-radius: 9px;
-  `)}
+	${fresponsive(css`
+		gap: 10px;
+		padding: 10px;
+		border-radius: 9px;
+	`)}
 `
 
 const StyledIcon = styled(Icon)`
-  ${fresponsive(css`
-    width: 14px;
-    height: 14px;
-  `)}
+	${fresponsive(css`
+		width: 14px;
+		height: 14px;
+	`)}
 `
