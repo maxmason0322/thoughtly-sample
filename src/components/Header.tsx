@@ -434,7 +434,7 @@ const Links = styled.div`
 const Hamburger = styled(UniversalLink)`
   display: grid;
   place-items: center;
-	background-color: ${colors.white};
+  background-color: ${colors.white};
 
   ${fresponsive(css`
     border: 1.5px solid ${colors.gray300};

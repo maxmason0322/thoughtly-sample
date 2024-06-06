@@ -32,7 +32,7 @@ export default function Kicker({
 }
 
 const Wrapper = styled.div`
-  width: fit-content; 
+  width: fit-content;
   color: ${colors.gray700};
   ${textStyles.sh4}
   white-space: nowrap;
@@ -64,12 +64,12 @@ const Inner = styled.div<{ $gradient: boolean; $iconColor: string }>`
   ${({ $gradient }) =>
 		$gradient &&
 		css`
-        ${transparentText}
-        background-image: ${gradients.greenBlue};
-        background-size: 90% 90%;
-        background-repeat: no-repeat;
-        background-position: center center;
-      `}
+      ${transparentText}
+      background-image: ${gradients.greenBlue};
+      background-size: 90% 90%;
+      background-repeat: no-repeat;
+      background-position: center center;
+    `}
 `
 
 const StyledIcon = styled(Icon)`
