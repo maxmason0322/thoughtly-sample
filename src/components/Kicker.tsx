@@ -32,51 +32,51 @@ export default function Kicker({
 }
 
 const Wrapper = styled.div`
-  width: fit-content;
-  color: ${colors.gray700};
-  ${textStyles.sh4}
-  white-space: nowrap;
-  background-color: ${colors.white};
+	width: fit-content;
+	color: ${colors.gray700};
+	${textStyles.sh4}
+	white-space: nowrap;
+	background-color: ${colors.white};
 
-  ${fresponsive(css`
-    height: 38px;
-    border-radius: 10px;
-    border: 1.5px solid ${colors.gray200};
-  `)}
+	${fresponsive(css`
+		height: 38px;
+		border-radius: 10px;
+		border: 1.5px solid ${colors.gray200};
+	`)}
 `
 
 const Inner = styled.div<{ $gradient: boolean; $iconColor: string }>`
-  display: flex;
-  align-items: center;
-  width: fit-content;
+	display: flex;
+	align-items: center;
+	width: fit-content;
 
-  svg {
-    path {
-      fill: ${({ $iconColor }) => $iconColor};
-    }
-  }
+	svg {
+		path {
+			fill: ${({ $iconColor }) => $iconColor};
+		}
+	}
 
-  ${fresponsive(css`
-    padding: 12px 24px;
-    gap: 8px;
-  `)}
+	${fresponsive(css`
+		padding: 12px 24px;
+		gap: 8px;
+	`)}
 
-  ${({ $gradient }) =>
+	${({ $gradient }) =>
 		$gradient &&
 		css`
-      ${transparentText}
-      background-image: ${gradients.greenBlue};
-      background-size: 90% 90%;
-      background-repeat: no-repeat;
-      background-position: center center;
-    `}
+			${transparentText}
+			background-image: ${gradients.greenBlue};
+			background-size: 90% 90%;
+			background-repeat: no-repeat;
+			background-position: center center;
+		`}
 `
 
 const StyledIcon = styled(Icon)`
-  flex-shrink: 0;
+	flex-shrink: 0;
 
-  ${fresponsive(css`
-    width: 12px;
-    height: 12px;
-  `)}
+	${fresponsive(css`
+		width: 12px;
+		height: 12px;
+	`)}
 `

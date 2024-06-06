@@ -18,42 +18,42 @@ export default function Features() {
 	const mobile = useMedia(false, false, false, true)
 
 	const data: Queries.FeaturesQuery = useStaticQuery(graphql`
-    query Features {
-      allHomeFeaturesJson {
-        nodes {
-          icon
-          title
-          text
-          link {
-            href
-            text
-          }
-          strokeIcon
-          background {
-            childImageSharp {
-              original {
-                src
-              }
-            }
-          }
-          backgroundTablet {
-            childImageSharp {
-              original {
-                src
-              }
-            }
-          }
-          backgroundMobile {
-            childImageSharp {
-              original {
-                src
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
+		query Features {
+			allHomeFeaturesJson {
+				nodes {
+					icon
+					title
+					text
+					link {
+						href
+						text
+					}
+					strokeIcon
+					background {
+						childImageSharp {
+							original {
+								src
+							}
+						}
+					}
+					backgroundTablet {
+						childImageSharp {
+							original {
+								src
+							}
+						}
+					}
+					backgroundMobile {
+						childImageSharp {
+							original {
+								src
+							}
+						}
+					}
+				}
+			}
+		}
+	`)
 
 	const cards = data.allHomeFeaturesJson.nodes.map((item, index) => {
 		const textWidths = [
@@ -130,34 +130,34 @@ export default function Features() {
 }
 
 const Wrapper = styled.section`
-  width: 100%;
-  display: grid;
-  place-items: center;
-  background-color: ${colors.beige200};
+	width: 100%;
+	display: grid;
+	place-items: center;
+	background-color: ${colors.beige200};
 `
 
 const Inner = styled.div`
-  width: 100%;
-  max-width: ${desktopBreakpoint}px;
-  display: grid;
+	width: 100%;
+	max-width: ${desktopBreakpoint}px;
+	display: grid;
 
-  ${fresponsive(css`
-    padding: 111px 156px 200px;
-    gap: 24px 24px;
-    grid-auto-rows: 329px 420px 289px;
-    grid-template-columns: 360px 168px 168px 360px;
-  `)}
+	${fresponsive(css`
+		padding: 111px 156px 200px;
+		gap: 24px 24px;
+		grid-auto-rows: 329px 420px 289px;
+		grid-template-columns: 360px 168px 168px 360px;
+	`)}
 
-  ${ftablet(css`
-    grid-auto-rows: 348px 306px 306px 276px;
-    grid-template-columns: 432px 93px 339px;
-    padding: 0 68px 202px;
-  `)}
+	${ftablet(css`
+		grid-auto-rows: 348px 306px 306px 276px;
+		grid-template-columns: 432px 93px 339px;
+		padding: 0 68px 202px;
+	`)}
 
 	${fmobile(css`
-    padding: 0 30px 24px;
-    grid-template-columns: 315px;
-    grid-auto-rows: 360px 360px 360px 360px 360px 420px;
-    gap: 12px;
-  `)}
+		padding: 0 30px 24px;
+		grid-template-columns: 315px;
+		grid-auto-rows: 360px 360px 360px 360px 360px 420px;
+		gap: 12px;
+	`)}
 `

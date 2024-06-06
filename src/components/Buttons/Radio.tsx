@@ -26,36 +26,36 @@ export default function Radio({
 }
 
 const RadioButton = styled.div`
-  position: absolute;
-  background-color: ${colors.green400};
-  transition: opacity 0.25s;
+	position: absolute;
+	background-color: ${colors.green400};
+	transition: opacity 0.25s;
 
-  ${fresponsive(css`
-    box-shadow: 0 1px 1.8px 0 rgba(0 0 0 / 19%) inset;
-    transform: translateX(-50%);
-    left: 50%;
-    bottom: 4px;
-    height: 8px;
-    width: 8px;
-    border-radius: 50%;
-  `)}
+	${fresponsive(css`
+		box-shadow: 0 1px 1.8px 0 rgba(0 0 0 / 19%) inset;
+		transform: translateX(-50%);
+		left: 50%;
+		bottom: 4px;
+		height: 8px;
+		width: 8px;
+		border-radius: 50%;
+	`)}
 `
 
 const Input = styled.button<{ $active: boolean }>`
-  position: relative;
-  cursor: pointer;
-  transition: background-color 0.25s;
-  background-color: ${({ $active }) =>
+	position: relative;
+	cursor: pointer;
+	transition: background-color 0.25s;
+	background-color: ${({ $active }) =>
 		$active ? colors.green100 : colors.gray200};
 
-  ${RadioButton} {
-    opacity: ${({ $active }) => ($active ? 1 : 0)};
-  }
+	${RadioButton} {
+		opacity: ${({ $active }) => ($active ? 1 : 0)};
+	}
 
-  ${fresponsive(css`
-    box-shadow: 0 1px 1.8px 0 rgba(0 0 0 / 19%) inset;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-  `)}
+	${fresponsive(css`
+		box-shadow: 0 1px 1.8px 0 rgba(0 0 0 / 19%) inset;
+		height: 16px;
+		width: 16px;
+		border-radius: 50%;
+	`)}
 `

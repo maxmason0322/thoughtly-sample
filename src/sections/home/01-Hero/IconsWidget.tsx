@@ -26,47 +26,47 @@ export default function IconsWidget({ className = "" }: { className: string }) {
 }
 
 const Wrapper = styled.div`
-  background: ${gradients.surface1};
-  display: flex;
-  flex-direction: column;
+	background: ${gradients.surface1};
+	display: flex;
+	flex-direction: column;
 
-  ${fresponsive(css`
-    border: 1.5px solid ${colors.gray300};
-    width: 48px;
-    height: 280px;
-    border-radius: 18px;
-    box-shadow:
-      0 -1px 6px 0 rgba(38 38 38 / 6%) inset,
-      0 18px 32px 0 rgba(89 89 89 / 4%);
-  `)}
+	${fresponsive(css`
+		border: 1.5px solid ${colors.gray300};
+		width: 48px;
+		height: 280px;
+		border-radius: 18px;
+		box-shadow:
+			0 -1px 6px 0 rgba(38 38 38 / 6%) inset,
+			0 18px 32px 0 rgba(89 89 89 / 4%);
+	`)}
 
-  ${fmobile(css`
-    display: none;
-  `)}
+	${fmobile(css`
+		display: none;
+	`)}
 `
 
 const IconWrapper = styled.div`
-  display: grid;
-  place-items: center;
-  flex-grow: 1;
+	display: grid;
+	place-items: center;
+	flex-grow: 1;
 
-  &:last-of-type {
-    border-bottom: none;
-  }
+	&:last-of-type {
+		border-bottom: none;
+	}
 
-  ${fresponsive(css`
-    border-bottom: 1.5px solid ${colors.gray300};
-  `)}
+	${fresponsive(css`
+		border-bottom: 1.5px solid ${colors.gray300};
+	`)}
 `
 
 const StyledIcon = styled(Icon)<{ $stroke?: boolean; $fill?: boolean }>`
-  path {
-    ${({ $fill }) => $fill && "fill: #A5A3A3;"}
-    ${({ $stroke }) => $stroke && "stroke: #A5A3A3;"}
-  }
+	path {
+		${({ $fill }) => $fill && "fill: #A5A3A3;"}
+		${({ $stroke }) => $stroke && "stroke: #A5A3A3;"}
+	}
 
-  ${fresponsive(css`
-    width: 24px;
-    height: 24px;
-  `)}
+	${fresponsive(css`
+		width: 24px;
+		height: 24px;
+	`)}
 `

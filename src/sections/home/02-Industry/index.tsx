@@ -37,8 +37,8 @@ import ProgressGroup from "./ProgressGroup"
 gsap.registerPlugin(DrawSVGPlugin)
 
 const Blue = styled.strong`
-  color: #0085e5d9;
-  font-weight: 500;
+	color: #0085e5d9;
+	font-weight: 500;
 `
 
 const data = [
@@ -600,492 +600,492 @@ export default function Industry() {
 }
 
 const NameWrapper = styled.div`
-  ${fresponsive(css`
-    height: 18px;
-  `)}
+	${fresponsive(css`
+		height: 18px;
+	`)}
 `
 
 const IconTitle = styled.div`
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 
-  ${fresponsive(css`
-    gap: 15px;
-  `)}
+	${fresponsive(css`
+		gap: 15px;
+	`)}
 
-  ${ftablet(css`
-    flex-direction: column;
-    align-items: flex-start;
-  `)}
+	${ftablet(css`
+		flex-direction: column;
+		align-items: flex-start;
+	`)}
 
   ${fmobile(css`
-    flex-direction: column;
-    align-items: flex-start;
-  `)}
+		flex-direction: column;
+		align-items: flex-start;
+	`)}
 `
 
 const Wrapper = styled.section`
-  width: 100%;
-  display: grid;
-  place-items: center;
-  overflow: clip;
-  position: relative;
-  margin-top: -1px;
-  background-color: ${colors.beige200};
+	width: 100%;
+	display: grid;
+	place-items: center;
+	overflow: clip;
+	position: relative;
+	margin-top: -1px;
+	background-color: ${colors.beige200};
 `
 
 const Inner = styled.div`
-  width: 100%;
-  max-width: ${desktopBreakpoint}px;
-  display: flex;
-  flex-direction: column;
+	width: 100%;
+	max-width: ${desktopBreakpoint}px;
+	display: flex;
+	flex-direction: column;
 
-  ${fresponsive(css`
-    height: 1015px;
-    padding: 36px 156px 170px;
-    gap: 47px;
-  `)}
+	${fresponsive(css`
+		height: 1015px;
+		padding: 36px 156px 170px;
+		gap: 47px;
+	`)}
 
-  ${ftablet(css`
-    height: 1172px;
-    padding: 85px 68px 0;
-    gap: 106px;
-  `)}
+	${ftablet(css`
+		height: 1172px;
+		padding: 85px 68px 0;
+		gap: 106px;
+	`)}
 
   ${fmobile(css`
-    height: auto;
-    padding: 85px 29px 100px;
-    gap: 30px;
-  `)}
+		height: auto;
+		padding: 85px 29px 100px;
+		gap: 30px;
+	`)}
 `
 
 const Top = styled.div`
-  display: flex;
+	display: flex;
 
-  ${fresponsive(css`
-    gap: 63px;
-    align-items: flex-end;
-  `)}
+	${fresponsive(css`
+		gap: 63px;
+		align-items: flex-end;
+	`)}
 
-  ${ftablet(css`
-    flex-direction: column;
-    align-items: unset;
-    gap: 48px;
-  `)}
+	${ftablet(css`
+		flex-direction: column;
+		align-items: unset;
+		gap: 48px;
+	`)}
 
   ${fmobile(css`
-    align-items: unset;
-    margin-bottom: 30px;
-  `)}
+		align-items: unset;
+		margin-bottom: 30px;
+	`)}
 `
 
 const Title = styled.h2`
-  ${textStyles.h4}
-  color: ${colors.black};
+	${textStyles.h4}
+	color: ${colors.black};
 
-  span {
-    ${transparentText}
-    background-image: ${gradients.greenBlue};
-  }
+	span {
+		${transparentText}
+		background-image: ${gradients.greenBlue};
+	}
 
-  ${fresponsive(css`
-    width: 395px;
-  `)}
+	${fresponsive(css`
+		width: 395px;
+	`)}
 
-  ${ftablet(css`
-    ${textStyles.h3}
-    width: 95%;
-  `)}
+	${ftablet(css`
+		${textStyles.h3}
+		width: 95%;
+	`)}
 
   ${fmobile(css`
-    ${textStyles.h6}
-    width: 100%;
-  `)}
+		${textStyles.h6}
+		width: 100%;
+	`)}
 `
 
 const Buttons = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  height: fit-content;
+	display: flex;
+	flex-wrap: wrap;
+	height: fit-content;
 
-  button {
-    flex-shrink: 0;
-  }
+	button {
+		flex-shrink: 0;
+	}
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+	&::-webkit-scrollbar {
+		display: none;
+	}
 
-  ${fresponsive(css`
-    gap: 18px;
-    width: 550px;
-  `)}
+	${fresponsive(css`
+		gap: 18px;
+		width: 550px;
+	`)}
 
-  ${ftablet(css`
-    width: 650px;
-  `)}
+	${ftablet(css`
+		width: 650px;
+	`)}
 
   ${fmobile(css`
-    gap: 8px;
-    width: 375px;
-    height: 60px;
-    padding: 0 29px;
-    align-items: center;
-    overflow-x: scroll;
-    flex-wrap: nowrap;
-    position: absolute;
-    bottom: 40px;
-    left: 0;
-  `)}
+		gap: 8px;
+		width: 375px;
+		height: 60px;
+		padding: 0 29px;
+		align-items: center;
+		overflow-x: scroll;
+		flex-wrap: nowrap;
+		position: absolute;
+		bottom: 40px;
+		left: 0;
+	`)}
 `
 
 const Bottom = styled.div`
-  display: flex;
-  align-items: flex-start;
+	display: flex;
+	align-items: flex-start;
 
-  ${fresponsive(css`
-    gap: 24px;
-  `)}
+	${fresponsive(css`
+		gap: 24px;
+	`)}
 
-  ${ftablet(css`
-    flex-direction: row-reverse;
-    gap: 52px;
-  `)}
+	${ftablet(css`
+		flex-direction: row-reverse;
+		gap: 52px;
+	`)}
 
   ${fmobile(css`
-    flex-direction: column;
-    gap: 100px;
-  `)}
+		flex-direction: column;
+		gap: 100px;
+	`)}
 `
 
 const Left = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	position: relative;
 
-  ${fresponsive(css`
-    gap: 24px;
-  `)}
+	${fresponsive(css`
+		gap: 24px;
+	`)}
 `
 
 const Image = styled.img`
-  background-color: ${colors.gray800};
-  object-fit: cover;
+	background-color: ${colors.gray800};
+	object-fit: cover;
 
-  ${fresponsive(css`
-    width: 528px;
-    height: 375px;
-    border-radius: 24px;
-  `)}
+	${fresponsive(css`
+		width: 528px;
+		height: 375px;
+		border-radius: 24px;
+	`)}
 
-  ${ftablet(css`
-    width: 460px;
-    height: 494px;
-  `)}
+	${ftablet(css`
+		width: 460px;
+		height: 494px;
+	`)}
 
   ${fmobile(css`
-    width: 314px;
-    height: 278px;
-  `)}
+		width: 314px;
+		height: 278px;
+	`)}
 `
 
 const Card = styled.div`
-  background: ${gradients.surface1};
+	background: ${gradients.surface1};
 
-  ${fresponsive(css`
-    border: 2px solid ${colors.gray200};
-    padding: 24px;
-    border-radius: 12px;
-    box-shadow: 0 18px 42px 0 rgba(89 89 89 / 4%);
-  `)}
+	${fresponsive(css`
+		border: 2px solid ${colors.gray200};
+		padding: 24px;
+		border-radius: 12px;
+		box-shadow: 0 18px 42px 0 rgba(89 89 89 / 4%);
+	`)}
 `
 
 const Assertiveness = styled(Card)`
-  position: absolute;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
+	position: absolute;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
 
-  ${fresponsive(css`
-    width: 240px;
-    height: 190px;
-    top: 139px;
-    left: -72px;
-    gap: 24px;
-  `)}
+	${fresponsive(css`
+		width: 240px;
+		height: 190px;
+		top: 139px;
+		left: -72px;
+		gap: 24px;
+	`)}
 
-  ${ftablet(css`
-    top: 262px;
-    left: unset;
-    right: -24px;
-  `)}
+	${ftablet(css`
+		top: 262px;
+		left: unset;
+		right: -24px;
+	`)}
 
   ${fmobile(css`
-    right: -23px;
-    bottom: -80px;
-    left: unset;
-    top: unset;
-  `)}
+		right: -23px;
+		bottom: -80px;
+		left: unset;
+		top: unset;
+	`)}
 `
 
 const Agent = styled(Card)`
-  position: absolute;
-  z-index: 2;
-  display: flex;
-  align-items: center;
+	position: absolute;
+	z-index: 2;
+	display: flex;
+	align-items: center;
 
-  ${fresponsive(css`
-    width: 240px;
-    height: 58px;
-    top: 342px;
-    left: -72px;
-    padding: 12px 24px;
-    gap: 10px;
-  `)}
+	${fresponsive(css`
+		width: 240px;
+		height: 58px;
+		top: 342px;
+		left: -72px;
+		padding: 12px 24px;
+		gap: 10px;
+	`)}
 
-  ${ftablet(css`
-    top: 464px;
-    right: -24px;
-    left: unset;
-  `)}
+	${ftablet(css`
+		top: 464px;
+		right: -24px;
+		left: unset;
+	`)}
 
   ${fmobile(css`
-    position: absolute;
-    top: -29px;
-    left: -13px;
-    z-index: 2;
-  `)}
+		position: absolute;
+		top: -29px;
+		left: -13px;
+		z-index: 2;
+	`)}
 `
 
 const LogosWrapper = styled(Card)`
-  ${fresponsive(css`
-    border-radius: 24px;
-    width: 243px;
-    height: 134px;
-    padding: 20px;
-  `)}
+	${fresponsive(css`
+		border-radius: 24px;
+		width: 243px;
+		height: 134px;
+		padding: 20px;
+	`)}
 
-  ${fmobile(css`
-    display: none;
-  `)}
+	${fmobile(css`
+		display: none;
+	`)}
 `
 
 const FilesInner = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-color: ${colors.gray100};
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-color: ${colors.gray100};
 
-  ${fresponsive(css`
-    border-radius: 14px;
-    border: 1.5px dashed ${colors.gray600};
-  `)}
+	${fresponsive(css`
+		border-radius: 14px;
+		border: 1.5px dashed ${colors.gray600};
+	`)}
 `
 
 const PositionWrapper = styled.div`
-  position: absolute;
+	position: absolute;
 
-  ${fresponsive(css`
-    top: 20px;
-    left: -61px;
-    height: 105px;
-  `)}
+	${fresponsive(css`
+		top: 20px;
+		left: -61px;
+		height: 105px;
+	`)}
 `
 
 const Logos = styled.div`
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-  ${fresponsive(css`
-    gap: 3px;
-  `)}
+	${fresponsive(css`
+		gap: 3px;
+	`)}
 `
 
 const File = styled.div`
-  display: flex;
-  align-items: center;
-  background: ${colors.white};
+	display: flex;
+	align-items: center;
+	background: ${colors.white};
 
-  ${fresponsive(css`
-    padding: 7.5px;
-    border-radius: 8px;
-    border: 1.5px solid #e4e4e4;
-    width: 210px;
-  `)}
+	${fresponsive(css`
+		padding: 7.5px;
+		border-radius: 8px;
+		border: 1.5px solid #e4e4e4;
+		width: 210px;
+	`)}
 `
 
 const FileName = styled.span`
-  ${textStyles.sh4}
-  color: ${colors.black};
+	${textStyles.sh4}
+	color: ${colors.black};
 `
 
 const FileIcon = styled(Icon)`
-  ${fresponsive(css`
-    width: 18px;
-    height: 18px;
-    margin-right: 6px;
-  `)}
+	${fresponsive(css`
+		width: 18px;
+		height: 18px;
+		margin-right: 6px;
+	`)}
 `
 
 const Trash = styled(Icon)`
-  margin-left: auto;
+	margin-left: auto;
 
-  path {
-    fill: #d9d9d9;
-  }
+	path {
+		fill: #d9d9d9;
+	}
 
-  ${fresponsive(css`
-    width: 12px;
-    height: 12px;
-  `)}
+	${fresponsive(css`
+		width: 12px;
+		height: 12px;
+	`)}
 `
 
 const Right = styled.div`
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-  ${fresponsive(css`
-    gap: 48px;
-  `)}
+	${fresponsive(css`
+		gap: 48px;
+	`)}
 
-  ${ftablet(css`
-    padding-top: 47px;
-    gap: 32px;
-    align-items: flex-end;
-  `)}
+	${ftablet(css`
+		padding-top: 47px;
+		gap: 32px;
+		align-items: flex-end;
+	`)}
 `
 
 const TextContent = styled.div`
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-  ${fresponsive(css`
-    gap: 16px;
-    padding-left: 24px;
-  `)}
+	${fresponsive(css`
+		gap: 16px;
+		padding-left: 24px;
+	`)}
 
-  ${ftablet(css`
-    padding-left: 0;
-  `)}
+	${ftablet(css`
+		padding-left: 0;
+	`)}
 
   ${fmobile(css`
-    padding-left: 0;
-  `)}
+		padding-left: 0;
+	`)}
 `
 
 const SubTitle = styled.h1`
-  ${textStyles.sh1}
-  color: ${colors.black};
-  width: fit-content;
-  white-space: nowrap;
+	${textStyles.sh1}
+	color: ${colors.black};
+	width: fit-content;
+	white-space: nowrap;
 
-  ${fresponsive(css`
-    width: 200px;
-  `)}
+	${fresponsive(css`
+		width: 200px;
+	`)}
 `
 
 const Text = styled.div`
-  ${textStyles.bodyS}
-  color: ${colors.gray800};
-  overflow: clip;
+	${textStyles.bodyS}
+	color: ${colors.gray800};
+	overflow: clip;
 
-  ${fresponsive(css`
-    width: 462px;
-    height: 95px;
-  `)}
+	${fresponsive(css`
+		width: 462px;
+		height: 95px;
+	`)}
 
-  ${ftablet(css`
-    ${textStyles.bodyR}
-    width: 378px;
-    height: 184px;
-  `)}
+	${ftablet(css`
+		${textStyles.bodyR}
+		width: 378px;
+		height: 184px;
+	`)}
 
   ${fmobile(css`
-    ${textStyles.bodyS}
-    width: 315px;
-    height: 150px;
-  `)}
+		${textStyles.bodyS}
+		width: 315px;
+		height: 150px;
+	`)}
 `
 
 const DesktopWidgetsWrapper = styled(DesktopOnly)`
-  background-color: ${colors.beige300};
-  position: relative;
-  overflow: clip;
+	background-color: ${colors.beige300};
+	position: relative;
+	overflow: clip;
 
-  ${fresponsive(css`
-    border-radius: 24px;
-    width: 560px;
-    height: 375px;
-  `)}
+	${fresponsive(css`
+		border-radius: 24px;
+		width: 560px;
+		height: 375px;
+	`)}
 `
 
 const StyledDots = styled(Dots)`
-  ${fresponsive(css`
-    background-position: 10px 18px;
-  `)}
+	${fresponsive(css`
+		background-position: 10px 18px;
+	`)}
 `
 
 const TabletWidgetWrapper = styled.div`
-  position: absolute;
+	position: absolute;
 
-  ${ftablet(css`
-    top: -30px;
-    left: -40px;
-    z-index: 2;
-  `)}
+	${ftablet(css`
+		top: -30px;
+		left: -40px;
+		z-index: 2;
+	`)}
 `
 
 const Widget1 = styled(Widget)`
-  position: absolute;
-  transform: scale(0.75);
-  transform-origin: top left;
+	position: absolute;
+	transform: scale(0.75);
+	transform-origin: top left;
 
-  ${fresponsive(css`
-    height: 196px;
-    top: 19px;
-    left: 22px;
-  `)}
+	${fresponsive(css`
+		height: 196px;
+		top: 19px;
+		left: 22px;
+	`)}
 
-  ${ftablet(css`
-    position: relative;
-    top: unset;
-    left: unset;
-  `)}
+	${ftablet(css`
+		position: relative;
+		top: unset;
+		left: unset;
+	`)}
 `
 
 const Widget2 = styled(Widget1)`
-  top: unset;
-  left: unset;
-  transform-origin: bottom right;
+	top: unset;
+	left: unset;
+	transform-origin: bottom right;
 
-  ${fresponsive(css`
-    bottom: 19px;
-    right: 22px;
-  `)}
+	${fresponsive(css`
+		bottom: 19px;
+		right: 22px;
+	`)}
 `
 
 const Avatar = styled.img`
-  border-radius: 99vw;
+	border-radius: 99vw;
 
-  ${fresponsive(css`
-    width: 34px;
-    height: 34px;
-  `)}
+	${fresponsive(css`
+		width: 34px;
+		height: 34px;
+	`)}
 `
 
 const Name = styled.span`
-  ${textStyles.sh3}
-  color: ${colors.black};
+	${textStyles.sh3}
+	color: ${colors.black};
 `
 
 const Line = styled.div`
-  width: 1px;
-  background-color: ${colors.gray300};
+	width: 1px;
+	background-color: ${colors.gray300};
 
-  ${fresponsive(css`
-    height: 12px;
-  `)}
+	${fresponsive(css`
+		height: 12px;
+	`)}
 `
 
 // const StyledIcon = styled(Icon)`
@@ -1101,30 +1101,30 @@ const Line = styled.div`
 // `
 
 const Connector = styled(LineSVG)`
-  position: absolute;
+	position: absolute;
 
-  ${fresponsive(css`
-    width: 227px;
-    height: 50px;
-    left: 166px;
-    top: 163px;
-  `)}
+	${fresponsive(css`
+		width: 227px;
+		height: 50px;
+		left: 166px;
+		top: 163px;
+	`)}
 `
 
 const ImageWrapper = styled.div`
-  ${fresponsive(css`
-    height: 375px;
-  `)}
+	${fresponsive(css`
+		height: 375px;
+	`)}
 
-  ${ftablet(css`
-    height: 494px;
-  `)}
+	${ftablet(css`
+		height: 494px;
+	`)}
 
 	${fmobile(css`
-    height: 278px;
-  `)}
+		height: 278px;
+	`)}
 `
 
 const AvatarWrapper = styled.div`
-  height: 36px;
+	height: 36px;
 `

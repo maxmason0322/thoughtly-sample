@@ -66,39 +66,39 @@ export default function Layout({ children }: LayoutProps) {
 }
 
 const Main = styled.main`
-  overflow-x: clip;
-  background-color: ${colors.beige200};
+	overflow-x: clip;
+	background-color: ${colors.beige200};
 `
 
 const globalCss = css`
-  /* default text styles */
-  html {
-    /* if your project uses a dark color for most text, set that here */
-    color: ${colors.black};
-    background: ${colors.beige300};
-    font-family: sans-serif;
-    ${textStyles.bodyR}
-  }
+	/* default text styles */
+	html {
+		/* if your project uses a dark color for most text, set that here */
+		color: ${colors.black};
+		background: ${colors.beige300};
+		font-family: sans-serif;
+		${textStyles.bodyR}
+	}
 
-  * {
-    /* need this so that fonts match figma */
-    text-rendering: geometricprecision;
-    -webkit-font-smoothing: antialiased;
-  }
+	* {
+		/* need this so that fonts match figma */
+		text-rendering: geometricprecision;
+		-webkit-font-smoothing: antialiased;
+	}
 
-  /** restore default focus states for elements that need them */
-  *:focus-visible {
-    outline: 2px solid #00f8;
-  }
+	/** restore default focus states for elements that need them */
+	*:focus-visible {
+		outline: 2px solid #00f8;
+	}
 `
 
 const GlobalStyle = createGlobalStyle`${globalCss}`
 
 const ScrollIndex = styled(Scroll)`
-  z-index: 2;
-  pointer-events: none;
+	z-index: 2;
+	pointer-events: none;
 
-  & #smooth-content > * {
-    pointer-events: auto;
-  }
+	& #smooth-content > * {
+		pointer-events: auto;
+	}
 `

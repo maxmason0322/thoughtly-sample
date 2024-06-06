@@ -31,43 +31,43 @@ export default function DesktopTablet() {
 	const [open, setOpen] = useState(false)
 
 	const images = useStaticQuery(graphql`
-    query images {
-      widget1: allFile(
-        filter: {
-          relativeDirectory: { eq: "home/widgets" }
-          name: { regex: "/widget1/" }
-        }
-        sort: { relativePath: ASC }
-      ) {
-        edges {
-          node {
-            id
-            name
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-      }
-      widget2: allFile(
-        filter: {
-          relativeDirectory: { eq: "home/widgets" }
-          name: { regex: "/widget2/" }
-        }
-        sort: { relativePath: ASC }
-      ) {
-        edges {
-          node {
-            id
-            name
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-      }
-    }
-  `)
+		query images {
+			widget1: allFile(
+				filter: {
+					relativeDirectory: { eq: "home/widgets" }
+					name: { regex: "/widget1/" }
+				}
+				sort: { relativePath: ASC }
+			) {
+				edges {
+					node {
+						id
+						name
+						childImageSharp {
+							gatsbyImageData
+						}
+					}
+				}
+			}
+			widget2: allFile(
+				filter: {
+					relativeDirectory: { eq: "home/widgets" }
+					name: { regex: "/widget2/" }
+				}
+				sort: { relativePath: ASC }
+			) {
+				edges {
+					node {
+						id
+						name
+						childImageSharp {
+							gatsbyImageData
+						}
+					}
+				}
+			}
+		}
+	`)
 
 	const grid1Widgets = useMemo(
 		() => [
@@ -401,223 +401,223 @@ export default function DesktopTablet() {
 }
 
 const Title = styled.h2`
-  ${textStyles.h3}
-  ${fresponsive(css`
-    color: ${colors.black};
-    margin-top: 18px;
-  `)}
+	${textStyles.h3}
+	${fresponsive(css`
+		color: ${colors.black};
+		margin-top: 18px;
+	`)}
 `
 
 const TopText = styled.div`
-  position: absolute;
-  ${fresponsive(css`
-    width: 697px;
-    top: 269px;
-    right: 321px;
-  `)}
+	position: absolute;
+	${fresponsive(css`
+		width: 697px;
+		top: 269px;
+		right: 321px;
+	`)}
 
-  ${ftablet(css`
-    right: 480px;
-  `)}
+	${ftablet(css`
+		right: 480px;
+	`)}
 `
 
 const Grids = styled.div`
-  display: grid;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  ${fresponsive(css`
-    width: 1865px;
-    height: 1390px;
-    top: 66px;
-  `)}
+	display: grid;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	${fresponsive(css`
+		width: 1865px;
+		height: 1390px;
+		top: 66px;
+	`)}
 `
 
 const Kicker = styled.div`
-  width: fit-content;
-  ${textStyles.sh4};
-  color: ${colors.gray600};
-  ${fresponsive(css`
-    padding: 12px 24px;
-    border-radius: 10px;
-    border: 1.5px solid ${colors.gray200};
-  `)}
+	width: fit-content;
+	${textStyles.sh4};
+	color: ${colors.gray600};
+	${fresponsive(css`
+		padding: 12px 24px;
+		border-radius: 10px;
+		border: 1.5px solid ${colors.gray200};
+	`)}
 `
 
 const BottomText = styled.p`
-  position: absolute;
-  color: ${colors.gray800};
-  ${textStyles.bodyL}
-  ${fresponsive(css`
-    width: 331px;
-    left: 327px;
-    bottom: 221px;
-  `)}
+	position: absolute;
+	color: ${colors.gray800};
+	${textStyles.bodyL}
+	${fresponsive(css`
+		width: 331px;
+		left: 327px;
+		bottom: 221px;
+	`)}
 
   ${ftablet(css`
-    ${textStyles.bodyXL}
-    width: 575px;
-    text-align: left;
-    bottom: -120px;
-    left: 780px;
-  `)}
+		${textStyles.bodyXL}
+		width: 575px;
+		text-align: left;
+		bottom: -120px;
+		left: 780px;
+	`)}
 `
 
 const Grid1 = styled.div`
-  display: grid;
-  ${fresponsive(css`
-    display: grid;
-    grid-gap: 24px;
-    width: 1023px;
-    height: 1190px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    grid-template:
-      "widget1 . . . . . . ." 56px
-      "widget1 . . widget2 widget2 widget2 widget2 ." 13px
-      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 164.5px
-      "widget4 widget4 widget5 widget2 widget2 widget2 widget2 ." 175px
-      "widget6 widget6 widget7 widget7 widget8 widget8 widget8 ." 131px
-      "widget6 widget6 widget9 widget9 widget8 widget8 widget8 widget10" 176px
-      "widget6 widget6 .  .  . widget11 widget11 widget11" 176px
-      ". . . . . . widget12 widget12" 131px
-      / 209px 70px 184px 43px 77px 45px 51px 176px;
-  `)}
+	display: grid;
+	${fresponsive(css`
+		display: grid;
+		grid-gap: 24px;
+		width: 1023px;
+		height: 1190px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		grid-template:
+			"widget1 . . . . . . ." 56px
+			"widget1 . . widget2 widget2 widget2 widget2 ." 13px
+			"widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 164.5px
+			"widget4 widget4 widget5 widget2 widget2 widget2 widget2 ." 175px
+			"widget6 widget6 widget7 widget7 widget8 widget8 widget8 ." 131px
+			"widget6 widget6 widget9 widget9 widget8 widget8 widget8 widget10" 176px
+			"widget6 widget6 .  .  . widget11 widget11 widget11" 176px
+			". . . . . . widget12 widget12" 131px
+			/ 209px 70px 184px 43px 77px 45px 51px 176px;
+	`)}
 
-  ${ftablet(css`
-    left: -160px;
-  `)}
+	${ftablet(css`
+		left: -160px;
+	`)}
 `
 
 const GridElement = styled.div<{ $gridArea: string; $noBoxShadow?: boolean }>`
-  grid-area: ${({ $gridArea }) => $gridArea};
+	grid-area: ${({ $gridArea }) => $gridArea};
 
-  ${({ $noBoxShadow }) =>
+	${({ $noBoxShadow }) =>
 		fresponsive(css`
-      border-radius: 18px;
-      box-shadow: ${$noBoxShadow ? "none" : "0 18px 42px 0 rgba(89 89 89 /4%)"};
-    `)}
+			border-radius: 18px;
+			box-shadow: ${$noBoxShadow ? "none" : "0 18px 42px 0 rgba(89 89 89 /4%)"};
+		`)}
 `
 
 const Grid2 = styled.div`
-  display: grid;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+	display: grid;
+	position: absolute;
+	bottom: 0;
+	right: 0;
 
-  ${fresponsive(css`
-    width: 818px;
-    height: 772px;
-    grid-gap: 24px;
-    grid-template:
-      "widget2-1 widget2-2 widget2-2" 160px
-      "video video widget2-3" 161px
-      "video video widget2-4" 203px
-      ". . widget2-4" 176px
-      / 278px 202px 290px;
-  `)}
+	${fresponsive(css`
+		width: 818px;
+		height: 772px;
+		grid-gap: 24px;
+		grid-template:
+			"widget2-1 widget2-2 widget2-2" 160px
+			"video video widget2-3" 161px
+			"video video widget2-4" 203px
+			". . widget2-4" 176px
+			/ 278px 202px 290px;
+	`)}
 
-  ${ftablet(css`
-    right: 160px;
-  `)}
+	${ftablet(css`
+		right: 160px;
+	`)}
 `
 
 const VideoIframe = styled.iframe`
-  position: relative;
-  object-fit: cover;
-  border: none;
-  border-radius: 8px;
-  width: 100%;
-  height: 100%;
-  object-position: center;
+	position: relative;
+	object-fit: cover;
+	border: none;
+	border-radius: 8px;
+	width: 100%;
+	height: 100%;
+	object-position: center;
 `
 
 const VideoWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  background: ${colors.white};
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	background: ${colors.white};
 
-  ${fresponsive(css`
-    padding: 24px;
-    border-radius: 18px;
-  `)}
+	${fresponsive(css`
+		padding: 24px;
+		border-radius: 18px;
+	`)}
 `
 
 const GridImage = styled(UniversalImage)``
 
 const Row = styled.div`
-  display: flex;
-  align-items: center;
-  position: relative;
+	display: flex;
+	align-items: center;
+	position: relative;
 
-  ${fresponsive(css`
-    width: 100%;
-    gap: 36px;
-  `)}
+	${fresponsive(css`
+		width: 100%;
+		gap: 36px;
+	`)}
 `
 
 const Text = styled.p`
-  color: ${colors.gray800};
-  ${textStyles.bodyS};
+	color: ${colors.gray800};
+	${textStyles.bodyS};
 
-  ${fresponsive(css`
-    width: 264px;
+	${fresponsive(css`
+		width: 264px;
 
-    /* No Style for this */
-    font-size: 13px;
-  `)}
+		/* No Style for this */
+		font-size: 13px;
+	`)}
 `
 
 const PlayButton = styled(Primary)`
-  ${textStyles.sh3};
-  ${fresponsive(css`
-    white-space: pre;
-  `)}
+	${textStyles.sh3};
+	${fresponsive(css`
+		white-space: pre;
+	`)}
 `
 
 const VideoBGFrame = styled.div`
-  grid-area: video;
-  border: 1.5px solid ${colors.gray300};
-  display: flex;
-  flex-direction: column;
-  background: rgba(147 147 147 / 25%);
-  overflow: clip;
-  transform-origin: bottom right;
-  object-fit: cover;
-  ${fresponsive(css`
-    border-radius: 18px;
-    backdrop-filter: blur(9px);
-  `)}
+	grid-area: video;
+	border: 1.5px solid ${colors.gray300};
+	display: flex;
+	flex-direction: column;
+	background: rgba(147 147 147 / 25%);
+	overflow: clip;
+	transform-origin: bottom right;
+	object-fit: cover;
+	${fresponsive(css`
+		border-radius: 18px;
+		backdrop-filter: blur(9px);
+	`)}
 `
 
 const CloseButton = styled(UniversalLink)`
-  position: absolute;
-  opacity: 0;
+	position: absolute;
+	opacity: 0;
 
-  ${fresponsive(css`
-    top: 14px;
-    right: 16px;
-    box-shadow: 0 6px 12px 0 rgba(66 66 66 / 12%);
-    border-radius: 100%;
-    width: 60px;
-    height: 60px;
+	${fresponsive(css`
+		top: 14px;
+		right: 16px;
+		box-shadow: 0 6px 12px 0 rgba(66 66 66 / 12%);
+		border-radius: 100%;
+		width: 60px;
+		height: 60px;
 
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-  `)}
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	`)}
 `
 
 const ScreenFrame = styled.div`
-  position: relative;
-  width: 100%;
+	position: relative;
+	width: 100%;
 
-  ${fresponsive(css`
-    height: 267px;
-  `)}
+	${fresponsive(css`
+		height: 267px;
+	`)}
 `

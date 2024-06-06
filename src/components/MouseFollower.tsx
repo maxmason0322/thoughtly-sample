@@ -151,15 +151,15 @@ export default function MouseFollower({ trackElement }: MouseFollowerProps) {
 }
 
 const Wrapper = styled.div`
-  position: absolute;
-  pointer-events: none;
-  z-index: 10;
-  color: #000;
-  transform-origin: center;
+	position: absolute;
+	pointer-events: none;
+	z-index: 10;
+	color: #000;
+	transform-origin: center;
 
-  ${fresponsive(css`
-    left: -85px;
-    top: -35px;
-    transform: scale(0);
-  `)}
+	${fresponsive(css`
+		left: -85px;
+		top: -35px;
+		transform: scale(0);
+	`)}
 `

@@ -99,122 +99,122 @@ const Wrapper = styled.div<{
 	$rows?: string
 	$background?: string | null
 }>`
-  background-image: url(${({ $background }) => $background});
-  background-size: 100% 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  grid-column: ${({ $columns }) => $columns};
-  grid-row: ${({ $rows }) => $rows};
-  position: relative;
-  overflow: clip;
-  will-change: transform;
+	background-image: url(${({ $background }) => $background});
+	background-size: 100% 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-end;
+	grid-column: ${({ $columns }) => $columns};
+	grid-row: ${({ $rows }) => $rows};
+	position: relative;
+	overflow: clip;
+	will-change: transform;
 
-  > * {
-    position: relative;
-    z-index: 2;
-  }
+	> * {
+		position: relative;
+		z-index: 2;
+	}
 
-  ${fresponsive(css`
-    border: 1.5px solid ${colors.gray200};
-    border-radius: 18px;
-    padding: 24px;
-    gap: 12px;
-    box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
-  `)}
+	${fresponsive(css`
+		border: 1.5px solid ${colors.gray200};
+		border-radius: 18px;
+		padding: 24px;
+		gap: 12px;
+		box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
+	`)}
 
-  ${ftablet(css`
-    padding-bottom: 15px;
-  `)}
+	${ftablet(css`
+		padding-bottom: 15px;
+	`)}
 
   ${fmobile(css`
-    border: unset;
-  `)}
+		border: unset;
+	`)}
 `
 
 const Image = styled(UniversalImage)`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  inset: 0;
-  top: 0;
-  left: 0;
-  z-index: 1;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	inset: 0;
+	top: 0;
+	left: 0;
+	z-index: 1;
 
-  ${ftablet(css`
-    img {
-      object-fit: contain;
-      object-position: top left;
-    }
-  `)}
+	${ftablet(css`
+		img {
+			object-fit: contain;
+			object-position: top left;
+		}
+	`)}
 
-  ${fmobile(css`
-    img {
-      object-fit: contain;
-      object-position: top left;
-    }
-  `)}
+	${fmobile(css`
+		img {
+			object-fit: contain;
+			object-position: top left;
+		}
+	`)}
 `
 
 const Title = styled.h1`
-  ${textStyles.sh2}
-  color: ${colors.black};
-  position: relative;
-  z-index: 2;
+	${textStyles.sh2}
+	color: ${colors.black};
+	position: relative;
+	z-index: 2;
 
-  ${fresponsive(css`
-    width: 140px;
-    white-space: pre;
-  `)}
+	${fresponsive(css`
+		width: 140px;
+		white-space: pre;
+	`)}
 
-  ${fmobile(css`
-    white-space: normal;
-    width: 100%;
-  `)}
+	${fmobile(css`
+		white-space: normal;
+		width: 100%;
+	`)}
 `
 
 const Text = styled.p<{ $textWidth: number }>`
-  ${textStyles.bodyS}
-  color: ${colors.gray700};
-  position: relative;
-  z-index: 2;
+	${textStyles.bodyS}
+	color: ${colors.gray700};
+	position: relative;
+	z-index: 2;
 
-  ${({ $textWidth }) =>
+	${({ $textWidth }) =>
 		fresponsive(css`
-      width: ${$textWidth}px;
-    `)}
+			width: ${$textWidth}px;
+		`)}
 
-  ${fmobile(css`
-    width: 100%;
-  `)}
+	${fmobile(css`
+		width: 100%;
+	`)}
 `
 
 const StyledIcon = styled(Icon)<{ $stroke: boolean }>`
-  path,
-  circle {
-    fill: ${({ $stroke }) => !$stroke && colors.gray600};
-    stroke: ${({ $stroke }) => $stroke && colors.gray600};
-  }
+	path,
+	circle {
+		fill: ${({ $stroke }) => !$stroke && colors.gray600};
+		stroke: ${({ $stroke }) => $stroke && colors.gray600};
+	}
 
-  position: relative;
-  z-index: 2;
+	position: relative;
+	z-index: 2;
 
-  ${fresponsive(css`
-    width: 15px;
-    height: 15px;
-  `)}
+	${fresponsive(css`
+		width: 15px;
+		height: 15px;
+	`)}
 
-  ${ftablet(css`
-    width: 20px;
-    height: 20px;
-  `)}
+	${ftablet(css`
+		width: 20px;
+		height: 20px;
+	`)}
 `
 
 const Link = styled(UniversalLink)`
-  color: ${colors.green600};
-  text-decoration: underline;
-  ${textStyles.bodyS}
-  position: relative;
-  z-index: 2;
+	color: ${colors.green600};
+	text-decoration: underline;
+	${textStyles.bodyS}
+	position: relative;
+	z-index: 2;
 `
