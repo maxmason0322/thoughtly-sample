@@ -55,7 +55,7 @@ export default function AgentsOverview() {
 }
 
 const Wrapper = styled.section`
-		${textStyles.sh1};
+	${textStyles.sh1};
 	${fresponsive(css`
 		margin: 50px 60px 0;
 		max-width: 1318px;
@@ -63,8 +63,9 @@ const Wrapper = styled.section`
 		min-height: 598px;
 		position: relative;
 		z-index: 1;
-		display:grid;
-		grid-template-columns: 260px 1fr;gap:124px;
+		display: grid;
+		grid-template-columns: 260px 1fr;
+		gap: 124px;
 
 		& > * {
 			position: relative;
@@ -76,7 +77,8 @@ const Wrapper = styled.section`
 		margin: 160px 21px 0;
 		padding: 65px 48px;
 		min-height: 0;
-		grid-template-columns: 203px 1fr;gap:110px;
+		grid-template-columns: 203px 1fr;
+		gap: 110px;
 	`)}
 `
 
@@ -90,9 +92,9 @@ const BackgroundImage = styled(UniversalImage)`
 `
 
 const Title = styled.h2`
-background: ${gradients.greenBlue};
-background-clip: text;
--webkit-text-fill-color: transparent;
+	background: ${gradients.greenBlue};
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
 `
 
 const Copy = styled.p``
