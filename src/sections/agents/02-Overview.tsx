@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby"
 import UniversalImage from "library/UniversalImage"
-import { fresponsive, ftablet } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useMedia from "library/useMedia"
 import styled, { css } from "styled-components"
 import { gradients } from "styles/colors"
@@ -79,6 +79,13 @@ const Wrapper = styled.section`
 		min-height: 0;
 		grid-template-columns: 203px 1fr;
 		gap: 110px;
+	`)}
+
+	${fmobile(css`
+		grid-template-columns: 1fr;
+		gap: 48px;
+		padding: 0 22px 64px;
+		margin: 106px 8px 0;
 	`)}
 `
 
