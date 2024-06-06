@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby"
 import UniversalImage from "library/UniversalImage"
-import { fresponsive } from "library/fullyResponsive"
+import { fresponsive, ftablet } from "library/fullyResponsive"
+import useMedia from "library/useMedia"
 import styled, { css } from "styled-components"
 import { gradients } from "styles/colors"
 import textStyles from "styles/text"
@@ -13,12 +14,30 @@ export default function AgentsOverview() {
 					gatsbyImageData(layout: FULL_WIDTH)
 				}
 			}
+			tablet: file(relativePath: { eq: "agents/TabletDotBackground.png" }) {
+				childImageSharp {
+					gatsbyImageData(layout: FULL_WIDTH)
+				}
+			}
+			mobile: file(relativePath: { eq: "agents/MobileDotBackground.png" }) {
+				childImageSharp {
+					gatsbyImageData(layout: FULL_WIDTH)
+				}
+			}
 		}
 	`)
 
 	return (
 		<Wrapper>
-			<BackgroundImage image={imageQuery.desktop} alt="" />
+			<BackgroundImage
+				image={useMedia(
+					imageQuery.desktop,
+					imageQuery.desktop,
+					imageQuery.tablet,
+					imageQuery.mobile,
+				)}
+				alt=""
+			/>
 			<Title>Why enroll in our Agent Accelerator Program?</Title>
 			<Copy>
 				Our Agent Accelerator program offers seamless integration, expert
@@ -51,6 +70,13 @@ const Wrapper = styled.section`
 			position: relative;
 			z-index: 1;
 		}
+	`)}
+
+	${ftablet(css`
+		margin: 160px 21px 0;
+		padding: 65px 48px;
+		min-height: 0;
+		grid-template-columns: 203px 1fr;gap:110px;
 	`)}
 `
 
