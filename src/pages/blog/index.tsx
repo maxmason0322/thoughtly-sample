@@ -131,147 +131,147 @@ export function Head() {
 }
 
 const Header = styled.div`
-  ${textStyles.sh1}
-  ${trim(1.2)}
+	${textStyles.sh1}
+	${trim(1.2)}
 	color: ${colors.gray700};
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 
-  span {
-    color: ${colors.black};
-  }
+	span {
+		color: ${colors.black};
+	}
 
-  svg {
-    ${fresponsive(css`
-      position: relative;
-      top: 2px;
-      width: 18px;
-      height: 18px;
-    `)}
-  }
+	svg {
+		${fresponsive(css`
+			position: relative;
+			top: 2px;
+			width: 18px;
+			height: 18px;
+		`)}
+	}
 
-  ${fresponsive(css`
-    margin-bottom: 18px;
-    gap: 12px;
-  `)}
+	${fresponsive(css`
+		margin-bottom: 18px;
+		gap: 12px;
+	`)}
 
-  ${fmobile(css`
-    ${textStyles.sh2}
-    margin-bottom: 30px;
-  `)}
+	${fmobile(css`
+		${textStyles.sh2}
+		margin-bottom: 30px;
+	`)}
 `
 
 const HeaderWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 
-  ${fresponsive(css`
-    padding-top: 12px;
-    margin-bottom: 20px;
-  `)}
+	${fresponsive(css`
+		padding-top: 12px;
+		margin-bottom: 20px;
+	`)}
 
-  ${fmobile(css`
-    flex-direction: column-reverse;
-    align-items: flex-start;
-    gap: 24px;
-  `)}
+	${fmobile(css`
+		flex-direction: column-reverse;
+		align-items: flex-start;
+		gap: 24px;
+	`)}
 `
 
 const LightHeader = styled(Header)`
-  margin-bottom: unset;
+	margin-bottom: unset;
 
-  span {
-    color: ${colors.gray900};
-  }
+	span {
+		color: ${colors.gray900};
+	}
 `
 
 const CardGroup = styled.div`
-  ${fresponsive(css`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px 24px;
-    margin-bottom: 55px;
-  `)}
-  ${ftablet(css`
-    grid-template-columns: 1fr 1fr;
-    gap: 35px 25px;
-  `)}
+	${fresponsive(css`
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 48px 24px;
+		margin-bottom: 55px;
+	`)}
+	${ftablet(css`
+		grid-template-columns: 1fr 1fr;
+		gap: 35px 25px;
+	`)}
   ${fmobile(css`
-    grid-template-columns: 1fr;
-    gap: 36px;
-  `)}
+		grid-template-columns: 1fr;
+		gap: 36px;
+	`)}
 `
 
 const CustomWidthButton = styled(Primary)`
-  ${fresponsive(css`
-    width: 280px;
-  `)}
-  ${ftablet(css`
-    width: 100%;
-  `)}
+	${fresponsive(css`
+		width: 280px;
+	`)}
+	${ftablet(css`
+		width: 100%;
+	`)}
   ${fmobile(css`
-    width: 100%;
-  `)}
+		width: 100%;
+	`)}
 `
 
 const MobileEmail = styled(MobileOnly)`
-  ${fmobile(css`
-    border-top: 1px solid ${colors.gray300};
-    padding-top: 50px;
-    margin-top: 50px;
-  `)}
+	${fmobile(css`
+		border-top: 1px solid ${colors.gray300};
+		padding-top: 50px;
+		margin-top: 50px;
+	`)}
 `
 
 export const query = graphql`
-  query BlogPage {
-    allContentfulPageBlogPost(
-      sort: { createdAt: DESC }
-      filter: { id: { nin: ["ddd9a026-ddbb-5750-a712-81382d93815f"] } }
-    ) {
-      nodes {
-        slug
-        id
-        author {
-          id
-          headshot {
-            gatsbyImageData
-            createdAt
-          }
-          fullName
-          roleAndCompany
-        }
-        title
-        mainImage {
-          gatsbyImageData
-          description
-        }
-        categories
-        articleTextPreview
-      }
-    }
-    contentfulPageBlogHub {
-      id
-      featuredBlogPost {
-        slug
-        id
-        author {
-          id
-          headshot {
-            gatsbyImageData
-            createdAt
-          }
-          fullName
-          roleAndCompany
-        }
-        title
-        mainImage {
-          gatsbyImageData
-          description
-        }
-        categories
-        articleTextPreview
-      }
-    }
-  }
+	query BlogPage {
+		allContentfulPageBlogPost(
+			sort: { createdAt: DESC }
+			filter: { id: { nin: ["ddd9a026-ddbb-5750-a712-81382d93815f"] } }
+		) {
+			nodes {
+				slug
+				id
+				author {
+					id
+					headshot {
+						gatsbyImageData
+						createdAt
+					}
+					fullName
+					roleAndCompany
+				}
+				title
+				mainImage {
+					gatsbyImageData
+					description
+				}
+				categories
+				articleTextPreview
+			}
+		}
+		contentfulPageBlogHub {
+			id
+			featuredBlogPost {
+				slug
+				id
+				author {
+					id
+					headshot {
+						gatsbyImageData
+						createdAt
+					}
+					fullName
+					roleAndCompany
+				}
+				title
+				mainImage {
+					gatsbyImageData
+					description
+				}
+				categories
+				articleTextPreview
+			}
+		}
+	}
 `

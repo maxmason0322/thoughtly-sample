@@ -125,137 +125,137 @@ export default function Pricing() {
 }
 
 const Wrapper = styled.section`
-  width: 100%;
-  display: grid;
-  place-items: center;
-  background-color: ${colors.beige200};
+	width: 100%;
+	display: grid;
+	place-items: center;
+	background-color: ${colors.beige200};
 `
 
 const Inner = styled.div`
-  width: 100%;
-  max-width: ${desktopBreakpoint}px;
+	width: 100%;
+	max-width: ${desktopBreakpoint}px;
 
-  ${fresponsive(css`
-    padding: 123px 114px 168px;
-  `)}
+	${fresponsive(css`
+		padding: 123px 114px 168px;
+	`)}
 
-  ${ftablet(css`
-    padding: 123px 94.5px;
-  `)}
+	${ftablet(css`
+		padding: 123px 94.5px;
+	`)}
 
   ${fmobile(css`
-    padding: 25px 7.5px;
-  `)}
+		padding: 25px 7.5px;
+	`)}
 `
 
 const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-top: 1px solid #eaeaea;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-top: 1px solid #eaeaea;
 
-  ${fresponsive(css`
-    padding-top: 81px;
-    gap: 81px;
-  `)}
+	${fresponsive(css`
+		padding-top: 81px;
+		gap: 81px;
+	`)}
 
-  ${ftablet(css`
-    padding-top: 112px;
-    gap: 60px;
-  `)}
+	${ftablet(css`
+		padding-top: 112px;
+		gap: 60px;
+	`)}
 
   ${fmobile(css`
-    padding-top: 50px;
-    gap: 50px;
-  `)}
+		padding-top: 50px;
+		gap: 50px;
+	`)}
 `
 
 const TextContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 
-  ${fresponsive(css`
-    gap: 28px;
-  `)}
+	${fresponsive(css`
+		gap: 28px;
+	`)}
 `
 
 const Title = styled.h1`
-  ${textStyles.h4}
-  color: ${colors.black};
+	${textStyles.h4}
+	color: ${colors.black};
 
-  span {
-    ${transparentText}
-    background-image: ${gradients.greenBlue};
-  }
+	span {
+		${transparentText}
+		background-image: ${gradients.greenBlue};
+	}
 
-  ${fresponsive(css`
-    width: 630px;
-  `)}
+	${fresponsive(css`
+		width: 630px;
+	`)}
 
-  ${ftablet(css`
-    ${textStyles.h3}
-    width: 835px;
-  `)}
+	${ftablet(css`
+		${textStyles.h3}
+		width: 835px;
+	`)}
 
   ${fmobile(css`
-    ${textStyles.h6}
-    width: 245px;
-    text-align: center;
-  `)}
+		${textStyles.h6}
+		width: 245px;
+		text-align: center;
+	`)}
 `
 
 const Row = styled.div`
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 
-  ${fresponsive(css`
-    gap: 36px;
-  `)}
+	${fresponsive(css`
+		gap: 36px;
+	`)}
 
-  ${fresponsive(css`
-    gap: 73px;
-  `)}
+	${fresponsive(css`
+		gap: 73px;
+	`)}
 
   ${fmobile(css`
-    flex-direction: column;
-    gap: 24px;
-  `)}
+		flex-direction: column;
+		gap: 24px;
+	`)}
 `
 
 const Text = styled.p`
-  ${textStyles.bodyR}
-  color: ${colors.gray700};
+	${textStyles.bodyR}
+	color: ${colors.gray700};
 
-  ${fresponsive(css`
-    width: 271px;
-  `)}
+	${fresponsive(css`
+		width: 271px;
+	`)}
 
-  ${ftablet(css`
-    ${textStyles.bodyL}
-    width: 318px;
-  `)}
+	${ftablet(css`
+		${textStyles.bodyL}
+		width: 318px;
+	`)}
 
   ${fmobile(css`
-    ${textStyles.bodyL}
-    width: 248px;
-    text-align: center;
-  `)}
+		${textStyles.bodyL}
+		width: 248px;
+		text-align: center;
+	`)}
 `
 
 const Prices = styled.div`
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 
-  ${fresponsive(css`
-    gap: 24px;
-  `)}
+	${fresponsive(css`
+		gap: 24px;
+	`)}
 
-  ${ftablet(css`
-    flex-direction: column;
-  `)}
+	${ftablet(css`
+		flex-direction: column;
+	`)}
 
   ${fmobile(css`
-    flex-direction: column;
-  `)}
+		flex-direction: column;
+	`)}
 `

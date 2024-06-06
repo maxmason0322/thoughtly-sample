@@ -120,54 +120,54 @@ export default function Preloader() {
 }
 
 const Logo = styled(LogoSVG)`
-  ${fresponsive(css`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    height: 123px;
-    display: none;
-  `)}
+	${fresponsive(css`
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		translate: -50% -50%;
+		height: 123px;
+		display: none;
+	`)}
 `
 
 const Clipper = styled.div`
-  overflow: clip;
-  display: flex;
+	overflow: clip;
+	display: flex;
 `
 
 const Connector = styled(ConnectorSVG)`
-  ${fresponsive(css`
-    width: 17px;
-    min-width: 17px;
-    max-width: unset;
-    display: block;
-    margin-left: -1px;
+	${fresponsive(css`
+		width: 17px;
+		min-width: 17px;
+		max-width: unset;
+		display: block;
+		margin-left: -1px;
 
-    &:nth-child(odd) {
-      scale: 1 -1;
-    }
+		&:nth-child(odd) {
+			scale: 1 -1;
+		}
 
-    &:last-child {
-      margin-right: -34px;
-    }
-  `)}
+		&:last-child {
+			margin-right: -34px;
+		}
+	`)}
 `
 
 const Wrapper = styled.div`
-  position: fixed;
-  width: 100lvw;
-  height: 100lvh;
-  top: 0;
-  left: 0;
-  z-index: 8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${colors.beige200};
+	position: fixed;
+	width: 100lvw;
+	height: 100lvh;
+	top: 0;
+	left: 0;
+	z-index: 8;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: ${colors.beige200};
 
-  ${fmobile(css`
-    & > * {
-      scale: 0.5;
-    }
-  `)}
+	${fmobile(css`
+		& > * {
+			scale: 0.5;
+		}
+	`)}
 `

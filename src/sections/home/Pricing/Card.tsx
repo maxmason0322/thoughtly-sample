@@ -113,209 +113,209 @@ export default function Card({
 }
 
 const Wrapper = styled.div`
-  background: ${gradients.surface1};
-  display: flex;
-  flex-direction: column;
+	background: ${gradients.surface1};
+	display: flex;
+	flex-direction: column;
 
-  ${fresponsive(css`
-    &:nth-child(2) {
-      height: 490px;
-    }
+	${fresponsive(css`
+		&:nth-child(2) {
+			height: 490px;
+		}
 
-    min-height: 440px;
-    width: 360px;
-    border-radius: 18px;
-    border: 1.5px solid ${colors.gray300};
-    box-shadow: 0 18px 42px 0 rgba(89 89 89 / 4%);
-  `)}
+		min-height: 440px;
+		width: 360px;
+		border-radius: 18px;
+		border: 1.5px solid ${colors.gray300};
+		box-shadow: 0 18px 42px 0 rgba(89 89 89 / 4%);
+	`)}
 
-  ${ftablet(css`
-    width: 570px;
-    min-height: unset;
+	${ftablet(css`
+		width: 570px;
+		min-height: unset;
 
-    &:nth-child(2) {
-      height: auto;
-    }
-  `)}
+		&:nth-child(2) {
+			height: auto;
+		}
+	`)}
 
   ${fmobile(css`
-    &:nth-child(2) {
-      height: auto;
-    }
+		&:nth-child(2) {
+			height: auto;
+		}
 
-    min-height: unset;
-  `)}
+		min-height: unset;
+	`)}
 `
 
 const Top = styled.div`
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-  ${fresponsive(css`
-    padding: 24px;
-  `)}
+	${fresponsive(css`
+		padding: 24px;
+	`)}
 `
 
 const Bottom = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
 
-  ${fresponsive(css`
-    border-top: 1.5px solid ${colors.gray300};
-    padding: 24px;
-    gap: 10px;
-  `)}
+	${fresponsive(css`
+		border-top: 1.5px solid ${colors.gray300};
+		padding: 24px;
+		gap: 10px;
+	`)}
 `
 
 const Row = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
 
-  ${fresponsive(css`
-    gap: 23px;
-  `)}
+	${fresponsive(css`
+		gap: 23px;
+	`)}
 `
 
 const Info = styled.div`
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-  ${fresponsive(css`
-    gap: 6px;
-  `)}
+	${fresponsive(css`
+		gap: 6px;
+	`)}
 `
 
 const IconWrapper = styled.div`
-  ${fresponsive(css`
-    height: 16px;
-  `)}
+	${fresponsive(css`
+		height: 16px;
+	`)}
 `
 
 const StyledIcon = styled(Icon)<{ $stroke: boolean }>`
-  path {
-    ${({ $stroke }) =>
+	path {
+		${({ $stroke }) =>
 			$stroke ? `stroke: ${colors.gray500}` : `fill: ${colors.gray500}`};
-  }
+	}
 
-  ${fresponsive(css`
-    width: 16px;
-    height: 16px;
-  `)}
+	${fresponsive(css`
+		width: 16px;
+		height: 16px;
+	`)}
 `
 
 const TitleWrapper = styled.div`
-  ${fresponsive(css`
-    height: 22px;
-  `)}
+	${fresponsive(css`
+		height: 22px;
+	`)}
 `
 
 const Title = styled.span`
-  color: ${colors.black};
-  ${textStyles.sh2}
+	color: ${colors.black};
+	${textStyles.sh2}
 
-  ${ftablet(css`
-    ${textStyles.sh1}
-  `)}
+	${ftablet(css`
+		${textStyles.sh1}
+	`)}
 `
 
 const Text = styled.p`
-  ${textStyles.bodyS}
-  color: ${colors.gray600};
+	${textStyles.bodyS}
+	color: ${colors.gray600};
 
-  ${fresponsive(css`
-    height: 56px;
-  `)}
+	${fresponsive(css`
+		height: 56px;
+	`)}
 
-  ${ftablet(css`
-    ${textStyles.bodyR}
-    width: 250px;
-    height: 70px;
-  `)}
+	${ftablet(css`
+		${textStyles.bodyR}
+		width: 250px;
+		height: 70px;
+	`)}
 `
 
 const StyledButton = styled(Button)`
-  flex-shrink: 0;
+	flex-shrink: 0;
 `
 
 const Price = styled.h1`
-  ${textStyles.h6}
-  color: ${colors.black};
-  display: flex;
-  align-items: flex-end;
+	${textStyles.h6}
+	color: ${colors.black};
+	display: flex;
+	align-items: flex-end;
 
-  span {
-    ${textStyles.bodyS}
-  }
+	span {
+		${textStyles.bodyS}
+	}
 
-  ${fresponsive(css`
-    gap: 5px;
-    margin-top: 28px;
-    height: 50px;
-  `)}
+	${fresponsive(css`
+		gap: 5px;
+		margin-top: 28px;
+		height: 50px;
+	`)}
 `
 
 const Thumb = css`
-  appearance: none;
-  cursor: pointer;
-  background: ${colors.green400};
-  border-radius: 99vw;
-  filter: drop-shadow(0 4.266px 9.67px rgba(119 119 119 / 21%));
+	appearance: none;
+	cursor: pointer;
+	background: ${colors.green400};
+	border-radius: 99vw;
+	filter: drop-shadow(0 4.266px 9.67px rgba(119 119 119 / 21%));
 
-  ${fresponsive(css`
-    border: 1px solid ${colors.white};
-    width: 15px;
-    height: 15px;
-  `)}
+	${fresponsive(css`
+		border: 1px solid ${colors.white};
+		width: 15px;
+		height: 15px;
+	`)}
 `
 
 const Slider = styled.input`
-  appearance: none;
-  width: 100%;
-  background: #ececec;
-  outline: none;
-  border-radius: 99vw;
+	appearance: none;
+	width: 100%;
+	background: #ececec;
+	outline: none;
+	border-radius: 99vw;
 
-  ${fresponsive(css`
-    height: 9px;
-  `)}
+	${fresponsive(css`
+		height: 9px;
+	`)}
 
-  &::-moz-range-thumb {
-    ${Thumb}
-  }
+	&::-moz-range-thumb {
+		${Thumb}
+	}
 
-  &::-webkit-slider-thumb {
-    ${Thumb}
-  }
+	&::-webkit-slider-thumb {
+		${Thumb}
+	}
 `
 
 const Minutes = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  ${textStyles.t2}
-  color: ${colors.gray600};
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	${textStyles.t2}
+	color: ${colors.gray600};
 
-  span {
-    color: ${colors.gray800};
-  }
+	span {
+		color: ${colors.gray800};
+	}
 
-  ${fresponsive(css`
-    margin-bottom: 12px;
-    margin-top: 12px;
-  `)}
+	${fresponsive(css`
+		margin-bottom: 12px;
+		margin-top: 12px;
+	`)}
 `
 
 const PriceText = styled.div`
-  ${fresponsive(css`
-    padding: 0 10px 0 0;
-    margin: 0 -10px 0 0;
-  `)}
+	${fresponsive(css`
+		padding: 0 10px 0 0;
+		margin: 0 -10px 0 0;
+	`)}
 `
 
 const PriceAnimate = styled(AutoAnimate)`
-  ${fresponsive(css`
-    padding-right: 5px;
-    margin-right: -5px;
-  `)}
+	${fresponsive(css`
+		padding-right: 5px;
+		margin-right: -5px;
+	`)}
 `

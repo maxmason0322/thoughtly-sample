@@ -28,24 +28,24 @@ export default function LeftCard({
 	activeIconIndex: number
 }) {
 	const images: Queries.WorkflowImageQuery = useStaticQuery(graphql`
-    query WorkflowImage {
-      hubspot: file(relativePath: { eq: "home/hubspot.png" }) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-      salesforce: file(relativePath: { eq: "home/salesforce.png" }) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-      airtable: file(relativePath: { eq: "home/airtable.png" }) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-    }
-  `)
+		query WorkflowImage {
+			hubspot: file(relativePath: { eq: "home/hubspot.png" }) {
+				childImageSharp {
+					gatsbyImageData
+				}
+			}
+			salesforce: file(relativePath: { eq: "home/salesforce.png" }) {
+				childImageSharp {
+					gatsbyImageData
+				}
+			}
+			airtable: file(relativePath: { eq: "home/airtable.png" }) {
+				childImageSharp {
+					gatsbyImageData
+				}
+			}
+		}
+	`)
 
 	const CompanyIcons = useMemo(
 		() => [
@@ -92,132 +92,132 @@ export default function LeftCard({
 }
 
 export const animationCardStyle = css`
-  background: ${gradients.surface1};
+	background: ${gradients.surface1};
 `
 
 const NodeStyle = css`
-  border-radius: 99vw;
-  background: ${colors.white};
-  z-index: 5;
-  ${fresponsive(css`
-    border: 1.5px solid ${colors.gray200};
-    width: 9px;
-    height: 9px;
-    top: 118.68px;
-  `)}
+	border-radius: 99vw;
+	background: ${colors.white};
+	z-index: 5;
+	${fresponsive(css`
+		border: 1.5px solid ${colors.gray200};
+		width: 9px;
+		height: 9px;
+		top: 118.68px;
+	`)}
 `
 
 const RightNode = styled.div`
-  position: absolute;
+	position: absolute;
 
-  ${NodeStyle}
-  ${fresponsive(css`
-    left: unset;
-    right: -4.7px;
-    z-index: 5;
-  `)}
+	${NodeStyle}
+	${fresponsive(css`
+		left: unset;
+		right: -4.7px;
+		z-index: 5;
+	`)}
 `
 
 const Inner = styled.div`
-  ${animationCardStyle};
+	${animationCardStyle};
 
-  position: absolute;
-  display: grid;
-  place-items: center;
+	position: absolute;
+	display: grid;
+	place-items: center;
 
-  ${fresponsive(css`
-    border-radius: 17px;
-    width: 280px;
-    height: 150px;
-  `)}
+	${fresponsive(css`
+		border-radius: 17px;
+		width: 280px;
+		height: 150px;
+	`)}
 
-  ${ftablet(css`
-    width: 265px;
-    height: 150px;
-  `)}
+	${ftablet(css`
+		width: 265px;
+		height: 150px;
+	`)}
 `
 
 const Row = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	left: 0;
 
-  ${fresponsive(css`
-    gap: 16px;
-    width: fit-content;
-    height: 52px;
-  `)}
+	${fresponsive(css`
+		gap: 16px;
+		width: fit-content;
+		height: 52px;
+	`)}
 `
 
 const Icons = styled.div`
-  position: relative;
-  display: grid;
-  place-items: center;
-  ${fresponsive(css`
-    width: 112px;
-    height: 48px;
-  `)}
+	position: relative;
+	display: grid;
+	place-items: center;
+	${fresponsive(css`
+		width: 112px;
+		height: 48px;
+	`)}
 `
 
 const RowText = styled.p`
-  ${textStyles.sh4};
-  color: ${colors.black};
-  position: relative;
+	${textStyles.sh4};
+	color: ${colors.black};
+	position: relative;
 
-  ${fresponsive(css`
-    width: 50px;
-    white-space: nowrap;
-  `)}
+	${fresponsive(css`
+		width: 50px;
+		white-space: nowrap;
+	`)}
 `
 
 const Icon = styled(UniversalImage).attrs({ objectFit: "contain" })`
-  ${fresponsive(css`
-    height: 48px;
-    width: 112px;
+	${fresponsive(css`
+		height: 48px;
+		width: 112px;
 
-    img {
-      object-position: right center;
-    }
-  `)}
+		img {
+			object-position: right center;
+		}
+	`)}
 `
 
 const TextInner = styled.span``
 
 const CenterLine = styled.div`
-  background: ${colors.gray400};
-  ${fresponsive(css`
-    width: 1.5px;
-    height: 24px;
-  `)}
+	background: ${colors.gray400};
+	${fresponsive(css`
+		width: 1.5px;
+		height: 24px;
+	`)}
 `
 
 const StyledAutoAnimate = styled(AutoAnimate)``
 
 const LeftCardWrapper = styled.div`
-  position: absolute;
-  ${generateGradientBorder(gradients.surfaceOutline, 1.5)};
+	position: absolute;
+	${generateGradientBorder(gradients.surfaceOutline, 1.5)};
 
-  ${RightNode} {
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 5;
-  }
+	${RightNode} {
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 5;
+	}
 
-  ${fresponsive(css`
-    right: calc(100% - 2px);
-    top: -2px;
-    width: 282px;
-    height: 152px;
-    box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
-    border-radius: 18px;
-  `)}
+	${fresponsive(css`
+		right: calc(100% - 2px);
+		top: -2px;
+		width: 282px;
+		height: 152px;
+		box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
+		border-radius: 18px;
+	`)}
 
-  ${ftablet(css`
-    top: 2px;
-    right: calc(100%);
-    width: 267px;
-    height: 152px;
-  `)}
+	${ftablet(css`
+		top: 2px;
+		right: calc(100%);
+		width: 267px;
+		height: 152px;
+	`)}
 `

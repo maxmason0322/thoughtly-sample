@@ -16,30 +16,30 @@ export default function DemoButton({ ...props }: Props) {
 }
 
 const Wrapper = styled(UniversalLink)`
-  width: fit-content;
-  display: flex;
-  position: relative;
+	width: fit-content;
+	display: flex;
+	position: relative;
 
-  ${fresponsive(css`
-    height: 41px;
-  `)}
+	${fresponsive(css`
+		height: 41px;
+	`)}
 `
 
 const Inner = styled.div`
-  display: flex;
-  width: fit-content;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  ${textStyles.sh3};
-  color: #000;
-  height: 100%;
+	display: flex;
+	width: fit-content;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	${textStyles.sh3};
+	color: #000;
+	height: 100%;
 
-  ${fresponsive(css`
-    border-radius: 10px;
-    padding: 12px 18px;
-    border: 1.5px solid #e4e4e4;
-    box-shadow: 0 18px 42px 0 rgba(89 89 89 / 4%);
-    background: linear-gradient(210deg, #fff 2.03%, #f7f7f7 255.34%);
-  `)}
+	${fresponsive(css`
+		border-radius: 10px;
+		padding: 12px 18px;
+		border: 1.5px solid #e4e4e4;
+		box-shadow: 0 18px 42px 0 rgba(89 89 89 / 4%);
+		background: linear-gradient(210deg, #fff 2.03%, #f7f7f7 255.34%);
+	`)}
 `

@@ -13,22 +13,22 @@ export default function AgentCard({ activeIndex }: { activeIndex: number }) {
 	const agentRef = useRef<HTMLDivElement | null>(null)
 
 	const data: Queries.IndustryAgentQuery = useStaticQuery(graphql`
-    query IndustryAgent {
-      allHomeIndustryJson {
-        nodes {
-          agent {
-            name
-            country
-            avatar {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
+		query IndustryAgent {
+			allHomeIndustryJson {
+				nodes {
+					agent {
+						name
+						country
+						avatar {
+							childImageSharp {
+								gatsbyImageData
+							}
+						}
+					}
+				}
+			}
+		}
+	`)
 
 	useAnimation(
 		() => {
@@ -88,51 +88,51 @@ export default function AgentCard({ activeIndex }: { activeIndex: number }) {
 }
 
 const Card = styled.div`
-  background: ${gradients.surface1};
+	background: ${gradients.surface1};
 
-  ${fresponsive(css`
-    border: 2px solid ${colors.gray200};
-    border-radius: 12px;
-    box-shadow: 0 18px 42px 0 rgba(89 89 89 / 4%);
-  `)}
+	${fresponsive(css`
+		border: 2px solid ${colors.gray200};
+		border-radius: 12px;
+		box-shadow: 0 18px 42px 0 rgba(89 89 89 / 4%);
+	`)}
 `
 
 const Agent = styled(Card)`
-  position: absolute;
-  z-index: 2;
-  display: flex;
-  align-items: center;
+	position: absolute;
+	z-index: 2;
+	display: flex;
+	align-items: center;
 
-  ${fresponsive(css`
-    width: 172px;
-    height: 48px;
-    top: -24px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 9px;
-    gap: 10px;
-  `)}
+	${fresponsive(css`
+		width: 172px;
+		height: 48px;
+		top: -24px;
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 9px;
+		gap: 10px;
+	`)}
 `
 
 const Avatar = styled(UniversalImage)`
-  ${fresponsive(css`
-    width: 26.6px;
-    height: 26.6px;
-  `)};
+	${fresponsive(css`
+		width: 26.6px;
+		height: 26.6px;
+	`)};
 `
 
 const Name = styled.div`
-  ${textStyles.sh3}
-  color: ${colors.black};
+	${textStyles.sh3}
+	color: ${colors.black};
 `
 
 const Line = styled.div`
-  background-color: ${colors.gray300};
+	background-color: ${colors.gray300};
 
-  ${fresponsive(css`
-    width: 1.5px;
-    height: 10.3px;
-  `)}
+	${fresponsive(css`
+		width: 1.5px;
+		height: 10.3px;
+	`)}
 `
 
 const AvatarWrapper = styled(AutoAnimate)``

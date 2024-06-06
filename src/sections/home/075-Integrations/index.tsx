@@ -17,20 +17,20 @@ export default function Integrations() {
 	const offsetLeft = useMedia(0, 0, 140, 140)
 
 	const data: Queries.IntegrationsQuery = useStaticQuery(graphql`
-    query Integrations {
-      allHomeIntegrationsJson {
-        nodes {
-          logo {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-          text
-          tag
-        }
-      }
-    }
-  `)
+		query Integrations {
+			allHomeIntegrationsJson {
+				nodes {
+					logo {
+						childImageSharp {
+							gatsbyImageData
+						}
+					}
+					text
+					tag
+				}
+			}
+		}
+	`)
 
 	const halfOfElements = (arr: JSX.Element[], secondHalf?: boolean) => {
 		if (secondHalf) {
@@ -78,32 +78,32 @@ export default function Integrations() {
 }
 
 const Wrapper = styled.section`
-  width: 100%;
-  display: grid;
-  place-content: center;
-  background-color: ${colors.beige200};
+	width: 100%;
+	display: grid;
+	place-content: center;
+	background-color: ${colors.beige200};
 `
 
 const Inner = styled.div`
-  width: 100%;
-  max-width: ${desktopBreakpoint}px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
-  transform: scale(1);
+	width: 100%;
+	max-width: ${desktopBreakpoint}px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	position: relative;
+	transform: scale(1);
 
-  ${fresponsive(css`
-    padding: 30px 0 100px;
-    gap: 53px;
-  `)}
+	${fresponsive(css`
+		padding: 30px 0 100px;
+		gap: 53px;
+	`)}
 `
 
 const Tracks = styled.div`
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-  ${fresponsive(css`
-    gap: 24px;
-  `)}
+	${fresponsive(css`
+		gap: 24px;
+	`)}
 `

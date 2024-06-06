@@ -452,93 +452,93 @@ export default function WorkflowAnimation({
 }
 
 export const animationCardStyle = css`
-  background: ${gradients.surface1};
+	background: ${gradients.surface1};
 
-  ${fresponsive(css`
-    box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
-    border-radius: 18px;
-    border: 1.5px solid ${`${colors.gray200}90`};
-  `)}
+	${fresponsive(css`
+		box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
+		border-radius: 18px;
+		border: 1.5px solid ${`${colors.gray200}90`};
+	`)}
 `
 
 const Animation = styled.div`
-  display: flex;
-  justify-content: center;
-  position: relative;
-  ${fresponsive(css`
-    margin-top: 68px;
-  `)}
+	display: flex;
+	justify-content: center;
+	position: relative;
+	${fresponsive(css`
+		margin-top: 68px;
+	`)}
 
-  ${ftablet(css`
-    justify-content: flex-start;
-  `)}
+	${ftablet(css`
+		justify-content: flex-start;
+	`)}
 `
 
 const LeftConnector = styled.div`
-  position: relative;
-  z-index: 4;
-  ${fresponsive(css`
-    width: 115px;
-    height: 239px;
-  `)}
+	position: relative;
+	z-index: 4;
+	${fresponsive(css`
+		width: 115px;
+		height: 239px;
+	`)}
 
-  svg {
-    width: 100%;
-    height: 100%;
-  }
+	svg {
+		width: 100%;
+		height: 100%;
+	}
 
-  ${ftablet(css`
-    display: none;
-  `)}
+	${ftablet(css`
+		display: none;
+	`)}
 `
 
 const LeftConnectorT = styled.div`
-  position: relative;
-  display: none;
+	position: relative;
+	display: none;
 
-  svg {
-    width: 100%;
-    height: 100%;
-  }
+	svg {
+		width: 100%;
+		height: 100%;
+	}
 
-  ${ftablet(css`
-    z-index: 4;
-    display: block;
-    width: 64px;
-    height: 238px;
-  `)}
+	${ftablet(css`
+		z-index: 4;
+		display: block;
+		width: 64px;
+		height: 238px;
+	`)}
 `
 
 const RightConnector = styled.div`
-  position: relative;
-  ${fresponsive(css`
-    width: 115px;
-    height: 239px;
-  `)}
+	position: relative;
+	${fresponsive(css`
+		width: 115px;
+		height: 239px;
+	`)}
 
-  svg {
-    width: 100%;
-    height: 100%;
-  }
+	svg {
+		width: 100%;
+		height: 100%;
+	}
 
-  ${ftablet(css`
-    width: 111px;
-    height: 238px;
-  `)}
+	${ftablet(css`
+		width: 111px;
+		height: 238px;
+	`)}
 `
 
 const RightConnectorT = styled.div`
-  position: relative;
-  display: none;
+	position: relative;
+	display: none;
 
-  svg {
-    width: 100%;
-    height: 100%;
-  }
+	svg {
+		width: 100%;
+		height: 100%;
+	}
 
-  ${ftablet(css`
-    display: inline-block;
-    width: 111px;
-    height: 238px;
-  `)}
+	${ftablet(css`
+		display: inline-block;
+		width: 111px;
+		height: 238px;
+	`)}
 `

@@ -40,8 +40,8 @@ export default function Share({ title }: { title: string | undefined | null }) {
 }
 
 const StyledCircle = styled(Circle)`
-  ${fresponsive(css`
-    width: 50px;
-    height: 50px;
-  `)}
+	${fresponsive(css`
+		width: 50px;
+		height: 50px;
+	`)}
 `

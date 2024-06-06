@@ -62,107 +62,107 @@ export default function RightCard({
 }
 
 const animationCardStyle = css`
-  background: ${gradients.surface1};
+	background: ${gradients.surface1};
 `
 
 const NodeStyle = css`
-  border-radius: 99vw;
-  background: ${colors.white};
-  ${fresponsive(css`
-    border: 1.5px solid ${colors.gray200};
-    width: 9px;
-    height: 9px;
-    top: 118.68px;
-  `)}
+	border-radius: 99vw;
+	background: ${colors.white};
+	${fresponsive(css`
+		border: 1.5px solid ${colors.gray200};
+		width: 9px;
+		height: 9px;
+		top: 118.68px;
+	`)}
 `
 
 const LeftNode = styled.div`
-  position: absolute;
-  z-index: 2;
-  ${NodeStyle}
-  ${fresponsive(css`
-    left: -4.7px;
-  `)}
+	position: absolute;
+	z-index: 2;
+	${NodeStyle}
+	${fresponsive(css`
+		left: -4.7px;
+	`)}
 `
 
 const RightCardWrapper = styled.div`
-  ${generateGradientBorder(gradients.surfaceOutline, 1.5)};
-  position: absolute;
+	${generateGradientBorder(gradients.surfaceOutline, 1.5)};
+	position: absolute;
 
-  ${LeftNode} {
-    top: 50%;
-    transform: translateY(-50%);
-  }
+	${LeftNode} {
+		top: 50%;
+		transform: translateY(-50%);
+	}
 
-  ${fresponsive(css`
-    left: 539px;
-    top: 122px;
-    width: 332px;
-    height: 170px;
-    min-height: 126px;
-    box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
-    border-radius: 18px;
-  `)}
+	${fresponsive(css`
+		left: 539px;
+		top: 122px;
+		width: 332px;
+		height: 170px;
+		min-height: 126px;
+		box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
+		border-radius: 18px;
+	`)}
 
-  ${ftablet(css`
-    width: 196px;
-    height: 254px;
-    left: 444px;
-    top: 58px;
-  `)}
+	${ftablet(css`
+		width: 196px;
+		height: 254px;
+		left: 444px;
+		top: 58px;
+	`)}
 `
 
 const Inner = styled.div`
-  ${animationCardStyle};
-  position: relative;
+	${animationCardStyle};
+	position: relative;
 
-  ${fresponsive(css`
-    width: 330px;
-    height: 168px;
-    border-radius: 17px;
-  `)}
+	${fresponsive(css`
+		width: 330px;
+		height: 168px;
+		border-radius: 17px;
+	`)}
 
-  ${ftablet(css`
-    width: 194px;
-    height: 252px;
-  `)}
+	${ftablet(css`
+		width: 194px;
+		height: 252px;
+	`)}
 `
 
 const Tag = styled.div`
-  width: fit-content;
-  position: relative;
-  background: ${colors.gray100};
-  color: ${colors.gray800};
-  display: flex;
-  ${textStyles.sh4};
-  opacity: 0;
-  ${fresponsive(css`
-    gap: 10.42px;
-    padding: 11.46px 10.42px 10.42px;
-    border-radius: 9.37px;
+	width: fit-content;
+	position: relative;
+	background: ${colors.gray100};
+	color: ${colors.gray800};
+	display: flex;
+	${textStyles.sh4};
+	opacity: 0;
+	${fresponsive(css`
+		gap: 10.42px;
+		padding: 11.46px 10.42px 10.42px;
+		border-radius: 9.37px;
 
-    svg {
-      display: block;
-      width: 14px;
-      height: 14px;
-      transform: scale(0);
-    }
-  `)}
+		svg {
+			display: block;
+			width: 14px;
+			height: 14px;
+			transform: scale(0);
+		}
+	`)}
 
-  ${ftablet(css`
-    white-space: nowrap;
-  `)}
+	${ftablet(css`
+		white-space: nowrap;
+	`)}
 `
 
 const TaskGroup = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  position: absolute;
-  inset: 0;
-  ${fresponsive(css`
-    padding: 24px;
-    gap: 6px;
-  `)}
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	position: absolute;
+	inset: 0;
+	${fresponsive(css`
+		padding: 24px;
+		gap: 6px;
+	`)}
 `

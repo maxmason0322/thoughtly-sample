@@ -121,91 +121,91 @@ export default function Statement() {
 }
 
 const Wrapper = styled.section`
-  width: 100%;
-  display: grid;
-  place-items: center;
-  height: 100vh;
-  background-color: ${colors.beige200};
-  will-change: transform;
+	width: 100%;
+	display: grid;
+	place-items: center;
+	height: 100vh;
+	background-color: ${colors.beige200};
+	will-change: transform;
 
-  ${fresponsive(css`
-    min-height: 882px;
-  `)}
+	${fresponsive(css`
+		min-height: 882px;
+	`)}
 `
 
 const Inner = styled.div`
-  width: 100%;
-  max-width: ${desktopBreakpoint}px;
+	width: 100%;
+	max-width: ${desktopBreakpoint}px;
 
-  ${fresponsive(css`
-    padding: 92px 61px;
-  `)}
+	${fresponsive(css`
+		padding: 92px 61px;
+	`)}
 
-  ${ftablet(css`
-    padding: 0;
-    max-width: 982px;
-    width: 982px;
-  `)}
+	${ftablet(css`
+		padding: 0;
+		max-width: 982px;
+		width: 982px;
+	`)}
   ${fmobile(css`
-    padding: 0;
-    width: 358px;
-  `)}
+		padding: 0;
+		width: 358px;
+	`)}
 `
 
 const Content = styled.div`
-  width: 100%;
-  overflow: clip;
-  position: relative;
-  background-color: ${colors.beige300};
+	width: 100%;
+	overflow: clip;
+	position: relative;
+	background-color: ${colors.beige300};
 
-  ${fresponsive(css`
-    height: 694px;
-    padding: 79px 96px;
-    border-radius: 60px;
-  `)}
+	${fresponsive(css`
+		height: 694px;
+		padding: 79px 96px;
+		border-radius: 60px;
+	`)}
 
-  ${ftablet(css`
-    height: 694px;
-    padding: 72px 47px;
-  `)}
+	${ftablet(css`
+		height: 694px;
+		padding: 72px 47px;
+	`)}
 
   ${fmobile(css`
-    height: 448px;
-    padding: 65px 47px 0 22px;
-    border-radius: 36px;
-  `)}
+		height: 448px;
+		padding: 65px 47px 0 22px;
+		border-radius: 36px;
+	`)}
 `
 
 const Title = styled.h2`
-  ${textStyles.quoteXL};
+	${textStyles.quoteXL};
 
-  .gradient {
-    ${transparentText}
-    background-image: ${gradients.greenBlue};
-  }
+	.gradient {
+		${transparentText}
+		background-image: ${gradients.greenBlue};
+	}
 
-  .non-gradient {
-    .word {
-      ${transparentText}
-      background-color: ${colors.gray400};
-    }
-  }
+	.non-gradient {
+		.word {
+			${transparentText}
+			background-color: ${colors.gray400};
+		}
+	}
 
-  ${fresponsive(css`
-    width: 1035px;
-  `)}
+	${fresponsive(css`
+		width: 1035px;
+	`)}
 
-  ${ftablet(css`
-    ${textStyles.quoteXL};
-    width: 887px;
-  `)}
+	${ftablet(css`
+		${textStyles.quoteXL};
+		width: 887px;
+	`)}
 
   ${fmobile(css`
-    ${textStyles.sh1};
-    width: 289px;
-  `)}
+		${textStyles.sh1};
+		width: 289px;
+	`)}
 `
 
 const Outer = styled.div`
-  background-color: ${colors.beige200};
+	background-color: ${colors.beige200};
 `
