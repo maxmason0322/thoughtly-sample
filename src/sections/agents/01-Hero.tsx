@@ -217,5 +217,7 @@ const Wrapper = styled.div`
     margin: 0 auto;
     padding: 147px 132px 0 155px;
     place-items: end;
+    position: relative;
+    z-index: 2;
   `)}
 `
