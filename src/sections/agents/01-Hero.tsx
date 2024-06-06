@@ -1,8 +1,10 @@
 import Primary from "components/Buttons/Primary"
 import Kicker from "components/Kicker"
 import { graphql, useStaticQuery } from "gatsby"
+import ScaledContent from "library/ScaledContent"
 import UniversalImage from "library/UniversalImage"
-import { fresponsive, ftablet } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
+import useMedia from "library/useMedia"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
@@ -61,36 +63,38 @@ export default function AgentsHero() {
 					</Primary>
 				</Buttons>
 			</Copy>
-			<Illustration>
-				<MainImage
-					image={imageQuery.mainBackground}
-					alt="four thoughtly agents sit at a table"
-				/>
-				<Lisa>
-					<Avatar image={imageQuery.lisa} alt="Lisa" />
-					<Flag>🇦🇺</Flag>
-					<Line />
-					<Name>Lisa</Name>
-				</Lisa>
-				<James>
-					<Avatar image={imageQuery.james} alt="James" />
-					<Flag>🇺🇸</Flag>
-					<Line />
-					<Name>James</Name>
-				</James>
-				<Maya>
-					<Avatar image={imageQuery.maya} alt="Maya" />
-					<Flag>🇩🇪</Flag>
-					<Line />
-					<Name>Maya</Name>
-				</Maya>
-				<Stacey>
-					<Avatar image={imageQuery.stacey} alt="Stacey" />
-					<Flag>🇸🇪</Flag>
-					<Line />
-					<Name>Stacey</Name>
-				</Stacey>
-			</Illustration>
+			<ScaledContent scale={useMedia(1, 1, 1, 0.65)}>
+				<Illustration>
+					<MainImage
+						image={imageQuery.mainBackground}
+						alt="four thoughtly agents sit at a table"
+					/>
+					<Lisa>
+						<Avatar image={imageQuery.lisa} alt="Lisa" />
+						<Flag>🇦🇺</Flag>
+						<Line />
+						<Name>Lisa</Name>
+					</Lisa>
+					<James>
+						<Avatar image={imageQuery.james} alt="James" />
+						<Flag>🇺🇸</Flag>
+						<Line />
+						<Name>James</Name>
+					</James>
+					<Maya>
+						<Avatar image={imageQuery.maya} alt="Maya" />
+						<Flag>🇩🇪</Flag>
+						<Line />
+						<Name>Maya</Name>
+					</Maya>
+					<Stacey>
+						<Avatar image={imageQuery.stacey} alt="Stacey" />
+						<Flag>🇸🇪</Flag>
+						<Line />
+						<Name>Stacey</Name>
+					</Stacey>
+				</Illustration>
+			</ScaledContent>
 		</Wrapper>
 	)
 }
@@ -227,6 +231,10 @@ const Name = styled.div``
 
 const Title = styled.h1`
 	${textStyles.h3}
+
+	${fmobile(css`
+		${textStyles.h6}
+	`)}
 `
 
 const Subtitle = styled.p`
@@ -238,6 +246,11 @@ const Subtitle = styled.p`
 		width: 477px;
 		min-height: 92px;
 	`)}
+
+	${fmobile(css`
+		${textStyles.bodyR}
+		width: 295px;
+	`)}
 `
 
 const Buttons = styled.div`
@@ -246,6 +259,11 @@ const Buttons = styled.div`
 	${fresponsive(css`
 		gap: 12px;
 		padding-left: 6px;
+	`)}
+
+	${fmobile(css`
+		flex-direction: column;
+		align-items: center;
 	`)}
 `
 
@@ -257,6 +275,11 @@ const Copy = styled.div`
 	`)}
 
 	${ftablet(css`
+		align-items: center;
+		text-align: center;
+	`)}
+
+	${fmobile(css`
 		align-items: center;
 		text-align: center;
 	`)}
@@ -278,5 +301,13 @@ const Wrapper = styled.div`
 		grid-template-columns: 1fr;
 		gap: 104px;
 		padding: 190px 68px 0;
+	`)}
+
+	${fmobile(css`
+		grid-template-columns: 1fr;
+		padding: 110px 14px 0;
+		margin: 0;
+		place-items: center;
+		gap: 65px;
 	`)}
 `
