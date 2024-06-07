@@ -1,16 +1,13 @@
 import Button from "components/Buttons/Primary"
-import { CalendlyModalContext } from "components/Providers/CalendlyModalProvider"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
-import { useContext } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
+import links from "utils/links"
 import Card from "./Card"
 
 export default function Pricing() {
-	const { setModalOpen } = useContext(CalendlyModalContext)
-
 	return (
 		<Wrapper id="pricing">
 			<Inner>
@@ -25,11 +22,7 @@ export default function Pricing() {
 								Pay by minute or try one of our scaleable plans to fit your
 								ambitions
 							</Text>
-							<Button
-								type="button"
-								onClick={() => setModalOpen(true)}
-								icon="chev"
-							>
+							<Button to={links.bookDemo} openInNewTab icon="chev">
 								Contact Us
 							</Button>
 						</Row>

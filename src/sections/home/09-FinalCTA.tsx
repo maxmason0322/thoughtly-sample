@@ -1,7 +1,6 @@
 import Primary from "components/Buttons/Primary"
 import { sectionScale } from "components/Footer"
 import Kicker from "components/Kicker"
-import { CalendlyModalContext } from "components/Providers/CalendlyModalProvider"
 import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
 import { ReactComponent as GraphSVG } from "images/home/graph.svg"
@@ -11,7 +10,7 @@ import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import getMedia from "library/getMedia"
 import useAnimation from "library/useAnimation"
-import { useContext, useRef } from "react"
+import { useRef } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import {
@@ -27,7 +26,6 @@ export default function FinalCTA() {
 	const wrapperRef = useRef<HTMLElement | null>(null)
 	const bottom = useRef<HTMLDivElement | null>(null)
 	const graphCover = useRef<HTMLDivElement | null>(null)
-	const { setModalOpen } = useContext(CalendlyModalContext)
 	const ctaImages: Queries.CTAImagesQuery = useStaticQuery(graphql`
 		query CTAImages {
 			allCtaImages: allFile(
