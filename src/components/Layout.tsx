@@ -10,7 +10,6 @@ import styled, { createGlobalStyle, css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
 import Preloader from "./Preloader"
-const Calendly = lazy(() => import("components/CalendlyModal"))
 const Footer = lazy(() => import("components/Footer"))
 
 interface LayoutProps {
@@ -49,9 +48,6 @@ export default function Layout({ children }: LayoutProps) {
 			<Transition />
 			<Preloader />
 
-			<Suspense>
-				<Calendly />
-			</Suspense>
 			<GlobalStyle />
 			<ScrollIndex>
 				<Header />

@@ -3,7 +3,6 @@ import StyledManager from "library/StyledManager"
 import { Suspense, lazy } from "react"
 import DelayRender from "utils/DelayRender"
 
-const CalendlyModalProvider = lazy(() => import("./CalendlyModalProvider"))
 const IntercomProvider = lazy(() => import("./Intercom"))
 
 interface ProvidersProps {
@@ -15,12 +14,6 @@ interface ProvidersProps {
  */
 export function RootProviders({ children }: ProvidersProps) {
 	children = <ScreenProvider>{children}</ScreenProvider>
-
-	children = (
-		<Suspense fallback={children}>
-			<CalendlyModalProvider>{children}</CalendlyModalProvider>
-		</Suspense>
-	)
 
 	children = (
 		<>

@@ -9,7 +9,6 @@ import { pathnameMatches } from "library/functions"
 import getMedia from "library/getMedia"
 import useMedia from "library/useMedia"
 import { getResponsivePixels } from "library/viewportUtils"
-import { useContext } from "react"
 import styled, { css } from "styled-components"
 import { Dots } from "styles/background"
 import colors from "styles/colors"
@@ -17,7 +16,6 @@ import { desktopBreakpoint } from "styles/media"
 import textStyles from "styles/text"
 import links from "utils/links"
 import Link from "./Buttons/Link"
-import { CalendlyModalContext } from "./Providers/CalendlyModalProvider"
 
 gsap.registerPlugin(ScrollToPlugin)
 
@@ -47,7 +45,6 @@ export const sectionScale = (section: HTMLElement | null) => {
 export default function Footer({ position }: { position: "fixed" | "static" }) {
 	const mobile = useMedia(false, false, false, true)
 	const pathname = useLocation().pathname
-	const { setModalOpen } = useContext(CalendlyModalContext)
 
 	if (!pathname) return null
 
@@ -102,7 +99,7 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 							<Label>Support</Label>
 							<StyledLink to={links.helpCenter}>Help Center</StyledLink>
 							<StyledLink to={links.apiDocs}>API Docs</StyledLink>
-							<StyledLink type="button" onClick={() => setModalOpen(true)}>
+							<StyledLink to={links.bookDemo} openInNewTab>
 								Contact Us
 							</StyledLink>
 						</LinkColumn>
