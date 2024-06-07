@@ -1,8 +1,10 @@
 import Primary from "components/Buttons/Primary"
 import Kicker from "components/Kicker"
 import { graphql, useStaticQuery } from "gatsby"
+import ScaledContent from "library/ScaledContent"
 import UniversalImage from "library/UniversalImage"
-import { fresponsive } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
+import useMedia from "library/useMedia"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
@@ -61,41 +63,57 @@ export default function AgentsHero() {
 					</Primary>
 				</Buttons>
 			</Copy>
-			<Illustration>
-				<MainImage
-					image={imageQuery.mainBackground}
-					alt="four thoughtly agents sit at a table"
-				/>
-				<Lisa>
-					<Avatar image={imageQuery.lisa} alt="Lisa" />
-					<Flag>🇦🇺</Flag>
-					<Line />
-					<Name>Lisa</Name>
-				</Lisa>
-				<James>
-					<Avatar image={imageQuery.james} alt="James" />
-					<Flag>🇺🇸</Flag>
-					<Line />
-					<Name>James</Name>
-				</James>
-				<Maya>
-					<Avatar image={imageQuery.maya} alt="Maya" />
-					<Flag>🇩🇪</Flag>
-					<Line />
-					<Name>Maya</Name>
-				</Maya>
-				<Stacey>
-					<Avatar image={imageQuery.stacey} alt="Stacey" />
-					<Flag>🇸🇪</Flag>
-					<Line />
-					<Name>Stacey</Name>
-				</Stacey>
-			</Illustration>
+			<ScaledContent scale={useMedia(1, 1, 1, 0.65)}>
+				<Illustration>
+					<MainImage
+						image={imageQuery.mainBackground}
+						alt="four thoughtly agents sit at a table"
+					/>
+					<Lisa>
+						<Avatar image={imageQuery.lisa} alt="Lisa" />
+						<Flag>🇦🇺</Flag>
+						<Line />
+						<Name>Lisa</Name>
+					</Lisa>
+					<James>
+						<Avatar image={imageQuery.james} alt="James" />
+						<Flag>🇺🇸</Flag>
+						<Line />
+						<Name>James</Name>
+					</James>
+					<Maya>
+						<Avatar image={imageQuery.maya} alt="Maya" />
+						<Flag>🇩🇪</Flag>
+						<Line />
+						<Name>Maya</Name>
+					</Maya>
+					<Stacey>
+						<Avatar image={imageQuery.stacey} alt="Stacey" />
+						<Flag>🇸🇪</Flag>
+						<Line />
+						<Name>Stacey</Name>
+					</Stacey>
+				</Illustration>
+			</ScaledContent>
 		</Wrapper>
 	)
 }
 
-const MainImage = styled(UniversalImage)``
+const MainImage = styled(UniversalImage)`
+	${fresponsive(css`
+		border-radius: 12px;
+		isolation: isolate;
+		overflow: clip;
+		width: 100%;
+		height: 100%;
+	`)}
+
+	${ftablet(css`
+		img {
+			object-position: center 20%;
+		}
+	`)}
+`
 
 const Illustration = styled.div`
 	${fresponsive(css`
@@ -109,7 +127,13 @@ const Illustration = styled.div`
 		box-shadow: 0 18px 32px 0 rgb(89 89 89 / 4%);
 		position: relative;
 	`)}
+
+	${ftablet(css`
+		width: 888px;
+		height: 520px;
+	`)}
 `
+
 const Person = styled.div`
 	${textStyles.sh2};
 	${fresponsive(css`
@@ -124,7 +148,7 @@ const Person = styled.div`
 			0 18px 32px 0 rgb(89 89 89 / 4%);
 		display: flex;
 		align-items: center;
-		justify-content: center;
+		justify-content: start;
 		gap: 9px;
 	`)}
 `
@@ -143,12 +167,26 @@ const Lisa = styled(Person)`
 		top: -20px;
 		left: -32px;
 	`)}
+
+	${ftablet(css`
+		top: unset;
+		bottom: 61px;
+		left: -28px;
+		width: 200px;
+	`)}
 `
 
 const James = styled(Person)`
 	${fresponsive(css`
 		top: 73px;
 		left: 272px;
+	`)}
+
+	${ftablet(css`
+		top: -28px;
+		left: unset;
+		right: -28px;
+		width: 210px;
 	`)}
 `
 
@@ -157,12 +195,26 @@ const Maya = styled(Person)`
 		top: 391px;
 		left: -72px;
 	`)}
+
+	${ftablet(css`
+		top: unset;
+		bottom: -28px;
+		left: -28px;
+		width: 200px;
+	`)}
 `
 
 const Stacey = styled(Person)`
 	${fresponsive(css`
 		top: 467px;
 		left: 218px;
+	`)}
+
+	${ftablet(css`
+		top: 60px;
+		left: unset;
+		right: -28px;
+		width: 210px;
 	`)}
 `
 
@@ -179,6 +231,10 @@ const Name = styled.div``
 
 const Title = styled.h1`
 	${textStyles.h3}
+
+	${fmobile(css`
+		${textStyles.h6}
+	`)}
 `
 
 const Subtitle = styled.p`
@@ -190,6 +246,11 @@ const Subtitle = styled.p`
 		width: 477px;
 		min-height: 92px;
 	`)}
+
+	${fmobile(css`
+		${textStyles.bodyR}
+		width: 295px;
+	`)}
 `
 
 const Buttons = styled.div`
@@ -199,6 +260,11 @@ const Buttons = styled.div`
 		gap: 12px;
 		padding-left: 6px;
 	`)}
+
+	${fmobile(css`
+		flex-direction: column;
+		align-items: center;
+	`)}
 `
 
 const Copy = styled.div`
@@ -206,6 +272,16 @@ const Copy = styled.div`
 		display: flex;
 		flex-direction: column;
 		gap: 18px;
+	`)}
+
+	${ftablet(css`
+		align-items: center;
+		text-align: center;
+	`)}
+
+	${fmobile(css`
+		align-items: center;
+		text-align: center;
 	`)}
 `
 
@@ -217,5 +293,21 @@ const Wrapper = styled.div`
 		margin: 0 auto;
 		padding: 147px 132px 0 155px;
 		place-items: end;
+		position: relative;
+		z-index: 2;
+	`)}
+
+	${ftablet(css`
+		grid-template-columns: 1fr;
+		gap: 104px;
+		padding: 190px 68px 0;
+	`)}
+
+	${fmobile(css`
+		grid-template-columns: 1fr;
+		padding: 110px 14px 0;
+		margin: 0;
+		place-items: center;
+		gap: 65px;
 	`)}
 `
