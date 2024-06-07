@@ -50,7 +50,22 @@ export default function Header() {
 
 	const openTimeline = useAnimation(() => {
 		if (!mobile && !tablet) return null
-		const tl = gsap.timeline({ paused: true })
+		const tl = gsap.timeline({
+			paused: true,
+			onReverseComplete: () => {
+				gsap.set(menuRef.current, {
+					display: "none",
+				})
+			},
+		})
+
+		tl.set(
+			menuRef.current,
+			{
+				display: "flex",
+			},
+			0,
+		)
 
 		tl.to(
 			[lineRef1.current, lineRef2.current],
@@ -481,7 +496,7 @@ const Blur = styled.div`
 const Menu = styled.div`
 	position: absolute;
 	background: ${gradients.surface1};
-	display: flex;
+	display: none;
 	flex-direction: column;
 
 	${fresponsive(css`
