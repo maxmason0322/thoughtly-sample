@@ -184,7 +184,7 @@ export default function Hero() {
 	return (
 		<Wrapper ref={wrapperRef}>
 			<Inner>
-				<BackgroundImage className="home-hero-bg" src={Background} />
+				<BackgroundImage className="home-hero-bg" src={Background} alt="" />
 				<BackgroundTablet>
 					<StyledDots />
 				</BackgroundTablet>
