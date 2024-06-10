@@ -43,6 +43,13 @@ export default function Layout({ children }: LayoutProps) {
 		})
 	}, [])
 
+	if (!showPage)
+		return (
+			<>
+				<Preloader />
+			</>
+		)
+
 	return (
 		<>
 			<Transition />
@@ -51,7 +58,7 @@ export default function Layout({ children }: LayoutProps) {
 			<GlobalStyle />
 			<ScrollIndex>
 				<Header />
-				<Main id="main">{showPage ? children : "i'm busy loading"}</Main>
+				<Main id="main">{children}</Main>
 				<Footer position="static" />
 			</ScrollIndex>
 			<Suspense>
