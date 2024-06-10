@@ -1,18 +1,10 @@
 import Header from "components/Header"
 import Transition from "components/Transition"
 import { useBackButton } from "library/Loader/TransitionUtils"
-import { loaderAwaitPromise } from "library/Loader/promises"
 import Scroll from "library/Scroll"
-import { useTrackPageReady } from "library/pageReady"
+import { useTrackPageReady, useTrackedLoad } from "library/pageReady"
 import useTrackFrameTime from "library/useTrackFrameTime"
-import {
-	Suspense,
-	lazy,
-	useEffect,
-	useMemo,
-	useState,
-	useTransition,
-} from "react"
+import { Suspense, lazy } from "react"
 import styled, { createGlobalStyle, css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
@@ -28,36 +20,13 @@ export default function Layout({ children }: LayoutProps) {
 	useBackButton()
 	useTrackFrameTime()
 
-	const [showPage, setShowPage] = useState(false)
-	const [loading, startTransition] = useTransition()
-	const [promise, resolve] = useMemo(() => {
-		let resolve: VoidFunction | undefined
-		const promise = new Promise<void>((r) => {
-			resolve = r
-		})
-		return [promise, resolve ?? (() => {})]
-	}, [])
-	loaderAwaitPromise(promise)
-
-	useEffect(() => {
-		if (!loading && showPage) {
-			resolve()
-		}
-	}, [loading, showPage, resolve])
-
-	useEffect(() => {
-		setTimeout(() => {
-			startTransition(() => {
-				setShowPage(true)
-			})
-		}, 250)
-	}, [])
+	const { shouldDisplay } = useTrackedLoad(250)
 
 	return (
 		<>
 			<Preloader />
 			<GlobalStyle />
-			{showPage && (
+			{shouldDisplay && (
 				<>
 					<Transition />
 					<ScrollIndex>

@@ -56,8 +56,11 @@ export const wrapPageElement = ({ element }: { element: React.ReactNode }) => {
 	)
 }
 
+// by default, gatsby will render the app in one pass. this is typically ideal, but in our case it will freeze the preloader.
+// using startTransition will signal to React that it should yield to the main thread,
+// which allows the animation to remain more or less smooth during the render
 export const replaceHydrateFunction =
-	window.location.host === "localhost:8000"
+	window.location.host === "localhost:8000" // don't replace in dev, it will always fail
 		? null
 		: () => {
 				return (element: ReactNode, rootElement: Element) => {
