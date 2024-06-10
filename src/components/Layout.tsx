@@ -50,7 +50,7 @@ export default function Layout({ children }: LayoutProps) {
 			startTransition(() => {
 				setShowPage(true)
 			})
-		}, 500)
+		}, 250)
 	}, [])
 
 	return (
