@@ -21,7 +21,7 @@ export default function Preloader() {
 			const scaleFactor = getMedia(1, 1, 1, 2)
 
 			const slideProps = {
-				duration: 0.4,
+				duration: 0.5,
 				ease: "power3.inOut",
 			}
 
@@ -42,7 +42,7 @@ export default function Preloader() {
 			})
 			gsap.from(finalConnector, {
 				clipPath: "inset(0 0 0 100%)",
-				duration: 0.3,
+				duration: slideProps.duration - 0.1,
 			})
 			gsap.to(clipperRef.current, {
 				clipPath: "inset(0 100% 0 0)",
@@ -163,8 +163,8 @@ const Connector = styled(ConnectorSVG)`
 
 	margin-left: -1px;
 	animation:
-		${marquee} 0.5s 1s linear infinite,
-		${marquee} 0.75s 0.25s ease-in;
+		${marquee} 0.5s 0.75s linear infinite,
+		${marquee} 0.75s 0s ease-in;
 `
 
 const FinalConnector = styled(Connector)`
