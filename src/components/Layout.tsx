@@ -47,27 +47,23 @@ export default function Layout({ children }: LayoutProps) {
 		}, 5000)
 	}, [])
 
-	if (!showPage)
-		return (
-			<>
-				<Preloader />
-			</>
-		)
-
 	return (
 		<>
-			<Transition />
 			<Preloader />
-
 			<GlobalStyle />
-			<ScrollIndex>
-				<Header />
-				<Main id="main">{children}</Main>
-				<Footer position="static" />
-			</ScrollIndex>
-			<Suspense>
-				<Footer position="fixed" />
-			</Suspense>
+			{showPage && (
+				<>
+					<Transition />
+					<ScrollIndex>
+						<Header />
+						<Main id="main">{children}</Main>
+						<Footer position="static" />
+					</ScrollIndex>
+					<Suspense>
+						<Footer position="fixed" />
+					</Suspense>
+				</>
+			)}
 		</>
 	)
 }
