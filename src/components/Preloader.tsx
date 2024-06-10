@@ -19,6 +19,7 @@ export default function Preloader() {
 			const finalConnector =
 				wrapperRef.current?.querySelector(".final-connector") ?? null
 			const scaleFactor = getMedia(1, 1, 1, 2)
+			const [logoLeft, logoRight] = [...(wrapperRef.current?.children ?? [])]
 
 			const slideProps = {
 				duration: 0.5,
@@ -32,12 +33,10 @@ export default function Preloader() {
 				...slideProps,
 			})
 
-			const [logoLeft, logoRight] = [...(wrapperRef.current?.children ?? [])]
-
 			// switch to a static connector
 			gsap.set(finalConnector, { opacity: 1 })
 			gsap.to(finalConnector, {
-				x: getResponsivePixels(131),
+				x: getResponsivePixels(131) / scaleFactor,
 				...slideProps,
 			})
 			gsap.from(finalConnector, {
@@ -173,6 +172,11 @@ const FinalConnector = styled(Connector)`
 	opacity: 0;
 	${fresponsive(css`
 		translate: -238px;
+	`)}
+
+	${fmobile(css`
+		translate: -97px;
+		transform: scale(0.5);
 	`)}
 `
 

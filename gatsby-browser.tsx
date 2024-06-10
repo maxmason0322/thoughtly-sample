@@ -4,7 +4,6 @@ import "the-new-css-reset/css/reset.css"
 
 import Layout from "components/Layout"
 import { RootProviders, RouteProviders } from "components/Providers"
-import type { GatsbyBrowser } from "gatsby"
 import gsap from "gsap"
 import { ScrollSmoother } from "gsap/ScrollSmoother"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -57,9 +56,7 @@ export const wrapPageElement = ({ element }: { element: React.ReactNode }) => {
 	)
 }
 
-export const replaceHydrateFunction:
-	| GatsbyBrowser["replaceHydrateFunction"]
-	| null =
+export const replaceHydrateFunction =
 	window.location.host === "localhost:8000"
 		? null
 		: () => {
