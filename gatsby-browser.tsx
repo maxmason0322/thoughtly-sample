@@ -4,9 +4,12 @@ import "the-new-css-reset/css/reset.css"
 
 import Layout from "components/Layout"
 import { RootProviders, RouteProviders } from "components/Providers"
+import type { GatsbyBrowser } from "gatsby"
 import gsap from "gsap"
 import { ScrollSmoother } from "gsap/ScrollSmoother"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { type ReactNode, startTransition } from "react"
+import { createRoot } from "react-dom/client"
 
 /**
  * global plugin registration. be sure to also register plugins in gatsby-ssr.ts so that they are available during SSR
@@ -53,6 +56,16 @@ export const wrapPageElement = ({ element }: { element: React.ReactNode }) => {
 		</RouteProviders>
 	)
 }
+
+export const replaceHydrateFunction: GatsbyBrowser["replaceHydrateFunction"] =
+	() => {
+		return (element: ReactNode, rootElement: Element) => {
+			const root = createRoot(rootElement)
+			startTransition(() => {
+				root.render(element)
+			})
+		}
+	}
 
 // disable GSAP's null target warning
 gsap.config({

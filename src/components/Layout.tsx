@@ -5,7 +5,14 @@ import { loaderAwaitPromise } from "library/Loader/promises"
 import Scroll from "library/Scroll"
 import { useTrackPageReady } from "library/pageReady"
 import useTrackFrameTime from "library/useTrackFrameTime"
-import { Suspense, lazy, useEffect, useState, useTransition } from "react"
+import {
+	Suspense,
+	lazy,
+	useEffect,
+	useMemo,
+	useState,
+	useTransition,
+} from "react"
 import styled, { createGlobalStyle, css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
@@ -23,28 +30,25 @@ export default function Layout({ children }: LayoutProps) {
 
 	const [showPage, setShowPage] = useState(false)
 	const [loading, startTransition] = useTransition()
+	const [promise, resolve] = useMemo(() => {
+		let resolve: VoidFunction | undefined
+		const promise = new Promise<void>((r) => {
+			resolve = r
+		})
+		return [promise, resolve ?? (() => {})]
+	}, [])
+	loaderAwaitPromise(promise)
 
 	useEffect(() => {
-		if (loading) {
-			let resolve: VoidFunction | undefined
-			const promise = new Promise<void>((r) => {
-				resolve = r
-			})
-
-			loaderAwaitPromise(promise)
-
-			return () => resolve?.()
+		if (!loading && showPage) {
+			resolve()
 		}
-	}, [loading])
+	}, [loading, showPage, resolve])
 
 	useEffect(() => {
 		startTransition(() => {
 			setShowPage(true)
 		})
-
-		setTimeout(() => {
-			setShowPage(true)
-		}, 5000)
 	}, [])
 
 	return (

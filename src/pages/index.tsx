@@ -16,9 +16,12 @@ const SocialProof = lazy(() => import("sections/home/SocialProof"))
 export default function IndexPage() {
 	return (
 		<>
-			<Hero />
-			<SocialProof />
-
+			<Suspense fallback={<div>Loading...</div>}>
+				<Hero />
+			</Suspense>
+			<Suspense fallback={<div>Loading...</div>}>
+				<SocialProof />
+			</Suspense>
 			<Suspense fallback={<div>Loading...</div>}>
 				<Industry />
 			</Suspense>
