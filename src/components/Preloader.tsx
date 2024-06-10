@@ -4,54 +4,54 @@ import { ReactComponent as LogoSVG } from "images/global/logo.svg"
 import { usePreloader } from "library/Loader/PreloaderUtils"
 import { fmobile, fresponsive } from "library/fullyResponsive"
 import getMedia from "library/getMedia"
-import useAnimation from "library/useAnimation"
 import { getResponsivePixels } from "library/viewportUtils"
 import { useRef } from "react"
-import styled, { css } from "styled-components"
+import styled, { css, keyframes } from "styled-components"
 import colors from "styles/colors"
 
 export default function Preloader() {
 	const wrapperRef = useRef<HTMLDivElement>(null)
 	const clipperRef = useRef<HTMLDivElement>(null)
 
-	const tl = useAnimation(() => {
-		const tl = gsap
-			.timeline({ repeat: -1 })
-			.to(clipperRef.current?.children ?? null, {
-				duration: 0.5,
-				xPercent: -200,
-				x: () => getResponsivePixels(2),
-				ease: "linear",
-			})
-			.timeScale(0)
-
-		gsap.to(tl, { timeScale: 1, duration: 1, ease: "power1.inOut" })
-
-		return tl
-	}, [])
-
 	usePreloader({
 		duration: 0,
 		callback: () => {
-			if (!tl) return
-
+			const finalConnector =
+				wrapperRef.current?.querySelector(".final-connector") ?? null
 			const scaleFactor = getMedia(1, 1, 1, 2)
 
-			gsap.killTweensOf(tl)
-			gsap.to(tl, { timeScale: 0, duration: 1 })
-			tl.tweenTo(1, { ease: "power1.inOut", duration: 1 })
+			const slideProps = {
+				duration: 0.4,
+				ease: "power3.inOut",
+			}
 
 			gsap.to(clipperRef.current, {
-				x: getResponsivePixels(17 * 7.7) / scaleFactor - getMedia(0, 0, 0, 1.5),
+				x: getResponsivePixels(19 * 7.7) / scaleFactor - getMedia(0, 0, 0, 1.5),
 				width: getResponsivePixels(17) / scaleFactor,
 				paddingLeft: getResponsivePixels(1),
-				duration: 0.4,
+				...slideProps,
 			})
 
 			const [logoLeft, logoRight] = [...(wrapperRef.current?.children ?? [])]
 
-			gsap.set([logoLeft, logoRight], { display: "block" })
+			// switch to a static connector
+			gsap.set(finalConnector, { opacity: 1 })
+			gsap.to(finalConnector, {
+				x: getResponsivePixels(131),
+				...slideProps,
+			})
+			gsap.from(finalConnector, {
+				clipPath: "inset(0 0 0 100%)",
+				duration: 0.3,
+			})
+			gsap.to(clipperRef.current, {
+				clipPath: "inset(0 100% 0 0)",
+				...slideProps,
+			})
+
+			// animate in the logo
 			const params = { duration: 0.8, ease: "power3.inOut", delay: 0.3 }
+			gsap.set([logoLeft, logoRight], { display: "block" })
 			gsap.fromTo(
 				logoLeft ?? null,
 				{
@@ -114,6 +114,7 @@ export default function Preloader() {
 		<Wrapper ref={wrapperRef}>
 			<Logo />
 			<Logo />
+			<FinalConnector className="final-connector" />
 			<Clipper ref={clipperRef}>{connectors}</Clipper>
 		</Wrapper>
 	)
@@ -135,13 +136,21 @@ const Clipper = styled.div`
 	display: flex;
 `
 
+const marquee = keyframes`
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(calc(-200% + 2px));
+	}
+`
+
 const Connector = styled(ConnectorSVG)`
 	${fresponsive(css`
 		width: 17px;
 		min-width: 17px;
 		max-width: unset;
 		display: block;
-		margin-left: -1px;
 
 		&:nth-child(odd) {
 			scale: 1 -1;
@@ -150,6 +159,20 @@ const Connector = styled(ConnectorSVG)`
 		&:last-child {
 			margin-right: -34px;
 		}
+	`)}
+
+	margin-left: -1px;
+	animation:
+		${marquee} 0.5s 1s linear infinite,
+		${marquee} 0.75s 0.25s ease-in;
+`
+
+const FinalConnector = styled(Connector)`
+	position: absolute;
+	animation: unset;
+	opacity: 0;
+	${fresponsive(css`
+		translate: -238px;
 	`)}
 `
 
