@@ -30,6 +30,9 @@ const config: GatsbyConfig = {
 		generateOnBuild: true,
 		typesOutputPath: "./src/types/gatsby-types.d.ts",
 	},
+	flags: {
+		DEV_SSR: true,
+	},
 	plugins: [
 		"gatsby-plugin-pnpm-gatsby-5",
 		"gatsby-plugin-sitemap",

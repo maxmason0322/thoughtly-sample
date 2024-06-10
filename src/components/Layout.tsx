@@ -41,6 +41,10 @@ export default function Layout({ children }: LayoutProps) {
 		startTransition(() => {
 			setShowPage(true)
 		})
+
+		setTimeout(() => {
+			setShowPage(true)
+		}, 5000)
 	}, [])
 
 	if (!showPage)
