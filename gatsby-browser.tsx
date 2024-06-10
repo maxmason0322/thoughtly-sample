@@ -9,7 +9,7 @@ import gsap from "gsap"
 import { ScrollSmoother } from "gsap/ScrollSmoother"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { type ReactNode, startTransition } from "react"
-import { createRoot } from "react-dom/client"
+import { createRoot, hydrateRoot } from "react-dom/client"
 
 /**
  * global plugin registration. be sure to also register plugins in gatsby-ssr.ts so that they are available during SSR
@@ -57,15 +57,25 @@ export const wrapPageElement = ({ element }: { element: React.ReactNode }) => {
 	)
 }
 
-export const replaceHydrateFunction: GatsbyBrowser["replaceHydrateFunction"] =
-	() => {
-		return (element: ReactNode, rootElement: Element) => {
-			const root = createRoot(rootElement)
-			startTransition(() => {
-				root.render(element)
-			})
-		}
-	}
+export const replaceHydrateFunction:
+	| GatsbyBrowser["replaceHydrateFunction"]
+	| null =
+	window.location.host === "localhost:8000"
+		? null
+		: () => {
+				return (element: ReactNode, rootElement: Element) => {
+					try {
+						startTransition(() => {
+							hydrateRoot(rootElement, element, {
+								onRecoverableError: console.error,
+							})
+						})
+					} catch (error) {
+						console.error(error)
+						createRoot(rootElement).render(element)
+					}
+				}
+			}
 
 // disable GSAP's null target warning
 gsap.config({

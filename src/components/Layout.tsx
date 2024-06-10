@@ -46,9 +46,11 @@ export default function Layout({ children }: LayoutProps) {
 	}, [loading, showPage, resolve])
 
 	useEffect(() => {
-		startTransition(() => {
-			setShowPage(true)
-		})
+		setTimeout(() => {
+			startTransition(() => {
+				setShowPage(true)
+			})
+		}, 500)
 	}, [])
 
 	return (
