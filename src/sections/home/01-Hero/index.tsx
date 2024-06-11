@@ -1,4 +1,5 @@
 import Button from "components/Buttons/Primary"
+import { BEAT_ONE_DURATION, BEAT_TWO_DURATION } from "components/Preloader"
 import Unmask from "components/Unmask"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
@@ -172,10 +173,19 @@ export default function Hero() {
 		only: "whenAtTop",
 		duration: 2,
 		callback: () => {
+			const duration = BEAT_TWO_DURATION
+			const delay = BEAT_ONE_DURATION
 			gsap.from(wrapperRef.current, {
 				y: "100lvh",
-				duration: 1,
-				delay: 1,
+				duration,
+				delay,
+				ease: "power3.inOut",
+			})
+			gsap.from(Title.toString(), {
+				y: "-20vh",
+				duration,
+				delay,
+				opacity: 0.1,
 				ease: "power3.inOut",
 			})
 		},
@@ -184,16 +194,16 @@ export default function Hero() {
 	return (
 		<Wrapper ref={wrapperRef}>
 			<Inner>
-				<BackgroundImage className="home-hero-bg" src={Background} alt="" />
+				<BackgroundImage
+					className="home-hero-bg"
+					src={Background}
+					alt=""
+					loading="lazy"
+				/>
 				<BackgroundTablet>
 					<StyledDots />
 				</BackgroundTablet>
 				<TextContent>
-					{/* <Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
-						<Kicker icon="chev">
-							🚀&nbsp;&nbsp;&nbsp;Seed round led by Afore & others
-						</Kicker>
-					</Unmask> */}
 					<Title>Your phone calls, handled beautifully.</Title>
 					<Text>
 						Thoughtly helps businesses build and deploy human-like AI voice

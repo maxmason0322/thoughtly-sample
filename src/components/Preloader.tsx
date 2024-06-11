@@ -9,6 +9,9 @@ import { useRef } from "react"
 import styled, { css, keyframes } from "styled-components"
 import colors from "styles/colors"
 
+export const BEAT_ONE_DURATION = 0.5
+export const BEAT_TWO_DURATION = 0.5
+
 export default function Preloader() {
 	const wrapperRef = useRef<HTMLDivElement>(null)
 	const clipperRef = useRef<HTMLDivElement>(null)
@@ -22,7 +25,7 @@ export default function Preloader() {
 			const [logoLeft, logoRight] = [...(wrapperRef.current?.children ?? [])]
 
 			const slideProps = {
-				duration: 0.5,
+				duration: (BEAT_ONE_DURATION * 2) / 3,
 				ease: "power3.inOut",
 			}
 
@@ -49,7 +52,11 @@ export default function Preloader() {
 			})
 
 			// animate in the logo
-			const params = { duration: 0.8, ease: "power3.inOut", delay: 0.3 }
+			const params = {
+				duration: (BEAT_ONE_DURATION * 2) / 3,
+				ease: "power3.inOut",
+				delay: BEAT_ONE_DURATION / 4,
+			}
 			gsap.set([logoLeft, logoRight], { display: "block" })
 			gsap.fromTo(
 				logoLeft ?? null,
@@ -80,8 +87,8 @@ export default function Preloader() {
 		callback: () => {
 			gsap.to(wrapperRef.current, {
 				yPercent: -100,
-				duration: 1,
-				delay: 1,
+				duration: BEAT_TWO_DURATION,
+				delay: BEAT_ONE_DURATION,
 				ease: "power3.inOut",
 				onComplete: () => {
 					gsap.set(wrapperRef.current, { display: "none" })
@@ -96,8 +103,8 @@ export default function Preloader() {
 		callback: () => {
 			gsap.to(wrapperRef.current, {
 				opacity: 0,
-				duration: 1,
-				delay: 2,
+				duration: BEAT_TWO_DURATION,
+				delay: BEAT_ONE_DURATION,
 				ease: "power3.inOut",
 				onComplete: () => {
 					gsap.set(wrapperRef.current, { display: "none" })

@@ -1,6 +1,7 @@
+import { useMediaQuery } from "@uidotdev/usehooks"
+import { useClientOnly } from "library/ClientOnly"
 import { fmobile, fresponsive } from "library/fullyResponsive"
 import useMedia from "library/useMedia"
-import { useEffect, useState } from "react"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import DesktopTablet from "./DesktopTablet"
@@ -9,20 +10,13 @@ import Mobile from "./Mobile"
 export default function WidgetsAndVideo() {
 	const responsive = useMedia(false, false, true, true)
 	const mobilePortrait = useMedia(false, false, false, true)
-	const [mobile, setMobile] = useState(false)
+	const isLandscape = useMediaQuery("(orientation: landscape)")
+	const mobile = useClientOnly(
+		(isLandscape && responsive) || mobilePortrait,
+		true,
+	)
 
-	useEffect(() => {
-		if (
-			(window.matchMedia("(orientation: landscape)").matches && responsive) ||
-			mobilePortrait
-		) {
-			setMobile(true)
-		} else {
-			setMobile(false)
-		}
-	}, [responsive, mobilePortrait])
-
-	return <Wrapper>{!mobile ? <DesktopTablet /> : <Mobile />}</Wrapper>
+	return <Wrapper>{mobile ? <Mobile /> : <DesktopTablet />}</Wrapper>
 }
 
 const Wrapper = styled.section`

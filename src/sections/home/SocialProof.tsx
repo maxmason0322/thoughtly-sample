@@ -1,9 +1,9 @@
 import Kicker from "components/Kicker"
-import { ReactComponent as BatchRoastingSVG } from "images/global/logos/BatchRoasting.svg"
-import { ReactComponent as DopplioSVG } from "images/global/logos/Dopplio.svg"
-import { ReactComponent as EnhanceHealthSVG } from "images/global/logos/EnhanceHealth.svg"
-import { ReactComponent as HonkSVG } from "images/global/logos/Honk.svg"
-import { ReactComponent as SelectQuoteSVG } from "images/global/logos/SelectQuote.svg"
+import BatchRoastingSVG from "images/global/logos/BatchRoasting.svg"
+import DopplioSVG from "images/global/logos/Dopplio.svg"
+import EnhanceHealthSVG from "images/global/logos/EnhanceHealth.svg"
+import HonkSVG from "images/global/logos/Honk.svg"
+import SelectQuoteSVG from "images/global/logos/SelectQuote.svg"
 import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
@@ -17,20 +17,20 @@ export default function SocialProof() {
 			<Inner>
 				<Kicker gradient>Trusted By</Kicker>
 				<Logos>
-					<Logo to={links.enhanceHealth} ariaLabel="Enhance Health Logo">
-						<EnhanceHealthSVG />
+					<Logo to={links.enhanceHealth}>
+						<img src={EnhanceHealthSVG} alt="Enhance Health Logo" />
 					</Logo>
-					<Logo to={links.selectQuote} ariaLabel="Select Quote Logo">
-						<SelectQuoteSVG />
+					<Logo to={links.selectQuote}>
+						<img src={SelectQuoteSVG} alt="Select Quote Logo" />
 					</Logo>
-					<Logo to={links.batchRoasting} ariaLabel="Batch Roasting Logo">
-						<BatchRoastingSVG />
+					<Logo to={links.batchRoasting}>
+						<img src={BatchRoastingSVG} alt="Batch Roasting Logo" />
 					</Logo>
-					<Logo to={links.honk} ariaLabel="Honk Logo">
-						<HonkSVG />
+					<Logo to={links.honk}>
+						<img src={HonkSVG} alt="Honk Logo" />
 					</Logo>
-					<Logo to={links.dopplio} ariaLabel="Dopplio Logo">
-						<DopplioSVG />
+					<Logo to={links.dopplio}>
+						<img src={DopplioSVG} alt="Dopplio Logo" />
 					</Logo>
 				</Logos>
 				<Line />
@@ -119,7 +119,7 @@ const Logo = styled(UniversalLink)`
 		height: 36px;
 	`)}
 
-  svg {
+  	img {
 		width: 100%;
 		height: 100%;
 	}

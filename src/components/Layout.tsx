@@ -2,9 +2,9 @@ import Header from "components/Header"
 import Transition from "components/Transition"
 import { useBackButton } from "library/Loader/TransitionUtils"
 import Scroll from "library/Scroll"
-import { useTrackPageReady, useTrackedLoad } from "library/pageReady"
+import { useTrackPageReady } from "library/pageReady"
 import useTrackFrameTime from "library/useTrackFrameTime"
-import { Suspense, lazy } from "react"
+import { lazy } from "react"
 import styled, { createGlobalStyle, css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
@@ -20,25 +20,17 @@ export default function Layout({ children }: LayoutProps) {
 	useBackButton()
 	useTrackFrameTime()
 
-	const { shouldDisplay } = useTrackedLoad(250)
-
 	return (
 		<>
 			<Preloader />
 			<GlobalStyle />
-			{shouldDisplay && (
-				<>
-					<Transition />
-					<ScrollIndex>
-						<Header />
-						<Main id="main">{children}</Main>
-						<Footer position="static" />
-					</ScrollIndex>
-					<Suspense>
-						<Footer position="fixed" />
-					</Suspense>
-				</>
-			)}
+			<Transition />
+			<ScrollIndex>
+				<Header />
+				<Main id="main">{children}</Main>
+				<Footer position="static" />
+			</ScrollIndex>
+			<Footer position="fixed" />
 		</>
 	)
 }
