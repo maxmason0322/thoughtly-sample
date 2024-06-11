@@ -29,7 +29,8 @@ export default function Transition() {
 				opacity: 1,
 			},
 			{
-				duration: 1,
+				duration: 0.8,
+				delay: 0.2,
 				opacity: 0,
 				ease: "power1.out",
 			},
