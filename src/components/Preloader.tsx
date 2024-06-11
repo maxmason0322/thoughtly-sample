@@ -9,8 +9,8 @@ import { useRef } from "react"
 import styled, { css, keyframes } from "styled-components"
 import colors from "styles/colors"
 
-export const BEAT_ONE_DURATION = 0.5
-export const BEAT_TWO_DURATION = 0.5
+export const BEAT_ONE_DURATION = 0.7
+export const BEAT_TWO_DURATION = 0.7
 
 export default function Preloader() {
 	const wrapperRef = useRef<HTMLDivElement>(null)
