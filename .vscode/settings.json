@@ -50,6 +50,7 @@
 		"RCPOB",
 		"reformcollective",
 		"reimagines",
+		"Sanjay",
 		"scrolltrigger",
 		"Sqft",
 		"stylelint",
@@ -74,7 +75,8 @@
 		".git/objects",
 		".vscode",
 		".vscode-insiders",
-		"pnpm-lock.yaml"
+		"pnpm-lock.yaml",
+		"gatsby-config.ts"
 	],
 
 	/* workbench settings */	

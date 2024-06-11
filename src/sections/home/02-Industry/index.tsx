@@ -347,7 +347,7 @@ const data = [
 
 export default function Industry() {
 	const [activeIndex, setActiveIndex] = useState(0)
-	const { fullWidth, desktop, tablet, mobile } = useContext(ScreenContext)
+	const { fullWidth, desktop, mobile } = useContext(ScreenContext)
 
 	const tabs = data.map((item, index) => {
 		return (
@@ -1087,18 +1087,6 @@ const Line = styled.div`
 		height: 12px;
 	`)}
 `
-
-// const StyledIcon = styled(Icon)`
-//   path,
-//   circle {
-//     fill: ${colors.gray500};
-//   }
-
-//   ${fresponsive(css`
-//     width: 30px;
-//     height: 30px;
-//   `)}
-// `
 
 const Connector = styled(LineSVG)`
 	position: absolute;
