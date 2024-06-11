@@ -19,6 +19,7 @@ import { desktopBreakpoint } from "styles/media"
 import textStyles from "styles/text"
 import links from "utils/links"
 import Link from "./Buttons/Link"
+import { BEAT_ONE_DURATION, BEAT_TWO_DURATION } from "./Preloader"
 
 gsap.registerPlugin(ScrollToPlugin)
 
@@ -140,7 +141,7 @@ export default function Header() {
 				y: 0,
 				duration: 2,
 				ease: "power3.out",
-				delay: 1.5,
+				delay: BEAT_ONE_DURATION + BEAT_TWO_DURATION,
 			})
 		},
 	})

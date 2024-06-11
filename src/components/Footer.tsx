@@ -335,6 +335,10 @@ const Bottom = styled.div`
 	${fresponsive(css`
 		gap: 36px;
 	`)}
+
+	${fmobile(css`
+		padding-bottom: 32px;
+	`)}
 `
 
 const BottomTop = styled.div`
@@ -407,6 +411,10 @@ const BottomBottom = styled.div`
 const Column = styled.div`
 	display: flex;
 	flex-direction: column;
+
+	${fmobile(css`
+		gap: 10px;
+	`)}
 
 	&:last-of-type {
 		align-items: flex-end;

@@ -89,11 +89,6 @@ const SpinningCircle = styled.div`
 		width: 14px;
 		height: 14px;
 		padding: 1px;
-		margin: -1px;
-
-		img {
-			overflow: visible;
-		}
 	`)}
 `
 
