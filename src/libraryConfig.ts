@@ -8,6 +8,7 @@ export type TransitionNames = "fade"
 const config: Config = {
 	...defaultConfig,
 	defaultTransition: "fade",
+	getTimeNeeded: () => 0,
 }
 
 export default config

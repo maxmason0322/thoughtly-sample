@@ -1,11 +1,10 @@
 import Header from "components/Header"
 import Transition from "components/Transition"
 import { useBackButton } from "library/Loader/TransitionUtils"
-import { loaderAwaitPromise } from "library/Loader/promises"
 import Scroll from "library/Scroll"
 import { useTrackPageReady } from "library/pageReady"
 import useTrackFrameTime from "library/useTrackFrameTime"
-import { Suspense, lazy, useEffect, useState, useTransition } from "react"
+import { lazy } from "react"
 import styled, { createGlobalStyle, css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
@@ -21,42 +20,17 @@ export default function Layout({ children }: LayoutProps) {
 	useBackButton()
 	useTrackFrameTime()
 
-	const [showPage, setShowPage] = useState(false)
-	const [loading, startTransition] = useTransition()
-
-	useEffect(() => {
-		if (loading) {
-			let resolve: VoidFunction | undefined
-			const promise = new Promise<void>((r) => {
-				resolve = r
-			})
-
-			loaderAwaitPromise(promise)
-
-			return () => resolve?.()
-		}
-	}, [loading])
-
-	useEffect(() => {
-		startTransition(() => {
-			setShowPage(true)
-		})
-	}, [])
-
 	return (
 		<>
-			<Transition />
 			<Preloader />
-
 			<GlobalStyle />
+			<Transition />
 			<ScrollIndex>
 				<Header />
-				<Main id="main">{showPage ? children : "i'm busy loading"}</Main>
+				<Main id="main">{children}</Main>
 				<Footer position="static" />
 			</ScrollIndex>
-			<Suspense>
-				<Footer position="fixed" />
-			</Suspense>
+			<Footer position="fixed" />
 		</>
 	)
 }

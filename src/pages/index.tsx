@@ -1,4 +1,5 @@
 import Seo from "components/Seo"
+import { useTrackedLoad } from "library/pageReady"
 import { Suspense, lazy } from "react"
 
 import Hero from "sections/home/01-Hero"
@@ -13,39 +14,33 @@ const FinalCTA = lazy(() => import("sections/home/09-FinalCTA"))
 const Pricing = lazy(() => import("sections/home/Pricing"))
 const SocialProof = lazy(() => import("sections/home/SocialProof"))
 
+function CustomSuspense({
+	children,
+	delay = 25,
+}: {
+	children: React.ReactNode
+	delay?: number
+}) {
+	const { shouldDisplay } = useTrackedLoad(delay)
+	return shouldDisplay ? <Suspense>{children}</Suspense> : null
+}
+
 export default function IndexPage() {
 	return (
 		<>
 			<Hero />
-			<SocialProof />
-
-			<Suspense fallback={<div>Loading...</div>}>
+			<CustomSuspense>
+				<SocialProof />
 				<Industry />
-			</Suspense>
-			<Suspense fallback={<div>Loading...</div>}>
 				<Statement />
-			</Suspense>
-			<Suspense fallback={<div>Loading...</div>}>
 				<Features />
-			</Suspense>
-			<Suspense fallback={<div>Loading...</div>}>
 				<CallCTA />
-			</Suspense>
-			<Suspense fallback={<div>Loading...</div>}>
 				<WidgetsAndVideo />
-			</Suspense>
-			<Suspense fallback={<div>Loading...</div>}>
 				<Workflows />
-			</Suspense>
-			<Suspense fallback={<div>Loading...</div>}>
 				<Integrations />
-			</Suspense>
-			<Suspense fallback={<div>Loading...</div>}>
 				<Pricing />
-			</Suspense>
-			<Suspense fallback={<div>Loading...</div>}>
 				<FinalCTA />
-			</Suspense>
+			</CustomSuspense>
 		</>
 	)
 }
