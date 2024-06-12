@@ -83,7 +83,8 @@ export default function Preloader() {
 
 	usePreloader({
 		only: "whenAtTop",
-		duration: 2,
+		critical: true,
+		duration: BEAT_ONE_DURATION + BEAT_TWO_DURATION,
 		callback: () => {
 			gsap.to(wrapperRef.current, {
 				yPercent: -100,
@@ -98,8 +99,9 @@ export default function Preloader() {
 	})
 
 	usePreloader({
+		critical: true,
 		only: "whenScrolled",
-		duration: 3,
+		duration: BEAT_TWO_DURATION + BEAT_ONE_DURATION,
 		callback: () => {
 			gsap.to(wrapperRef.current, {
 				opacity: 0,
