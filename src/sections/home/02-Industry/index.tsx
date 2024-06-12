@@ -6,13 +6,17 @@ import HealthcareImg from "data/home-industry/industries/healthcare.jpg"
 import InsuranceImg from "data/home-industry/industries/insurance.png"
 import LegalImg from "data/home-industry/industries/legal.png"
 import RealEstateImg from "data/home-industry/industries/real-estate.png"
+import RetailImg from "data/home-industry/industries/retail.png"
 import ServicesImg from "data/home-industry/industries/services.png"
+import TravelImg from "data/home-industry/industries/travel.png"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
 import Gabriel from "images/global/avatars/gabriel.png"
 import James from "images/global/avatars/james.png"
 import Lisa from "images/global/avatars/lisa.png"
+import Maya from "images/global/avatars/maya.png"
 import Micheal from "images/global/avatars/micheal.png"
+import Phillip from "images/global/avatars/phillip.png"
 import Sanjay from "images/global/avatars/sanjay.png"
 import Stacey from "images/global/avatars/stacey.png"
 import { ReactComponent as LineSVG } from "images/home/industries-line.svg"
@@ -340,6 +344,110 @@ const data = [
 				"full\\nhome",
 				"partial\\nrenovation",
 				"transfer\\nto billing",
+			],
+		},
+	},
+	{
+		title: "Retail",
+		text: "Our AI agents assist retail accounts by efficiently handling WISMO inquiries, cancellations, modifications, and FAQs, ensuring seamless customer support and satisfaction. They provide timely, accurate responses and manage a variety of customer needs, streamlining operations and enhancing the overall shopping experience.",
+		assertiveness: {
+			val: 70,
+			text: "Very assertive, direct outcome",
+		},
+		humorLevel: {
+			val: 100,
+			text: "Humor in every response.",
+		},
+		files: [
+			{
+				name: "Inventory.xls",
+				icon: "csv",
+			},
+			{
+				name: "Customer Calls.mp3",
+				icon: "audio",
+			},
+			{
+				name: "Current Brands.pdf",
+				icon: "pdf",
+			},
+		],
+		image: RetailImg,
+		icon: "verified",
+		agent: {
+			name: "Maya",
+			country: "🇺🇸",
+			avatar: Maya,
+		},
+		widgetOne: {
+			text: (
+				<p>
+					Hi <Blue>{"{name}"}</Blue>, thank you for calling Island Tee's. Let me
+					pull up your order.
+				</p>
+			),
+		},
+		widgetTwo: {
+			text: (
+				<p>
+					 have the order you placed on <Blue>{"{api.date}"}</Blue> pulled up.
+					What can I help you with?
+				</p>
+			),
+			bottomConnectors: ["order tracking", "returns", "transfer"],
+		},
+	},
+	{
+		title: "Travel/Hospitality",
+		text: "Our AI agents assist travel and hospitality accounts by efficiently managing reservation confirmations, flight status updates, cancellations, modifications, and FAQs, ensuring seamless customer support and satisfaction. They provide timely, accurate responses to a variety of customer needs, streamlining operations and enhancing the overall travel experience.",
+		assertiveness: {
+			val: 15,
+			text: "Use softer suggestions",
+		},
+		humorLevel: {
+			val: 45,
+			text: "Balanced humor and professionalism",
+		},
+		files: [
+			{
+				name: "Airline Prices.xls",
+				icon: "csv",
+			},
+			{
+				name: "New Attractions.pdf",
+				icon: "pdf",
+			},
+			{
+				name: "Available Hotels.pdf",
+				icon: "pdf",
+			},
+		],
+		image: TravelImg,
+		icon: "verified",
+		agent: {
+			name: "Phillip",
+			country: "🇿🇦",
+			avatar: Phillip,
+		},
+		widgetOne: {
+			text: (
+				<p>
+					Hello, thank you for calling Glacier Hotels. How may I help you today?
+				</p>
+			),
+		},
+		widgetTwo: {
+			text: (
+				<p>
+					Thanks, <Blue>{"{name}"}</Blue>. I've pulled up your reservation. It
+					looks like you are staying with us from <Blue>{"{api.date}"}</Blue> -{" "}
+					<Blue>{"{api.date}"}</Blue>. What can I help you with?
+				</p>
+			),
+			bottomConnectors: [
+				"booking\\nconfirmation",
+				"property\\nfaqs",
+				"transfer",
 			],
 		},
 	},
