@@ -1,21 +1,27 @@
 import Icon from "components/Icon"
 import { graphql, useStaticQuery } from "gatsby"
-import Connector12Tablet from "images/agents/widgets/1-2-Connector-Tablet.svg"
-import Connector12 from "images/agents/widgets/1-2-Connector.svg"
-import Connector23Tablet from "images/agents/widgets/2-3-Connector-Tablet.svg"
-import Connector23 from "images/agents/widgets/2-3-Connector.svg"
-import Connector34Tablet from "images/agents/widgets/3-4-Connector-Tablet.svg"
-import Connector34 from "images/agents/widgets/3-4-Connector.svg"
-import Connector45Tablet from "images/agents/widgets/4-5-Connector-Tablet.svg"
-import Connector45 from "images/agents/widgets/4-5-Connector.svg"
+import gsap from "gsap"
+import DrawSVGPlugin from "gsap/DrawSVGPlugin"
+import { ReactComponent as Connector12Tablet } from "images/agents/widgets/1-2-Connector-Tablet.svg"
+import { ReactComponent as Connector12 } from "images/agents/widgets/1-2-Connector.svg"
+import { ReactComponent as Connector23Tablet } from "images/agents/widgets/2-3-Connector-Tablet.svg"
+import { ReactComponent as Connector23 } from "images/agents/widgets/2-3-Connector.svg"
+import { ReactComponent as Connector34Tablet } from "images/agents/widgets/3-4-Connector-Tablet.svg"
+import { ReactComponent as Connector34 } from "images/agents/widgets/3-4-Connector.svg"
+import { ReactComponent as Connector45Tablet } from "images/agents/widgets/4-5-Connector-Tablet.svg"
+import { ReactComponent as Connector45 } from "images/agents/widgets/4-5-Connector.svg"
 import ConstantMarquee from "library/ConstantMarquee"
 import { ScreenContext } from "library/ScreenContext"
 import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive } from "library/fullyResponsive"
-import { useContext } from "react"
+import useAnimation from "library/useAnimation"
+import { getResponsivePixels } from "library/viewportUtils"
+import { useContext, useRef } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles, { transparentText } from "styles/text"
+
+gsap.registerPlugin(DrawSVGPlugin)
 
 export default function AgentsHowItWorks() {
 	const widgetsQuery: Queries.AgentsWidgetsQuery = useStaticQuery(graphql`
@@ -83,9 +89,82 @@ export default function AgentsHowItWorks() {
 	`)
 
 	const { tablet } = useContext(ScreenContext)
+	const wrapper = useRef<HTMLDivElement>(null)
+
+	useAnimation(
+		() => {
+			const connectors = [
+				ConnectorOne,
+				ConnectorTwo,
+				ConnectorThree,
+				ConnectorFour,
+			]
+
+			for (const connector of connectors) {
+				const fadeDuration = 0.1
+				const moveDuration = 1
+
+				gsap
+					.timeline({
+						scrollTrigger: {
+							trigger: connector.toString(),
+							start: "top 60%",
+							end: "bottom 40%",
+							scrub: true,
+						},
+					})
+					.from(`${connector} .circle.start`, {
+						opacity: 0,
+						duration: fadeDuration,
+					})
+					.from(
+						`${connector} path:not(.backwards)`,
+						{
+							drawSVG: "0 0",
+							ease: "linear",
+							duration: moveDuration,
+						},
+						fadeDuration,
+					)
+					.from(
+						`${connector} path.backwards`,
+						{
+							drawSVG: "100% 100%",
+							ease: "linear",
+							duration: moveDuration,
+						},
+						fadeDuration,
+					)
+					.from(
+						`${connector} .circle.end`,
+						{ opacity: 0, duration: fadeDuration },
+						moveDuration,
+					)
+			}
+
+			const widgets = [StepOne, StepTwo, StepThree, StepFour, StepFive]
+
+			for (const widget of widgets) {
+				gsap.from(`${widget} > *:not(svg)`, {
+					y: getResponsivePixels(200),
+					opacity: 0,
+					ease: "power2.out",
+					stagger: 0.1,
+					scrollTrigger: {
+						trigger: widget.toString(),
+						start: "top bottom",
+						end: "top 60%",
+						toggleActions: "none play none reset",
+					},
+				})
+			}
+		},
+		[],
+		{ scope: wrapper, recreateOnResize: true },
+	)
 
 	return (
-		<Wrapper>
+		<Wrapper ref={wrapper}>
 			<ConstantMarquee>
 				<MarqueeContent>
 					<BigIcon name="chevDown" />
@@ -94,50 +173,46 @@ export default function AgentsHowItWorks() {
 			</ConstantMarquee>
 			<StepOne>
 				<UpperOne image={widgetsQuery.callBooked} alt="alt_goes_here" />
-				<LowerOne image={widgetsQuery.consult} alt="alt_goes_here" />
 				<Title>
 					Consultation<Count>01</Count>
 				</Title>
 				<CopyOne>Discuss your business needs with our experts.</CopyOne>
-				<ConnectorOne src={tablet ? Connector12Tablet : Connector12} />
+				{tablet ? <Connector12Tablet /> : <ConnectorOne />}
+				<LowerOne image={widgetsQuery.consult} alt="alt_goes_here" />
 			</StepOne>
 			<StepTwo>
 				<UpperTwo image={widgetsQuery.michael} alt="alt_goes_here" />
-				<LowerTwo image={widgetsQuery.list} alt="alt_goes_here" />
 				<Title>
 					Customization<Count>02</Count>
 				</Title>
 				<CopyTwo>We tailor the AI agent to your specifications.</CopyTwo>
-				<ConnectorTwo src={tablet ? Connector23Tablet : Connector23} />
+				{tablet ? <Connector23Tablet /> : <ConnectorTwo />}
+				<LowerTwo image={widgetsQuery.list} alt="alt_goes_here" />
 			</StepTwo>
 			<StepThree>
 				<UpperThree image={widgetsQuery.action} alt="alt_goes_here" />
-				<LowerThree image={widgetsQuery.integrations} alt="alt_goes_here" />
 				<Title>
 					Integration<Count>03</Count>
 				</Title>
 				<CopyThree>
 					Seamless setup and integration into your existing systems.
 				</CopyThree>
-				<ConnectorThree src={tablet ? Connector34Tablet : Connector34} />
+				{tablet ? <Connector34Tablet /> : <ConnectorThree />}
+				<LowerThree image={widgetsQuery.integrations} alt="alt_goes_here" />
 			</StepThree>
 			<StepFour>
 				<UpperFour image={widgetsQuery.graph} alt="alt_goes_here" />
-				<LowerFour image={widgetsQuery.voice} alt="alt_goes_here" />
 				<Title>
 					Optimization<Count>04</Count>
 				</Title>
 				<CopyFour>
 					Continuous monitoring and adjustment to ensure peak performance.
 				</CopyFour>
-				<ConnectorFour src={tablet ? Connector45Tablet : Connector45} />
+				{tablet ? <Connector45Tablet /> : <ConnectorFour />}
+				<LowerFour image={widgetsQuery.voice} alt="alt_goes_here" />
 			</StepFour>
 			<StepFive>
 				<UpperFive image={widgetsQuery.people} alt="alt_goes_here" />
-				<LowerFive
-					image={widgetsQuery.levels}
-					alt="alt_goes_here<Count>05</Count>"
-				/>
 				<Title>
 					Empowerment<Count>05</Count>
 				</Title>
@@ -146,6 +221,7 @@ export default function AgentsHowItWorks() {
 					manage your AI agents, allowing for quick adaptations and improvements
 					as your business evolves.
 				</CopyFive>
+				<LowerFive image={widgetsQuery.levels} alt="alt_goes_here" />
 			</StepFive>
 		</Wrapper>
 	)
@@ -251,43 +327,54 @@ const CopyFive = styled(Copy)`
 	`)}
 `
 
-const Connector = styled.img.attrs({ alt: "" })`
+const connectorStyles = css`
 	max-width: unset;
 	max-height: unset;
-	position:absolute;
+	position: absolute;
 	z-index: 1;
 	height: auto;
-	
+
 	${fmobile(css`
 		display: none;
 	`)}
 `
-const ConnectorOne = styled(Connector)`${fresponsive(css`
-	top: 234.27px;
-	left: 330px;
-	width: 279px;
-`)}`
-
-const ConnectorTwo = styled(Connector)`
-${fresponsive(css`
-	width: 765px;
-	top: 214.9px;
-	left: -303px;
-`)}
+const ConnectorOne = styled(Connector12)`
+	${connectorStyles};
+	${fresponsive(css`
+		top: 234.27px;
+		left: 330px;
+		width: 279px;
+	`)}
 `
 
-const ConnectorThree = styled(Connector)`
-${fresponsive(css`
-	top: 285px;
-	left: 388px;
-	width: 237px;
-`)}
+const ConnectorTwo = styled(Connector23)`
+	${connectorStyles};
+
+	${fresponsive(css`
+		width: 765px;
+		top: 214.9px;
+		left: -303px;
+	`)}
 `
-const ConnectorFour = styled(Connector)`${fresponsive(css`
-	top: 184.36px;
-	left: -364px;
-	width: 738.5px;
-`)}`
+
+const ConnectorThree = styled(Connector34)`
+	${connectorStyles};
+
+	${fresponsive(css`
+		top: 285px;
+		left: 388px;
+		width: 237px;
+	`)}
+`
+const ConnectorFour = styled(Connector45)`
+	${connectorStyles};
+
+	${fresponsive(css`
+		top: 184.36px;
+		left: -364px;
+		width: 738.5px;
+	`)}
+`
 
 const Count = styled.div`
 	${textStyles.sh1};
