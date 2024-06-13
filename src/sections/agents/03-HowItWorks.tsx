@@ -110,8 +110,8 @@ export default function AgentsHowItWorks() {
 					.timeline({
 						scrollTrigger: {
 							trigger: connector.toString(),
-							start: "top 60%",
-							end: "bottom 40%",
+							start: "top 70%",
+							end: "bottom 55%",
 							scrub: true,
 						},
 					})
@@ -152,7 +152,7 @@ export default function AgentsHowItWorks() {
 						scrollTrigger: {
 							trigger: widget.toString(),
 							start: "top bottom",
-							end: "top 60%",
+							end: "top 70%",
 							toggleActions: "none play none reset",
 						},
 					})
