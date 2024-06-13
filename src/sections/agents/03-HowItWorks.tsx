@@ -13,7 +13,7 @@ import { ReactComponent as Connector45 } from "images/agents/widgets/4-5-Connect
 import ConstantMarquee from "library/ConstantMarquee"
 import { ScreenContext } from "library/ScreenContext"
 import UniversalImage from "library/UniversalImage"
-import { fmobile, fresponsive } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import { getResponsivePixels } from "library/viewportUtils"
 import { useContext, useRef } from "react"
@@ -164,72 +164,79 @@ export default function AgentsHowItWorks() {
 	)
 
 	return (
-		<Wrapper ref={wrapper}>
+		<>
 			<ConstantMarquee>
 				<MarqueeContent>
 					<BigIcon name="chevDown" />
 					How it Works
 				</MarqueeContent>
 			</ConstantMarquee>
-			<StepOne>
-				<UpperOne image={widgetsQuery.callBooked} alt="alt_goes_here" />
-				<Title>
-					Consultation<Count>01</Count>
-				</Title>
-				<CopyOne>Discuss your business needs with our experts.</CopyOne>
-				{tablet ? <Connector12Tablet /> : <ConnectorOne />}
-				<LowerOne image={widgetsQuery.consult} alt="alt_goes_here" />
-			</StepOne>
-			<StepTwo>
-				<UpperTwo image={widgetsQuery.michael} alt="alt_goes_here" />
-				<Title>
-					Customization<Count>02</Count>
-				</Title>
-				<CopyTwo>We tailor the AI agent to your specifications.</CopyTwo>
-				{tablet ? <Connector23Tablet /> : <ConnectorTwo />}
-				<LowerTwo image={widgetsQuery.list} alt="alt_goes_here" />
-			</StepTwo>
-			<StepThree>
-				<UpperThree image={widgetsQuery.action} alt="alt_goes_here" />
-				<Title>
-					Integration<Count>03</Count>
-				</Title>
-				<CopyThree>
-					Seamless setup and integration into your existing systems.
-				</CopyThree>
-				{tablet ? <Connector34Tablet /> : <ConnectorThree />}
-				<LowerThree image={widgetsQuery.integrations} alt="alt_goes_here" />
-			</StepThree>
-			<StepFour>
-				<UpperFour image={widgetsQuery.graph} alt="alt_goes_here" />
-				<Title>
-					Optimization<Count>04</Count>
-				</Title>
-				<CopyFour>
-					Continuous monitoring and adjustment to ensure peak performance.
-				</CopyFour>
-				{tablet ? <Connector45Tablet /> : <ConnectorFour />}
-				<LowerFour image={widgetsQuery.voice} alt="alt_goes_here" />
-			</StepFour>
-			<StepFive>
-				<UpperFive image={widgetsQuery.people} alt="alt_goes_here" />
-				<Title>
-					Empowerment<Count>05</Count>
-				</Title>
-				<CopyFive>
-					Receive the training and materials needed to independently create and
-					manage your AI agents, allowing for quick adaptations and improvements
-					as your business evolves.
-				</CopyFive>
-				<LowerFive image={widgetsQuery.levels} alt="alt_goes_here" />
-			</StepFive>
-		</Wrapper>
+			<Wrapper ref={wrapper}>
+				<StepOne>
+					<UpperOne image={widgetsQuery.callBooked} alt="alt_goes_here" />
+					<Title>
+						Consultation<Count>01</Count>
+					</Title>
+					<CopyOne>Discuss your business needs with our experts.</CopyOne>
+					{tablet ? <ConnectorOneTablet /> : <ConnectorOne />}
+					<LowerOne image={widgetsQuery.consult} alt="alt_goes_here" />
+				</StepOne>
+				<StepTwo>
+					<UpperTwo image={widgetsQuery.michael} alt="alt_goes_here" />
+					<Title>
+						Customization<Count>02</Count>
+					</Title>
+					<CopyTwo>We tailor the AI agent to your specifications.</CopyTwo>
+					{tablet ? <ConnectorTwoTablet /> : <ConnectorTwo />}
+					<LowerTwo image={widgetsQuery.list} alt="alt_goes_here" />
+				</StepTwo>
+				<StepThree>
+					<UpperThree image={widgetsQuery.action} alt="alt_goes_here" />
+					<Title>
+						Integration<Count>03</Count>
+					</Title>
+					<CopyThree>
+						Seamless setup and integration into your existing systems.
+					</CopyThree>
+					{tablet ? <ConnectorThreeTablet /> : <ConnectorThree />}
+					<LowerThree image={widgetsQuery.integrations} alt="alt_goes_here" />
+				</StepThree>
+				<StepFour>
+					<UpperFour image={widgetsQuery.graph} alt="alt_goes_here" />
+					<Title>
+						Optimization<Count>04</Count>
+					</Title>
+					<CopyFour>
+						Continuous monitoring and adjustment to ensure peak performance.
+					</CopyFour>
+					{tablet ? <ConnectorFourTablet /> : <ConnectorFour />}
+					<LowerFour image={widgetsQuery.voice} alt="alt_goes_here" />
+				</StepFour>
+				<StepFive>
+					<UpperFive image={widgetsQuery.people} alt="alt_goes_here" />
+					<Title>
+						Empowerment<Count>05</Count>
+					</Title>
+					<CopyFive>
+						Receive the training and materials needed to independently create
+						and manage your AI agents, allowing for quick adaptations and
+						improvements as your business evolves.
+					</CopyFive>
+					<LowerFive image={widgetsQuery.levels} alt="alt_goes_here" />
+				</StepFive>
+			</Wrapper>
+		</>
 	)
 }
 
 const Wrapper = styled.section`
 	${fresponsive(css`
 		width: 1440px;
+		margin: 0 auto;
+	`)}
+
+	${ftablet(css`
+		width: 1024px;
 	`)}
 `
 
@@ -251,6 +258,10 @@ const MarqueeContent = styled.div`
 		padding-left: 37px;
 		margin-top: 178px;
 	`)}
+
+	${ftablet(css`
+		margin-top: 121px;
+	`)}
 `
 
 const Step = styled.div`
@@ -263,6 +274,11 @@ const StepOne = styled(Step)`
 		margin-top: 234px;
 		margin-left: 156px;
 	`)}
+
+	${ftablet(css`
+		margin-top: 145px;
+		margin-left: 68px;
+	`)}
 `
 
 const StepTwo = styled(Step)`
@@ -270,11 +286,22 @@ const StepTwo = styled(Step)`
 		margin-top: 88px;
 		margin-left: 683px;
 	`)}
+
+	${ftablet(css`
+		margin-top: 133px;
+		margin-left: 524px;
+	`)}
 `
+
 const StepThree = styled(Step)`
 	${fresponsive(css`
 		margin-top: 125px;
 		margin-left: 322px;
+	`)}
+
+	${ftablet(css`
+		margin-top: 75px;
+		margin-left: 62px;
 	`)}
 `
 const StepFour = styled(Step)`
@@ -282,11 +309,21 @@ const StepFour = styled(Step)`
 		margin-top: 154px;
 		margin-left: 865px;
 	`)}
+
+	${ftablet(css`
+		margin-top: 193px;
+		margin-left: 524px;
+	`)}
 `
 const StepFive = styled(Step)`
 	${fresponsive(css`
 		margin-top: 91px;
 		margin-left: 428px;
+	`)}
+
+	${ftablet(css`
+		margin-top: 97px;
+		margin-left: 295px;
 	`)}
 `
 const Title = styled.h2`
@@ -295,7 +332,13 @@ const Title = styled.h2`
 		margin-top: 14px;
 		margin-bottom: 6px;
 	`)}
+
+	${ftablet(css`
+		margin-top: 8px;
+		margin-bottom: 6px;
+	`)}
 `
+
 const Copy = styled.p`
 	${textStyles.sh2};
 	color: ${colors.gray700};
@@ -346,6 +389,14 @@ const ConnectorOne = styled(Connector12)`
 		width: 279px;
 	`)}
 `
+const ConnectorOneTablet = styled(Connector12Tablet)`
+	${connectorStyles};
+	${ftablet(css`
+		top: 255px;
+		left: 330px;
+		width: 207px;
+	`)}
+`
 
 const ConnectorTwo = styled(Connector23)`
 	${connectorStyles};
@@ -354,6 +405,16 @@ const ConnectorTwo = styled(Connector23)`
 		width: 765px;
 		top: 214.9px;
 		left: -303px;
+	`)}
+`
+
+const ConnectorTwoTablet = styled(Connector23Tablet)`
+	${connectorStyles};
+
+	${ftablet(css`
+		width: 744px;
+		top: 170.6px;
+		left: -397px;
 	`)}
 `
 
@@ -366,6 +427,17 @@ const ConnectorThree = styled(Connector34)`
 		width: 237px;
 	`)}
 `
+
+const ConnectorThreeTablet = styled(Connector34Tablet)`
+	${connectorStyles};
+
+	${ftablet(css`
+		top: 286px;
+		left: 391px;
+		width: 149px;
+	`)}
+`
+
 const ConnectorFour = styled(Connector45)`
 	${connectorStyles};
 
@@ -373,6 +445,16 @@ const ConnectorFour = styled(Connector45)`
 		top: 184.36px;
 		left: -364px;
 		width: 738.5px;
+	`)}
+`
+
+const ConnectorFourTablet = styled(Connector45Tablet)`
+	${connectorStyles};
+
+	${ftablet(css`
+		top: 217px;
+		left: -155px;
+		width: 522px;
 	`)}
 `
 
@@ -416,6 +498,11 @@ const LowerTwo = styled(UniversalImage)`
 		height: auto;
 		top: 134.5px;
 		left: 337.25px;
+	`)}
+
+	${ftablet(css`
+		top: 169px;
+		left: 219.25px;
 	`)}
 `
 const UpperThree = styled(UniversalImage)`
