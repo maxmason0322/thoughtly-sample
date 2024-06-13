@@ -88,11 +88,13 @@ export default function AgentsHowItWorks() {
 		}
 	`)
 
-	const { tablet } = useContext(ScreenContext)
+	const { mobile, tablet } = useContext(ScreenContext)
 	const wrapper = useRef<HTMLDivElement>(null)
 
 	useAnimation(
 		() => {
+			if (mobile) return
+
 			const connectors = tablet
 				? [
 						ConnectorOneTablet,
@@ -173,7 +175,7 @@ export default function AgentsHowItWorks() {
 					)
 			}
 		},
-		[tablet],
+		[tablet, mobile],
 		{ scope: wrapper, recreateOnResize: true },
 	)
 
@@ -259,6 +261,11 @@ const BigIcon = styled(Icon)`
 		width: 60px;
 		height: 60px;
 	`)}
+
+	${fmobile(css`
+		width: 45px;
+		height: 45px;
+	`)}
 `
 
 const MarqueeContent = styled.div`
@@ -275,6 +282,13 @@ const MarqueeContent = styled.div`
 
 	${ftablet(css`
 		margin-top: 121px;
+	`)}
+
+	${fmobile(css`
+		font-size: 126px;
+		gap: 27.75px;
+		padding-left: 27.75px;
+		margin-top: 90px;
 	`)}
 `
 
@@ -293,6 +307,11 @@ const StepOne = styled(Step)`
 		margin-top: 145px;
 		margin-left: 68px;
 	`)}
+
+	${fmobile(css`
+		margin-top: 73px;
+		margin-left: 31px;
+	`)}
 `
 
 const StepTwo = styled(Step)`
@@ -304,6 +323,11 @@ const StepTwo = styled(Step)`
 	${ftablet(css`
 		margin-top: 134px;
 		margin-left: 524px;
+	`)}
+
+	${fmobile(css`
+		margin-top: 201px;
+		margin-left: 31px;
 	`)}
 `
 
@@ -317,6 +341,11 @@ const StepThree = styled(Step)`
 		margin-top: 75px;
 		margin-left: 62px;
 	`)}
+
+	${fmobile(css`
+		margin-top: 198px;
+		margin-left: 31px;
+	`)}
 `
 const StepFour = styled(Step)`
 	${fresponsive(css`
@@ -328,6 +357,11 @@ const StepFour = styled(Step)`
 		margin-top: 191px;
 		margin-left: 524px;
 	`)}
+
+	${fmobile(css`
+		margin-top: 250px;
+		margin-left: 31px;
+	`)}
 `
 const StepFive = styled(Step)`
 	${fresponsive(css`
@@ -338,6 +372,11 @@ const StepFive = styled(Step)`
 	${ftablet(css`
 		margin-top: 97px;
 		margin-left: 295px;
+	`)}
+
+	${fmobile(css`
+		margin-top: 223px;
+		margin-left: 31px;
 	`)}
 `
 const Title = styled.h2`
@@ -351,18 +390,33 @@ const Title = styled.h2`
 		margin-top: 8px;
 		margin-bottom: 6px;
 	`)}
+
+	${fmobile(css`
+		${textStyles.h6};
+		margin-top: 0;
+	`)}
 `
 
 const Copy = styled.p`
 	${textStyles.sh2};
 	color: ${colors.gray700};
+
+	${fmobile(css`
+		${textStyles.sh3};
+	`)}
 `
 
 // unfortunately safari has some wonky so i set the size of each of these...
+// even though that is a bit of a pain
 const CopyOne = styled(Copy)`
 	${fresponsive(css`
 		width: 258px;
 		height: 44px;
+	`)}
+
+	${fmobile(css`
+		width: 198px;
+		height: auto;
 	`)}
 `
 const CopyTwo = styled(Copy)`
@@ -370,11 +424,20 @@ const CopyTwo = styled(Copy)`
 		width: 346px;
 		height: 22px;
 	`)}
+
+	${fmobile(css`
+		width: 280px;
+		height: auto;
+	`)}
 `
 const CopyThree = styled(Copy)`
 	${fresponsive(css`
 		width: 271px;
 		height: 44px;
+	`)}
+
+	${fmobile(css`
+		height: auto;
 	`)}
 `
 const CopyFour = styled(Copy)`
@@ -382,11 +445,21 @@ const CopyFour = styled(Copy)`
 		width: 316px;
 		height: 44px;
 	`)}
+
+	${fmobile(css`
+		width: 316px;
+		height: auto;
+	`)}
 `
 const CopyFive = styled(Copy)`
 	${fresponsive(css`
 		width: 382px;
 		height: 88px;
+	`)}
+
+	${fmobile(css`
+		width: 297px;
+		height: auto;
 	`)}
 `
 
@@ -495,6 +568,13 @@ const UpperOne = styled(UniversalImage)`
 		width: 215px;
 		height: 60px;
 	`)}
+
+	${fmobile(css`
+		position:absolute;
+		top: 161px;
+		left: 66px;
+		z-index: 1;
+	`)}
 `
 const LowerOne = styled(UniversalImage)`
 	${fresponsive(css`
@@ -504,11 +584,20 @@ const LowerOne = styled(UniversalImage)`
 		width: 195px;
 		height: 125px;
 	`)}
+
+	${fmobile(css`
+		top: 78px;
+		left: 122px;
+	`)}
 `
 const UpperTwo = styled(UniversalImage)`
 	${fresponsive(css`
 		width: 170.6px;
 		height: 57px;
+	`)}
+
+	${fmobile(css`
+		display:none;
 	`)}
 `
 const LowerTwo = styled(UniversalImage)`
@@ -525,12 +614,22 @@ const LowerTwo = styled(UniversalImage)`
 		top: 169px;
 		left: 219.25px;
 	`)}
+
+	${fmobile(css`
+		top:86px;
+		left: -14.75px;
+	`)}
 `
 const UpperThree = styled(UniversalImage)`
 	${fresponsive(css`
 		width: 130px;
 		height: 59px;
 		margin-left: 4px;
+	`)}
+
+	${fmobile(css`
+		display:none;
+	
 	`)}
 `
 const LowerThree = styled(UniversalImage)`
@@ -541,12 +640,23 @@ const LowerThree = styled(UniversalImage)`
 		top: 105px;
 		left: 292px;
 	`)}
+
+	${fmobile(css`
+
+		top: 82px;
+		left: 128px;
+	`)}
 `
 const UpperFour = styled(UniversalImage)`
 	${fresponsive(css`
 		width: 156px;
 		height: 57px;
 		margin-left: -1px;
+	`)}
+
+	${fmobile(css`
+		display:none;
+	
 	`)}
 `
 const LowerFour = styled(UniversalImage)`
@@ -557,11 +667,22 @@ const LowerFour = styled(UniversalImage)`
 		top: 161px;
 		left: 255px;
 	`)}
+
+	${fmobile(css`
+		top: 106px;
+		left:-23px;
+	`)}
 `
 const UpperFive = styled(UniversalImage)`
 	${fresponsive(css`
 		width: 166.6px;
 		height: 96px;
+	`)}
+
+	${fmobile(css`
+		position: absolute;
+		top: 142px;
+		left: 68px;
 	`)}
 `
 const LowerFive = styled(UniversalImage)`
@@ -571,5 +692,10 @@ const LowerFive = styled(UniversalImage)`
 		left: 378px;
 		height: 130.75px;
 		width: 193.5px;
+	`)}
+
+	${fmobile(css`
+		top: 193px;
+		left: 131px;
 	`)}
 `
