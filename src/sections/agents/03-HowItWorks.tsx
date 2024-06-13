@@ -147,18 +147,30 @@ export default function AgentsHowItWorks() {
 			const widgets = [StepOne, StepTwo, StepThree, StepFour, StepFive]
 
 			for (const widget of widgets) {
-				gsap.from(`${widget} > *:not(svg)`, {
-					y: getResponsivePixels(200),
-					opacity: 0,
-					ease: "power2.out",
-					stagger: 0.1,
-					scrollTrigger: {
-						trigger: widget.toString(),
-						start: "top bottom",
-						end: "top 60%",
-						toggleActions: "none play none reset",
-					},
-				})
+				gsap
+					.timeline({
+						scrollTrigger: {
+							trigger: widget.toString(),
+							start: "top bottom",
+							end: "top 60%",
+							toggleActions: "none play none reset",
+						},
+					})
+					.from(`${widget} > *:not(svg)`, {
+						y: getResponsivePixels(200),
+						opacity: 0,
+						ease: "power2.out",
+						stagger: 0.1,
+					})
+					.from(
+						`${widget} svg`,
+						{
+							opacity: 0,
+							ease: "power2.out",
+							duration: 0.2,
+						},
+						0.7,
+					)
 			}
 		},
 		[tablet],
@@ -290,7 +302,7 @@ const StepTwo = styled(Step)`
 	`)}
 
 	${ftablet(css`
-		margin-top: 133px;
+		margin-top: 134px;
 		margin-left: 524px;
 	`)}
 `
@@ -313,7 +325,7 @@ const StepFour = styled(Step)`
 	`)}
 
 	${ftablet(css`
-		margin-top: 193px;
+		margin-top: 191px;
 		margin-left: 524px;
 	`)}
 `
@@ -346,29 +358,35 @@ const Copy = styled.p`
 	color: ${colors.gray700};
 `
 
+// unfortunately safari has some wonky so i set the size of each of these...
 const CopyOne = styled(Copy)`
 	${fresponsive(css`
 		width: 258px;
+		height: 44px;
 	`)}
 `
 const CopyTwo = styled(Copy)`
 	${fresponsive(css`
 		width: 346px;
+		height: 22px;
 	`)}
 `
 const CopyThree = styled(Copy)`
 	${fresponsive(css`
 		width: 271px;
+		height: 44px;
 	`)}
 `
 const CopyFour = styled(Copy)`
 	${fresponsive(css`
 		width: 316px;
+		height: 44px;
 	`)}
 `
 const CopyFive = styled(Copy)`
 	${fresponsive(css`
 		width: 382px;
+		height: 88px;
 	`)}
 `
 
@@ -376,6 +394,7 @@ const connectorStyles = css`
 	max-width: unset;
 	max-height: unset;
 	position: absolute;
+	display: block;
 	z-index: 1;
 	height: auto;
 
