@@ -93,12 +93,14 @@ export default function AgentsHowItWorks() {
 
 	useAnimation(
 		() => {
-			const connectors = [
-				ConnectorOne,
-				ConnectorTwo,
-				ConnectorThree,
-				ConnectorFour,
-			]
+			const connectors = tablet
+				? [
+						ConnectorOneTablet,
+						ConnectorTwoTablet,
+						ConnectorThreeTablet,
+						ConnectorFourTablet,
+					]
+				: [ConnectorOne, ConnectorTwo, ConnectorThree, ConnectorFour]
 
 			for (const connector of connectors) {
 				const fadeDuration = 0.1
@@ -159,7 +161,7 @@ export default function AgentsHowItWorks() {
 				})
 			}
 		},
-		[],
+		[tablet],
 		{ scope: wrapper, recreateOnResize: true },
 	)
 
