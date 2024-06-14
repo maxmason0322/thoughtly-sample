@@ -1,7 +1,7 @@
 import Primary from "components/Buttons/Primary"
 import { graphql, useStaticQuery } from "gatsby"
 import UniversalImage from "library/UniversalImage"
-import { fresponsive, ftablet } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
@@ -12,6 +12,7 @@ import { ReactComponent as CostSVG } from "images/agents/Cost.svg"
 import { ReactComponent as HeartSVG } from "images/agents/Heart.svg"
 import { ReactComponent as PeopleSVG } from "images/agents/People.svg"
 import { ReactComponent as RocketSVG } from "images/agents/Rocket.svg"
+import useMedia from "library/useMedia"
 
 const data = [
 	{
@@ -47,9 +48,23 @@ const data = [
 ] as const
 
 export default function AgentsAdvantages() {
-	const imageQuery: Queries.AgentsAdvantagesQuery = useStaticQuery(graphql`
+	const images: Queries.AgentsAdvantagesQuery = useStaticQuery(graphql`
 		query AgentsAdvantages {
-			file(relativePath: { eq: "agents/BenefitsBackground.png" }) {
+			desktop: file(relativePath: { eq: "agents/BenefitsBackground.png" }) {
+				childImageSharp {
+					gatsbyImageData(layout: FULL_WIDTH)
+				}
+			}
+			tablet: file(
+				relativePath: { eq: "agents/BenefitsBackgroundTablet.png" }
+			) {
+				childImageSharp {
+					gatsbyImageData(layout: FULL_WIDTH)
+				}
+			}
+			mobile: file(
+				relativePath: { eq: "agents/BenefitsBackgroundMobile.png" }
+			) {
 				childImageSharp {
 					gatsbyImageData(layout: FULL_WIDTH)
 				}
@@ -76,7 +91,15 @@ export default function AgentsAdvantages() {
 				</Details>
 			</TopRow>
 			<Cards>
-				<Background image={imageQuery.file} alt="alt_goes_here" />
+				<Background
+					image={useMedia(
+						images.desktop,
+						images.desktop,
+						images.tablet,
+						images.mobile,
+					)}
+					alt="alt_goes_here"
+				/>
 				{data.map((item, index) => (
 					<Card key={item.title}>
 						<IconWrapper>{item.icon}</IconWrapper>
@@ -99,7 +122,14 @@ const Wrapper = styled.div`
 		max-width: 983px;
 		margin-top: 181px;
 	`)}
+
+	${fmobile(css`
+		max-width: 358px;
+		margin: 255px auto 0;
+		text-align: center;
+	`)}
 `
+
 const TopRow = styled.div`
 	${fresponsive(css`
 		display: grid;
@@ -116,10 +146,21 @@ const TopRow = styled.div`
 		padding: 110px 0 48px;
 		margin: 0 48px;
 	`)}
+
+	${fmobile(css`
+		grid-template-columns: 1fr;
+		gap: 24px;
+		padding: 88px 0 68px;
+		margin: 0 22px;
+	`)}
 `
 
 const Title = styled.div`
 	${textStyles.h3}
+
+	${fmobile(css`
+		${textStyles.h5}
+	`)}
 `
 
 const Details = styled.div`
@@ -157,6 +198,12 @@ const Cards = styled.div`
 	${ftablet(css`
 		padding: 48px;
 	`)}
+
+	${fmobile(css`
+		border-radius: 0;
+		flex-direction: column;
+		padding: 0 39px;
+	`)}
 `
 
 const Background = styled(UniversalImage)`
@@ -165,6 +212,13 @@ const Background = styled(UniversalImage)`
 	width: 100%;
 	height: 100%;
 	z-index: -1;
+
+	${fmobile(css`
+		top: 275px;
+		bottom: 440px;
+		height: calc(100% - 715px);
+		border-radius: 36px;
+	`)}
 `
 
 const Card = styled.div`
@@ -188,6 +242,11 @@ const Card = styled.div`
 		width: 279px;
 		padding: 48px 25px 55px;
 	`)}
+
+	${fmobile(css`
+		width: 280px;
+		padding: 48px 27px;
+	`)}
 `
 const IconWrapper = styled.div`
 	${fresponsive(css`
@@ -203,9 +262,21 @@ const CardTitle = styled.div`
 		margin-top: 48px;
 		margin-bottom: 12px;
 	`)}
+
+	${fmobile(css`
+		${textStyles.sh1}
+	`)}
 `
 
 const CardText = styled.div`
 	${textStyles.bodyS};
 	color: ${colors.gray700};
+
+	${ftablet(css`
+		${textStyles.bodyR}
+	`)}
+
+	${fmobile(css`
+		${textStyles.bodyR}
+	`)}
 `
