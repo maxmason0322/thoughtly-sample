@@ -13,7 +13,7 @@ import { ReactComponent as Connector45 } from "images/agents/widgets/4-5-Connect
 import ConstantMarquee from "library/ConstantMarquee"
 import { ScreenContext } from "library/ScreenContext"
 import UniversalImage from "library/UniversalImage"
-import { fmobile, fresponsive } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import { getResponsivePixels } from "library/viewportUtils"
 import { useContext, useRef } from "react"
@@ -88,17 +88,21 @@ export default function AgentsHowItWorks() {
 		}
 	`)
 
-	const { tablet } = useContext(ScreenContext)
+	const { mobile, tablet } = useContext(ScreenContext)
 	const wrapper = useRef<HTMLDivElement>(null)
 
 	useAnimation(
 		() => {
-			const connectors = [
-				ConnectorOne,
-				ConnectorTwo,
-				ConnectorThree,
-				ConnectorFour,
-			]
+			if (mobile) return
+
+			const connectors = tablet
+				? [
+						ConnectorOneTablet,
+						ConnectorTwoTablet,
+						ConnectorThreeTablet,
+						ConnectorFourTablet,
+					]
+				: [ConnectorOne, ConnectorTwo, ConnectorThree, ConnectorFour]
 
 			for (const connector of connectors) {
 				const fadeDuration = 0.1
@@ -108,8 +112,8 @@ export default function AgentsHowItWorks() {
 					.timeline({
 						scrollTrigger: {
 							trigger: connector.toString(),
-							start: "top 60%",
-							end: "bottom 40%",
+							start: "top 70%",
+							end: "bottom 55%",
 							scrub: true,
 						},
 					})
@@ -145,91 +149,110 @@ export default function AgentsHowItWorks() {
 			const widgets = [StepOne, StepTwo, StepThree, StepFour, StepFive]
 
 			for (const widget of widgets) {
-				gsap.from(`${widget} > *:not(svg)`, {
-					y: getResponsivePixels(200),
-					opacity: 0,
-					ease: "power2.out",
-					stagger: 0.1,
-					scrollTrigger: {
-						trigger: widget.toString(),
-						start: "top bottom",
-						end: "top 60%",
-						toggleActions: "none play none reset",
-					},
-				})
+				gsap
+					.timeline({
+						scrollTrigger: {
+							trigger: widget.toString(),
+							start: "top bottom",
+							end: "top 70%",
+							toggleActions: "none play none reset",
+						},
+					})
+					.from(`${widget} > *:not(svg)`, {
+						y: getResponsivePixels(200),
+						opacity: 0,
+						ease: "power2.out",
+						stagger: 0.1,
+					})
+					.from(
+						`${widget} svg`,
+						{
+							opacity: 0,
+							ease: "power2.out",
+							duration: 0.2,
+						},
+						0.7,
+					)
 			}
 		},
-		[],
+		[tablet, mobile],
 		{ scope: wrapper, recreateOnResize: true },
 	)
 
 	return (
-		<Wrapper ref={wrapper}>
+		<>
 			<ConstantMarquee>
 				<MarqueeContent>
 					<BigIcon name="chevDown" />
 					How it Works
 				</MarqueeContent>
 			</ConstantMarquee>
-			<StepOne>
-				<UpperOne image={widgetsQuery.callBooked} alt="alt_goes_here" />
-				<Title>
-					Consultation<Count>01</Count>
-				</Title>
-				<CopyOne>Discuss your business needs with our experts.</CopyOne>
-				{tablet ? <Connector12Tablet /> : <ConnectorOne />}
-				<LowerOne image={widgetsQuery.consult} alt="alt_goes_here" />
-			</StepOne>
-			<StepTwo>
-				<UpperTwo image={widgetsQuery.michael} alt="alt_goes_here" />
-				<Title>
-					Customization<Count>02</Count>
-				</Title>
-				<CopyTwo>We tailor the AI agent to your specifications.</CopyTwo>
-				{tablet ? <Connector23Tablet /> : <ConnectorTwo />}
-				<LowerTwo image={widgetsQuery.list} alt="alt_goes_here" />
-			</StepTwo>
-			<StepThree>
-				<UpperThree image={widgetsQuery.action} alt="alt_goes_here" />
-				<Title>
-					Integration<Count>03</Count>
-				</Title>
-				<CopyThree>
-					Seamless setup and integration into your existing systems.
-				</CopyThree>
-				{tablet ? <Connector34Tablet /> : <ConnectorThree />}
-				<LowerThree image={widgetsQuery.integrations} alt="alt_goes_here" />
-			</StepThree>
-			<StepFour>
-				<UpperFour image={widgetsQuery.graph} alt="alt_goes_here" />
-				<Title>
-					Optimization<Count>04</Count>
-				</Title>
-				<CopyFour>
-					Continuous monitoring and adjustment to ensure peak performance.
-				</CopyFour>
-				{tablet ? <Connector45Tablet /> : <ConnectorFour />}
-				<LowerFour image={widgetsQuery.voice} alt="alt_goes_here" />
-			</StepFour>
-			<StepFive>
-				<UpperFive image={widgetsQuery.people} alt="alt_goes_here" />
-				<Title>
-					Empowerment<Count>05</Count>
-				</Title>
-				<CopyFive>
-					Receive the training and materials needed to independently create and
-					manage your AI agents, allowing for quick adaptations and improvements
-					as your business evolves.
-				</CopyFive>
-				<LowerFive image={widgetsQuery.levels} alt="alt_goes_here" />
-			</StepFive>
-		</Wrapper>
+			<Wrapper ref={wrapper}>
+				<StepOne>
+					<UpperOne image={widgetsQuery.callBooked} alt="alt_goes_here" />
+					<Title>
+						Consultation<Count>01</Count>
+					</Title>
+					<CopyOne>Discuss your business needs with our experts.</CopyOne>
+					{tablet ? <ConnectorOneTablet /> : <ConnectorOne />}
+					<LowerOne image={widgetsQuery.consult} alt="alt_goes_here" />
+				</StepOne>
+				<StepTwo>
+					<UpperTwo image={widgetsQuery.michael} alt="alt_goes_here" />
+					<Title>
+						Customization<Count>02</Count>
+					</Title>
+					<CopyTwo>We tailor the AI agent to your specifications.</CopyTwo>
+					{tablet ? <ConnectorTwoTablet /> : <ConnectorTwo />}
+					<LowerTwo image={widgetsQuery.list} alt="alt_goes_here" />
+				</StepTwo>
+				<StepThree>
+					<UpperThree image={widgetsQuery.action} alt="alt_goes_here" />
+					<Title>
+						Integration<Count>03</Count>
+					</Title>
+					<CopyThree>
+						Seamless setup and integration into your existing systems.
+					</CopyThree>
+					{tablet ? <ConnectorThreeTablet /> : <ConnectorThree />}
+					<LowerThree image={widgetsQuery.integrations} alt="alt_goes_here" />
+				</StepThree>
+				<StepFour>
+					<UpperFour image={widgetsQuery.graph} alt="alt_goes_here" />
+					<Title>
+						Optimization<Count>04</Count>
+					</Title>
+					<CopyFour>
+						Continuous monitoring and adjustment to ensure peak performance.
+					</CopyFour>
+					{tablet ? <ConnectorFourTablet /> : <ConnectorFour />}
+					<LowerFour image={widgetsQuery.voice} alt="alt_goes_here" />
+				</StepFour>
+				<StepFive>
+					<UpperFive image={widgetsQuery.people} alt="alt_goes_here" />
+					<Title>
+						Empowerment<Count>05</Count>
+					</Title>
+					<CopyFive>
+						Receive the training and materials needed to independently create
+						and manage your AI agents, allowing for quick adaptations and
+						improvements as your business evolves.
+					</CopyFive>
+					<LowerFive image={widgetsQuery.levels} alt="alt_goes_here" />
+				</StepFive>
+			</Wrapper>
+		</>
 	)
 }
 
 const Wrapper = styled.section`
 	${fresponsive(css`
 		width: 1440px;
+		margin: 0 auto;
+	`)}
+
+	${ftablet(css`
+		width: 1024px;
 	`)}
 `
 
@@ -237,6 +260,11 @@ const BigIcon = styled(Icon)`
 	${fresponsive(css`
 		width: 60px;
 		height: 60px;
+	`)}
+
+	${fmobile(css`
+		width: 45px;
+		height: 45px;
 	`)}
 `
 
@@ -251,6 +279,17 @@ const MarqueeContent = styled.div`
 		padding-left: 37px;
 		margin-top: 178px;
 	`)}
+
+	${ftablet(css`
+		margin-top: 121px;
+	`)}
+
+	${fmobile(css`
+		font-size: 126px;
+		gap: 27.75px;
+		padding-left: 27.75px;
+		margin-top: 90px;
+	`)}
 `
 
 const Step = styled.div`
@@ -263,6 +302,16 @@ const StepOne = styled(Step)`
 		margin-top: 234px;
 		margin-left: 156px;
 	`)}
+
+	${ftablet(css`
+		margin-top: 145px;
+		margin-left: 68px;
+	`)}
+
+	${fmobile(css`
+		margin-top: 73px;
+		margin-left: 31px;
+	`)}
 `
 
 const StepTwo = styled(Step)`
@@ -270,11 +319,32 @@ const StepTwo = styled(Step)`
 		margin-top: 88px;
 		margin-left: 683px;
 	`)}
+
+	${ftablet(css`
+		margin-top: 134px;
+		margin-left: 524px;
+	`)}
+
+	${fmobile(css`
+		margin-top: 201px;
+		margin-left: 31px;
+	`)}
 `
+
 const StepThree = styled(Step)`
 	${fresponsive(css`
 		margin-top: 125px;
 		margin-left: 322px;
+	`)}
+
+	${ftablet(css`
+		margin-top: 75px;
+		margin-left: 62px;
+	`)}
+
+	${fmobile(css`
+		margin-top: 198px;
+		margin-left: 31px;
 	`)}
 `
 const StepFour = styled(Step)`
@@ -282,11 +352,31 @@ const StepFour = styled(Step)`
 		margin-top: 154px;
 		margin-left: 865px;
 	`)}
+
+	${ftablet(css`
+		margin-top: 191px;
+		margin-left: 524px;
+	`)}
+
+	${fmobile(css`
+		margin-top: 250px;
+		margin-left: 31px;
+	`)}
 `
 const StepFive = styled(Step)`
 	${fresponsive(css`
 		margin-top: 91px;
 		margin-left: 428px;
+	`)}
+
+	${ftablet(css`
+		margin-top: 97px;
+		margin-left: 295px;
+	`)}
+
+	${fmobile(css`
+		margin-top: 223px;
+		margin-left: 31px;
 	`)}
 `
 const Title = styled.h2`
@@ -295,35 +385,81 @@ const Title = styled.h2`
 		margin-top: 14px;
 		margin-bottom: 6px;
 	`)}
+
+	${ftablet(css`
+		margin-top: 8px;
+		margin-bottom: 6px;
+	`)}
+
+	${fmobile(css`
+		${textStyles.h6};
+		margin-top: 0;
+	`)}
 `
+
 const Copy = styled.p`
 	${textStyles.sh2};
 	color: ${colors.gray700};
+
+	${fmobile(css`
+		${textStyles.sh3};
+	`)}
 `
 
+// unfortunately safari has some wonky so i set the size of each of these...
+// even though that is a bit of a pain
 const CopyOne = styled(Copy)`
 	${fresponsive(css`
 		width: 258px;
+		height: 44px;
+	`)}
+
+	${fmobile(css`
+		width: 198px;
+		height: auto;
 	`)}
 `
 const CopyTwo = styled(Copy)`
 	${fresponsive(css`
 		width: 346px;
+		height: 22px;
+	`)}
+
+	${fmobile(css`
+		width: 280px;
+		height: auto;
 	`)}
 `
 const CopyThree = styled(Copy)`
 	${fresponsive(css`
 		width: 271px;
+		height: 44px;
+	`)}
+
+	${fmobile(css`
+		height: auto;
 	`)}
 `
 const CopyFour = styled(Copy)`
 	${fresponsive(css`
 		width: 316px;
+		height: 44px;
+	`)}
+
+	${fmobile(css`
+		width: 316px;
+		height: auto;
 	`)}
 `
 const CopyFive = styled(Copy)`
 	${fresponsive(css`
 		width: 382px;
+		height: 88px;
+	`)}
+
+	${fmobile(css`
+		width: 297px;
+		height: auto;
 	`)}
 `
 
@@ -331,6 +467,7 @@ const connectorStyles = css`
 	max-width: unset;
 	max-height: unset;
 	position: absolute;
+	display: block;
 	z-index: 1;
 	height: auto;
 
@@ -346,6 +483,14 @@ const ConnectorOne = styled(Connector12)`
 		width: 279px;
 	`)}
 `
+const ConnectorOneTablet = styled(Connector12Tablet)`
+	${connectorStyles};
+	${ftablet(css`
+		top: 255px;
+		left: 330px;
+		width: 207px;
+	`)}
+`
 
 const ConnectorTwo = styled(Connector23)`
 	${connectorStyles};
@@ -354,6 +499,16 @@ const ConnectorTwo = styled(Connector23)`
 		width: 765px;
 		top: 214.9px;
 		left: -303px;
+	`)}
+`
+
+const ConnectorTwoTablet = styled(Connector23Tablet)`
+	${connectorStyles};
+
+	${ftablet(css`
+		width: 744px;
+		top: 170.6px;
+		left: -397px;
 	`)}
 `
 
@@ -366,6 +521,17 @@ const ConnectorThree = styled(Connector34)`
 		width: 237px;
 	`)}
 `
+
+const ConnectorThreeTablet = styled(Connector34Tablet)`
+	${connectorStyles};
+
+	${ftablet(css`
+		top: 286px;
+		left: 391px;
+		width: 149px;
+	`)}
+`
+
 const ConnectorFour = styled(Connector45)`
 	${connectorStyles};
 
@@ -373,6 +539,16 @@ const ConnectorFour = styled(Connector45)`
 		top: 184.36px;
 		left: -364px;
 		width: 738.5px;
+	`)}
+`
+
+const ConnectorFourTablet = styled(Connector45Tablet)`
+	${connectorStyles};
+
+	${ftablet(css`
+		top: 217px;
+		left: -155px;
+		width: 522px;
 	`)}
 `
 
@@ -392,6 +568,13 @@ const UpperOne = styled(UniversalImage)`
 		width: 215px;
 		height: 60px;
 	`)}
+
+	${fmobile(css`
+		position:absolute;
+		top: 161px;
+		left: 66px;
+		z-index: 1;
+	`)}
 `
 const LowerOne = styled(UniversalImage)`
 	${fresponsive(css`
@@ -401,11 +584,20 @@ const LowerOne = styled(UniversalImage)`
 		width: 195px;
 		height: 125px;
 	`)}
+
+	${fmobile(css`
+		top: 78px;
+		left: 122px;
+	`)}
 `
 const UpperTwo = styled(UniversalImage)`
 	${fresponsive(css`
 		width: 170.6px;
 		height: 57px;
+	`)}
+
+	${fmobile(css`
+		display:none;
 	`)}
 `
 const LowerTwo = styled(UniversalImage)`
@@ -417,12 +609,27 @@ const LowerTwo = styled(UniversalImage)`
 		top: 134.5px;
 		left: 337.25px;
 	`)}
+
+	${ftablet(css`
+		top: 169px;
+		left: 219.25px;
+	`)}
+
+	${fmobile(css`
+		top:86px;
+		left: -14.75px;
+	`)}
 `
 const UpperThree = styled(UniversalImage)`
 	${fresponsive(css`
 		width: 130px;
 		height: 59px;
 		margin-left: 4px;
+	`)}
+
+	${fmobile(css`
+		display:none;
+	
 	`)}
 `
 const LowerThree = styled(UniversalImage)`
@@ -433,12 +640,23 @@ const LowerThree = styled(UniversalImage)`
 		top: 105px;
 		left: 292px;
 	`)}
+
+	${fmobile(css`
+
+		top: 82px;
+		left: 128px;
+	`)}
 `
 const UpperFour = styled(UniversalImage)`
 	${fresponsive(css`
 		width: 156px;
 		height: 57px;
 		margin-left: -1px;
+	`)}
+
+	${fmobile(css`
+		display:none;
+	
 	`)}
 `
 const LowerFour = styled(UniversalImage)`
@@ -449,11 +667,22 @@ const LowerFour = styled(UniversalImage)`
 		top: 161px;
 		left: 255px;
 	`)}
+
+	${fmobile(css`
+		top: 106px;
+		left:-23px;
+	`)}
 `
 const UpperFive = styled(UniversalImage)`
 	${fresponsive(css`
 		width: 166.6px;
 		height: 96px;
+	`)}
+
+	${fmobile(css`
+		position: absolute;
+		top: 142px;
+		left: 68px;
 	`)}
 `
 const LowerFive = styled(UniversalImage)`
@@ -463,5 +692,10 @@ const LowerFive = styled(UniversalImage)`
 		left: 378px;
 		height: 130.75px;
 		width: 193.5px;
+	`)}
+
+	${fmobile(css`
+		top: 193px;
+		left: 131px;
 	`)}
 `
