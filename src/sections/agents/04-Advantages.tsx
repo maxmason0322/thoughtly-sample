@@ -105,14 +105,16 @@ const TopRow = styled.div`
 		display: grid;
 		grid-template-columns: 744px 1fr;
 		gap: 24px;
-		padding: 110px 96px;
+		padding: 110px 0;
+		margin: 0 96px;
 		border-top: 1.5px solid ${colors.gray300};
 	`)}
 
 	${ftablet(css`
 		grid-template-columns: 1fr;
 		gap: 48px;
-		padding: 110px 48px 48px;
+		padding: 110px 0 48px;
+		margin: 0 48px;
 	`)}
 `
 
