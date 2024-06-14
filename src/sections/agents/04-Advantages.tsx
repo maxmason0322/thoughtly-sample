@@ -1,7 +1,7 @@
 import Primary from "components/Buttons/Primary"
 import { graphql, useStaticQuery } from "gatsby"
 import UniversalImage from "library/UniversalImage"
-import { fresponsive } from "library/fullyResponsive"
+import { fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
@@ -94,6 +94,11 @@ const Wrapper = styled.div`
 		max-width: 1320px;
 		margin: 130px auto 0;
 	`)}
+
+	${ftablet(css`
+		max-width: 983px;
+		margin-top: 181px;
+	`)}
 `
 const TopRow = styled.div`
 	${fresponsive(css`
@@ -103,18 +108,29 @@ const TopRow = styled.div`
 		padding: 110px 96px;
 		border-top: 1.5px solid ${colors.gray300};
 	`)}
+
+	${ftablet(css`
+		grid-template-columns: 1fr;
+		gap: 48px;
+		padding: 110px 48px 48px;
+	`)}
 `
 
 const Title = styled.div`
 	${textStyles.h3}
 `
+
 const Details = styled.div`
 	${textStyles.bodyR};
 	color: ${colors.gray700};
 	display: flex;
-	gap: 24px;
 	flex-direction: column;
+
+	${fresponsive(css`
+		gap: 24px;
+	`)}
 `
+
 const Buttons = styled.div`
 	color: ${colors.black};
 	${fresponsive(css`
@@ -134,6 +150,10 @@ const Cards = styled.div`
 		gap: 24px;
 		flex-wrap: wrap;
 		justify-content: center;
+	`)}
+
+	${ftablet(css`
+		padding: 48px;
 	`)}
 `
 
@@ -160,6 +180,11 @@ const Card = styled.div`
 		&:last-child {
 			padding: 48px 27px;
 		}
+	`)}
+
+	${ftablet(css`
+		width: 279px;
+		padding: 48px 25px 55px;
 	`)}
 `
 const IconWrapper = styled.div`
