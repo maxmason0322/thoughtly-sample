@@ -131,7 +131,7 @@ const Cards = styled.div`
 		isolation: isolate;
 		overflow: clip;
 		border-radius: 60px;
-		gap:24px;
+		gap: 24px;
 		flex-wrap: wrap;
 		justify-content: center;
 	`)}
@@ -156,7 +156,6 @@ const Card = styled.div`
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
-
 
 		&:last-child {
 			padding: 48px 27px;
