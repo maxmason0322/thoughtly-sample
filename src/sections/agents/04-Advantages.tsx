@@ -98,7 +98,7 @@ export default function AgentsAdvantages() {
 						images.tablet,
 						images.mobile,
 					)}
-					alt="alt_goes_here"
+					alt="two people take calls on headsets, retro style"
 				/>
 				{data.map((item, index) => (
 					<Card key={item.title}>
