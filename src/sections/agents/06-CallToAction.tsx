@@ -102,6 +102,7 @@ const Graphic = styled.div`
 		border-radius: 24px;
 		border: 1px solid #d8d8d8;
 		position: relative;
+		flex-shrink: 0;
 	`)}
 
 	${ftablet(css`
