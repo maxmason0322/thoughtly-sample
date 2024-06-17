@@ -6,7 +6,7 @@ import { ReactComponent as ArrowSVG } from "images/global/icons/Chev.svg"
 import { fresponsive } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import useMedia from "library/useMedia"
-import { useResponsivePixels } from "library/viewportUtils"
+import { getResponsivePixels, useResponsivePixels } from "library/viewportUtils"
 import { useRef, useState } from "react"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
@@ -16,13 +16,14 @@ import Card from "./Card"
 gsap.registerPlugin(Draggable, InertiaPlugin)
 
 export default function Testimonials() {
-	const trackRef = useRef<HTMLDivElement>(null)
 	const activeIndex = useRef(0)
 	const buttonIncrement = useRef<HTMLButtonElement | null>(null)
 	const buttonDecrement = useRef<HTMLButtonElement | null>(null)
 	const mobile = useMedia(false, false, false, true)
 	const [singleTestimonial, setSingleTestimonial] = useState(false)
 	const [numCards, setNumCards] = useState(0)
+
+	const offset = useRef(0)
 
 	// const data: Queries.TestimonialsQuery = useStaticQuery(graphql`
 	//   query Testimonials {
@@ -55,12 +56,9 @@ export default function Testimonials() {
 	const [displayCards, setDisplayCards] = useState([...cards])
 
 	useAnimation(() => {
-		if (!trackRef.current) return
-
 		setNumCards(cards.length)
-		const VISIBLE_CARDS = 3
 
-		const drag = Draggable.create(trackRef.current, {
+		const drag = Draggable.create(".track", {
 			type: "x",
 			inertia: true,
 			snap: displayCards.map((_, index) => -width * index),
@@ -79,94 +77,50 @@ export default function Testimonials() {
 		}
 	}, [width, cards, numCards, displayCards])
 
+	const NUM = 2
+
 	const moveTrack = (index: number) => {
-		gsap.to(trackRef.current, {
-			ease: "power3.inOut",
-			x: -(width * index),
+		const totalTransform = -(width * index)
+		gsap.to(offset, {
+			ease: "power3.out",
+			current: totalTransform,
 			overwrite: true,
+			onUpdate: () => {
+				const numBumps = Math.ceil(totalTransform / (width * cards.length))
+				gsap.set(".track", {
+					x:
+						offset.current -
+						width * cards.length * numBumps -
+						getResponsivePixels(24),
+					xPercent: -100,
+				})
+			},
 		})
 	}
 
-	// const increment = () => {
-	// 	if (!buttonDecrement.current || !buttonIncrement.current) return
-
-	// 	if (activeIndex.current < cards.length - 1) {
-	// 		const newIndex = activeIndex.current + 1
-	// 		moveTrack(newIndex)
-	// 		activeIndex.current = newIndex
-	// 	}
-	// }
-
-	// const decrement = () => {
-	// 	if (!buttonDecrement.current || !buttonIncrement.current) return
-
-	// 	if (activeIndex.current > 0) {
-	// 		const newIndex = activeIndex.current - 1
-	// 		moveTrack(newIndex)
-	// 		activeIndex.current = newIndex
-	// 	}
-	// }
-
-	// const increment = () => {
-	// 	if (activeIndex.current < clonedCards.length - 2) {
-	// 		const newIndex = activeIndex.current + 1
-	// 		moveTrack(newIndex)
-	// 		activeIndex.current = newIndex
-	// 	} else {
-	// 		// Jump to the first real card without animation
-	// 		gsap.to(trackRef.current, { duration: 0, x: -width })
-	// 		activeIndex.current = 0
-	// 	}
-	// }
-
-	// const decrement = () => {
-	// 	if (activeIndex.current > 0) {
-	// 		const newIndex = activeIndex.current - 1
-	// 		moveTrack(newIndex)
-	// 		activeIndex.current = newIndex
-	// 	} else {
-	// 		// Jump to the last real card without animation
-	// 		gsap.to(trackRef.current, {
-	// 			duration: 0,
-	// 			x: -width * (clonedCards.length - 2),
-	// 		})
-	// 		activeIndex.current = clonedCards.length - 2
-	// 	}
-	// }
-
 	const increment = () => {
-		if (activeIndex.current < cards.length - 2) {
-			const newIndex = activeIndex.current + 1
-			moveTrack(newIndex)
-			activeIndex.current = newIndex
-		} else {
-			// Add a new set of cards at the end
-			cards.push(...cards)
-			const newIndex = activeIndex.current + 1
-			moveTrack(newIndex)
-			activeIndex.current = newIndex
-		}
+		if (!buttonDecrement.current || !buttonIncrement.current) return
+
+		const newIndex = activeIndex.current + 1
+		moveTrack(newIndex)
+		activeIndex.current = newIndex
 	}
 
 	const decrement = () => {
-		if (activeIndex.current > 0) {
-			const newIndex = activeIndex.current - 1
-			moveTrack(newIndex)
-			activeIndex.current = newIndex
-		} else {
-			// Add a new set of cards at the start
-			cards.unshift(...cards)
-			const newIndex = activeIndex.current - 1
-			moveTrack(newIndex)
-			activeIndex.current = newIndex
-		}
+		if (!buttonDecrement.current || !buttonIncrement.current) return
+
+		const newIndex = activeIndex.current - 1
+		moveTrack(newIndex)
+		activeIndex.current = newIndex
 	}
 
 	return (
 		<Wrapper>
 			<Carousel>
 				<TrackWrapper>
-					<Track ref={trackRef}>{cards}</Track>
+					<Track className="track">{cards}</Track>
+					<Track className="track">{cards}</Track>
+					<Track className="track">{cards}</Track>
 				</TrackWrapper>
 			</Carousel>
 			{!singleTestimonial && (
@@ -210,12 +164,14 @@ const Carousel = styled.div`
 
 const TrackWrapper = styled.div`
   position: absolute;
+	display: flex;
   width: 100%;
   top: 0;
   left: 0;
 
   ${fresponsive(css`
     width: 1440px;
+		gap: 24px;
   `)}
 `
 
@@ -228,7 +184,6 @@ const Track = styled.div`
 
   ${fresponsive(css`
     gap: 24px;
-    right: 430px;
   `)}
 `
 
