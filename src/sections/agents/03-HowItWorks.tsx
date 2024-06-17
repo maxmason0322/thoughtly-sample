@@ -189,25 +189,28 @@ export default function AgentsHowItWorks() {
 			</ConstantMarquee>
 			<Wrapper ref={wrapper}>
 				<StepOne>
-					<UpperOne image={widgetsQuery.callBooked} alt="alt_goes_here" />
+					<UpperOne image={widgetsQuery.callBooked} alt="Your call is booked" />
 					<Title>
 						Consultation<Count>01</Count>
 					</Title>
 					<CopyOne>Discuss your business needs with our experts.</CopyOne>
 					{tablet ? <ConnectorOneTablet /> : <ConnectorOne />}
-					<LowerOne image={widgetsQuery.consult} alt="alt_goes_here" />
+					<LowerOne
+						image={widgetsQuery.consult}
+						alt="a woman sits at a laptop"
+					/>
 				</StepOne>
 				<StepTwo>
-					<UpperTwo image={widgetsQuery.michael} alt="alt_goes_here" />
+					<UpperTwo image={widgetsQuery.michael} alt="michael" />
 					<Title>
 						Customization<Count>02</Count>
 					</Title>
 					<CopyTwo>We tailor the AI agent to your specifications.</CopyTwo>
 					{tablet ? <ConnectorTwoTablet /> : <ConnectorTwo />}
-					<LowerTwo image={widgetsQuery.list} alt="alt_goes_here" />
+					<LowerTwo image={widgetsQuery.list} alt="drag and drop UI elements" />
 				</StepTwo>
 				<StepThree>
-					<UpperThree image={widgetsQuery.action} alt="alt_goes_here" />
+					<UpperThree image={widgetsQuery.action} alt="action" />
 					<Title>
 						Integration<Count>03</Count>
 					</Title>
@@ -215,10 +218,13 @@ export default function AgentsHowItWorks() {
 						Seamless setup and integration into your existing systems.
 					</CopyThree>
 					{tablet ? <ConnectorThreeTablet /> : <ConnectorThree />}
-					<LowerThree image={widgetsQuery.integrations} alt="alt_goes_here" />
+					<LowerThree
+						image={widgetsQuery.integrations}
+						alt="integrations UI, showing zapier calendly and hubspot"
+					/>
 				</StepThree>
 				<StepFour>
-					<UpperFour image={widgetsQuery.graph} alt="alt_goes_here" />
+					<UpperFour image={widgetsQuery.graph} alt="graph" />
 					<Title>
 						Optimization<Count>04</Count>
 					</Title>
@@ -226,10 +232,13 @@ export default function AgentsHowItWorks() {
 						Continuous monitoring and adjustment to ensure peak performance.
 					</CopyFour>
 					{tablet ? <ConnectorFourTablet /> : <ConnectorFour />}
-					<LowerFour image={widgetsQuery.voice} alt="alt_goes_here" />
+					<LowerFour
+						image={widgetsQuery.voice}
+						alt="transcribed snippet from a call"
+					/>
 				</StepFour>
 				<StepFive>
-					<UpperFive image={widgetsQuery.people} alt="alt_goes_here" />
+					<UpperFive image={widgetsQuery.people} alt="tessa and gabriel" />
 					<Title>
 						Empowerment<Count>05</Count>
 					</Title>
@@ -238,7 +247,10 @@ export default function AgentsHowItWorks() {
 						and manage your AI agents, allowing for quick adaptations and
 						improvements as your business evolves.
 					</CopyFive>
-					<LowerFive image={widgetsQuery.levels} alt="alt_goes_here" />
+					<LowerFive
+						image={widgetsQuery.levels}
+						alt="sliders for agent assertiveness and humor level"
+					/>
 				</StepFive>
 			</Wrapper>
 		</>
