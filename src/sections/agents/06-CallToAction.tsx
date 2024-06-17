@@ -2,7 +2,7 @@ import Primary from "components/Buttons/Primary"
 import Kicker from "components/Kicker"
 import { graphql, useStaticQuery } from "gatsby"
 import UniversalImage from "library/UniversalImage"
-import { fresponsive } from "library/fullyResponsive"
+import { fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
@@ -70,13 +70,19 @@ const KickerWithRandomPadding = styled(Kicker)`
 
 const Wrapper = styled.div`
 	${fresponsive(css`
-		display: grid;
-		grid-template-columns: auto 1fr;
+		display: flex;
 		gap: 84px;
 		padding: 240px 153px 143px 132px;
 		max-width: 1440px;
 		margin: 0 auto;
 		place-items: center;
+	`)}
+
+	${ftablet(css`
+		flex-direction: column-reverse;
+		text-align: center;
+		padding: 110px 68px;
+		gap: 60px;
 	`)}
 `
 const Graphic = styled.div`
@@ -90,6 +96,11 @@ const Graphic = styled.div`
 		border: 1px solid #d8d8d8;
 		position: relative;
 	`)}
+
+	${fresponsive(css`
+		width: 888px;
+		height: 602px;
+	`)}
 `
 const Agent = styled(UniversalImage)`
 	${fresponsive(css`
@@ -102,6 +113,10 @@ const Agent = styled(UniversalImage)`
 			0 -1px 6px 0 rgb(38 38 38 / 6%) inset,
 			0 18px 32px 0 rgb(89 89 89 / 4%);
 	`)}
+
+	${ftablet(css`
+		left: -48px;
+	`)}
 `
 
 const MainImage = styled(UniversalImage)`
@@ -109,6 +124,8 @@ const MainImage = styled(UniversalImage)`
 		border-radius: 12px;
 		isolation: isolate;
 		overflow: clip;
+		width: 100%;
+		height: 100%;
 	`)}
 `
 const Details = styled(UniversalImage)`
@@ -119,6 +136,10 @@ const Details = styled(UniversalImage)`
 		right: -30px;
 		width: 205px;
 	`)}
+
+	${ftablet(css`
+		right: -48px;
+	`)}
 `
 
 const Copy = styled.div`
@@ -127,10 +148,17 @@ const Copy = styled.div`
 		flex-direction: column;
 		gap: 18px;
 	`)}
+
+	${fresponsive(css`
+		align-items: center;
+	`)}
 `
 
 const Title = styled.div`
 	${textStyles.h3};
+	${ftablet(css`
+		width: 663px;
+	`)}
 `
 const Description = styled.div`
 	${textStyles.bodyL};
