@@ -2,7 +2,7 @@ import Primary from "components/Buttons/Primary"
 import Kicker from "components/Kicker"
 import { graphql, useStaticQuery } from "gatsby"
 import UniversalImage from "library/UniversalImage"
-import { fresponsive, ftablet } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
@@ -84,6 +84,13 @@ const Wrapper = styled.div`
 		padding: 110px 68px;
 		gap: 60px;
 	`)}
+
+	${fmobile(css`
+		flex-direction: column-reverse;
+		text-align: center;
+		padding: 41px 24px 54px;
+		gap: 60px;
+	`)}
 `
 const Graphic = styled.div`
 	${fresponsive(css`
@@ -97,9 +104,16 @@ const Graphic = styled.div`
 		position: relative;
 	`)}
 
-	${fresponsive(css`
+	${ftablet(css`
 		width: 888px;
 		height: 602px;
+	`)}
+
+	${fmobile(css`
+		width: 306px;
+		height: 452px;
+		border-radius: 18px;
+		padding: 18px;
 	`)}
 `
 const Agent = styled(UniversalImage)`
@@ -117,6 +131,12 @@ const Agent = styled(UniversalImage)`
 	${ftablet(css`
 		left: -48px;
 	`)}
+
+	${fmobile(css`
+		top: -14.2px;
+		left: -30px;
+		width: 171px;
+	`)}
 `
 
 const MainImage = styled(UniversalImage)`
@@ -126,6 +146,10 @@ const MainImage = styled(UniversalImage)`
 		overflow: clip;
 		width: 100%;
 		height: 100%;
+	`)}
+
+	${fmobile(css`
+		border-radius: 9px;
 	`)}
 `
 const Details = styled(UniversalImage)`
@@ -140,17 +164,11 @@ const Details = styled(UniversalImage)`
 	${ftablet(css`
 		right: -48px;
 	`)}
-`
 
-const Copy = styled.div`
-	${fresponsive(css`
-		display: flex;
-		flex-direction: column;
-		gap: 18px;
-	`)}
-
-	${fresponsive(css`
-		align-items: center;
+	${fmobile(css`
+		right: -22.5px;
+		bottom: -22.5px;
+		width: 153px;
 	`)}
 `
 
@@ -158,6 +176,9 @@ const Title = styled.div`
 	${textStyles.h3};
 	${ftablet(css`
 		width: 663px;
+	`)}
+	${fmobile(css`
+		${textStyles.h6};
 	`)}
 `
 const Description = styled.div`
@@ -176,5 +197,33 @@ const Buttons = styled.div`
 		gap: 12px;
 		margin-top: 24px;
 		margin-left: 12px;
+	`)}
+
+	${fmobile(css`
+		margin-top: 6px;
+	`)}
+`
+
+const Copy = styled.div`
+	${fresponsive(css`
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+	`)}
+
+	${ftablet(css`
+		align-items: center;
+
+		> * {
+			margin-left: unset;
+		}
+	`)}
+
+	${fmobile(css`
+		align-items: center;
+
+		> * {
+			margin-left: unset;
+		}
 	`)}
 `
