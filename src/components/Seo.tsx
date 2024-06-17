@@ -106,6 +106,27 @@ export default function Seo({
 				src="https://cdn.tolt.io/tolt.js"
 				data-tolt="fa4de1bb-0c6b-4c2c-b4a6-2070c944c39b"
 			/>
+
+			{process.env.GATSBY_SPOTIFY_PIXEL_KEY && (
+				<Script>{`
+				(function(w, d){
+					var id='spdt-capture', n='script';
+					if (!d.getElementById(id)) {
+						w.spdt =
+							w.spdt ||
+							function() {
+								(w.spdt.q = w.spdt.q || []).push(arguments);
+							};
+						var e = d.createElement(n); e.id = id; e.async=1;
+						e.src = 'https://pixel.byspotify.com/ping.min.js';
+						var s = d.getElementsByTagName(n)[0];
+						s.parentNode.insertBefore(e, s);
+					}
+					w.spdt('conf', { key: '${process.env.GATSBY_SPOTIFY_PIXEL_KEY ?? ""}' });
+					w.spdt('view');
+				})(window, document);
+			`}</Script>
+			)}
 		</>
 	)
 }
