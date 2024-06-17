@@ -570,7 +570,7 @@ const UpperOne = styled(UniversalImage)`
 	`)}
 
 	${fmobile(css`
-		position:absolute;
+		position: absolute;
 		top: 161px;
 		left: 66px;
 		z-index: 1;
@@ -597,7 +597,7 @@ const UpperTwo = styled(UniversalImage)`
 	`)}
 
 	${fmobile(css`
-		display:none;
+		display: none;
 	`)}
 `
 const LowerTwo = styled(UniversalImage)`
@@ -616,7 +616,7 @@ const LowerTwo = styled(UniversalImage)`
 	`)}
 
 	${fmobile(css`
-		top:86px;
+		top: 86px;
 		left: -14.75px;
 	`)}
 `
@@ -628,8 +628,7 @@ const UpperThree = styled(UniversalImage)`
 	`)}
 
 	${fmobile(css`
-		display:none;
-	
+		display: none;
 	`)}
 `
 const LowerThree = styled(UniversalImage)`
@@ -642,7 +641,6 @@ const LowerThree = styled(UniversalImage)`
 	`)}
 
 	${fmobile(css`
-
 		top: 82px;
 		left: 128px;
 	`)}
@@ -655,8 +653,7 @@ const UpperFour = styled(UniversalImage)`
 	`)}
 
 	${fmobile(css`
-		display:none;
-	
+		display: none;
 	`)}
 `
 const LowerFour = styled(UniversalImage)`
@@ -670,7 +667,7 @@ const LowerFour = styled(UniversalImage)`
 
 	${fmobile(css`
 		top: 106px;
-		left:-23px;
+		left: -23px;
 	`)}
 `
 const UpperFive = styled(UniversalImage)`
