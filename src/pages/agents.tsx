@@ -1,4 +1,5 @@
 import Seo from "components/Seo"
+import { graphql } from "gatsby"
 import Testimonials from "sections/agents/05-Testimonials"
 
 export default function Agents() {
@@ -14,3 +15,20 @@ export function Head() {
 		/>
 	)
 }
+
+export const pageQuery = graphql`
+	query AgentsQuery {
+		contentfulPageAgentsAccelerator {
+			testimonials {
+				headshot {
+					gatsbyImageData
+				}
+				name
+				quote {
+					quote
+				}
+				positionAndCompany
+			}
+		}
+	}
+`

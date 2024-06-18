@@ -1,18 +1,15 @@
 import gsap from "gsap"
-import { Draggable } from "gsap/Draggable"
-import { InertiaPlugin } from "gsap/InertiaPlugin"
-import { Observer } from "gsap/Observer"
+import { ScrollToPlugin } from "gsap/all"
 import { ReactComponent as ArrowSVG } from "images/global/icons/Chev.svg"
-import { fresponsive } from "library/fullyResponsive"
+import { fresponsive, ftablet } from "library/fullyResponsive"
 import useMedia from "library/useMedia"
-import { getResponsivePixels, useResponsivePixels } from "library/viewportUtils"
-import { useEffect, useRef, useState } from "react"
+import { useResponsivePixels } from "library/viewportUtils"
+import { useCallback, useEffect, useRef, useState } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import Card from "./Card"
 
-gsap.registerPlugin(Draggable, InertiaPlugin)
-gsap.registerPlugin(Observer)
+gsap.registerPlugin(ScrollToPlugin)
 
 const gradientPicker = () => {
 	const value = Math.floor(Math.random() * 3)
@@ -27,32 +24,10 @@ const gradientPicker = () => {
 }
 
 export default function Testimonials() {
-	const offset = useRef(0)
 	const activeIndex = useRef(0)
-	const mobile = useMedia(false, false, false, true)
-	const buttonIncrement = useRef<HTMLButtonElement | null>(null)
-	const buttonDecrement = useRef<HTMLButtonElement | null>(null)
-	const [singleTestimonial, setSingleTestimonial] = useState(false)
-
-	// const data: Queries.TestimonialsQuery = useStaticQuery(graphql`
-	//   query Testimonials {
-	//     testimonials: allTestimonialsJson {
-	//       nodes {
-	//         name
-	//         quote
-	//         title
-	//         headshot {
-	//           childImageSharp {
-	//             gatsbyImageData
-	//           }
-	//         }
-	//       }
-	//     }
-	//   }
-	// `)
 
 	// const cards = data.testimonials.nodes.map((item) => {
-	//   return <Cards key={item.name} cardData={item} />
+	//   return <Card key={item.name} cardData={item} />
 	// })
 
 	const indices = [0, 1, 2, 3, 4, 5]
@@ -60,103 +35,109 @@ export default function Testimonials() {
 		return <Card key={index} gradient={gradientPicker() ?? ""} />
 	})
 
-	const width = useResponsivePixels(useMedia(768, 768, 768, 338))
+	const [singleTestimonial, setSingleTestimonial] = useState(cards.length === 1)
 
-	const update = (totalTransform: number) => {
-		const numBumps = Math.ceil(totalTransform / (width * cards.length))
-		gsap.set(".track", {
-			x:
-				offset.current -
-				width * cards.length * numBumps +
-				width / 2 -
-				getResponsivePixels(48),
-			xPercent: -100,
-		})
-	}
+	const trackWrapperRef = useRef<HTMLDivElement | null>(null)
+	const trackRef = useRef<HTMLDivElement | null>(null)
+	const cardWidth = useResponsivePixels(useMedia(744, 744, 744, 314))
+	const cardGap = useResponsivePixels(useMedia(24, 24, 24, 12))
+	const [scrollOffset, setScrollOffset] = useState(0)
+	const cardsLength = cards.length
 
-	// set initial track state
-	useEffect(() => {
-		if (cards.length === 1) {
-			setSingleTestimonial(true)
-			gsap.set(".track", {
-				x: width / 2 - getResponsivePixels(36),
-			})
-		} else {
-			const initialOffset =
-				-(width * cards.length) + width / 2 - getResponsivePixels(36)
-			gsap.set(".track", {
-				x: initialOffset,
-			})
-			offset.current = initialOffset
-			activeIndex.current = cards.length
-		}
-	}, [cards, width])
-
-	Observer.create({
-		target: ".track",
-		type: "scroll, touch",
-		onLeft: (self) => {
-			console.log("left")
-		},
-		onRight: (self) => {
-			console.log("right")
-		},
-		onChange: (self) => {
-			console.log("change")
-		},
-	})
-
-	const moveTrack = (index: number) => {
-		const totalTransform = -(width * index)
-		gsap.to(offset, {
-			ease: "power3.out",
-			current: totalTransform,
-			overwrite: true,
-			onUpdate: () => {
-				update(totalTransform)
+	const restart = useCallback(() => {
+		gsap.set(trackWrapperRef.current, {
+			scrollTo: {
+				x: scrollOffset,
 			},
 		})
+	}, [scrollOffset])
+
+	useEffect(() => {
+		const offset =
+			(trackRef.current?.clientWidth ?? 0) / 2 -
+			(trackWrapperRef.current?.clientWidth ?? 0) / 2
+		setScrollOffset(offset)
+		restart()
+	}, [restart])
+
+	const animate = () => {
+		gsap.to(trackWrapperRef.current, {
+			scrollTo: {
+				x: activeIndex.current * (cardWidth + cardGap) + scrollOffset,
+			},
+			duration: 0.25,
+		})
 	}
 
-	const increment = () => {
-		if (!buttonDecrement.current || !buttonIncrement.current) return
+	const handleScroll = (e: React.UIEventHTMLDivElement) => {
+		if (!e.target) return
+		const { scrollLeft } = e.target as HTMLDivElement
 
-		const newIndex = activeIndex.current + 1
-		moveTrack(newIndex)
-		activeIndex.current = newIndex
+		const index = (scrollLeft - scrollOffset) / (cardWidth + cardGap)
+		const actualIndex = Math.round(index)
+		console.log("actual index", actualIndex)
+		console.log("index", index)
+
+		activeIndex.current = actualIndex
+		if (activeIndex.current >= cardsLength) {
+			activeIndex.current = 0
+			restart()
+		} else if (activeIndex.current <= -cardsLength) {
+			activeIndex.current = 0
+			restart()
+		}
 	}
 
-	const decrement = () => {
-		if (!buttonDecrement.current || !buttonIncrement.current) return
+	const increaseIndex = () => {
+		if (activeIndex.current >= cardsLength + 1) {
+			activeIndex.current = 0
+		} else {
+			activeIndex.current += 1
+		}
+		console.log(activeIndex.current)
+		animate()
+	}
 
-		const newIndex = activeIndex.current - 1
-		moveTrack(newIndex)
-		activeIndex.current = newIndex
+	const decreaseIndex = () => {
+		if (activeIndex.current <= -cardsLength - 1) {
+			activeIndex.current = 0
+		} else {
+			activeIndex.current -= 1
+		}
+		console.log(activeIndex.current)
+		animate()
 	}
 
 	return (
 		<Wrapper>
 			<Carousel>
-				<TrackWrapper>
-					<Track className="track">{cards}</Track>
-					{!singleTestimonial && (
+				<TrackWrapper onScroll={handleScroll} ref={trackWrapperRef}>
+					<Track ref={trackRef} className="track">
+						{cards}
+						{singleTestimonial && (
+							<>
+								{cards}
+								{cards}
+								{cards.length % 2 === 0 ? (
+									<Card key={"emptyCard"} gradient={gradientPicker() ?? ""} />
+								) : null}
+							</>
+						)}
+					</Track>
+					{/* {!singleTestimonial && (
 						<>
 							<Track className="track">{cards}</Track>
 							<Track className="track">{cards}</Track>
 						</>
-					)}
+					)} */}
 				</TrackWrapper>
 			</Carousel>
 			{!singleTestimonial && (
 				<Buttons>
-					<Button
-						aria-label="previous"
-						ref={buttonDecrement}
-						onClick={decrement}
-					>
+					<Button aria-label="previous" onClick={decreaseIndex}>
 						<ArrowSVG />
 					</Button>
-					<Button aria-label="next" ref={buttonIncrement} onClick={increment}>
+					<Button aria-label="next" onClick={increaseIndex}>
 						<ArrowSVG />
 					</Button>
 				</Buttons>
@@ -175,6 +156,11 @@ const Wrapper = styled.div`
     padding: 103px 0 154px;
     gap: 36px;
   `)}
+
+	${ftablet(css`
+		padding: 136px 0;
+		gap: 48px;
+	`)}
 `
 
 const Carousel = styled.div`
@@ -192,9 +178,14 @@ const TrackWrapper = styled.div`
   width: 100%;
   top: 0;
   left: 0;
+	overflow-x: scroll;
+	scrollbar-width: none;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
   ${fresponsive(css`
-    width: 1440px;
 		gap: 24px;
   `)}
 `

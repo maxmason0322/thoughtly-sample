@@ -6,7 +6,15 @@ import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
 
-export default function Card({ gradient }: { gradient: string }) {
+export default function Card({
+	gradient,
+}: {
+	gradient: string
+	quote: string
+	name: string
+	positionAndCompany: string
+	headshot: string
+}) {
 	const getImage = (gradient: string) => {
 		switch (gradient) {
 			case gradients.greenGreen:
