@@ -19,6 +19,7 @@ import { desktopBreakpoint } from "styles/media"
 import textStyles from "styles/text"
 import links from "utils/links"
 import Link from "./Buttons/Link"
+import { BEAT_ONE_DURATION, BEAT_TWO_DURATION } from "./Preloader"
 
 gsap.registerPlugin(ScrollToPlugin)
 
@@ -35,22 +36,37 @@ export default function Header() {
 	useScrollLock("lock", menuOpen)
 
 	const data: Queries.NavQuery = useStaticQuery(graphql`
-    query Nav {
-      contentfulPageBlogHub {
-        featuredBlogPost {
-          title
-          slug
-          mainImage {
-            gatsbyImageData
-          }
-        }
-      }
-    }
-  `)
+		query Nav {
+			contentfulPageBlogHub {
+				featuredBlogPost {
+					title
+					slug
+					mainImage {
+						gatsbyImageData
+					}
+				}
+			}
+		}
+	`)
 
 	const openTimeline = useAnimation(() => {
 		if (!mobile && !tablet) return null
-		const tl = gsap.timeline({ paused: true })
+		const tl = gsap.timeline({
+			paused: true,
+			onReverseComplete: () => {
+				gsap.set(menuRef.current, {
+					display: "none",
+				})
+			},
+		})
+
+		tl.set(
+			menuRef.current,
+			{
+				display: "flex",
+			},
+			0,
+		)
 
 		tl.to(
 			[lineRef1.current, lineRef2.current],
@@ -125,7 +141,7 @@ export default function Header() {
 				y: 0,
 				duration: 2,
 				ease: "power3.out",
-				delay: 1.5,
+				delay: BEAT_ONE_DURATION + BEAT_TWO_DURATION,
 			})
 		},
 	})
@@ -275,314 +291,314 @@ export default function Header() {
 }
 
 const FeaturedWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-  ${fresponsive(css`
-    gap: 12px;
+	${fresponsive(css`
+		gap: 12px;
 
-    span {
-      color: ${colors.gray500};
-      ${textStyles.t2}
-    }
-  `)}
+		span {
+			color: ${colors.gray500};
+			${textStyles.t2}
+		}
+	`)}
 `
 
 const ImageWrapper = styled.div`
-  aspect-ratio: 271 / 128;
-  width: 100%;
-  position: relative;
-  overflow: clip;
+	aspect-ratio: 271 / 128;
+	width: 100%;
+	position: relative;
+	overflow: clip;
 
-  ${fresponsive(css`
-    border-radius: 12px;
-  `)}
+	${fresponsive(css`
+		border-radius: 12px;
+	`)}
 
-  ${ftablet(css`
-    aspect-ratio: 339 / 159;
-  `)}
+	${ftablet(css`
+		aspect-ratio: 339 / 159;
+	`)}
 `
 
 const Title = styled(UniversalLink)`
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  ${textStyles.bodyXS}
-  color: ${colors.white};
-  width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	${textStyles.bodyXS}
+	color: ${colors.white};
+	width: 100%;
 
-  ${fresponsive(css`
-    padding: 8px 9px;
-    background: rgba(63 63 63 / 50%);
-    backdrop-filter: blur(3px);
-    height: 44px;
+	${fresponsive(css`
+		padding: 8px 9px;
+		background: rgba(63 63 63 / 50%);
+		backdrop-filter: blur(3px);
+		height: 44px;
 
-    svg {
-      display: inline-block;
-      position: relative;
-      top: 4px;
-      left: 3px;
-      width: 14px;
-      height: 14px;
-    }
-  `)}
+		svg {
+			display: inline-block;
+			position: relative;
+			top: 4px;
+			left: 3px;
+			width: 14px;
+			height: 14px;
+		}
+	`)}
 
-  ${ftablet(css`
-    padding: 16px 9px 8px 14px;
-    ${textStyles.bodyS}
-    height: 60px;
-  `)}
+	${ftablet(css`
+		padding: 16px 9px 8px 14px;
+		${textStyles.bodyS}
+		height: 60px;
+	`)}
 `
 
 const FeaturedImage = styled(UniversalImage)`
-  height: 100%;
-  width: 100%;
+	height: 100%;
+	width: 100%;
 `
 
 const Wrapper = styled.header`
-  width: 100vw;
-  display: grid;
-  place-items: center;
-  position: absolute;
-  z-index: 9;
-  overflow-x: clip;
+	width: 100vw;
+	display: grid;
+	place-items: center;
+	position: absolute;
+	z-index: 9;
+	overflow-x: clip;
 `
 
 const Inner = styled.div`
-  width: 100%;
-  max-width: ${desktopBreakpoint}px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+	width: 100%;
+	max-width: ${desktopBreakpoint}px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 
-  ${fresponsive(css`
-    translate: 0 -200%;
-    padding: 32px 156px 0;
-  `)}
+	${fresponsive(css`
+		translate: 0 -200%;
+		padding: 32px 156px 0;
+	`)}
 
-  ${ftablet(css`
-    padding: 48px 68px 0;
-  `)}
+	${ftablet(css`
+		padding: 48px 68px 0;
+	`)}
 
   ${fmobile(css`
-    padding: 24px 28.5px 0;
-  `)}
+		padding: 24px 28.5px 0;
+	`)}
 `
 
 const StyledLogoSVG = styled(LogoSVG)`
-  height: auto;
+	height: auto;
 
-  ${fresponsive(css`
-    width: 138px;
-  `)}
+	${fresponsive(css`
+		width: 138px;
+	`)}
 
-  ${fmobile(css`
-    width: 103.5px;
-  `)}
+	${fmobile(css`
+		width: 103.5px;
+	`)}
 `
 
 const Left = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 
-  ${fresponsive(css`
-    gap: 36px;
-  `)}
+	${fresponsive(css`
+		gap: 36px;
+	`)}
 `
 
 const Right = styled.div`
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
 
-  ${fresponsive(css`
-    gap: 16px;
-  `)}
+	${fresponsive(css`
+		gap: 16px;
+	`)}
 
-  ${ftablet(css`
-    a {
-      width: 286px;
-    }
+	${ftablet(css`
+		a {
+			width: 286px;
+		}
 
-    div {
-      width: 286px;
-    }
-  `)}
+		div {
+			width: 286px;
+		}
+	`)}
 
   ${fmobile(css`
-    gap: 11px;
-  `)}
+		gap: 11px;
+	`)}
 `
 
 const Links = styled.div`
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
 
-  ${fresponsive(css`
-    gap: 24px;
-  `)}
+	${fresponsive(css`
+		gap: 24px;
+	`)}
 
-  ${ftablet(css`
-    display: none;
-  `)}
+	${ftablet(css`
+		display: none;
+	`)}
 
   ${fmobile(css`
-    display: none;
-  `)}
+		display: none;
+	`)}
 `
 
 const Hamburger = styled(UniversalLink)`
-  display: grid;
-  place-items: center;
+	display: grid;
+	place-items: center;
 	background-color: ${colors.white};
 
-  ${fresponsive(css`
-    border: 1.5px solid ${colors.gray300};
-    width: 84px;
-  `)}
+	${fresponsive(css`
+		border: 1.5px solid ${colors.gray300};
+		width: 84px;
+	`)}
 
-  ${ftablet(css`
-    height: 58px;
-    border-radius: 12px;
-  `)}
+	${ftablet(css`
+		height: 58px;
+		border-radius: 12px;
+	`)}
   
   ${fmobile(css`
-    box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
-    border-radius: 14px;
-    height: 50px;
-  `)}
+		box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
+		border-radius: 14px;
+		height: 50px;
+	`)}
 `
 
 const Line = styled.line`
-  stroke: ${colors.black};
-  stroke-width: 1.5px;
+	stroke: ${colors.black};
+	stroke-width: 1.5px;
 `
 
 const Lines = styled.svg`
-  ${fresponsive(css`
-    width: 36px;
-    height: 12px;
-  `)}
+	${fresponsive(css`
+		width: 36px;
+		height: 12px;
+	`)}
 `
 
 const Blur = styled.div`
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(219 219 219 / 15%);
-  backdrop-filter: blur(4.5px);
-  display: none;
-  opacity: 0;
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(219 219 219 / 15%);
+	backdrop-filter: blur(4.5px);
+	display: none;
+	opacity: 0;
 `
 
 const Menu = styled.div`
-  position: absolute;
-  background: ${gradients.surface1};
-  display: flex;
-  flex-direction: column;
+	position: absolute;
+	background: ${gradients.surface1};
+	display: none;
+	flex-direction: column;
 
-  ${fresponsive(css`
-    padding: 24px;
-    border: 1.5px solid ${colors.gray300};
-    gap: 24px;
-    border-radius: 14px;
-  `)}
+	${fresponsive(css`
+		padding: 24px;
+		border: 1.5px solid ${colors.gray300};
+		gap: 24px;
+		border-radius: 14px;
+	`)}
 
-  ${ftablet(css`
-    width: 387px;
-    top: 134px;
-    right: 67px;
-  `)}
+	${ftablet(css`
+		width: 387px;
+		top: 134px;
+		right: 67px;
+	`)}
 
 	${fmobile(css`
-    width: 319px;
-    top: 86px;
-    left: 28px;
-  `)}
+		width: 319px;
+		top: 86px;
+		left: 28px;
+	`)}
 `
 
 const Buttons = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 
-  ${ftablet(css`
-    a {
-      width: 100%;
-    }
+	${ftablet(css`
+		a {
+			width: 100%;
+		}
 
-    div {
-      width: 100%;
-    }
-  `)}
+		div {
+			width: 100%;
+		}
+	`)}
 
-  ${fmobile(css`
-    gap: 12px;
+	${fmobile(css`
+		gap: 12px;
 
-    a {
-      flex-grow: 1;
-    }
+		a {
+			flex-grow: 1;
+		}
 
-    div {
-      width: 100%;
-    }
-  `)}
+		div {
+			width: 100%;
+		}
+	`)}
 `
 
 const HR = styled.hr`
-  width: 100%;
-  background-color: ${colors.gray300};
-  height: 1px;
+	width: 100%;
+	background-color: ${colors.gray300};
+	height: 1px;
 `
 
 const MobileLinks = styled.div`
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: flex-start;
 
-  ${fresponsive(css`
-    gap: 12px 6px;
-  `)}
+	${fresponsive(css`
+		gap: 12px 6px;
+	`)}
 
-  ${ftablet(css`
-    gap: 24px;
-    justify-content: flex-start;
-  `)}
+	${ftablet(css`
+		gap: 24px;
+		justify-content: flex-start;
+	`)}
 `
 
 const MobileLink = styled(UniversalLink)`
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
+	display: flex;
+	align-items: center;
+	white-space: nowrap;
 
-  ${fresponsive(css`
-    gap: 4px;
-    width: 128px;
+	${fresponsive(css`
+		gap: 4px;
+		width: 128px;
 
-    span {
-      ${textStyles.sh3}
-      color: ${colors.gray900};
-      padding: 8px 10px;
-    }
+		span {
+			${textStyles.sh3}
+			color: ${colors.gray900};
+			padding: 8px 10px;
+		}
 
-    svg {
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
+		svg {
+			width: 16px;
+			height: 16px;
+			flex-shrink: 0;
 
-      path {
-        fill: ${colors.gray600};
-      }
-    }
-  `)}
+			path {
+				fill: ${colors.gray600};
+			}
+		}
+	`)}
 
-  ${ftablet(css`
-    span {
-      ${textStyles.sh2}
-    }
-  `)}
+	${ftablet(css`
+		span {
+			${textStyles.sh2}
+		}
+	`)}
 `

@@ -96,250 +96,250 @@ export function Head({ data }: PageProps<Queries.BlogPostQuery>) {
 }
 
 const StyledIcon = styled(Icon)`
-  ${fresponsive(css`
-    width: 12px;
-    height: 12px;
-  `)}
+	${fresponsive(css`
+		width: 12px;
+		height: 12px;
+	`)}
 `
 
 const Wrapper = styled.div`
-  width: 100vw;
-  display: grid;
-  place-items: center;
-  background-color: ${colors.white};
+	width: 100vw;
+	display: grid;
+	place-items: center;
+	background-color: ${colors.white};
 `
 
 const Inner = styled.div`
-  width: 100%;
-  max-width: ${desktopBreakpoint}px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	width: 100%;
+	max-width: ${desktopBreakpoint}px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 
-  ${fresponsive(css`
-    padding: 164px 156px 102px;
-    gap: 48px;
-  `)}
+	${fresponsive(css`
+		padding: 164px 156px 102px;
+		gap: 48px;
+	`)}
 
-  ${ftablet(css`
-    padding: 166px 68px 100px;
-  `)}
+	${ftablet(css`
+		padding: 166px 68px 100px;
+	`)}
 
   ${fmobile(css`
-    padding: 140px 24px;
-    gap: 42px;
-    width: 100vw;
-  `)}
+		padding: 140px 24px;
+		gap: 42px;
+		width: 100vw;
+	`)}
 `
 
 const Link = styled(UniversalLink)`
-  ${textStyles.sh4}
-  color: ${colors.gray800};
+	${textStyles.sh4}
+	color: ${colors.gray800};
 
-  &:last-of-type {
-    color: ${colors.green400};
-  }
+	&:last-of-type {
+		color: ${colors.green400};
+	}
 
-  ${ftablet(css`
-    ${textStyles.sh3}
-  `)}
+	${ftablet(css`
+		${textStyles.sh3}
+	`)}
 `
 
 const Heading = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
+	display: flex;
+	align-items: center;
+	width: 100%;
 
-  ${fresponsive(css`
-    gap: 14px;
-    padding: 0 10px 20px;
-    border-bottom: 1.5px solid ${colors.gray300};
-  `)}
+	${fresponsive(css`
+		gap: 14px;
+		padding: 0 10px 20px;
+		border-bottom: 1.5px solid ${colors.gray300};
+	`)}
 
-  ${fmobile(css`
-    gap: 12px;
-  `)}
+	${fmobile(css`
+		gap: 12px;
+	`)}
 `
 
 const Light = styled.div`
-  ${textStyles.sh4}
-  color: ${colors.gray600};
-  margin-right: auto;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 200px;
+	${textStyles.sh4}
+	color: ${colors.gray600};
+	margin-right: auto;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 200px;
 
-  ${ftablet(css`
-    ${textStyles.sh3}
-  `)}
+	${ftablet(css`
+		${textStyles.sh3}
+	`)}
 
-  ${fmobile(css`
-    max-width: 85px;
-  `)}
+	${fmobile(css`
+		max-width: 85px;
+	`)}
 `
 
 const Content = styled.div`
-  display: grid;
-  width: 100%;
+	display: grid;
+	width: 100%;
 
-  ${fresponsive(css`
-    grid-template-columns: 1fr 680px 1fr;
-    margin-bottom: 70px;
-  `)}
+	${fresponsive(css`
+		grid-template-columns: 1fr 680px 1fr;
+		margin-bottom: 70px;
+	`)}
 
-  ${ftablet(css`
-    grid-template-columns: 1fr 600px 1fr;
-    margin-bottom: 100px;
-  `)}
+	${ftablet(css`
+		grid-template-columns: 1fr 600px 1fr;
+		margin-bottom: 100px;
+	`)}
 
   ${fmobile(css`
-    grid-template-columns: 0 314px 0;
-    margin-bottom: 76px;
-  `)}
+		grid-template-columns: 0 314px 0;
+		margin-bottom: 76px;
+	`)}
 `
 
 const Socials = styled.div`
-  ${fresponsive(css`
-    display: grid;
-    place-items: start end;
-    gap: 16px;
-  `)}
+	${fresponsive(css`
+		display: grid;
+		place-items: start end;
+		gap: 16px;
+	`)}
 
-  ${fmobile(css`
-    display: none;
-  `)}
+	${fmobile(css`
+		display: none;
+	`)}
 `
 
 const Related = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	margin: 0 auto;
 
-  ${fresponsive(css`
-    gap: 48px;
-  `)}
+	${fresponsive(css`
+		gap: 48px;
+	`)}
 
-  ${fmobile(css`
-    grid-template-columns: 1fr;
-    gap: 36px;
-    align-items: flex-start;
-  `)}
+	${fmobile(css`
+		grid-template-columns: 1fr;
+		gap: 36px;
+		align-items: flex-start;
+	`)}
 `
 
 const RelatedCards = styled.div`
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 
-  ${fresponsive(css`
-    ${SmallCardWrapper} {
-      width: 372px;
-    }
+	${fresponsive(css`
+		${SmallCardWrapper} {
+			width: 372px;
+		}
 
-    gap: 24px;
-  `)}
+		gap: 24px;
+	`)}
 
-  ${fmobile(css`
-    flex-direction: column;
-    align-items: flex-start;
+	${fmobile(css`
+		flex-direction: column;
+		align-items: flex-start;
 
-    ${SmallCardWrapper} {
-      width: 273px;
-    }
-  `)}
+		${SmallCardWrapper} {
+			width: 273px;
+		}
+	`)}
 `
 
 const RelatedHeading = styled.div`
-  grid-column: span 3;
-  text-align: center;
-  ${textStyles.h6};
-  color: ${colors.gray700};
+	grid-column: span 3;
+	text-align: center;
+	${textStyles.h6};
+	color: ${colors.gray700};
 
-  ${fmobile(css`
-    grid-column: span 1;
-    ${textStyles.sh1};
-    text-align: center;
-    margin-bottom: -6px;
-  `)}
+	${fmobile(css`
+		grid-column: span 1;
+		${textStyles.sh1};
+		text-align: center;
+		margin-bottom: -6px;
+	`)}
 `
 
 const SeeAllButton = styled(Button)`
-  ${fmobile(css`
-    align-self: flex-start;
-  `)}
+	${fmobile(css`
+		align-self: flex-start;
+	`)}
 `
 
 export const query = graphql`
-  query BlogPost($id: String) {
-    contentfulPageBlogPost(id: { eq: $id }) {
-      title
-      slug
-      articleTextPreview
-      author {
-        id
-        headshot {
-          gatsbyImageData
-          createdAt
-        }
-        fullName
-        roleAndCompany
-      }
-      mainImage {
-        file {
-          url
-        }
-        gatsbyImageData
-        description
-      }
-      categories
-      articleText {
-        raw
-        references {
-          ... on ContentfulAsset {
-            contentful_id
-            title
-            description
-            gatsbyImageData(width: 1000)
-            __typename
-          }
-          ... on ContentfulComponentQuote {
-            contentful_id
-            quote
-            quotee
-            __typename
-          }
-        }
-      }
-    }
-    # get the three most recent blog posts that are not the current post
-    allContentfulPageBlogPost(
-      filter: { id: { nin: [$id, "ddd9a026-ddbb-5750-a712-81382d93815f"] } }
-      sort: { createdAt: DESC }
-      limit: 3
-    ) {
-      nodes {
-        slug
-        id
-        createdAt(formatString: "MMMM Do, YYYY")
-        author {
-          id
-          headshot {
-            gatsbyImageData
-            createdAt
-          }
-          fullName
-          roleAndCompany
-        }
-        title
-        mainImage {
-          gatsbyImageData
-          description
-        }
-        categories
-        articleTextPreview
-      }
-    }
-  }
+	query BlogPost($id: String) {
+		contentfulPageBlogPost(id: { eq: $id }) {
+			title
+			slug
+			articleTextPreview
+			author {
+				id
+				headshot {
+					gatsbyImageData
+					createdAt
+				}
+				fullName
+				roleAndCompany
+			}
+			mainImage {
+				file {
+					url
+				}
+				gatsbyImageData
+				description
+			}
+			categories
+			articleText {
+				raw
+				references {
+					... on ContentfulAsset {
+						contentful_id
+						title
+						description
+						gatsbyImageData(width: 1000)
+						__typename
+					}
+					... on ContentfulComponentQuote {
+						contentful_id
+						quote
+						quotee
+						__typename
+					}
+				}
+			}
+		}
+		# get the three most recent blog posts that are not the current post
+		allContentfulPageBlogPost(
+			filter: { id: { nin: [$id, "ddd9a026-ddbb-5750-a712-81382d93815f"] } }
+			sort: { createdAt: DESC }
+			limit: 3
+		) {
+			nodes {
+				slug
+				id
+				createdAt(formatString: "MMMM Do, YYYY")
+				author {
+					id
+					headshot {
+						gatsbyImageData
+						createdAt
+					}
+					fullName
+					roleAndCompany
+				}
+				title
+				mainImage {
+					gatsbyImageData
+					description
+				}
+				categories
+				articleTextPreview
+			}
+		}
+	}
 `

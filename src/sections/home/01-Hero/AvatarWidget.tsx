@@ -16,20 +16,20 @@ export default function AvatarWidget({
 	const wrapperRef = useRef<HTMLDivElement | null>(null)
 
 	const images: Queries.AvatarsQuery = useStaticQuery(graphql`
-    query Avatars {
-      avatars: allFile(
-        filter: { relativeDirectory: { eq: "global/avatars" } }
-        sort: { relativePath: ASC }
-      ) {
-        nodes {
-          id
-          childImageSharp {
-            gatsbyImageData
-          }
-        }
-      }
-    }
-  `)
+		query Avatars {
+			avatars: allFile(
+				filter: { relativeDirectory: { eq: "global/avatars" } }
+				sort: { relativePath: ASC }
+			) {
+				nodes {
+					id
+					childImageSharp {
+						gatsbyImageData
+					}
+				}
+			}
+		}
+	`)
 
 	const avatars = useMemo(
 		() =>
@@ -113,34 +113,34 @@ export default function AvatarWidget({
 }
 
 const Wrapper = styled.div`
-  background: ${gradients.surface1};
-  overflow: clip;
+	background: ${gradients.surface1};
+	overflow: clip;
 
-  ${fresponsive(css`
-    border: 1.5px solid ${colors.gray300};
-    width: 123px;
-    height: 122px;
-    border-radius: 18px;
-    box-shadow:
-      0 -1px 6px 0 rgba(38 38 38 / 6%) inset,
-      0 18px 32px 0 rgba(89 89 89 / 4%);
-  `)}
+	${fresponsive(css`
+		border: 1.5px solid ${colors.gray300};
+		width: 123px;
+		height: 122px;
+		border-radius: 18px;
+		box-shadow:
+			0 -1px 6px 0 rgba(38 38 38 / 6%) inset,
+			0 18px 32px 0 rgba(89 89 89 / 4%);
+	`)}
 `
 
 const Avatar = styled(UniversalImage)<{ $zIndex: number }>`
-  position: absolute;
-  border-radius: 99vw;
-  z-index: ${({ $zIndex }) => $zIndex};
-  isolation: isolate;
+	position: absolute;
+	border-radius: 99vw;
+	z-index: ${({ $zIndex }) => $zIndex};
+	isolation: isolate;
 
-  img {
-    border-radius: 99vw;
-  }
+	img {
+		border-radius: 99vw;
+	}
 
-  ${fresponsive(css`
-    width: 48px;
-    height: 48px;
-    top: 12px;
-    left: 12px;
-  `)}
+	${fresponsive(css`
+		width: 48px;
+		height: 48px;
+		top: 12px;
+		left: 12px;
+	`)}
 `

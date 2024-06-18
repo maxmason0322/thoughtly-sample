@@ -52,24 +52,24 @@ export default function CenterModule({
 }
 
 const animationCardStyle = css`
-  background: ${gradients.surface1};
+	background: ${gradients.surface1};
 `
 
 const Processing = styled.div`
-  ${textStyles.sh4}
-  color: ${colors.gray800};
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 8px;
+	${textStyles.sh4}
+	color: ${colors.gray800};
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 8px;
 `
 
 const StyledProcessingIcon = styled(ProcessingIcon)`
-  position: relative;
-  ${fresponsive(css`
-    width: 91px;
-    height: 91px;
-  `)}
+	position: relative;
+	${fresponsive(css`
+		width: 91px;
+		height: 91px;
+	`)}
 `
 
 const spin = keyframes`
@@ -82,72 +82,67 @@ const spin = keyframes`
 `
 
 const SpinningCircle = styled.div`
-  position: relative;
-  animation: ${spin} 1s linear infinite;
-  transform-origin: center center;
-  ${fresponsive(css`
-    width: 14px;
-    height: 14px;
-    padding: 1px;
-    margin: -1px;
-
-    img {
-      overflow: visible;
-    }
-  `)}
+	position: relative;
+	animation: ${spin} 1s linear infinite;
+	transform-origin: center center;
+	${fresponsive(css`
+		width: 14px;
+		height: 14px;
+		padding: 1px;
+	`)}
 `
 
 const NodeStyle = css`
-  border-radius: 99vw;
-  background: ${colors.white};
-  ${fresponsive(css`
-    border: 1.5px solid ${colors.gray200};
-    width: 9px;
-    height: 9px;
-    top: 118.68px;
-  `)}
+	border-radius: 99vw;
+	background: ${colors.white};
+	${fresponsive(css`
+		border: 1.5px solid ${colors.gray200};
+		width: 9px;
+		height: 9px;
+		top: 118.68px;
+	`)}
 `
 
 const LeftNode = styled.div`
-  position: absolute;
-  z-index: 2;
-  ${NodeStyle}
-  ${fresponsive(css`
-    left: -4.7px;
-  `)}
+	position: absolute;
+	z-index: 2;
+	${NodeStyle}
+	${fresponsive(css`
+		left: -4.7px;
+	`)}
 `
 
 const RightNode = styled.div`
-  position: absolute;
+	position: absolute;
 
-  ${NodeStyle}
-  ${fresponsive(css`
-    left: unset;
-    right: -4.7px;
-  `)}
+	${NodeStyle}
+	${fresponsive(css`
+		left: unset;
+		right: -4.7px;
+	`)}
 `
 
 const Inner = styled.div`
-  position: relative;
-  ${animationCardStyle};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  flex-direction: column;
-  overflow: clip;
+	position: relative;
+	${animationCardStyle};
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	flex-direction: column;
+	overflow: clip;
 
-  ${fresponsive(css`
-    width: 357px;
-    height: 239px;
-    gap: 44px;
-    padding: 40px 133px 28px;
-    border-radius: 18px;
-  `)}
+	${fresponsive(css`
+		width: 357px;
+		height: 239px;
+		gap: 44px;
+		padding: 40px 133px 28px;
+		border-radius: 18px;
+	`)}
 
-  ${ftablet(css`
-    width: 264px;
-  `)}
+	${ftablet(css`
+		width: 264px;
+	`)}
 `
 
 const dotAnimation = keyframes`
@@ -172,56 +167,56 @@ const dotAnimation = keyframes`
 `
 
 const Dots = styled.div<{ $afterContent: boolean }>`
-  width: 30px;
-  height: 100%;
-  position: absolute;
-  left: 94%;
-  opacity: ${({ $afterContent }) => ($afterContent ? 1 : 0)};
-  transition: opacity 0s;
+	width: 30px;
+	height: 100%;
+	position: absolute;
+	left: 94%;
+	opacity: ${({ $afterContent }) => ($afterContent ? 1 : 0)};
+	transition: opacity 0s;
 
-  &::after {
-    position: absolute;
-    content: "";
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: ${colors.black};
-    animation: ${dotAnimation} 2s steps(5)
-      ${({ $afterContent }) => ($afterContent ? "infinite" : "1")};
-  }
+	&::after {
+		position: absolute;
+		content: "";
+		left: 0;
+		width: 100%;
+		height: 100%;
+		color: ${colors.black};
+		animation: ${dotAnimation} 2s steps(5)
+			${({ $afterContent }) => ($afterContent ? "infinite" : "1")};
+	}
 `
 
 const ProcessText = styled.div`
-  padding-right: 4px;
-  display: flex;
-  position: relative;
-  ${fresponsive(css`
-    min-width: 50px;
-  `)}
+	padding-right: 4px;
+	display: flex;
+	position: relative;
+	${fresponsive(css`
+		min-width: 50px;
+	`)}
 
-  .process-text {
-    opacity: 0;
-  }
+	.process-text {
+		opacity: 0;
+	}
 `
 
 const StyledCheckMark = styled(CheckMarkSVG)`
-  position: relative;
+	position: relative;
 
-  ${fresponsive(css`
-    width: 14px;
-    height: 14px;
-  `)}
+	${fresponsive(css`
+		width: 14px;
+		height: 14px;
+	`)}
 `
 
 const ProcessIconContainer = styled.div`
-  position: relative;
-  display: grid;
-  place-items: center;
-  transform-origin: center center;
-  ${fresponsive(css`
-    width: 14px;
-    height: 14px;
-  `)}
+	position: relative;
+	display: grid;
+	place-items: center;
+	transform-origin: center center;
+	${fresponsive(css`
+		width: 14px;
+		height: 14px;
+	`)}
 `
 
 const ProcessTextWord = styled.p``
@@ -229,15 +224,15 @@ const ProcessTextWord = styled.p``
 const StyledAutoAnimate = styled(AutoAnimate)``
 
 const CenterModuleWrapper = styled.div`
-  position: relative;
-  ${generateGradientBorder(gradients.surfaceOutline, 1.5)};
+	position: relative;
+	${generateGradientBorder(gradients.surfaceOutline, 1.5)};
 
-  ${fresponsive(css`
-    box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
-    border-radius: 19px;
-    ${LeftNode}, ${RightNode} {
-      z-index: 10;
-      top: 117.68px;
-    }
-  `)}
+	${fresponsive(css`
+		box-shadow: 0 18px 32px 0 rgba(89 89 89 / 4%);
+		border-radius: 19px;
+		${LeftNode}, ${RightNode} {
+			z-index: 10;
+			top: 117.68px;
+		}
+	`)}
 `

@@ -49,329 +49,329 @@ export default function Lines() {
 }
 
 const StartSpeakLine = styled(StartSpeakLineSVG)`
-  position: absolute;
+	position: absolute;
 
-  path {
-    opacity: 0;
-  }
+	path {
+		opacity: 0;
+	}
 
-  ${fresponsive(css`
-    height: 210px;
-    width: 122px;
-    right: 419px;
-    top: 552px;
-  `)}
+	${fresponsive(css`
+		height: 210px;
+		width: 122px;
+		right: 419px;
+		top: 552px;
+	`)}
 
-  ${ftablet(css`
-    display: none;
-  `)}
+	${ftablet(css`
+		display: none;
+	`)}
 
   ${fmobile(css`
-    display: none;
-  `)}
+		display: none;
+	`)}
 `
 
 const SpeakActionLine = styled(SpeakActionLineSVG)`
-  position: absolute;
+	position: absolute;
 
-  path {
-    opacity: 0;
-  }
+	path {
+		opacity: 0;
+	}
 
-  ${fresponsive(css`
-    width: 132px;
-    height: 43px;
-    right: 347px;
-    top: 960px;
-  `)}
+	${fresponsive(css`
+		width: 132px;
+		height: 43px;
+		right: 347px;
+		top: 960px;
+	`)}
 
-  ${ftablet(css`
-    display: none;
-  `)}
+	${ftablet(css`
+		display: none;
+	`)}
 
   ${fmobile(css`
-    display: none;
-  `)}
+		display: none;
+	`)}
 `
 
 const SpeakTestLine = styled(SpeakTestLineSVG)`
-  position: absolute;
+	position: absolute;
 
-  ${fresponsive(css`
-    width: 546px;
-    height: 319px;
-    right: 601px;
-    top: 959px;
-  `)}
+	${fresponsive(css`
+		width: 546px;
+		height: 319px;
+		right: 601px;
+		top: 959px;
+	`)}
 
-  ${ftablet(css`
-    display: none;
-  `)}
+	${ftablet(css`
+		display: none;
+	`)}
 
   ${fmobile(css`
-    display: none;
-  `)}
+		display: none;
+	`)}
 `
 
 const ActionSpeakLine = styled(ActionSpeakLineSVG)`
-  position: absolute;
+	position: absolute;
 
-  ${fresponsive(css`
-    width: 578px;
-    height: 309px;
-    right: 349px;
-    top: 1296px;
-  `)}
+	${fresponsive(css`
+		width: 578px;
+		height: 309px;
+		right: 349px;
+		top: 1296px;
+	`)}
 
-  ${ftablet(css`
-    display: none;
-  `)}
+	${ftablet(css`
+		display: none;
+	`)}
 
   ${fmobile(css`
-    display: none;
-  `)}
+		display: none;
+	`)}
 `
 
 const TestSpeakLine = styled(TestSpeakLineSVG)`
-  position: absolute;
+	position: absolute;
 
-  ${fresponsive(css`
-    width: 152px;
-    height: 42px;
-    right: 926px;
-    top: 1560px;
-  `)}
+	${fresponsive(css`
+		width: 152px;
+		height: 42px;
+		right: 926px;
+		top: 1560px;
+	`)}
 
-  ${ftablet(css`
-    display: none;
-  `)}
+	${ftablet(css`
+		display: none;
+	`)}
 
   ${fmobile(css`
-    display: none;
-  `)}
+		display: none;
+	`)}
 `
 
 const TestLine = styled(TestLine1SVG)`
-  position: absolute;
+	position: absolute;
 
-  ${fresponsive(css`
-    width: 200px;
-    height: 209px;
-    top: 1560px;
-    right: 1179px;
-  `)}
+	${fresponsive(css`
+		width: 200px;
+		height: 209px;
+		top: 1560px;
+		right: 1179px;
+	`)}
 
-  ${ftablet(css`
-    display: none;
-  `)}
+	${ftablet(css`
+		display: none;
+	`)}
 
   ${fmobile(css`
-    display: none;
-  `)}
+		display: none;
+	`)}
 `
 
 const SpeakLine1 = styled(SpeakLine1SVG)`
-  position: absolute;
+	position: absolute;
 
-  ${fresponsive(css`
-    width: 192px;
-    height: 68px;
-    bottom: 60px;
-    right: 1037px;
-  `)}
+	${fresponsive(css`
+		width: 192px;
+		height: 68px;
+		bottom: 60px;
+		right: 1037px;
+	`)}
 
-  ${ftablet(css`
-    display: none;
-  `)}
+	${ftablet(css`
+		display: none;
+	`)}
 
   ${fmobile(css`
-    display: none;
-  `)}
+		display: none;
+	`)}
 `
 
 const SpeakLine2 = styled(SpeakLine2SVG)`
-  position: absolute;
+	position: absolute;
 
-  ${fresponsive(css`
-    width: 192px;
-    height: 68px;
-    bottom: 60px;
-    right: 960px;
-  `)}
+	${fresponsive(css`
+		width: 192px;
+		height: 68px;
+		bottom: 60px;
+		right: 960px;
+	`)}
 
-  ${ftablet(css`
-    display: none;
-  `)}
+	${ftablet(css`
+		display: none;
+	`)}
 
   ${fmobile(css`
-    display: none;
-  `)}
+		display: none;
+	`)}
 `
 
 const SpeakLine3 = styled(SpeakLine3SVG)`
-  position: absolute;
+	position: absolute;
 
-  ${fresponsive(css`
-    width: 313px;
-    height: 70px;
-    bottom: 60px;
-    right: 763px;
-  `)}
+	${fresponsive(css`
+		width: 313px;
+		height: 70px;
+		bottom: 60px;
+		right: 763px;
+	`)}
 
-  ${ftablet(css`
-    display: none;
-  `)}
+	${ftablet(css`
+		display: none;
+	`)}
 
   ${fmobile(css`
-    display: none;
-  `)}
+		display: none;
+	`)}
 `
 
 const SpeakLine4 = styled(SpeakLine4SVG)`
-  position: absolute;
+	position: absolute;
 
-  ${fresponsive(css`
-    width: 225px;
-    height: 107px;
-    bottom: 36px;
-    right: 592px;
-  `)}
+	${fresponsive(css`
+		width: 225px;
+		height: 107px;
+		bottom: 36px;
+		right: 592px;
+	`)}
 
-  ${ftablet(css`
-    display: none;
-  `)}
+	${ftablet(css`
+		display: none;
+	`)}
 
   ${fmobile(css`
-    display: none;
-  `)}
+		display: none;
+	`)}
 `
 
 const StartSpeakTablet = styled(StartSpeakTabletSVG)`
-  display: none;
+	display: none;
 
-  ${ftablet(css`
-    display: flex;
-    position: absolute;
-    width: 84px;
-    height: 90px;
-    top: 1038px;
-    right: 310px;
-  `)}
+	${ftablet(css`
+		display: flex;
+		position: absolute;
+		width: 84px;
+		height: 90px;
+		top: 1038px;
+		right: 310px;
+	`)}
 `
 
 const SpeakActionTablet = styled(SpeakActionTabletSVG)`
-  display: none;
+	display: none;
 
-  ${ftablet(css`
-    display: flex;
-    position: absolute;
-    height: 70px;
-    width: 9px;
-    top: 1326px;
-    right: 238px;
-  `)}
+	${ftablet(css`
+		display: flex;
+		position: absolute;
+		height: 70px;
+		width: 9px;
+		top: 1326px;
+		right: 238px;
+	`)}
 `
 
 const SpeakTestTablet = styled(SpeakTestTabletSVG)`
-  display: none;
+	display: none;
 
-  ${ftablet(css`
-    display: flex;
-    position: absolute;
-    width: 420px;
-    height: 250px;
-    top: 1326px;
-    right: 375px;
-  `)}
+	${ftablet(css`
+		display: flex;
+		position: absolute;
+		width: 420px;
+		height: 250px;
+		top: 1326px;
+		right: 375px;
+	`)}
 `
 
 const ActionSpeakTablet = styled(ActionSpeakTabletSVG)`
-  display: none;
+	display: none;
 
-  ${ftablet(css`
-    display: flex;
-    position: absolute;
-    width: 435px;
-    height: 255px;
-    top: 1685px;
-    right: 236px;
-  `)}
+	${ftablet(css`
+		display: flex;
+		position: absolute;
+		width: 435px;
+		height: 255px;
+		top: 1685px;
+		right: 236px;
+	`)}
 `
 
 const TestSpeakTablet = styled(TestSpeakTabletSVG)`
-  display: none;
+	display: none;
 
-  ${ftablet(css`
-    display: flex;
-    position: absolute;
-    width: 62px;
-    height: 95px;
-    top: 1850px;
-    right: 667px;
-  `)}
+	${ftablet(css`
+		display: flex;
+		position: absolute;
+		width: 62px;
+		height: 95px;
+		top: 1850px;
+		right: 667px;
+	`)}
 `
 
 const Test1Tablet = styled(Test1TabletSVG)`
-  display: none;
+	display: none;
 
-  ${ftablet(css`
-    display: flex;
-    position: absolute;
-    width: 148px;
-    height: 221px;
-    top: 1845px;
-    left: 25px;
-  `)}
+	${ftablet(css`
+		display: flex;
+		position: absolute;
+		width: 148px;
+		height: 221px;
+		top: 1845px;
+		left: 25px;
+	`)}
 `
 
 const Speak1Tablet = styled(Speak1TabletSVG)`
-  display: none;
+	display: none;
 
-  ${ftablet(css`
-    display: flex;
-    position: absolute;
-    width: 166px;
-    height: 52px;
-    bottom: 24px;
-    left: 76px;
-  `)}
+	${ftablet(css`
+		display: flex;
+		position: absolute;
+		width: 166px;
+		height: 52px;
+		bottom: 24px;
+		left: 76px;
+	`)}
 `
 
 const Speak2Tablet = styled(Speak2TabletSVG)`
-  display: none;
+	display: none;
 
-  ${ftablet(css`
-    display: flex;
-    position: absolute;
-    width: 166px;
-    height: 52px;
-    bottom: 24px;
-    left: 155px;
-  `)}
+	${ftablet(css`
+		display: flex;
+		position: absolute;
+		width: 166px;
+		height: 52px;
+		bottom: 24px;
+		left: 155px;
+	`)}
 `
 
 const Speak3Tablet = styled(Speak3TabletSVG)`
-  display: none;
+	display: none;
 
-  ${ftablet(css`
-    display: flex;
-    position: absolute;
-    width: 121px;
-    height: 52px;
-    bottom: 24px;
-    left: 346px;
-  `)}
+	${ftablet(css`
+		display: flex;
+		position: absolute;
+		width: 121px;
+		height: 52px;
+		bottom: 24px;
+		left: 346px;
+	`)}
 `
 
 const Speak4Tablet = styled(Speak4TabletSVG)`
-  display: none;
+	display: none;
 
-  ${ftablet(css`
-    display: flex;
-    position: absolute;
-    width: 166px;
-    height: 52px;
-    bottom: 24px;
-    left: 465px;
-  `)}
+	${ftablet(css`
+		display: flex;
+		position: absolute;
+		width: 166px;
+		height: 52px;
+		bottom: 24px;
+		left: 465px;
+	`)}
 `

@@ -11,79 +11,79 @@ import colors from "styles/colors"
 import textStyles from "styles/text"
 
 const Strong = styled.strong`
-  font-weight: 500;
+	font-weight: 500;
 `
 
 const U = styled.u`
-  text-decoration: underline;
+	text-decoration: underline;
 `
 
 const Em = styled.em`
-  font-style: italic;
+	font-style: italic;
 `
 
 const Code = styled.pre`
-  margin: 0;
-  ${textStyles.bodyR}
-  font-family: monospace;
+	margin: 0;
+	${textStyles.bodyR}
+	font-family: monospace;
 `
 
 const Sub = styled.sub`
-  vertical-align: sub;
+	vertical-align: sub;
 `
 
 const Sup = styled.sup`
-  vertical-align: super;
+	vertical-align: super;
 `
 
 const H1 = styled.h1`
-  ${textStyles.sh1}
+	${textStyles.sh1}
 `
 
 const H2 = styled.h2`
-  ${textStyles.sh2}
+	${textStyles.sh2}
 `
 
 const P = styled.p`
-  ${textStyles.bodyR}
-  color: ${colors.gray900};
+	${textStyles.bodyR}
+	color: ${colors.gray900};
 `
 
 const Ul = styled.ul`
-  list-style-image: url(${ChevronSVG});
-  padding-inline-start: 2.3ch;
-  ${fresponsive(css`
-    display: grid;
-    gap: 24px;
-  `)}
+	list-style-image: url(${ChevronSVG});
+	padding-inline-start: 2.3ch;
+	${fresponsive(css`
+		display: grid;
+		gap: 24px;
+	`)}
 `
 
 const Ol = styled.ol`
-  list-style-type: numeric;
-  padding-inline-start: 2.3ch;
-  ${fresponsive(css`
-    display: grid;
-    gap: 24px;
-  `)}
+	list-style-type: numeric;
+	padding-inline-start: 2.3ch;
+	${fresponsive(css`
+		display: grid;
+		gap: 24px;
+	`)}
 `
 
 const Li = styled.li`
-  ${textStyles.sh3}
+	${textStyles.sh3}
 `
 
 const Hr = styled.hr`
-  border-bottom: 1px solid ${colors.gray700};
+	border-bottom: 1px solid ${colors.gray700};
 `
 
 const A = styled(UniversalLink)`
-  color: ${colors.green500};
-  text-decoration: underline;
+	color: ${colors.green500};
+	text-decoration: underline;
 `
 
 const Image = styled(UniversalImage)`
-  ${fresponsive(css`
-    border-radius: 16px;
-  `)}
+	${fresponsive(css`
+		border-radius: 16px;
+	`)}
 `
 
 /**
@@ -189,30 +189,30 @@ export default function RichText({ content }: RichTextProps) {
 }
 
 const Wrapper = styled.div`
-  ${fresponsive(css`
-    display: grid;
-    gap: 32px;
-  `)}
+	${fresponsive(css`
+		display: grid;
+		gap: 32px;
+	`)}
 `
 
 const Quote = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: ${colors.gray200};
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: ${colors.gray200};
 
-  ${fresponsive(css`
-    border-radius: 24px;
-    padding: 40px;
-    gap: 24px;
-  `)}
+	${fresponsive(css`
+		border-radius: 24px;
+		padding: 40px;
+		gap: 24px;
+	`)}
 `
 
 const Text = styled.p`
-  ${textStyles.bodyXL}
+	${textStyles.bodyXL}
 `
 
 const Quotee = styled.span`
-  ${textStyles.t2}
-  color: ${colors.gray800};
+	${textStyles.t2}
+	color: ${colors.gray800};
 `

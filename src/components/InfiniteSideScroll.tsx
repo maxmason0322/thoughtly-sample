@@ -85,76 +85,76 @@ export default function InfiniteSideScroll({
 }
 
 const Track = styled.div<{ $offsetLeft: number }>`
-  overflow-x: scroll;
-  display: flex;
-  position: relative;
-  /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-  scrollbar-width: none;
-  transform: translateZ(0.01);
+	overflow-x: scroll;
+	display: flex;
+	position: relative;
+	/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+	scrollbar-width: none;
+	transform: translateZ(0.01);
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+	&::-webkit-scrollbar {
+		display: none;
+	}
 
-  ${({ $offsetLeft }) =>
+	${({ $offsetLeft }) =>
 		fresponsive(css`
-      padding: 50px 0 50px ${$offsetLeft}px;
-      margin: -50px 0;
-      width: 1440px;
-    `)}
+			padding: 50px 0 50px ${$offsetLeft}px;
+			margin: -50px 0;
+			width: 1440px;
+		`)}
 
-  ${ftablet(css`
-    width: 1024px;
-  `)}
+	${ftablet(css`
+		width: 1024px;
+	`)}
 
   ${fmobile(css`
-    width: 375px;
-  `)}
+		width: 375px;
+	`)}
 `
 
 const TrackInner = styled.div<{ $gap: number }>`
-  position: relative;
-  display: flex;
-  width: fit-content;
+	position: relative;
+	display: flex;
+	width: fit-content;
 
-  ${({ $gap }) =>
+	${({ $gap }) =>
 		fresponsive(css`
-      gap: ${$gap}px;
-      padding: 0 ${$gap}px 0 0;
-    `)}
+			gap: ${$gap}px;
+			padding: 0 ${$gap}px 0 0;
+		`)}
 `
 
 const Gradient = styled.div`
-  background: linear-gradient(
-    to left,
-    ${colors.beige200} 18.67%,
-    rgba(255 255 255 / 0%) 100%
-  );
-  position: fixed;
-  z-index: 3;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 100%;
+	background: linear-gradient(
+		to left,
+		${colors.beige200} 18.67%,
+		rgba(255 255 255 / 0%) 100%
+	);
+	position: fixed;
+	z-index: 3;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 100%;
 
-  ${fresponsive(css`
-    width: 120px;
-    right: -18px;
-  `)}
+	${fresponsive(css`
+		width: 120px;
+		right: -18px;
+	`)}
 
-  ${fmobile(css`
-    width: 60px;
-  `)}
+	${fmobile(css`
+		width: 60px;
+	`)}
 `
 
 const Gradient2 = styled(Gradient)`
-  background: linear-gradient(
-    to right,
-    ${colors.beige200} 18.67%,
-    rgba(255 255 255 / 0%) 100%
-  );
-  right: unset;
+	background: linear-gradient(
+		to right,
+		${colors.beige200} 18.67%,
+		rgba(255 255 255 / 0%) 100%
+	);
+	right: unset;
 
-  ${fresponsive(css`
-    left: -18px;
-  `)}
+	${fresponsive(css`
+		left: -18px;
+	`)}
 `

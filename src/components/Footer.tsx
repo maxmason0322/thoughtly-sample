@@ -9,7 +9,6 @@ import { pathnameMatches } from "library/functions"
 import getMedia from "library/getMedia"
 import useMedia from "library/useMedia"
 import { getResponsivePixels } from "library/viewportUtils"
-import { useContext } from "react"
 import styled, { css } from "styled-components"
 import { Dots } from "styles/background"
 import colors from "styles/colors"
@@ -17,7 +16,6 @@ import { desktopBreakpoint } from "styles/media"
 import textStyles from "styles/text"
 import links from "utils/links"
 import Link from "./Buttons/Link"
-import { CalendlyModalContext } from "./Providers/CalendlyModalProvider"
 
 gsap.registerPlugin(ScrollToPlugin)
 
@@ -47,7 +45,6 @@ export const sectionScale = (section: HTMLElement | null) => {
 export default function Footer({ position }: { position: "fixed" | "static" }) {
 	const mobile = useMedia(false, false, false, true)
 	const pathname = useLocation().pathname
-	const { setModalOpen } = useContext(CalendlyModalContext)
 
 	if (!pathname) return null
 
@@ -102,7 +99,7 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 							<Label>Support</Label>
 							<StyledLink to={links.helpCenter}>Help Center</StyledLink>
 							<StyledLink to={links.apiDocs}>API Docs</StyledLink>
-							<StyledLink type="button" onClick={() => setModalOpen(true)}>
+							<StyledLink to={links.bookDemo} openInNewTab>
 								Contact Us
 							</StyledLink>
 						</LinkColumn>
@@ -155,269 +152,277 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 }
 
 const Spacer = styled.div`
-  pointer-events: none !important;
+	pointer-events: none !important;
 
-  ${fresponsive(css`
-    height: 646px;
-    max-height: 100lvh;
-  `)}
+	${fresponsive(css`
+		height: 646px;
+		max-height: 100lvh;
+	`)}
 
-  ${ftablet(css`
-    height: 720px;
-  `)}
+	${ftablet(css`
+		height: 720px;
+	`)}
 
   ${fmobile(css`
-    height: 868px;
-  `)}
+		height: 868px;
+	`)}
 `
 
 const Wrapper = styled.footer<{
 	$position: "fixed" | "static"
 }>`
-  width: 100%;
-  display: grid;
-  place-items: center;
-  background-color: ${colors.beige300};
-  overflow: clip;
-  position: ${({ $position }) => $position};
-  bottom: 0;
-  left: 0;
-  z-index: 1;
+	width: 100%;
+	display: grid;
+	place-items: center;
+	background-color: ${colors.beige300};
+	overflow: clip;
+	position: ${({ $position }) => $position};
+	bottom: 0;
+	left: 0;
+	z-index: 1;
 
-  ${fresponsive(css`
-    height: 646px;
-  `)}
+	${fresponsive(css`
+		height: 646px;
+	`)}
 
-  ${ftablet(css`
-    height: 720px;
-  `)}
+	${ftablet(css`
+		height: 720px;
+	`)}
 
   ${fmobile(css`
-    height: 868px;
-  `)}
+		height: 868px;
+	`)}
 `
 
 const StyledDots = styled(Dots)`
-  transform: translateX(-50%);
-  left: 50%;
-  z-index: 0;
+	transform: translateX(-50%);
+	left: 50%;
+	z-index: 0;
 
-  ${fresponsive(css`
-    width: 1320px;
-    height: 100%;
-    padding: 100px 156px;
-    background-position: 0 22px;
-  `)}
+	${fresponsive(css`
+		width: 1320px;
+		height: 100%;
+		padding: 100px 156px;
+		background-position: 0 22px;
+	`)}
 `
 
 const Inner = styled.div`
-  width: 100%;
-  height: 100%;
-  max-width: ${desktopBreakpoint}px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
+	width: 100%;
+	height: 100%;
+	max-width: ${desktopBreakpoint}px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	position: relative;
 
-  ${fresponsive(css`
-    padding: 100px 156px 36px;
-  `)}
+	${fresponsive(css`
+		padding: 100px 156px 36px;
+	`)}
 
-  ${ftablet(css`
-    padding: 96px 68px 39px;
-  `)}
+	${ftablet(css`
+		padding: 96px 68px 39px;
+	`)}
 
   ${fmobile(css`
-    padding: 60px 24px 26px;
-  `)}
+		padding: 60px 24px 26px;
+	`)}
 `
 
 const Top = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  position: relative;
-  z-index: 2;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	position: relative;
+	z-index: 2;
 
-  ${ftablet(css`
-    justify-content: flex-start;
-    gap: 81px;
-  `)}
+	${ftablet(css`
+		justify-content: flex-start;
+		gap: 81px;
+	`)}
 
-  ${fmobile(css`
-    flex-direction: column;
-  `)}
+	${fmobile(css`
+		flex-direction: column;
+	`)}
 `
 
 const LogoAddress = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
+	display: flex;
+	flex-direction: column;
+	position: relative;
 
-  ${fresponsive(css`
-    top: -15px;
-    gap: 4px;
-  `)}
+	${fresponsive(css`
+		top: -15px;
+		gap: 4px;
+	`)}
 
-  ${fmobile(css`
-    width: 100%;
-    border-bottom: 2px solid ${colors.gray400};
-    padding-bottom: 33.83px;
-  `)}
+	${fmobile(css`
+		width: 100%;
+		border-bottom: 2px solid ${colors.gray400};
+		padding-bottom: 33.83px;
+	`)}
 `
 
 const Logo = styled(LogoSVG)`
-  height: auto;
+	height: auto;
 
-  ${fresponsive(css`
-    width: 138px;
-  `)}
+	${fresponsive(css`
+		width: 138px;
+	`)}
 
-  ${fmobile(css`
-    width: 160px;
-  `)}
+	${fmobile(css`
+		width: 160px;
+	`)}
 `
 
 const Address = styled.span`
-  ${textStyles.bodyXS}
-  color: ${colors.gray600};
+	${textStyles.bodyXS}
+	color: ${colors.gray600};
 
-  ${fresponsive(css`
-    width: 120px;
-    margin-left: 8px;
-  `)}
+	${fresponsive(css`
+		width: 120px;
+		margin-left: 8px;
+	`)}
 `
 
 const Columns = styled.div`
-  display: flex;
+	display: flex;
 
-  ${fresponsive(css`
-    gap: 24px;
-    padding-right: 10px;
-  `)}
+	${fresponsive(css`
+		gap: 24px;
+		padding-right: 10px;
+	`)}
 
-  ${fmobile(css`
-    gap: 24px 6px;
-    flex-wrap: wrap;
-  `)}
+	${fmobile(css`
+		gap: 24px 6px;
+		flex-wrap: wrap;
+	`)}
 `
 
 const LinkColumn = styled.div`
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-  ${fresponsive(css`
-    width: 168px;
-    gap: 12px;
-  `)}
+	${fresponsive(css`
+		width: 168px;
+		gap: 12px;
+	`)}
 
-  ${ftablet(css`
-    width: 204px;
-  `)}
+	${ftablet(css`
+		width: 204px;
+	`)}
 
   ${fmobile(css`
-    width: 154px;
-  `)}
+		width: 154px;
+	`)}
 `
 
 const Label = styled.span`
-  ${textStyles.sh2}
-  color: ${colors.gray700};
+	${textStyles.sh2}
+	color: ${colors.gray700};
 
-  ${fresponsive(css`
-    padding-left: 10px;
-  `)}
+	${fresponsive(css`
+		padding-left: 10px;
+	`)}
 `
 
 const Bottom = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  z-index: 2;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	z-index: 2;
 
-  ${fresponsive(css`
-    gap: 36px;
-  `)}
+	${fresponsive(css`
+		gap: 36px;
+	`)}
+
+	${fmobile(css`
+		padding-bottom: 32px;
+	`)}
 `
 
 const BottomTop = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  border-bottom: 1.5px solid ${colors.gray400};
+	width: 100%;
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	border-bottom: 1.5px solid ${colors.gray400};
 
-  ${fresponsive(css`
-    padding-bottom: 24px;
-  `)}
+	${fresponsive(css`
+		padding-bottom: 24px;
+	`)}
 
-  ${fmobile(css`
-    border-top: 1.5px solid ${colors.gray400};
-    padding-top: 21px;
-  `)}
+	${fmobile(css`
+		border-top: 1.5px solid ${colors.gray400};
+		padding-top: 21px;
+	`)}
 `
 
 const Socials = styled.div`
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 
-  ${fresponsive(css`
-    gap: 24px;
-  `)}
+	${fresponsive(css`
+		gap: 24px;
+	`)}
 
-  ${fmobile(css`
-    display: none;
-  `)}
+	${fmobile(css`
+		display: none;
+	`)}
 `
 
 const Buttons = styled.div`
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 
-  ${fresponsive(css`
-    gap: 12px;
-  `)}
+	${fresponsive(css`
+		gap: 12px;
+	`)}
 
-  ${ftablet(css`
-    flex-direction: column-reverse;
-    gap: 14px;
-    align-items: flex-end;
-  `)}
+	${ftablet(css`
+		flex-direction: column-reverse;
+		gap: 14px;
+		align-items: flex-end;
+	`)}
 
   ${fmobile(css`
-    flex-direction: column-reverse;
-    align-items: flex-start;
-    gap: 22px;
-  `)}
+		flex-direction: column-reverse;
+		align-items: flex-start;
+		gap: 22px;
+	`)}
 `
 
 const Text = styled.span`
-  ${textStyles.bodyS}
-  color: ${colors.gray600};
+	${textStyles.bodyS}
+	color: ${colors.gray600};
 
-  ${ftablet(css`
-    ${textStyles.bodyR}
-  `)}
+	${ftablet(css`
+		${textStyles.bodyR}
+	`)}
 `
 
 const BottomBottom = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 `
 
 const Column = styled.div`
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-  &:last-of-type {
-    align-items: flex-end;
-  }
+	${fmobile(css`
+		gap: 10px;
+	`)}
+
+	&:last-of-type {
+		align-items: flex-end;
+	}
 `
 
 const StyledLink = styled(Link)`
-  &:hover {
-    background-color: ${colors.beige400};
-  }
+	&:hover {
+		background-color: ${colors.beige400};
+	}
 `

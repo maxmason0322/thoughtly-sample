@@ -34,19 +34,19 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 	const [showAll] = useParamState("showAll")
 
 	const images: Queries.BlogLayoutQuery = useStaticQuery(graphql`
-    query BlogLayout {
-      widget1: file(relativePath: { eq: "blog/widget-1.png" }) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-      widget2: file(relativePath: { eq: "blog/widget-2.png" }) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-    }
-  `)
+		query BlogLayout {
+			widget1: file(relativePath: { eq: "blog/widget-1.png" }) {
+				childImageSharp {
+					gatsbyImageData
+				}
+			}
+			widget2: file(relativePath: { eq: "blog/widget-2.png" }) {
+				childImageSharp {
+					gatsbyImageData
+				}
+			}
+		}
+	`)
 
 	const trigger = useAnimation(() => {
 		if (getBreakpoint() === "mobile") return
@@ -142,211 +142,211 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 }
 
 const Widget1 = styled(UniversalImage)`
-  position: absolute;
-  z-index: 2;
+	position: absolute;
+	z-index: 2;
 
-  ${fresponsive(css`
-    border-radius: 18px;
-    width: 288px;
-    height: 352px;
-    right: 285px;
-    top: -136px;
-    box-shadow: 0 18px 42px 0 rgba(89 89 89 / 8%);
-  `)}
+	${fresponsive(css`
+		border-radius: 18px;
+		width: 288px;
+		height: 352px;
+		right: 285px;
+		top: -136px;
+		box-shadow: 0 18px 42px 0 rgba(89 89 89 / 8%);
+	`)}
 
-  ${fmobile(css`
-    display: none;
-  `)}
+	${fmobile(css`
+		display: none;
+	`)}
 `
 
 const Widget2 = styled(UniversalImage)`
-  position: absolute;
-  z-index: 2;
+	position: absolute;
+	z-index: 2;
 
-  ${fresponsive(css`
-    border-radius: 18px;
-    width: 221px;
-    height: 331px;
-    right: 41px;
-    top: 71px;
-    box-shadow: 0 18px 42px 0 rgba(89 89 89 / 8%);
-  `)}
+	${fresponsive(css`
+		border-radius: 18px;
+		width: 221px;
+		height: 331px;
+		right: 41px;
+		top: 71px;
+		box-shadow: 0 18px 42px 0 rgba(89 89 89 / 8%);
+	`)}
 
-  ${fmobile(css`
-    display: none;
-  `)}
+	${fmobile(css`
+		display: none;
+	`)}
 `
 
 const BlogWrapper = styled.div`
-  width: 100%;
-  display: grid;
-  place-items: center;
-  background-color: ${colors.beige200};
+	width: 100%;
+	display: grid;
+	place-items: center;
+	background-color: ${colors.beige200};
 `
 
 const StyledDots = styled(Dots)`
-  z-index: 0;
+	z-index: 0;
 `
 
 const BlogInner = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: ${desktopBreakpoint}px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	max-width: ${desktopBreakpoint}px;
 
-  ${fresponsive(css`
-    padding: 134px 110px 150px;
-    gap: 50px;
-  `)}
+	${fresponsive(css`
+		padding: 134px 110px 150px;
+		gap: 50px;
+	`)}
 
-  ${ftablet(css`
-    padding: 158px 20px 150px;
-  `)}
+	${ftablet(css`
+		padding: 158px 20px 150px;
+	`)}
 
   ${fmobile(css`
-    padding: 112px 8px 100px;
-    gap: 32px;
-  `)}
+		padding: 112px 8px 100px;
+		gap: 32px;
+	`)}
 `
 
 const StyledKicker = styled(Kicker)`
-  position: relative;
-  z-index: 2;
+	position: relative;
+	z-index: 2;
 `
 
 const Logo = styled(LogoSVG)`
-  position: absolute;
-  height: auto;
+	position: absolute;
+	height: auto;
 
-  ${fresponsive(css`
-    width: 105px;
-    top: 56px;
-    left: 34px;
-  `)}
+	${fresponsive(css`
+		width: 105px;
+		top: 56px;
+		left: 34px;
+	`)}
 `
 
 const ExtraSmall = styled.div`
-  position: absolute;
-  ${textStyles.t2}
+	position: absolute;
+	${textStyles.t2}
 
-  ${fresponsive(css`
-    top: 64px;
-    left: 17px;
-  `)}
+	${fresponsive(css`
+		top: 64px;
+		left: 17px;
+	`)}
 `
 
 const Header = styled.div`
-  ${textStyles.h5};
-  background-color: ${colors.gray100};
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  position: relative;
-  overflow: clip;
+	${textStyles.h5};
+	background-color: ${colors.gray100};
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 100%;
+	position: relative;
+	overflow: clip;
 
-  ${fresponsive(css`
-    border-radius: 24px;
-    gap: 10px;
-    padding: 32px 48px 46px;
+	${fresponsive(css`
+		border-radius: 24px;
+		gap: 10px;
+		padding: 32px 48px 46px;
 
-    h1 {
-      height: 81px;
-      font-size: 68.5px;
-      position: relative;
-      z-index: 2;
-    }
+		h1 {
+			height: 81px;
+			font-size: 68.5px;
+			position: relative;
+			z-index: 2;
+		}
 
-    strong {
-      ${transparentText}
-      background-image: ${gradients.greenBlue};
-      padding-right: 3px;
-    }
-  `)}
+		strong {
+			${transparentText}
+			background-image: ${gradients.greenBlue};
+			padding-right: 3px;
+		}
+	`)}
 
-  ${ftablet(css`
-    gap: 15px;
-  `)}
+	${ftablet(css`
+		gap: 15px;
+	`)}
 
   ${fmobile(css`
-    ${textStyles.h6}
-    gap: 18px;
-    align-items: start;
-    padding: 26px 0 41px 30px;
-  `)}
+		${textStyles.h6}
+		gap: 18px;
+		align-items: start;
+		padding: 26px 0 41px 30px;
+	`)}
 `
 
 const Description = styled.div`
-  ${textStyles.bodyS};
-  color: ${colors.gray700};
-  position: relative;
-  z-index: 2;
+	${textStyles.bodyS};
+	color: ${colors.gray700};
+	position: relative;
+	z-index: 2;
 
-  ${fresponsive(css`
-    width: 350px;
-    text-align: left;
-  `)}
+	${fresponsive(css`
+		width: 350px;
+		text-align: left;
+	`)}
+
+	${fmobile(css`
+		text-align: left;
+		width: 288px;
+		margin-left: 0;
+	`)}
 
   ${fmobile(css`
-    text-align: left;
-    width: 288px;
-    margin-left: 0;
-  `)}
-
-  ${fmobile(css`
-    width: 100%;
-  `)}
+		width: 100%;
+	`)}
 `
 
 const Line = styled.div`
-  display: none;
-  background-color: ${colors.gray300};
+	display: none;
+	background-color: ${colors.gray300};
 
-  ${fmobile(css`
-    display: flex;
-    width: 100%;
-    height: 1px;
-    margin-bottom: 32px;
-  `)}
+	${fmobile(css`
+		display: flex;
+		width: 100%;
+		height: 1px;
+		margin-bottom: 32px;
+	`)}
 `
 
 const Columns = styled.div`
-  ${fresponsive(css`
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    padding: 0 50px;
-    width: 100%;
-  `)}
+	${fresponsive(css`
+		display: flex;
+		justify-content: space-between;
+		margin-top: 10px;
+		padding: 0 50px;
+		width: 100%;
+	`)}
 
-  ${ftablet(css`
-    gap: 58px;
-  `)}
+	${ftablet(css`
+		gap: 58px;
+	`)}
 
   ${fmobile(css`
-    padding: 0 23px;
-  `)}
+		padding: 0 23px;
+	`)}
 `
 
 const Left = styled.div`
-  ${fresponsive(css`
-    width: 269px;
-  `)}
+	${fresponsive(css`
+		width: 269px;
+	`)}
 
-  ${fmobile(css`
-    display: none;
-  `)}
+	${fmobile(css`
+		display: none;
+	`)}
 `
 
 const Right = styled.div`
-  ${fresponsive(css`
-    width: 768px;
-  `)}
-  ${ftablet(css`
-    width: 560px;
-  `)}
+	${fresponsive(css`
+		width: 768px;
+	`)}
+	${ftablet(css`
+		width: 560px;
+	`)}
   ${fmobile(css`
-    width: 100%;
-  `)}
+		width: 100%;
+	`)}
 `

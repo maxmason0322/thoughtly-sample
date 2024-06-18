@@ -1,4 +1,5 @@
 import Button from "components/Buttons/Primary"
+import { BEAT_ONE_DURATION, BEAT_TWO_DURATION } from "components/Preloader"
 import Unmask from "components/Unmask"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
@@ -172,10 +173,19 @@ export default function Hero() {
 		only: "whenAtTop",
 		duration: 2,
 		callback: () => {
+			const duration = BEAT_TWO_DURATION
+			const delay = BEAT_ONE_DURATION
 			gsap.from(wrapperRef.current, {
 				y: "100lvh",
-				duration: 1,
-				delay: 1,
+				duration,
+				delay,
+				ease: "power3.inOut",
+			})
+			gsap.from(Title.toString(), {
+				y: "-20vh",
+				duration,
+				delay,
+				opacity: 0.1,
 				ease: "power3.inOut",
 			})
 		},
@@ -184,16 +194,16 @@ export default function Hero() {
 	return (
 		<Wrapper ref={wrapperRef}>
 			<Inner>
-				<BackgroundImage className="home-hero-bg" src={Background} />
+				<BackgroundImage
+					className="home-hero-bg"
+					src={Background}
+					alt=""
+					loading="lazy"
+				/>
 				<BackgroundTablet>
 					<StyledDots />
 				</BackgroundTablet>
 				<TextContent>
-					{/* <Unmask parameters={{ delay: 0.25, ease: "power4.out", duration: 2 }}>
-						<Kicker icon="chev">
-							🚀&nbsp;&nbsp;&nbsp;Seed round led by Afore & others
-						</Kicker>
-					</Unmask> */}
 					<Title>Your phone calls, handled beautifully.</Title>
 					<Text>
 						Thoughtly helps businesses build and deploy human-like AI voice
@@ -254,272 +264,272 @@ export default function Hero() {
 }
 
 const Wrapper = styled.section`
-  width: 100%;
-  display: grid;
-  place-items: center;
-  background-color: ${colors.beige200};
-  position: relative;
-  z-index: 3;
+	width: 100%;
+	display: grid;
+	place-items: center;
+	background-color: ${colors.beige200};
+	position: relative;
+	z-index: 3;
 `
 
 const Inner = styled.div`
-  width: 100%;
-  max-width: ${desktopBreakpoint}px;
-  position: relative;
+	width: 100%;
+	max-width: ${desktopBreakpoint}px;
+	position: relative;
 
-  ${fresponsive(css`
-    height: 1926px;
-    padding: 144px 156px 60px;
-  `)}
+	${fresponsive(css`
+		height: 1926px;
+		padding: 144px 156px 60px;
+	`)}
 
-  ${ftablet(css`
-    height: 2211px;
-    padding: 190px 68px 24px;
-  `)}
+	${ftablet(css`
+		height: 2211px;
+		padding: 190px 68px 24px;
+	`)}
 
 	${fmobile(css`
-    height: 2253px;
-    padding: 110px 0;
-  `)}
+		height: 2253px;
+		padding: 110px 0;
+	`)}
 `
 
 const BackgroundImage = styled.img`
-  position: absolute;
-  z-index: 0;
-  opacity: 1;
+	position: absolute;
+	z-index: 0;
+	opacity: 1;
 
-  ${fresponsive(css`
-    width: 1318px;
-    height: 1460px;
-    top: 408px;
-    right: 62px;
-  `)}
+	${fresponsive(css`
+		width: 1318px;
+		height: 1460px;
+		top: 408px;
+		right: 62px;
+	`)}
 
-  ${ftablet(css`
-    display: none;
-  `)}
+	${ftablet(css`
+		display: none;
+	`)}
 
 	${fmobile(css`
-    display: none;
-  `)}
+		display: none;
+	`)}
 `
 
 const TextContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  z-index: 1;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	z-index: 1;
 
-  ${fresponsive(css`
-    gap: 24px;
-  `)}
+	${fresponsive(css`
+		gap: 24px;
+	`)}
 
-  ${fmobile(css`
-    align-items: center;
-  `)}
+	${fmobile(css`
+		align-items: center;
+	`)}
 `
 
 const Title = styled.h1`
-  ${textStyles.h3}
-  color: ${colors.black};
+	${textStyles.h3}
+	color: ${colors.black};
 
-  ${fresponsive(css`
-    width: 620px;
-  `)}
+	${fresponsive(css`
+		width: 620px;
+	`)}
 
-  ${ftablet(css`
-    ${textStyles.h2}
-    width: 800px;
-  `)}
+	${ftablet(css`
+		${textStyles.h2}
+		width: 800px;
+	`)}
 
 	${fmobile(css`
-    ${textStyles.h6}
-    width: 300px;
-    text-align: center;
-  `)}
+		${textStyles.h6}
+		width: 300px;
+		text-align: center;
+	`)}
 `
 
 const Text = styled.p`
-  ${textStyles.bodyL}
-  color: ${colors.gray700};
+	${textStyles.bodyL}
+	color: ${colors.gray700};
 
-  ${fresponsive(css`
-    width: 380px;
-  `)}
+	${fresponsive(css`
+		width: 380px;
+	`)}
 
-  ${ftablet(css`
-    ${textStyles.bodyXL}
-    width: 456px;
-  `)}
+	${ftablet(css`
+		${textStyles.bodyXL}
+		width: 456px;
+	`)}
 
 	${fmobile(css`
-    ${textStyles.bodyR}
-    width: 318px;
-    text-align: center;
-  `)}
+		${textStyles.bodyR}
+		width: 318px;
+		text-align: center;
+	`)}
 `
 
 const Buttons = styled.div`
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 
-  ${fresponsive(css`
-    gap: 18px;
-    padding: 3px;
-    margin: -3px;
-  `)}
+	${fresponsive(css`
+		gap: 18px;
+		padding: 3px;
+		margin: -3px;
+	`)}
 
-  ${fmobile(css`
-    flex-direction: column;
-    gap: 12px;
-  `)}
+	${fmobile(css`
+		flex-direction: column;
+		gap: 12px;
+	`)}
 `
 
 const Callout = styled.div`
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-  span {
-    ${textStyles.sh4}
-    ${transparentText}
+	span {
+		${textStyles.sh4}
+		${transparentText}
     background-image: ${gradients.greenBlue};
-  }
+	}
 
-  h1 {
-    ${textStyles.h6}
-    color: ${colors.black};
-  }
+	h1 {
+		${textStyles.h6}
+		color: ${colors.black};
+	}
 
-  p {
-    ${textStyles.bodyS}
-    color: ${colors.gray800}
-  }
+	p {
+		${textStyles.bodyS}
+		color: ${colors.gray800}
+	}
 
-  ${fresponsive(css`
-    gap: 14px;
-  `)}
+	${fresponsive(css`
+		gap: 14px;
+	`)}
 
-  ${fmobile(css`
-    gap: 8px;
+	${fmobile(css`
+		gap: 8px;
 
-    h1 {
-      ${textStyles.sh1}
-    }
-  `)}
+		h1 {
+			${textStyles.sh1}
+		}
+	`)}
 `
 
 const Callout1 = styled(Callout)`
-  position: absolute;
+	position: absolute;
 
-  ${fresponsive(css`
-    left: 156px;
-    top: 826px;
+	${fresponsive(css`
+		left: 156px;
+		top: 826px;
 
-    h1 {
-      width: 450px;
-    }
+		h1 {
+			width: 450px;
+		}
 
-    p {
-      width: 360px;
-    }
-  `)}
+		p {
+			width: 360px;
+		}
+	`)}
 
-  ${ftablet(css`
-    left: 87px;
-    top: 1097px;
-    width: 290px;
+	${ftablet(css`
+		left: 87px;
+		top: 1097px;
+		width: 290px;
 
-    h1,
-    p {
-      width: 100%;
-    }
-  `)}
+		h1,
+		p {
+			width: 100%;
+		}
+	`)}
 
 	${fmobile(css`
-    left: 33px;
-    top: 977px;
-    width: 247px;
+		left: 33px;
+		top: 977px;
+		width: 247px;
 
-    h1 {
-      width: 100%;
-    }
+		h1 {
+			width: 100%;
+		}
 
-    p {
-      width: 225px;
-    }
-  `)}
+		p {
+			width: 225px;
+		}
+	`)}
 `
 
 const Callout2 = styled(Callout)`
-  position: absolute;
+	position: absolute;
 
-  ${fresponsive(css`
-    right: 229px;
-    bottom: 247px;
+	${fresponsive(css`
+		right: 229px;
+		bottom: 247px;
 
-    h1 {
-      width: 420px;
-    }
+		h1 {
+			width: 420px;
+		}
 
-    p {
-      width: 411px;
-    }
-  `)}
+		p {
+			width: 411px;
+		}
+	`)}
 
-  ${ftablet(css`
-    right: 70px;
-    bottom: 130px;
-    width: 330px;
+	${ftablet(css`
+		right: 70px;
+		bottom: 130px;
+		width: 330px;
 
-    h1,
-    p {
-      width: 100%;
-    }
-  `)}
+		h1,
+		p {
+			width: 100%;
+		}
+	`)}
 
 	${fmobile(css`
-    top: 1471px;
-    left: 33px;
-    width: 247px;
+		top: 1471px;
+		left: 33px;
+		width: 247px;
 
-    h1 {
-      width: 100%;
-    }
+		h1 {
+			width: 100%;
+		}
 
-    p {
-      width: 284px;
-    }
-  `)}
+		p {
+			width: 284px;
+		}
+	`)}
 `
 
 const BackgroundTablet = styled.div`
-  position: absolute;
-  display: none;
-  z-index: 0;
-  background-color: ${colors.beige200};
-  overflow: clip;
+	position: absolute;
+	display: none;
+	z-index: 0;
+	background-color: ${colors.beige200};
+	overflow: clip;
 
-  ${ftablet(css`
-    display: flex;
-    width: 982px;
-    height: 1271px;
-    bottom: 24px;
-    left: 21px;
-    border-radius: 48px;
-  `)}
+	${ftablet(css`
+		display: flex;
+		width: 982px;
+		height: 1271px;
+		bottom: 24px;
+		left: 21px;
+		border-radius: 48px;
+	`)}
 
-  ${fmobile(css`
-    height: 1389px;
-    width: 358px;
-    display: flex;
-    left: 9px;
-    bottom: 82px;
-    border-radius: 36px;
-  `)}
+	${fmobile(css`
+		height: 1389px;
+		width: 358px;
+		display: flex;
+		left: 9px;
+		bottom: 82px;
+		border-radius: 36px;
+	`)}
 `
 
 const StyledDots = styled(Dots)`
-  ${ftablet(css`
-    inset: 0 0 16px;
-  `)}
+	${ftablet(css`
+		inset: 0 0 16px;
+	`)}
 `

@@ -23,26 +23,26 @@ export default function Mobile() {
 	const [open, setOpen] = useState(false)
 
 	const images: Queries.ImagesMobileQuery = useStaticQuery(graphql`
-    query ImagesMobile {
-      widget1: allFile(
-        filter: {
-          relativeDirectory: { eq: "home/widgets" }
-          name: { regex: "/widget1/" }
-        }
-        sort: { relativePath: ASC }
-      ) {
-        edges {
-          node {
-            id
-            name
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-      }
-    }
-  `)
+		query ImagesMobile {
+			widget1: allFile(
+				filter: {
+					relativeDirectory: { eq: "home/widgets" }
+					name: { regex: "/widget1/" }
+				}
+				sort: { relativePath: ASC }
+			) {
+				edges {
+					node {
+						id
+						name
+						childImageSharp {
+							gatsbyImageData
+						}
+					}
+				}
+			}
+		}
+	`)
 
 	const grid1Widgets = [
 		"widget1",
@@ -185,227 +185,227 @@ export default function Mobile() {
 }
 
 const Title = styled.h2`
-  ${textStyles.h3}
-  ${fresponsive(css`
-    color: ${colors.black};
-    margin-top: 18px;
-  `)}
+	${textStyles.h3}
+	${fresponsive(css`
+		color: ${colors.black};
+		margin-top: 18px;
+	`)}
 
   ${fmobile(css`
-    ${textStyles.h6};
-    text-align: center;
-  `)}
+		${textStyles.h6};
+		text-align: center;
+	`)}
 `
 
 const TopText = styled.div`
-  position: absolute;
-  ${fresponsive(css`
-    width: 697px;
-    top: 269px;
-    right: 321px;
-  `)}
+	position: absolute;
+	${fresponsive(css`
+		width: 697px;
+		top: 269px;
+		right: 321px;
+	`)}
 
-  ${ftablet(css`
-    right: 480px;
-  `)}
+	${ftablet(css`
+		right: 480px;
+	`)}
 
   ${fmobile(css`
-    top: -216px;
-    width: 290px;
-    right: 790px;
-  `)}
+		top: -216px;
+		width: 290px;
+		right: 790px;
+	`)}
 `
 
 const Grids = styled.div`
-  display: grid;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  ${fresponsive(css`
-    width: 1865px;
-    height: 1390px;
-    top: 126px;
-  `)}
+	display: grid;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	${fresponsive(css`
+		width: 1865px;
+		height: 1390px;
+		top: 126px;
+	`)}
 
-  ${fmobile(css`
-    top: 680px;
-  `)}
+	${fmobile(css`
+		top: 680px;
+	`)}
 `
 
 const Kicker = styled.div`
-  width: fit-content;
-  ${textStyles.sh4};
-  color: ${colors.gray600};
-  ${fresponsive(css`
-    padding: 12px 24px;
-    border-radius: 10px;
-    border: 1.5px solid ${colors.gray200};
-  `)}
+	width: fit-content;
+	${textStyles.sh4};
+	color: ${colors.gray600};
+	${fresponsive(css`
+		padding: 12px 24px;
+		border-radius: 10px;
+		border: 1.5px solid ${colors.gray200};
+	`)}
 `
 
 const BottomText = styled.p`
-  position: absolute;
-  color: ${colors.gray800};
-  ${textStyles.bodyL}
-  ${fresponsive(css`
-    width: 331px;
-    left: 327px;
-    bottom: 221px;
-  `)}
+	position: absolute;
+	color: ${colors.gray800};
+	${textStyles.bodyL}
+	${fresponsive(css`
+		width: 331px;
+		left: 327px;
+		bottom: 221px;
+	`)}
 
   ${ftablet(css`
-    ${textStyles.bodyXL}
-    width: 575px;
-    text-align: left;
-    bottom: -120px;
-    left: 780px;
-  `)}
+		${textStyles.bodyXL}
+		width: 575px;
+		text-align: left;
+		bottom: -120px;
+		left: 780px;
+	`)}
 
   ${fmobile(css`
-    ${textStyles.bodyR};
-    width: 164.53px;
-    bottom: 0;
-    left: 160px;
-    text-align: center;
-  `)}
+		${textStyles.bodyR};
+		width: 164.53px;
+		bottom: 0;
+		left: 160px;
+		text-align: center;
+	`)}
 `
 
 const Grid1 = styled.div`
-  display: grid;
-  position: absolute;
-  top: 0;
-  left: 0;
+	display: grid;
+	position: absolute;
+	top: 0;
+	left: 0;
 
-  ${fmobile(css`
-    grid-gap: 12px;
-    width: 511px;
-    height: 595px;
-    grid-template:
-      "widget1 . . . . . . ." 28px
-      "widget1 . . widget2 widget2 widget2 widget2 ." 6.5px
-      "widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 82.25px
-      "widget4 widget4 widget5 widget2 widget2 widget2 widget2 ." 87.5px
-      "widget6 widget6 widget7 widget7 widget8 widget8 widget8 ." 65.5px
-      "widget6 widget6 widget9 widget9 widget8 widget8 widget8 widget10" 88px
-      "widget6 widget6 .  .  . widget11 widget11 widget11" 88px
-      ". . . . . . widget12 widget12" 65.5px
-      / 104.5px 35px 92px 21.5px 38.5px 22.5px 25.5px 88px;
-    left: 700px;
-  `)}
+	${fmobile(css`
+		grid-gap: 12px;
+		width: 511px;
+		height: 595px;
+		grid-template:
+			"widget1 . . . . . . ." 28px
+			"widget1 . . widget2 widget2 widget2 widget2 ." 6.5px
+			"widget1 widget3 widget3 widget2 widget2 widget2 widget2 ." 82.25px
+			"widget4 widget4 widget5 widget2 widget2 widget2 widget2 ." 87.5px
+			"widget6 widget6 widget7 widget7 widget8 widget8 widget8 ." 65.5px
+			"widget6 widget6 widget9 widget9 widget8 widget8 widget8 widget10" 88px
+			"widget6 widget6 .  .  . widget11 widget11 widget11" 88px
+			". . . . . . widget12 widget12" 65.5px
+			/ 104.5px 35px 92px 21.5px 38.5px 22.5px 25.5px 88px;
+		left: 700px;
+	`)}
 `
 
 const GridElement = styled.div<{ $gridArea: string; $noBoxShadow?: boolean }>`
-  grid-area: ${({ $gridArea }) => $gridArea};
+	grid-area: ${({ $gridArea }) => $gridArea};
 
-  ${({ $noBoxShadow }) =>
+	${({ $noBoxShadow }) =>
 		fresponsive(css`
-      border-radius: 18px;
-      box-shadow: ${$noBoxShadow ? "none" : "0 18px 42px 0 rgba(89 89 89 /4%)"};
-    `)}
+			border-radius: 18px;
+			box-shadow: ${$noBoxShadow ? "none" : "0 18px 42px 0 rgba(89 89 89 /4%)"};
+		`)}
 `
 
 const VideoIframe = styled.iframe`
-  position: relative;
-  object-fit: cover;
-  border: none;
-  border-radius: 8px;
-  width: 100%;
-  height: 100%;
-  object-position: center;
+	position: relative;
+	object-fit: cover;
+	border: none;
+	border-radius: 8px;
+	width: 100%;
+	height: 100%;
+	object-position: center;
 
-  ${fmobile(css`
-    width: 330px;
-    height: 214px;
-    object-fit: contain;
-  `)}
+	${fmobile(css`
+		width: 330px;
+		height: 214px;
+		object-fit: contain;
+	`)}
 `
 
 const VideoWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  background: ${colors.white};
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	background: ${colors.white};
 
-  ${fmobile(css`
-    padding: 14px 14px 20px;
-    border-radius: 18px;
-  `)}
+	${fmobile(css`
+		padding: 14px 14px 20px;
+		border-radius: 18px;
+	`)}
 `
 
 const GridImage = styled(UniversalImage)`
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 `
 
 const Row = styled.div`
-  display: flex;
-  align-items: center;
-  position: relative;
+	display: flex;
+	align-items: center;
+	position: relative;
 
-  ${fmobile(css`
-    width: 100%;
-    gap: 17px;
-  `)}
+	${fmobile(css`
+		width: 100%;
+		gap: 17px;
+	`)}
 `
 
 const Text = styled.p`
-  color: ${colors.gray800};
+	color: ${colors.gray800};
 
-  ${fmobile(css`
-    width: 100%;
-    ${textStyles.bodyS};
-  `)}
+	${fmobile(css`
+		width: 100%;
+		${textStyles.bodyS};
+	`)}
 `
 
 const VideoBGFrame = styled.div`
-  grid-area: video;
-  border: 1.5px solid ${colors.gray300};
-  display: flex;
-  flex-direction: column;
-  background: rgba(147 147 147 / 25%);
-  overflow: clip;
-  transform-origin: bottom right;
-  object-fit: cover;
+	grid-area: video;
+	border: 1.5px solid ${colors.gray300};
+	display: flex;
+	flex-direction: column;
+	background: rgba(147 147 147 / 25%);
+	overflow: clip;
+	transform-origin: bottom right;
+	object-fit: cover;
 
-  ${fmobile(css`
-    border-radius: 18px;
-    backdrop-filter: blur(9px);
-    object-fit: contain;
-    grid-area: none;
-    width: 358px;
-    height: 318px;
-    margin-left: 9px;
-  `)}
+	${fmobile(css`
+		border-radius: 18px;
+		backdrop-filter: blur(9px);
+		object-fit: contain;
+		grid-area: none;
+		width: 358px;
+		height: 318px;
+		margin-left: 9px;
+	`)}
 `
 
 const CloseButton = styled(UniversalLink)`
-  position: absolute;
-  opacity: 0;
+	position: absolute;
+	opacity: 0;
 
-  ${fresponsive(css`
-    top: 14px;
-    right: 16px;
-    box-shadow: 0 6px 12px 0 rgba(66 66 66 / 12%);
-    border-radius: 100%;
-    width: 60px;
-    height: 60px;
+	${fresponsive(css`
+		top: 14px;
+		right: 16px;
+		box-shadow: 0 6px 12px 0 rgba(66 66 66 / 12%);
+		border-radius: 100%;
+		width: 60px;
+		height: 60px;
 
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-  `)}
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	`)}
 `
 
 const ScreenFrame = styled.div`
-  position: relative;
-  width: 100%;
+	position: relative;
+	width: 100%;
 
-  ${fmobile(css`
-    height: 214px;
-    overflow: clip;
-    border-radius: 14px;
-  `)}
+	${fmobile(css`
+		height: 214px;
+		overflow: clip;
+		border-radius: 14px;
+	`)}
 `

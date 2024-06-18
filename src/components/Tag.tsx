@@ -18,22 +18,22 @@ export default function Tag({ children, className = "" }: Props) {
 }
 
 const Wrapper = styled.div`
-  display: grid;
-  place-items: center;
-  background: ${gradients.greenGreen};
-  ${textStyles.t3};
-  color: ${colors.green700};
-  padding: 0.75px;
-  ${fresponsive(css`
-    border-radius: 4px;
-  `)}
+	display: grid;
+	place-items: center;
+	background: ${gradients.greenGreen};
+	${textStyles.t3};
+	color: ${colors.green700};
+	padding: 0.75px;
+	${fresponsive(css`
+		border-radius: 4px;
+	`)}
 `
 
 const Inner = styled.span`
-  background-color: ${colors.green100};
-  ${fresponsive(css`
-    white-space: nowrap;
-    border-radius: 3px;
-    padding: 4px 5px;
-  `)}
+	background-color: ${colors.green100};
+	${fresponsive(css`
+		white-space: nowrap;
+		border-radius: 3px;
+		padding: 4px 5px;
+	`)}
 `
