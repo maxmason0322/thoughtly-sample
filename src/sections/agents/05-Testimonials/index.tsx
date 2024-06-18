@@ -69,7 +69,7 @@ export default function Testimonials({
 		})
 	}
 
-	const handleScroll = (e: React.UIEventHTMLDivElement) => {
+	const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
 		if (!e.target) return
 		const { scrollLeft } = e.target as HTMLDivElement
 
@@ -123,7 +123,11 @@ export default function Testimonials({
 								{cards}
 								{cards}
 								{cards.length % 2 === 0 ? (
-									<Card key={"emptyCard"} gradient={gradientPicker() ?? ""} />
+									<Card
+										key={"emptyCard"}
+										gradient={gradients.greenGreen}
+										cardData={null}
+									/>
 								) : null}
 							</>
 						)}

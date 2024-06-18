@@ -51,7 +51,7 @@ export const Head = ({
 	return (
 		<Seo
 			title={metaTitle}
-			description={metaDescription.metaDescription}
+			description={metaDescription?.metaDescription}
 			pathname="/agent-accelerator"
 		/>
 	)
