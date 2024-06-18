@@ -141,9 +141,7 @@ const Agent = styled(UniversalImage)`
 		top: -19px;
 		left: -40px;
 		width: 228px;
-		box-shadow:
-			0 -1px 6px 0 rgb(38 38 38 / 6%) inset,
-			0 18px 32px 0 rgb(89 89 89 / 4%);
+		filter: drop-shadow(0 18px 32px rgb(89 89 89 / 4%));
 	`)}
 
 	${ftablet(css`

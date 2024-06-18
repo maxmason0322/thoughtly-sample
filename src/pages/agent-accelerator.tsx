@@ -44,5 +44,5 @@ export default function AgentAccelerator() {
 }
 
 const Background = styled.div`
-background:	${colors.beige200};
+	background: ${colors.beige200};
 `
