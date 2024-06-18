@@ -36,7 +36,7 @@ export type ColorType = keyof typeof rawColors
 export const gradients = {
 	greenGreen: `linear-gradient(10deg, ${rawColors.green500} -4.03%, ${rawColors.green300} 101.71%)`,
 	greenBlue: `linear-gradient(39deg, ${rawColors.green400} 4.74%, #55D2FF 94.17%)`,
-	blueBlue: "linear-gradient(5deg, #1D9BC3 -20.25%, #55D2FF 93.91%)",
+	blueBlue: "linear-gradient(5deg, #1C6DF2 -20.25%, #98CCFB 93.91%)",
 	bluePurple: "linear-gradient(39deg, #45C2ED 4.74%, #A063DF 94.17%)",
 	purplePurple: "linear-gradient(355deg, #591D9D -11.13%, #B39CF4 91.84%)",
 	grayGray: `linear-gradient(10deg, ${rawColors.gray900} -4.03%, ${rawColors.gray900} 101.71%)`,

@@ -1,19 +1,31 @@
-import testimonialImage from "images/agents/testimonials/person.png"
+import blueTestimonialImage from "images/agents/testimonials/person-blue.png"
+import greenTestimonialImage from "images/agents/testimonials/person-green.png"
+import purpleTestimonialImage from "images/agents/testimonials/person-purple.png"
 import { fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
 
-export default function Card({ number }: { number: number }) {
+export default function Card({ gradient }: { gradient: string }) {
+	const getImage = (gradient: string) => {
+		switch (gradient) {
+			case gradients.greenGreen:
+				return greenTestimonialImage
+			case gradients.blueBlue:
+				return blueTestimonialImage
+			case gradients.purplePurple:
+				return purpleTestimonialImage
+		}
+	}
 	return (
-		<Wrapper>
+		<Wrapper gradient={gradient}>
 			<Content>
-				{number} Lorem ipsum dolor sit amet consectetur. Congue urna mauris
-				mattis quam sapien. Arcu feugiat convallis ipsum tortor placerat. Vitae
-				dictumst neque orci nam cursus congue mi. Sit urna fusce porttitor cras
-				arcu dui hendrerit. Lectus morbi lacus vulputate ultrices nec risus eget
-				donec nibh. Fames amet elementum facilisis arcu convallis. Est morbi sit
-				eu nisi sit mattis sem libero quam. Cras habitasse mauris urna.
+				Lorem ipsum dolor sit amet consectetur. Congue urna mauris mattis quam
+				sapien. Arcu feugiat convallis ipsum tortor placerat. Vitae dictumst
+				neque orci nam cursus congue mi. Sit urna fusce porttitor cras arcu dui
+				hendrerit. Lectus morbi lacus vulputate ultrices nec risus eget donec
+				nibh. Fames amet elementum facilisis arcu convallis. Est morbi sit eu
+				nisi sit mattis sem libero quam. Cras habitasse mauris urna.
 				ufhvjtfbvjbtjvbtjbvjtbvjtbjvbtjbvtjbvjtbvbbbbbbbbbbbbbbbbbbbbbbbbb
 			</Content>
 			<Person>
@@ -21,16 +33,16 @@ export default function Card({ number }: { number: number }) {
 					<Name>Jose Smith</Name>
 					<Position>President at leading home renovation company</Position>
 				</Left>
-				<StyledImage src={testimonialImage} alt="Person" />
+				<StyledImage src={getImage(gradient)} alt="Person" />
 			</Person>
 		</Wrapper>
 	)
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ gradient: string }>`
   display: flex;
   flex-direction: column;
-  background: ${gradients.greenGreen};
+  background: ${(props) => props.gradient};
 
   ${fresponsive(css`
     gap: 80px;
@@ -46,10 +58,11 @@ const Content = styled.p`
   ${textStyles.sh1};
   text-overflow: ellipsis;
   color: ${colors.white};
+  align-self: stretch;
+  height: 100%;
 
   ${fresponsive(css`
     width: 640px;
-    height: 100%;
   `)}
 `
 

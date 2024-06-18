@@ -1,29 +1,38 @@
-import {} from "gatsby"
 import gsap from "gsap"
 import { Draggable } from "gsap/Draggable"
 import { InertiaPlugin } from "gsap/InertiaPlugin"
+import { Observer } from "gsap/Observer"
 import { ReactComponent as ArrowSVG } from "images/global/icons/Chev.svg"
 import { fresponsive } from "library/fullyResponsive"
-import useAnimation from "library/useAnimation"
 import useMedia from "library/useMedia"
 import { getResponsivePixels, useResponsivePixels } from "library/viewportUtils"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import styled, { css } from "styled-components"
-import colors from "styles/colors"
-
+import colors, { gradients } from "styles/colors"
 import Card from "./Card"
 
 gsap.registerPlugin(Draggable, InertiaPlugin)
+gsap.registerPlugin(Observer)
+
+const gradientPicker = () => {
+	const value = Math.floor(Math.random() * 3)
+	switch (value) {
+		case 0:
+			return gradients.greenGreen
+		case 1:
+			return gradients.blueBlue
+		case 2:
+			return gradients.purplePurple
+	}
+}
 
 export default function Testimonials() {
+	const offset = useRef(0)
 	const activeIndex = useRef(0)
+	const mobile = useMedia(false, false, false, true)
 	const buttonIncrement = useRef<HTMLButtonElement | null>(null)
 	const buttonDecrement = useRef<HTMLButtonElement | null>(null)
-	const mobile = useMedia(false, false, false, true)
 	const [singleTestimonial, setSingleTestimonial] = useState(false)
-	const [numCards, setNumCards] = useState(0)
-
-	const offset = useRef(0)
 
 	// const data: Queries.TestimonialsQuery = useStaticQuery(graphql`
 	//   query Testimonials {
@@ -46,38 +55,56 @@ export default function Testimonials() {
 	//   return <Cards key={item.name} cardData={item} />
 	// })
 
-	const indices = [0, 1, 2]
+	const indices = [0, 1, 2, 3, 4, 5]
 	const cards = indices.map((index) => {
-		return <Card key={index} number={index} />
+		return <Card key={index} gradient={gradientPicker() ?? ""} />
 	})
 
 	const width = useResponsivePixels(useMedia(768, 768, 768, 338))
 
-	const [displayCards, setDisplayCards] = useState([...cards])
-
-	useAnimation(() => {
-		setNumCards(cards.length)
-
-		const drag = Draggable.create(".track", {
-			type: "x",
-			inertia: true,
-			snap: displayCards.map((_, index) => -width * index),
-			zIndexBoost: false,
-			onThrowComplete: () => {
-				if (!drag[0]) return
-				const index = Math.round(Math.abs(drag[0]?.x / width))
-				activeIndex.current = index
-			},
+	const update = (totalTransform: number) => {
+		const numBumps = Math.ceil(totalTransform / (width * cards.length))
+		gsap.set(".track", {
+			x:
+				offset.current -
+				width * cards.length * numBumps +
+				width / 2 -
+				getResponsivePixels(48),
+			xPercent: -100,
 		})
+	}
 
-		if (numCards === 1 && drag[0]) {
-			drag[0].disable()
+	// set initial track state
+	useEffect(() => {
+		if (cards.length === 1) {
 			setSingleTestimonial(true)
-		} else if (numCards) {
+			gsap.set(".track", {
+				x: width / 2 - getResponsivePixels(36),
+			})
+		} else {
+			const initialOffset =
+				-(width * cards.length) + width / 2 - getResponsivePixels(36)
+			gsap.set(".track", {
+				x: initialOffset,
+			})
+			offset.current = initialOffset
+			activeIndex.current = cards.length
 		}
-	}, [width, cards, numCards, displayCards])
+	}, [cards, width])
 
-	const NUM = 2
+	Observer.create({
+		target: ".track",
+		type: "scroll, touch",
+		onLeft: (self) => {
+			console.log("left")
+		},
+		onRight: (self) => {
+			console.log("right")
+		},
+		onChange: (self) => {
+			console.log("change")
+		},
+	})
 
 	const moveTrack = (index: number) => {
 		const totalTransform = -(width * index)
@@ -86,14 +113,7 @@ export default function Testimonials() {
 			current: totalTransform,
 			overwrite: true,
 			onUpdate: () => {
-				const numBumps = Math.ceil(totalTransform / (width * cards.length))
-				gsap.set(".track", {
-					x:
-						offset.current -
-						width * cards.length * numBumps -
-						getResponsivePixels(24),
-					xPercent: -100,
-				})
+				update(totalTransform)
 			},
 		})
 	}
@@ -119,8 +139,12 @@ export default function Testimonials() {
 			<Carousel>
 				<TrackWrapper>
 					<Track className="track">{cards}</Track>
-					<Track className="track">{cards}</Track>
-					<Track className="track">{cards}</Track>
+					{!singleTestimonial && (
+						<>
+							<Track className="track">{cards}</Track>
+							<Track className="track">{cards}</Track>
+						</>
+					)}
 				</TrackWrapper>
 			</Carousel>
 			{!singleTestimonial && (
