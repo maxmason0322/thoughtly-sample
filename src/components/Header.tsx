@@ -136,6 +136,7 @@ export default function Header() {
 
 	usePreloader({
 		duration: 0,
+		critical: true,
 		callback: () => {
 			gsap.to(innerRef.current, {
 				y: 0,
