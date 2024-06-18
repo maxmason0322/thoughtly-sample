@@ -1,19 +1,19 @@
 import blueTestimonialImage from "images/agents/testimonials/person-blue.png"
 import greenTestimonialImage from "images/agents/testimonials/person-green.png"
 import purpleTestimonialImage from "images/agents/testimonials/person-purple.png"
+import UniversalImage from "library/UniversalImage"
 import { fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
+import type { Testimonial } from "types/aliases"
 
 export default function Card({
 	gradient,
+	cardData,
 }: {
 	gradient: string
-	quote: string
-	name: string
-	positionAndCompany: string
-	headshot: string
+	cardData: Testimonial
 }) {
 	const getImage = (gradient: string) => {
 		switch (gradient) {
@@ -27,21 +27,18 @@ export default function Card({
 	}
 	return (
 		<Wrapper gradient={gradient}>
-			<Content>
-				Lorem ipsum dolor sit amet consectetur. Congue urna mauris mattis quam
-				sapien. Arcu feugiat convallis ipsum tortor placerat. Vitae dictumst
-				neque orci nam cursus congue mi. Sit urna fusce porttitor cras arcu dui
-				hendrerit. Lectus morbi lacus vulputate ultrices nec risus eget donec
-				nibh. Fames amet elementum facilisis arcu convallis. Est morbi sit eu
-				nisi sit mattis sem libero quam. Cras habitasse mauris urna.
-				ufhvjtfbvjbtjvbtjbvjtbvjtbjvbtjbvtjbvjtbvbbbbbbbbbbbbbbbbbbbbbbbbb
-			</Content>
+			<Content>{cardData?.quote?.quote}</Content>
 			<Person>
 				<Left>
-					<Name>Jose Smith</Name>
-					<Position>President at leading home renovation company</Position>
+					<Name>{cardData?.name}</Name>
+					<Position>{cardData?.positionAndCompany}</Position>
 				</Left>
-				<StyledImage src={getImage(gradient)} alt="Person" />
+				{cardData?.headshot?.gatsbyImageData && (
+					<StyledImage
+						image={cardData?.headshot.gatsbyImageData}
+						alt={cardData?.name ?? ""}
+					/>
+				)}
 			</Person>
 		</Wrapper>
 	)
@@ -102,7 +99,7 @@ const Position = styled.p`
   ${textStyles.t2};
 `
 
-const StyledImage = styled.img`
+const StyledImage = styled(UniversalImage)`
   ${fresponsive(css`
     width: 77px;
     height: 77px;
