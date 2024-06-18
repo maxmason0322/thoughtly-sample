@@ -7,6 +7,8 @@ import AgentsOverview from "sections/agents/02-Overview"
 import AgentsHowItWorks from "sections/agents/03-HowItWorks"
 import AgentsAdvantages from "sections/agents/04-Advantages"
 import CallToAction from "sections/agents/06-CallToAction"
+import styled from "styled-components"
+import colors from "styles/colors"
 
 export default function AgentAccelerator() {
 	const wrapperRef = useRef<HTMLDivElement | null>(null)
@@ -28,13 +30,19 @@ export default function AgentAccelerator() {
 
 	return (
 		<>
-			<div ref={wrapperRef}>
-				<AgentsHero />
-				<AgentsOverview />
-			</div>
-			<AgentsHowItWorks />
-			<AgentsAdvantages />
+			<Background>
+				<div ref={wrapperRef}>
+					<AgentsHero />
+					<AgentsOverview />
+				</div>
+				<AgentsHowItWorks />
+				<AgentsAdvantages />
+			</Background>
 			<CallToAction />
 		</>
 	)
 }
+
+const Background = styled.div`
+background:	${colors.beige200};
+`
