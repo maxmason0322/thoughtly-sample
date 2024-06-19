@@ -164,6 +164,7 @@ export default function FinalCTA() {
 
 const Wrapper = styled.section`
 	width: 100%;
+	min-height: 100vh;
 	position: relative;
 	display: flex;
 	flex-direction: column;
