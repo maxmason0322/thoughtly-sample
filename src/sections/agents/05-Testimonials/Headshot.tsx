@@ -26,7 +26,10 @@ const borderPicker = (gradient: string) => {
 export default function Headshot({
 	cardData,
 	gradient,
-}: { cardData: Testimonial; gradient: string }) {
+}: {
+	cardData: Testimonial
+	gradient: string
+}) {
 	return (
 		<Wrapper gradient={gradient}>
 			{cardData?.headshot?.gatsbyImageData && (
@@ -40,27 +43,27 @@ export default function Headshot({
 }
 
 const Wrapper = styled.div<{ gradient: string }>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: ${(props) => borderPicker(props.gradient)};
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: ${(props) => borderPicker(props.gradient)};
 
-  ${fresponsive(css`
-    border-radius: 40px;
-    width: 77px;
-    height: 77px;
-    order: 1;
-  `)}
+	${fresponsive(css`
+		border-radius: 40px;
+		width: 77px;
+		height: 77px;
+		order: 1;
+	`)}
 
-  ${fmobile(css`
-    order: 0;
-  `)}
+	${fmobile(css`
+		order: 0;
+	`)}
 `
 
 const StyledImage = styled(UniversalImage)`
-  ${fresponsive(css`
-    border-radius: 40px;
-    width: 74px;
-    height: 74px;
-  `)}
+	${fresponsive(css`
+		border-radius: 40px;
+		width: 74px;
+		height: 74px;
+	`)}
 `
