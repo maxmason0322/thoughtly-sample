@@ -2,7 +2,7 @@ import blueTestimonialImage from "images/agents/testimonials/person-blue.png"
 import greenTestimonialImage from "images/agents/testimonials/person-green.png"
 import purpleTestimonialImage from "images/agents/testimonials/person-purple.png"
 import UniversalImage from "library/UniversalImage"
-import { fresponsive } from "library/fullyResponsive"
+import { fmobile, fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
@@ -27,18 +27,18 @@ export default function Card({
 	}
 	return (
 		<Wrapper gradient={gradient}>
-			<Content>{cardData?.quote?.quote}</Content>
+			<Quote>{cardData?.quote?.quote}</Quote>
 			<Person>
-				<Left>
-					<Name>{cardData?.name}</Name>
-					<Position>{cardData?.positionAndCompany}</Position>
-				</Left>
 				{cardData?.headshot?.gatsbyImageData && (
 					<StyledImage
 						image={cardData?.headshot.gatsbyImageData}
 						alt={cardData?.name ?? ""}
 					/>
 				)}
+				<Left>
+					<Name>{cardData?.name}</Name>
+					<Position>{cardData?.positionAndCompany}</Position>
+				</Left>
 			</Person>
 		</Wrapper>
 	)
@@ -56,9 +56,16 @@ const Wrapper = styled.div<{ gradient: string }>`
     width: 744px;
     height: 474px;
   `)}
+
+  ${fmobile(css`
+    width: 314px;
+    height: 660px;
+    padding: 42px 28.5px 36px 36px;
+    gap: 59px;
+  `)}
 `
 
-const Content = styled.p`
+const Quote = styled.p`
   overflow: hidden;
   ${textStyles.sh1};
   text-overflow: ellipsis;
@@ -68,6 +75,12 @@ const Content = styled.p`
 
   ${fresponsive(css`
     width: 640px;
+    padding-right: 32px;
+  `)}
+
+  ${fmobile(css`
+    width: 249px;
+    ${textStyles.sh2};
   `)}
 `
 
@@ -78,6 +91,12 @@ const Person = styled.div`
   p {
     color: ${colors.white};
   }
+
+  ${fmobile(css`
+    flex-direction: column;
+    gap: 12px;
+    width: 195px;
+  `)}
 `
 
 const Left = styled.div`
@@ -93,6 +112,10 @@ const Name = styled.p`
   display: flex;
   align-items: flex-start;
   ${textStyles.h5};
+
+  ${fmobile(css`
+    ${textStyles.sh1};
+  `)}
 `
 
 const Position = styled.p`
@@ -100,8 +123,15 @@ const Position = styled.p`
 `
 
 const StyledImage = styled(UniversalImage)`
+  display: flex;
+
   ${fresponsive(css`
     width: 77px;
     height: 77px;
+    order: 1;
+  `)}
+
+  ${fmobile(css`
+    order: 0;
   `)}
 `

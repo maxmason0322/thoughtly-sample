@@ -1,7 +1,7 @@
 import gsap from "gsap"
 import { ScrollToPlugin } from "gsap/all"
 import { ReactComponent as ArrowSVG } from "images/global/icons/Chev.svg"
-import { fresponsive, ftablet } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useMedia from "library/useMedia"
 import { useResponsivePixels } from "library/viewportUtils"
 import { useCallback, useEffect, useRef, useState } from "react"
@@ -161,13 +161,19 @@ const Wrapper = styled.div`
   position: relative;
 
   ${fresponsive(css`
+		height: 835px;
     padding: 103px 0 154px;
     gap: 36px;
   `)}
 
 	${ftablet(css`
+		height: 862px;
 		padding: 136px 0;
 		gap: 48px;
+	`)}
+
+	${fmobile(css`
+		height: 970px;
 	`)}
 `
 
@@ -178,6 +184,10 @@ const Carousel = styled.div`
   ${fresponsive(css`
     height: 474px;
   `)}
+
+	${fmobile(css`
+		height: 660px;
+	`)}
 `
 
 const TrackWrapper = styled.div`
