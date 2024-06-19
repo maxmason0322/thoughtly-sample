@@ -1,12 +1,9 @@
-import blueTestimonialImage from "images/agents/testimonials/person-blue.png"
-import greenTestimonialImage from "images/agents/testimonials/person-green.png"
-import purpleTestimonialImage from "images/agents/testimonials/person-purple.png"
-import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
-import colors, { gradients } from "styles/colors"
+import colors from "styles/colors"
 import textStyles from "styles/text"
 import type { Testimonial } from "types/aliases"
+import Headshot from "./Headshot"
 
 export default function Card({
 	gradient,
@@ -15,26 +12,11 @@ export default function Card({
 	gradient: string
 	cardData: Testimonial
 }) {
-	const getImage = (gradient: string) => {
-		switch (gradient) {
-			case gradients.greenGreen:
-				return greenTestimonialImage
-			case gradients.blueBlue:
-				return blueTestimonialImage
-			case gradients.purplePurple:
-				return purpleTestimonialImage
-		}
-	}
 	return (
 		<Wrapper gradient={gradient}>
 			<Quote>{cardData?.quote?.quote}</Quote>
 			<Person>
-				{cardData?.headshot?.gatsbyImageData && (
-					<StyledImage
-						image={cardData?.headshot.gatsbyImageData}
-						alt={cardData?.name ?? ""}
-					/>
-				)}
+				<Headshot cardData={cardData} gradient={gradient} />
 				<Left>
 					<Name>{cardData?.name}</Name>
 					<Position>{cardData?.positionAndCompany}</Position>
@@ -120,18 +102,4 @@ const Name = styled.p`
 
 const Position = styled.p`
   ${textStyles.t2};
-`
-
-const StyledImage = styled(UniversalImage)`
-  display: flex;
-
-  ${fresponsive(css`
-    width: 77px;
-    height: 77px;
-    order: 1;
-  `)}
-
-  ${fmobile(css`
-    order: 0;
-  `)}
 `

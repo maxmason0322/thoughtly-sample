@@ -17,7 +17,9 @@ export default function AgentAccelerator({
 			<AgentsOverview />
 			<AgentsHowItWorks />
 			<AgentsAdvantages />
-			{testimonials?.length && <Testimonials testimonials={testimonials} />}
+			{testimonials && testimonials.length > 0 && (
+				<Testimonials testimonials={testimonials} />
+			)}
 			<CallToAction />
 		</>
 	)

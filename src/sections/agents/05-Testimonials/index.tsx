@@ -12,31 +12,67 @@ import Card from "./Card"
 
 gsap.registerPlugin(ScrollToPlugin)
 
-const gradientPicker = () => {
-	const value = Math.floor(Math.random() * 3)
-	switch (value) {
-		case 0:
-			return gradients.greenGreen
-		case 1:
-			return gradients.blueBlue
-		case 2:
-			return gradients.purplePurple
-	}
-}
-
 export default function Testimonials({
 	testimonials,
 }: { testimonials: readonly Testimonial[] }) {
 	const activeIndex = useRef(0)
 
+	const prevGradient = useRef<string>("")
+
+	const gradientChoices = {
+		green: gradients.greenGreen,
+		blue: gradients.blueBlue,
+		purple: gradients.purplePurple,
+	}
+
+	/**
+	 * Use for more randomized card colors
+	 */
+	const gradientSwitcher = (gradient1: string, gradient2: string) => {
+		const value = Math.floor(Math.random() * 2)
+		switch (value) {
+			case 0:
+				prevGradient.current = gradient1
+				return gradientChoices[gradient1 as keyof typeof gradientChoices]
+			case 1:
+				prevGradient.current = gradient2
+				return gradientChoices[gradient2 as keyof typeof gradientChoices]
+		}
+	}
+
+	const gradientPicker = () => {
+		if (prevGradient.current === "") {
+			prevGradient.current = "green"
+			return gradients.greenGreen
+		}
+		if (prevGradient.current === "green") {
+			// return gradientSwitcher("blue", "purple")
+			prevGradient.current = "blue"
+			return gradients.blueBlue
+		}
+		if (prevGradient.current === "blue") {
+			// return gradientSwitcher("green", "purple")
+			prevGradient.current = "purple"
+			return gradients.purplePurple
+		}
+		if (prevGradient.current === "purple") {
+			// return gradientSwitcher("green", "blue")
+			prevGradient.current = "green"
+			return gradients.greenGreen
+		}
+	}
+
 	const cards = testimonials.map((item) => {
 		return (
-			<Card key={item?.name} cardData={item} gradient={gradients.greenGreen} />
+			<Card
+				key={item?.name}
+				cardData={item}
+				gradient={gradientPicker() ?? ""}
+			/>
 		)
 	})
 
 	const [singleTestimonial, setSingleTestimonial] = useState(cards.length === 1)
-
 	const trackWrapperRef = useRef<HTMLDivElement | null>(null)
 	const trackRef = useRef<HTMLDivElement | null>(null)
 	const cardWidth = useResponsivePixels(useMedia(744, 744, 744, 314))
@@ -75,8 +111,6 @@ export default function Testimonials({
 
 		const index = (scrollLeft - scrollOffset) / (cardWidth + cardGap)
 		const actualIndex = Math.round(index)
-		console.log("actual index", actualIndex)
-		console.log("index", index)
 
 		activeIndex.current = actualIndex
 		if (activeIndex.current >= cardsLength) {
@@ -94,7 +128,6 @@ export default function Testimonials({
 		} else {
 			activeIndex.current += 1
 		}
-		console.log(activeIndex.current)
 		animate()
 	}
 
@@ -104,7 +137,6 @@ export default function Testimonials({
 		} else {
 			activeIndex.current -= 1
 		}
-		console.log(activeIndex.current)
 		animate()
 	}
 
@@ -125,19 +157,13 @@ export default function Testimonials({
 								{cards.length % 2 === 0 ? (
 									<Card
 										key={"emptyCard"}
-										gradient={gradients.greenGreen}
+										gradient={gradientPicker() ?? ""}
 										cardData={null}
 									/>
 								) : null}
 							</>
 						)}
 					</Track>
-					{/* {!singleTestimonial && (
-						<>
-							<Track className="track">{cards}</Track>
-							<Track className="track">{cards}</Track>
-						</>
-					)} */}
 				</TrackWrapper>
 			</Carousel>
 			{!singleTestimonial && (
@@ -161,19 +187,13 @@ const Wrapper = styled.div`
   position: relative;
 
   ${fresponsive(css`
-		height: 835px;
     padding: 103px 0 154px;
     gap: 36px;
   `)}
 
 	${ftablet(css`
-		height: 862px;
 		padding: 136px 0;
 		gap: 48px;
-	`)}
-
-	${fmobile(css`
-		height: 970px;
 	`)}
 `
 
@@ -202,10 +222,6 @@ const TrackWrapper = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
-
-  ${fresponsive(css`
-		gap: 24px;
-  `)}
 `
 
 const Track = styled.div`
@@ -218,6 +234,10 @@ const Track = styled.div`
   ${fresponsive(css`
     gap: 24px;
   `)}
+
+	${fmobile(css`
+		gap: 12px;
+	`)}
 `
 
 const Buttons = styled.div`
