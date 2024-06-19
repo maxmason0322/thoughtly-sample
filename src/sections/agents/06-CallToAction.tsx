@@ -1,8 +1,11 @@
 import Primary from "components/Buttons/Primary"
+import { sectionScale } from "components/Footer"
 import Kicker from "components/Kicker"
 import { graphql, useStaticQuery } from "gatsby"
 import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
+import useAnimation from "library/useAnimation"
+import { useRef } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
@@ -29,38 +32,52 @@ export default function CallToAction() {
 		}
 	`)
 
+	const wrapperRef = useRef<HTMLDivElement | null>(null)
+	useAnimation(() => {
+		sectionScale(wrapperRef.current)
+	}, [])
+
 	return (
-		<Wrapper>
-			<Graphic>
-				<Agent image={imageQuery.agent} alt="Sanjay" />
-				<MainImage
-					image={imageQuery.callImage}
-					alt="Man on a phone, retro style"
-				/>
-				<Details
-					image={imageQuery.interface}
-					alt="Product Screenshot, shows today's overview: 76 calls completed, 71 demos booked, 18 extra calls made"
-				/>
-			</Graphic>
-			<Copy>
-				<KickerWithRandomPadding>Focus on what Matters</KickerWithRandomPadding>
-				<Title>Ready to Accelerate Your AI Agent?</Title>
-				<Description>
-					Join the many businesses already benefitting from our Agent
-					Accelerator Program
-				</Description>
-				<Buttons>
-					<Primary to={links.todo} outline icon="chev">
-						Talk to Sales
-					</Primary>
-					<Primary to={links.todo} variant="secondary" icon="calendar">
-						Book a Demo
-					</Primary>
-				</Buttons>
-			</Copy>
-		</Wrapper>
+		<Background ref={wrapperRef}>
+			<Wrapper>
+				<Graphic>
+					<Agent image={imageQuery.agent} alt="Sanjay" />
+					<MainImage
+						image={imageQuery.callImage}
+						alt="Man on a phone, retro style"
+					/>
+					<Details
+						image={imageQuery.interface}
+						alt="Product Screenshot, shows today's overview: 76 calls completed, 71 demos booked, 18 extra calls made"
+					/>
+				</Graphic>
+				<Copy>
+					<KickerWithRandomPadding>
+						Focus on what Matters
+					</KickerWithRandomPadding>
+					<Title>Ready to Accelerate Your AI Agent?</Title>
+					<Description>
+						Join the many businesses already benefitting from our Agent
+						Accelerator Program
+					</Description>
+					<Buttons>
+						<Primary to={links.todo} outline icon="chev">
+							Talk to Sales
+						</Primary>
+						<Primary to={links.todo} variant="secondary" icon="calendar">
+							Book a Demo
+						</Primary>
+					</Buttons>
+				</Copy>
+			</Wrapper>
+		</Background>
 	)
 }
+
+const Background = styled.section`
+	background: ${colors.beige200};
+	min-height: 100vh;
+`
 
 const KickerWithRandomPadding = styled(Kicker)`
 	${fresponsive(css`
@@ -124,9 +141,7 @@ const Agent = styled(UniversalImage)`
 		top: -19px;
 		left: -40px;
 		width: 228px;
-		box-shadow:
-			0 -1px 6px 0 rgb(38 38 38 / 6%) inset,
-			0 18px 32px 0 rgb(89 89 89 / 4%);
+		filter: drop-shadow(0 18px 32px rgb(89 89 89 / 4%));
 	`)}
 
 	${ftablet(css`
