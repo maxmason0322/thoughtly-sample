@@ -20,7 +20,7 @@ const socials = {
 } as const
 
 const links = {
-	todo: "https://www.google.com",
+	sales: "https://google.com?q=We still need this link! Where does it go?",
 	careers: "https://jobs.ashbyhq.com/thoughtly",
 	login: "https://app.thought.ly",
 	helpCenter: "https://help.thought.ly/en/",

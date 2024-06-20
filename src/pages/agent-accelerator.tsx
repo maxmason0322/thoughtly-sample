@@ -65,7 +65,7 @@ export const pageQuery = graphql`
 				}
 				positionAndCompany
 			}
-			metaTitle,
+			metaTitle
 			metaDescription {
 				metaDescription
 			}

@@ -14,7 +14,9 @@ gsap.registerPlugin(ScrollToPlugin)
 
 export default function Testimonials({
 	testimonials,
-}: { testimonials: readonly Testimonial[] }) {
+}: {
+	testimonials: readonly Testimonial[]
+}) {
 	const activeIndex = useRef(0)
 
 	const prevGradient = useRef<string>("")
@@ -181,15 +183,15 @@ export default function Testimonials({
 }
 
 const Wrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	position: relative;
 
-  ${fresponsive(css`
-    padding: 103px 0 154px;
-    gap: 36px;
-  `)}
+	${fresponsive(css`
+		padding: 103px 0 154px;
+		gap: 36px;
+	`)}
 
 	${ftablet(css`
 		padding: 136px 0;
@@ -198,12 +200,12 @@ const Wrapper = styled.div`
 `
 
 const Carousel = styled.div`
-  overflow: hidden;
-  position: relative;
+	overflow: hidden;
+	position: relative;
 
-  ${fresponsive(css`
-    height: 474px;
-  `)}
+	${fresponsive(css`
+		height: 474px;
+	`)}
 
 	${fmobile(css`
 		height: 660px;
@@ -211,29 +213,29 @@ const Carousel = styled.div`
 `
 
 const TrackWrapper = styled.div`
-  position: absolute;
+	position: absolute;
 	display: flex;
-  width: 100%;
-  top: 0;
-  left: 0;
+	width: 100%;
+	top: 0;
+	left: 0;
 	overflow-x: scroll;
 	scrollbar-width: none;
 
-  ::-webkit-scrollbar {
-    display: none;
-  }
+	::-webkit-scrollbar {
+		display: none;
+	}
 `
 
 const Track = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  height: 100%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: fit-content;
+	height: 100%;
 
-  ${fresponsive(css`
-    gap: 24px;
-  `)}
+	${fresponsive(css`
+		gap: 24px;
+	`)}
 
 	${fmobile(css`
 		gap: 12px;
@@ -241,44 +243,44 @@ const Track = styled.div`
 `
 
 const Buttons = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 
-  ${fresponsive(css`
-    gap: 24px;
-  `)}
+	${fresponsive(css`
+		gap: 24px;
+	`)}
 `
 
 const Button = styled.button`
-  cursor: pointer;
-  border: 1.5px solid ${colors.gray200};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: ${colors.white};
+	cursor: pointer;
+	border: 1.5px solid ${colors.gray200};
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: ${colors.white};
 
-  ${fresponsive(css`
-    width: 68px;
-    height: 68px;
-    padding: 18px;
-    border-radius: 76px;
-    box-shadow: 0 5px 12px 0 rgba(49 75 45 / 4%);
-    transition: all 150ms linear;
+	${fresponsive(css`
+		width: 68px;
+		height: 68px;
+		padding: 18px;
+		border-radius: 76px;
+		box-shadow: 0 5px 12px 0 rgba(49 75 45 / 4%);
+		transition: all 150ms linear;
 
-    svg {
-      width: 31.5px;
-      height: 31.5px;
-    }
+		svg {
+			width: 31.5px;
+			height: 31.5px;
+		}
 
-    &:first-of-type {
-      svg {
-        transform: rotate(180deg);
-      }
-    }
-  `)}
+		&:first-of-type {
+			svg {
+				transform: rotate(180deg);
+			}
+		}
+	`)}
 
-  &:hover {
-    background: ${colors.gray100};
-  }
+	&:hover {
+		background: ${colors.gray100};
+	}
 `
