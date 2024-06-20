@@ -2,7 +2,9 @@ import { BEAT_ONE_DURATION, BEAT_TWO_DURATION } from "components/Preloader"
 import Seo from "components/Seo"
 import { type HeadProps, type PageProps, graphql } from "gatsby"
 import gsap from "gsap"
+import { useClientOnly } from "library/ClientOnly"
 import { usePreloader } from "library/Loader/PreloaderUtils"
+import { isBrowser } from "library/deviceDetection"
 import { useRef } from "react"
 import AgentsHero from "sections/agents/01-Hero"
 import AgentsOverview from "sections/agents/02-Overview"
@@ -34,6 +36,13 @@ export default function AgentAccelerator({
 		},
 	})
 
+	const first = testimonials?.at(0) ?? null
+	const temp =
+		isBrowser && window.location.search.includes("debug")
+			? testimonials
+			: [first]
+	const withFallback = useClientOnly(temp, [first]) ?? [first]
+
 	return (
 		<>
 			<Background>
@@ -44,7 +53,7 @@ export default function AgentAccelerator({
 				<AgentsHowItWorks />
 				<AgentsAdvantages />
 				{testimonials && testimonials.length > 0 && (
-					<Testimonials testimonials={testimonials} />
+					<Testimonials testimonials={withFallback} />
 				)}
 			</Background>
 			<CallToAction />
@@ -65,7 +74,7 @@ export const pageQuery = graphql`
 				}
 				positionAndCompany
 			}
-			metaTitle,
+			metaTitle
 			metaDescription {
 				metaDescription
 			}
