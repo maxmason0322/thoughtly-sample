@@ -189,7 +189,7 @@ const Wrapper = styled.div`
 	position: relative;
 
 	${fresponsive(css`
-		padding: 103px 0 154px;
+		padding: 215px 0 0;
 		gap: 36px;
 	`)}
 
