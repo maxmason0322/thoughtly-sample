@@ -424,6 +424,7 @@ const CopyOne = styled(Copy)`
 	${fresponsive(css`
 		width: 258px;
 		height: 44px;
+		margin-left: 5px;
 	`)}
 
 	${fmobile(css`
@@ -435,6 +436,7 @@ const CopyTwo = styled(Copy)`
 	${fresponsive(css`
 		width: 346px;
 		height: 22px;
+		margin-left: 5px;
 	`)}
 
 	${fmobile(css`
@@ -446,6 +448,7 @@ const CopyThree = styled(Copy)`
 	${fresponsive(css`
 		width: 271px;
 		height: 44px;
+		margin-left: 5px;
 	`)}
 
 	${fmobile(css`
@@ -456,6 +459,7 @@ const CopyFour = styled(Copy)`
 	${fresponsive(css`
 		width: 316px;
 		height: 44px;
+		margin-left: 5px;
 	`)}
 
 	${fmobile(css`
@@ -467,6 +471,7 @@ const CopyFive = styled(Copy)`
 	${fresponsive(css`
 		width: 382px;
 		height: 88px;
+		margin-left: 5px;
 	`)}
 
 	${fmobile(css`
@@ -579,6 +584,7 @@ const UpperOne = styled(UniversalImage)`
 	${fresponsive(css`
 		width: 215px;
 		height: 60px;
+		margin-left: 3px;
 	`)}
 
 	${fmobile(css`
@@ -606,6 +612,7 @@ const UpperTwo = styled(UniversalImage)`
 	${fresponsive(css`
 		width: 170.6px;
 		height: 57px;
+		margin-left: 3px;
 	`)}
 
 	${fmobile(css`
@@ -636,7 +643,7 @@ const UpperThree = styled(UniversalImage)`
 	${fresponsive(css`
 		width: 130px;
 		height: 59px;
-		margin-left: 4px;
+		margin-left: 3px;
 	`)}
 
 	${fmobile(css`
@@ -661,7 +668,7 @@ const UpperFour = styled(UniversalImage)`
 	${fresponsive(css`
 		width: 156px;
 		height: 57px;
-		margin-left: -1px;
+		margin-left: 3px;
 	`)}
 
 	${fmobile(css`
@@ -686,6 +693,7 @@ const UpperFive = styled(UniversalImage)`
 	${fresponsive(css`
 		width: 166.6px;
 		height: 96px;
+		margin-left: 3px;
 	`)}
 
 	${fmobile(css`
