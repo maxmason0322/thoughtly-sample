@@ -55,10 +55,7 @@ export default function AgentsHero() {
 					price.
 				</Subtitle>
 				<Buttons>
-					<Primary to={links.sales} outline icon="chev">
-						Talk to Sales
-					</Primary>
-					<Primary to={links.bookDemo} variant="secondary" icon="calendar">
+					<Primary to={links.bookDemo} outline icon="chev">
 						Book a Demo
 					</Primary>
 				</Buttons>
