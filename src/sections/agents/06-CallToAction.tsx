@@ -105,7 +105,7 @@ const Wrapper = styled.div`
 	${fmobile(css`
 		flex-direction: column-reverse;
 		text-align: center;
-		padding: 41px 24px 54px;
+		padding: 112px 24px 54px;
 		gap: 60px;
 	`)}
 `
