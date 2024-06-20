@@ -158,7 +158,16 @@ const TopRow = styled.div`
 const Title = styled.div`
 	${textStyles.h3}
 
+	${fresponsive(css`
+		margin-top: -20px;
+	`)}
+
+	${ftablet(css`
+		margin-top: unset;
+	`)}
+
 	${fmobile(css`
+		margin-top: unset;
 		${textStyles.h5}
 	`)}
 `
