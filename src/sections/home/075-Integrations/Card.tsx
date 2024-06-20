@@ -3,7 +3,7 @@ import UniversalImage, { type UniversalImageData } from "library/UniversalImage"
 import { fmobile, fresponsive } from "library/fullyResponsive"
 import type { ReactNode } from "react"
 import styled, { css } from "styled-components"
-import colors from "styles/colors"
+import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
 
 export default function Card({
@@ -31,6 +31,7 @@ const Wrapper = styled.div`
 	flex-direction: column;
 
 	${fresponsive(css`
+		background: ${gradients.surface1};
 		padding: 24px;
 		border-radius: 18px;
 		border: 1.5px solid ${colors.gray400};
