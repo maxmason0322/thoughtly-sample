@@ -142,14 +142,12 @@ const TopRow = styled.div`
 
 	${ftablet(css`
 		grid-template-columns: 1fr;
-		gap: 48px;
 		padding: 110px 0 48px;
 		margin: 0 48px;
 	`)}
 
 	${fmobile(css`
 		grid-template-columns: 1fr;
-		gap: 24px;
 		padding: 88px 0 68px;
 		margin: 0 22px;
 	`)}
@@ -171,6 +169,11 @@ const Details = styled.div`
 
 	${fresponsive(css`
 		gap: 24px;
+	`)}
+
+	${ftablet(css`
+		${textStyles.bodyL}
+		width: 480px;
 	`)}
 `
 
