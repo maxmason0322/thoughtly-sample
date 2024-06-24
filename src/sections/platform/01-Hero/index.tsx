@@ -1,97 +1,149 @@
 import Primary from "components/Buttons/Primary"
+import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { ReactComponent as ProductSVG } from "images/platform/Product.svg"
-import { ReactComponent as Widget1SVG } from "images/platform/Widget1.svg"
-import { ReactComponent as Widget2SVG } from "images/platform/Widget2.svg"
-import { ReactComponent as Widget3SVG } from "images/platform/Widget3.svg"
+import { ReactComponent as ProductSVG } from "images/platform/hero/Product.svg"
+import { usePinType } from "library/Scroll"
 import { fresponsive } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
-import { useRef } from "react"
 import styled, { css } from "styled-components"
 import { gradients } from "styles/colors"
+import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
 import links from "utils/links"
+import Card from "./Card"
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function PlatformHero() {
-	const productRef = useRef(null)
+	const pinType = usePinType()
+
+	const imageQuery = useStaticQuery(graphql`
+		query HeroCardsQuery {
+			widget1: file(relativePath:  {
+				 eq: "platform/hero/Widget1.png"
+			}) {
+				childImageSharp {
+					gatsbyImageData
+				}
+			}
+			widget2: file(relativePath:  {
+				 eq: "platform/hero/Widget2.png"
+			}) {
+				childImageSharp {
+					gatsbyImageData
+				}
+			}
+			widget3: file(relativePath:  {
+				eq: "platform/hero/Widget3.png"
+			}) {
+				childImageSharp {
+					gatsbyImageData
+				}
+			}
+		}
+	`)
 
 	useAnimation(() => {
-		gsap.to(`${Product.toString()}`, {
+		const tl = gsap.timeline({
 			scrollTrigger: {
-				trigger: Product.toString(),
-				start: "top top+=200",
+				trigger: ImagesWrapper.toString(),
+				start: "top top",
 				pin: true,
-				scrub: 0.5,
+				pinType,
 				anticipatePin: 1,
+				scrub: 1,
 			},
-			x: -1100,
-			scale: 0.8,
 		})
 
-		gsap.to(`${Copy.toString()}`, {
-			scrollTrigger: {
-				trigger: Copy.toString(),
-				start: "top top+=200",
-				scrub: true,
-			},
-			y: -250,
-		})
-
-		gsap.to(
-			`${Widget1.toString()}, ${Widget2.toString()}, ${Widget3.toString()}`,
+		tl.to(
+			`${Product.toString()}`,
 			{
-				scrollTrigger: {
-					trigger: Widget1.toString(),
-					start: "top top+=70",
-					pin: true,
-					scrub: 1,
-					anticipatePin: 1,
-				},
-				x: -1840,
+				xPercent: -64,
+				yPercent: -30,
+				scale: 0.8,
 			},
+			0,
 		)
-	}, [])
+
+		tl.to(
+			`${Widget1.toString()}, ${Widget2.toString()}`,
+			{
+				xPercent: -800,
+				yPercent: -45,
+			},
+			0,
+		)
+
+		tl.to(
+			`${Widget3.toString()}`,
+			{
+				xPercent: -875,
+				yPercent: -75,
+			},
+			0,
+		)
+
+		tl.to(
+			`${Copy.toString()}`,
+			{
+				yPercent: -500,
+			},
+			0,
+		)
+	}, [pinType])
 
 	return (
 		<Wrapper>
-			<Copy>
-				<Title>
-					The AI Agent <Green>Platform</Green> that does it all.
-				</Title>
-				<Buttons>
-					<Primary to={links.todo} icon="chev" outline>
-						Talk to Sales
-					</Primary>
-					<Primary to={links.todo} icon="calendar" variant="secondary" outline>
-						Book a Demo
-					</Primary>
-				</Buttons>
-			</Copy>
-			<Product>
-				<ProductSVG />
-			</Product>
-			<Widget1>
-				<Widget1SVG />
-			</Widget1>
-			<Widget2>
-				<Widget2SVG />
-			</Widget2>
-			<Widget3>
-				<Widget3SVG />
-			</Widget3>
+			<Inner>
+				<Copy>
+					<Title>
+						The AI Agent <Green>Platform</Green> that does it all.
+					</Title>
+					<Buttons>
+						<Primary to={links.todo} icon="chev" outline>
+							Talk to Sales
+						</Primary>
+						<Primary
+							to={links.todo}
+							icon="calendar"
+							variant="secondary"
+							outline
+						>
+							Book a Demo
+						</Primary>
+					</Buttons>
+				</Copy>
+				<ImagesWrapper>
+					<Product>
+						<ProductSVG />
+					</Product>
+					<Widget1>
+						<Card image={imageQuery.widget1} />
+					</Widget1>
+					<Widget2>
+						<Card image={imageQuery.widget2} />
+					</Widget2>
+					<Widget3>
+						<Card image={imageQuery.widget3} />
+					</Widget3>
+				</ImagesWrapper>
+			</Inner>
 		</Wrapper>
 	)
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
 	width: 100%;
+	position: relative;
+	display: grid;
+	place-items: center;
+`
 
-	${fresponsive(css`
-		height: 2222px;
-	`)}
+const Inner = styled.div`
+	width: 100%;
+	max-width: ${desktopBreakpoint}px;
+	position: relative;
 `
 
 const Copy = styled.div`
@@ -105,6 +157,10 @@ const Copy = styled.div`
 		top: 230px;
 		left: 156px;
 	`)}
+`
+
+const ImagesWrapper = styled.div`
+	height: 100vh;
 `
 
 const Title = styled.p`
@@ -143,32 +199,27 @@ const Product = styled.div`
 const Widget = styled.div`
 	position: absolute;
 	z-index: 2;
-
-	${fresponsive(css`
-		width: 216px;
-    height: 264px;
-	`)}
 `
 
 const Widget1 = styled(Widget)`
 	z-index: 0;
 
 	${fresponsive(css`
-		left: 864px;
-		top: 142px;
+		left: 876px;
+		top: 122px;
 	`)}
 `
 
 const Widget2 = styled(Widget)`
 	${fresponsive(css`
-		left: 756px;
-		top: 541px;
+		left: 732px;
+		top: 549px;
 	`)}
 `
 
 const Widget3 = styled(Widget)`
 	${fresponsive(css`
-		left: 1316px;
-		top: 913px;
+		right: -96px;
+		top: 853px;
 	`)}
 `
