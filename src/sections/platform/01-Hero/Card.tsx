@@ -30,8 +30,10 @@ const Wrapper = styled.div`
 `
 
 const Image = styled(UniversalImage)`
+  width: 100%;
+  height: 100%;
+  
   ${fresponsive(css`
     border-radius: 8px;
-    max-height: 234px;
   `)}
 `

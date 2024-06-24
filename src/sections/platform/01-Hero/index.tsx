@@ -2,8 +2,8 @@ import Primary from "components/Buttons/Primary"
 import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { ReactComponent as ProductSVG } from "images/platform/hero/Product.svg"
 import { usePinType } from "library/Scroll"
+import UniversalImage from "library/UniversalImage"
 import { fresponsive } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import styled, { css } from "styled-components"
@@ -36,6 +36,13 @@ export default function PlatformHero() {
 			}
 			widget3: file(relativePath:  {
 				eq: "platform/hero/Widget3.png"
+			}) {
+				childImageSharp {
+					gatsbyImageData
+				}
+			}
+			product: file(relativePath:  {
+				 eq: "platform/hero/Product.png"
 			}) {
 				childImageSharp {
 					gatsbyImageData
@@ -115,9 +122,7 @@ export default function PlatformHero() {
 					</Buttons>
 				</Copy>
 				<ImagesWrapper>
-					<Product>
-						<ProductSVG />
-					</Product>
+					<Product image={imageQuery.product} alt="product" />
 					<Widget1>
 						<Card image={imageQuery.widget1} />
 					</Widget1>
@@ -186,9 +191,11 @@ const Buttons = styled.div`
 	`)}
 `
 
-const Product = styled.div`
+const Product = styled(UniversalImage)`
 	position: relative;
   z-index: 1;
+	width: 100%;
+	height: auto;
 
   ${fresponsive(css`
     left: 924px;
