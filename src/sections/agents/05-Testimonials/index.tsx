@@ -18,29 +18,7 @@ export default function Testimonials({
 	testimonials: readonly Testimonial[]
 }) {
 	const activeIndex = useRef(0)
-
 	const prevGradient = useRef<string>("")
-
-	const gradientChoices = {
-		green: gradients.greenGreen,
-		blue: gradients.blueBlue,
-		purple: gradients.purplePurple,
-	}
-
-	/**
-	 * Use for more randomized card colors
-	 */
-	const gradientSwitcher = (gradient1: string, gradient2: string) => {
-		const value = Math.floor(Math.random() * 2)
-		switch (value) {
-			case 0:
-				prevGradient.current = gradient1
-				return gradientChoices[gradient1 as keyof typeof gradientChoices]
-			case 1:
-				prevGradient.current = gradient2
-				return gradientChoices[gradient2 as keyof typeof gradientChoices]
-		}
-	}
 
 	const gradientPicker = () => {
 		if (prevGradient.current === "") {
@@ -48,17 +26,14 @@ export default function Testimonials({
 			return gradients.greenGreen
 		}
 		if (prevGradient.current === "green") {
-			// return gradientSwitcher("blue", "purple")
 			prevGradient.current = "blue"
 			return gradients.blueBlue
 		}
 		if (prevGradient.current === "blue") {
-			// return gradientSwitcher("green", "purple")
 			prevGradient.current = "purple"
 			return gradients.purplePurple
 		}
 		if (prevGradient.current === "purple") {
-			// return gradientSwitcher("green", "blue")
 			prevGradient.current = "green"
 			return gradients.greenGreen
 		}
