@@ -25,7 +25,7 @@ const data = [
 		icon: <CostSVG />,
 		title: "Cost-Efficient",
 		description:
-			"Enjoy premium service without the premium price tag. Setup and customization are included at no extra cost—just meet the call volume minimum.",
+			"Enjoy premium service without the premium price tag. Set up and configuration are completed by our experts - just hit the call minimum.",
 	},
 	{
 		icon: <HeartSVG />,

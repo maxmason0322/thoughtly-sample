@@ -5,6 +5,10 @@ import { gradients } from "styles/colors"
 import type { Testimonial } from "types/aliases"
 import { generateGradientBorder } from "utils/generateGradientBorder"
 
+/**
+ * If names and head shots are added back to the testimonial cards, uncomment lines 39-44 and remove line 45!
+ */
+
 const gradientChoices = {
 	green: "linear-gradient(-200deg, #32CB08 -2.03%, #B2FD9D 110.71%)",
 	purple: "linear-gradient(-210deg, #7031BC -1.03%, #B39CF4 120.71%)",
@@ -32,12 +36,13 @@ export default function Headshot({
 }) {
 	return (
 		<Wrapper gradient={gradient}>
-			{cardData?.headshot?.gatsbyImageData && (
+			{/* {cardData?.headshot?.gatsbyImageData && (
 				<StyledImage
 					image={cardData?.headshot.gatsbyImageData}
 					alt={cardData?.name ?? ""}
 				/>
-			)}
+			)} */}
+			Placeholder
 		</Wrapper>
 	)
 }
