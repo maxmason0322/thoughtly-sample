@@ -20,6 +20,7 @@ export default function Integrations() {
 		query Integrations {
 			allHomeIntegrationsJson {
 				nodes {
+					id
 					logo {
 						childImageSharp {
 							gatsbyImageData
@@ -39,9 +40,24 @@ export default function Integrations() {
 		return arr.slice(0, Math.ceil(arr.length / 2))
 	}
 
-	const cards = data.allHomeIntegrationsJson.nodes.map((item) => {
+	const cards = [
+		...data.allHomeIntegrationsJson.nodes,
+		...data.allHomeIntegrationsJson.nodes,
+		...data.allHomeIntegrationsJson.nodes,
+	].map((item, index, arr) => {
+		let key = ""
+		const threshold = arr.length / 3
+
+		if (index + 1 > threshold * 2) {
+			key = item.id + item.id + item.id
+		} else if (index + 1 > threshold) {
+			key = item.id + item.id
+		} else {
+			key = item.id
+		}
+
 		return (
-			<Card key={item?.text ?? ""} logo={item.logo} tag={item.tag}>
+			<Card key={key} logo={item.logo} tag={item.tag}>
 				{item.text}
 			</Card>
 		)

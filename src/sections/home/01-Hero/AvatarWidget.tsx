@@ -35,7 +35,7 @@ export default function AvatarWidget({
 		() =>
 			[...images.avatars.nodes, ...images.avatars.nodes].map(
 				(item, index, arr) => {
-					const key = index > arr.length / 2 ? item.id + item.id : item.id
+					const key = index + 1 > arr.length / 2 ? item.id + item.id : item.id
 
 					return (
 						<Avatar
