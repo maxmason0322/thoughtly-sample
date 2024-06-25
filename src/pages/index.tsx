@@ -29,18 +29,18 @@ export default function IndexPage() {
 	return (
 		<>
 			<Hero />
-			<CustomSuspense>
-				<SocialProof />
-				<Industry />
-				<Statement />
-				<Features />
-				<CallCTA />
-				<WidgetsAndVideo />
-				<Workflows />
-				<Integrations />
-				<Pricing />
-				<FinalCTA />
-			</CustomSuspense>
+			{/* <CustomSuspense> */}
+			<SocialProof />
+			<Industry />
+			<Statement />
+			<Features />
+			<CallCTA />
+			<WidgetsAndVideo />
+			<Workflows />
+			<Integrations />
+			<Pricing />
+			<FinalCTA />
+			{/* </CustomSuspense> */}
 		</>
 	)
 }
