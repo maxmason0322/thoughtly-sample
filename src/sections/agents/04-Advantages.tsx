@@ -189,6 +189,10 @@ const Buttons = styled.div`
 		display: flex;
 		gap: 12px;
 	`)}
+
+	${fmobile(css`
+		justify-content: center;
+	`)}
 `
 
 const Cards = styled.div`
