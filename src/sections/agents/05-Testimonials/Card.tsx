@@ -1,12 +1,12 @@
 import { fmobile, fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
-import textStyles from "styles/text"
+import textStyles, { clampText } from "styles/text"
 import type { Testimonial } from "types/aliases"
 // import Headshot from "./Headshot"
 
 /**
- * If names and head shots are added back to the testimonial cards, uncomment lines 6, 23, and 25!
+ * If names and head shots are added back to the testimonial cards, uncomment lines 6, 23, and 25, and remove line 37!
  */
 
 export default function Card({
@@ -34,6 +34,7 @@ const Wrapper = styled.div<{ gradient: string }>`
 	display: flex;
 	flex-direction: column;
 	background: ${(props) => props.gradient};
+	justify-content: space-between;
 
 	${fresponsive(css`
 		gap: 80px;
@@ -52,12 +53,10 @@ const Wrapper = styled.div<{ gradient: string }>`
 `
 
 const Quote = styled.p`
-	overflow: hidden;
 	${textStyles.sh1};
-	text-overflow: ellipsis;
 	color: ${colors.white};
 	align-self: stretch;
-	height: 100%;
+	${clampText(7)};
 
 	${fresponsive(css`
 		width: 640px;
@@ -67,6 +66,7 @@ const Quote = styled.p`
 	${fmobile(css`
 		width: 249px;
 		${textStyles.sh2};
+		${clampText(16)};
 	`)}
 `
 
