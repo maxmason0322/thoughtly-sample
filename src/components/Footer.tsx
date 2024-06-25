@@ -336,6 +336,10 @@ const Bottom = styled.div`
 		gap: 36px;
 	`)}
 
+	${ftablet(css`
+		gap: 35px;
+	`)}
+
 	${fmobile(css`
 		padding-bottom: 32px;
 	`)}
@@ -346,15 +350,16 @@ const BottomTop = styled.div`
 	display: flex;
 	align-items: flex-end;
 	justify-content: space-between;
-	border-bottom: 1.5px solid ${colors.gray400};
+	border-bottom: 2px solid ${colors.gray400};
 
 	${fresponsive(css`
-		padding-bottom: 24px;
+		padding-bottom: 22px;
 	`)}
 
 	${fmobile(css`
-		border-top: 1.5px solid ${colors.gray400};
+		border-top: 2px solid ${colors.gray400};
 		padding-top: 21px;
+		translate: 0 2px;
 	`)}
 `
 

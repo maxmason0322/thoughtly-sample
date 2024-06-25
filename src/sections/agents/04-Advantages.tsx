@@ -81,10 +81,7 @@ export default function AgentsAdvantages() {
 					their customer service with AI. Our Program is your ticket to a highly
 					effective customer support operation.
 					<Buttons>
-						<Primary to={links.todo} outline icon="chev">
-							Talk to Sales
-						</Primary>
-						<Primary to={links.todo} variant="secondary" icon="calendar">
+						<Primary to={links.bookDemo} outline icon="chev">
 							Book a Demo
 						</Primary>
 					</Buttons>
@@ -156,7 +153,16 @@ const TopRow = styled.div`
 const Title = styled.div`
 	${textStyles.h3}
 
+	${fresponsive(css`
+		margin-top: -20px;
+	`)}
+
+	${ftablet(css`
+		margin-top: unset;
+	`)}
+
 	${fmobile(css`
+		margin-top: unset;
 		${textStyles.h5}
 	`)}
 `

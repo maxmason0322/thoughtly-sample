@@ -54,10 +54,7 @@ export default function AgentsHero() {
 					ensuring premium quality without the premium price.
 				</Subtitle>
 				<Buttons>
-					<Primary to={links.todo} outline icon="chev">
-						Talk to Sales
-					</Primary>
-					<Primary to={links.todo} variant="secondary" icon="calendar">
+					<Primary to={links.bookDemo} outline icon="chev">
 						Book a Demo
 					</Primary>
 				</Buttons>

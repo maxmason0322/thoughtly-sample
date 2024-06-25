@@ -61,10 +61,7 @@ export default function CallToAction() {
 						Accelerator Program
 					</Description>
 					<Buttons>
-						<Primary to={links.todo} outline icon="chev">
-							Talk to Sales
-						</Primary>
-						<Primary to={links.todo} variant="secondary" icon="calendar">
+						<Primary to={links.bookDemo} outline icon="chev">
 							Book a Demo
 						</Primary>
 					</Buttons>
@@ -105,7 +102,7 @@ const Wrapper = styled.div`
 	${fmobile(css`
 		flex-direction: column-reverse;
 		text-align: center;
-		padding: 41px 24px 54px;
+		padding: 112px 24px 54px;
 		gap: 60px;
 	`)}
 `

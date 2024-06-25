@@ -150,6 +150,9 @@ export default function Header() {
 	loader.useEventListener("routeChange", () => {
 		setMenuOpen(false)
 	})
+	loader.useEventListener("scroll", () => {
+		setMenuOpen(false)
+	})
 
 	return (
 		<Wrapper>
