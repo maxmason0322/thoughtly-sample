@@ -61,7 +61,6 @@ export const wrapPageElement = ({ element }: { element: React.ReactNode }) => {
 // which allows the animation to remain more or less smooth during the render
 export const replaceHydrateFunction = process.env.NETLIFY // don't replace in dev, it will always fail
 	? () => {
-			console.log("should be happening")
 			return (element: ReactNode, rootElement: Element) => {
 				try {
 					startTransition(() => {
