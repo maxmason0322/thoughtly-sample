@@ -13,6 +13,10 @@ import CallToAction from "sections/agents/06-CallToAction"
 import styled from "styled-components"
 import colors from "styles/colors"
 
+/**
+ * If names and head shots are added back to the testimonial cards, uncomment lines 63-66!
+ */
+
 export default function AgentAccelerator({
 	data: { contentfulPageAgentsAccelerator },
 }: PageProps<Queries.AgentsQuery>) {
@@ -56,10 +60,10 @@ export const pageQuery = graphql`
 	query Agents {
 		contentfulPageAgentsAccelerator {
 			testimonials {
-				headshot {
-					gatsbyImageData
-				}
-				name
+				# headshot {
+				# 	gatsbyImageData
+				# }
+				# name
 				quote {
 					quote
 				}

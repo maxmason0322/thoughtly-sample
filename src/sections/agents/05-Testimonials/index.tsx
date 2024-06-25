@@ -12,6 +12,10 @@ import Card from "./Card"
 
 gsap.registerPlugin(ScrollToPlugin)
 
+/**
+ * If names and head shots are added back to the testimonial cards, uncomment line 72 and remove line 73!
+ */
+
 export default function Testimonials({
 	testimonials,
 }: { testimonials: readonly Testimonial[] }) {
@@ -65,7 +69,8 @@ export default function Testimonials({
 	const cards = testimonials.map((item) => {
 		return (
 			<Card
-				key={item?.name}
+				// key={item?.name}
+				key={item?.positionAndCompany}
 				cardData={item}
 				gradient={gradientPicker() ?? ""}
 			/>
@@ -201,6 +206,15 @@ const Carousel = styled.div`
   overflow: hidden;
   position: relative;
 
+	/* Hide scrollbar for IE, Edge, and Firefox */
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+
+	/* Hide scrollbar for Chrome, Safari, and Opera */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
   ${fresponsive(css`
     height: 474px;
   `)}
@@ -217,11 +231,6 @@ const TrackWrapper = styled.div`
   top: 0;
   left: 0;
 	overflow-x: scroll;
-	scrollbar-width: none;
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
 `
 
 const Track = styled.div`

@@ -3,7 +3,11 @@ import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
 import type { Testimonial } from "types/aliases"
-import Headshot from "./Headshot"
+// import Headshot from "./Headshot"
+
+/**
+ * If names and head shots are added back to the testimonial cards, uncomment lines 6, 23, and 25!
+ */
 
 export default function Card({
 	gradient,
@@ -16,9 +20,9 @@ export default function Card({
 		<Wrapper gradient={gradient}>
 			<Quote>{cardData?.quote?.quote}</Quote>
 			<Person>
-				<Headshot cardData={cardData} gradient={gradient} />
+				{/* <Headshot cardData={cardData} gradient={gradient} /> */}
 				<Left>
-					<Name>{cardData?.name}</Name>
+					{/* <Name>{cardData?.name}</Name> */}
 					<Position>{cardData?.positionAndCompany}</Position>
 				</Left>
 			</Person>
