@@ -46,7 +46,7 @@ const Wrapper = styled.div<{ gradient: string }>`
 
 	${fmobile(css`
 		width: 314px;
-		height: 660px;
+		height: 530px;
 		padding: 42px 28.5px 36px 36px;
 		gap: 59px;
 	`)}
