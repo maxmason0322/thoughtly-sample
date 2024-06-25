@@ -69,6 +69,7 @@ export const pageQuery = graphql`
 	query Agents {
 		contentfulPageAgentsAccelerator {
 			testimonials {
+				id
 				# headshot {
 				# 	gatsbyImageData
 				# }
