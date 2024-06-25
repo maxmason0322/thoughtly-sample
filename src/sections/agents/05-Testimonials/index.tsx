@@ -12,10 +12,6 @@ import Card from "./Card"
 
 gsap.registerPlugin(ScrollToPlugin)
 
-/**
- * If names and head shots are added back to the testimonial cards, uncomment line 72 and remove line 73!
- */
-
 export default function Testimonials({
 	testimonials,
 }: {
@@ -70,12 +66,7 @@ export default function Testimonials({
 
 	const cards = testimonials.map((item) => {
 		return (
-			<Card
-				// key={item?.name}
-				key={item?.positionAndCompany}
-				cardData={item}
-				gradient={gradientPicker() ?? ""}
-			/>
+			<Card key={item?.id} cardData={item} gradient={gradientPicker() ?? ""} />
 		)
 	})
 
