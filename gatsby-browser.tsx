@@ -7,6 +7,8 @@ import { RootProviders, RouteProviders } from "components/Providers"
 import gsap from "gsap"
 import { ScrollSmoother } from "gsap/ScrollSmoother"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { type ReactNode, startTransition } from "react"
+import { createRoot, hydrateRoot } from "react-dom/client"
 
 /**
  * global plugin registration. be sure to also register plugins in gatsby-ssr.ts so that they are available during SSR
@@ -57,23 +59,23 @@ export const wrapPageElement = ({ element }: { element: React.ReactNode }) => {
 // by default, gatsby will render the app in one pass. this is typically ideal, but in our case it will freeze the preloader.
 // using startTransition will signal to React that it should yield to the main thread,
 // which allows the animation to remain more or less smooth during the render
-// export const replaceHydrateFunction =
-// 	process.env.NETLIFY || process.env.VERCEL // don't replace in dev, it will always fail
-// 		? () => {
-// 				return (element: ReactNode, rootElement: Element) => {
-// 					try {
-// 						startTransition(() => {
-// 							hydrateRoot(rootElement, element, {
-// 								onRecoverableError: console.error,
-// 							})
-// 						})
-// 					} catch (error) {
-// 						console.error(error)
-// 						createRoot(rootElement).render(element)
-// 					}
-// 				}
-// 			}
-// 		: null
+export const replaceHydrateFunction =
+	process.env.NETLIFY || process.env.VERCEL // don't replace in dev, it will always fail
+		? () => {
+				return (element: ReactNode, rootElement: Element) => {
+					try {
+						startTransition(() => {
+							hydrateRoot(rootElement, element, {
+								onRecoverableError: console.error,
+							})
+						})
+					} catch (error) {
+						console.error(error)
+						createRoot(rootElement).render(element)
+					}
+				}
+			}
+		: null
 
 // disable GSAP's null target warning
 gsap.config({
