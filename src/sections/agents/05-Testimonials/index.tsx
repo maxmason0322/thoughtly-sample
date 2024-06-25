@@ -18,7 +18,6 @@ export default function Testimonials({
 	testimonials: readonly Testimonial[]
 }) {
 	const activeIndex = useRef(0)
-
 	const prevGradient = useRef<string>("")
 
 	const gradientPicker = () => {
