@@ -29,7 +29,7 @@ export default function IndexPage() {
 	return (
 		<>
 			<Hero />
-			<CustomSuspense>
+			{/* <CustomSuspense>
 				<SocialProof />
 				<Industry />
 				<Statement />
@@ -40,7 +40,7 @@ export default function IndexPage() {
 				<Integrations />
 				<Pricing />
 				<FinalCTA />
-			</CustomSuspense>
+			</CustomSuspense> */}
 		</>
 	)
 }

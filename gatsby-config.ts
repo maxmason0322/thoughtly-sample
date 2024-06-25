@@ -5,6 +5,9 @@ import adapter from "gatsby-adapter-netlify"
 dotEnvConfig()
 
 const config: GatsbyConfig = {
+	flags: {
+		DEV_SSR: true,
+	},
 	jsxRuntime: "automatic",
 	siteMetadata: {
 		/**
