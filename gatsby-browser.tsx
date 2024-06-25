@@ -59,22 +59,23 @@ export const wrapPageElement = ({ element }: { element: React.ReactNode }) => {
 // by default, gatsby will render the app in one pass. this is typically ideal, but in our case it will freeze the preloader.
 // using startTransition will signal to React that it should yield to the main thread,
 // which allows the animation to remain more or less smooth during the render
-export const replaceHydrateFunction = process.env.NETLIFY // don't replace in dev, it will always fail
-	? () => {
-			return (element: ReactNode, rootElement: Element) => {
-				try {
-					startTransition(() => {
-						hydrateRoot(rootElement, element, {
-							onRecoverableError: console.error,
+export const replaceHydrateFunction =
+	process.env.NETLIFY || process.env.VERCEL // don't replace in dev, it will always fail
+		? () => {
+				return (element: ReactNode, rootElement: Element) => {
+					try {
+						startTransition(() => {
+							hydrateRoot(rootElement, element, {
+								onRecoverableError: console.error,
+							})
 						})
-					})
-				} catch (error) {
-					console.error(error)
-					createRoot(rootElement).render(element)
+					} catch (error) {
+						console.error(error)
+						createRoot(rootElement).render(element)
+					}
 				}
 			}
-		}
-	: null
+		: null
 
 // disable GSAP's null target warning
 gsap.config({
