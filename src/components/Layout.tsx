@@ -27,7 +27,7 @@ export default function Layout({ children }: LayoutProps) {
 			<Transition />
 			<ScrollIndex>
 				<Header />
-				{/* <Main id="main">{children}</Main> */}
+				<Main id="main">{children}</Main>
 				<Footer position="static" />
 			</ScrollIndex>
 			<Footer position="fixed" />
