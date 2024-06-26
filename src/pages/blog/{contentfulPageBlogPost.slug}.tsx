@@ -312,6 +312,11 @@ export const query = graphql`
 					}
 				}
 			}
+			cta {
+				header
+				buttonLabel
+				buttonLink
+			}
 		}
 		# get the three most recent blog posts that are not the current post
 		allContentfulPageBlogPost(
