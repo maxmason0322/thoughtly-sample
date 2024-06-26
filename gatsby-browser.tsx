@@ -7,6 +7,9 @@ import { RootProviders, RouteProviders } from "components/Providers"
 import gsap from "gsap"
 import { ScrollSmoother } from "gsap/ScrollSmoother"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import type { ReactNode } from "react"
+import { startTransition } from "react"
+import { createRoot, hydrateRoot } from "react-dom/client"
 
 /**
  * global plugin registration. be sure to also register plugins in gatsby-ssr.ts so that they are available during SSR
