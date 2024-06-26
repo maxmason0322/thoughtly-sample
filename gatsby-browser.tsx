@@ -65,6 +65,7 @@ export const replaceHydrateFunction = process.env.NETLIFY // don't replace in de
 			return (element: ReactNode, rootElement: Element) => {
 				try {
 					startTransition(() => {
+						console.log("starting hydrateRoot")
 						hydrateRoot(rootElement, element, {
 							onRecoverableError: console.error,
 						})
