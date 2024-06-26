@@ -92,7 +92,6 @@ export default function Preloader() {
 				delay: BEAT_ONE_DURATION,
 				ease: "power3.inOut",
 				onComplete: () => {
-					console.log("done loading at top")
 					gsap.set(wrapperRef.current, { display: "none" })
 				},
 			})
@@ -110,7 +109,6 @@ export default function Preloader() {
 				delay: BEAT_ONE_DURATION,
 				ease: "power3.inOut",
 				onComplete: () => {
-					console.log("done loading")
 					gsap.set(wrapperRef.current, { display: "none" })
 				},
 			})
