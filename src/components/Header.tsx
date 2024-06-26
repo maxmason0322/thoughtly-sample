@@ -237,7 +237,7 @@ export default function Header() {
 								<Title
 									to={`/blog/${
 										data.contentfulPageBlogHub?.featuredBlogPost?.slug ?? ""
-									}`}
+									}/`}
 								>
 									{data.contentfulPageBlogHub?.featuredBlogPost?.title}
 									<Icon name="chev" />

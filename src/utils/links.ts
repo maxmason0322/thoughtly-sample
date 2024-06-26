@@ -1,9 +1,9 @@
 const routes = {
 	home: "/",
-	terms: "/terms",
-	privacy: "/privacy",
-	blog: "/blog",
-	agentAccelerator: "/agent-accelerator",
+	terms: "/terms/",
+	privacy: "/privacy/",
+	blog: "/blog/",
+	agentAccelerator: "/agent-accelerator/",
 } as const
 
 const sections = {
