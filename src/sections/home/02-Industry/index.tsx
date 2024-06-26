@@ -572,6 +572,7 @@ export default function Industry() {
 						<Buttons>{tabs}</Buttons>
 					</DesktopTabletOnly>
 				</Top>
+
 				<Bottom>
 					<Left>
 						<Assertiveness>
@@ -618,6 +619,7 @@ export default function Industry() {
 								</AutoAnimate>
 							</NameWrapper>
 						</Agent>
+
 						<ImageWrapper>
 							<AutoAnimate
 								duration={1.25}
@@ -642,6 +644,7 @@ export default function Industry() {
 								/>
 							</AutoAnimate>
 						</ImageWrapper>
+
 						<TabletOnly>
 							<TabletWidgetWrapper>
 								<AutoAnimate>
@@ -656,6 +659,7 @@ export default function Industry() {
 								</AutoAnimate>
 							</TabletWidgetWrapper>
 						</TabletOnly>
+
 						{(fullWidth || desktop || mobile) && (
 							<LogosWrapper>
 								<FilesInner>
@@ -699,6 +703,7 @@ export default function Industry() {
 						</DesktopWidgetsWrapper>
 					</Right>
 				</Bottom>
+
 				<MobileOnly>
 					<Buttons>{tabs}</Buttons>
 				</MobileOnly>
@@ -762,7 +767,7 @@ const Inner = styled.div`
 
   ${fmobile(css`
 		height: auto;
-		padding: 85px 29px 100px;
+		padding: 85px 27px 100px;
 		gap: 30px;
 	`)}
 `
@@ -861,8 +866,13 @@ const Bottom = styled.div`
 	`)}
 
   ${fmobile(css`
+		border-radius: 18px;
+		background: ${colors.beige300};
+		border: 1.5px solid #D8D8D8;
 		flex-direction: column;
 		gap: 100px;
+		padding: 28px;
+		padding-top: 42px;
 	`)}
 `
 
@@ -871,9 +881,14 @@ const Left = styled.div`
 	flex-direction: column;
 	align-items: flex-end;
 	position: relative;
+	width: 100%;
 
 	${fresponsive(css`
 		gap: 24px;
+	`)}
+
+	${fmobile(css`
+		align-items: center;
 	`)}
 `
 
@@ -893,8 +908,8 @@ const Image = styled.img`
 	`)}
 
   ${fmobile(css`
-		width: 314px;
-		height: 278px;
+		width: 224px;
+		height: 224px;
 	`)}
 `
 
@@ -930,10 +945,11 @@ const Assertiveness = styled(Card)`
 	`)}
 
   ${fmobile(css`
-		right: -23px;
-		bottom: -80px;
+		right: -36px;
+		bottom: -110px;
 		left: unset;
 		top: unset;
+		scale: 0.71;
 	`)}
 `
 
@@ -961,8 +977,9 @@ const Agent = styled(Card)`
   ${fmobile(css`
 		position: absolute;
 		top: -29px;
-		left: -13px;
+		left: -40px;
 		z-index: 2;
+		scale: 0.71;
 	`)}
 `
 
@@ -1078,7 +1095,8 @@ const TextContent = styled.div`
 	`)}
 
   ${fmobile(css`
-		padding-left: 0;
+		padding-left: 12px;
+		width: 262px;
 	`)}
 `
 
@@ -1090,6 +1108,10 @@ const SubTitle = styled.h1`
 
 	${fresponsive(css`
 		width: 200px;
+	`)}
+
+	${fmobile(css`
+		${textStyles.sh2};
 	`)}
 `
 
@@ -1111,8 +1133,8 @@ const Text = styled.div`
 
   ${fmobile(css`
 		${textStyles.bodyS}
-		width: 315px;
-		height: 150px;
+		width: 250px;
+		height: 169px;
 	`)}
 `
 
@@ -1217,7 +1239,7 @@ const ImageWrapper = styled.div`
 	`)}
 
 	${fmobile(css`
-		height: 278px;
+		height: 198px;
 	`)}
 `
 
