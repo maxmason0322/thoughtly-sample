@@ -40,6 +40,7 @@
 		"gifs",
 		"gsap",
 		"gtag",
+		"Headshot",
 		"hubspot",
 		"Kcnc",
 		"kkuk",
@@ -64,8 +65,10 @@
 		"Tweens",
 		"Typegen",
 		"UCITA",
+		"unitless",
 		"webp",
 		"Whyte",
+		"XSVG",
 		"yoyo"
 	],
 	"cSpell.ignorePaths": [

@@ -75,8 +75,6 @@ export default function InfiniteSideScroll({
 			<ConstantMarquee timing={250} reversed={!!reversed}>
 				<TrackInner ref={(ref) => setTrackInnerEl(ref)} $gap={trackGap}>
 					{children}
-					{children}
-					{children}
 				</TrackInner>
 			</ConstantMarquee>
 			<Gradient />

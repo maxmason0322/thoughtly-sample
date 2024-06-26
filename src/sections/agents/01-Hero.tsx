@@ -50,15 +50,11 @@ export default function AgentsHero() {
 				</Kicker>
 				<Title>From Setup to Success, without Lifting a Finger.</Title>
 				<Subtitle>
-					Get expert, full-service setup and customization of your AI agent at
-					no additional cost, ensuring premium quality without the premium
-					price.
+					Get expert, full-service setup and customization of your AI agent,
+					ensuring premium quality without the premium price.
 				</Subtitle>
 				<Buttons>
-					<Primary to={links.todo} outline icon="chev">
-						Talk to Sales
-					</Primary>
-					<Primary to={links.todo} variant="secondary" icon="calendar">
+					<Primary to={links.bookDemo} outline icon="chev">
 						Book a Demo
 					</Primary>
 				</Buttons>

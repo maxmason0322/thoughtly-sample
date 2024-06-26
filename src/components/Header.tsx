@@ -136,6 +136,7 @@ export default function Header() {
 
 	usePreloader({
 		duration: 0,
+		critical: true,
 		callback: () => {
 			gsap.to(innerRef.current, {
 				y: 0,
@@ -147,6 +148,9 @@ export default function Header() {
 	})
 
 	loader.useEventListener("routeChange", () => {
+		setMenuOpen(false)
+	})
+	loader.useEventListener("scroll", () => {
 		setMenuOpen(false)
 	})
 
@@ -233,7 +237,7 @@ export default function Header() {
 								<Title
 									to={`/blog/${
 										data.contentfulPageBlogHub?.featuredBlogPost?.slug ?? ""
-									}`}
+									}/`}
 								>
 									{data.contentfulPageBlogHub?.featuredBlogPost?.title}
 									<Icon name="chev" />

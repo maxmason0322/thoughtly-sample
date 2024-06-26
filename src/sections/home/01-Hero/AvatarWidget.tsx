@@ -35,13 +35,15 @@ export default function AvatarWidget({
 		() =>
 			[...images.avatars.nodes, ...images.avatars.nodes].map(
 				(item, index, arr) => {
+					const key = index + 1 > arr.length / 2 ? item.id + item.id : item.id
+
 					return (
 						<Avatar
 							$zIndex={arr.length - index}
 							className="avatar"
 							objectFit="cover"
 							image={item}
-							key={item.id + Math.random()}
+							key={key}
 							alt="avatar"
 						/>
 					)
