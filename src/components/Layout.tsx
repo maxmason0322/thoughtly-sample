@@ -1,5 +1,3 @@
-import Header from "components/Header"
-import Transition from "components/Transition"
 import { useBackButton } from "library/Loader/TransitionUtils"
 import Scroll from "library/Scroll"
 import { useTrackPageReady } from "library/pageReady"
@@ -27,14 +25,14 @@ export default function Layout({ children }: LayoutProps) {
 	return (
 		<>
 			<Preloader />
-			<GlobalStyle />
+			{/* <GlobalStyle />
 			<Transition />
 			<ScrollIndex>
 				<Header />
 				<Main id="main">{children}</Main>
 				<Footer position="static" />
-			</ScrollIndex>
-			<Footer position="fixed" />
+			</ScrollIndex> */}
+			{/* <Footer position="fixed" /> */}
 		</>
 	)
 }
