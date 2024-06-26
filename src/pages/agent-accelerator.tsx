@@ -6,6 +6,12 @@ import { useClientOnly } from "library/ClientOnly"
 import { usePreloader } from "library/Loader/PreloaderUtils"
 import { isBrowser } from "library/deviceDetection"
 import { useRef } from "react"
+import AgentsHero from "sections/agents/01-Hero"
+import AgentsOverview from "sections/agents/02-Overview"
+import AgentsHowItWorks from "sections/agents/03-HowItWorks"
+import AgentsAdvantages from "sections/agents/04-Advantages"
+import Testimonials from "sections/agents/05-Testimonials"
+import CallToAction from "sections/agents/06-CallToAction"
 import styled from "styled-components"
 import colors from "styles/colors"
 
@@ -43,7 +49,7 @@ export default function AgentAccelerator({
 
 	return (
 		<>
-			{/* <Background>
+			<Background>
 				<div ref={wrapperRef}>
 					<AgentsHero />
 					<AgentsOverview />
@@ -54,7 +60,7 @@ export default function AgentAccelerator({
 					<Testimonials testimonials={withFallback} />
 				)}
 			</Background>
-			<CallToAction /> */}
+			<CallToAction />
 		</>
 	)
 }
