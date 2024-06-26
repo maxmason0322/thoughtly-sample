@@ -10,3 +10,6 @@ export type BlogPost = NonNullable<
 export type Author = NonNullable<
 	NonNullable<Queries.BlogPostQuery["contentfulPageBlogPost"]>["author"]
 >
+export type CallToAction = NonNullable<
+	NonNullable<Queries.BlogPostQuery["contentfulPageBlogPost"]>["cta"]
+>
