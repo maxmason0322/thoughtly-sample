@@ -4,7 +4,7 @@ import { useBackButton } from "library/Loader/TransitionUtils"
 import Scroll from "library/Scroll"
 import { useTrackPageReady } from "library/pageReady"
 import useTrackFrameTime from "library/useTrackFrameTime"
-import { lazy } from "react"
+import { lazy, useEffect } from "react"
 import styled, { createGlobalStyle, css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
@@ -19,6 +19,10 @@ export default function Layout({ children }: LayoutProps) {
 	useTrackPageReady()
 	useBackButton()
 	useTrackFrameTime()
+
+	useEffect(() => {
+		console.log("Layout component re-rendered")
+	})
 
 	return (
 		<>

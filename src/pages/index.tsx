@@ -35,7 +35,7 @@ export default function IndexPage() {
 				<Statement />
 				<Features />
 				<CallCTA />
-				{/* <WidgetsAndVideo /> */}
+				<WidgetsAndVideo />
 				<Workflows />
 				<Integrations />
 				<Pricing />
