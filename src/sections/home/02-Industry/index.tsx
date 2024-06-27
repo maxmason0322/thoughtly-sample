@@ -447,14 +447,11 @@ const data = [
 
 export default function Industry() {
 	const scrollUpdate = useRef(false)
+	const userHasScrolled = useRef(false)
 	const trackRef = useRef<HTMLDivElement>(null)
 	const [activeIndex, setActiveIndex] = useState(0)
 	const { tablet, fullWidth, desktop } = useContext(ScreenContext)
 	const cardWidth = getResponsivePixels(333)
-
-	const industryCards = data.map((item, index) => {
-		return <IndustryCard key={item.title} data={data} activeIndex={index} />
-	})
 
 	const cardTitles = data.map((item) => item.title)
 
@@ -498,6 +495,13 @@ export default function Industry() {
 			setActiveIndex(newIndex)
 			scrollUpdate.current = true
 		}
+
+		// if (indexUpdate.current) return
+		// const [firstChild] = trackRef.current.children
+
+		// if (firstChild && firstChild.getBoundingClientRect().left < 0)
+		// 	indexUpdate.current = true
+		if (activeIndex !== 0) userHasScrolled.current = true
 	}, [activeIndex, cardWidth])
 
 	/**
@@ -557,6 +561,74 @@ export default function Industry() {
 		},
 	)
 
+	useAnimation(() => {
+		if (tablet || fullWidth || desktop) return
+		if (!trackRef.current) return
+
+		/**
+		 * scale the cards when scrolling from left to right
+		 */
+		// const shared = { ease: "power3.inOut", scale: 0.9 }
+		// for (const child of trackRef.current.children) {
+		// 	gsap.from(child, {
+		// 		...shared,
+		// 		scrollTrigger: {
+		// 			trigger: child,
+		// 			start: "left right",
+		// 			end: "center center",
+		// 			scrub: true,
+		// 			scroller: trackRef.current,
+		// 			horizontal: true,
+		// 		},
+		// 	})
+		// 	gsap.fromTo(
+		// 		child,
+		// 		{ scale: 1 },
+		// 		{
+		// 			...shared,
+		// 			scrollTrigger: {
+		// 				trigger: child,
+		// 				start: "center center",
+		// 				end: "right left",
+		// 				scrub: true,
+		// 				scroller: trackRef.current,
+		// 				horizontal: true,
+		// 			},
+		// 		},
+		// 	)
+		// }
+
+		/**
+		 * bounce effect prompting the user to scroll
+		 */
+		const tl = gsap
+			.timeline({
+				scrollTrigger: {
+					trigger: trackRef.current,
+					start: "top center",
+				},
+				onComplete: () => {
+					if (activeIndex === 0) {
+						gsap.delayedCall(3, () => {
+							tl.restart(true)
+						})
+					}
+				},
+			})
+			.to(trackRef.current, {
+				xPercent: -2,
+				scale: 0.98,
+				ease: "power3.out",
+				duration: 0.3,
+			})
+			.to(trackRef.current, {
+				xPercent: 0,
+				scale: 1,
+				ease: "bounce.out",
+				duration: 0.6,
+			})
+	}, [tablet, fullWidth, desktop, activeIndex])
+
 	return (
 		<Wrapper id="industries">
 			<Inner>
@@ -573,7 +645,11 @@ export default function Industry() {
 				</DesktopTabletOnly>
 
 				<MobileOnly>
-					<Track ref={trackRef}>{industryCards}</Track>
+					<Track ref={trackRef}>
+						{data.map((item, index) => (
+							<IndustryCard key={item.title} data={data} activeIndex={index} />
+						))}
+					</Track>
 					<Pagination
 						keys={cardTitles}
 						activeIndex={activeIndex}
@@ -640,6 +716,8 @@ const Top = styled.div`
 		margin-bottom: 30px;
 	`)}
 `
+
+const Card = styled(IndustryCard)``
 
 const Title = styled.h2`
 	${textStyles.h4}

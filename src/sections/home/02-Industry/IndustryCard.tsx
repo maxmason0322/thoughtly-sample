@@ -106,7 +106,7 @@ export default function IndustryCard({
 	const { fullWidth, desktop, mobile } = useContext(ScreenContext)
 
 	return (
-		<Bottom>
+		<Bottom className="card">
 			<Left>
 				<Assertiveness>
 					<ProgressGroup
