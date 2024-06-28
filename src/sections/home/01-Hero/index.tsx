@@ -1,4 +1,4 @@
-import Button from "components/Buttons/Primary"
+import EmailInput from "components/EmailInput"
 import { BEAT_ONE_DURATION, BEAT_TWO_DURATION } from "components/Preloader"
 import Unmask from "components/Unmask"
 import gsap from "gsap"
@@ -16,7 +16,6 @@ import { Dots } from "styles/background"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
-import links from "utils/links"
 import Lines from "./Lines"
 import Widgets from "./Widgets"
 
@@ -209,19 +208,7 @@ export default function Hero() {
 						Thoughtly helps businesses build and deploy human-like AI voice
 						agents in just 17 minutes. Welcome to the future of calling.
 					</Text>
-					<Buttons>
-						<Button to={links.login} outline>
-							Build your own Thoughtly
-						</Button>
-						<Button
-							to={links.bookDemo}
-							variant="secondary"
-							icon="calendar"
-							openInNewTab
-						>
-							Book a Demo
-						</Button>
-					</Buttons>
+					<EmailInput />
 				</TextContent>
 				<Callout1>
 					<Unmask>
