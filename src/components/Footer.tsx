@@ -1,5 +1,4 @@
 import { useLocation } from "@reach/router"
-import Button from "components/Buttons/Primary"
 import gsap from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
 import { ReactComponent as LogoSVG } from "images/global/logo.svg"
@@ -16,6 +15,7 @@ import { desktopBreakpoint } from "styles/media"
 import textStyles from "styles/text"
 import links from "utils/links"
 import Link from "./Buttons/Link"
+import EmailInput from "./EmailInput"
 
 gsap.registerPlugin(ScrollToPlugin)
 
@@ -122,14 +122,7 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 								<StyledLink to={links.twitter}>X (Twitter)</StyledLink>
 							</Socials>
 						)}
-						<Buttons>
-							<Button to={links.login} outline>
-								Build your own Thoughtly
-							</Button>
-							<Button to={links.phone} variant="secondary" icon="phone">
-								Call Demo
-							</Button>
-						</Buttons>
+						<EmailInput />
 					</BottomTop>
 					<BottomBottom>
 						<Column>
@@ -357,7 +350,6 @@ const BottomTop = styled.div`
 	`)}
 
 	${fmobile(css`
-		border-top: 2px solid ${colors.gray400};
 		padding-top: 21px;
 		translate: 0 2px;
 	`)}
@@ -373,27 +365,6 @@ const Socials = styled.div`
 
 	${fmobile(css`
 		display: none;
-	`)}
-`
-
-const Buttons = styled.div`
-	display: flex;
-	align-items: center;
-
-	${fresponsive(css`
-		gap: 12px;
-	`)}
-
-	${ftablet(css`
-		flex-direction: column-reverse;
-		gap: 14px;
-		align-items: flex-end;
-	`)}
-
-  ${fmobile(css`
-		flex-direction: column-reverse;
-		align-items: flex-start;
-		gap: 22px;
 	`)}
 `
 

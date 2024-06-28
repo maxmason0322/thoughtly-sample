@@ -76,7 +76,7 @@ export default function Card({
 						</div>
 					</Info>
 					<StyledButton to={links.login} variant="secondary">
-						Get Started
+						Book a Demo
 					</StyledButton>
 				</Row>
 				<Price>
