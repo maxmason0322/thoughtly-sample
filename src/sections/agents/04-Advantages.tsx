@@ -1,12 +1,11 @@
-import Primary from "components/Buttons/Primary"
 import { graphql, useStaticQuery } from "gatsby"
 import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
-import links from "utils/links"
 
+import EmailInput from "components/EmailInput"
 import { ReactComponent as ChatSVG } from "images/agents/Chat.svg"
 import { ReactComponent as CostSVG } from "images/agents/Cost.svg"
 import { ReactComponent as HeartSVG } from "images/agents/Heart.svg"
@@ -80,12 +79,8 @@ export default function AgentsAdvantages() {
 					Join the ranks of forward-thinking companies who are revolutionizing
 					their customer service with AI. Our Program is your ticket to a highly
 					effective customer support operation.
-					<Buttons>
-						<Primary to={links.bookDemo} outline icon="chev">
-							Book a Demo
-						</Primary>
-					</Buttons>
 				</Details>
+				<EmailInput />
 			</TopRow>
 			<Cards>
 				<Background
@@ -123,7 +118,6 @@ const Wrapper = styled.div`
 	${fmobile(css`
 		max-width: 358px;
 		margin: 255px auto 0;
-		text-align: center;
 	`)}
 `
 
@@ -162,6 +156,7 @@ const Title = styled.div`
 	`)}
 
 	${fmobile(css`
+		text-align: center;
 		margin-top: unset;
 		${textStyles.h5}
 	`)}
@@ -181,17 +176,9 @@ const Details = styled.div`
 		${textStyles.bodyL}
 		width: 480px;
 	`)}
-`
-
-const Buttons = styled.div`
-	color: ${colors.black};
-	${fresponsive(css`
-		display: flex;
-		gap: 12px;
-	`)}
 
 	${fmobile(css`
-		justify-content: center;
+		text-align: center;
 	`)}
 `
 

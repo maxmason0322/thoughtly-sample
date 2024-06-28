@@ -1,4 +1,4 @@
-import Primary from "components/Buttons/Primary"
+import EmailInput from "components/EmailInput"
 import { sectionScale } from "components/Footer"
 import Kicker from "components/Kicker"
 import { graphql, useStaticQuery } from "gatsby"
@@ -9,7 +9,6 @@ import { useRef } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
-import links from "utils/links"
 
 export default function CallToAction() {
 	const imageQuery: Queries.AgentsActionQuery = useStaticQuery(graphql`
@@ -57,14 +56,10 @@ export default function CallToAction() {
 					</KickerWithRandomPadding>
 					<Title>Ready to Accelerate Your AI Agent?</Title>
 					<Description>
-						Join the many businesses already benefitting from our Agent
+						Join the many businesses already benefiting from our Agent
 						Accelerator Program
 					</Description>
-					<Buttons>
-						<Primary to={links.bookDemo} outline icon="chev">
-							Book a Demo
-						</Primary>
-					</Buttons>
+					<EmailInput />
 				</Copy>
 			</Wrapper>
 		</Background>
@@ -94,14 +89,12 @@ const Wrapper = styled.div`
 
 	${ftablet(css`
 		flex-direction: column-reverse;
-		text-align: center;
 		padding: 110px 68px;
 		gap: 60px;
 	`)}
 
 	${fmobile(css`
 		flex-direction: column-reverse;
-		text-align: center;
 		padding: 112px 24px 54px;
 		gap: 60px;
 	`)}
@@ -187,10 +180,14 @@ const Details = styled(UniversalImage)`
 
 const Title = styled.div`
 	${textStyles.h3};
+
 	${ftablet(css`
+		text-align: center;
 		width: 663px;
 	`)}
+
 	${fmobile(css`
+		text-align: center;
 		${textStyles.h6};
 	`)}
 `
@@ -202,18 +199,13 @@ const Description = styled.div`
 		max-width: 399px;
 		margin-left: 10px;
 	`)}
-`
 
-const Buttons = styled.div`
-	${fresponsive(css`
-		display: flex;
-		gap: 12px;
-		margin-top: 24px;
-		margin-left: 12px;
+	${ftablet(css`
+		text-align: center;
 	`)}
 
 	${fmobile(css`
-		margin-top: 6px;
+		text-align: center;
 	`)}
 `
 

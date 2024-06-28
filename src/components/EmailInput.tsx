@@ -155,6 +155,7 @@ const Row = styled.div`
 `
 
 const Submit = styled(Primary)`
+  color: ${colors.black};
 	position: absolute;
 	z-index: 2;
 
