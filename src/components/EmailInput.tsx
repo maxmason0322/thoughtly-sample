@@ -1,6 +1,7 @@
 import * as Form from "@radix-ui/react-form"
 import gsap from "gsap"
 import { ScreenContext } from "library/ScreenContext"
+import useCanHover from "library/canHover"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import { useContext, useRef, useState } from "react"
@@ -13,7 +14,7 @@ const endpoint = "api.thought.ly/public/email?email="
 
 const sendEmail = async (email: string) => {
 	const response = await fetch(
-		`https://api.thought.ly/public/email?email=${encodeURIComponent(email)}`,
+		`https://${endpoint}${encodeURIComponent(email)}`,
 	)
 	console.log(response)
 
@@ -32,6 +33,7 @@ export default function EmailInput() {
 		"idle",
 	)
 	const { mobile } = useContext(ScreenContext)
+	const canHover = useCanHover()
 
 	const handleFocus = () => {
 		setPlaceholder("your@email.com")
@@ -76,7 +78,7 @@ export default function EmailInput() {
 			}}
 		>
 			<Row>
-				<StyledBorder ref={borderRef} />
+				{canHover && <StyledBorder ref={borderRef} />}
 				<input type="hidden" name="oid" value="00DHp000004AeAU" />
 				<Field name="email">
 					<Input
@@ -123,10 +125,11 @@ const Wrapper = styled(Form.Root)`
 	`)}
 
   ${ftablet(css`
-    width: 465px;
+    width: 450px;
   `)}
 
 	${fmobile(css`
+    width: 322px;
 		margin-left: 0;
 		margin-right: 0;
 		gap: 22px;
@@ -188,6 +191,7 @@ const Input = styled(Form.Control)`
 
   ${ftablet(css`
     ${textStyles.sh2}
+    height: 63px;
   `)}
 
 	&::placeholder {
@@ -206,6 +210,6 @@ const Message = styled(Form.Message)`
 
 	${fresponsive(css`
 		margin-left: 16px;
-		margin-top: 80px;
+		margin-top: 88px;
 	`)}
 `

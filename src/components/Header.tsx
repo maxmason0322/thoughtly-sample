@@ -165,8 +165,8 @@ export default function Header() {
 								Sign In
 							</PrimaryButton>
 							{!tablet && (
-								<PrimaryButton icon="chev" to={links.login}>
-									Get Started
+								<PrimaryButton icon="calendar" to={links.login}>
+									Book a Demo
 								</PrimaryButton>
 							)}
 						</Buttons>
@@ -283,8 +283,8 @@ export default function Header() {
 							<PrimaryButton variant="secondary" to={links.login}>
 								Sign In
 							</PrimaryButton>
-							<PrimaryButton icon="chev" to={links.login}>
-								Get Started
+							<PrimaryButton icon="calendar" to={links.login}>
+								Book a Demo
 							</PrimaryButton>
 						</>
 					)}

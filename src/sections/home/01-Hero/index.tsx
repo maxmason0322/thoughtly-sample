@@ -356,22 +356,6 @@ const Text = styled.p`
 	`)}
 `
 
-const Buttons = styled.div`
-	display: flex;
-	align-items: center;
-
-	${fresponsive(css`
-		gap: 18px;
-		padding: 3px;
-		margin: -3px;
-	`)}
-
-	${fmobile(css`
-		flex-direction: column;
-		gap: 12px;
-	`)}
-`
-
 const Callout = styled.div`
 	display: flex;
 	flex-direction: column;

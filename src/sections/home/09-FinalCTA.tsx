@@ -1,4 +1,4 @@
-import Primary from "components/Buttons/Primary"
+import EmailInput from "components/EmailInput"
 import { sectionScale } from "components/Footer"
 import Kicker from "components/Kicker"
 import { graphql, useStaticQuery } from "gatsby"
@@ -20,7 +20,6 @@ import {
 } from "styles/media"
 import textStyles from "styles/text"
 import { generateGradientBorder } from "utils/generateGradientBorder"
-import links from "utils/links"
 
 export default function FinalCTA() {
 	const wrapperRef = useRef<HTMLElement | null>(null)
@@ -126,27 +125,15 @@ export default function FinalCTA() {
 			<Inner>
 				<Top>
 					<Left>
-						<Kicker>Scale with Ease</Kicker>
+						<Kicker>Focus on what Matters</Kicker>
 						<Header>Join the communication revolution.</Header>
 					</Left>
 					<Right>
-						<Row>
-							<Primary to={links.login} outline>
-								Build your own Thoughtly
-							</Primary>
-							<Primary
-								to={links.bookDemo}
-								variant="secondary"
-								icon="chev"
-								openInNewTab
-							>
-								Book a Demo
-							</Primary>
-						</Row>
 						<Content>
 							Slash your costs and transform your customer experience. The
 							generative AI revolution is here. Don't get left behind.
 						</Content>
+						<EmailInput />
 					</Right>
 				</Top>
 			</Inner>
@@ -194,7 +181,7 @@ const Inner = styled.div`
 	${fresponsive(css`
 		width: 1440px;
 		max-width: ${desktopBreakpoint}px;
-		padding: 79px 162px 77px 156px;
+		padding: 79px 162px 107px 156px;
 	`)}
 
 	${ftablet(css`
@@ -226,7 +213,7 @@ const Top = styled.div`
 
 
   ${fmobile(css`
-		gap: 36px;
+		gap: 24px;
 		flex-direction: column;
 	`)}
 `
@@ -268,44 +255,39 @@ const Right = styled.div`
 	flex-shrink: 0;
 
 	${fresponsive(css`
-		gap: 32px;
+		gap: 24px;
+		padding-bottom: 18px;
 	`)}
-	${fmobile(css`
+
+	${ftablet(css`
 		flex-direction: column-reverse;
-		align-items: center;
-	`)}
-`
-
-const Row = styled.div`
-	display: flex;
-	flex-direction: row;
-
-	${fresponsive(css`
-		gap: 20px;
+		gap: 32px;
+		padding-bottom: 0;
 	`)}
 
 	${fmobile(css`
-		flex-direction: column;
-		gap: 12px;
+		gap: 32px;
 		align-items: center;
 	`)}
 `
 
 const Content = styled.p`
 	${textStyles.bodyR}
+	color: ${colors.gray800};
 
 	${fresponsive(css`
 		width: 374px;
+		padding-left: 16px;
 	`)}
 
   ${ftablet(css`
-		width: 423px;
+		width: 435px;
 		${textStyles.bodyL};
 	`)}
 
 
   ${fmobile(css`
-		width: 273px;
+		width: 278px;
 		${textStyles.bodyR};
 		text-align: center;
 	`)}
