@@ -6,6 +6,7 @@ import HonkSVG from "images/global/logos/Honk.svg"
 import SelectQuoteSVG from "images/global/logos/SelectQuote.svg"
 import TastewiseSVG from "images/global/logos/Tastewise.svg"
 import ZillowSVG from "images/global/logos/Zillow.svg"
+import ConstantMarquee from "library/ConstantMarquee"
 import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
@@ -18,34 +19,36 @@ export default function SocialProof() {
 		<Wrapper>
 			<Inner>
 				<Kicker gradient>Trusted By</Kicker>
-				<Logos>
-					<Logo to={links.selectQuote}>
-						<img src={SelectQuoteSVG} alt="Select Quote Logo" />
-					</Logo>
-					<Logo to={links.enhanceHealth}>
-						<img src={EnhanceHealthSVG} alt="Enhance Health Logo" />
-					</Logo>
-
-					<Logo to={links.badenBower}>
-						<img src={BadenBowerSVG} alt="Baden Bower Logo" />
-					</Logo>
-					<Logo to={links.tastewise}>
-						<img src={TastewiseSVG} alt="Tastewise Logo" />
-					</Logo>
-					<Logo to={links.zillow}>
-						<img src={ZillowSVG} alt="Zillow Logo" />
-					</Logo>
-					<Logo to={links.cardAssociation}>
-						<img
-							src={CardMerchantServicesSVG}
-							alt="The Card Association Merchant Services Logo"
-						/>
-					</Logo>
-
-					<Logo to={links.honk}>
-						<img src={HonkSVG} alt="Honk Logo" />
-					</Logo>
-				</Logos>
+				<MarqueeWrapper>
+					<ConstantMarquee>
+						<Logos>
+							<Logo to={links.selectQuote}>
+								<img src={SelectQuoteSVG} alt="Select Quote Logo" />
+							</Logo>
+							<Logo to={links.enhanceHealth}>
+								<img src={EnhanceHealthSVG} alt="Enhance Health Logo" />
+							</Logo>
+							<Logo to={links.badenBower}>
+								<img src={BadenBowerSVG} alt="Baden Bower Logo" />
+							</Logo>
+							<Logo to={links.tastewise}>
+								<img src={TastewiseSVG} alt="Tastewise Logo" />
+							</Logo>
+							<Logo to={links.zillow}>
+								<img src={ZillowSVG} alt="Zillow Logo" />
+							</Logo>
+							<Logo to={links.cardAssociation}>
+								<img
+									src={CardMerchantServicesSVG}
+									alt="The Card Association Merchant Services Logo"
+								/>
+							</Logo>
+							<Logo to={links.honk}>
+								<img src={HonkSVG} alt="Honk Logo" />
+							</Logo>
+						</Logos>
+					</ConstantMarquee>
+				</MarqueeWrapper>
 				<Line />
 			</Inner>
 		</Wrapper>
@@ -80,12 +83,12 @@ const Inner = styled.div`
 const Logos = styled.div`
 	display: flex;
 	align-items: center;
-	flex-wrap: wrap;
 	justify-content: center;
 
 	${fresponsive(css`
-		gap: 36px 60px;
-		width: 745px;
+		gap: 60px;
+		width: fit-content;
+		padding-left: 60px;
 	`)}
 
 	${fmobile(css`
@@ -130,4 +133,12 @@ const Logo = styled(UniversalLink)`
 		width: 100%;
 		height: 100%;
 	}
+`
+
+const MarqueeWrapper = styled.div`
+	overflow: hidden;
+
+	${fresponsive(css`
+		width: 1128px;
+	`)}
 `
