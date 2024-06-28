@@ -11,7 +11,9 @@ import { ReactComponent as CostSVG } from "images/agents/Cost.svg"
 import { ReactComponent as HeartSVG } from "images/agents/Heart.svg"
 import { ReactComponent as PeopleSVG } from "images/agents/People.svg"
 import { ReactComponent as RocketSVG } from "images/agents/Rocket.svg"
+import { ScreenContext } from "library/ScreenContext"
 import useMedia from "library/useMedia"
+import { useContext } from "react"
 
 const data = [
 	{
@@ -47,6 +49,8 @@ const data = [
 ] as const
 
 export default function AgentsAdvantages() {
+	const { mobile } = useContext(ScreenContext)
+
 	const images: Queries.AgentsAdvantagesQuery = useStaticQuery(graphql`
 		query AgentsAdvantages {
 			desktop: file(relativePath: { eq: "agents/BenefitsBackground.png" }) {
@@ -79,8 +83,9 @@ export default function AgentsAdvantages() {
 					Join the ranks of forward-thinking companies who are revolutionizing
 					their customer service with AI. Our Program is your ticket to a highly
 					effective customer support operation.
+					{!mobile && <EmailInput />}
 				</Details>
-				<EmailInput />
+				{mobile && <EmailInput />}
 			</TopRow>
 			<Cards>
 				<Background
