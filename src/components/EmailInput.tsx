@@ -14,19 +14,19 @@ const endpoint = "api.thought.ly/public/email?email="
 
 export default function EmailInput() {
 	const borderRef = useRef<HTMLDivElement | null>(null)
-	const [isFocused, setIsfFocused] = useState(false)
+	const [isFocused, setIsFocused] = useState(false)
 	const [placeholder, setPlaceholder] = useState("What is your work email?")
 	const { mobile } = useContext(ScreenContext)
 	const canHover = useCanHover()
 
 	const handleFocus = () => {
 		setPlaceholder("your@email.com")
-		setIsfFocused(true)
+		setIsFocused(true)
 	}
 
 	const handleBlur = () => {
 		setPlaceholder("What is your work email?")
-		setIsfFocused(false)
+		setIsFocused(false)
 	}
 
 	useAnimation(() => {
