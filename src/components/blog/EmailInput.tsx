@@ -7,15 +7,15 @@ import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles, { trim } from "styles/text"
 
-const orgId = "00DHp000004AeAU"
-const endpoint = `https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=${orgId}`
+const endpoint = "api.thought.ly/public/email?email="
 
 const sendEmail = async (email: string) => {
 	const formData = new FormData()
 	formData.append("email", email)
-	formData.append("oid", orgId)
 
-	const response = await fetch(endpoint, {
+	const url = `http://${endpoint}${encodeURIComponent(email)}`
+
+	const response = await fetch(url, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -58,11 +58,10 @@ export default function EmailInput() {
 			{/* <Logo /> */}
 			<Title>
 				{state === "success"
-					? "Thanks for subscribing to thoughts by Thoughly!"
+					? "Thanks for subscribing to thoughts by Thoughtly!"
 					: "Get Thoughtly Stories right to your inbox."}
 			</Title>
 			<Row>
-				<input type="hidden" name="oid" value="00DHp000004AeAU" />
 				<Field name="email">
 					<Input placeholder="Your Email" type="email" required />
 					<Message match="valueMissing">Invalid Email</Message>

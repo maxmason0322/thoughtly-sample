@@ -125,7 +125,7 @@ export default function FinalCTA() {
 			<Inner>
 				<Top>
 					<Left>
-						<Kicker>Focus on what Matters</Kicker>
+						<Kicker>Scale with Ease</Kicker>
 						<Header>Join the communication revolution.</Header>
 					</Left>
 					<Right>

@@ -12,26 +12,10 @@ import Primary, { Border } from "./Buttons/Primary"
 
 const endpoint = "api.thought.ly/public/email?email="
 
-const sendEmail = async (email: string) => {
-	const response = await fetch(
-		`https://${endpoint}${encodeURIComponent(email)}`,
-	)
-	console.log(response)
-
-	if (!response.ok) {
-		throw new Error(
-			`Submission failed: ${response.status} ${response.statusText}`,
-		)
-	}
-}
-
 export default function EmailInput() {
 	const borderRef = useRef<HTMLDivElement | null>(null)
 	const [isFocused, setIsfFocused] = useState(false)
 	const [placeholder, setPlaceholder] = useState("What is your work email?")
-	const [state, setState] = useState<"idle" | "loading" | "success" | "error">(
-		"idle",
-	)
 	const { mobile } = useContext(ScreenContext)
 	const canHover = useCanHover()
 
@@ -59,27 +43,21 @@ export default function EmailInput() {
 		<Wrapper
 			onSubmit={(e) => {
 				e.preventDefault()
-				setState("success")
 
 				const formData = new FormData(e.currentTarget)
 				const email = formData.get("email")
 
+				const urlParams = new URLSearchParams(window.location.search)
+				const queryParams = urlParams.toString()
+
 				if (typeof email === "string") {
-					setState("loading")
-					sendEmail(email)
-						.then(() => {
-							return setState("success")
-						})
-						.catch((error) => {
-							setState("error")
-							console.error(error)
-						})
+					const url = `https://${endpoint}${encodeURIComponent(email)}&${queryParams}`
+					window.open(url, "_blank")
 				}
 			}}
 		>
 			<Row>
 				{canHover && <StyledBorder ref={borderRef} />}
-				<input type="hidden" name="oid" value="00DHp000004AeAU" />
 				<Field name="email">
 					<Input
 						placeholder={mobile ? "What is your email?" : placeholder}
@@ -91,12 +69,7 @@ export default function EmailInput() {
 					<Message match="valueMissing">Invalid Email</Message>
 					<Message match="typeMismatch">Invalid Email</Message>
 					<Message match={(v) => !/@.*\./.test(v)}>Invalid Email</Message>
-					<Submit
-						icon="chev"
-						ariaLabel="submit email"
-						type="submit"
-						openInNewTab
-					>
+					<Submit icon="chev" ariaLabel="submit email" type="submit">
 						Get Started
 					</Submit>
 				</Field>
@@ -137,7 +110,7 @@ const Wrapper = styled(Form.Root)`
 
   &:hover {
     ${Border} {
-			width: calc(100% + 12px);
+			width: calc(100% + 14px);
 			height: calc(100% + 12px);
 		}
   }
@@ -161,7 +134,7 @@ const Submit = styled(Primary)`
 
 	${fresponsive(css`
 		border-radius: 50%;
-		right: 2px;
+		right: 3px;
 		flex-shrink: 0;
 	`)}
 `
