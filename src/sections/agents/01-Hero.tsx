@@ -1,4 +1,4 @@
-import Primary from "components/Buttons/Primary"
+import EmailInput from "components/EmailInput"
 import Kicker from "components/Kicker"
 import { graphql, useStaticQuery } from "gatsby"
 import ScaledContent from "library/ScaledContent"
@@ -8,7 +8,6 @@ import useMedia from "library/useMedia"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
-import links from "utils/links"
 
 export default function AgentsHero() {
 	const imageQuery: Queries.AgentsHeroQuery = useStaticQuery(graphql`
@@ -53,11 +52,7 @@ export default function AgentsHero() {
 					Get expert, full-service setup and customization of your AI agent,
 					ensuring premium quality without the premium price.
 				</Subtitle>
-				<Buttons>
-					<Primary to={links.bookDemo} outline icon="chev">
-						Book a Demo
-					</Primary>
-				</Buttons>
+				<EmailInput />
 			</Copy>
 			<ScaledContent scale={useMedia(1, 1, 1, 0.65)}>
 				<Illustration>
@@ -228,9 +223,15 @@ const Name = styled.div``
 const Title = styled.h1`
 	${textStyles.h3}
 
+	${ftablet(css`
+		text-align: center;
+	`)}
+
 	${fmobile(css`
+		text-align: center;
 		${textStyles.h6}
 	`)}
+
 `
 
 const Subtitle = styled.p`
@@ -242,25 +243,17 @@ const Subtitle = styled.p`
 		width: 477px;
 		min-height: 92px;
 	`)}
+	
+	${ftablet(css`
+		text-align: center;
+	`)}
 
 	${fmobile(css`
+		text-align: center;
 		${textStyles.bodyR}
 		width: 295px;
 	`)}
-`
 
-const Buttons = styled.div`
-	display: flex;
-
-	${fresponsive(css`
-		gap: 12px;
-		padding-left: 6px;
-	`)}
-
-	${fmobile(css`
-		flex-direction: column;
-		align-items: center;
-	`)}
 `
 
 const Copy = styled.div`
@@ -272,12 +265,10 @@ const Copy = styled.div`
 
 	${ftablet(css`
 		align-items: center;
-		text-align: center;
 	`)}
 
 	${fmobile(css`
 		align-items: center;
-		text-align: center;
 	`)}
 `
 
