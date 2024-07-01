@@ -495,13 +495,6 @@ export default function Industry() {
 			setActiveIndex(newIndex)
 			scrollUpdate.current = true
 		}
-
-		// if (indexUpdate.current) return
-		// const [firstChild] = trackRef.current.children
-
-		// if (firstChild && firstChild.getBoundingClientRect().left < 0)
-		// 	indexUpdate.current = true
-		if (activeIndex !== 0) userHasScrolled.current = true
 	}, [activeIndex, cardWidth])
 
 	/**
@@ -568,35 +561,35 @@ export default function Industry() {
 		/**
 		 * scale the cards when scrolling from left to right
 		 */
-		// const shared = { ease: "power3.inOut", scale: 0.9 }
-		// for (const child of trackRef.current.children) {
-		// 	gsap.from(child, {
-		// 		...shared,
-		// 		scrollTrigger: {
-		// 			trigger: child,
-		// 			start: "left right",
-		// 			end: "center center",
-		// 			scrub: true,
-		// 			scroller: trackRef.current,
-		// 			horizontal: true,
-		// 		},
-		// 	})
-		// 	gsap.fromTo(
-		// 		child,
-		// 		{ scale: 1 },
-		// 		{
-		// 			...shared,
-		// 			scrollTrigger: {
-		// 				trigger: child,
-		// 				start: "center center",
-		// 				end: "right left",
-		// 				scrub: true,
-		// 				scroller: trackRef.current,
-		// 				horizontal: true,
-		// 			},
-		// 		},
-		// 	)
-		// }
+		const shared = { ease: "power3.inOut", scale: 0.9 }
+		for (const child of trackRef.current.children) {
+			gsap.from(child, {
+				...shared,
+				scrollTrigger: {
+					trigger: child,
+					start: "left right",
+					end: "center center",
+					scrub: true,
+					scroller: trackRef.current,
+					horizontal: true,
+				},
+			})
+			gsap.fromTo(
+				child,
+				{ scale: 1 },
+				{
+					...shared,
+					scrollTrigger: {
+						trigger: child,
+						start: "center center",
+						end: "right left",
+						scrub: true,
+						scroller: trackRef.current,
+						horizontal: true,
+					},
+				},
+			)
+		}
 
 		/**
 		 * bounce effect prompting the user to scroll
@@ -608,7 +601,8 @@ export default function Industry() {
 					start: "top center",
 				},
 				onComplete: () => {
-					if (activeIndex === 0) {
+					if (userHasScrolled.current) return
+					if (!userHasScrolled.current) {
 						gsap.delayedCall(3, () => {
 							tl.restart(true)
 						})
@@ -627,7 +621,7 @@ export default function Industry() {
 				ease: "bounce.out",
 				duration: 0.6,
 			})
-	}, [tablet, fullWidth, desktop, activeIndex])
+	}, [tablet, fullWidth, desktop])
 
 	return (
 		<Wrapper id="industries">
