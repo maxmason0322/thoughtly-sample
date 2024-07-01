@@ -382,7 +382,7 @@ const data = [
 		widgetTwo: {
 			text: (
 				<p>
-					 have the order you placed on <Blue>{"{api.date}"}</Blue> pulled up.
+					I have the order you placed on <Blue>{"{api.date}"}</Blue> pulled up.
 					What can I help you with?
 				</p>
 			),

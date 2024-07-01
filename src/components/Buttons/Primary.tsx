@@ -56,7 +56,7 @@ const Highlight = styled.div`
 	`)}
 `
 
-const Border = styled.div`
+export const Border = styled.div`
 	position: absolute;
 	left: 50%;
 	top: 50%;

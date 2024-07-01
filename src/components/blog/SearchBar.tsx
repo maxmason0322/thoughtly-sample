@@ -7,14 +7,15 @@ import textStyles from "styles/text"
 
 export default function SearchBar() {
 	const [query, setQuery] = useParamState("query")
+	const safeQuery = query ?? ""
 
 	return (
 		<Wrapper>
 			<Row>
 				<Input
 					name="search"
-					value={query ?? ""}
-					onChange={(e) => setQuery(e.target.value || null)}
+					value={safeQuery}
+					onChange={(e) => setQuery(e.target.value)}
 					type="text"
 					placeholder="Search the blog..."
 				/>
