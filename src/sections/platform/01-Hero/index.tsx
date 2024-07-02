@@ -177,9 +177,10 @@ const Title = styled.p`
 	`)}
 `
 
-const Green = styled.span`
+export const Green = styled.span`
 	${transparentText};
 	background-image: ${gradients.greenGreen};
+	display: inline-block;
 `
 
 const Buttons = styled.div`
