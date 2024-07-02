@@ -2,7 +2,6 @@ import Radio from "components/Buttons/Radio"
 import Icon from "components/Icon"
 import UniversalLink from "library/Loader/UniversalLink"
 import { fresponsive } from "library/fullyResponsive"
-import type { MutableRefObject } from "react"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 
@@ -10,28 +9,23 @@ export default function Pagination({
 	keys,
 	activeIndex,
 	setActiveIndex,
-	scrollUpdate,
 }: {
 	keys: string[]
 	activeIndex: number
 	setActiveIndex: (i: number) => void
-	scrollUpdate: MutableRefObject<boolean>
 }) {
 	const numPages = keys.length
 
 	const handleClick = (i: number) => {
 		setActiveIndex(i)
-		scrollUpdate.current = false
 	}
 
 	const prev = () => {
 		setActiveIndex(Math.max(0, activeIndex - 1))
-		scrollUpdate.current = false
 	}
 
 	const next = () => {
 		setActiveIndex(Math.min(numPages - 1, activeIndex + 1))
-		scrollUpdate.current = false
 	}
 
 	return (
