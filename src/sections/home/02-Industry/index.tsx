@@ -9,6 +9,7 @@ import ServicesImg from "data/home-industry/industries/services.png"
 import TravelImg from "data/home-industry/industries/travel.png"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
+import ScrollToPlugin from "gsap/ScrollToPlugin"
 import Gabriel from "images/global/avatars/gabriel.png"
 import James from "images/global/avatars/james.png"
 import Lisa from "images/global/avatars/lisa.png"
@@ -22,7 +23,7 @@ import { DesktopTabletOnly, MobileOnly } from "library/breakpointUtils"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import { getResponsivePixels } from "library/viewportUtils"
-import { useCallback, useContext, useEffect, useRef, useState } from "react"
+import { useContext, useRef, useState } from "react"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
@@ -30,7 +31,7 @@ import textStyles, { transparentText } from "styles/text"
 import IndustryCard from "./IndustryCard"
 import Pagination from "./Pagination"
 
-gsap.registerPlugin(DrawSVGPlugin)
+gsap.registerPlugin(DrawSVGPlugin, ScrollToPlugin)
 
 const Blue = styled.strong`
 	color: #0085e5d9;
@@ -446,12 +447,11 @@ const data = [
 ]
 
 export default function Industry() {
-	const scrollUpdate = useRef(false)
-	const userHasScrolled = useRef(false)
+	const userHasScrolledYet = useRef(false)
 	const trackRef = useRef<HTMLDivElement>(null)
 	const [activeIndex, setActiveIndex] = useState(0)
 	const { tablet, fullWidth, desktop } = useContext(ScreenContext)
-	const cardWidth = getResponsivePixels(333)
+	const cardWidth = getResponsivePixels(321)
 
 	const cardTitles = data.map((item) => item.title)
 
@@ -467,49 +467,6 @@ export default function Industry() {
 			</Selector>
 		)
 	})
-
-	/**
-	 * Move the card track in response to the pagination buttons.
-	 */
-	useEffect(() => {
-		if (tablet || fullWidth || desktop) return
-		if (scrollUpdate.current) return
-
-		const trackEl = trackRef.current
-		if (!trackEl) return
-
-		const offset = activeIndex * cardWidth
-		trackEl.scrollLeft = offset
-	}, [tablet, fullWidth, desktop, activeIndex, cardWidth])
-
-	/**
-	 * Handle a scroll event on the card track.
-	 */
-	const handleScroll = useCallback(() => {
-		if (!trackRef.current) return
-
-		const scrollLeft = trackRef.current.scrollLeft
-		const newIndex = Math.round(scrollLeft / cardWidth)
-
-		if (newIndex !== activeIndex) {
-			setActiveIndex(newIndex)
-			scrollUpdate.current = true
-		}
-	}, [activeIndex, cardWidth])
-
-	/**
-	 * Mount and unmount scroll event listener on the card track.
-	 */
-	useEffect(() => {
-		const trackEl = trackRef.current
-		if (!trackEl) return
-
-		trackEl.addEventListener("scroll", handleScroll)
-
-		return () => {
-			trackEl.removeEventListener("scroll", handleScroll)
-		}
-	}, [handleScroll])
 
 	useAnimation(
 		() => {
@@ -554,6 +511,22 @@ export default function Industry() {
 		},
 	)
 
+	/**
+	 * Handle a scroll event on the card track
+	 */
+	const handleScroll = () => {
+		if (!trackRef.current) return
+
+		userHasScrolledYet.current = true
+
+		const scrollLeft = trackRef.current.scrollLeft
+		const newIndex = Math.round(scrollLeft / cardWidth)
+
+		if (newIndex !== activeIndex) {
+			setActiveIndex(Math.max(0, Math.min(newIndex, data.length - 1)))
+		}
+	}
+
 	useAnimation(() => {
 		if (tablet || fullWidth || desktop) return
 		if (!trackRef.current) return
@@ -562,7 +535,10 @@ export default function Industry() {
 		 * scale the cards when scrolling from left to right
 		 */
 		const shared = { ease: "power3.inOut", scale: 0.9 }
-		for (const child of trackRef.current.children) {
+		// for some reason i'm getting infinite children in dev
+		// so uhhhhh slice that puppy
+		const children = Array.from(trackRef.current.children).slice(0, 20)
+		for (const child of children) {
 			gsap.from(child, {
 				...shared,
 				scrollTrigger: {
@@ -601,8 +577,8 @@ export default function Industry() {
 					start: "top center",
 				},
 				onComplete: () => {
-					if (userHasScrolled.current) return
-					if (!userHasScrolled.current) {
+					if (userHasScrolledYet.current) return
+					if (!userHasScrolledYet.current) {
 						gsap.delayedCall(3, () => {
 							tl.restart(true)
 						})
@@ -639,7 +615,7 @@ export default function Industry() {
 				</DesktopTabletOnly>
 
 				<MobileOnly>
-					<Track ref={trackRef}>
+					<Track ref={trackRef} onScroll={handleScroll}>
 						{data.map((item, index) => (
 							<IndustryCard key={item.title} data={data} activeIndex={index} />
 						))}
@@ -647,8 +623,26 @@ export default function Industry() {
 					<Pagination
 						keys={cardTitles}
 						activeIndex={activeIndex}
-						setActiveIndex={setActiveIndex}
-						scrollUpdate={scrollUpdate}
+						setActiveIndex={(newIndex) => {
+							/**
+							 * Move the card track in response to the pagination buttons.
+							 */
+							const trackEl = trackRef.current
+							if (!trackEl) return
+
+							const offset = newIndex * cardWidth
+							gsap.to(trackEl, {
+								scrollTo: {
+									x: offset,
+									autoKill: true,
+								},
+								ease: "power3.out",
+								onComplete: () => {
+									// reset the scroll snapping
+									gsap.set(trackEl, { clearProps: "scrollSnapType" })
+								},
+							})
+						}}
 					/>
 				</MobileOnly>
 			</Inner>
@@ -780,9 +774,11 @@ const Track = styled.div`
 	scroll-behavior: smooth;
 	flex-wrap: nowrap;
 	-webkit-overflow-scrolling: touch;
+	scroll-snap-type: x mandatory;
 	
 	& > * {
 		flex-shrink: 0;
+		scroll-snap-align: center;
 	}
 
 	&::-webkit-scrollbar {
@@ -790,9 +786,9 @@ const Track = styled.div`
 	}
 
 	${fresponsive(css`
-		gap: 12px;
-		padding-right: 1425px;
-		padding-left: 27px;
-		margin-left: -27px;
+		width: 100vw;
+		gap: 0;
+		padding: 0 27px;
+		margin:0 -27px;
 	`)}
 `
