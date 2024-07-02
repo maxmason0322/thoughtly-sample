@@ -4,7 +4,6 @@ import { graphql, useStaticQuery } from "gatsby"
 import { ScreenContext } from "library/ScreenContext"
 import UniversalImage from "library/UniversalImage"
 import { fresponsive } from "library/fullyResponsive"
-import useAnimation from "library/useAnimation"
 import { useContext } from "react"
 import styled, { css } from "styled-components"
 import { Dots } from "styles/background"
@@ -165,7 +164,7 @@ export default function Features() {
 		},
 	]
 
-	useAnimation(() => {}, [])
+	const unmaskParams = { delay: 0.35, duration: 0.6 }
 
 	return (
 		<Wrapper>
@@ -189,10 +188,10 @@ export default function Features() {
 						<Card image={imageQuery.featuredImage} />
 					</CardWrapper>
 					<Right>
-						<Unmask>
+						<Unmask parameters={unmaskParams}>
 							<StyledKicker>Customizable AI Phone Agents</StyledKicker>
 						</Unmask>
-						<Unmask>
+						<Unmask parameters={unmaskParams}>
 							<Title>
 								<Blue>Features</Blue> from the <Green>Future.</Green>
 							</Title>
@@ -203,13 +202,13 @@ export default function Features() {
 				<Bottom>
 					<FeatureWrapper>
 						<ConversationEditorCopy>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<FeatureKicker>Inbound and outbound phone calls</FeatureKicker>
 							</Unmask>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<FeatureTitle>Conversation Editor</FeatureTitle>
 							</Unmask>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<FeatureDescription>
 									Building AI conversations has never been easier with our
 									no-code, drag and drop UI that comes pre-baked with A/B
@@ -218,7 +217,7 @@ export default function Features() {
 							</Unmask>
 						</ConversationEditorCopy>
 						<ConversationEditorImageWrapper>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<ConversationEditorImage
 									image={imageQuery.conversationEditor}
 									alt="Conversation Editor"
@@ -229,13 +228,13 @@ export default function Features() {
 
 					<FeatureWrapper>
 						<SkillsCopy>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<FeatureKicker>Thousands of Integrations</FeatureKicker>
 							</Unmask>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<FeatureTitle>Skills Library</FeatureTitle>
 							</Unmask>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<FeatureDescription>
 									Thoughtly’s AI agents perform tasks out-of-the-box,
 									integrating directly with your Calendar, CRM and back office
@@ -245,7 +244,7 @@ export default function Features() {
 							</Unmask>
 						</SkillsCopy>
 						<SkillsImageWrapper>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<SkillsImage image={imageQuery.skills} alt="Skills Library" />
 							</Unmask>
 						</SkillsImageWrapper>
@@ -253,13 +252,13 @@ export default function Features() {
 
 					<FeatureWrapper>
 						<TrainingCopy>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<FeatureKicker>As good as your best agent</FeatureKicker>
 							</Unmask>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<FeatureTitle>One-Time Training</FeatureTitle>
 							</Unmask>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<FeatureDescription>
 									Equip your AI agents with initial call recordings and
 									knowledge bases, and they'll remain continuously updated
@@ -268,7 +267,7 @@ export default function Features() {
 							</Unmask>
 						</TrainingCopy>
 						<TrainingImageWrapper>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<TrainingImage
 									image={imageQuery.training}
 									alt="One-Time Training"
@@ -279,13 +278,13 @@ export default function Features() {
 
 					<FeatureWrapper>
 						<AgentEditorCopy>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<FeatureKicker>Customizable AI agents</FeatureKicker>
 							</Unmask>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<FeatureTitle>Agent Editor</FeatureTitle>
 							</Unmask>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<FeatureDescription>
 									Customize your AI agents with human-like voices, personality
 									traits such as humor and assertiveness, and control background
@@ -295,7 +294,7 @@ export default function Features() {
 							</Unmask>
 						</AgentEditorCopy>
 						<AgentEditorImageWrapper>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<AgentEditorImage
 									image={imageQuery.agentEditor}
 									alt="Agent Editor"
@@ -306,13 +305,13 @@ export default function Features() {
 
 					<FeatureWrapper>
 						<ConversationInsightCopy>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<FeatureKicker>User-friendly reports</FeatureKicker>
 							</Unmask>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<FeatureTitle>Conversation Insights</FeatureTitle>
 							</Unmask>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<FeatureDescription>
 									Thoughtly provides comprehensive analytics and detailed
 									reports, enabling you to monitor your AI agents' performance
@@ -321,7 +320,7 @@ export default function Features() {
 							</Unmask>
 						</ConversationInsightCopy>
 						<ConversationInsightImageWrapper>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<ConversationInsightImage
 									image={imageQuery.conversationInsight}
 									alt="Conversation Insights"
@@ -332,13 +331,13 @@ export default function Features() {
 
 					<FeatureWrapper>
 						<AgentCoachingCopy>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<FeatureKicker>Continuous Improvement</FeatureKicker>
 							</Unmask>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<FeatureTitle>Agent Coaching</FeatureTitle>
 							</Unmask>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<FeatureDescription className="agent-coaching-description">
 									Provide feedback to your AI agents just like you would to
 									human agents. Listen to calls, identify areas for improvement,
@@ -349,7 +348,7 @@ export default function Features() {
 							</Unmask>
 						</AgentCoachingCopy>
 						<AgentCoachingImageWrapper>
-							<Unmask>
+							<Unmask parameters={unmaskParams}>
 								<AgentCoachingImage
 									image={imageQuery.agentCoaching}
 									alt="Agent Coaching"

@@ -64,6 +64,10 @@ const Title = styled.div`
 const Copy = styled.div`
 	${textStyles.bodyR};
 	color: ${colors.gray700};
+
+	${fresponsive(css`
+		width: 355px;
+	`)}
 `
 
 const Buttons = styled.div`
