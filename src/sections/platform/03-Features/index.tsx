@@ -1,8 +1,11 @@
 import Kicker from "components/Kicker"
+import Unmask from "components/Unmask"
 import { graphql, useStaticQuery } from "gatsby"
+import { ScreenContext } from "library/ScreenContext"
 import UniversalImage from "library/UniversalImage"
 import { fresponsive } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
+import { useContext } from "react"
 import styled, { css } from "styled-components"
 import { Dots } from "styles/background"
 import colors, { gradients } from "styles/colors"
@@ -12,6 +15,8 @@ import { Green } from "../01-Hero"
 import Card from "../01-Hero/Card"
 
 export default function Features() {
+	const { fullWidth } = useContext(ScreenContext)
+
 	const imageQuery = useStaticQuery(graphql`
     query FeaturesImageQuery {
       featuredImage: file(relativePath:  {
@@ -164,137 +169,192 @@ export default function Features() {
 
 	return (
 		<Wrapper>
-			<DotsWrapper>
+			<DotsWrapper fullWidth={fullWidth}>
 				<Dots />
 			</DotsWrapper>
-			{data.map((corner) => (
-				<Corner
-					key={corner.key}
-					image={imageQuery.corner}
-					alt="corner"
-					left={corner.left}
-					top={corner.top}
-					rotate={corner.rotate}
-				/>
-			))}
 			<Inner>
+				{data.map((corner) => (
+					<Corner
+						key={corner.key}
+						image={imageQuery.corner}
+						alt="corner"
+						left={corner.left}
+						top={corner.top}
+						rotate={corner.rotate}
+						fullWidth={fullWidth}
+					/>
+				))}
 				<Heading>
 					<CardWrapper>
 						<Card image={imageQuery.featuredImage} />
 					</CardWrapper>
 					<Right>
-						<StyledKicker>Customizable AI Phone Agents</StyledKicker>
-						<Title>
-							<Blue>Features</Blue> from the <Green>Future.</Green>
-						</Title>
+						<Unmask>
+							<StyledKicker>Customizable AI Phone Agents</StyledKicker>
+						</Unmask>
+						<Unmask>
+							<Title>
+								<Blue>Features</Blue> from the <Green>Future.</Green>
+							</Title>
+						</Unmask>
 					</Right>
 					<EmptyCopy />
 				</Heading>
 				<Bottom>
 					<FeatureWrapper>
 						<ConversationEditorCopy>
-							<FeatureKicker>Inbound and outbound phone calls</FeatureKicker>
-							<FeatureTitle>Conversation Editor</FeatureTitle>
-							<FeatureDescription>
-								Building AI conversations has never been easier with our
-								no-code, drag and drop UI that comes pre-baked with A/B testing.
-							</FeatureDescription>
+							<Unmask>
+								<FeatureKicker>Inbound and outbound phone calls</FeatureKicker>
+							</Unmask>
+							<Unmask>
+								<FeatureTitle>Conversation Editor</FeatureTitle>
+							</Unmask>
+							<Unmask>
+								<FeatureDescription>
+									Building AI conversations has never been easier with our
+									no-code, drag and drop UI that comes pre-baked with A/B
+									testing.
+								</FeatureDescription>
+							</Unmask>
 						</ConversationEditorCopy>
 						<ConversationEditorImageWrapper>
-							<ConversationEditorImage
-								image={imageQuery.conversationEditor}
-								alt="Conversation Editor"
-							/>
+							<Unmask>
+								<ConversationEditorImage
+									image={imageQuery.conversationEditor}
+									alt="Conversation Editor"
+								/>
+							</Unmask>
 						</ConversationEditorImageWrapper>
 					</FeatureWrapper>
 
 					<FeatureWrapper>
 						<SkillsCopy>
-							<FeatureKicker>Thousands of Integrations</FeatureKicker>
-							<FeatureTitle>Skills Library</FeatureTitle>
-							<FeatureDescription>
-								Thoughtly’s AI agents perform tasks out-of-the-box, integrating
-								directly with your Calendar, CRM and back office tools to follow
-								up on leads, manage claims, schedule appointments, and a lot
-								more.
-							</FeatureDescription>
+							<Unmask>
+								<FeatureKicker>Thousands of Integrations</FeatureKicker>
+							</Unmask>
+							<Unmask>
+								<FeatureTitle>Skills Library</FeatureTitle>
+							</Unmask>
+							<Unmask>
+								<FeatureDescription>
+									Thoughtly’s AI agents perform tasks out-of-the-box,
+									integrating directly with your Calendar, CRM and back office
+									tools to follow up on leads, manage claims, schedule
+									appointments, and a lot more.
+								</FeatureDescription>
+							</Unmask>
 						</SkillsCopy>
 						<SkillsImageWrapper>
-							<SkillsImage image={imageQuery.skills} alt="Skills Library" />
+							<Unmask>
+								<SkillsImage image={imageQuery.skills} alt="Skills Library" />
+							</Unmask>
 						</SkillsImageWrapper>
 					</FeatureWrapper>
 
 					<FeatureWrapper>
 						<TrainingCopy>
-							<FeatureKicker>As good as your best agent</FeatureKicker>
-							<FeatureTitle>One-Time Training</FeatureTitle>
-							<FeatureDescription>
-								Equip your AI agents with initial call recordings and knowledge
-								bases, and they'll remain continuously updated without further
-								training.
-							</FeatureDescription>
+							<Unmask>
+								<FeatureKicker>As good as your best agent</FeatureKicker>
+							</Unmask>
+							<Unmask>
+								<FeatureTitle>One-Time Training</FeatureTitle>
+							</Unmask>
+							<Unmask>
+								<FeatureDescription>
+									Equip your AI agents with initial call recordings and
+									knowledge bases, and they'll remain continuously updated
+									without further training.
+								</FeatureDescription>
+							</Unmask>
 						</TrainingCopy>
 						<TrainingImageWrapper>
-							<TrainingImage
-								image={imageQuery.training}
-								alt="One-Time Training"
-							/>
+							<Unmask>
+								<TrainingImage
+									image={imageQuery.training}
+									alt="One-Time Training"
+								/>
+							</Unmask>
 						</TrainingImageWrapper>
 					</FeatureWrapper>
 
 					<FeatureWrapper>
 						<AgentEditorCopy>
-							<FeatureKicker>Customizable AI agents</FeatureKicker>
-							<FeatureTitle>Agent Editor</FeatureTitle>
-							<FeatureDescription>
-								Customize your AI agents with human-like voices, personality
-								traits such as humor and assertiveness, and control background
-								noise to ensure they sound like realistic agents perfectly
-								aligned with your brand.
-							</FeatureDescription>
+							<Unmask>
+								<FeatureKicker>Customizable AI agents</FeatureKicker>
+							</Unmask>
+							<Unmask>
+								<FeatureTitle>Agent Editor</FeatureTitle>
+							</Unmask>
+							<Unmask>
+								<FeatureDescription>
+									Customize your AI agents with human-like voices, personality
+									traits such as humor and assertiveness, and control background
+									noise to ensure they sound like realistic agents perfectly
+									aligned with your brand.
+								</FeatureDescription>
+							</Unmask>
 						</AgentEditorCopy>
 						<AgentEditorImageWrapper>
-							<AgentEditorImage
-								image={imageQuery.agentEditor}
-								alt="Agent Editor"
-							/>
+							<Unmask>
+								<AgentEditorImage
+									image={imageQuery.agentEditor}
+									alt="Agent Editor"
+								/>
+							</Unmask>
 						</AgentEditorImageWrapper>
 					</FeatureWrapper>
 
 					<FeatureWrapper>
 						<ConversationInsightCopy>
-							<FeatureKicker>User-friendly reports</FeatureKicker>
-							<FeatureTitle>Conversation Insights</FeatureTitle>
-							<FeatureDescription>
-								Thoughtly provides comprehensive analytics and detailed reports,
-								enabling you to monitor your AI agents' performance and optimize
-								customer interactions continuously.
-							</FeatureDescription>
+							<Unmask>
+								<FeatureKicker>User-friendly reports</FeatureKicker>
+							</Unmask>
+							<Unmask>
+								<FeatureTitle>Conversation Insights</FeatureTitle>
+							</Unmask>
+							<Unmask>
+								<FeatureDescription>
+									Thoughtly provides comprehensive analytics and detailed
+									reports, enabling you to monitor your AI agents' performance
+									and optimize customer interactions continuously.
+								</FeatureDescription>
+							</Unmask>
 						</ConversationInsightCopy>
 						<ConversationInsightImageWrapper>
-							<ConversationInsightImage
-								image={imageQuery.conversationInsight}
-								alt="Conversation Insights"
-							/>
+							<Unmask>
+								<ConversationInsightImage
+									image={imageQuery.conversationInsight}
+									alt="Conversation Insights"
+								/>
+							</Unmask>
 						</ConversationInsightImageWrapper>
 					</FeatureWrapper>
 
 					<FeatureWrapper>
 						<AgentCoachingCopy>
-							<FeatureKicker>Continuous Improvement</FeatureKicker>
-							<FeatureTitle>Agent Coaching</FeatureTitle>
-							<FeatureDescription className="agent-coaching-description">
-								Provide feedback to your AI agents just like you would to human
-								agents. Listen to calls, identify areas for improvement, and
-								offer guidance. Our AI agents learn and adapt based on your
-								coaching, continually improving their performance over time.
-							</FeatureDescription>
+							<Unmask>
+								<FeatureKicker>Continuous Improvement</FeatureKicker>
+							</Unmask>
+							<Unmask>
+								<FeatureTitle>Agent Coaching</FeatureTitle>
+							</Unmask>
+							<Unmask>
+								<FeatureDescription className="agent-coaching-description">
+									Provide feedback to your AI agents just like you would to
+									human agents. Listen to calls, identify areas for improvement,
+									and offer guidance. Our AI agents learn and adapt based on
+									your coaching, continually improving their performance over
+									time.
+								</FeatureDescription>
+							</Unmask>
 						</AgentCoachingCopy>
 						<AgentCoachingImageWrapper>
-							<AgentCoachingImage
-								image={imageQuery.agentCoaching}
-								alt="Agent Coaching"
-							/>
+							<Unmask>
+								<AgentCoachingImage
+									image={imageQuery.agentCoaching}
+									alt="Agent Coaching"
+								/>
+							</Unmask>
 						</AgentCoachingImageWrapper>
 					</FeatureWrapper>
 				</Bottom>
@@ -310,7 +370,7 @@ const Wrapper = styled.section`
   place-items: center;
 
   ${fresponsive(css`
-    margin: 80px 0;
+    margin: 80px 0 165px;
   `)}
 `
 
@@ -326,13 +386,15 @@ const Inner = styled.div`
   `)}
 `
 
-const DotsWrapper = styled.div`
+const DotsWrapper = styled.div<{ fullWidth: boolean }>`
+  max-width: ${desktopBreakpoint}px;
   position: absolute;
   height: 95.9%;
   
-  ${fresponsive(css`
+  ${(props) =>
+		fresponsive(css`
     width: 1318px;
-    left: 60px;
+    left: ${props.fullWidth ? "unset" : "60px"};
     top: 105px;
   `)}
 
@@ -347,6 +409,7 @@ const Corner = styled(UniversalImage)<{
 	left: number
 	top: number
 	rotate: number
+	fullWidth: boolean
 }>`
   position: absolute;
   z-index: 1;

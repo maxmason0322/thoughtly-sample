@@ -33,6 +33,8 @@ export default function PlatformAdvantage() {
 }
 
 const Wrapper = styled.section`
+	border-top: 1.5px solid ${colors.gray300};
+
 	${fresponsive(css`
 		width: 1128px;
 		margin: 0 auto;
