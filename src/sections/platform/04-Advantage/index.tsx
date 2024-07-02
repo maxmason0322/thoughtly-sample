@@ -33,6 +33,8 @@ export default function PlatformAdvantage() {
 }
 
 const Wrapper = styled.section`
+	border-top: 1.5px solid ${colors.gray300};
+
 	${fresponsive(css`
 		width: 1128px;
 		margin: 0 auto;
@@ -62,6 +64,10 @@ const Title = styled.div`
 const Copy = styled.div`
 	${textStyles.bodyR};
 	color: ${colors.gray700};
+
+	${fresponsive(css`
+		width: 355px;
+	`)}
 `
 
 const Buttons = styled.div`
