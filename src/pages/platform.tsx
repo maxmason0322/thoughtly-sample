@@ -1,4 +1,5 @@
 import Seo from "components/Seo"
+import CallCTA from "sections/home/05-CallCTA"
 import Hero from "sections/platform/01-Hero"
 import Features from "sections/platform/03-Features"
 import PlatformAdvantage from "sections/platform/04-Advantage"
@@ -9,6 +10,7 @@ export default function Platform() {
 			<Hero />
 			<Features />
 			<PlatformAdvantage />
+			<CallCTA />
 		</>
 	)
 }
