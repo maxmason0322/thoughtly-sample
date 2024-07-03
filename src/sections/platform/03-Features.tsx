@@ -10,8 +10,8 @@ import { Dots } from "styles/background"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
-import { Green } from "../01-Hero"
-import Card from "../01-Hero/Card"
+import { Green } from "./01-Hero"
+import Card from "./01-Hero/Card"
 
 export default function Features() {
 	const { fullWidth } = useContext(ScreenContext)
