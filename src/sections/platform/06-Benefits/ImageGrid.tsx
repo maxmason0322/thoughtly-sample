@@ -11,7 +11,7 @@ export default function ImageGrid() {
 	const gridRef = useRef<HTMLDivElement>(null)
 
 	const images = useStaticQuery(graphql`
-		query images {
+		query platformGridImages {
 			grid: allFile(
 				filter: {
 					relativeDirectory: { eq: "platform/benefits" }
@@ -23,7 +23,7 @@ export default function ImageGrid() {
 						id
 						name
 						childImageSharp {
-							gatsbyImageData
+							gatsbyImageData(placeholder: NONE)
 						}
 					}
 				}

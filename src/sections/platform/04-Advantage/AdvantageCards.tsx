@@ -20,24 +20,24 @@ export default function AdvantageCards() {
 				relativePath: { eq: "platform/advantage/Accelerator.png" }
 			) {
 				childImageSharp {
-					gatsbyImageData
+					gatsbyImageData(placeholder: NONE)
 				}
 			}
 			security: file(relativePath: { eq: "platform/advantage/Security.png" }) {
 				childImageSharp {
-					gatsbyImageData
+					gatsbyImageData(placeholder: NONE)
 				}
 			}
 			scalability: file(
 				relativePath: { eq: "platform/advantage/Scalability.png" }
 			) {
 				childImageSharp {
-					gatsbyImageData
+					gatsbyImageData(placeholder: NONE)
 				}
 			}
 			safety: file(relativePath: { eq: "platform/advantage/Safety.png" }) {
 				childImageSharp {
-					gatsbyImageData
+					gatsbyImageData(placeholder: NONE)
 				}
 			}
 		}

@@ -22,56 +22,56 @@ export default function Features() {
          eq: "platform/features/Features.png"
       }) {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(placeholder: NONE)
         }
       }
       conversationEditor: file(relativePath:  {
          eq: "platform/features/ConversationEditor.png"
       }) {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(placeholder: NONE)
         }
       }
       skills: file(relativePath:  {
          eq: "platform/features/Skills.png"
       }) {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(placeholder: NONE)
         }
       }
       training: file(relativePath:  {
          eq: "platform/features/Training.png"
       }) {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(placeholder: NONE)
         }
       }
       agentEditor: file(relativePath:  {
          eq: "platform/features/AgentEditor.png"
       }) {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(placeholder: NONE)
         }
       }
       conversationInsight: file(relativePath:  {
          eq: "platform/features/ConversationInsight.png"
       }) {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(placeholder: NONE)
         }
       }
       agentCoaching: file(relativePath:  {
          eq: "platform/features/AgentCoaching.png"
       }) {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(placeholder: NONE)
         }
       }
       corner: file(relativePath: {
         eq: "platform/features/Corner.png"
       }) {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(placeholder: NONE)
         }
       }
     }
@@ -168,10 +168,10 @@ export default function Features() {
 
 	return (
 		<Wrapper>
-			<DotsWrapper $fullwidth={fullWidth}>
-				<Dots />
-			</DotsWrapper>
 			<Inner>
+				<DotsWrapper>
+					<Dots />
+				</DotsWrapper>
 				{data.map((corner) => (
 					<Corner
 						key={corner.key}
@@ -385,15 +385,15 @@ const Inner = styled.div`
   `)}
 `
 
-const DotsWrapper = styled.div<{ $fullwidth: boolean }>`
+const DotsWrapper = styled.div`
   max-width: ${desktopBreakpoint}px;
   position: absolute;
   height: 95.9%;
   
-  ${({ $fullwidth }) =>
-		fresponsive(css`
+  ${fresponsive(css`
     width: 1318px;
-    left: ${$fullwidth ? "unset" : "60px"};
+		left: 50%;
+		transform: translateX(-50%);
     top: 105px;
   `)}
 
