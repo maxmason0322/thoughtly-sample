@@ -118,7 +118,7 @@ const Grid = styled.div`
 	width: auto;
 	
 	${fresponsive(css`
-		top: -16px;
+		top: -12px;
 		grid-template:
 			"widget1 widget1 . . . . . ." 69px
 			"widget1 widget1 . . . widget2 . ." 95px
@@ -138,7 +138,8 @@ const Grid = styled.div`
 	`)}
 
 	${fmobile(css`
-		left: -60px;
+		top: 12px;
+		left: -70px;
 		scale: 0.45;
 		height: 40%;
 	`)}
