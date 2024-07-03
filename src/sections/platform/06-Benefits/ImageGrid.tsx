@@ -116,6 +116,7 @@ const Grid = styled.div`
 	position: relative;
 	height: 100%;
 	width: auto;
+	scale: 0.9;
 	
 	${fresponsive(css`
 		top: 32px;
@@ -132,12 +133,12 @@ const Grid = styled.div`
 	`)}
 
 	${ftablet(css`
-		scale: 0.9;
+		scale: 0.8;
 		height: 80%;
 	`)}
 
 	${fmobile(css`
-		scale: 0.45;
+		scale: 0.4;
 		height: 50%;
 	`)}
 `
