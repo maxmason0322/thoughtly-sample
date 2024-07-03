@@ -114,7 +114,7 @@ export default function ImageGrid() {
 const Grid = styled.div`
 	display: grid;
 	position: relative;
-	height: 90%;
+	height: 80%;
 	width: auto;
 	
 	${fresponsive(css`
@@ -133,11 +133,11 @@ const Grid = styled.div`
 
 	${ftablet(css`
 		scale: 0.9;
-		height: 70%;
+		height: 60%;
 	`)}
 
 	${fmobile(css`
-		scale: 0.4.5;
+		scale: 0.45;
 		height: 50%;
 	`)}
 `
