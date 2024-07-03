@@ -10,8 +10,8 @@ import { Dots } from "styles/background"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
-import { Green } from "../01-Hero"
-import Card from "../01-Hero/Card"
+import { Green } from "./01-Hero"
+import Card from "./01-Hero/Card"
 
 export default function Features() {
 	const { fullWidth } = useContext(ScreenContext)
@@ -22,56 +22,56 @@ export default function Features() {
          eq: "platform/features/Features.png"
       }) {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(placeholder: NONE)
         }
       }
       conversationEditor: file(relativePath:  {
          eq: "platform/features/ConversationEditor.png"
       }) {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(placeholder: NONE)
         }
       }
       skills: file(relativePath:  {
          eq: "platform/features/Skills.png"
       }) {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(placeholder: NONE)
         }
       }
       training: file(relativePath:  {
          eq: "platform/features/Training.png"
       }) {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(placeholder: NONE)
         }
       }
       agentEditor: file(relativePath:  {
          eq: "platform/features/AgentEditor.png"
       }) {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(placeholder: NONE)
         }
       }
       conversationInsight: file(relativePath:  {
          eq: "platform/features/ConversationInsight.png"
       }) {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(placeholder: NONE)
         }
       }
       agentCoaching: file(relativePath:  {
          eq: "platform/features/AgentCoaching.png"
       }) {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(placeholder: NONE)
         }
       }
       corner: file(relativePath: {
         eq: "platform/features/Corner.png"
       }) {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(placeholder: NONE)
         }
       }
     }
@@ -168,19 +168,19 @@ export default function Features() {
 
 	return (
 		<Wrapper>
-			<DotsWrapper fullWidth={fullWidth}>
-				<Dots />
-			</DotsWrapper>
 			<Inner>
+				<DotsWrapper>
+					<Dots />
+				</DotsWrapper>
 				{data.map((corner) => (
 					<Corner
 						key={corner.key}
 						image={imageQuery.corner}
 						alt="corner"
-						left={corner.left}
-						top={corner.top}
-						rotate={corner.rotate}
-						fullWidth={fullWidth}
+						$left={corner.left}
+						$top={corner.top}
+						$rotate={corner.rotate}
+						$fullwidth={fullWidth}
 					/>
 				))}
 				<Heading>
@@ -385,15 +385,15 @@ const Inner = styled.div`
   `)}
 `
 
-const DotsWrapper = styled.div<{ fullWidth: boolean }>`
+const DotsWrapper = styled.div`
   max-width: ${desktopBreakpoint}px;
   position: absolute;
   height: 95.9%;
   
-  ${(props) =>
-		fresponsive(css`
+  ${fresponsive(css`
     width: 1318px;
-    left: ${props.fullWidth ? "unset" : "60px"};
+		left: 50%;
+		transform: translateX(-50%);
     top: 105px;
   `)}
 
@@ -405,19 +405,19 @@ const DotsWrapper = styled.div<{ fullWidth: boolean }>`
 `
 
 const Corner = styled(UniversalImage)<{
-	left: number
-	top: number
-	rotate: number
-	fullWidth: boolean
+	$left: number
+	$top: number
+	$rotate: number
+	$fullwidth: boolean
 }>`
   position: absolute;
   z-index: 1;
 
-  ${(props) =>
+  ${({ $left, $top, $rotate }) =>
 		fresponsive(css`
-    left: ${props.left}px;
-    top: ${props.top}px;
-    transform: rotate(${props.rotate}deg);
+    left: ${$left}px;
+    top: ${$top}px;
+    transform: rotate(${$rotate}deg);
   `)}
 
   img {
