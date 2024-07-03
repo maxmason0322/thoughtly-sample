@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
 import UniversalImage from "library/UniversalImage"
-import { fmobile, fresponsive } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import { useMemo, useRef } from "react"
 import styled, { css } from "styled-components"
@@ -131,8 +131,13 @@ const Grid = styled.div`
 			/ 91px 288px 24px 288px 24px 288px 24px 410px;
 	`)}
 
+	${ftablet(css`
+		scale: 0.9;
+		height: 80%;
+	`)}
+
 	${fmobile(css`
-		scale: 0.5;
+		scale: 0.45;
 		height: 50%;
 	`)}
 `
