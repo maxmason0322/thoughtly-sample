@@ -62,7 +62,7 @@ const Inner = styled.div`
 
   ${fmobile(css`
     border-radius: 30px;
-    height: 600px;
+    height: 577px;
     width: 360px;
   `)}
 `
