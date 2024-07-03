@@ -119,6 +119,7 @@ const Grid = styled.div`
 	scale: 1.2;
 	
 	${fresponsive(css`
+		top: 32px;
 		grid-template:
 			"widget1 widget1 . . . . . ." 69px
 			"widget1 widget1 . . . widget2 . ." 95px
