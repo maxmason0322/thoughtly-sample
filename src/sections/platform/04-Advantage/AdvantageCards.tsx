@@ -3,6 +3,7 @@ import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 
 import Primary from "components/Buttons/Primary"
+import Unmask from "components/Unmask"
 import { graphql, useStaticQuery } from "gatsby"
 import AcceleratorSVG from "images/platform/advantage/Accelerator.svg"
 import SafetySVG from "images/platform/advantage/Safety.svg"
@@ -81,21 +82,23 @@ export default function AdvantageCards() {
 	return (
 		<Wrapper>
 			{data.map((item, index) => (
-				<Card key={item.title}>
-					<Icon src={item.svg} alt={item.title} />
-					<Widget image={item.image} alt={item.title} />
-					<Text>
-						<Title>{item.title}</Title>
-						<Description $desktopWidth={item.desktopWidth}>
-							{item.description}
-						</Description>
-						{item.link && (
-							<Primary to={item.link} variant="secondary" icon="chev">
-								See More
-							</Primary>
-						)}
-					</Text>
-				</Card>
+				<Unmask key={item.title}>
+					<Card>
+						<Icon src={item.svg} alt={item.title} />
+						<Widget image={item.image} alt={item.title} />
+						<Text>
+							<Title>{item.title}</Title>
+							<Description $desktopWidth={item.desktopWidth}>
+								{item.description}
+							</Description>
+							{item.link && (
+								<Primary to={item.link} variant="secondary" icon="chev">
+									See More
+								</Primary>
+							)}
+						</Text>
+					</Card>
+				</Unmask>
 			))}
 		</Wrapper>
 	)
@@ -167,7 +170,7 @@ const Card = styled.div`
 		flex-direction: column;
 	`)}
 
-	&:nth-child(2n+1) {
+	div:nth-child(2n+1) > & {
 		${Icon} {
 			align-self: end;
 		}

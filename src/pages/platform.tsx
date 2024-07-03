@@ -3,6 +3,7 @@ import CallCTA from "sections/home/05-CallCTA"
 import Hero from "sections/platform/01-Hero"
 import Features from "sections/platform/03-Features"
 import PlatformAdvantage from "sections/platform/04-Advantage"
+import Benefits from "sections/platform/06-Benefits"
 
 export default function Platform() {
 	return (
@@ -11,6 +12,7 @@ export default function Platform() {
 			<Features />
 			<PlatformAdvantage />
 			<CallCTA />
+			<Benefits />
 		</>
 	)
 }
