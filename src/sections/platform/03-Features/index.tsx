@@ -168,7 +168,7 @@ export default function Features() {
 
 	return (
 		<Wrapper>
-			<DotsWrapper fullWidth={fullWidth}>
+			<DotsWrapper $fullwidth={fullWidth}>
 				<Dots />
 			</DotsWrapper>
 			<Inner>
@@ -177,10 +177,10 @@ export default function Features() {
 						key={corner.key}
 						image={imageQuery.corner}
 						alt="corner"
-						left={corner.left}
-						top={corner.top}
-						rotate={corner.rotate}
-						fullWidth={fullWidth}
+						$left={corner.left}
+						$top={corner.top}
+						$rotate={corner.rotate}
+						$fullwidth={fullWidth}
 					/>
 				))}
 				<Heading>
@@ -385,15 +385,15 @@ const Inner = styled.div`
   `)}
 `
 
-const DotsWrapper = styled.div<{ fullWidth: boolean }>`
+const DotsWrapper = styled.div<{ $fullwidth: boolean }>`
   max-width: ${desktopBreakpoint}px;
   position: absolute;
   height: 95.9%;
   
-  ${(props) =>
+  ${({ $fullwidth }) =>
 		fresponsive(css`
     width: 1318px;
-    left: ${props.fullWidth ? "unset" : "60px"};
+    left: ${$fullwidth ? "unset" : "60px"};
     top: 105px;
   `)}
 
@@ -405,19 +405,19 @@ const DotsWrapper = styled.div<{ fullWidth: boolean }>`
 `
 
 const Corner = styled(UniversalImage)<{
-	left: number
-	top: number
-	rotate: number
-	fullWidth: boolean
+	$left: number
+	$top: number
+	$rotate: number
+	$fullwidth: boolean
 }>`
   position: absolute;
   z-index: 1;
 
-  ${(props) =>
+  ${({ $left, $top, $rotate }) =>
 		fresponsive(css`
-    left: ${props.left}px;
-    top: ${props.top}px;
-    transform: rotate(${props.rotate}deg);
+    left: ${$left}px;
+    top: ${$top}px;
+    transform: rotate(${$rotate}deg);
   `)}
 
   img {
