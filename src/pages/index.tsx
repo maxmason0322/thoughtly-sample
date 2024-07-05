@@ -11,7 +11,7 @@ const Workflows = lazy(() => import("sections/home/07-Workflows"))
 const Integrations = lazy(() => import("sections/home/075-Integrations"))
 const WidgetsAndVideo = lazy(() => import("sections/home/08-WidgetsAndVideo"))
 const FinalCTA = lazy(() => import("sections/home/09-FinalCTA"))
-const Pricing = lazy(() => import("sections/home/Pricing"))
+// const Pricing = lazy(() => import("sections/home/Pricing"))
 const SocialProof = lazy(() => import("sections/home/SocialProof"))
 
 function CustomSuspense({
@@ -38,7 +38,7 @@ export default function IndexPage() {
 				<WidgetsAndVideo />
 				<Workflows />
 				<Integrations />
-				<Pricing />
+				{/* <Pricing /> */}
 				<FinalCTA />
 			</CustomSuspense>
 		</>
