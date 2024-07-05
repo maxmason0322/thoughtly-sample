@@ -3,18 +3,19 @@ import Unmask from "components/Unmask"
 import { graphql, useStaticQuery } from "gatsby"
 import { ScreenContext } from "library/ScreenContext"
 import UniversalImage from "library/UniversalImage"
-import { fresponsive } from "library/fullyResponsive"
+import { fresponsive, ftablet } from "library/fullyResponsive"
+import useMedia from "library/useMedia"
 import { useContext } from "react"
 import styled, { css } from "styled-components"
 import { Dots } from "styles/background"
 import colors, { gradients } from "styles/colors"
-import { desktopBreakpoint } from "styles/media"
+import { desktopBreakpoint, tabletBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
 import { Green } from "./01-Hero"
 import Card from "./01-Hero/Card"
 
 export default function Features() {
-	const { fullWidth } = useContext(ScreenContext)
+	const { tablet, fullWidth } = useContext(ScreenContext)
 
 	const imageQuery = useStaticQuery(graphql`
     query FeaturesImageQuery {
@@ -32,6 +33,13 @@ export default function Features() {
           gatsbyImageData(placeholder: NONE)
         }
       }
+      conversationEditorTablet: file(relativePath:  {
+         eq: "platform/features/ConversationEditorTablet.png"
+      }) {
+        childImageSharp {
+          gatsbyImageData(placeholder: NONE)
+        }
+      }
       skills: file(relativePath:  {
          eq: "platform/features/Skills.png"
       }) {
@@ -39,8 +47,22 @@ export default function Features() {
           gatsbyImageData(placeholder: NONE)
         }
       }
+      skillsTablet: file(relativePath:  {
+         eq: "platform/features/SkillsTablet.png"
+      }) {
+        childImageSharp {
+          gatsbyImageData(placeholder: NONE)
+        }
+      }
       training: file(relativePath:  {
          eq: "platform/features/Training.png"
+      }) {
+        childImageSharp {
+          gatsbyImageData(placeholder: NONE)
+        }
+      }
+      trainingTablet: file(relativePath:  {
+         eq: "platform/features/TrainingTablet.png"
       }) {
         childImageSharp {
           gatsbyImageData(placeholder: NONE)
@@ -60,8 +82,22 @@ export default function Features() {
           gatsbyImageData(placeholder: NONE)
         }
       }
+      conversationInsightTablet: file(relativePath:  {
+         eq: "platform/features/ConversationInsightTablet.png"
+      }) {
+        childImageSharp {
+          gatsbyImageData(placeholder: NONE)
+        }
+      }
       agentCoaching: file(relativePath:  {
          eq: "platform/features/AgentCoaching.png"
+      }) {
+        childImageSharp {
+          gatsbyImageData(placeholder: NONE)
+        }
+      }
+      agentCoachingTablet: file(relativePath:  {
+         eq: "platform/features/AgentCoachingTablet.png"
       }) {
         childImageSharp {
           gatsbyImageData(placeholder: NONE)
@@ -80,86 +116,86 @@ export default function Features() {
 	const data = [
 		{
 			key: 0,
-			left: 60,
-			top: 458,
+			left: useMedia(60, 60, 22, 0),
+			top: useMedia(458, 458, 581, 0),
 			rotate: 0,
 		},
 		{
 			key: 1,
-			left: 652,
-			top: 105,
+			left: useMedia(652, 652, 470, 0),
+			top: useMedia(105, 105, 220, 0),
 			rotate: 180,
 		},
 		{
 			key: 2,
-			left: 1318,
-			top: 314,
+			left: useMedia(1318, 1318, 942, 0),
+			top: useMedia(314, 314, 500, 0),
 			rotate: 180,
 		},
 		{
 			key: 3,
-			left: 60,
-			top: 805.5,
+			left: useMedia(60, 60, 22, 0),
+			top: useMedia(805.5, 805.5, 1079, 0),
 			rotate: 90,
 		},
 		{
 			key: 4,
-			left: 1318,
-			top: 856,
+			left: useMedia(1318, 1318, 942, 0),
+			top: useMedia(856, 856, 1051, 0),
 			rotate: -90,
 		},
 		{
 			key: 5,
-			left: 60,
-			top: 1191.5,
+			left: useMedia(60, 60, 22, 0),
+			top: useMedia(1191.5, 1191.5, 1496, 0),
 			rotate: 0,
 		},
 		{
 			key: 6,
-			left: 1318,
-			top: 1178.5,
+			left: useMedia(1318, 1318, 942, 0),
+			top: useMedia(1178.5, 1178.5, 1524, 0),
 			rotate: 180,
 		},
 		{
 			key: 7,
-			left: 60,
-			top: 1531.5,
+			left: useMedia(60, 60, 22, 0),
+			top: useMedia(1531.5, 1531.5, 1986, 0),
 			rotate: 90,
 		},
 		{
 			key: 8,
-			left: 1318,
-			top: 1535.5,
+			left: useMedia(1318, 1318, 942, 0),
+			top: useMedia(1535.5, 1535.5, 1958, 0),
 			rotate: -90,
 		},
 		{
 			key: 9,
-			left: 60,
-			top: 1855,
+			left: useMedia(60, 60, 22, 0),
+			top: useMedia(1855, 1855, 2399, 0),
 			rotate: 0,
 		},
 		{
 			key: 10,
-			left: 1318,
-			top: 1848,
+			left: useMedia(1318, 1318, 942, 0),
+			top: useMedia(1848, 1848, 2427, 0),
 			rotate: 180,
 		},
 		{
 			key: 11,
-			left: 60,
-			top: 2212.5,
+			left: useMedia(60, 60, 22, 0),
+			top: useMedia(2212.5, 2212.5, 2897, 0),
 			rotate: 90,
 		},
 		{
 			key: 12,
-			left: 1318,
-			top: 2187.5,
+			left: useMedia(1318, 1318, 942, 0),
+			top: useMedia(2187.5, 2187.5, 2869, 0),
 			rotate: -90,
 		},
 		{
 			key: 13,
-			left: 653,
-			top: 2549.5,
+			left: useMedia(653, 653, 474, 0),
+			top: useMedia(2549.5, 2549.5, 3278, 0),
 			rotate: -90,
 		},
 	]
@@ -219,7 +255,11 @@ export default function Features() {
 						<ConversationEditorImageWrapper>
 							<Unmask parameters={unmaskParams}>
 								<ConversationEditorImage
-									image={imageQuery.conversationEditor}
+									image={
+										tablet
+											? imageQuery.conversationEditorTablet
+											: imageQuery.conversationEditor
+									}
 									alt="Conversation Editor"
 								/>
 							</Unmask>
@@ -245,7 +285,10 @@ export default function Features() {
 						</SkillsCopy>
 						<SkillsImageWrapper>
 							<Unmask parameters={unmaskParams}>
-								<SkillsImage image={imageQuery.skills} alt="Skills Library" />
+								<SkillsImage
+									image={tablet ? imageQuery.skillsTablet : imageQuery.skills}
+									alt="Skills Library"
+								/>
 							</Unmask>
 						</SkillsImageWrapper>
 					</FeatureWrapper>
@@ -269,7 +312,9 @@ export default function Features() {
 						<TrainingImageWrapper>
 							<Unmask parameters={unmaskParams}>
 								<TrainingImage
-									image={imageQuery.training}
+									image={
+										tablet ? imageQuery.trainingTablet : imageQuery.training
+									}
 									alt="One-Time Training"
 								/>
 							</Unmask>
@@ -322,7 +367,11 @@ export default function Features() {
 						<ConversationInsightImageWrapper>
 							<Unmask parameters={unmaskParams}>
 								<ConversationInsightImage
-									image={imageQuery.conversationInsight}
+									image={
+										tablet
+											? imageQuery.conversationInsightTablet
+											: imageQuery.conversationInsight
+									}
 									alt="Conversation Insights"
 								/>
 							</Unmask>
@@ -350,7 +399,11 @@ export default function Features() {
 						<AgentCoachingImageWrapper>
 							<Unmask parameters={unmaskParams}>
 								<AgentCoachingImage
-									image={imageQuery.agentCoaching}
+									image={
+										tablet
+											? imageQuery.agentCoachingTablet
+											: imageQuery.agentCoaching
+									}
 									alt="Agent Coaching"
 								/>
 							</Unmask>
@@ -371,6 +424,10 @@ const Wrapper = styled.section`
   ${fresponsive(css`
     margin: 80px 0 165px;
   `)}
+
+	${ftablet(css`
+		margin: 0 0 125px;
+	`)}
 `
 
 const Inner = styled.div`
@@ -383,19 +440,30 @@ const Inner = styled.div`
   ${fresponsive(css`
     gap: 250px;
   `)}
+
+	${ftablet(css`
+		max-width: ${tabletBreakpoint}px;
+	`)}
 `
 
 const DotsWrapper = styled.div`
-  max-width: ${desktopBreakpoint}px;
   position: absolute;
-  height: 95.9%;
   
   ${fresponsive(css`
-    width: 1318px;
+  	height: 95.9%;
+  	max-width: ${desktopBreakpoint}px;
+    width: 1316px;
 		left: 50%;
 		transform: translateX(-50%);
     top: 105px;
   `)}
+
+	${ftablet(css`
+		max-width: ${tabletBreakpoint}px;
+		width: 980px;
+		top: 220px;
+		height: 93%;
+	`)}
 
   > * {
     ${fresponsive(css`
@@ -454,6 +522,10 @@ const CardWrapper = styled.div`
       }
     }
   `)}
+
+	${ftablet(css`
+		left: 68px;
+	`)}
 `
 
 const Right = styled.div`
@@ -466,6 +538,11 @@ const Right = styled.div`
     top: 27px;
     left: 545px;
   `)}
+
+	${ftablet(css`
+		gap: 22px;
+		left: 452px;
+	`)}
 `
 
 const StyledKicker = styled(Kicker)`
@@ -477,11 +554,15 @@ const StyledKicker = styled(Kicker)`
 `
 
 const Title = styled.p`
-  ${textStyles.h3};
-
-  ${fresponsive(css`
+	${fresponsive(css`
+		${textStyles.h3};
     width: 606px;
   `)}
+
+	${ftablet(css`
+		${textStyles.h2};
+		width: 504px;
+	`)}
 `
 
 export const Blue = styled.span`
@@ -513,6 +594,11 @@ const LeftFeatureCopy = styled(FeatureCopy)`
     border-top-right-radius: 60px;
     border-bottom-right-radius: 60px;
   `)}
+	
+	${ftablet(css`
+		width: 510px;
+		padding-left: 68px;
+	`)}
 `
 
 const RightFeatureCopy = styled(FeatureCopy)`
@@ -522,6 +608,11 @@ const RightFeatureCopy = styled(FeatureCopy)`
     border-top-left-radius: 60px;
     border-bottom-left-radius: 60px;
   `)}
+
+	${ftablet(css`
+		width: 490px;
+		padding-left: 66px;
+	`)}
 `
 
 const EmptyCopy = styled(RightFeatureCopy)`
@@ -532,37 +623,61 @@ const EmptyCopy = styled(RightFeatureCopy)`
     left: 712px;
     height: 314px;
   `)}
+
+	${ftablet(css`
+		left: 530px;
+		height: 500px;
+	`)}
 `
 
 const ConversationEditorCopy = styled(LeftFeatureCopy)`
   ${fresponsive(css`
     height: 288px;
   `)}
+
+	${ftablet(css`
+		height: 438px;
+	`)}
 `
 
 const SkillsCopy = styled(RightFeatureCopy)`
   ${fresponsive(css`
     height: 263px;
   `)}
+
+	${ftablet(css`
+		height: 413px;
+	`)}
 `
 
 const TrainingCopy = styled(LeftFeatureCopy)`
   ${fresponsive(css`
     height: 280px;
   `)}
+
+	${ftablet(css`
+		height: 430px;
+	`)}
 `
 
 const AgentEditorCopy = styled(RightFeatureCopy)`
   ${fresponsive(css`
     height: 253px;
   `)}
+
+	${ftablet(css`
+		height: 409px;
+	`)}
 `
 
 const ConversationInsightCopy = styled(LeftFeatureCopy)`
   ${fresponsive(css`
     height: 298px;
-    width: 700px;
   `)}
+
+	${ftablet(css`
+		height: 438px;
+	`)}
 `
 
 const AgentCoachingCopy = styled(RightFeatureCopy)`
@@ -570,6 +685,10 @@ const AgentCoachingCopy = styled(RightFeatureCopy)`
     height: 364px;
     border-bottom-left-radius: 0;
   `)}
+
+	${ftablet(css`
+		height: 423px;
+	`)}
 `
 
 const Bottom = styled.div`
@@ -594,7 +713,7 @@ const FeatureWrapper = styled.div`
 
   .agent-coaching-description {
     ${fresponsive(css`
-      width: 348px;
+      width: 355px;
     `)}
   }
 `
@@ -603,6 +722,10 @@ const FeatureKicker = styled.p`
   ${transparentText};
   background-image: ${gradients.greenBlue};
   ${textStyles.sh4};
+
+	${ftablet(css`
+		${textStyles.sh3};	
+	`)}
 `
 
 const FeatureTitle = styled.h1`
@@ -611,14 +734,23 @@ const FeatureTitle = styled.h1`
   ${fresponsive(css`
     width: 466px;
   `)}
+
+	${ftablet(css`
+		${textStyles.h5};
+		width: 402px;
+	`)}
 `
 
 const FeatureDescription = styled.p`
-  ${textStyles.bodyS};
-
-  ${fresponsive(css`
+	${fresponsive(css`
+		${textStyles.bodyS};
     width: 350px;
   `)}
+
+	${ftablet(css`
+		${textStyles.bodyR};
+		width: 352px;
+	`)}
 `
 
 const ImageWrapper = styled.div`
@@ -630,18 +762,32 @@ const ConversationEditorImageWrapper = styled(ImageWrapper)`
     padding-left: 25px;
     top: 25px;
   `)}
+
+	${ftablet(css`
+		padding-left: 15px;
+		top: 5px;
+	`)}
 `
 
 const SkillsImageWrapper = styled(ImageWrapper)`
   ${fresponsive(css`
     left: -55px;
   `)}
+
+	${ftablet(css`
+		left: -48px;
+		top: 13px;
+	`)}
 `
 
 const TrainingImageWrapper = styled(ImageWrapper)`
   ${fresponsive(css`
     padding-left: 68px;
   `)}
+
+	${ftablet(css`
+		padding-left: 25px;
+	`)}
 `
 
 const AgentEditorImageWrapper = styled(ImageWrapper)`
@@ -649,6 +795,11 @@ const AgentEditorImageWrapper = styled(ImageWrapper)`
     left: -62px;
     top: 23px;
   `)}
+
+	${ftablet(css`
+		left: -43px;
+		top: 26px;
+	`)}
 `
 
 const ConversationInsightImageWrapper = styled(ImageWrapper)`
@@ -656,6 +807,11 @@ const ConversationInsightImageWrapper = styled(ImageWrapper)`
     padding-left: 77px;
     top: -3px;
   `)}
+
+	${ftablet(css`
+		padding-left: 23px;
+		top: 2px;
+	`)}
 `
 
 const AgentCoachingImageWrapper = styled(ImageWrapper)`
@@ -663,6 +819,11 @@ const AgentCoachingImageWrapper = styled(ImageWrapper)`
     left: -42px;
     top: 17px;
   `)}
+
+	${ftablet(css`
+		left: -20px;
+		top: -7px;
+	`)}
 `
 
 const ConversationEditorImage = styled(UniversalImage)`
@@ -670,6 +831,11 @@ const ConversationEditorImage = styled(UniversalImage)`
     width: 631px;
     height: 362px;
   `)}
+
+	${ftablet(css`
+		width: 457px;
+		height: 382px;
+	`)}
 `
 
 const SkillsImage = styled(UniversalImage)`
@@ -677,6 +843,11 @@ const SkillsImage = styled(UniversalImage)`
     width: 578px;
     height: 345px;
   `)}
+
+	${ftablet(css`
+		width: 457px;
+		height: 339px;
+	`)}
 `
 
 const TrainingImage = styled(UniversalImage)`
@@ -684,6 +855,11 @@ const TrainingImage = styled(UniversalImage)`
     width: 520px;
     height: 251px;
   `)}
+
+	${ftablet(css`
+		width: 430px;
+		height: 418px;
+	`)}
 `
 
 const AgentEditorImage = styled(UniversalImage)`
@@ -698,6 +874,11 @@ const ConversationInsightImage = styled(UniversalImage)`
     width: 538px;
     height: 304px;
   `)}
+
+	${ftablet(css`
+		width: 435px;
+		height: 288px;
+	`)}
 `
 
 const AgentCoachingImage = styled(UniversalImage)`
@@ -705,4 +886,9 @@ const AgentCoachingImage = styled(UniversalImage)`
     width: 584px;
     height: 338px;
   `)}
+
+	${ftablet(css`
+		width: 483px;
+		height: 413px;
+	`)}
 `
