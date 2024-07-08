@@ -2,6 +2,7 @@ import * as Popover from "@radix-ui/react-popover"
 import Link from "components/Buttons/Link"
 import Icon from "components/Icon"
 import { graphql, useStaticQuery } from "gatsby"
+import UniversalLink from "library/Loader/UniversalLink"
 import { useScrollLock } from "library/Scroll"
 import UniversalImage from "library/UniversalImage"
 import { eases } from "library/eases"
@@ -70,7 +71,7 @@ export default function Dropdown({ children }: { children: string }) {
 					</Column>
 					<Column>
 						<ColumnTitle>Featured</ColumnTitle>
-						<Card>
+						<Card to={links.agentAccelerator}>
 							<UniversalImage
 								image={image.file}
 								alt="Man on a phone, retro style"
@@ -182,7 +183,7 @@ const ColumnTitle = styled.h1`
 	`)}
 `
 
-const Card = styled.div`
+const Card = styled(UniversalLink)`
 	${fresponsive(css`
 		width: 160px;
 		height: 126px;
