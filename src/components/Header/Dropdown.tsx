@@ -26,12 +26,12 @@ export default function Dropdown({ children }: { children: string }) {
 	const image: Queries.DropdownQuery = useStaticQuery(graphql`
 		query Dropdown {
 			file(relativePath: { eq: "global/DropdownFeature.png" }) {
-				childImageSharp{
+				childImageSharp {
 					gatsbyImageData
 				}
 			}
 		}
-		`)
+	`)
 
 	return (
 		<div onMouseLeave={() => setOpen(false)} onMouseEnter={() => setOpen(true)}>
@@ -39,33 +39,45 @@ export default function Dropdown({ children }: { children: string }) {
 			<Popover.Root open={open} onOpenChange={setOpen}>
 				<Anchor>
 					<Popover.Trigger asChild>
-						<Link type="button" icon="chevDown">
+						<Link type="button">
 							{children}
+							<DropdownIcon
+								name="chevDown"
+								style={{
+									scale: open ? "1 -1" : "1 1",
+								}}
+							/>
 						</Link>
 					</Popover.Trigger>
 				</Anchor>
-				<Content align="start">
+				<Content
+					align="start"
+					style={{
+						// prevent 'bouncing' when mouse is positioned below
+						pointerEvents: open ? "auto" : "none",
+					}}
+				>
 					<Column>
 						<SubLink>
-							<Icon name="integration" />
+							<Icon name="about" />
 							<Link to={links.agentAccelerator}>About</Link>
 						</SubLink>
 						<SubLink>
-							<Icon name="integration" />
+							<Icon name="careers" />
 							<Link to={links.agentAccelerator}>Careers</Link>
 						</SubLink>
 						<SubLink>
-							<Icon name="integration" />
+							<Icon name="phone2" />
 							<Link to={links.agentAccelerator}>Contact</Link>
 						</SubLink>
 					</Column>
 					<Column>
 						<SubLink>
-							<Icon name="integration" />
+							<Icon name="blog" />
 							<Link to={links.agentAccelerator}>Blog</Link>
 						</SubLink>
 						<SubLink>
-							<Icon name="integration" />
+							<Icon name="news" />
 							<Link to={links.agentAccelerator}>News</Link>
 						</SubLink>
 					</Column>
@@ -87,6 +99,19 @@ export default function Dropdown({ children }: { children: string }) {
 		</div>
 	)
 }
+
+const DropdownIcon = styled(Icon)`
+	${fresponsive(css`
+		margin-left: 3px;
+		transition: scale ${duration}ms;
+		width: 12px;
+
+		* {
+			fill: #aeadad;
+			stroke: #aeadad;
+		}
+	`)}
+`
 
 const slideIn = keyframes`
 	from {

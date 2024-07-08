@@ -14,11 +14,14 @@ import { ReactComponent as RoutingSVG } from "images/global/icons/Routing.svg"
 import { ReactComponent as TargetSVG } from "images/global/icons/Target.svg"
 import { ReactComponent as TrashSVG } from "images/global/icons/Trash.svg"
 import { ReactComponent as VerifiedSVG } from "images/global/icons/Verified.svg"
+import { ReactComponent as AboutSVG } from "images/global/icons/about.svg"
 import { ReactComponent as AgencySVG } from "images/global/icons/agency.svg"
 import { ReactComponent as AtomSVG } from "images/global/icons/atom.svg"
 import { ReactComponent as AudioSVG } from "images/global/icons/audio.svg"
+import { ReactComponent as BlogSVG } from "images/global/icons/blog.svg"
 import { ReactComponent as BusinessSVG } from "images/global/icons/business.svg"
 import { ReactComponent as CardSVG } from "images/global/icons/card.svg"
+import { ReactComponent as CareersSVG } from "images/global/icons/careers.svg"
 import { ReactComponent as CategorySVG } from "images/global/icons/category.svg"
 import { ReactComponent as CheckSVG } from "images/global/icons/check.svg"
 import { ReactComponent as CheckTwoSVG } from "images/global/icons/checkTwo.svg"
@@ -28,7 +31,9 @@ import { ReactComponent as FeatherSVG } from "images/global/icons/feather.svg"
 import { ReactComponent as HeartSVG } from "images/global/icons/heart.svg"
 import { ReactComponent as LightningSVG } from "images/global/icons/lightning.svg"
 import { ReactComponent as LinkedinSVG } from "images/global/icons/linkedin.svg"
+import { ReactComponent as NewsSVG } from "images/global/icons/news.svg"
 import { ReactComponent as PdfSVG } from "images/global/icons/pdf.svg"
+import { ReactComponent as Phone2SVG } from "images/global/icons/phone2.svg"
 import { ReactComponent as PlaySVG } from "images/global/icons/play.svg"
 import { ReactComponent as ProSVG } from "images/global/icons/pro.svg"
 import { ReactComponent as RocketSVG } from "images/global/icons/rocket.svg"
@@ -80,6 +85,11 @@ const iconMap = {
 	feather: FeatherSVG,
 	lightning: LightningSVG,
 	customers: CustomersSVG,
+	about: AboutSVG,
+	blog: BlogSVG,
+	careers: CareersSVG,
+	phone2: Phone2SVG,
+	news: NewsSVG,
 }
 
 export type IconType = keyof typeof iconMap
@@ -87,10 +97,12 @@ export type IconType = keyof typeof iconMap
 export default function Icon({
 	name,
 	className = "",
+	style = {},
 }: {
 	name: IconType
 	className?: string
+	style?: React.CSSProperties
 }) {
 	const Svg = iconMap[name]
-	return <Svg className={className} />
+	return <Svg className={className} style={style} />
 }
