@@ -4,12 +4,16 @@ import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { usePinType } from "library/Scroll"
 import UniversalImage from "library/UniversalImage"
-import { fresponsive, ftablet } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import useMedia from "library/useMedia"
 import styled, { css } from "styled-components"
 import { gradients } from "styles/colors"
-import { desktopBreakpoint, tabletBreakpoint } from "styles/media"
+import {
+	desktopBreakpoint,
+	mobileBreakpoint,
+	tabletBreakpoint,
+} from "styles/media"
 import textStyles, { transparentText } from "styles/text"
 import links from "utils/links"
 import Card from "./Card"
@@ -52,11 +56,12 @@ export default function PlatformHero() {
 		}
 	`)
 
-	const productXPercent = useMedia(-64, -64, -50.5, 0)
-	const productYPercent = useMedia(-30, -30, -90, 0)
+	const productXPercent = useMedia(-64, -64, -50.5, -20.5)
+	const productYPercent = useMedia(-30, -30, -90, -20)
 	const productScale = useMedia(0.8, 0.8, 0.9, 1)
-	const widgetsXPercent = useMedia(-800, -800, -500, 0)
-	const widgetsYPercent = useMedia(-45, -45, -200, 0)
+	const widgetsXPercent = useMedia(-800, -800, -500, -225)
+	const widgetsYPercent = useMedia(-45, -45, -200, -20)
+	const widget3YPercent = useMedia(-75, -75, -230, -30)
 	const copyYPercent = useMedia(-400, -400, -200, 0)
 
 	useAnimation(() => {
@@ -94,7 +99,7 @@ export default function PlatformHero() {
 			`${Widget3.toString()}`,
 			{
 				xPercent: widgetsXPercent - 75,
-				yPercent: widgetsYPercent - 30,
+				yPercent: widget3YPercent,
 			},
 			0,
 		)
@@ -113,6 +118,7 @@ export default function PlatformHero() {
 		productScale,
 		widgetsXPercent,
 		widgetsYPercent,
+		widget3YPercent,
 		copyYPercent,
 	])
 
@@ -169,6 +175,10 @@ const Inner = styled.div`
 	${ftablet(css`
 		max-width: ${tabletBreakpoint}px;
 	`)}
+
+	${fmobile(css`
+		max-width: ${mobileBreakpoint}px;
+	`)}
 `
 
 const Copy = styled.div`
@@ -188,6 +198,13 @@ const Copy = styled.div`
 		top: 175px;
 		left: 68px;
 	`)}
+
+	${fmobile(css`
+		gap: 44px;
+		transform: translateX(-50%);
+		left: 50%;
+		top: 110px;
+	`)}
 `
 
 const ImagesWrapper = styled.div`
@@ -204,6 +221,13 @@ const Title = styled.p`
 
 	${ftablet(css`
 		width: 888px;
+	`)}
+
+	${fmobile(css`
+		${textStyles.h6};
+		height: 135px;
+		width: 314px;
+		text-align: center;
 	`)}
 `
 
@@ -237,11 +261,23 @@ const Product = styled(UniversalImage)`
 		left: 517px;
 		top: 671px;
 	`)}
+
+	${fmobile(css`
+		position: absolute;
+		top: 445px;
+		left: 112px;
+		height: 260px;
+		width: 445px;
+	`)}
 `
 
 const Widget = styled.div`
 	position: absolute;
 	z-index: 2;
+
+	${fmobile(css`
+		scale: 0.5;
+	`)}
 `
 
 const Widget1 = styled(Widget)`
@@ -256,6 +292,11 @@ const Widget1 = styled(Widget)`
 		top: 550px;
 		left: 484px;
 	`)}
+
+	${fmobile(css`
+		top: 347px;
+		left: 140px;
+	`)}
 `
 
 const Widget2 = styled(Widget)`
@@ -268,6 +309,11 @@ const Widget2 = styled(Widget)`
 		left: 330px;
 		top: 860px;
 	`)}
+
+	${fmobile(css`
+		top: 475px;
+		left: 24px;
+	`)}
 `
 
 const Widget3 = styled(Widget)`
@@ -279,5 +325,11 @@ const Widget3 = styled(Widget)`
 	${ftablet(css`
 		right: 56px;
 		top: 1060px;
+	`)}
+
+	${fmobile(css`
+		top: 545px;
+		left: 267px;
+		right: unset;
 	`)}
 `
