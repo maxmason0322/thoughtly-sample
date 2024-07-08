@@ -179,13 +179,13 @@ const Carousel = styled.div`
 	scrollbar-width: none;
 
 	/* Hide scrollbar for Chrome, Safari, and Opera */
-  ::-webkit-scrollbar {
-    display: none;
-  }
+	::-webkit-scrollbar {
+		display: none;
+	}
 
-  ${fresponsive(css`
-    height: 474px;
-  `)}
+	${fresponsive(css`
+		height: 474px;
+	`)}
 
 	${fmobile(css`
 		height: 660px;

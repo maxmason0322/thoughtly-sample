@@ -4,6 +4,10 @@ const routes = {
 	privacy: "/privacy/",
 	blog: "/blog/",
 	agentAccelerator: "/agent-accelerator/",
+
+	// part of final nav? where go?
+	platform: "#todo",
+	customers: "#todo",
 } as const
 
 const sections = {

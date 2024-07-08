@@ -79,41 +79,41 @@ export default function EmailInput() {
 }
 
 const StyledBorder = styled(Border)`
-  width: 95%;
-  transition:
-    width 0.35s,
-    height 0.35s;
+	width: 95%;
+	transition:
+		width 0.35s,
+		height 0.35s;
 
-  ${fresponsive(css`
-    border-radius: 19px;
-  `)}
+	${fresponsive(css`
+		border-radius: 19px;
+	`)}
 `
 
 const Wrapper = styled(Form.Root)`
-  border: 1.5px solid ${colors.gray300};
+	border: 1.5px solid ${colors.gray300};
 
 	${fresponsive(css`
 		border-radius: 16px;
-    width: 366px;
+		width: 366px;
 	`)}
 
-  ${ftablet(css`
-    width: 450px;
-  `)}
+	${ftablet(css`
+		width: 450px;
+	`)}
 
 	${fmobile(css`
-    width: 322px;
+		width: 322px;
 		margin-left: 0;
 		margin-right: 0;
 		gap: 22px;
 	`)}
 
   &:hover {
-    ${Border} {
+		${Border} {
 			width: calc(100% + 14px);
 			height: calc(100% + 12px);
 		}
-  }
+	}
 `
 
 const Row = styled.div`
@@ -128,7 +128,7 @@ const Row = styled.div`
 `
 
 const Submit = styled(Primary)`
-  color: ${colors.black};
+	color: ${colors.black};
 	position: absolute;
 	z-index: 2;
 
@@ -140,9 +140,9 @@ const Submit = styled(Primary)`
 `
 
 const Field = styled(Form.Field)`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 	position: relative;
 	width: 100%;
 
@@ -163,10 +163,10 @@ const Input = styled(Form.Control)`
 		border-radius: 16px;
 	`)}
 
-  ${ftablet(css`
-    ${textStyles.sh2}
-    height: 63px;
-  `)}
+	${ftablet(css`
+		${textStyles.sh2}
+		height: 63px;
+	`)}
 
 	&::placeholder {
 		color: ${colors.gray600};
@@ -178,7 +178,7 @@ const Input = styled(Form.Control)`
 `
 
 const Message = styled(Form.Message)`
-  position: absolute;
+	position: absolute;
 	color: #f76161;
 	${textStyles.t2}
 

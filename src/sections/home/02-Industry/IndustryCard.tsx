@@ -54,7 +54,10 @@ interface Data {
 export default function IndustryCard({
 	data,
 	activeIndex,
-}: { data: Data[]; activeIndex: number }) {
+}: {
+	data: Data[]
+	activeIndex: number
+}) {
 	const widgets = data.map((item, index) => {
 		return (
 			<Widget1
@@ -280,7 +283,7 @@ const Bottom = styled.div`
   ${fmobile(css`
 		border-radius: 18px;
 		background: ${colors.beige300};
-		border: 1.5px solid #D8D8D8;
+		border: 1.5px solid #d8d8d8;
 		flex-direction: column;
 		gap: 100px;
 		padding: 28px;

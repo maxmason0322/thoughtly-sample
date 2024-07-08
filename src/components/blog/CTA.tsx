@@ -19,23 +19,23 @@ export default function CTA({ cta }: { cta: CallToAction }) {
 }
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  background: ${gradients.greenGreen};
+	display: flex;
+	flex-direction: column;
+	background: ${gradients.greenGreen};
 
-  ${fresponsive(css`
-    border-radius: 24px;
-    padding: 40px;
-    width: 100%;
-    gap: 28px;
-  `)}
+	${fresponsive(css`
+		border-radius: 24px;
+		padding: 40px;
+		width: 100%;
+		gap: 28px;
+	`)}
 `
 
 const Text = styled.div`
-  color: ${colors.white};
-  ${textStyles.h6}
+	color: ${colors.white};
+	${textStyles.h6}
 
-  ${fmobile(css`
-    ${textStyles.sh1}
-  `)}
+	${fmobile(css`
+		${textStyles.sh1}
+	`)}
 `

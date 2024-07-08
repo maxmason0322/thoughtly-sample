@@ -775,7 +775,7 @@ const Track = styled.div`
 	flex-wrap: nowrap;
 	-webkit-overflow-scrolling: touch;
 	scroll-snap-type: x mandatory;
-	
+
 	& > * {
 		flex-shrink: 0;
 		scroll-snap-align: center;
@@ -789,6 +789,6 @@ const Track = styled.div`
 		width: 100vw;
 		gap: 0;
 		padding: 0 27px;
-		margin:0 -27px;
+		margin: 0 -27px;
 	`)}
 `

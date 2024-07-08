@@ -20,6 +20,7 @@ import textStyles from "styles/text"
 import links from "utils/links"
 import Link from "../Buttons/Link"
 import { BEAT_ONE_DURATION, BEAT_TWO_DURATION } from "../Preloader"
+import Dropdown from "./Dropdown"
 
 gsap.registerPlugin(ScrollToPlugin)
 
@@ -254,11 +255,9 @@ export default function Header() {
 						<StyledLogoSVG />
 					</UniversalLink>
 					<Links>
-						<Link to={links.industries}>Industries</Link>
-						<Link to={links.pricing}>Pricing</Link>
-						<Link to={links.agentAccelerator}>Agent Accelerator</Link>
-						<Link to={links.helpCenter}>Support</Link>
-						<Link to={links.blog}>Blog</Link>
+						<Link to={links.platform}>Platform</Link>
+						<Link to={links.customers}>Pricing</Link>
+						<Dropdown>Company</Dropdown>
 					</Links>
 				</Left>
 				<Right>
