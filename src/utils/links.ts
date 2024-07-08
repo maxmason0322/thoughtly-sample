@@ -12,10 +12,11 @@ const internal = {
 	integrations: "/#integrations",
 	pricing: "/#pricing",
 
-	// unknown or n/a as of now
-	platform: "#todo",
-	customers: "#todo",
-	weGotFunding: "#todo",
+	// TODO unknown or n/a as of now
+	platform: "/#platform",
+	customers: "/#customers",
+	about: "/#about",
+	news: "/#news",
 }
 
 const external = {

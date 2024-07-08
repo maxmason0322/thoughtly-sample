@@ -1,14 +1,12 @@
 import * as Popover from "@radix-ui/react-popover"
 import Link from "components/Buttons/Link"
 import Icon from "components/Icon"
-import { graphql, useStaticQuery } from "gatsby"
 import UniversalLink from "library/Loader/UniversalLink"
 import { useScrollLock } from "library/Scroll"
-import UniversalImage from "library/UniversalImage"
 import { eases } from "library/eases"
 import { fresponsive } from "library/fullyResponsive"
 import { useBetterThrottle } from "library/useBetterThrottle"
-import { useState } from "react"
+import { type ReactNode, useState } from "react"
 import styled, { css, keyframes } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
@@ -16,22 +14,18 @@ import links from "utils/links"
 
 const duration = 200
 
-export default function Dropdown({ children }: { children: string }) {
+export default function Dropdown({
+	children,
+	feature,
+}: {
+	children: string
+	feature: ReactNode
+}) {
 	const [rawOpen, setOpen] = useState(false)
 	// throttle the state change to allow the animation to finish
 	const open = useBetterThrottle(rawOpen, duration)
 	// lock the scroll when the dropdown is open
 	useScrollLock("lock", open)
-
-	const image: Queries.DropdownQuery = useStaticQuery(graphql`
-		query Dropdown {
-			file(relativePath: { eq: "global/DropdownFeature.png" }) {
-				childImageSharp {
-					gatsbyImageData
-				}
-			}
-		}
-	`)
 
 	return (
 		<div onMouseLeave={() => setOpen(false)} onMouseEnter={() => setOpen(true)}>
@@ -60,39 +54,30 @@ export default function Dropdown({ children }: { children: string }) {
 					<Column>
 						<SubLink>
 							<Icon name="about" />
-							<Link to={links.agentAccelerator}>About</Link>
+							<Link to={links.about}>About</Link>
 						</SubLink>
 						<SubLink>
 							<Icon name="careers" />
-							<Link to={links.agentAccelerator}>Careers</Link>
+							<Link to={links.careers}>Careers</Link>
 						</SubLink>
 						<SubLink>
 							<Icon name="phone2" />
-							<Link to={links.agentAccelerator}>Contact</Link>
+							<Link to={links.contact}>Contact</Link>
 						</SubLink>
 					</Column>
 					<Column>
 						<SubLink>
 							<Icon name="blog" />
-							<Link to={links.agentAccelerator}>Blog</Link>
+							<Link to={links.blog}>Blog</Link>
 						</SubLink>
 						<SubLink>
 							<Icon name="news" />
-							<Link to={links.agentAccelerator}>News</Link>
+							<Link to={links.news}>News</Link>
 						</SubLink>
 					</Column>
 					<Column>
 						<ColumnTitle>Featured</ColumnTitle>
-						<Card to={links.agentAccelerator}>
-							<UniversalImage
-								image={image.file}
-								alt="Man on a phone, retro style"
-							/>
-							<CardTitle>
-								Thoughtly announces $2.5M in funding from a16
-								<Icon name="chev" />
-							</CardTitle>
-						</Card>
+						{feature}
 					</Column>
 				</Content>
 			</Popover.Root>

@@ -34,6 +34,7 @@ import { ReactComponent as LinkedinSVG } from "images/global/icons/linkedin.svg"
 import { ReactComponent as NewsSVG } from "images/global/icons/news.svg"
 import { ReactComponent as PdfSVG } from "images/global/icons/pdf.svg"
 import { ReactComponent as Phone2SVG } from "images/global/icons/phone2.svg"
+import { ReactComponent as PlatformSVG } from "images/global/icons/platform.svg"
 import { ReactComponent as PlaySVG } from "images/global/icons/play.svg"
 import { ReactComponent as ProSVG } from "images/global/icons/pro.svg"
 import { ReactComponent as RocketSVG } from "images/global/icons/rocket.svg"
@@ -90,6 +91,7 @@ const iconMap = {
 	careers: CareersSVG,
 	phone2: Phone2SVG,
 	news: NewsSVG,
+	platform: PlatformSVG,
 }
 
 export type IconType = keyof typeof iconMap

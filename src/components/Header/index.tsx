@@ -1,3 +1,4 @@
+import * as Popover from "@radix-ui/react-popover"
 import PrimaryButton from "components/Buttons/Primary"
 import Icon from "components/Icon"
 import { graphql, useStaticQuery } from "gatsby"
@@ -10,10 +11,13 @@ import UniversalLink from "library/Loader/UniversalLink"
 import { ScreenContext } from "library/ScreenContext"
 import { useScrollLock } from "library/Scroll"
 import UniversalImage from "library/UniversalImage"
+import { eases } from "library/eases"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
+import { useBetterThrottle } from "library/useBetterThrottle"
+import { useResponsivePixels } from "library/viewportUtils"
 import { useContext, useEffect, useRef, useState } from "react"
-import styled, { css } from "styled-components"
+import styled, { css, keyframes } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles from "styles/text"
@@ -24,14 +28,16 @@ import Dropdown from "./Dropdown"
 
 gsap.registerPlugin(ScrollToPlugin)
 
+const duration = 500
+
 export default function Header() {
 	const { mobile, tablet } = useContext(ScreenContext)
+	const [menuOpenRaw, setMenuOpen] = useState(false)
+	const menuOpen = useBetterThrottle(menuOpenRaw, duration)
 	const innerRef = useRef<HTMLDivElement | null>(null)
-	const [menuOpen, setMenuOpen] = useState(false)
 	const lineRef1 = useRef<SVGLineElement | null>(null)
 	const lineRef2 = useRef<SVGLineElement | null>(null)
 	const lineRef3 = useRef<SVGLineElement | null>(null)
-	const blurRef = useRef<HTMLDivElement | null>(null)
 	const menuRef = useRef<HTMLDivElement | null>(null)
 
 	useScrollLock("lock", menuOpen)
@@ -50,24 +56,34 @@ export default function Header() {
 		}
 	`)
 
-	const openTimeline = useAnimation(() => {
+	const post = data.contentfulPageBlogHub?.featuredBlogPost
+	// prevent orphaned arrow on last line
+	const allButLast = post?.title?.split(" ").slice(0, -2).join(" ")
+	const last = post?.title?.split(" ").slice(-2).join(" ")
+	const feature = post ? (
+		<Card to={`/blog/${post.slug ?? ""}/`}>
+			<FeatureImage
+				image={post.mainImage?.gatsbyImageData}
+				alt={post.title ?? ""}
+			/>
+			<CardTitle>
+				{allButLast}{" "}
+				<span style={{ whiteSpace: "nowrap" }}>
+					{last} <Icon name="chev" />
+				</span>
+			</CardTitle>
+		</Card>
+	) : null
+
+	const buttonTimeline = useAnimation(() => {
 		if (!mobile && !tablet) return null
 		const tl = gsap.timeline({
 			paused: true,
-			onReverseComplete: () => {
-				gsap.set(menuRef.current, {
-					display: "none",
-				})
+			defaults: {
+				duration: duration / 1000,
+				ease: "power3.inOut",
 			},
 		})
-
-		tl.set(
-			menuRef.current,
-			{
-				display: "flex",
-			},
-			0,
-		)
 
 		tl.to(
 			[lineRef1.current, lineRef2.current],
@@ -95,45 +111,16 @@ export default function Header() {
 			0,
 		)
 
-		tl.set(
-			blurRef.current,
-			{
-				display: "flex",
-			},
-			0,
-		)
-
-		tl.to(
-			blurRef.current,
-			{
-				opacity: 1,
-			},
-			0,
-		)
-
-		tl.fromTo(
-			menuRef.current,
-			{
-				xPercent: 150,
-			},
-			{
-				xPercent: 0,
-			},
-			0,
-		)
-
 		return tl
 	}, [mobile, tablet])
 
 	useEffect(() => {
-		if (openTimeline) {
-			if (menuOpen) {
-				openTimeline.play()
-			} else {
-				openTimeline.reverse()
-			}
+		if (menuOpen) {
+			buttonTimeline?.play()
+		} else {
+			buttonTimeline?.reverse()
 		}
-	}, [openTimeline, menuOpen])
+	}, [buttonTimeline, menuOpen])
 
 	usePreloader({
 		duration: 0,
@@ -150,212 +137,131 @@ export default function Header() {
 
 	loader.useEventListener("routeChange", () => {
 		setMenuOpen(false)
+		buttonTimeline?.time(0)
+		gsap.set(menuRef.current, { display: "none" })
 	})
 	loader.useEventListener("scroll", () => {
 		setMenuOpen(false)
 	})
 
-	return (
-		<Wrapper>
-			{(mobile || tablet) && (
-				<>
-					<Blur ref={blurRef} />
-					<Menu ref={menuRef}>
-						<Buttons>
-							<PrimaryButton variant="secondary" to={links.login}>
-								Sign In
-							</PrimaryButton>
-							{!tablet && (
-								<PrimaryButton icon="chev" to={links.bookDemo}>
-									Book a Demo
-								</PrimaryButton>
-							)}
-						</Buttons>
-						<HR />
-						<MobileLinks>
-							<button
-								type="button"
-								onClick={() => {
-									setMenuOpen(false)
-								}}
-							>
-								<MobileLink to={links.industries}>
-									<Icon name="lock" />
-									<span>Industries</span>
-								</MobileLink>
-							</button>
-							<button
-								type="button"
-								onClick={() => {
-									setMenuOpen(false)
-								}}
-							>
-								<MobileLink to={links.integrations}>
-									<Icon name="integration" />
-									<span>Integrations</span>
-								</MobileLink>
-							</button>
-							<button
-								type="button"
-								onClick={() => {
-									setMenuOpen(false)
-								}}
-							>
-								<MobileLink to={links.pricing}>
-									<Icon name="card" />
-									<span>Pricing</span>
-								</MobileLink>
-							</button>
-							<MobileLink to={links.agentAccelerator}>
-								<Icon name="lightning" />
-								<span>Agent Accelerator</span>
-							</MobileLink>
-							<MobileLink to={links.helpCenter}>
-								<Icon name="heart" />
-								<span>Support</span>
-							</MobileLink>
-							<MobileLink to={links.blog}>
-								<Icon name="feather" />
-								<span>Blog</span>
-							</MobileLink>
-						</MobileLinks>
-						<HR />
-						<FeaturedWrapper>
-							<span>Featured</span>
-							<ImageWrapper>
-								{data.contentfulPageBlogHub?.featuredBlogPost?.mainImage && (
-									<FeaturedImage
-										image={
-											data.contentfulPageBlogHub?.featuredBlogPost?.mainImage
-												.gatsbyImageData
-										}
-										alt={
-											data.contentfulPageBlogHub?.featuredBlogPost?.title ??
-											"featured article"
-										}
-									/>
-								)}
-								<Title
-									to={`/blog/${
-										data.contentfulPageBlogHub?.featuredBlogPost?.slug ?? ""
-									}/`}
-								>
-									{data.contentfulPageBlogHub?.featuredBlogPost?.title}
-									<Icon name="chev" />
-								</Title>
-							</ImageWrapper>
-						</FeaturedWrapper>
-					</Menu>
-				</>
-			)}
+	const offset = useResponsivePixels(16)
 
-			<Inner ref={innerRef}>
-				<Left>
-					<UniversalLink to={links.home} ariaLabel="Thoughtly">
-						<StyledLogoSVG />
-					</UniversalLink>
-					<Links>
-						<Link to={links.platform}>Platform</Link>
-						<Link to={links.customers}>Pricing</Link>
-						<Dropdown>Company</Dropdown>
-					</Links>
-				</Left>
-				<Right>
-					{tablet && (
-						<PrimaryButton to={links.login}>Get Started</PrimaryButton>
-					)}
-					{(mobile || tablet) && (
-						<Hamburger
-							type="button"
-							onClick={() => setMenuOpen((val) => !val)}
-							ariaLabel="menu"
-						>
-							<Lines viewBox="0 0 36 12" overflow="visible">
-								<Line ref={lineRef1} x1={0} x2={36} y1={0.5} y2={0.5} />
-								<Line ref={lineRef2} x1={0} x2={36} y1={6} y2={6} />
-								<Line ref={lineRef3} x1={0} x2={36} y1={11.5} y2={11.5} />
-							</Lines>
-						</Hamburger>
-					)}
-					{!mobile && !tablet && (
-						<>
-							<PrimaryButton variant="secondary" to={links.login}>
-								Sign In
-							</PrimaryButton>
-							<PrimaryButton icon="chev" to={links.bookDemo}>
-								Book a Demo
-							</PrimaryButton>
-						</>
-					)}
-				</Right>
-			</Inner>
-		</Wrapper>
+	return (
+		<Popover.Root open={menuOpen} onOpenChange={setMenuOpen}>
+			<Wrapper>
+				{(mobile || tablet) && (
+					<>
+						<Blur
+							style={{
+								opacity: menuOpen ? 1 : 0,
+							}}
+						/>
+						<Menu sideOffset={offset} ref={menuRef} align="end">
+							<Buttons>
+								<PrimaryButton variant="secondary" to={links.login}>
+									Sign In
+								</PrimaryButton>
+								{!tablet && (
+									<PrimaryButton icon="chev" to={links.bookDemo}>
+										Book a Demo
+									</PrimaryButton>
+								)}
+							</Buttons>
+							<HR />
+							<MobileLinks>
+								<MobileLink to={links.platform}>
+									<Icon name="platform" />
+									<span>Platform</span>
+								</MobileLink>
+								<MobileLink to={links.customers}>
+									<Icon name="customers" />
+									<span>Customers</span>
+								</MobileLink>
+							</MobileLinks>
+							<div>
+								<HR />
+								<SectionTitle>Company</SectionTitle>
+								<MobileLinks>
+									<MobileLink to={links.about}>
+										<Icon name="about" />
+										<span>About</span>
+									</MobileLink>
+									<MobileLink to={links.blog}>
+										<Icon name="blog" />
+										<span>Blog</span>
+									</MobileLink>
+									<MobileLink to={links.careers}>
+										<Icon name="careers" />
+										<span>Careers</span>
+									</MobileLink>
+									<MobileLink to={links.news}>
+										<Icon name="news" />
+										<span>News</span>
+									</MobileLink>
+									<MobileLink to={links.contact}>
+										<Icon name="phone2" />
+										<span>Contact</span>
+									</MobileLink>
+								</MobileLinks>
+							</div>
+							<div>
+								<HR />
+								<SectionTitle>Featured</SectionTitle>
+								{feature}
+							</div>
+						</Menu>
+					</>
+				)}
+
+				<Inner ref={innerRef}>
+					<Left>
+						<UniversalLink to={links.home} ariaLabel="Thoughtly">
+							<StyledLogoSVG />
+						</UniversalLink>
+						<Links>
+							<Link to={links.platform}>Platform</Link>
+							<Link to={links.customers}>Customers</Link>
+							<Dropdown feature={feature}>Company</Dropdown>
+						</Links>
+					</Left>
+					<Popover.Anchor>
+						<Right>
+							{tablet && (
+								<PrimaryButton to={links.login}>Get Started</PrimaryButton>
+							)}
+							{(mobile || tablet) && (
+								<Hamburger type="button" aria-label="navigation menu">
+									<Lines viewBox="0 0 36 12" overflow="visible">
+										<Line ref={lineRef1} x1={0} x2={36} y1={0.5} y2={0.5} />
+										<Line ref={lineRef2} x1={0} x2={36} y1={6} y2={6} />
+										<Line ref={lineRef3} x1={0} x2={36} y1={11.5} y2={11.5} />
+									</Lines>
+								</Hamburger>
+							)}
+							{!mobile && !tablet && (
+								<>
+									<PrimaryButton variant="secondary" to={links.login}>
+										Sign In
+									</PrimaryButton>
+									<PrimaryButton icon="chev" to={links.bookDemo}>
+										Book a Demo
+									</PrimaryButton>
+								</>
+							)}
+						</Right>
+					</Popover.Anchor>
+				</Inner>
+			</Wrapper>
+		</Popover.Root>
 	)
 }
 
-const FeaturedWrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-
+const SectionTitle = styled.div`
+	color: ${colors.gray500};
+	${textStyles.t2}
 	${fresponsive(css`
-		gap: 12px;
-
-		span {
-			color: ${colors.gray500};
-			${textStyles.t2}
-		}
+		margin: 12px 0;
 	`)}
-`
-
-const ImageWrapper = styled.div`
-	aspect-ratio: 271 / 128;
-	width: 100%;
-	position: relative;
-	overflow: clip;
-
-	${fresponsive(css`
-		border-radius: 12px;
-	`)}
-
-	${ftablet(css`
-		aspect-ratio: 339 / 159;
-	`)}
-`
-
-const Title = styled(UniversalLink)`
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	${textStyles.bodyXS}
-	color: ${colors.white};
-	width: 100%;
-
-	${fresponsive(css`
-		padding: 8px 9px;
-		background: rgba(63 63 63 / 50%);
-		backdrop-filter: blur(3px);
-		height: 44px;
-
-		svg {
-			display: inline-block;
-			position: relative;
-			top: 4px;
-			left: 3px;
-			width: 14px;
-			height: 14px;
-		}
-	`)}
-
-	${ftablet(css`
-		padding: 16px 9px 8px 14px;
-		${textStyles.bodyS}
-		height: 60px;
-	`)}
-`
-
-const FeaturedImage = styled(UniversalImage)`
-	height: 100%;
-	width: 100%;
 `
 
 const Wrapper = styled.header`
@@ -450,7 +356,7 @@ const Links = styled.div`
 	`)}
 `
 
-const Hamburger = styled(UniversalLink)`
+const Hamburger = styled(Popover.Trigger)`
 	display: grid;
 	place-items: center;
 	background-color: ${colors.white};
@@ -493,14 +399,31 @@ const Blur = styled.div`
 	height: 100vh;
 	background: rgba(219 219 219 / 15%);
 	backdrop-filter: blur(4.5px);
-	display: none;
-	opacity: 0;
+	pointer-events: none;
+	transition: opacity ${duration}ms;
 `
 
-const Menu = styled.div`
-	position: absolute;
+const slideFromRight = keyframes`
+	from {
+		transform: translateX(150%);
+	}
+	to {
+		transform: translateX(0);
+	}
+`
+
+const slideToRight = keyframes`
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(150%);
+	}
+`
+
+const Menu = styled(Popover.Content)`
 	background: ${gradients.surface1};
-	display: none;
+	display: flex;
 	flex-direction: column;
 
 	${fresponsive(css`
@@ -512,15 +435,23 @@ const Menu = styled.div`
 
 	${ftablet(css`
 		width: 387px;
-		top: 134px;
-		right: 67px;
+		max-height: calc(100vh - 140px);
+		overflow: auto;
 	`)}
 
 	${fmobile(css`
 		width: 319px;
-		top: 86px;
-		left: 28px;
+		max-height: calc(100vh - 100px);
+		overflow: auto;
 	`)}
+
+	&[data-state="open"] {
+		animation: ${slideFromRight} ${duration}ms ${eases.cubic.out};
+	}
+
+	&[data-state="closed"] {
+		animation: ${slideToRight} ${duration}ms ${eases.cubic.in};
+	}
 `
 
 const Buttons = styled.div`
@@ -568,7 +499,7 @@ const MobileLinks = styled.div`
 	`)}
 
 	${ftablet(css`
-		gap: 24px;
+		gap: 12px 24px;
 		justify-content: flex-start;
 	`)}
 `
@@ -592,10 +523,6 @@ const MobileLink = styled(UniversalLink)`
 			width: 16px;
 			height: 16px;
 			flex-shrink: 0;
-
-			path {
-				fill: ${colors.gray600};
-			}
 		}
 	`)}
 
@@ -604,4 +531,60 @@ const MobileLink = styled(UniversalLink)`
 			${textStyles.sh2}
 		}
 	`)}
+`
+
+const Card = styled(UniversalLink)`
+	${fresponsive(css`
+		width: 160px;
+		height: 126px;
+		border-radius: 10px;
+		isolation: isolate;
+		overflow: clip;
+	`)}
+
+	${ftablet(css`
+		width: 339px;
+		height: 159px;
+	`)}
+
+	${fmobile(css`
+		width: 271px;
+		height: 128px;
+	`)}
+
+	display: grid;
+	place-items: end start;
+
+	& > * {
+		grid-area: 1 / 1 / 2 / 2;
+	}
+`
+
+const CardTitle = styled.h2`
+	${textStyles.bodyXS};
+	color: ${colors.white};
+
+	${fresponsive(css`
+		padding: 9px;
+		background: rgb(98 98 98 / 50%);
+		backdrop-filter: blur(3px);
+		width: 100%;
+
+		svg {
+			display: inline-block;
+			height: 12px;
+			margin-left: 2px;
+			translate: 0 20%;
+		}
+	`)}
+
+	${ftablet(css`
+		padding-right: 130px;
+		${textStyles.bodyS};
+	`)}
+`
+
+const FeatureImage = styled(UniversalImage)`
+	width: 100%;
+	height: 100%;
 `
