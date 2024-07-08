@@ -179,7 +179,7 @@ export default function FeaturesDetails() {
 						<FeatureTitle>Skills Library</FeatureTitle>
 					</Unmask>
 					<Unmask parameters={unmaskParams}>
-						<FeatureDescription className="skills-description">
+						<FeatureDescription>
 							Thoughtly’s AI agents perform tasks out-of-the-box, integrating
 							directly with your Calendar, CRM and back office tools to follow
 							up on leads, manage claims, schedule appointments, and a lot more.
@@ -210,7 +210,7 @@ export default function FeaturesDetails() {
 						<FeatureTitle>One-Time Training</FeatureTitle>
 					</Unmask>
 					<Unmask parameters={unmaskParams}>
-						<FeatureDescription className="training-description">
+						<FeatureDescription>
 							Equip your AI agents with initial call recordings and knowledge
 							bases, and they'll remain continuously updated without further
 							training.
@@ -361,7 +361,7 @@ const FeatureCopy = styled.div`
 
 const LeftFeatureCopy = styled(FeatureCopy)`
   ${fresponsive(css`
-    width: 708px;
+    width: 703px;
     padding-left: 190px;
     border-top-right-radius: 60px;
     border-bottom-right-radius: 60px;
@@ -380,7 +380,7 @@ const LeftFeatureCopy = styled(FeatureCopy)`
 
 export const RightFeatureCopy = styled(FeatureCopy)`
   ${fresponsive(css`
-    width: 727px;
+    width: 725px;
     padding-left: 85px;
     border-top-left-radius: 60px;
     border-bottom-left-radius: 60px;
@@ -514,8 +514,12 @@ const FeatureWrapper = styled.div`
 
   .agent-coaching-description {
     ${fresponsive(css`
-      width: 355px;
+      width: 345px;
     `)}
+
+		${ftablet(css`
+			width: 355px;
+		`)}
 
 		${fmobile(css`
 			width: 303px;
@@ -594,7 +598,7 @@ const SkillsImageWrapper = styled(ImageWrapper)`
 
 const TrainingImageWrapper = styled(ImageWrapper)`
   ${fresponsive(css`
-    padding-left: 68px;
+    padding-left: 74px;
   `)}
 
 	${ftablet(css`
@@ -609,7 +613,7 @@ const TrainingImageWrapper = styled(ImageWrapper)`
 const AgentEditorImageWrapper = styled(ImageWrapper)`
   ${fresponsive(css`
     left: -62px;
-    top: 23px;
+    top: 30px;
   `)}
 
 	${ftablet(css`

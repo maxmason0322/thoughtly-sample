@@ -51,25 +51,25 @@ export default function Features() {
 	const data = [
 		{
 			key: 0,
-			left: useMedia(60, 60, 22, 0),
+			left: useMedia(62, 62, 22, 0),
 			top: useMedia(458, 458, 581, 0),
 			rotate: 0,
 		},
 		{
 			key: 1,
-			left: useMedia(652, 652, 470, 0),
+			left: useMedia(655, 655, 470, 0),
 			top: useMedia(105, 105, 220, 0),
 			rotate: 180,
 		},
 		{
 			key: 2,
 			left: useMedia(1318, 1318, 942, 0),
-			top: useMedia(314, 314, 500, 0),
+			top: useMedia(376, 376, 500, 0),
 			rotate: 180,
 		},
 		{
 			key: 3,
-			left: useMedia(60, 60, 22, 0),
+			left: useMedia(62, 62, 22, 0),
 			top: useMedia(805.5, 805.5, 1079, 0),
 			rotate: 90,
 		},
@@ -81,7 +81,7 @@ export default function Features() {
 		},
 		{
 			key: 5,
-			left: useMedia(60, 60, 22, 0),
+			left: useMedia(62, 62, 22, 0),
 			top: useMedia(1191.5, 1191.5, 1496, 0),
 			rotate: 0,
 		},
@@ -93,7 +93,7 @@ export default function Features() {
 		},
 		{
 			key: 7,
-			left: useMedia(60, 60, 22, 0),
+			left: useMedia(62, 62, 22, 0),
 			top: useMedia(1531.5, 1531.5, 1986, 0),
 			rotate: 90,
 		},
@@ -105,7 +105,7 @@ export default function Features() {
 		},
 		{
 			key: 9,
-			left: useMedia(60, 60, 22, 0),
+			left: useMedia(62, 62, 22, 0),
 			top: useMedia(1855, 1855, 2399, 0),
 			rotate: 0,
 		},
@@ -117,7 +117,7 @@ export default function Features() {
 		},
 		{
 			key: 11,
-			left: useMedia(60, 60, 22, 0),
+			left: useMedia(62, 62, 22, 0),
 			top: useMedia(2212.5, 2212.5, 2897, 0),
 			rotate: 90,
 		},
@@ -129,7 +129,7 @@ export default function Features() {
 		},
 		{
 			key: 13,
-			left: useMedia(653, 653, 474, 0),
+			left: useMedia(655, 655, 474, 0),
 			top: useMedia(2549.5, 2549.5, 3278, 0),
 			rotate: -90,
 		},
@@ -383,7 +383,7 @@ const Title = styled.p`
 
 export const Blue = styled.span`
 	${transparentText};
-	background-image: ${gradients.blueBlue};
+	background-image: ${gradients.blueBlueDark};
   display: inline-block;
 
   ${fresponsive(css`
@@ -397,8 +397,9 @@ const EmptyCopy = styled(RightFeatureCopy)`
   z-index: 0;
 
   ${fresponsive(css`
-    left: 712px;
-    height: 314px;
+    left: 715px;
+    height: 334px;
+		top: 42px;
   `)}
 
 	${ftablet(css`
