@@ -1,5 +1,5 @@
 import Primary from "components/Buttons/Primary"
-import { fresponsive } from "library/fullyResponsive"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
@@ -10,7 +10,7 @@ export default function PlatformAdvantage() {
 	return (
 		<Wrapper>
 			<TitleRow>
-				<Title>The Thoughtly Advantage</Title>
+				<Title>The Thoughtly Advantage.</Title>
 				<div>
 					<Copy>
 						Join the ranks of forward-thinking companies who are revolutionizing
@@ -41,6 +41,17 @@ const Wrapper = styled.section`
 		padding-top: 175px;
 		padding-bottom: 120px;
 	`)}
+
+	${ftablet(css`
+		width: 888px;
+		padding: 115px 0;
+	`)}
+
+	${fmobile(css`
+		width: 360px;
+		padding: 0;
+		border-top: none;
+	`)}
 `
 
 const TitleRow = styled.div`
@@ -49,6 +60,18 @@ const TitleRow = styled.div`
 		gap: 24px;
 		align-items: end;
 		margin-bottom: 80px;
+	`)}
+
+	${ftablet(css`
+		flex-direction: column;
+		align-items: start;
+		gap: 24px;
+	`)}
+
+	${fmobile(css`
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 60px;
 	`)}
 `
 
@@ -59,6 +82,12 @@ const Title = styled.div`
 		width: 745px;
 		flex-shrink: 0;
 	`)}
+
+	${fmobile(css`
+		${textStyles.h5};
+		width: 323px;
+		text-align: center;
+	`)}
 `
 
 const Copy = styled.div`
@@ -67,6 +96,16 @@ const Copy = styled.div`
 
 	${fresponsive(css`
 		width: 355px;
+	`)}
+
+	${ftablet(css`
+		width: 478px;
+		${textStyles.bodyL};
+	`)}
+
+	${fmobile(css`
+		width: 320px;
+		text-align: center;
 	`)}
 `
 
