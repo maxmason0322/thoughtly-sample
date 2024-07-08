@@ -13,7 +13,7 @@ export default function FeaturesDetails() {
 	const { mobile } = useContext(ScreenContext)
 
 	const imageQuery = useStaticQuery(graphql`
-    query FeaturesDetailsImageQuery {
+    query PlatformFeaturesDetails {
       conversationEditor: file(relativePath:  {
         eq: "platform/features/ConversationEditor.png"
       }) {

@@ -23,7 +23,7 @@ export default function Features() {
 	const { mobile, fullWidth } = useContext(ScreenContext)
 
 	const imageQuery = useStaticQuery(graphql`
-    query FeaturesImageQuery {
+    query PlatformFeatures {
       featuredImage: file(relativePath:  {
          eq: "platform/features/Features.png"
       }) {
