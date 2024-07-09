@@ -1,10 +1,9 @@
 const routes = {
 	home: "/",
-	terms: "/terms",
-	privacy: "/privacy",
-	blog: "/blog",
-	agentAccelerator:
-		"/blog/unlock-the-power-of-ai-with-thoughtlys-agent-accelerator-program",
+	terms: "/terms/",
+	privacy: "/privacy/",
+	blog: "/blog/",
+	agentAccelerator: "/agent-accelerator/",
 } as const
 
 const sections = {
@@ -21,7 +20,6 @@ const socials = {
 } as const
 
 const links = {
-	todo: "https://www.google.com",
 	careers: "https://jobs.ashbyhq.com/thoughtly",
 	login: "https://app.thought.ly",
 	helpCenter: "https://help.thought.ly/en/",

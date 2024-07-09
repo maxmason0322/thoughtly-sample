@@ -5,6 +5,9 @@ import adapter from "gatsby-adapter-netlify"
 dotEnvConfig()
 
 const config: GatsbyConfig = {
+	flags: {
+		DEV_SSR: true,
+	},
 	jsxRuntime: "automatic",
 	siteMetadata: {
 		/**
@@ -73,8 +76,8 @@ const config: GatsbyConfig = {
 				name: "Thoughtly Marketing",
 				short_name: "Thoughtly",
 				start_url: "/",
-				background_color: "#ffffff",
-				theme_color: "#ffffff",
+				background_color: "#F6F6F4",
+				theme_color: "#F6F6F4",
 				display: "browser",
 				icon: "./src/images/global/favicon.png",
 			},

@@ -1,10 +1,9 @@
-import Button from "components/Buttons/Primary"
+import EmailInput from "components/EmailInput"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
-import links from "utils/links"
 import Card from "./Card"
 
 export default function Pricing() {
@@ -17,15 +16,13 @@ export default function Pricing() {
 							Sounds like a <span>human,</span> scales like a{" "}
 							<span>machine.</span>
 						</Title>
-						<Row>
+						<Column>
 							<Text>
 								Pay by minute or try one of our scaleable plans to fit your
 								ambitions
 							</Text>
-							<Button to={links.bookDemo} openInNewTab icon="chev">
-								Contact Us
-							</Button>
-						</Row>
+							<EmailInput />
+						</Column>
 					</TextContent>
 					<Prices>
 						<Card
@@ -171,6 +168,10 @@ const TextContent = styled.div`
 	${fresponsive(css`
 		gap: 28px;
 	`)}
+
+	${ftablet(css`
+		gap: 24px;
+	`)}
 `
 
 const Title = styled.h1`
@@ -198,41 +199,37 @@ const Title = styled.h1`
 	`)}
 `
 
-const Row = styled.div`
+const Column = styled.div`
 	display: flex;
 	align-items: center;
+	flex-direction: column;
 
 	${fresponsive(css`
-		gap: 36px;
-	`)}
-
-	${fresponsive(css`
-		gap: 73px;
+		gap: 24px;
 	`)}
 
   ${fmobile(css`
-		flex-direction: column;
 		gap: 24px;
 	`)}
 `
 
 const Text = styled.p`
-	${textStyles.bodyR}
+	${textStyles.bodyL}
 	color: ${colors.gray700};
+	text-align: center;
 
 	${fresponsive(css`
-		width: 271px;
+		width: 393px;
 	`)}
 
 	${ftablet(css`
-		${textStyles.bodyL}
-		width: 318px;
+		${textStyles.bodyXL}
+		width: 466px;
 	`)}
 
   ${fmobile(css`
 		${textStyles.bodyL}
 		width: 248px;
-		text-align: center;
 	`)}
 `
 

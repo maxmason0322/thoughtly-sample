@@ -10,6 +10,7 @@ export const desktopDesignSize = 1440
 const media = {
 	// standard media queries
 	mobile: `@media screen and (max-width: ${mobileBreakpoint}px)`,
+	mobileLandscape: `@media screen and (max-width: ${tabletBreakpoint}px) and (orientation: landscape)`,
 	tablet: `@media screen and (min-width: ${
 		mobileBreakpoint + 1
 	}px) and (max-width: ${tabletBreakpoint}px)`,
