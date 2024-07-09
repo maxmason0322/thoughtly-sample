@@ -112,7 +112,7 @@ export default function Features() {
 		{
 			key: 10,
 			left: useMedia(1318, 1318, 942, 0),
-			top: useMedia(1847, 1847, 2426, 0),
+			top: useMedia(1846.5, 1846.5, 2426, 0),
 			rotate: 180,
 		},
 		{
