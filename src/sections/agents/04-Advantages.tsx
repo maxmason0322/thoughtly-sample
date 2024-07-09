@@ -1,0 +1,287 @@
+import { graphql, useStaticQuery } from "gatsby"
+import UniversalImage from "library/UniversalImage"
+import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
+import styled, { css } from "styled-components"
+import colors, { gradients } from "styles/colors"
+import textStyles from "styles/text"
+
+import EmailInput from "components/EmailInput"
+import { ReactComponent as ChatSVG } from "images/agents/Chat.svg"
+import { ReactComponent as CostSVG } from "images/agents/Cost.svg"
+import { ReactComponent as HeartSVG } from "images/agents/Heart.svg"
+import { ReactComponent as PeopleSVG } from "images/agents/People.svg"
+import { ReactComponent as RocketSVG } from "images/agents/Rocket.svg"
+import { ScreenContext } from "library/ScreenContext"
+import useMedia from "library/useMedia"
+import { useContext } from "react"
+
+const data = [
+	{
+		icon: <PeopleSVG />,
+		title: "Expert Setup & Customization",
+		description:
+			"Our team handles the entire setup process for you, including tailoring your AI to meet your unique business needs and ensuring your AI agent is ready to perform from day one.",
+	},
+	{
+		icon: <CostSVG />,
+		title: "Cost-Efficient",
+		description:
+			"Enjoy premium service without the premium price tag. Set up and configuration are completed by our experts - just hit the call minimum.",
+	},
+	{
+		icon: <HeartSVG />,
+		title: "Ongoing Support",
+		description:
+			"Receive continued support from Thoughtly to ensure your AI agent remains optimized and effective.",
+	},
+	{
+		icon: <ChatSVG />,
+		title: "Continuous Coaching",
+		description:
+			"Stay in the driver seat by providing feedback to your AI agents just like you would to human agents. Listen to calls, identify areas for improvement, and offer guidance.",
+	},
+	{
+		icon: <RocketSVG />,
+		title: "Self Sufficiency",
+		description:
+			"Empower your team with the tools and knowledge to create new AI agents or make adjustments to existing ones. Our comprehensive training materials and resources ensure you can manage your AI solutions with ease, giving you greater control and flexibility.",
+	},
+] as const
+
+export default function AgentsAdvantages() {
+	const { mobile } = useContext(ScreenContext)
+
+	const images: Queries.AgentsAdvantagesQuery = useStaticQuery(graphql`
+		query AgentsAdvantages {
+			desktop: file(relativePath: { eq: "agents/BenefitsBackground.png" }) {
+				childImageSharp {
+					gatsbyImageData(layout: FULL_WIDTH)
+				}
+			}
+			tablet: file(
+				relativePath: { eq: "agents/BenefitsBackgroundTablet.png" }
+			) {
+				childImageSharp {
+					gatsbyImageData(layout: FULL_WIDTH)
+				}
+			}
+			mobile: file(
+				relativePath: { eq: "agents/BenefitsBackgroundMobile.png" }
+			) {
+				childImageSharp {
+					gatsbyImageData(layout: FULL_WIDTH)
+				}
+			}
+		}
+	`)
+
+	return (
+		<Wrapper>
+			<TopRow>
+				<Title>Agent Accelerator Advantages</Title>
+				<Details>
+					Join the ranks of forward-thinking companies who are revolutionizing
+					their customer service with AI. Our Program is your ticket to a highly
+					effective customer support operation.
+					{!mobile && <EmailInput />}
+				</Details>
+				{mobile && <EmailInput />}
+			</TopRow>
+			<Cards>
+				<Background
+					image={useMedia(
+						images.desktop,
+						images.desktop,
+						images.tablet,
+						images.mobile,
+					)}
+					alt="two people take calls on headsets, retro style"
+				/>
+				{data.map((item, index) => (
+					<Card key={item.title}>
+						<IconWrapper>{item.icon}</IconWrapper>
+						<CardTitle>{item.title}</CardTitle>
+						<CardText>{item.description}</CardText>
+					</Card>
+				))}
+			</Cards>
+		</Wrapper>
+	)
+}
+
+const Wrapper = styled.div`
+	${fresponsive(css`
+		max-width: 1320px;
+		margin: 130px auto 0;
+	`)}
+
+	${ftablet(css`
+		max-width: 983px;
+		margin-top: 181px;
+	`)}
+
+	${fmobile(css`
+		max-width: 358px;
+		margin: 255px auto 0;
+	`)}
+`
+
+const TopRow = styled.div`
+	${fresponsive(css`
+		display: grid;
+		grid-template-columns: 744px 1fr;
+		gap: 24px;
+		padding: 110px 0;
+		margin: 0 96px;
+		border-top: 1.5px solid ${colors.gray300};
+	`)}
+
+	${ftablet(css`
+		grid-template-columns: 1fr;
+		padding: 110px 0 48px;
+		margin: 0 48px;
+	`)}
+
+	${fmobile(css`
+		grid-template-columns: 1fr;
+		padding: 88px 0 68px;
+		margin: 0 22px;
+	`)}
+`
+
+const Title = styled.div`
+	${textStyles.h3}
+
+	${fresponsive(css`
+		margin-top: -20px;
+	`)}
+
+	${ftablet(css`
+		margin-top: unset;
+	`)}
+
+	${fmobile(css`
+		text-align: center;
+		margin-top: unset;
+		${textStyles.h5}
+	`)}
+`
+
+const Details = styled.div`
+	${textStyles.bodyR};
+	color: ${colors.gray700};
+	display: flex;
+	flex-direction: column;
+
+	${fresponsive(css`
+		gap: 24px;
+	`)}
+
+	${ftablet(css`
+		${textStyles.bodyL}
+		width: 480px;
+	`)}
+
+	${fmobile(css`
+		text-align: center;
+	`)}
+`
+
+const Cards = styled.div`
+	${fresponsive(css`
+		display: flex;
+		padding: 104px 97px;
+		position: relative;
+		isolation: isolate;
+		overflow: clip;
+		border-radius: 60px;
+		gap: 24px;
+		flex-wrap: wrap;
+		justify-content: center;
+	`)}
+
+	${ftablet(css`
+		padding: 48px;
+	`)}
+
+	${fmobile(css`
+		border-radius: 0;
+		flex-direction: column;
+		padding: 0 39px;
+	`)}
+`
+
+const Background = styled(UniversalImage)`
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+
+	${fmobile(css`
+		top: 275px;
+		bottom: 440px;
+		height: calc(100% - 715px);
+		border-radius: 36px;
+	`)}
+`
+
+const Card = styled.div`
+	${fresponsive(css`
+		width: 359px;
+		border-radius: 18px;
+		border: 1px solid #d8d8d8;
+		background: ${gradients.surface1};
+		padding: 48px 44px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+
+		&:last-child {
+			padding: 48px 27px;
+		}
+	`)}
+
+	${ftablet(css`
+		width: 279px;
+		padding: 48px 25px 55px;
+	`)}
+
+	${fmobile(css`
+		width: 280px;
+		padding: 48px 27px;
+	`)}
+`
+const IconWrapper = styled.div`
+	${fresponsive(css`
+		width: 108px;
+		height: 108px;
+	`)}
+`
+
+const CardTitle = styled.div`
+	${textStyles.sh2};
+
+	${fresponsive(css`
+		margin-top: 48px;
+		margin-bottom: 12px;
+	`)}
+
+	${fmobile(css`
+		${textStyles.sh1}
+	`)}
+`
+
+const CardText = styled.div`
+	${textStyles.bodyS};
+	color: ${colors.gray700};
+
+	${ftablet(css`
+		${textStyles.bodyR}
+	`)}
+
+	${fmobile(css`
+		${textStyles.bodyR}
+	`)}
+`

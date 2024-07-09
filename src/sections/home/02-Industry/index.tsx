@@ -1,6 +1,4 @@
 import Selector from "components/Buttons/Selector"
-import Icon, { type IconType } from "components/Icon"
-import Widget from "components/Widget"
 import GovernmentImg from "data/home-industry/industries/government.png"
 import HealthcareImg from "data/home-industry/industries/healthcare.jpg"
 import InsuranceImg from "data/home-industry/industries/insurance.png"
@@ -11,6 +9,7 @@ import ServicesImg from "data/home-industry/industries/services.png"
 import TravelImg from "data/home-industry/industries/travel.png"
 import gsap from "gsap"
 import DrawSVGPlugin from "gsap/DrawSVGPlugin"
+import ScrollToPlugin from "gsap/ScrollToPlugin"
 import Gabriel from "images/global/avatars/gabriel.png"
 import James from "images/global/avatars/james.png"
 import Lisa from "images/global/avatars/lisa.png"
@@ -19,26 +18,20 @@ import Micheal from "images/global/avatars/micheal.png"
 import Phillip from "images/global/avatars/phillip.png"
 import Sanjay from "images/global/avatars/sanjay.png"
 import Stacey from "images/global/avatars/stacey.png"
-import { ReactComponent as LineSVG } from "images/home/industries-line.svg"
-import AutoAnimate from "library/AutoAnimate"
 import { ScreenContext } from "library/ScreenContext"
-import {
-	DesktopOnly,
-	DesktopTabletOnly,
-	MobileOnly,
-	TabletOnly,
-} from "library/breakpointUtils"
+import { DesktopTabletOnly, MobileOnly } from "library/breakpointUtils"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
-import { useContext, useState } from "react"
+import { getResponsivePixels } from "library/viewportUtils"
+import { useContext, useRef, useState } from "react"
 import styled, { css } from "styled-components"
-import { Dots } from "styles/background"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
-import ProgressGroup from "./ProgressGroup"
+import IndustryCard from "./IndustryCard"
+import Pagination from "./Pagination"
 
-gsap.registerPlugin(DrawSVGPlugin)
+gsap.registerPlugin(DrawSVGPlugin, ScrollToPlugin)
 
 const Blue = styled.strong`
 	color: #0085e5d9;
@@ -390,7 +383,7 @@ const data = [
 		widgetTwo: {
 			text: (
 				<p>
-					 have the order you placed on <Blue>{"{api.date}"}</Blue> pulled up.
+					I have the order you placed on <Blue>{"{api.date}"}</Blue> pulled up.
 					What can I help you with?
 				</p>
 			),
@@ -454,8 +447,13 @@ const data = [
 ]
 
 export default function Industry() {
+	const userHasScrolledYet = useRef(false)
+	const trackRef = useRef<HTMLDivElement>(null)
 	const [activeIndex, setActiveIndex] = useState(0)
-	const { fullWidth, desktop, mobile } = useContext(ScreenContext)
+	const { tablet, fullWidth, desktop } = useContext(ScreenContext)
+	const cardWidth = getResponsivePixels(321)
+
+	const cardTitles = data.map((item) => item.title)
 
 	const tabs = data.map((item, index) => {
 		return (
@@ -467,54 +465,6 @@ export default function Industry() {
 			>
 				{item.title}
 			</Selector>
-		)
-	})
-
-	const widgets = data.map((item, index) => {
-		return (
-			<Widget1
-				key={item.title}
-				className="widget"
-				id={`widget-${index}`}
-				title="Start"
-				icon="play"
-				iconColor={colors.green400}
-				bottomConnectors={[""]}
-			>
-				{item.widgetOne.text}
-			</Widget1>
-		)
-	})
-
-	const widgets2 = data.map((item, index) => {
-		const bottomConnectors = item.widgetTwo?.bottomConnectors?.map((item) =>
-			item?.replace("\\n", "\n"),
-		)
-
-		return (
-			<Widget2
-				key={item.title}
-				className="widget-2"
-				id={`widget-2-${index}`}
-				title="Speak"
-				icon="speak"
-				iconColor="#0085E5"
-				topConnectors={[""]}
-				bottomConnectors={bottomConnectors}
-			>
-				{item.widgetTwo?.text}
-			</Widget2>
-		)
-	})
-
-	const files = data[activeIndex]?.files?.map((item) => {
-		if (!item) return null
-		return (
-			<File key={item.name}>
-				{item.icon && <FileIcon name={item.icon as IconType} />}
-				<FileName>{item.name}</FileName>
-				<Trash name="trash" />
-			</File>
 		)
 	})
 
@@ -561,6 +511,94 @@ export default function Industry() {
 		},
 	)
 
+	/**
+	 * Handle a scroll event on the card track
+	 */
+	const handleScroll = () => {
+		if (!trackRef.current) return
+
+		userHasScrolledYet.current = true
+
+		const scrollLeft = trackRef.current.scrollLeft
+		const newIndex = Math.round(scrollLeft / cardWidth)
+
+		if (newIndex !== activeIndex) {
+			setActiveIndex(Math.max(0, Math.min(newIndex, data.length - 1)))
+		}
+	}
+
+	useAnimation(() => {
+		if (tablet || fullWidth || desktop) return
+		if (!trackRef.current) return
+
+		/**
+		 * scale the cards when scrolling from left to right
+		 */
+		const shared = { ease: "power3.inOut", scale: 0.9 }
+		// for some reason i'm getting infinite children in dev
+		// so uhhhhh slice that puppy
+		const children = Array.from(trackRef.current.children).slice(0, 20)
+		for (const child of children) {
+			gsap.from(child, {
+				...shared,
+				scrollTrigger: {
+					trigger: child,
+					start: "left right",
+					end: "center center",
+					scrub: true,
+					scroller: trackRef.current,
+					horizontal: true,
+				},
+			})
+			gsap.fromTo(
+				child,
+				{ scale: 1 },
+				{
+					...shared,
+					scrollTrigger: {
+						trigger: child,
+						start: "center center",
+						end: "right left",
+						scrub: true,
+						scroller: trackRef.current,
+						horizontal: true,
+					},
+				},
+			)
+		}
+
+		/**
+		 * bounce effect prompting the user to scroll
+		 */
+		const tl = gsap
+			.timeline({
+				scrollTrigger: {
+					trigger: trackRef.current,
+					start: "top center",
+				},
+				onComplete: () => {
+					if (userHasScrolledYet.current) return
+					if (!userHasScrolledYet.current) {
+						gsap.delayedCall(3, () => {
+							tl.restart(true)
+						})
+					}
+				},
+			})
+			.to(trackRef.current, {
+				xPercent: -2,
+				scale: 0.98,
+				ease: "power3.out",
+				duration: 0.3,
+			})
+			.to(trackRef.current, {
+				xPercent: 0,
+				scale: 1,
+				ease: "bounce.out",
+				duration: 0.6,
+			})
+	}, [tablet, fullWidth, desktop])
+
 	return (
 		<Wrapper id="industries">
 			<Inner>
@@ -572,165 +610,45 @@ export default function Industry() {
 						<Buttons>{tabs}</Buttons>
 					</DesktopTabletOnly>
 				</Top>
-				<Bottom>
-					<Left>
-						<Assertiveness>
-							<ProgressGroup
-								progress={data[activeIndex]?.assertiveness.val}
-								title="Assertiveness"
-								index={activeIndex}
-								text={data[activeIndex]?.assertiveness.text}
-							/>
-							<ProgressGroup
-								progress={data[activeIndex]?.humorLevel.val}
-								title="Humor Level"
-								index={activeIndex}
-								text={data[activeIndex]?.humorLevel.text}
-							/>
-						</Assertiveness>
+				<DesktopTabletOnly>
+					<IndustryCard data={data} activeIndex={activeIndex} />
+				</DesktopTabletOnly>
 
-						<Agent>
-							<AvatarWrapper>
-								<AutoAnimate
-									fromParameters={{ yPercent: 110 }}
-									toParameters={{ yPercent: -110 }}
-								>
-									<Avatar
-										key={activeIndex}
-										src={data[activeIndex]?.agent?.avatar}
-										alt={data[activeIndex]?.agent?.name ?? ""}
-									/>
-								</AutoAnimate>
-							</AvatarWrapper>
-							<NameWrapper>
-								<AutoAnimate>
-									<Name key={data[activeIndex]?.agent?.country}>
-										{data[activeIndex]?.agent?.country}
-									</Name>
-								</AutoAnimate>
-							</NameWrapper>
-							<Line />
-							<NameWrapper>
-								<AutoAnimate>
-									<Name key={data[activeIndex]?.agent?.name}>
-										{data[activeIndex]?.agent?.name}
-									</Name>
-								</AutoAnimate>
-							</NameWrapper>
-						</Agent>
-						<ImageWrapper>
-							<AutoAnimate
-								duration={1.25}
-								toParameters={{
-									scale: 0.9,
-									opacity: 0,
-									yPercent: 0,
-									duration: 0.5,
-								}}
-								fromParameters={{
-									scale: 0.9,
-									opacity: 0,
-									yPercent: 0,
-									duration: 0.5,
-									delay: 0.75,
-								}}
-							>
-								<Image
-									key={activeIndex}
-									src={data[activeIndex]?.image}
-									alt={data[activeIndex]?.title ?? ""}
-								/>
-							</AutoAnimate>
-						</ImageWrapper>
-						<TabletOnly>
-							<TabletWidgetWrapper>
-								<AutoAnimate>
-									<Widget1
-										key={activeIndex}
-										title="Start"
-										icon="play"
-										iconColor={colors.green400}
-									>
-										{data[activeIndex]?.widgetOne?.text}
-									</Widget1>
-								</AutoAnimate>
-							</TabletWidgetWrapper>
-						</TabletOnly>
-						{(fullWidth || desktop || mobile) && (
-							<LogosWrapper>
-								<FilesInner>
-									<PositionWrapper>
-										<AutoAnimate
-											alignment="center"
-											fromParameters={{ yPercent: 110 }}
-											toParameters={{ yPercent: -110 }}
-										>
-											<Logos key={activeIndex}>{files}</Logos>
-										</AutoAnimate>
-									</PositionWrapper>
-								</FilesInner>
-							</LogosWrapper>
-						)}
-					</Left>
-					<Right>
-						<TextContent>
-							<IconTitle>
-								<div>
-									<AutoAnimate>
-										<SubTitle key={data[activeIndex]?.title}>
-											{data[activeIndex]?.title}
-										</SubTitle>
-									</AutoAnimate>
-								</div>
-							</IconTitle>
-							<div>
-								<AutoAnimate>
-									<Text key={data[activeIndex]?.text}>
-										{data[activeIndex]?.text}
-									</Text>
-								</AutoAnimate>
-							</div>
-						</TextContent>
-						<DesktopWidgetsWrapper>
-							<StyledDots />
-							<Connector />
-							{widgets}
-							{widgets2}
-						</DesktopWidgetsWrapper>
-					</Right>
-				</Bottom>
 				<MobileOnly>
-					<Buttons>{tabs}</Buttons>
+					<Track ref={trackRef} onScroll={handleScroll}>
+						{data.map((item, index) => (
+							<IndustryCard key={item.title} data={data} activeIndex={index} />
+						))}
+					</Track>
+					<Pagination
+						keys={cardTitles}
+						activeIndex={activeIndex}
+						setActiveIndex={(newIndex) => {
+							/**
+							 * Move the card track in response to the pagination buttons.
+							 */
+							const trackEl = trackRef.current
+							if (!trackEl) return
+
+							const offset = newIndex * cardWidth
+							gsap.to(trackEl, {
+								scrollTo: {
+									x: offset,
+									autoKill: true,
+								},
+								ease: "power3.out",
+								onComplete: () => {
+									// reset the scroll snapping
+									gsap.set(trackEl, { clearProps: "scrollSnapType" })
+								},
+							})
+						}}
+					/>
 				</MobileOnly>
 			</Inner>
 		</Wrapper>
 	)
 }
-
-const NameWrapper = styled.div`
-	${fresponsive(css`
-		height: 18px;
-	`)}
-`
-
-const IconTitle = styled.div`
-	display: flex;
-	align-items: center;
-
-	${fresponsive(css`
-		gap: 15px;
-	`)}
-
-	${ftablet(css`
-		flex-direction: column;
-		align-items: flex-start;
-	`)}
-
-  ${fmobile(css`
-		flex-direction: column;
-		align-items: flex-start;
-	`)}
-`
 
 const Wrapper = styled.section`
 	width: 100%;
@@ -762,7 +680,7 @@ const Inner = styled.div`
 
   ${fmobile(css`
 		height: auto;
-		padding: 85px 29px 100px;
+		padding: 85px 27px 0;
 		gap: 30px;
 	`)}
 `
@@ -787,6 +705,8 @@ const Top = styled.div`
 	`)}
 `
 
+const Card = styled(IndustryCard)``
+
 const Title = styled.h2`
 	${textStyles.h4}
 	color: ${colors.black};
@@ -807,7 +727,7 @@ const Title = styled.h2`
 
   ${fmobile(css`
 		${textStyles.h6}
-		width: 100%;
+		width: 336px;
 	`)}
 `
 
@@ -847,380 +767,28 @@ const Buttons = styled.div`
 	`)}
 `
 
-const Bottom = styled.div`
+const Track = styled.div`
 	display: flex;
-	align-items: flex-start;
+	overflow-x: scroll;
+	height: fit-content;
+	scroll-behavior: smooth;
+	flex-wrap: nowrap;
+	-webkit-overflow-scrolling: touch;
+	scroll-snap-type: x mandatory;
+	
+	& > * {
+		flex-shrink: 0;
+		scroll-snap-align: center;
+	}
 
-	${fresponsive(css`
-		gap: 24px;
-	`)}
-
-	${ftablet(css`
-		flex-direction: row-reverse;
-		gap: 52px;
-	`)}
-
-  ${fmobile(css`
-		flex-direction: column;
-		gap: 100px;
-	`)}
-`
-
-const Left = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
-	position: relative;
-
-	${fresponsive(css`
-		gap: 24px;
-	`)}
-`
-
-const Image = styled.img`
-	background-color: ${colors.gray800};
-	object-fit: cover;
-
-	${fresponsive(css`
-		width: 528px;
-		height: 375px;
-		border-radius: 24px;
-	`)}
-
-	${ftablet(css`
-		width: 460px;
-		height: 494px;
-	`)}
-
-  ${fmobile(css`
-		width: 314px;
-		height: 278px;
-	`)}
-`
-
-const Card = styled.div`
-	background: ${gradients.surface1};
-
-	${fresponsive(css`
-		border: 2px solid ${colors.gray200};
-		padding: 24px;
-		border-radius: 12px;
-		box-shadow: 0 18px 42px 0 rgba(89 89 89 / 4%);
-	`)}
-`
-
-const Assertiveness = styled(Card)`
-	position: absolute;
-	z-index: 2;
-	display: flex;
-	flex-direction: column;
-
-	${fresponsive(css`
-		width: 240px;
-		height: 190px;
-		top: 139px;
-		left: -72px;
-		gap: 24px;
-	`)}
-
-	${ftablet(css`
-		top: 262px;
-		left: unset;
-		right: -24px;
-	`)}
-
-  ${fmobile(css`
-		right: -23px;
-		bottom: -80px;
-		left: unset;
-		top: unset;
-	`)}
-`
-
-const Agent = styled(Card)`
-	position: absolute;
-	z-index: 2;
-	display: flex;
-	align-items: center;
-
-	${fresponsive(css`
-		width: 240px;
-		height: 58px;
-		top: 342px;
-		left: -72px;
-		padding: 12px 24px;
-		gap: 10px;
-	`)}
-
-	${ftablet(css`
-		top: 464px;
-		right: -24px;
-		left: unset;
-	`)}
-
-  ${fmobile(css`
-		position: absolute;
-		top: -29px;
-		left: -13px;
-		z-index: 2;
-	`)}
-`
-
-const LogosWrapper = styled(Card)`
-	${fresponsive(css`
-		border-radius: 24px;
-		width: 243px;
-		height: 134px;
-		padding: 20px;
-	`)}
-
-	${fmobile(css`
+	&::-webkit-scrollbar {
 		display: none;
-	`)}
-`
-
-const FilesInner = styled.div`
-	position: relative;
-	width: 100%;
-	height: 100%;
-	background-color: ${colors.gray100};
-
-	${fresponsive(css`
-		border-radius: 14px;
-		border: 1.5px dashed ${colors.gray600};
-	`)}
-`
-
-const PositionWrapper = styled.div`
-	position: absolute;
-
-	${fresponsive(css`
-		top: 20px;
-		left: -61px;
-		height: 105px;
-	`)}
-`
-
-const Logos = styled.div`
-	display: flex;
-	flex-direction: column;
-
-	${fresponsive(css`
-		gap: 3px;
-	`)}
-`
-
-const File = styled.div`
-	display: flex;
-	align-items: center;
-	background: ${colors.white};
-
-	${fresponsive(css`
-		padding: 7.5px;
-		border-radius: 8px;
-		border: 1.5px solid #e4e4e4;
-		width: 210px;
-	`)}
-`
-
-const FileName = styled.span`
-	${textStyles.sh4}
-	color: ${colors.black};
-`
-
-const FileIcon = styled(Icon)`
-	${fresponsive(css`
-		width: 18px;
-		height: 18px;
-		margin-right: 6px;
-	`)}
-`
-
-const Trash = styled(Icon)`
-	margin-left: auto;
-
-	path {
-		fill: #d9d9d9;
 	}
 
 	${fresponsive(css`
-		width: 12px;
-		height: 12px;
+		width: 100vw;
+		gap: 0;
+		padding: 0 27px;
+		margin:0 -27px;
 	`)}
-`
-
-const Right = styled.div`
-	display: flex;
-	flex-direction: column;
-
-	${fresponsive(css`
-		gap: 48px;
-	`)}
-
-	${ftablet(css`
-		padding-top: 47px;
-		gap: 32px;
-		align-items: flex-end;
-	`)}
-`
-
-const TextContent = styled.div`
-	display: flex;
-	flex-direction: column;
-
-	${fresponsive(css`
-		gap: 16px;
-		padding-left: 24px;
-	`)}
-
-	${ftablet(css`
-		padding-left: 0;
-	`)}
-
-  ${fmobile(css`
-		padding-left: 0;
-	`)}
-`
-
-const SubTitle = styled.h1`
-	${textStyles.sh1}
-	color: ${colors.black};
-	width: fit-content;
-	white-space: nowrap;
-
-	${fresponsive(css`
-		width: 200px;
-	`)}
-`
-
-const Text = styled.div`
-	${textStyles.bodyS}
-	color: ${colors.gray800};
-	overflow: clip;
-
-	${fresponsive(css`
-		width: 462px;
-		height: 95px;
-	`)}
-
-	${ftablet(css`
-		${textStyles.bodyR}
-		width: 378px;
-		height: 184px;
-	`)}
-
-  ${fmobile(css`
-		${textStyles.bodyS}
-		width: 315px;
-		height: 150px;
-	`)}
-`
-
-const DesktopWidgetsWrapper = styled(DesktopOnly)`
-	background-color: ${colors.beige300};
-	position: relative;
-	overflow: clip;
-
-	${fresponsive(css`
-		border-radius: 24px;
-		width: 560px;
-		height: 375px;
-	`)}
-`
-
-const StyledDots = styled(Dots)`
-	${fresponsive(css`
-		background-position: 10px 18px;
-	`)}
-`
-
-const TabletWidgetWrapper = styled.div`
-	position: absolute;
-
-	${ftablet(css`
-		top: -30px;
-		left: -40px;
-		z-index: 2;
-	`)}
-`
-
-const Widget1 = styled(Widget)`
-	position: absolute;
-	transform: scale(0.75);
-	transform-origin: top left;
-
-	${fresponsive(css`
-		height: 196px;
-		top: 19px;
-		left: 22px;
-	`)}
-
-	${ftablet(css`
-		position: relative;
-		top: unset;
-		left: unset;
-	`)}
-`
-
-const Widget2 = styled(Widget1)`
-	top: unset;
-	left: unset;
-	transform-origin: bottom right;
-
-	${fresponsive(css`
-		bottom: 19px;
-		right: 22px;
-	`)}
-`
-
-const Avatar = styled.img`
-	border-radius: 99vw;
-
-	${fresponsive(css`
-		width: 34px;
-		height: 34px;
-	`)}
-`
-
-const Name = styled.span`
-	${textStyles.sh3}
-	color: ${colors.black};
-`
-
-const Line = styled.div`
-	width: 1px;
-	background-color: ${colors.gray300};
-
-	${fresponsive(css`
-		height: 12px;
-	`)}
-`
-
-const Connector = styled(LineSVG)`
-	position: absolute;
-
-	${fresponsive(css`
-		width: 227px;
-		height: 50px;
-		left: 166px;
-		top: 163px;
-	`)}
-`
-
-const ImageWrapper = styled.div`
-	${fresponsive(css`
-		height: 375px;
-	`)}
-
-	${ftablet(css`
-		height: 494px;
-	`)}
-
-	${fmobile(css`
-		height: 278px;
-	`)}
-`
-
-const AvatarWrapper = styled.div`
-	height: 36px;
 `

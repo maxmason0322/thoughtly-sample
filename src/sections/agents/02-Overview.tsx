@@ -57,7 +57,7 @@ export default function AgentsOverview() {
 const Wrapper = styled.section`
 	${textStyles.sh1};
 	${fresponsive(css`
-		margin: 50px 60px 0;
+		margin: 50px auto 0;
 		max-width: 1318px;
 		padding: 154px 95px 0;
 		min-height: 598px;
