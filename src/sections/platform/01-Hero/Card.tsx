@@ -1,5 +1,5 @@
 import UniversalImage, { type UniversalImageData } from "library/UniversalImage"
-import { fresponsive } from "library/fullyResponsive"
+import { fmobile, fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 
 export default function Card({ image }: { image: UniversalImageData }) {
@@ -26,6 +26,10 @@ const Wrapper = styled.div`
     padding: 15px;
     border-radius: 16px;
     box-shadow: 0 13.5px 31.5px 0 rgba(89 89 89 / 8%);
+  `)}
+
+  ${fmobile(css`
+    scale: 0.5;
   `)}
 `
 

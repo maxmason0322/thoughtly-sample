@@ -327,6 +327,7 @@ const CardWrapper = styled.div`
 
 		div {
 			width: 314px;
+			scale: 1;
 		}
 	`)}
 `

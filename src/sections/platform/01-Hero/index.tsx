@@ -201,9 +201,8 @@ const Copy = styled.div`
 
 	${fmobile(css`
 		gap: 44px;
-		transform: translateX(-50%);
-		left: 50%;
 		top: 110px;
+		left: 30px;
 	`)}
 `
 
@@ -276,10 +275,6 @@ const Product = styled(UniversalImage)`
 const Widget = styled.div`
 	position: absolute;
 	z-index: 2;
-
-	${fmobile(css`
-		scale: 0.5;
-	`)}
 `
 
 const Widget1 = styled(Widget)`
@@ -320,18 +315,17 @@ const Widget2 = styled(Widget)`
 
 const Widget3 = styled(Widget)`
 	${fresponsive(css`
-		right: -96px;
+		left: 1320px;
 		top: 853px;
 	`)}
 
 	${ftablet(css`
-		right: 56px;
+		left: 752px;
 		top: 1060px;
 	`)}
 
 	${fmobile(css`
 		top: 545px;
 		left: 267px;
-		right: unset;
 	`)}
 `
