@@ -280,7 +280,7 @@ const Content = styled.p`
 		padding-left: 16px;
 	`)}
 
-  ${ftablet(css`
+	${ftablet(css`
 		width: 435px;
 		${textStyles.bodyL};
 	`)}

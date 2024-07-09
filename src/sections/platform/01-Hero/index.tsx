@@ -1,12 +1,14 @@
-import Primary from "components/Buttons/Primary"
+import EmailInput from "components/EmailInput"
 import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { ScreenContext } from "library/ScreenContext"
 import { usePinType } from "library/Scroll"
 import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import useMedia from "library/useMedia"
+import { useContext } from "react"
 import styled, { css } from "styled-components"
 import { gradients } from "styles/colors"
 import {
@@ -15,40 +17,32 @@ import {
 	tabletBreakpoint,
 } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
-import links from "utils/links"
 import Card from "./Card"
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function PlatformHero() {
 	const pinType = usePinType()
+	const { tablet } = useContext(ScreenContext)
 
 	const imageQuery = useStaticQuery(graphql`
 		query HeroCardsQuery {
-			widget1: file(relativePath:  {
-				 eq: "platform/hero/Widget1.png"
-			}) {
+			widget1: file(relativePath: { eq: "platform/hero/Widget1.png" }) {
 				childImageSharp {
 					gatsbyImageData
 				}
 			}
-			widget2: file(relativePath:  {
-				 eq: "platform/hero/Widget2.png"
-			}) {
+			widget2: file(relativePath: { eq: "platform/hero/Widget2.png" }) {
 				childImageSharp {
 					gatsbyImageData
 				}
 			}
-			widget3: file(relativePath:  {
-				eq: "platform/hero/Widget3.png"
-			}) {
+			widget3: file(relativePath: { eq: "platform/hero/Widget3.png" }) {
 				childImageSharp {
 					gatsbyImageData
 				}
 			}
-			product: file(relativePath:  {
-				 eq: "platform/hero/Product.png"
-			}) {
+			product: file(relativePath: { eq: "platform/hero/Product.png" }) {
 				childImageSharp {
 					gatsbyImageData
 				}
@@ -129,19 +123,7 @@ export default function PlatformHero() {
 					<Title>
 						The AI Agent <Green>Platform</Green> that does it all.
 					</Title>
-					<Buttons>
-						<Primary to={links.bookDemo} icon="chev" outline>
-							Talk to Sales
-						</Primary>
-						<Primary
-							to={links.bookDemo}
-							icon="calendar"
-							variant="secondary"
-							outline
-						>
-							Book a Demo
-						</Primary>
-					</Buttons>
+					<EmailInput customWidth={tablet ? 385 : undefined} />
 				</Copy>
 				<ImagesWrapper>
 					<Product image={imageQuery.product} alt="product" />
@@ -207,9 +189,9 @@ const Copy = styled.div`
 `
 
 const ImagesWrapper = styled.div`
-		${fresponsive(css`
-			height: 1000px;
-		`)}
+	${fresponsive(css`
+		height: 1000px;
+	`)}
 `
 
 const Title = styled.p`
@@ -238,25 +220,16 @@ export const Green = styled.span`
 	display: inline-block;
 `
 
-const Buttons = styled.div`
-	display: flex;
-	flex-direction: row;
-
-	${fresponsive(css`
-		gap: 12px;
-	`)}
-`
-
 const Product = styled(UniversalImage)`
 	position: relative;
-  z-index: 1;
+	z-index: 1;
 	width: 100%;
 	height: auto;
 
-  ${fresponsive(css`
-    left: 924px;
-    top: 252px;
-  `)}
+	${fresponsive(css`
+		left: 924px;
+		top: 252px;
+	`)}
 
 	${ftablet(css`
 		left: 517px;

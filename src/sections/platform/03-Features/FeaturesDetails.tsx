@@ -13,142 +13,136 @@ export default function FeaturesDetails() {
 	const { mobile } = useContext(ScreenContext)
 
 	const imageQuery = useStaticQuery(graphql`
-    query PlatformFeaturesDetails {
-      conversationEditor: file(relativePath:  {
-        eq: "platform/features/ConversationEditor.png"
-      }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE)
-        }
-      }
-      conversationEditorTablet: file(relativePath:  {
-        eq: "platform/features/ConversationEditorTablet.png"
-      }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE)
-        }
-      }
-      conversationEditorMobile: file(relativePath:  {
-        eq: "platform/features/ConversationEditorMobile.png"
-      }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE)
-        }
-      }
-      skills: file(relativePath:  {
-        eq: "platform/features/Skills.png"
-      }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE)
-        }
-      }
-      skillsTablet: file(relativePath:  {
-        eq: "platform/features/SkillsTablet.png"
-      }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE)
-        }
-      }
-      skillsMobile: file(relativePath:  {
-        eq: "platform/features/SkillsMobile.png"
-      }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE)
-        }
-      }
-      training: file(relativePath:  {
-        eq: "platform/features/Training.png"
-      }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE)
-        }
-      }
-      trainingTablet: file(relativePath:  {
-        eq: "platform/features/TrainingTablet.png"
-      }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE)
-        }
-      }
-      trainingMobile: file(relativePath:  {
-        eq: "platform/features/TrainingMobile.png"
-      }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE)
-        }
-      }
-      agentEditor: file(relativePath:  {
-        eq: "platform/features/AgentEditor.png"
-      }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE)
-        }
-      }
-      agentEditorMobile: file(relativePath:  {
-        eq: "platform/features/AgentEditorMobile.png"
-      }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE)
-        }
-      }
-      conversationInsight: file(relativePath:  {
-        eq: "platform/features/ConversationInsight.png"
-      }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE)
-        }
-      }
-      conversationInsightTablet: file(relativePath:  {
-        eq: "platform/features/ConversationInsightTablet.png"
-      }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE)
-        }
-      }
-      conversationInsightMobile: file(relativePath:  {
-        eq: "platform/features/ConversationInsightMobile.png"
-      }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE)
-        }
-      }
-      agentCoaching: file(relativePath:  {
-        eq: "platform/features/AgentCoaching.png"
-      }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE)
-        }
-      }
-      agentCoachingTablet: file(relativePath:  {
-        eq: "platform/features/AgentCoachingTablet.png"
-      }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE)
-        }
-      }
-      agentCoachingMobile: file(relativePath:  {
-        eq: "platform/features/AgentCoachingMobile.png"
-      }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE)
-        }
-      }
-    }
-  `)
-
-	const unmaskParams = { delay: 0.35, duration: 0.6 }
+		query PlatformFeaturesDetails {
+			conversationEditor: file(
+				relativePath: { eq: "platform/features/ConversationEditor.png" }
+			) {
+				childImageSharp {
+					gatsbyImageData(placeholder: NONE)
+				}
+			}
+			conversationEditorTablet: file(
+				relativePath: { eq: "platform/features/ConversationEditorTablet.png" }
+			) {
+				childImageSharp {
+					gatsbyImageData(placeholder: NONE)
+				}
+			}
+			conversationEditorMobile: file(
+				relativePath: { eq: "platform/features/ConversationEditorMobile.png" }
+			) {
+				childImageSharp {
+					gatsbyImageData(placeholder: NONE)
+				}
+			}
+			skills: file(relativePath: { eq: "platform/features/Skills.png" }) {
+				childImageSharp {
+					gatsbyImageData(placeholder: NONE)
+				}
+			}
+			skillsTablet: file(
+				relativePath: { eq: "platform/features/SkillsTablet.png" }
+			) {
+				childImageSharp {
+					gatsbyImageData(placeholder: NONE)
+				}
+			}
+			skillsMobile: file(
+				relativePath: { eq: "platform/features/SkillsMobile.png" }
+			) {
+				childImageSharp {
+					gatsbyImageData(placeholder: NONE)
+				}
+			}
+			training: file(relativePath: { eq: "platform/features/Training.png" }) {
+				childImageSharp {
+					gatsbyImageData(placeholder: NONE)
+				}
+			}
+			trainingTablet: file(
+				relativePath: { eq: "platform/features/TrainingTablet.png" }
+			) {
+				childImageSharp {
+					gatsbyImageData(placeholder: NONE)
+				}
+			}
+			trainingMobile: file(
+				relativePath: { eq: "platform/features/TrainingMobile.png" }
+			) {
+				childImageSharp {
+					gatsbyImageData(placeholder: NONE)
+				}
+			}
+			agentEditor: file(
+				relativePath: { eq: "platform/features/AgentEditor.png" }
+			) {
+				childImageSharp {
+					gatsbyImageData(placeholder: NONE)
+				}
+			}
+			agentEditorMobile: file(
+				relativePath: { eq: "platform/features/AgentEditorMobile.png" }
+			) {
+				childImageSharp {
+					gatsbyImageData(placeholder: NONE)
+				}
+			}
+			conversationInsight: file(
+				relativePath: { eq: "platform/features/ConversationInsight.png" }
+			) {
+				childImageSharp {
+					gatsbyImageData(placeholder: NONE)
+				}
+			}
+			conversationInsightTablet: file(
+				relativePath: { eq: "platform/features/ConversationInsightTablet.png" }
+			) {
+				childImageSharp {
+					gatsbyImageData(placeholder: NONE)
+				}
+			}
+			conversationInsightMobile: file(
+				relativePath: { eq: "platform/features/ConversationInsightMobile.png" }
+			) {
+				childImageSharp {
+					gatsbyImageData(placeholder: NONE)
+				}
+			}
+			agentCoaching: file(
+				relativePath: { eq: "platform/features/AgentCoaching.png" }
+			) {
+				childImageSharp {
+					gatsbyImageData(placeholder: NONE)
+				}
+			}
+			agentCoachingTablet: file(
+				relativePath: { eq: "platform/features/AgentCoachingTablet.png" }
+			) {
+				childImageSharp {
+					gatsbyImageData(placeholder: NONE)
+				}
+			}
+			agentCoachingMobile: file(
+				relativePath: { eq: "platform/features/AgentCoachingMobile.png" }
+			) {
+				childImageSharp {
+					gatsbyImageData(placeholder: NONE)
+				}
+			}
+		}
+	`)
 
 	return (
 		<>
 			<FeatureWrapper>
 				<ConversationEditorCopy>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<FeatureKicker>Inbound and outbound phone calls</FeatureKicker>
 					</Unmask>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<FeatureTitle>Conversation Editor</FeatureTitle>
 					</Unmask>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<FeatureDescription>
 							Building AI conversations has never been easier with our no-code,
 							drag and drop UI that comes pre-baked with A/B testing.
@@ -156,7 +150,7 @@ export default function FeaturesDetails() {
 					</Unmask>
 				</ConversationEditorCopy>
 				<ConversationEditorImageWrapper>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<ConversationEditorImage
 							image={useMedia(
 								imageQuery.conversationEditor,
@@ -172,13 +166,13 @@ export default function FeaturesDetails() {
 
 			<FeatureWrapper>
 				<SkillsCopy>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<FeatureKicker>Thousands of Integrations</FeatureKicker>
 					</Unmask>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<FeatureTitle>Skills Library</FeatureTitle>
 					</Unmask>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<FeatureDescription>
 							Thoughtly’s AI agents perform tasks out-of-the-box, integrating
 							directly with your Calendar, CRM and back office tools to follow
@@ -187,7 +181,7 @@ export default function FeaturesDetails() {
 					</Unmask>
 				</SkillsCopy>
 				<SkillsImageWrapper>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<SkillsImage
 							image={useMedia(
 								imageQuery.skills,
@@ -203,13 +197,13 @@ export default function FeaturesDetails() {
 
 			<FeatureWrapper>
 				<TrainingCopy>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<FeatureKicker>As good as your best agent</FeatureKicker>
 					</Unmask>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<FeatureTitle>One-Time Training</FeatureTitle>
 					</Unmask>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<FeatureDescription>
 							Equip your AI agents with initial call recordings and knowledge
 							bases, and they'll remain continuously updated without further
@@ -218,7 +212,7 @@ export default function FeaturesDetails() {
 					</Unmask>
 				</TrainingCopy>
 				<TrainingImageWrapper>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<TrainingImage
 							image={useMedia(
 								imageQuery.training,
@@ -234,13 +228,13 @@ export default function FeaturesDetails() {
 
 			<FeatureWrapper>
 				<AgentEditorCopy>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<FeatureKicker>Customizable AI agents</FeatureKicker>
 					</Unmask>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<FeatureTitle>Agent Editor</FeatureTitle>
 					</Unmask>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<FeatureDescription>
 							Customize your AI agents with human-like voices, personality
 							traits such as humor and assertiveness, and control background
@@ -250,7 +244,7 @@ export default function FeaturesDetails() {
 					</Unmask>
 				</AgentEditorCopy>
 				<AgentEditorImageWrapper>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<AgentEditorImage
 							image={
 								mobile ? imageQuery.agentEditorMobile : imageQuery.agentEditor
@@ -263,13 +257,13 @@ export default function FeaturesDetails() {
 
 			<FeatureWrapper>
 				<ConversationInsightCopy>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<FeatureKicker>User-friendly reports</FeatureKicker>
 					</Unmask>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<FeatureTitle>Conversation Insights</FeatureTitle>
 					</Unmask>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<FeatureDescription>
 							Thoughtly provides comprehensive analytics and detailed reports,
 							enabling you to monitor your AI agents' performance and optimize
@@ -278,7 +272,7 @@ export default function FeaturesDetails() {
 					</Unmask>
 				</ConversationInsightCopy>
 				<ConversationInsightImageWrapper>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<ConversationInsightImage
 							image={useMedia(
 								imageQuery.conversationInsight,
@@ -294,13 +288,13 @@ export default function FeaturesDetails() {
 
 			<FeatureWrapper>
 				<AgentCoachingCopy>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<FeatureKicker>Continuous Improvement</FeatureKicker>
 					</Unmask>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<FeatureTitle>Agent Coaching</FeatureTitle>
 					</Unmask>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<FeatureDescription className="agent-coaching-description">
 							Provide feedback to your AI agents just like you would to human
 							agents. Listen to calls, identify areas for improvement, and offer
@@ -310,7 +304,7 @@ export default function FeaturesDetails() {
 					</Unmask>
 				</AgentCoachingCopy>
 				<AgentCoachingImageWrapper>
-					<Unmask parameters={unmaskParams}>
+					<Unmask>
 						<AgentCoachingImage
 							image={useMedia(
 								imageQuery.agentCoaching,
@@ -330,8 +324,8 @@ export default function FeaturesDetails() {
 const FeatureDescription = styled.p`
 	${fresponsive(css`
 		${textStyles.bodyS};
-    width: 350px;
-  `)}
+		width: 350px;
+	`)}
 
 	${ftablet(css`
 		${textStyles.bodyR};
@@ -345,14 +339,14 @@ const FeatureDescription = styled.p`
 `
 
 const FeatureCopy = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: ${colors.beige200};
-  justify-content: center;
+	display: flex;
+	flex-direction: column;
+	background-color: ${colors.beige200};
+	justify-content: center;
 
-  ${fresponsive(css`
-    gap: 13px;
-  `)}
+	${fresponsive(css`
+		gap: 13px;
+	`)}
 
 	${fmobile(css`
 		background-color: unset;
@@ -360,13 +354,13 @@ const FeatureCopy = styled.div`
 `
 
 const LeftFeatureCopy = styled(FeatureCopy)`
-  ${fresponsive(css`
-    width: 703px;
-    padding-left: 190px;
-    border-top-right-radius: 60px;
-    border-bottom-right-radius: 60px;
-  `)}
-	
+	${fresponsive(css`
+		width: 703px;
+		padding-left: 190px;
+		border-top-right-radius: 60px;
+		border-bottom-right-radius: 60px;
+	`)}
+
 	${ftablet(css`
 		width: 510px;
 		padding-left: 68px;
@@ -379,12 +373,12 @@ const LeftFeatureCopy = styled(FeatureCopy)`
 `
 
 export const RightFeatureCopy = styled(FeatureCopy)`
-  ${fresponsive(css`
-    width: 725px;
-    padding-left: 85px;
-    border-top-left-radius: 60px;
-    border-bottom-left-radius: 60px;
-  `)}
+	${fresponsive(css`
+		width: 725px;
+		padding-left: 85px;
+		border-top-left-radius: 60px;
+		border-bottom-left-radius: 60px;
+	`)}
 
 	${ftablet(css`
 		width: 490px;
@@ -398,67 +392,67 @@ export const RightFeatureCopy = styled(FeatureCopy)`
 `
 
 const ConversationEditorCopy = styled(LeftFeatureCopy)`
-  ${fresponsive(css`
-    height: 288px;
-  `)}
+	${fresponsive(css`
+		height: 288px;
+	`)}
 
-  ${ftablet(css`
-    height: 438px;
-  `)}
+	${ftablet(css`
+		height: 438px;
+	`)}
 
   ${fmobile(css`
-    height: auto;
-  `)}
+		height: auto;
+	`)}
 `
 
 const SkillsCopy = styled(RightFeatureCopy)`
-  ${fresponsive(css`
-    height: 263px;
-  `)}
+	${fresponsive(css`
+		height: 263px;
+	`)}
 
-  ${ftablet(css`
-    height: 413px;
-  `)}
+	${ftablet(css`
+		height: 413px;
+	`)}
 
   ${fmobile(css`
-    height: auto;
+		height: auto;
 
-    ${FeatureDescription} {
-      width: 308px;
-    }
-  `)}
+		${FeatureDescription} {
+			width: 308px;
+		}
+	`)}
 `
 
 const TrainingCopy = styled(LeftFeatureCopy)`
-  ${fresponsive(css`
-    height: 280px;
-  `)}
+	${fresponsive(css`
+		height: 280px;
+	`)}
 
-  ${ftablet(css`
-    height: 430px;
-  `)}
+	${ftablet(css`
+		height: 430px;
+	`)}
 
 	${fmobile(css`
-    height: auto;
+		height: auto;
 		padding-top: 30px;
 
-    ${FeatureDescription} {
-      width: 308px;
-    }
+		${FeatureDescription} {
+			width: 308px;
+		}
 	`)}
 `
 
 const AgentEditorCopy = styled(RightFeatureCopy)`
-  ${fresponsive(css`
-    height: 253px;
-  `)}
+	${fresponsive(css`
+		height: 253px;
+	`)}
 
-  ${ftablet(css`
-    height: 409px;
-  `)}
+	${ftablet(css`
+		height: 409px;
+	`)}
 
 	${fmobile(css`
-    height: auto;
+		height: auto;
 		padding-top: 32px;
 
 		${FeatureDescription} {
@@ -468,16 +462,16 @@ const AgentEditorCopy = styled(RightFeatureCopy)`
 `
 
 const ConversationInsightCopy = styled(LeftFeatureCopy)`
-  ${fresponsive(css`
-    height: 298px;
-  `)}
+	${fresponsive(css`
+		height: 298px;
+	`)}
 
-  ${ftablet(css`
-    height: 438px;
-  `)}
+	${ftablet(css`
+		height: 438px;
+	`)}
 
 	${fmobile(css`
-    height: auto;
+		height: auto;
 		padding-top: 17px;
 
 		${FeatureDescription} {
@@ -487,35 +481,35 @@ const ConversationInsightCopy = styled(LeftFeatureCopy)`
 `
 
 const AgentCoachingCopy = styled(RightFeatureCopy)`
-  ${fresponsive(css`
-    height: 364px;
-    border-bottom-left-radius: 0;
-  `)}
+	${fresponsive(css`
+		height: 364px;
+		border-bottom-left-radius: 0;
+	`)}
 
-  ${ftablet(css`
-    height: 423px;
-  `)}
+	${ftablet(css`
+		height: 423px;
+	`)}
 
 	${fmobile(css`
-    height: auto;
+		height: auto;
 		padding-top: 50px;
 	`)}
 `
 
 const FeatureWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	align-items: center;
 
 	${fmobile(css`
 		flex-direction: column;
 	`)}
 
-  .agent-coaching-description {
-    ${fresponsive(css`
-      width: 345px;
-    `)}
+	.agent-coaching-description {
+		${fresponsive(css`
+			width: 345px;
+		`)}
 
 		${ftablet(css`
 			width: 355px;
@@ -524,16 +518,16 @@ const FeatureWrapper = styled.div`
 		${fmobile(css`
 			width: 303px;
 		`)}
-  }
+	}
 `
 
 const FeatureKicker = styled.p`
-  ${transparentText};
-  background-image: ${gradients.greenBlue};
-  ${textStyles.sh4};
+	${transparentText};
+	background-image: ${gradients.greenBlue};
+	${textStyles.sh4};
 
 	${ftablet(css`
-		${textStyles.sh3};	
+		${textStyles.sh3};
 	`)}
 
 	${fmobile(css`
@@ -542,11 +536,10 @@ const FeatureKicker = styled.p`
 `
 
 const FeatureTitle = styled.h1`
-
 	${fresponsive(css`
 		${textStyles.h6};
-    width: 466px;
-  `)}
+		width: 466px;
+	`)}
 
 	${ftablet(css`
 		${textStyles.h5};
@@ -559,14 +552,14 @@ const FeatureTitle = styled.h1`
 `
 
 const ImageWrapper = styled.div`
-  position: relative;
+	position: relative;
 `
 
 const ConversationEditorImageWrapper = styled(ImageWrapper)`
-  ${fresponsive(css`
-    padding-left: 25px;
-    top: 25px;
-  `)}
+	${fresponsive(css`
+		padding-left: 25px;
+		top: 25px;
+	`)}
 
 	${ftablet(css`
 		padding-left: 15px;
@@ -575,14 +568,14 @@ const ConversationEditorImageWrapper = styled(ImageWrapper)`
 
 	${fmobile(css`
 		padding-left: unset;
-		top: 5px;
+		top: 0;
 	`)}
 `
 
 const SkillsImageWrapper = styled(ImageWrapper)`
-  ${fresponsive(css`
-    left: -55px;
-  `)}
+	${fresponsive(css`
+		left: -55px;
+	`)}
 
 	${ftablet(css`
 		left: -48px;
@@ -597,9 +590,9 @@ const SkillsImageWrapper = styled(ImageWrapper)`
 `
 
 const TrainingImageWrapper = styled(ImageWrapper)`
-  ${fresponsive(css`
-    padding-left: 74px;
-  `)}
+	${fresponsive(css`
+		padding-left: 74px;
+	`)}
 
 	${ftablet(css`
 		padding-left: 25px;
@@ -611,10 +604,10 @@ const TrainingImageWrapper = styled(ImageWrapper)`
 `
 
 const AgentEditorImageWrapper = styled(ImageWrapper)`
-  ${fresponsive(css`
-    left: -62px;
-    top: 30px;
-  `)}
+	${fresponsive(css`
+		left: -62px;
+		top: 30px;
+	`)}
 
 	${ftablet(css`
 		left: -43px;
@@ -629,10 +622,10 @@ const AgentEditorImageWrapper = styled(ImageWrapper)`
 `
 
 const ConversationInsightImageWrapper = styled(ImageWrapper)`
-  ${fresponsive(css`
-    padding-left: 77px;
-    top: -3px;
-  `)}
+	${fresponsive(css`
+		padding-left: 77px;
+		top: -3px;
+	`)}
 
 	${ftablet(css`
 		padding-left: 23px;
@@ -640,16 +633,16 @@ const ConversationInsightImageWrapper = styled(ImageWrapper)`
 	`)}
 
 	${fmobile(css`
-		padding-left: 170px;
-		top: 22px;
+		padding-left: 173px;
+		top: 20px;
 	`)}
 `
 
 const AgentCoachingImageWrapper = styled(ImageWrapper)`
-  ${fresponsive(css`
-    left: -42px;
-    top: 17px;
-  `)}
+	${fresponsive(css`
+		left: -42px;
+		top: 17px;
+	`)}
 
 	${ftablet(css`
 		left: -20px;
@@ -658,16 +651,16 @@ const AgentCoachingImageWrapper = styled(ImageWrapper)`
 
 	${fmobile(css`
 		padding-left: unset;
-		left: 0;
-		top: 30px;
+		left: 14px;
+		top: 33px;
 	`)}
 `
 
 const ConversationEditorImage = styled(UniversalImage)`
-  ${fresponsive(css`
-    width: 631px;
-    height: 362px;
-  `)}
+	${fresponsive(css`
+		width: 631px;
+		height: 362px;
+	`)}
 
 	${ftablet(css`
 		width: 457px;
@@ -675,16 +668,16 @@ const ConversationEditorImage = styled(UniversalImage)`
 	`)}
 
 	${fmobile(css`
-		width: 360px;
-		height: 380px;
+		width: 370px;
+		height: 390px;
 	`)}
 `
 
 const SkillsImage = styled(UniversalImage)`
-  ${fresponsive(css`
-    width: 578px;
-    height: 345px;
-  `)}
+	${fresponsive(css`
+		width: 578px;
+		height: 345px;
+	`)}
 
 	${ftablet(css`
 		width: 457px;
@@ -698,10 +691,10 @@ const SkillsImage = styled(UniversalImage)`
 `
 
 const TrainingImage = styled(UniversalImage)`
-  ${fresponsive(css`
-    width: 520px;
-    height: 251px;
-  `)}
+	${fresponsive(css`
+		width: 520px;
+		height: 251px;
+	`)}
 
 	${ftablet(css`
 		width: 430px;
@@ -715,10 +708,10 @@ const TrainingImage = styled(UniversalImage)`
 `
 
 const AgentEditorImage = styled(UniversalImage)`
-  ${fresponsive(css`
-    width: 477px;
-    height: 316px;
-  `)}
+	${fresponsive(css`
+		width: 477px;
+		height: 316px;
+	`)}
 
 	${fmobile(css`
 		width: 462px;
@@ -727,10 +720,10 @@ const AgentEditorImage = styled(UniversalImage)`
 `
 
 const ConversationInsightImage = styled(UniversalImage)`
-  ${fresponsive(css`
-    width: 538px;
-    height: 304px;
-  `)}
+	${fresponsive(css`
+		width: 538px;
+		height: 304px;
+	`)}
 
 	${ftablet(css`
 		width: 435px;
@@ -744,10 +737,10 @@ const ConversationInsightImage = styled(UniversalImage)`
 `
 
 const AgentCoachingImage = styled(UniversalImage)`
-  ${fresponsive(css`
-    width: 584px;
-    height: 338px;
-  `)}
+	${fresponsive(css`
+		width: 584px;
+		height: 338px;
+	`)}
 
 	${ftablet(css`
 		width: 483px;
@@ -755,7 +748,7 @@ const AgentCoachingImage = styled(UniversalImage)`
 	`)}
 
 	${fmobile(css`
-		width: 428px;
-		height: 358px;
+		width: 396px;
+		height: 368px;
 	`)}
 `

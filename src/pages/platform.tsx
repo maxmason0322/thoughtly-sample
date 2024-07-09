@@ -11,7 +11,7 @@ export default function Platform() {
 			<Hero />
 			<Features />
 			<PlatformAdvantage />
-			<CallCTA />
+			<CallCTA customTabletWidth={888} />
 			<Benefits />
 		</>
 	)

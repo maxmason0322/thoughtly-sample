@@ -49,34 +49,34 @@ export default function Pagination({
 }
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border: 1.75px solid ${colors.gray200};
-  background: ${colors.white};
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	border: 1.75px solid ${colors.gray200};
+	background: ${colors.white};
 
-  ${fresponsive(css`
-    gap: 12px;
-    padding: 12.5px 0;
-    width: 321px;
-    border-radius: 12px;
-    margin-top: 24px;
-  `)}
+	${fresponsive(css`
+		gap: 12px;
+		padding: 12.5px 0;
+		width: 321px;
+		border-radius: 12px;
+		margin-top: 24px;
+	`)}
 `
 
 const ArrowButton = styled(UniversalLink)`
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 
-  ${fresponsive(css`
-    width: 16px;
-    height: 16px;
-  `)}
+	${fresponsive(css`
+		width: 16px;
+		height: 16px;
+	`)}
 
-  &:first-of-type {
-    svg {
-      transform: rotate(180deg);
-    }
-  }
+	&:first-of-type {
+		svg {
+			transform: rotate(180deg);
+		}
+	}
 `
