@@ -23,30 +23,28 @@ export default function Features() {
 	const { mobile, fullWidth } = useContext(ScreenContext)
 
 	const imageQuery = useStaticQuery(graphql`
-    query PlatformFeatures {
-      featuredImage: file(relativePath:  {
-         eq: "platform/features/Features.png"
-      }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE)
-        }
-      }
-      featuredImageMobile: file(relativePath:  {
-         eq: "platform/features/FeaturesMobile.png"
-      }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE)
-        }
-      }
-      corner: file(relativePath: {
-        eq: "platform/features/Corner.png"
-      }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE)
-        }
-      }
-    }
-  `)
+		query PlatformFeatures {
+			featuredImage: file(
+				relativePath: { eq: "platform/features/Features.png" }
+			) {
+				childImageSharp {
+					gatsbyImageData(placeholder: NONE)
+				}
+			}
+			featuredImageMobile: file(
+				relativePath: { eq: "platform/features/FeaturesMobile.png" }
+			) {
+				childImageSharp {
+					gatsbyImageData(placeholder: NONE)
+				}
+			}
+			corner: file(relativePath: { eq: "platform/features/Corner.png" }) {
+				childImageSharp {
+					gatsbyImageData(placeholder: NONE)
+				}
+			}
+		}
+	`)
 
 	const data = [
 		{
@@ -186,14 +184,14 @@ export default function Features() {
 }
 
 const Wrapper = styled.section`
-  width: 100%;
-  display: grid;
-  position: relative;
-  place-items: center;
+	width: 100%;
+	display: grid;
+	position: relative;
+	place-items: center;
 
-  ${fresponsive(css`
-    margin: 80px 0 165px;
-  `)}
+	${fresponsive(css`
+		margin: 80px 0 165px;
+	`)}
 
 	${ftablet(css`
 		margin: 0 0 125px;
@@ -205,15 +203,15 @@ const Wrapper = styled.section`
 `
 
 const Inner = styled.div`
-  width: 100%;
-  max-width: ${desktopBreakpoint}px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
+	width: 100%;
+	max-width: ${desktopBreakpoint}px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
 
-  ${fresponsive(css`
-    gap: 250px;
-  `)}
+	${fresponsive(css`
+		gap: 250px;
+	`)}
 
 	${ftablet(css`
 		max-width: ${tabletBreakpoint}px;
@@ -228,16 +226,16 @@ const Inner = styled.div`
 `
 
 const DotsWrapper = styled.div`
-  position: absolute;
-  
-  ${fresponsive(css`
-  	height: 95.9%;
-  	max-width: ${desktopBreakpoint}px;
-    width: 1316px;
+	position: absolute;
+
+	${fresponsive(css`
+		height: 95.9%;
+		max-width: ${desktopBreakpoint}px;
+		width: 1316px;
 		left: 50%;
 		transform: translateX(-50%);
-    top: 105px;
-  `)}
+		top: 105px;
+	`)}
 
 	${ftablet(css`
 		max-width: ${tabletBreakpoint}px;
@@ -252,14 +250,14 @@ const DotsWrapper = styled.div`
 	`)}
 
   > * {
-    ${fresponsive(css`
-      border-radius: 60px;
-    `)}
+		${fresponsive(css`
+			border-radius: 60px;
+		`)}
 
 		${fmobile(css`
 			border-radius: 36px;
 		`)}
-  }
+	}
 `
 
 const Corner = styled(UniversalImage)<{
@@ -268,54 +266,54 @@ const Corner = styled(UniversalImage)<{
 	$rotate: number
 	$fullwidth: boolean
 }>`
-  position: absolute;
-  z-index: 1;
+	position: absolute;
+	z-index: 1;
 
-  ${({ $left, $top, $rotate }) =>
+	${({ $left, $top, $rotate }) =>
 		fresponsive(css`
-    left: ${$left}px;
-    top: ${$top}px;
-    transform: rotate(${$rotate}deg);
-  `)}
+			left: ${$left}px;
+			top: ${$top}px;
+			transform: rotate(${$rotate}deg);
+		`)}
 
-  img {
-    ${fresponsive(css`
-      width: 60px;
-      height: 60px;
-    `)}
-  }
+	img {
+		${fresponsive(css`
+			width: 60px;
+			height: 60px;
+		`)}
+	}
 `
 
 const Heading = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: row;
+	position: relative;
+	display: flex;
+	flex-direction: row;
 
 	${fmobile(css`
 		flex-direction: column;
 	`)}
 
-  > * {
-    z-index: 1;
-  }
+	> * {
+		z-index: 1;
+	}
 `
 
 const CardWrapper = styled.div`
-  position: absolute;
+	position: absolute;
 
-  ${fresponsive(css`
-    left: 161px;
+	${fresponsive(css`
+		left: 161px;
 
-    div {
-      width: 360px;
-      height: auto;
-      border-radius: 18px;
+		div {
+			width: 360px;
+			height: auto;
+			border-radius: 18px;
 
-      > * {
-        border-radius: 12px;
-      }
-    }
-  `)}
+			> * {
+				border-radius: 12px;
+			}
+		}
+	`)}
 
 	${ftablet(css`
 		left: 68px;
@@ -333,15 +331,15 @@ const CardWrapper = styled.div`
 `
 
 const Right = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
+	position: relative;
+	display: flex;
+	flex-direction: column;
 
-  ${fresponsive(css`
-    gap: 16px;
-    top: 27px;
-    left: 545px;
-  `)}
+	${fresponsive(css`
+		gap: 16px;
+		top: 27px;
+		left: 545px;
+	`)}
 
 	${ftablet(css`
 		gap: 22px;
@@ -357,18 +355,18 @@ const Right = styled.div`
 `
 
 const StyledKicker = styled(Kicker)`
-  color: ${colors.black};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 400;
+	color: ${colors.black};
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 400;
 `
 
 const Title = styled.p`
 	${fresponsive(css`
 		${textStyles.h3};
-    width: 606px;
-  `)}
+		width: 606px;
+	`)}
 
 	${ftablet(css`
 		${textStyles.h2};
@@ -385,23 +383,23 @@ const Title = styled.p`
 export const Blue = styled.span`
 	${transparentText};
 	background-image: ${gradients.blueBlueDark};
-  display: inline-block;
+	display: inline-block;
 
-  ${fresponsive(css`
-    padding-right: 8px;
-    margin-right: -8px;
-  `)}
+	${fresponsive(css`
+		padding-right: 8px;
+		margin-right: -8px;
+	`)}
 `
 
 const EmptyCopy = styled(RightFeatureCopy)`
-  position: absolute;
-  z-index: 0;
+	position: absolute;
+	z-index: 0;
 
-  ${fresponsive(css`
-    left: 715px;
-    height: 334px;
+	${fresponsive(css`
+		left: 715px;
+		height: 334px;
 		top: 42px;
-  `)}
+	`)}
 
 	${ftablet(css`
 		left: 530px;
@@ -410,23 +408,23 @@ const EmptyCopy = styled(RightFeatureCopy)`
 `
 
 const Bottom = styled.div`
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-  ${fresponsive(css`
-    left: 188px;
-    gap: 32px;
-  `)}
+	${fresponsive(css`
+		left: 188px;
+		gap: 32px;
+	`)}
 
 	${fmobile(css`
 		width: 314px;
 	`)}
 
   > :nth-child(even) {
-    flex-direction: row-reverse;
+		flex-direction: row-reverse;
 
 		${fmobile(css`
 			flex-direction: column;
 		`)}
-  }
+	}
 `

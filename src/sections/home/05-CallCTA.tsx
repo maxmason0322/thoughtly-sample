@@ -23,7 +23,9 @@ import links from "utils/links"
 
 export default function CallCTA({
 	customTabletWidth,
-}: { customTabletWidth?: number }) {
+}: {
+	customTabletWidth?: number
+}) {
 	const { mobile } = useContext(ScreenContext)
 	const phoneRef = useRef<UniversalLinkRef>(null)
 	const canHover = useCanHover()
@@ -189,7 +191,7 @@ const MarqueeWrapper = styled.div<{ $customTabletWidth?: number }>`
 		ftablet(css`
 			width: ${$customTabletWidth ? `${$customTabletWidth}px` : "982px"};
 			height: 382px;
-	`)}
+		`)}
 
     ${fmobile(css`
 		width: 358px;
@@ -234,7 +236,7 @@ const MarqueeBorder = styled(UniversalLink)<{ $customTabletWidth?: number }>`
 	${({ $customTabletWidth }) =>
 		ftablet(css`
 			width: ${$customTabletWidth ? `${$customTabletWidth}px` : "982px"};
-	`)}
+		`)}
 
   ${fmobile(css`
 		width: 358px;

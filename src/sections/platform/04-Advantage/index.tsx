@@ -84,7 +84,7 @@ const Title = styled.div`
 const Content = styled.div`
 	display: flex;
 	flex-direction: column;
-	
+
 	${fresponsive(css`
 		gap: 24px;
 	`)}

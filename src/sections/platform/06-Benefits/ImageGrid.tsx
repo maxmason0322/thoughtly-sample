@@ -13,9 +13,7 @@ export default function ImageGrid() {
 	const images = useStaticQuery(graphql`
 		query platformGridImages {
 			grid: allFile(
-				filter: {
-					relativeDirectory: { eq: "platform/benefits" }
-				}
+				filter: { relativeDirectory: { eq: "platform/benefits" } }
 				sort: { relativePath: ASC }
 			) {
 				edges {
@@ -116,7 +114,7 @@ const Grid = styled.div`
 	position: relative;
 	height: 100%;
 	width: auto;
-	
+
 	${fresponsive(css`
 		top: -12px;
 		grid-template:

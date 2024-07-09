@@ -28,18 +28,20 @@ export default function AdvantageCards() {
 				}
 			}
 			acceleratorTablet: file(
-				 relativePath: { eq: "platform/advantage/AcceleratorTablet.png" }
+				relativePath: { eq: "platform/advantage/AcceleratorTablet.png" }
 			) {
 				childImageSharp {
 					gatsbyImageData(placeholder: NONE)
 				}
-			}	 
+			}
 			security: file(relativePath: { eq: "platform/advantage/Security.png" }) {
 				childImageSharp {
 					gatsbyImageData(placeholder: NONE)
 				}
 			}
-			securityTablet: file(relativePath: { eq: "platform/advantage/SecurityTablet.png" }) {
+			securityTablet: file(
+				relativePath: { eq: "platform/advantage/SecurityTablet.png" }
+			) {
 				childImageSharp {
 					gatsbyImageData(placeholder: NONE)
 				}
@@ -63,7 +65,9 @@ export default function AdvantageCards() {
 					gatsbyImageData(placeholder: NONE)
 				}
 			}
-			safetyTablet: file(relativePath: { eq: "platform/advantage/SafetyTablet.png" }) {
+			safetyTablet: file(
+				relativePath: { eq: "platform/advantage/SafetyTablet.png" }
+			) {
 				childImageSharp {
 					gatsbyImageData(placeholder: NONE)
 				}
@@ -204,7 +208,7 @@ const Widget = styled(UniversalImage).attrs({ objectFit: "contain" })`
 	${fmobile(css`
 		inset: 23.5px;
 		bottom: 48px;
-		
+
 		img {
 			object-position: bottom center;
 		}
@@ -227,7 +231,7 @@ const Text = styled.div`
 		& > *:nth-child(3) {
 			margin-top: unset;
 		}
-		
+
 		& > *:nth-child(4) {
 			margin-top: 12px;
 		}
@@ -285,9 +289,9 @@ const Description = styled.div<{
 
 	${({ $index, $mobileWidth }) =>
 		fmobile(css`
-		${$index === 0 || $index === 3 ? textStyles.bodyS : textStyles.bodyR};
-		width: ${$mobileWidth ? `${$mobileWidth}px` : "303px"};
-	`)}
+			${$index === 0 || $index === 3 ? textStyles.bodyS : textStyles.bodyR};
+			width: ${$mobileWidth ? `${$mobileWidth}px` : "303px"};
+		`)}
 `
 
 const Button = styled(Primary)`
