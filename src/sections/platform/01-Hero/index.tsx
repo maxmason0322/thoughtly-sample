@@ -130,11 +130,11 @@ export default function PlatformHero() {
 						The AI Agent <Green>Platform</Green> that does it all.
 					</Title>
 					<Buttons>
-						<Primary to={links.todo} icon="chev" outline>
+						<Primary to={links.bookDemo} icon="chev" outline>
 							Talk to Sales
 						</Primary>
 						<Primary
-							to={links.todo}
+							to={links.bookDemo}
 							icon="calendar"
 							variant="secondary"
 							outline

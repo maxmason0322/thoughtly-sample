@@ -13,7 +13,7 @@ export default function Benefits() {
 			<Inner>
 				<Copy>
 					<Title>This is the new generation of phone calls.</Title>
-					<Primary to={links.todo}>Placeholder</Primary>
+					<Primary to={links.bookDemo}>Placeholder</Primary>
 				</Copy>
 				<ImageGrid />
 			</Inner>
