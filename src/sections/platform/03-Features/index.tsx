@@ -70,7 +70,7 @@ export default function Features() {
 		{
 			key: 3,
 			left: useMedia(62, 62, 22, 0),
-			top: useMedia(805, 805, 1078, 0),
+			top: useMedia(804, 804, 1078, 0),
 			rotate: 90,
 		},
 		{
@@ -88,13 +88,13 @@ export default function Features() {
 		{
 			key: 6,
 			left: useMedia(1318, 1318, 942, 0),
-			top: useMedia(1178, 1178, 1523, 0),
+			top: useMedia(1177, 1177, 1523, 0),
 			rotate: 180,
 		},
 		{
 			key: 7,
 			left: useMedia(62, 62, 22, 0),
-			top: useMedia(1531, 1531, 1985, 0),
+			top: useMedia(1530, 1530, 1985, 0),
 			rotate: 90,
 		},
 		{
@@ -112,13 +112,13 @@ export default function Features() {
 		{
 			key: 10,
 			left: useMedia(1318, 1318, 942, 0),
-			top: useMedia(1847.5, 1847.5, 2426, 0),
+			top: useMedia(1847, 1847, 2426, 0),
 			rotate: 180,
 		},
 		{
 			key: 11,
 			left: useMedia(62, 62, 22, 0),
-			top: useMedia(2211.5, 2211.5, 2896, 0),
+			top: useMedia(2211, 2211, 2896, 0),
 			rotate: 90,
 		},
 		{
