@@ -1,10 +1,9 @@
-import Primary from "components/Buttons/Primary"
+import EmailInput from "components/EmailInput"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles from "styles/text"
-import links from "utils/links"
 import ImageGrid from "./ImageGrid"
 
 export default function Benefits() {
@@ -13,7 +12,7 @@ export default function Benefits() {
 			<Inner>
 				<Copy>
 					<Title>This is the new generation of phone calls.</Title>
-					<Primary to={links.bookDemo}>Placeholder</Primary>
+					<EmailInput />
 				</Copy>
 				<ImageGrid />
 			</Inner>

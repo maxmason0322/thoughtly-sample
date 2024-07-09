@@ -1,9 +1,8 @@
-import Primary from "components/Buttons/Primary"
+import EmailInput from "components/EmailInput"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
-import links from "utils/links"
 import AdvantageCards from "./AdvantageCards"
 
 export default function PlatformAdvantage() {
@@ -11,21 +10,13 @@ export default function PlatformAdvantage() {
 		<Wrapper>
 			<TitleRow>
 				<Title>The Thoughtly Advantage.</Title>
-				<div>
+				<Content>
 					<Copy>
 						Join the ranks of forward-thinking companies who are revolutionizing
 						customer engagements and benefiting from The Thoughtly Advantage.
 					</Copy>
-
-					<Buttons>
-						<Primary to={links.bookDemo} outline icon="chev">
-							Talk to Sales
-						</Primary>
-						<Primary to={links.bookDemo} variant="secondary" icon="calendar">
-							Book a Demo
-						</Primary>
-					</Buttons>
-				</div>
+					<EmailInput />
+				</Content>
 			</TitleRow>
 			<AdvantageCards />
 		</Wrapper>
@@ -90,17 +81,28 @@ const Title = styled.div`
 	`)}
 `
 
+const Content = styled.div`
+	display: flex;
+	flex-direction: column;
+	
+	${fresponsive(css`
+		gap: 24px;
+	`)}
+`
+
 const Copy = styled.div`
 	${textStyles.bodyR};
 	color: ${colors.gray700};
 
 	${fresponsive(css`
 		width: 355px;
+		padding-left: 8px;
 	`)}
 
 	${ftablet(css`
 		width: 478px;
 		${textStyles.bodyL};
+		padding-left: 0;
 	`)}
 
 	${fmobile(css`

@@ -136,7 +136,10 @@ export default function FeaturesDetails() {
     }
   `)
 
-	const unmaskParams = { delay: 0.35, duration: 0.6 }
+	const unmaskParams = {
+		delay: mobile ? 0 : 0.35,
+		duration: mobile ? 0.5 : 0.6,
+	}
 
 	return (
 		<>
@@ -575,7 +578,7 @@ const ConversationEditorImageWrapper = styled(ImageWrapper)`
 
 	${fmobile(css`
 		padding-left: unset;
-		top: 5px;
+		top: 0;
 	`)}
 `
 
@@ -640,8 +643,8 @@ const ConversationInsightImageWrapper = styled(ImageWrapper)`
 	`)}
 
 	${fmobile(css`
-		padding-left: 170px;
-		top: 22px;
+		padding-left: 173px;
+		top: 20px;
 	`)}
 `
 
@@ -658,8 +661,8 @@ const AgentCoachingImageWrapper = styled(ImageWrapper)`
 
 	${fmobile(css`
 		padding-left: unset;
-		left: 0;
-		top: 30px;
+		left: 14px;
+		top: 33px;
 	`)}
 `
 
@@ -675,8 +678,8 @@ const ConversationEditorImage = styled(UniversalImage)`
 	`)}
 
 	${fmobile(css`
-		width: 360px;
-		height: 380px;
+		width: 370px;
+		height: 390px;
 	`)}
 `
 
@@ -755,7 +758,7 @@ const AgentCoachingImage = styled(UniversalImage)`
 	`)}
 
 	${fmobile(css`
-		width: 428px;
-		height: 358px;
+		width: 396px;
+		height: 368px;
 	`)}
 `

@@ -1,12 +1,14 @@
-import Primary from "components/Buttons/Primary"
+import EmailInput from "components/EmailInput"
 import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { ScreenContext } from "library/ScreenContext"
 import { usePinType } from "library/Scroll"
 import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import useMedia from "library/useMedia"
+import { useContext } from "react"
 import styled, { css } from "styled-components"
 import { gradients } from "styles/colors"
 import {
@@ -15,13 +17,13 @@ import {
 	tabletBreakpoint,
 } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
-import links from "utils/links"
 import Card from "./Card"
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function PlatformHero() {
 	const pinType = usePinType()
+	const { tablet } = useContext(ScreenContext)
 
 	const imageQuery = useStaticQuery(graphql`
 		query HeroCardsQuery {
@@ -129,19 +131,7 @@ export default function PlatformHero() {
 					<Title>
 						The AI Agent <Green>Platform</Green> that does it all.
 					</Title>
-					<Buttons>
-						<Primary to={links.bookDemo} icon="chev" outline>
-							Talk to Sales
-						</Primary>
-						<Primary
-							to={links.bookDemo}
-							icon="calendar"
-							variant="secondary"
-							outline
-						>
-							Book a Demo
-						</Primary>
-					</Buttons>
+					<EmailInput customWidth={tablet ? 385 : undefined} />
 				</Copy>
 				<ImagesWrapper>
 					<Product image={imageQuery.product} alt="product" />
@@ -236,15 +226,6 @@ export const Green = styled.span`
 	${transparentText};
 	background-image: ${gradients.greenGreen};
 	display: inline-block;
-`
-
-const Buttons = styled.div`
-	display: flex;
-	flex-direction: row;
-
-	${fresponsive(css`
-		gap: 12px;
-	`)}
 `
 
 const Product = styled(UniversalImage)`

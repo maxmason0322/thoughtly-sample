@@ -12,7 +12,7 @@ import Primary, { Border } from "./Buttons/Primary"
 
 const endpoint = "api.thought.ly/public/email?email="
 
-export default function EmailInput() {
+export default function EmailInput({ customWidth }: { customWidth?: number }) {
 	const borderRef = useRef<HTMLDivElement | null>(null)
 	const [isFocused, setIsFocused] = useState(false)
 	const [placeholder, setPlaceholder] = useState("What is your work email?")
@@ -41,6 +41,7 @@ export default function EmailInput() {
 
 	return (
 		<Wrapper
+			$customWidth={customWidth}
 			onSubmit={(e) => {
 				e.preventDefault()
 
@@ -60,7 +61,11 @@ export default function EmailInput() {
 				{canHover && <StyledBorder ref={borderRef} />}
 				<Field name="email">
 					<Input
-						placeholder={mobile ? "What is your email?" : placeholder}
+						placeholder={
+							mobile || (customWidth && customWidth < 400)
+								? "What is your email?"
+								: placeholder
+						}
 						type="email"
 						required
 						onFocus={handleFocus}
@@ -89,20 +94,23 @@ const StyledBorder = styled(Border)`
   `)}
 `
 
-const Wrapper = styled(Form.Root)`
+const Wrapper = styled(Form.Root)<{ $customWidth?: number }>`
   border: 1.5px solid ${colors.gray300};
 
-	${fresponsive(css`
+	${({ $customWidth }) =>
+		fresponsive(css`
 		border-radius: 16px;
-    width: 366px;
+    width: ${$customWidth ? `${$customWidth}px` : "366px"};
 	`)}
 
-  ${ftablet(css`
-    width: 450px;
+  ${({ $customWidth }) =>
+		ftablet(css`
+		width: ${$customWidth ? `${$customWidth}px` : "450px"};
   `)}
 
-	${fmobile(css`
-    width: 322px;
+	${({ $customWidth }) =>
+		fmobile(css`
+		width: ${$customWidth ? `${$customWidth}px` : "322px"};
 		margin-left: 0;
 		margin-right: 0;
 		gap: 22px;

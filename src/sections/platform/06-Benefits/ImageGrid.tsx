@@ -138,7 +138,7 @@ const Grid = styled.div`
 	`)}
 
 	${fmobile(css`
-		top: 12px;
+		top: -15px;
 		left: -70px;
 		scale: 0.45;
 		height: 40%;
