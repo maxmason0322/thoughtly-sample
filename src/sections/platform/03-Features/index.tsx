@@ -64,13 +64,13 @@ export default function Features() {
 		{
 			key: 2,
 			left: useMedia(1318, 1318, 942, 0),
-			top: useMedia(376, 376, 500, 0),
+			top: useMedia(376, 376, 542, 0),
 			rotate: 180,
 		},
 		{
 			key: 3,
 			left: useMedia(62, 62, 22, 0),
-			top: useMedia(805.5, 805.5, 1079, 0),
+			top: useMedia(805.5, 805.5, 1078.5, 0),
 			rotate: 90,
 		},
 		{
@@ -88,13 +88,13 @@ export default function Features() {
 		{
 			key: 6,
 			left: useMedia(1318, 1318, 942, 0),
-			top: useMedia(1178.5, 1178.5, 1524, 0),
+			top: useMedia(1178.5, 1178.5, 1523.5, 0),
 			rotate: 180,
 		},
 		{
 			key: 7,
 			left: useMedia(62, 62, 22, 0),
-			top: useMedia(1531.5, 1531.5, 1986, 0),
+			top: useMedia(1531.5, 1531.5, 1985.5, 0),
 			rotate: 90,
 		},
 		{
@@ -112,13 +112,13 @@ export default function Features() {
 		{
 			key: 10,
 			left: useMedia(1318, 1318, 942, 0),
-			top: useMedia(1848, 1848, 2427, 0),
+			top: useMedia(1848, 1848, 2426.5, 0),
 			rotate: 180,
 		},
 		{
 			key: 11,
 			left: useMedia(62, 62, 22, 0),
-			top: useMedia(2212.5, 2212.5, 2897, 0),
+			top: useMedia(2212.5, 2212.5, 2896.5, 0),
 			rotate: 90,
 		},
 		{
@@ -248,7 +248,7 @@ const DotsWrapper = styled.div`
 
 	${fmobile(css`
 		max-width: ${mobileBreakpoint}px;
-		width: 358px;
+		width: 354px;
 	`)}
 
   > * {
