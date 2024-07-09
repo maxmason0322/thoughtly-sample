@@ -659,7 +659,7 @@ const AgentCoachingImageWrapper = styled(ImageWrapper)`
 	${fmobile(css`
 		padding-left: unset;
 		left: 0;
-		top: 23px;
+		top: 30px;
 	`)}
 `
 
