@@ -57,12 +57,12 @@ export default function PlatformHero() {
 	`)
 
 	const productXPercent = useMedia(-64.25, -64.25, -50.5, -20.5)
-	const productYPercent = useMedia(-30, -30, -90, -20)
+	const productYPercent = useMedia(-30, -30, -90, -40)
 	const productScale = useMedia(0.8, 0.8, 0.9, 1)
 	const widgetsXPercent = useMedia(-800, -800, -500, -225)
-	const widgetsYPercent = useMedia(-45, -45, -200, -20)
-	const widget3YPercent = useMedia(-75, -75, -230, -30)
-	const copyYPercent = useMedia(-400, -400, -200, 0)
+	const widgetsYPercent = useMedia(-45, -45, -200, -40)
+	const widget3YPercent = useMedia(-75, -75, -230, -40)
+	const copyYPercent = useMedia(-400, -400, -200, -100)
 
 	useAnimation(() => {
 		const tl = gsap.timeline({
