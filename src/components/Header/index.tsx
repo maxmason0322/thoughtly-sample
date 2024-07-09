@@ -173,19 +173,15 @@ export default function Header() {
 									<Icon name="platform" />
 									<span>Platform</span>
 								</MobileLink>
-								<MobileLink to={links.customers}>
+								<MobileLink to={links.agentAccelerator}>
 									<Icon name="customers" />
-									<span>Customers</span>
+									<span>Agent Accelerator</span>
 								</MobileLink>
 							</MobileLinks>
 							<div>
 								<HR />
 								<SectionTitle>Company</SectionTitle>
 								<MobileLinks>
-									<MobileLink to={links.about}>
-										<Icon name="about" />
-										<span>About</span>
-									</MobileLink>
 									<MobileLink to={links.blog}>
 										<Icon name="blog" />
 										<span>Blog</span>
@@ -193,10 +189,6 @@ export default function Header() {
 									<MobileLink to={links.careers}>
 										<Icon name="careers" />
 										<span>Careers</span>
-									</MobileLink>
-									<MobileLink to={links.news}>
-										<Icon name="news" />
-										<span>News</span>
 									</MobileLink>
 									<MobileLink to={links.contact}>
 										<Icon name="phone2" />
@@ -220,7 +212,7 @@ export default function Header() {
 						</UniversalLink>
 						<Links>
 							<Link to={links.platform}>Platform</Link>
-							<Link to={links.customers}>Customers</Link>
+							<Link to={links.agentAccelerator}>Agent Accelerator</Link>
 							<Dropdown feature={feature}>Company</Dropdown>
 						</Links>
 					</Left>
@@ -489,18 +481,16 @@ const HR = styled.hr`
 `
 
 const MobileLinks = styled.div`
-	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
-	justify-content: flex-start;
+	display: grid;
 
 	${fresponsive(css`
 		gap: 12px 6px;
+		grid-template-columns: 116px 1fr;
 	`)}
 
 	${ftablet(css`
 		gap: 12px 24px;
-		justify-content: flex-start;
+		grid-template-columns: 128px 1fr;
 	`)}
 `
 
@@ -510,8 +500,7 @@ const MobileLink = styled(UniversalLink)`
 	white-space: nowrap;
 
 	${fresponsive(css`
-		gap: 4px;
-		width: 128px;
+		gap: 3px;
 
 		span {
 			${textStyles.sh3}
@@ -523,6 +512,10 @@ const MobileLink = styled(UniversalLink)`
 			width: 16px;
 			height: 16px;
 			flex-shrink: 0;
+
+			path {
+				fill: ${colors.gray600};
+			}
 		}
 	`)}
 
@@ -574,6 +567,7 @@ const CardTitle = styled.h2`
 			display: inline-block;
 			height: 12px;
 			margin-left: 2px;
+			margin-top: -10px;
 			translate: 0 20%;
 		}
 	`)}

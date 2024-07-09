@@ -5,18 +5,13 @@ const internal = {
 	home: "/",
 	privacy: "/privacy",
 	terms: "/terms",
+	platform: "/platform",
 
 	// home sections
 	industries: "/#industries",
 	features: "/#features",
 	integrations: "/#integrations",
 	pricing: "/#pricing",
-
-	// TODO unknown or n/a as of now
-	platform: "/#platform",
-	customers: "/#customers",
-	about: "/#about",
-	news: "/#news",
 }
 
 const external = {

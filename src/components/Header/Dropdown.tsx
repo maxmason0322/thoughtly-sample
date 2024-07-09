@@ -1,7 +1,6 @@
 import * as Popover from "@radix-ui/react-popover"
 import Link from "components/Buttons/Link"
 import Icon from "components/Icon"
-import UniversalLink from "library/Loader/UniversalLink"
 import { useScrollLock } from "library/Scroll"
 import { eases } from "library/eases"
 import { fresponsive } from "library/fullyResponsive"
@@ -53,8 +52,8 @@ export default function Dropdown({
 				>
 					<Column>
 						<SubLink>
-							<Icon name="about" />
-							<Link to={links.about}>About</Link>
+							<Icon name="blog" />
+							<Link to={links.blog}>Blog</Link>
 						</SubLink>
 						<SubLink>
 							<Icon name="careers" />
@@ -63,16 +62,6 @@ export default function Dropdown({
 						<SubLink>
 							<Icon name="phone2" />
 							<Link to={links.contact}>Contact</Link>
-						</SubLink>
-					</Column>
-					<Column>
-						<SubLink>
-							<Icon name="blog" />
-							<Link to={links.blog}>Blog</Link>
-						</SubLink>
-						<SubLink>
-							<Icon name="news" />
-							<Link to={links.news}>News</Link>
 						</SubLink>
 					</Column>
 					<Column>
@@ -180,6 +169,10 @@ const SubLink = styled.div`
 		svg {
 			width: 16px;
 			height: 16px;
+
+			* {
+				fill: ${colors.gray500};
+			}
 		}
 	`)}
 `
@@ -190,40 +183,5 @@ const ColumnTitle = styled.h1`
 	${fresponsive(css`
 		margin-left: 6px;
 		margin-bottom: -4px;
-	`)}
-`
-
-const Card = styled(UniversalLink)`
-	${fresponsive(css`
-		width: 160px;
-		height: 126px;
-		border-radius: 10px;
-		isolation: isolate;
-		overflow: clip;
-	`)}
-
-	display: grid;
-	place-items: end center;
-
-	& > * {
-		grid-area: 1 / 1 / 2 / 2;
-	}
-`
-
-const CardTitle = styled.h2`
-	${textStyles.bodyXS};
-	color: ${colors.white};
-
-	${fresponsive(css`
-		padding: 9px;
-		background: rgb(98 98 98 / 50%);
-		backdrop-filter: blur(3px);
-
-		svg {
-			display: inline-block;
-			height: 12px;
-			margin-left: 2px;
-			translate: 0 20%;
-		}
 	`)}
 `
