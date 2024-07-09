@@ -200,7 +200,7 @@ const Wrapper = styled.section`
 	`)}
 
 	${fmobile(css`
-		margin: 75px 0 90px;
+		margin: 50px 0 90px;
 	`)}
 `
 
