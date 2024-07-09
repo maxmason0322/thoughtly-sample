@@ -56,13 +56,13 @@ export default function PlatformHero() {
 		}
 	`)
 
-	const productXPercent = useMedia(-64, -64, -50.5, -20.5)
-	const productYPercent = useMedia(-30, -30, -90, -20)
+	const productXPercent = useMedia(-64.25, -64.25, -50.5, -20.5)
+	const productYPercent = useMedia(-30, -30, -90, -88)
 	const productScale = useMedia(0.8, 0.8, 0.9, 1)
 	const widgetsXPercent = useMedia(-800, -800, -500, -225)
-	const widgetsYPercent = useMedia(-45, -45, -200, -20)
-	const widget3YPercent = useMedia(-75, -75, -230, -30)
-	const copyYPercent = useMedia(-400, -400, -200, 0)
+	const widgetsYPercent = useMedia(-45, -45, -200, -88)
+	const widget3YPercent = useMedia(-75, -75, -230, -88)
+	const copyYPercent = useMedia(-400, -400, -200, -100)
 
 	useAnimation(() => {
 		const tl = gsap.timeline({
@@ -188,7 +188,7 @@ const Copy = styled.div`
 	z-index: 3;
 
 	${fresponsive(css`
-		gap: 60px;
+		gap: 36px;
 		top: 230px;
 		left: 156px;
 	`)}
@@ -208,7 +208,9 @@ const Copy = styled.div`
 `
 
 const ImagesWrapper = styled.div`
-	height: 100vh;
+		${fresponsive(css`
+			height: 1000px;
+		`)}
 `
 
 const Title = styled.p`
