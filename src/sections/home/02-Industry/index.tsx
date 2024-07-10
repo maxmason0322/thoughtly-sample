@@ -675,7 +675,7 @@ const Inner = styled.div`
 	${ftablet(css`
 		height: 1172px;
 		padding: 85px 68px 0;
-		gap: 106px;
+		gap: 90px;
 	`)}
 
   ${fmobile(css`
@@ -704,8 +704,6 @@ const Top = styled.div`
 		margin-bottom: 30px;
 	`)}
 `
-
-const Card = styled(IndustryCard)``
 
 const Title = styled.h2`
 	${textStyles.h4}

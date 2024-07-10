@@ -277,7 +277,6 @@ const Bottom = styled.div`
 
 	${ftablet(css`
 		flex-direction: row-reverse;
-		gap: 52px;
 	`)}
 
   ${fmobile(css`
@@ -300,6 +299,10 @@ const Left = styled.div`
 
 	${fresponsive(css`
 		gap: 24px;
+	`)}
+
+	${ftablet(css`
+		margin-left: -400px;
 	`)}
 
 	${fmobile(css`
@@ -490,7 +493,7 @@ const Right = styled.div`
 	`)}
 
 	${ftablet(css`
-		padding-top: 47px;
+		padding-top: 147px;
 		gap: 32px;
 		align-items: flex-end;
 	`)}
@@ -575,8 +578,8 @@ const TabletWidgetWrapper = styled.div`
 	position: absolute;
 
 	${ftablet(css`
-		top: -30px;
-		left: -40px;
+		top: -35px;
+		left: 275px;
 		z-index: 2;
 	`)}
 `
