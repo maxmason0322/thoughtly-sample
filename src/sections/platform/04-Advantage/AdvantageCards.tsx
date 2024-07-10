@@ -115,7 +115,7 @@ export default function AdvantageCards() {
 	return (
 		<Wrapper>
 			{data.map((item, index) => (
-				<Unmask key={item.title}>
+				<Unmask disabled={mobile} key={item.title}>
 					<Card>
 						{desktop && <Icon src={item.svg} alt={item.title} />}
 						<Widget image={item.image} alt={item.title} />

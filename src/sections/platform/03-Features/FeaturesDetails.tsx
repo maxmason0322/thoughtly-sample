@@ -136,13 +136,13 @@ export default function FeaturesDetails() {
 		<>
 			<FeatureWrapper>
 				<ConversationEditorCopy>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<FeatureKicker>Inbound and outbound phone calls</FeatureKicker>
 					</Unmask>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<FeatureTitle>Conversation Editor</FeatureTitle>
 					</Unmask>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<FeatureDescription>
 							Building AI conversations has never been easier with our no-code,
 							drag and drop UI that comes pre-baked with A/B testing.
@@ -150,7 +150,7 @@ export default function FeaturesDetails() {
 					</Unmask>
 				</ConversationEditorCopy>
 				<ConversationEditorImageWrapper>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<ConversationEditorImage
 							image={useMedia(
 								imageQuery.conversationEditor,
@@ -166,13 +166,13 @@ export default function FeaturesDetails() {
 
 			<FeatureWrapper>
 				<SkillsCopy>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<FeatureKicker>Thousands of Integrations</FeatureKicker>
 					</Unmask>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<FeatureTitle>Skills Library</FeatureTitle>
 					</Unmask>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<FeatureDescription>
 							Thoughtly’s AI agents perform tasks out-of-the-box, integrating
 							directly with your Calendar, CRM and back office tools to follow
@@ -181,7 +181,7 @@ export default function FeaturesDetails() {
 					</Unmask>
 				</SkillsCopy>
 				<SkillsImageWrapper>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<SkillsImage
 							image={useMedia(
 								imageQuery.skills,
@@ -197,13 +197,13 @@ export default function FeaturesDetails() {
 
 			<FeatureWrapper>
 				<TrainingCopy>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<FeatureKicker>As good as your best agent</FeatureKicker>
 					</Unmask>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<FeatureTitle>One-Time Training</FeatureTitle>
 					</Unmask>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<FeatureDescription>
 							Equip your AI agents with initial call recordings and knowledge
 							bases, and they'll remain continuously updated without further
@@ -212,7 +212,7 @@ export default function FeaturesDetails() {
 					</Unmask>
 				</TrainingCopy>
 				<TrainingImageWrapper>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<TrainingImage
 							image={useMedia(
 								imageQuery.training,
@@ -228,13 +228,13 @@ export default function FeaturesDetails() {
 
 			<FeatureWrapper>
 				<AgentEditorCopy>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<FeatureKicker>Customizable AI agents</FeatureKicker>
 					</Unmask>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<FeatureTitle>Agent Editor</FeatureTitle>
 					</Unmask>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<FeatureDescription>
 							Customize your AI agents with human-like voices, personality
 							traits such as humor and assertiveness, and control background
@@ -244,7 +244,7 @@ export default function FeaturesDetails() {
 					</Unmask>
 				</AgentEditorCopy>
 				<AgentEditorImageWrapper>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<AgentEditorImage
 							image={
 								mobile ? imageQuery.agentEditorMobile : imageQuery.agentEditor
@@ -257,13 +257,13 @@ export default function FeaturesDetails() {
 
 			<FeatureWrapper>
 				<ConversationInsightCopy>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<FeatureKicker>User-friendly reports</FeatureKicker>
 					</Unmask>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<FeatureTitle>Conversation Insights</FeatureTitle>
 					</Unmask>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<FeatureDescription>
 							Thoughtly provides comprehensive analytics and detailed reports,
 							enabling you to monitor your AI agents' performance and optimize
@@ -272,7 +272,7 @@ export default function FeaturesDetails() {
 					</Unmask>
 				</ConversationInsightCopy>
 				<ConversationInsightImageWrapper>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<ConversationInsightImage
 							image={useMedia(
 								imageQuery.conversationInsight,
@@ -288,13 +288,13 @@ export default function FeaturesDetails() {
 
 			<FeatureWrapper>
 				<AgentCoachingCopy>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<FeatureKicker>Continuous Improvement</FeatureKicker>
 					</Unmask>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<FeatureTitle>Agent Coaching</FeatureTitle>
 					</Unmask>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<FeatureDescription className="agent-coaching-description">
 							Provide feedback to your AI agents just like you would to human
 							agents. Listen to calls, identify areas for improvement, and offer
@@ -304,7 +304,7 @@ export default function FeaturesDetails() {
 					</Unmask>
 				</AgentCoachingCopy>
 				<AgentCoachingImageWrapper>
-					<Unmask>
+					<Unmask disabled={mobile}>
 						<AgentCoachingImage
 							image={useMedia(
 								imageQuery.agentCoaching,
