@@ -168,7 +168,7 @@ const Input = styled(Form.Control)`
 	${fresponsive(css`
 		height: 55.5px;
 		padding: 16px;
-		border-radius: 16px;
+		border-radius: 15px;
 	`)}
 
 	${ftablet(css`
