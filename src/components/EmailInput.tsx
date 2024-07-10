@@ -93,7 +93,7 @@ const StyledBorder = styled(Border)`
 		border-radius: 19px;
 	`)}
 `
-        
+
 const Wrapper = styled(Form.Root)<{ $customWidth?: number }>`
 	border: 1.5px solid ${colors.gray300};
 
