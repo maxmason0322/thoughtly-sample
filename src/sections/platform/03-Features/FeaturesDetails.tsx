@@ -322,19 +322,22 @@ export default function FeaturesDetails() {
 }
 
 const FeatureDescription = styled.p`
+	color: ${colors.gray800};
+
 	${fresponsive(css`
 		${textStyles.bodyS};
-		width: 350px;
+		width: 354px;
+		padding-left: 4px;
 	`)}
 
 	${ftablet(css`
 		${textStyles.bodyR};
-		width: 352px;
+		width: 356px;
 	`)}
 
 	${fmobile(css`
 		${textStyles.bodyR};
-		width: 310px;
+		width: 314px;
 	`)}
 `
 
@@ -456,7 +459,7 @@ const AgentEditorCopy = styled(RightFeatureCopy)`
 		padding-top: 32px;
 
 		${FeatureDescription} {
-			width: 305px;
+			width: 309px;
 		}
 	`)}
 `
@@ -512,19 +515,22 @@ const FeatureWrapper = styled.div`
 		`)}
 
 		${ftablet(css`
-			width: 355px;
+			width: 359px;
 		`)}
 
 		${fmobile(css`
-			width: 303px;
+			width: 307px;
 		`)}
 	}
 `
 
 const FeatureKicker = styled.p`
-	${transparentText};
-	background-image: ${gradients.greenBlue};
-	${textStyles.sh4};
+	${fresponsive(css`
+		padding-left: 4px;
+		${transparentText};
+		background-image: ${gradients.greenBlue};
+		${textStyles.sh4};
+	`)}
 
 	${ftablet(css`
 		${textStyles.sh3};
