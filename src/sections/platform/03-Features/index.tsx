@@ -164,10 +164,10 @@ export default function Features() {
 						/>
 					</CardWrapper>
 					<Right>
-						<Unmask parameters={unmaskParams}>
+						<Unmask disabled={mobile} parameters={unmaskParams}>
 							<StyledKicker>Customizable AI Phone Agents</StyledKicker>
 						</Unmask>
-						<Unmask parameters={unmaskParams}>
+						<Unmask disabled={mobile} parameters={unmaskParams}>
 							<Title>
 								<Blue>Features</Blue> from the <Green>Future.</Green>
 							</Title>
