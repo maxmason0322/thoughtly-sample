@@ -219,7 +219,7 @@ export default function Header() {
 					<Popover.Anchor>
 						<Right>
 							{tablet && (
-								<PrimaryButton to={links.login}>Get Started</PrimaryButton>
+								<PrimaryButton to={links.bookDemo}>Book a Demo</PrimaryButton>
 							)}
 							{(mobile || tablet) && (
 								<Hamburger type="button" aria-label="navigation menu">
