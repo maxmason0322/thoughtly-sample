@@ -76,7 +76,7 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 								Agent Accelerator
 							</StyledLink>
 							<StyledLink to={links.industries}>Industries</StyledLink>
-							<StyledLink to={links.pricing}>Pricing</StyledLink>
+							{/* <StyledLink to={links.pricing}>Pricing</StyledLink> */}
 						</LinkColumn>
 						<LinkColumn>
 							<Label>Company</Label>
