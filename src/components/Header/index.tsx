@@ -183,7 +183,7 @@ export default function Header() {
 								<SectionTitle>Company</SectionTitle>
 								<MobileLinks>
 									<MobileLink to={links.blog}>
-										<Icon name="blog" />
+										<Icon name="feather" />
 										<span>Blog</span>
 									</MobileLink>
 									<MobileLink to={links.careers}>
