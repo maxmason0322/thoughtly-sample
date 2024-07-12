@@ -23,7 +23,7 @@ export default function ImageGrid() {
 						gatsbyImageData(placeholder: NONE)
 					}
 				}
-		}
+			}
 		}
 	`)
 
