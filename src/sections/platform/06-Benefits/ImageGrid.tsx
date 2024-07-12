@@ -3,70 +3,40 @@ import gsap from "gsap"
 import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
-import { useMemo, useRef } from "react"
+import { useRef } from "react"
 import styled, { css } from "styled-components"
 import { distributeByPosition } from "utils/gsapDistribute"
 
 export default function ImageGrid() {
 	const gridRef = useRef<HTMLDivElement>(null)
 
-	const images = useStaticQuery(graphql`
+	const images: Queries.platformGridImagesQuery = useStaticQuery(graphql`
 		query platformGridImages {
 			grid: allFile(
 				filter: { relativeDirectory: { eq: "platform/benefits" } }
 				sort: { relativePath: ASC }
 			) {
-				edges {
-					node {
-						id
-						name
-						childImageSharp {
-							gatsbyImageData(placeholder: NONE)
-						}
+				nodes {
+					id
+					name
+					childImageSharp {
+						gatsbyImageData(placeholder: NONE)
 					}
 				}
-			}
+		}
 		}
 	`)
 
-	const gridWidgets = useMemo(
-		() => [
-			{
-				image: images.grid.edges[0].node.childImageSharp.gatsbyImageData,
-				name: "widget1",
-			},
-			{
-				image: images.grid.edges[1].node.childImageSharp.gatsbyImageData,
-				name: "widget2",
-			},
-
-			{
-				image: images.grid.edges[2].node.childImageSharp.gatsbyImageData,
-				name: "widget3",
-			},
-			{
-				image: images.grid.edges[3].node.childImageSharp.gatsbyImageData,
-				name: "widget4",
-			},
-			{
-				image: images.grid.edges[4].node.childImageSharp.gatsbyImageData,
-				name: "widget5",
-			},
-			{
-				image: images.grid.edges[5].node.childImageSharp.gatsbyImageData,
-				name: "widget6",
-			},
-		],
-		[images.grid.edges],
-	)
-
-	const allGridWidgets = gridWidgets.map((widget) => (
+	const allGridWidgets = images.grid.nodes.map((widget) => (
 		<GridItem
 			$gridArea={widget.name}
 			className="parallax-elements"
 			key={widget.name}
 		>
-			<GridImage image={widget.image} alt={widget.name} />
+			<GridImage
+				image={widget.childImageSharp?.gatsbyImageData}
+				alt={widget.name}
+			/>
 		</GridItem>
 	))
 

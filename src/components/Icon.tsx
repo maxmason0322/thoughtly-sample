@@ -18,7 +18,6 @@ import { ReactComponent as AboutSVG } from "images/global/icons/about.svg"
 import { ReactComponent as AgencySVG } from "images/global/icons/agency.svg"
 import { ReactComponent as AtomSVG } from "images/global/icons/atom.svg"
 import { ReactComponent as AudioSVG } from "images/global/icons/audio.svg"
-import { ReactComponent as BlogSVG } from "images/global/icons/blog.svg"
 import { ReactComponent as BusinessSVG } from "images/global/icons/business.svg"
 import { ReactComponent as CardSVG } from "images/global/icons/card.svg"
 import { ReactComponent as CareersSVG } from "images/global/icons/careers.svg"
@@ -87,7 +86,6 @@ const iconMap = {
 	lightning: LightningSVG,
 	customers: CustomersSVG,
 	about: AboutSVG,
-	blog: BlogSVG,
 	careers: CareersSVG,
 	phone2: Phone2SVG,
 	news: NewsSVG,

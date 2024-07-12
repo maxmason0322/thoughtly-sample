@@ -13,120 +13,64 @@ import { ScreenContext } from "library/ScreenContext"
 import UniversalImage from "library/UniversalImage"
 import { useContext } from "react"
 import textStyles from "styles/text"
-import links from "utils/links"
+
+const SVG_MAP: Record<string, string> = {
+	accelerator: AcceleratorSVG,
+	security: SecuritySVG,
+	scalability: ScalabilitySVG,
+	safety: SafetySVG,
+}
 
 export default function AdvantageCards() {
 	const { mobile, tablet, desktop } = useContext(ScreenContext)
 
-	const imageQuery = useStaticQuery(graphql`
-		query AdvantageCardsQuery {
-			accelerator: file(
-				relativePath: { eq: "platform/advantage/Accelerator.png" }
-			) {
-				childImageSharp {
-					gatsbyImageData(placeholder: NONE)
-				}
-			}
-			acceleratorTablet: file(
-				relativePath: { eq: "platform/advantage/AcceleratorTablet.png" }
-			) {
-				childImageSharp {
-					gatsbyImageData(placeholder: NONE)
-				}
-			}
-			security: file(relativePath: { eq: "platform/advantage/Security.png" }) {
-				childImageSharp {
-					gatsbyImageData(placeholder: NONE)
-				}
-			}
-			securityTablet: file(
-				relativePath: { eq: "platform/advantage/SecurityTablet.png" }
-			) {
-				childImageSharp {
-					gatsbyImageData(placeholder: NONE)
-				}
-			}
-			scalability: file(
-				relativePath: { eq: "platform/advantage/Scalability.png" }
-			) {
-				childImageSharp {
-					gatsbyImageData(placeholder: NONE)
-				}
-			}
-			scalabilityTablet: file(
-				relativePath: { eq: "platform/advantage/ScalabilityTablet.png" }
-			) {
-				childImageSharp {
-					gatsbyImageData(placeholder: NONE)
-				}
-			}
-			safety: file(relativePath: { eq: "platform/advantage/Safety.png" }) {
-				childImageSharp {
-					gatsbyImageData(placeholder: NONE)
-				}
-			}
-			safetyTablet: file(
-				relativePath: { eq: "platform/advantage/SafetyTablet.png" }
-			) {
-				childImageSharp {
-					gatsbyImageData(placeholder: NONE)
+	const data: Queries.PlatformAdvantagesQuery = useStaticQuery(graphql`
+		query PlatformAdvantages {
+			allPlatformAdvantagesJson {
+				nodes {
+					desktopImage {
+						childImageSharp {
+							gatsbyImageData(placeholder: NONE)
+						}
+					}
+					tabletImage {
+						childImageSharp {
+							gatsbyImageData(placeholder: NONE)
+						}
+					}
+					title
+					description
+					link
+					svg
+					desktopWidth
+					mobileWidth
 				}
 			}
 		}
 	`)
 
-	const data = [
-		{
-			title: "Agent Accelerator",
-			description:
-				"Get expert, full-service setup and customization of your AI agent. Just provide us with the same materials you give your existing call center agents, and we'll handle the rest. We'll come back to you with the perfect AI agent, ensuring premium quality without the premium price.",
-			link: links.agentAccelerator,
-			svg: AcceleratorSVG,
-			image: !desktop ? imageQuery.acceleratorTablet : imageQuery.accelerator,
-			desktopWidth: 384,
-		},
-		{
-			title: "Enterprise-grade Security",
-			description:
-				"From advanced encryption to rigorous compliance checks, Thoughtly ensures your data is protected with the highest standards of security and privacy.",
-			svg: SecuritySVG,
-			image: !desktop ? imageQuery.securityTablet : imageQuery.security,
-			desktopWidth: 491,
-		},
-		{
-			title: "Infinite Scalability",
-			description:
-				"Your AI agent effortlessly adjusts to meet demand, handling call volume spikes and seasonality with ease.",
-			svg: ScalabilitySVG,
-			image: !desktop ? imageQuery.scalabilityTablet : imageQuery.scalability,
-			desktopWidth: 333,
-		},
-		{
-			title: "Trust and Safety Agent",
-			description:
-				"Every customer receives a Trust and Safety Agent to ensure all conversations remain appropriate and compliant. As a no-guardrails AI, Thoughtly's Trust and Safety Agent actively monitors interactions, maintaining high standards of conduct and protecting your brand integrity.",
-			svg: SafetySVG,
-			image: !desktop ? imageQuery.safetyTablet : imageQuery.safety,
-			desktopWidth: 471,
-			mobileWidth: 283,
-		},
-	]
-
 	return (
 		<Wrapper>
-			{data.map((item, index) => (
+			{data.allPlatformAdvantagesJson.nodes.map((item, index) => (
 				<Unmask disabled={mobile} key={item.title}>
 					<Card>
-						{desktop && <Icon src={item.svg} alt={item.title} />}
-						<Widget image={item.image} alt={item.title} />
+						{desktop && item.svg && (
+							<Icon src={SVG_MAP[item.svg]} alt={item.title ?? ""} />
+						)}
+						<Widget
+							image={desktop ? item.desktopImage : item.tabletImage}
+							alt={item.title ?? ""}
+						/>
 						<Text>
-							{!desktop && <Icon src={item.svg} alt={item.title} />}
+							{!desktop && item.svg && (
+								<Icon src={SVG_MAP[item.svg]} alt={item.title ?? ""} />
+							)}
 							{!tablet && (
 								<>
 									<Title>{item.title}</Title>
 									<Description
-										$mobileWidth={item.mobileWidth}
-										$desktopWidth={item.desktopWidth}
+										$mobileWidth={item.mobileWidth ?? undefined}
+										$desktopWidth={item.desktopWidth ?? 0}
 										$index={index}
 									>
 										{item.description}
@@ -142,8 +86,8 @@ export default function AdvantageCards() {
 								<TabletOnly>
 									<Title>{item.title}</Title>
 									<Description
-										$mobileWidth={item.mobileWidth}
-										$desktopWidth={item.desktopWidth}
+										$mobileWidth={item.mobileWidth ?? undefined}
+										$desktopWidth={item.desktopWidth ?? 0}
 										$index={index}
 									>
 										{item.description}

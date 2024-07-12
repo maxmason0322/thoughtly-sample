@@ -52,7 +52,7 @@ export default function Dropdown({
 				>
 					<Column>
 						<SubLink>
-							<Icon name="blog" />
+							<Icon name="feather" />
 							<Link to={links.blog}>Blog</Link>
 						</SubLink>
 						<SubLink>

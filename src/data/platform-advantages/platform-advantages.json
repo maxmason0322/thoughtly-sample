@@ -1,0 +1,36 @@
+[
+	{
+		"title": "Agent Accelerator",
+		"description": "Get expert, full-service setup and customization of your AI agent. Just provide us with the same materials you give your existing call center agents, and we'll handle the rest. We'll come back to you with the perfect AI agent, ensuring premium quality without the premium price.",
+		"link": "/agent-accelerator",
+		"svg": "accelerator",
+		"desktopImage": "./cards/Accelerator.png",
+		"tabletImage": "./cards/AcceleratorTablet.png",
+		"desktopWidth": 384
+	},
+	{
+		"title": "Enterprise-grade Security",
+		"description": "From advanced encryption to rigorous compliance checks, Thoughtly ensures your data is protected with the highest standards of security and privacy.",
+		"svg": "security",
+		"desktopImage": "./cards/Security.png",
+		"tabletImage": "./cards/SecurityTablet.png",
+		"desktopWidth": 491
+	},
+	{
+		"title": "Infinite Scalability",
+		"description": "Your AI agent effortlessly adjusts to meet demand, handling call volume spikes and seasonality with ease.",
+		"svg": "scalability",
+		"desktopImage": "./cards/Scalability.png",
+		"tabletImage": "./cards/ScalabilityTablet.png",
+		"desktopWidth": 333
+	},
+	{
+		"title": "Trust and Safety Agent",
+		"description": "Every customer receives a Trust and Safety Agent to ensure all conversations remain appropriate and compliant. As a no-guardrails AI, Thoughtly's Trust and Safety Agent actively monitors interactions, maintaining high standards of conduct and protecting your brand integrity.",
+		"svg": "safety",
+		"desktopImage": "./cards/Safety.png",
+		"tabletImage": "./cards/SafetyTablet.png",
+		"desktopWidth": 471,
+		"mobileWidth": 283
+	}
+]
