@@ -231,7 +231,6 @@ const Title = styled.h1`
 		text-align: center;
 		${textStyles.h6}
 	`)}
-
 `
 
 const Subtitle = styled.p`
@@ -243,7 +242,7 @@ const Subtitle = styled.p`
 		width: 477px;
 		min-height: 92px;
 	`)}
-	
+
 	${ftablet(css`
 		text-align: center;
 	`)}
@@ -253,7 +252,6 @@ const Subtitle = styled.p`
 		${textStyles.bodyR}
 		width: 295px;
 	`)}
-
 `
 
 const Copy = styled.div`

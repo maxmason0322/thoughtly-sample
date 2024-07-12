@@ -9,15 +9,18 @@ import { useDeepCompareMemo } from "use-deep-compare"
 export default function Unmask({
 	children,
 	parameters,
+	disabled,
 }: {
 	children: ReactNode
 	parameters?: GSAPTweenVars
+	disabled?: boolean
 }) {
 	const wrapperRef = useRef<HTMLDivElement | null>(null)
 	const stableParameters = useDeepCompareMemo(() => parameters, [parameters])
 
 	useAnimation(() => {
 		if (!wrapperRef.current) return
+		if (disabled) return
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: wrapperRef.current,
@@ -30,12 +33,16 @@ export default function Unmask({
 			opacity: 1,
 			...stableParameters,
 		})
-	}, [stableParameters])
+	}, [stableParameters, disabled])
 
-	return <Wrapper ref={wrapperRef}>{children}</Wrapper>
+	return (
+		<Wrapper $disabled={disabled} ref={wrapperRef}>
+			{children}
+		</Wrapper>
+	)
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ $disabled?: boolean }>`
 	overflow: clip;
 	height: min-content;
 	width: fit-content;
@@ -53,7 +60,7 @@ const Wrapper = styled.div`
 
   & > * {
 		position: relative;
-		transform: translateY(130%);
+		transform: ${({ $disabled }) => ($disabled ? "none" : "translateY(130%)")};
 		will-change: transform;
 
 		${ftablet(css`

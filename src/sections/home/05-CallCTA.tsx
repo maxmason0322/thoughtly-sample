@@ -21,7 +21,11 @@ import textStyles from "styles/text"
 import { transparentText } from "styles/text"
 import links from "utils/links"
 
-export default function CallCTA() {
+export default function CallCTA({
+	customTabletWidth,
+}: {
+	customTabletWidth?: number
+}) {
 	const { mobile } = useContext(ScreenContext)
 	const phoneRef = useRef<UniversalLinkRef>(null)
 	const canHover = useCanHover()
@@ -55,9 +59,10 @@ export default function CallCTA() {
 					</Text>
 				</Top>
 				<Bottom>
-					<MarqueeWrapper>
+					<MarqueeWrapper $customTabletWidth={customTabletWidth}>
 						{canHover && <MouseFollower />}
 						<MarqueeBorder
+							$customTabletWidth={customTabletWidth}
 							onMouseEnter={handleMouseEnter}
 							onMouseLeave={handleMouseLeave}
 							to={links.phone}
@@ -174,7 +179,7 @@ const Bottom = styled.div`
 	`)}
 `
 
-const MarqueeWrapper = styled.div`
+const MarqueeWrapper = styled.div<{ $customTabletWidth?: number }>`
 	position: relative;
 	${fresponsive(css`
 		width: 1320px;
@@ -182,10 +187,11 @@ const MarqueeWrapper = styled.div`
 		border-radius: 60px;
 	`)}
 
-	${ftablet(css`
-		width: 982px;
-		height: 382px;
-	`)}
+	${({ $customTabletWidth }) =>
+		ftablet(css`
+			width: ${$customTabletWidth ? `${$customTabletWidth}px` : "982px"};
+			height: 382px;
+		`)}
 
     ${fmobile(css`
 		width: 358px;
@@ -215,7 +221,7 @@ const PhoneNumber = styled.div`
 	`)}
 `
 
-const MarqueeBorder = styled(UniversalLink)`
+const MarqueeBorder = styled(UniversalLink)<{ $customTabletWidth?: number }>`
 	display: flex;
 	align-items: center;
 	position: relative;
@@ -227,9 +233,10 @@ const MarqueeBorder = styled(UniversalLink)`
 		border-radius: 60px;
 	`)}
 
-	${ftablet(css`
-		width: 982px;
-	`)}
+	${({ $customTabletWidth }) =>
+		ftablet(css`
+			width: ${$customTabletWidth ? `${$customTabletWidth}px` : "982px"};
+		`)}
 
   ${fmobile(css`
 		width: 358px;

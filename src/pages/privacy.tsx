@@ -116,7 +116,7 @@ export default function Privacy() {
 							applicable privacy policy. As of the effective date of this
 							Privacy Policy listed below, Stripe is the Payment Processor used
 							within the Services and its privacy policy is available at{" "}
-							<legalStyles.Link to={links.stripe}>
+							<legalStyles.Link to={"https://stripe.com/us/privacy"}>
 								https://stripe.com/us/privacy
 							</legalStyles.Link>{" "}
 							or such other URL designated by Stripe. In order to facilitate
@@ -643,11 +643,11 @@ export default function Privacy() {
 						other similar feature on your device. You can also make choices
 						about data collection for certain companies by visiting an industry
 						consumer choice platform such as the NAI (
-						<legalStyles.Link to={links.NAI}>
+						<legalStyles.Link to={"https://optout.networkadvertising.org/"}>
 							https://optout.networkadvertising.org/
 						</legalStyles.Link>
 						) or DAA (
-						<legalStyles.Link to={links.DAA}>
+						<legalStyles.Link to={"https://optout.aboutads.info/"}>
 							https://optout.aboutads.info/
 						</legalStyles.Link>
 						). If you opt-out of interest-based ads, you will still see ads on

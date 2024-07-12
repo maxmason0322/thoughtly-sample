@@ -145,7 +145,7 @@ const Logo = styled(UniversalLink)`
 		height: 48px;
 	`)}
 
-  	img {
+	img {
 		width: 100%;
 		height: 100%;
 	}
@@ -169,24 +169,24 @@ const MarqueeWrapper = styled.div`
 
 	&::before,
   &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 150px;
-    z-index: 2;
-    pointer-events: none;
-  }
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 150px;
+		z-index: 2;
+		pointer-events: none;
+	}
 
-  &::before {
-    left: 0;
-    background: linear-gradient(to right, ${colors.beige200}, transparent);
-  }
+	&::before {
+		left: 0;
+		background: linear-gradient(to right, ${colors.beige200}, transparent);
+	}
 
-  &::after {
-    right: 0;
-    background: linear-gradient(to left, ${colors.beige200}, transparent);
-  }
+	&::after {
+		right: 0;
+		background: linear-gradient(to left, ${colors.beige200}, transparent);
+	}
 `
 
 const StyledConstantMarquee = styled(ConstantMarquee)`
