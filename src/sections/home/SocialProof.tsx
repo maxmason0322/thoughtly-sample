@@ -1,8 +1,11 @@
 import Kicker from "components/Kicker"
 import BadenBowerSVG from "images/global/logos/BadenBower.svg"
 import CardMerchantServicesSVG from "images/global/logos/CardMerchantServices.svg"
+import ColdwellBankerSVG from "images/global/logos/ColdwellBanker.svg"
+import CompassSVG from "images/global/logos/Compass.svg"
 import EnhanceHealthSVG from "images/global/logos/EnhanceHealth.svg"
 import HonkSVG from "images/global/logos/Honk.svg"
+import PrimeraSVG from "images/global/logos/Primera.svg"
 import SelectQuoteSVG from "images/global/logos/SelectQuote.svg"
 import TastewiseSVG from "images/global/logos/Tastewise.svg"
 import ZillowSVG from "images/global/logos/Zillow.svg"
@@ -49,6 +52,15 @@ export default function SocialProof() {
 							</Logo>
 							<Logo to={links.honk}>
 								<img src={HonkSVG} alt="Honk Logo" />
+							</Logo>
+							<Logo to={links.coldwellBanker}>
+								<img src={ColdwellBankerSVG} alt="Coldwell Banker Logo" />
+							</Logo>
+							<Logo to={links.compass}>
+								<img src={CompassSVG} alt="Compass Logo" />
+							</Logo>
+							<Logo to={links.primera}>
+								<img src={PrimeraSVG} alt="Primera Logo" />
 							</Logo>
 						</Logos>
 					</StyledConstantMarquee>
