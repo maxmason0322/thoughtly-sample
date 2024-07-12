@@ -41,6 +41,9 @@ const companies = {
 	zillow: "https://www.zillow.com/",
 	tastewise: "https://www.tastewise.io/",
 	badenBower: "https://badenbower.com/",
+  primera: "https://getprimera.com/",
+	compass: "https://www.compass.com/",
+	coldwellBanker: "https://www.coldwellbanker.com/",
 }
 
 const links = {
