@@ -208,7 +208,7 @@ const Column = styled.div`
 		gap: 24px;
 	`)}
 
-  ${fmobile(css`
+	${fmobile(css`
 		gap: 24px;
 	`)}
 `

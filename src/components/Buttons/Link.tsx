@@ -5,6 +5,7 @@ import type { UniversalLinkProps } from "library/Loader/UniversalLink"
 import UniversalLink from "library/Loader/UniversalLink"
 import { fresponsive, ftablet } from "library/fullyResponsive"
 import type React from "react"
+import { forwardRef } from "react"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
@@ -15,7 +16,7 @@ type Props = UniversalLinkProps & {
 	children: React.ReactNode
 }
 
-export default function Link({ icon, tag, children, ...props }: Props) {
+function LinkNoRef({ icon, tag, children, ...props }: Props) {
 	return (
 		<Wrapper $hasTag={!!tag} {...props}>
 			<Span>
@@ -26,6 +27,12 @@ export default function Link({ icon, tag, children, ...props }: Props) {
 		</Wrapper>
 	)
 }
+
+// biome-ignore lint/suspicious/noExplicitAny: the types of UniversalLink are not 100% right and it's not worth fixing before react 19 is released
+const Link = forwardRef((props: Props, ref: any) => (
+	<LinkNoRef {...props} forwardRef={ref} />
+))
+export default Link
 
 const Wrapper = styled(UniversalLink)<{ $hasTag: boolean }>`
 	pointer-events: ${({ $hasTag }) => ($hasTag ? "none" : "auto")};

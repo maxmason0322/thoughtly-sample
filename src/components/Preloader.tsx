@@ -170,7 +170,9 @@ const Connector = styled(ConnectorSVG)`
 	`)}
 
 	margin-left: -1px;
-	animation: ${marquee} 0.5s 0.75s linear infinite, ${marquee} 0.75s 0s ease-in;
+	animation:
+		${marquee} 0.5s 0.75s linear infinite,
+		${marquee} 0.75s 0s ease-in;
 `
 
 const FinalConnector = styled(Connector)`

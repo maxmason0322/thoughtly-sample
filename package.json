@@ -13,6 +13,7 @@
 		"@contentful/rich-text-react-renderer": "15.21.2",
 		"@contentful/rich-text-types": "16.5.2",
 		"@radix-ui/react-form": "0.0.3",
+		"@radix-ui/react-popover": "1.1.1",
 		"@total-typescript/ts-reset": "0.5.1",
 		"@types/gtag.js": "0.0.20",
 		"@types/segment-analytics": "0.0.38",

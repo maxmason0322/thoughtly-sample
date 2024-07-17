@@ -78,28 +78,17 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 					<Columns>
 						<LinkColumn>
 							<Label>Product</Label>
+							<StyledLink to={links.platform}>Platform</StyledLink>
 							<StyledLink to={links.agentAccelerator}>
 								Agent Accelerator
 							</StyledLink>
 							<StyledLink to={links.industries}>Industries</StyledLink>
-							<StyledLink to={links.pricing}>Pricing</StyledLink>
-							{/* <StyledLink to={links.todo} tag="Coming Soon">
-								Platform
-							</StyledLink>
-							<StyledLink to={links.todo} tag="Coming Soon">
-								Solutions
-							</StyledLink>
-							<StyledLink to={links.todo} tag="Coming Soon">
-								Customers
-							</StyledLink> */}
+							{/* <StyledLink to={links.pricing}>Pricing</StyledLink> */}
 						</LinkColumn>
 						<LinkColumn>
 							<Label>Company</Label>
 							<StyledLink to={links.mediaInquiries}>Media Inquiries</StyledLink>
 							<StyledLink to={links.careers}>Careers</StyledLink>
-							{/* <StyledLink to={links.todo} tag="Coming Soon">
-								About
-							</StyledLink> */}
 							<StyledLink to={links.blog}>Blog</StyledLink>
 						</LinkColumn>
 						<LinkColumn>

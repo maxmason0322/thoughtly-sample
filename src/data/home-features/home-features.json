@@ -4,7 +4,7 @@
 		"title": "Appointment \nScheduling",
 		"text": "Your Thoughtly agent syncs with your calendar, working alongside callers to pinpoint the perfect meeting time. Coordinate effortlessly.",
 		"background": "./backgrounds/feature-0.webp",
-		"backgroundTablet": "./backgrounds/feature-0.webp",
+		"backgroundTablet": "./backgrounds/feature-0-tablet.webp",
 		"backgroundMobile": "./backgrounds/feature-0-mobile.webp",
 		"strokeIcon": true
 	},

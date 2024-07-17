@@ -12,7 +12,7 @@ import Primary, { Border } from "./Buttons/Primary"
 
 const endpoint = "api.thought.ly/public/email?email="
 
-export default function EmailInput() {
+export default function EmailInput({ customWidth }: { customWidth?: number }) {
 	const borderRef = useRef<HTMLDivElement | null>(null)
 	const [isFocused, setIsFocused] = useState(false)
 	const [placeholder, setPlaceholder] = useState("What is your work email?")
@@ -41,6 +41,7 @@ export default function EmailInput() {
 
 	return (
 		<Wrapper
+			$customWidth={customWidth}
 			onSubmit={(e) => {
 				e.preventDefault()
 
@@ -70,7 +71,11 @@ export default function EmailInput() {
 				{canHover && <StyledBorder ref={borderRef} />}
 				<Field name="email">
 					<Input
-						placeholder={mobile ? "What is your email?" : placeholder}
+						placeholder={
+							mobile || (customWidth && customWidth < 400)
+								? "What is your email?"
+								: placeholder
+						}
 						type="email"
 						required
 						onFocus={handleFocus}
@@ -89,41 +94,44 @@ export default function EmailInput() {
 }
 
 const StyledBorder = styled(Border)`
-  width: 95%;
-  transition:
-    width 0.35s,
-    height 0.35s;
-
-  ${fresponsive(css`
-    border-radius: 19px;
-  `)}
-`
-
-const Wrapper = styled(Form.Root)`
-  border: 1.5px solid ${colors.gray300};
+	width: 95%;
+	transition:
+		width 0.35s,
+		height 0.35s;
 
 	${fresponsive(css`
-		border-radius: 16px;
-    width: 366px;
+		border-radius: 19px;
 	`)}
+`
 
-  ${ftablet(css`
-    width: 450px;
-  `)}
+const Wrapper = styled(Form.Root)<{ $customWidth?: number }>`
+	border: 1.5px solid ${colors.gray300};
 
-	${fmobile(css`
-    width: 322px;
-		margin-left: 0;
-		margin-right: 0;
-		gap: 22px;
-	`)}
+	${({ $customWidth }) =>
+		fresponsive(css`
+			border-radius: 16px;
+			width: ${$customWidth ? `${$customWidth}px` : "366px"};
+		`)}
+
+	${({ $customWidth }) =>
+		ftablet(css`
+			width: ${$customWidth ? `${$customWidth}px` : "450px"};
+		`)}
+
+	${({ $customWidth }) =>
+		fmobile(css`
+			width: ${$customWidth ? `${$customWidth}px` : "322px"};
+			margin-left: 0;
+			margin-right: 0;
+			gap: 22px;
+		`)}
 
   &:hover {
-    ${Border} {
+		${Border} {
 			width: calc(100% + 14px);
 			height: calc(100% + 12px);
 		}
-  }
+	}
 `
 
 const Row = styled.div`
@@ -138,7 +146,7 @@ const Row = styled.div`
 `
 
 const Submit = styled(Primary)`
-  color: ${colors.black};
+	color: ${colors.black};
 	position: absolute;
 	z-index: 2;
 
@@ -150,9 +158,9 @@ const Submit = styled(Primary)`
 `
 
 const Field = styled(Form.Field)`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 	position: relative;
 	width: 100%;
 
@@ -170,13 +178,13 @@ const Input = styled(Form.Control)`
 	${fresponsive(css`
 		height: 55.5px;
 		padding: 16px;
-		border-radius: 16px;
+		border-radius: 15px;
 	`)}
 
-  ${ftablet(css`
-    ${textStyles.sh2}
-    height: 63px;
-  `)}
+	${ftablet(css`
+		${textStyles.sh2}
+		height: 63px;
+	`)}
 
 	&::placeholder {
 		color: ${colors.gray600};
@@ -188,7 +196,7 @@ const Input = styled(Form.Control)`
 `
 
 const Message = styled(Form.Message)`
-  position: absolute;
+	position: absolute;
 	color: #f76161;
 	${textStyles.t2}
 
