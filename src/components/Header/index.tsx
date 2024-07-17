@@ -146,6 +146,13 @@ export default function Header() {
 
 	const offset = useResponsivePixels(16)
 
+	const getDemoLink = () => {
+		if (typeof window !== "undefined") {
+			return links.bookDemo + window.location.search
+		}
+		return links.bookDemo
+	}
+
 	return (
 		<Popover.Root open={menuOpen} onOpenChange={setMenuOpen}>
 			<Wrapper>
@@ -162,7 +169,7 @@ export default function Header() {
 									Sign In
 								</PrimaryButton>
 								{!tablet && (
-									<PrimaryButton icon="chev" to={links.bookDemo}>
+									<PrimaryButton icon="chev" to={getDemoLink()}>
 										Book a Demo
 									</PrimaryButton>
 								)}
@@ -219,7 +226,7 @@ export default function Header() {
 					<Popover.Anchor>
 						<Right>
 							{tablet && (
-								<PrimaryButton to={links.bookDemo}>Book a Demo</PrimaryButton>
+								<PrimaryButton to={getDemoLink()}>Book a Demo</PrimaryButton>
 							)}
 							{(mobile || tablet) && (
 								<Hamburger type="button" aria-label="navigation menu">
@@ -235,7 +242,7 @@ export default function Header() {
 									<PrimaryButton variant="secondary" to={links.login}>
 										Sign In
 									</PrimaryButton>
-									<PrimaryButton icon="chev" to={links.bookDemo}>
+									<PrimaryButton icon="chev" to={getDemoLink()}>
 										Book a Demo
 									</PrimaryButton>
 								</>
