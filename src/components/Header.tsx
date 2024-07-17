@@ -154,6 +154,13 @@ export default function Header() {
 		setMenuOpen(false)
 	})
 
+	const getDemoLink = () => {
+		if (typeof window !== "undefined") {
+			return links.bookDemo + window.location.search
+		}
+		return links.bookDemo
+	}
+
 	return (
 		<Wrapper>
 			{(mobile || tablet) && (
@@ -165,7 +172,7 @@ export default function Header() {
 								Sign In
 							</PrimaryButton>
 							{!tablet && (
-								<PrimaryButton icon="chev" to={links.bookDemo}>
+								<PrimaryButton icon="chev" to={getDemoLink()}>
 									Book a Demo
 								</PrimaryButton>
 							)}
@@ -283,7 +290,7 @@ export default function Header() {
 							<PrimaryButton variant="secondary" to={links.login}>
 								Sign In
 							</PrimaryButton>
-							<PrimaryButton icon="chev" to={links.bookDemo}>
+							<PrimaryButton icon="chev" to={getDemoLink()}>
 								Book a Demo
 							</PrimaryButton>
 						</>

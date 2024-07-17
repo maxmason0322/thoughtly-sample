@@ -50,6 +50,16 @@ export default function EmailInput() {
 				const urlParams = new URLSearchParams(window.location.search)
 				const queryParams = urlParams.toString()
 
+				// add referrer to query params
+				if (document.referrer) {
+					urlParams.append(
+						"referrer",
+						document.referrer
+							.replace(/^(https?:\/\/)?(www\.)?/, "")
+							.replace(/\/$/, ""),
+					)
+				}
+
 				if (typeof email === "string") {
 					const url = `https://${endpoint}${encodeURIComponent(email)}&${queryParams}`
 					window.open(url, "_blank")
