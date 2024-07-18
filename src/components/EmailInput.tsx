@@ -10,7 +10,7 @@ import colors from "styles/colors"
 import textStyles, { trim } from "styles/text"
 import Primary, { Border } from "./Buttons/Primary"
 
-const endpoint = "api.thought.ly/public/email?email="
+const endpoint = "fns.thought.ly/lead/email?email="
 
 export default function EmailInput({ customWidth }: { customWidth?: number }) {
 	const borderRef = useRef<HTMLDivElement | null>(null)

@@ -7,24 +7,27 @@ import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles, { trim } from "styles/text"
 
-const endpoint = "api.thought.ly/public/email?email="
+const endpoint = "fns.thought.ly/lead/email?email="
 
 const sendEmail = async (email: string) => {
 	const formData = new FormData()
 	formData.append("email", email)
 
-	const url = `http://${endpoint}${encodeURIComponent(email)}`
+	const urlParams = new URLSearchParams(window.location.search)
+	const queryParams = urlParams.toString()
 
-	const response = await fetch(url, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: formData,
-	})
+	if (document.referrer) {
+		urlParams.append(
+			"referrer",
+			document.referrer
+				.replace(/^(https?:\/\/)?(www\.)?/, "")
+				.replace(/\/$/, ""),
+		)
+	}
 
-	if (!response.ok) {
-		throw new Error("Submission failed")
+	if (typeof email === "string") {
+		const url = `https://${endpoint}${encodeURIComponent(email)}&${queryParams}`
+		window.open(url, "_blank")
 	}
 }
 
