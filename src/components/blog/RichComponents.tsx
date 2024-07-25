@@ -9,6 +9,7 @@ import { fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
+import z from "zod"
 
 const Strong = styled.strong`
 	font-weight: 500;
@@ -99,22 +100,10 @@ const isGatsbyImageData = (obj: unknown): obj is IGatsbyImageData => {
 	return isObject(obj) && "images" in obj
 }
 
-const HOSTS = new Set(["thoughtly-internal.netlify.app", "thought.ly"])
-
-/**
- * checks if the URL is internal, and if so returns the pathname (and hash/queries)
- * otherwise returns the full URL
- */
-const getURL = (url: string) => {
-	try {
-		const { host, pathname, search } = new URL(url)
-		return HOSTS.has(host)
-			? { internal: true, href: `${pathname}${search}` }
-			: { internal: false, href: url }
-	} catch {
-		return { internal: false, href: url }
-	}
-}
+const quoteSchema = z.object({
+	quote: z.string(),
+	quotee: z.string(),
+})
 
 const options: Options = {
 	renderMark: {
@@ -167,12 +156,19 @@ const options: Options = {
 			return <span>Invalid Image</span>
 		},
 		[BLOCKS.EMBEDDED_ENTRY]: (node) => {
-			return (
-				<Quote>
-					<Text>{node.data.target.quote}</Text>
-					<Quotee>{node.data.target.quotee}</Quotee>
-				</Quote>
-			)
+			const target: unknown = node.data.target
+
+			const { success: isQuote, data: quote } = quoteSchema.safeParse(target)
+
+			if (isQuote)
+				return (
+					<Quote>
+						<Text>{quote.quote}</Text>
+						<Quotee>{quote.quotee}</Quotee>
+					</Quote>
+				)
+
+			return null
 		},
 	},
 }
