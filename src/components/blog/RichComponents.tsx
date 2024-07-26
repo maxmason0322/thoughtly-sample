@@ -10,6 +10,8 @@ import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
 import z from "zod"
+import CTA from "./CTA"
+import FormCTA from "./FormCTA"
 
 const Strong = styled.strong`
 	font-weight: 500;
@@ -105,6 +107,16 @@ const quoteSchema = z.object({
 	quotee: z.string(),
 })
 
+const formSchema = z.object({
+	callToActionText: z.string(),
+})
+
+const ctaSchema = z.object({
+	header: z.string(),
+	buttonLabel: z.string(),
+	buttonLink: z.string(),
+})
+
 const options: Options = {
 	renderMark: {
 		[MARKS.BOLD]: (children) => <Strong>{children}</Strong>,
@@ -159,6 +171,8 @@ const options: Options = {
 			const target: unknown = node.data.target
 
 			const { success: isQuote, data: quote } = quoteSchema.safeParse(target)
+			const { success: isForm, data: form } = formSchema.safeParse(target)
+			const { success: isCta, data: cta } = ctaSchema.safeParse(target)
 
 			if (isQuote)
 				return (
@@ -167,6 +181,16 @@ const options: Options = {
 						<Quotee>{quote.quotee}</Quotee>
 					</Quote>
 				)
+
+			if (isForm) {
+				return <FormCTA title={form.callToActionText} />
+			}
+
+			if (isCta) {
+				return <CTA cta={cta} />
+			}
+
+			console.warn("Invalid Entry", target)
 
 			return null
 		},

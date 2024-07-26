@@ -7,6 +7,7 @@ import textStyles, { trim } from "styles/text"
 import type { BlogPost } from "types/aliases"
 import Author from "./Author"
 import CTA from "./CTA"
+import FormCTA from "./FormCTA"
 import RichText from "./RichComponents"
 
 export default function PostContent({ post }: { post: BlogPost }) {
@@ -32,7 +33,10 @@ export default function PostContent({ post }: { post: BlogPost }) {
 				))}
 			</Categories>
 			<RichText content={articleText} />
-			{cta && <CTA cta={cta} />}
+			{cta && "header" in cta && <CTA cta={cta} />}
+			{cta && "callToActionText" in cta && (
+				<FormCTA title={cta.callToActionText} />
+			)}
 		</Wrapper>
 	)
 }
