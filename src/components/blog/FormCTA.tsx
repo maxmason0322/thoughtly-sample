@@ -34,13 +34,17 @@ const Wrapper = styled.div`
 		padding: 24px;
 
 		> form {
-			margin-bottom: 65px;
+			margin-bottom: ${50 + 24}px;
+		}
+
+		input + span {
+			translate: 0 -3.5px;
 		}
 
 		button {
 			width: 100%;
 			right: 0;
-			top: calc(100% + 16px);
+			top: calc(100% + 24px);
 
 			> div {
 				width: 100%;
