@@ -3,9 +3,16 @@ import { fmobile, fresponsive } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
-import type { CallToAction } from "types/aliases"
 
-export default function CTA({ cta }: { cta: CallToAction }) {
+export default function CTA({
+	cta,
+}: {
+	cta: {
+		header: string | null
+		buttonLabel: string | null
+		buttonLink: string | null
+	}
+}) {
 	return (
 		<Wrapper>
 			<Text>{cta.header}</Text>

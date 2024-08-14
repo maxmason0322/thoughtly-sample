@@ -58,6 +58,13 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 	if (primary === "fixed" && position === "static") return <Spacer />
 	if (primary === "static" && position === "fixed") return null
 
+	const getDemoLink = () => {
+		if (typeof window !== "undefined") {
+			return links.bookDemo + window.location.search
+		}
+		return links.bookDemo
+	}
+
 	return (
 		<Wrapper $position={position}>
 			<Inner>
@@ -89,7 +96,7 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 							<Label>Support</Label>
 							<StyledLink to={links.helpCenter}>Help Center</StyledLink>
 							<StyledLink to={links.apiDocs}>API Docs</StyledLink>
-							<StyledLink to={links.bookDemo} openInNewTab>
+							<StyledLink to={getDemoLink()} openInNewTab>
 								Contact Us
 							</StyledLink>
 						</LinkColumn>

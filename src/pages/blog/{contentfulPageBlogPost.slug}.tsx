@@ -241,6 +241,12 @@ const RelatedCards = styled.div`
 		gap: 24px;
 	`)}
 
+	${ftablet(css`
+		${SmallCardWrapper} {
+			width: 280px;
+		}
+	`)}
+
 	${fmobile(css`
 		flex-direction: column;
 		align-items: flex-start;
@@ -299,23 +305,40 @@ export const query = graphql`
 				references {
 					... on ContentfulAsset {
 						contentful_id
+						__typename
 						title
 						description
 						gatsbyImageData(width: 1000)
-						__typename
 					}
 					... on ContentfulComponentQuote {
 						contentful_id
+						__typename
 						quote
 						quotee
+					}
+					... on ContentfulComponentBlogFormCta {
+						contentful_id
 						__typename
+						callToActionText
+					}
+					... on ContentfulComponentBlogCta {
+						contentful_id
+						__typename
+						header
+						buttonLabel
+						buttonLink
 					}
 				}
 			}
 			cta {
-				header
-				buttonLabel
-				buttonLink
+				... on ContentfulComponentBlogCta {
+					header
+					buttonLabel
+					buttonLink
+				}
+				... on ContentfulComponentBlogFormCta {
+					callToActionText
+				}
 			}
 		}
 		# get the three most recent blog posts that are not the current post
