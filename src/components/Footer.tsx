@@ -2,6 +2,7 @@ import { useLocation } from "@reach/router"
 import gsap from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
 import { ReactComponent as LogoSVG } from "images/global/logo.svg"
+import { ReactComponent as HipaaSVG } from "images/home/hipaa.svg"
 import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import { pathnameMatches } from "library/functions"
@@ -114,20 +115,28 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 						<EmailInput />
 					</BottomTop>
 					<BottomBottom>
-						<Column>
-							<Text>Copyright © 2024 Thoughtly,</Text>
-							<Text>Inc. All rights reserved.</Text>
-						</Column>
-						<Column>
+						<Row>
+							{!mobile && <Hipaa />}
+							<LeftColumn>
+								<Text>Copyright © 2024 Thoughtly,</Text>
+								<Text>Inc. All rights reserved.</Text>
+							</LeftColumn>
+						</Row>
+						<RightColumn>
 							<UniversalLink to={links.terms}>
 								<Text>Terms</Text>
 							</UniversalLink>
 							<UniversalLink to={links.privacy}>
 								<Text>Privacy Policy</Text>
 							</UniversalLink>
-						</Column>
+						</RightColumn>
 					</BottomBottom>
 				</Bottom>
+				{mobile && (
+					<HipaaWrapper>
+						<Hipaa />
+					</HipaaWrapper>
+				)}
 			</Inner>
 		</Wrapper>
 	)
@@ -373,13 +382,57 @@ const BottomBottom = styled.div`
 	justify-content: space-between;
 `
 
-const Column = styled.div`
+const Row = styled.div`
 	display: flex;
-	flex-direction: column;
+	align-items: center;
+	text-align: left;
+
+	${fresponsive(css`
+		gap: 24px;
+	`)}
+`
+
+const HipaaWrapper = styled.div`
+	position: relative;
+	display: flex;
+	justify-content: center;
+
+	${fresponsive(css`
+		margin-bottom: 24px;
+	`)}
+`
+
+const Hipaa = styled(HipaaSVG)`
+	${fresponsive(css`
+		width: 56px;
+		height: auto;
+	`)}
 
 	${fmobile(css`
-		gap: 10px;
+		width: 72px;
+		height: auto;
 	`)}
+`
+
+const ColumnProps = css`
+	display: flex;
+	flex-direction: column;
+`
+
+const LeftColumn = styled.div`
+	${ColumnProps}
+
+	${fresponsive(css`
+		gap: 3px;
+	`)}
+
+	${fmobile(css`
+		gap: 5px;
+	`)}
+`
+
+const RightColumn = styled.div`
+	${ColumnProps}
 
 	&:last-of-type {
 		align-items: flex-end;
