@@ -104,7 +104,7 @@ const isGatsbyImageData = (obj: unknown): obj is IGatsbyImageData => {
 
 const quoteSchema = z.object({
 	quote: z.string(),
-	quotee: z.string(),
+	quotee: z.string().optional().nullable(),
 })
 
 const formSchema = z.object({
@@ -178,7 +178,7 @@ const options: Options = {
 				return (
 					<Quote>
 						<Text>{quote.quote}</Text>
-						<Quotee>{quote.quotee}</Quotee>
+						{quote.quotee && <Quotee>{quote.quotee}</Quotee>}
 					</Quote>
 				)
 
