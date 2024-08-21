@@ -49,7 +49,14 @@ export function Head() {
 	return (
 		<Seo
 			title="Thoughtly | The easiest way to build AI voice agents"
-			description="Thoughtly helps teams build and deploy AI voice agents in minutes, not months."
+			description="Thoughtly empowers businesses to quickly build and deploy AI 
+				voice agents with a user-friendly no-code platform. Enhance your contact 
+				center operations and reduce call wait times with advanced conversational 
+				AI. Our solution transforms customer interactions through intelligent 
+				voice technology, handling phone calls efficiently in minutes, not months. 
+				Discover how Thoughtly can streamline customer support, improve lead 
+				follow-up, and optimize contact center performance with cutting-edge AI 
+				voice solutions."
 			pathname="/"
 		/>
 	)
