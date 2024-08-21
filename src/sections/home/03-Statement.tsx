@@ -217,6 +217,5 @@ const Outer = styled.div`
 
 const InvisibleParagraph = styled.p`
 	display: none;
-	pointer-events: none;
 	position: absolute;
 `
