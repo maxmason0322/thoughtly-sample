@@ -99,6 +99,11 @@ export default function Statement() {
 
 	return (
 		<Outer>
+			<InvisibleParagraph>
+				Thoughtly reimagines phone calls with AI that speaks your language. Our
+				mission is to make every call your best yet, merging tradition with
+				tomorrow&apos;s tech.
+			</InvisibleParagraph>
 			<Wrapper ref={wrapperRef}>
 				<Inner>
 					<Content>
@@ -208,4 +213,10 @@ const Title = styled.h2`
 
 const Outer = styled.div`
 	background-color: ${colors.beige200};
+`
+
+const InvisibleParagraph = styled.p`
+	display: none;
+	pointer-events: none;
+	position: absolute;
 `
