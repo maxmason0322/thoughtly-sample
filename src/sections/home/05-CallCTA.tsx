@@ -127,7 +127,6 @@ const Top = styled.div`
 		gap: 36px;
 		padding: 96px 0 72px;
 		width: 1128px;
-		border-top: 1.5px solid ${colors.gray300};
 	`)}
 
 	${ftablet(css`

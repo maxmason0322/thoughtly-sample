@@ -18,8 +18,8 @@ export default function Pricing() {
 						</Title>
 						<Column>
 							<Text>
-								Pay by minute or try one of our scaleable plans to fit your
-								ambitions
+								10¢ per minute of your Thoughtly Agent talking on the phone. No
+								hidden vendor fees, just one simple price.
 							</Text>
 							<EmailInput />
 						</Column>
@@ -76,12 +76,14 @@ export default function Pricing() {
 									"Inbound calling",
 									"Outbound calling",
 									"Genius knowledge database",
+									"No hidden vendor fees",
 								],
 								[
 									"Industry-leading agent builder",
 									"Inbound calling",
 									"Outbound calling",
 									"Genius knowledge database",
+									"No hidden vendor fees",
 								],
 								// [
 								// 	"Unlimited Seats",
@@ -97,14 +99,11 @@ export default function Pricing() {
 								// 	"Whitelabel support",
 								// ],
 								[
-									"Industry-leading agent builder",
-									"Inbound calling",
-									"Outbound calling",
-									"Genius knowledge database",
 									"Whitelabel support",
 									"Executive coaching",
-									"Managed services",
+									"Managed service",
 									"Priority support",
+									"No hidden vendor fees",
 								],
 							]}
 						/>
@@ -148,7 +147,7 @@ const Inner = styled.div`
 	max-width: ${desktopBreakpoint}px;
 
 	${fresponsive(css`
-		padding: 123px 114px 168px;
+		padding: 0 114px 168px;
 	`)}
 
 	${ftablet(css`
@@ -164,7 +163,6 @@ const Content = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	border-top: 1px solid #eaeaea;
 
 	${fresponsive(css`
 		padding-top: 81px;
@@ -241,7 +239,7 @@ const Text = styled.p`
 	text-align: center;
 
 	${fresponsive(css`
-		width: 393px;
+		width: 493px;
 	`)}
 
 	${ftablet(css`
