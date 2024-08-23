@@ -18,8 +18,8 @@ export default function Pricing() {
 						</Title>
 						<Column>
 							<Text>
-								Pay by minute or try one of our scaleable plans to fit your
-								ambitions
+								10¢ per minute of your Thoughtly Agent talking on the phone. No
+								hidden vendor fees, just one simple price.
 							</Text>
 							<EmailInput />
 						</Column>
@@ -31,60 +31,79 @@ export default function Pricing() {
 							titles={["Free"]}
 							text={["Get started building Thoughtly agents for free."]}
 							prices={["Free"]}
-							tags={[["10 minutes per month", "Unlimited Seats"]]}
+							tags={[["10 minutes per month", "Great for testing"]]}
 						/>
 						<Card
-							icons={["starter", "pro", "business", "agency", "rocket"]}
-							iconStroke={[true, false, false, true, false]}
+							icons={[
+								"starter",
+								"pro",
+								// "business",
+								// "agency",
+								"rocket",
+							]}
+							iconStroke={[
+								true,
+								false,
+								// false,
+								// true,
+								false,
+							]}
 							titles={[
 								"Starter Plan",
 								"Pro",
-								"Business",
-								"Agency",
+								// "Business",
+								// "Agency",
 								"Enterprise",
 							]}
 							text={[
 								"Find a plan that fits your needs and budget.",
 								"Use Thoughtly to grow your small business.",
-								"Reliably handle both your inbound and outbound call traffic.",
-								"Our advanced whitelabel solution for industry partners and early adopters.",
+								// "Reliably handle both your inbound and outbound call traffic.",
+								// "Our advanced whitelabel solution for industry partners and early adopters.",
 								"Automate your enterprise using conversational AI.",
 							]}
-							prices={["$30", "$150", "$300", "$1,000", "$10,000"]}
+							prices={[
+								"$30",
+								"$150",
+								// "$300",
+								// "$1,000",
+								"Talk to us",
+							]}
 							showProgress
 							tags={[
 								[
-									"Unlimited Seats",
-									"Industry-leading agent editor",
-									"Inbound and outbound calling",
+									"Industry-leading agent builder",
+									"Inbound calling",
+									"Outbound calling",
 									"Genius knowledge database",
+									"No hidden vendor fees",
 								],
 								[
-									"Unlimited Seats",
-									"Industry-leading agent editor",
-									"Inbound and outbound calling",
+									"Industry-leading agent builder",
+									"Inbound calling",
+									"Outbound calling",
 									"Genius knowledge database",
+									"No hidden vendor fees",
 								],
+								// [
+								// 	"Unlimited Seats",
+								// 	"Industry-leading agent editor",
+								// 	"Inbound and outbound calling",
+								// 	"Genius knowledge database",
+								// ],
+								// [
+								// 	"Unlimited Seats",
+								// 	"Industry-leading agent editor",
+								// 	"Inbound and outbound calling",
+								// 	"Genius knowledge database",
+								// 	"Whitelabel support",
+								// ],
 								[
-									"Unlimited Seats",
-									"Industry-leading agent editor",
-									"Inbound and outbound calling",
-									"Genius knowledge database",
-								],
-								[
-									"Unlimited Seats",
-									"Industry-leading agent editor",
-									"Inbound and outbound calling",
-									"Genius knowledge database",
-									"Whitelabel support",
-								],
-								[
-									"Unlimited Seats",
-									"Industry-leading agent editor",
-									"Inbound and outbound calling",
-									"Genius knowledge database",
 									"Whitelabel support",
 									"Executive coaching",
+									"Managed service",
+									"Priority support",
+									"No hidden vendor fees",
 								],
 							]}
 						/>
@@ -92,18 +111,20 @@ export default function Pricing() {
 							icons={["rocket"]}
 							iconStroke={[false]}
 							titles={["Enterprise"]}
-							text={["Automate your enterprise with expert setup"]}
-							prices={["Contact Us"]}
+							text={["Human-like automation for high-volume contact centers."]}
+							prices={["Talk to us"]}
 							hideMonth
+							demo={true}
 							tags={[
 								[
-									"Unlimited Seats",
-									"Industry-leading agent editor",
-									"Inbound and outbound calling",
+									"Industry-leading agent builder",
+									"Inbound calling",
+									"Outbound calling",
 									"Genius knowledge database",
 									"Whitelabel support",
 									"Executive coaching",
-									"Agent Accelerator",
+									"Managed services",
+									"Priority support",
 								],
 							]}
 						/>
@@ -126,7 +147,7 @@ const Inner = styled.div`
 	max-width: ${desktopBreakpoint}px;
 
 	${fresponsive(css`
-		padding: 123px 114px 168px;
+		padding: 0 114px 168px;
 	`)}
 
 	${ftablet(css`
@@ -142,7 +163,6 @@ const Content = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	border-top: 1px solid #eaeaea;
 
 	${fresponsive(css`
 		padding-top: 81px;
@@ -219,7 +239,7 @@ const Text = styled.p`
 	text-align: center;
 
 	${fresponsive(css`
-		width: 393px;
+		width: 493px;
 	`)}
 
 	${ftablet(css`

@@ -65,7 +65,6 @@ export default function SocialProof() {
 						</Logos>
 					</StyledConstantMarquee>
 				</MarqueeWrapper>
-				<Line />
 			</Inner>
 		</Wrapper>
 	)
@@ -86,7 +85,6 @@ const Inner = styled.div`
 	align-items: center;
 
 	${fresponsive(css`
-		padding: 72px 156px;
 		gap: 70px;
 	`)}
 

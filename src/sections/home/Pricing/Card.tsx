@@ -18,6 +18,7 @@ export default function Card({
 	hideMonth,
 	tags,
 	showProgress,
+	demo,
 }: {
 	icons: IconType[]
 	iconStroke: boolean[]
@@ -27,28 +28,26 @@ export default function Card({
 	hideMonth?: boolean
 	tags: string[][]
 	showProgress?: boolean
+	demo?: boolean
 }) {
 	const [activeIndex, setActiveIndex] = useState(0)
-	const [minutes, setMinutes] = useState(300)
+	const [minutes, setMinutes] = useState(0)
 	const tagEls = tags[activeIndex]?.map((item) => (
 		<CheckTag key={item}>{item}</CheckTag>
 	))
 
 	useEffect(() => {
-		if (minutes < 400) {
+		if (minutes <= 300) {
 			setActiveIndex(0)
 		} else if (minutes < 1500) {
 			setActiveIndex(1)
-		} else if (minutes < 3100) {
-			setActiveIndex(2)
-		} else if (minutes < 10000) {
-			setActiveIndex(3)
 		} else {
-			setActiveIndex(4)
+			setActiveIndex(2)
 		}
 	}, [minutes])
 
 	const duration = 0.3
+	const max = 1500
 
 	return (
 		<Wrapper>
@@ -75,15 +74,21 @@ export default function Card({
 							</AutoAnimate>
 						</div>
 					</Info>
-					<StyledButton to={links.login} variant="secondary">
-						Book a Demo
-					</StyledButton>
+					{demo ? (
+						<StyledButton to={links.bookDemo} variant="secondary">
+							Book a Demo
+						</StyledButton>
+					) : (
+						<StyledButton to={links.login} variant="secondary">
+							Get Started
+						</StyledButton>
+					)}
 				</Row>
 				<Price>
 					<PriceAnimate duration={duration}>
 						<PriceText key={activeIndex}>{prices[activeIndex]}</PriceText>
 					</PriceAnimate>
-					{!hideMonth && <span>/mo.</span>}
+					{!hideMonth && minutes !== max && <span>/mo.</span>}
 				</Price>
 				{showProgress && (
 					<>
@@ -92,16 +97,16 @@ export default function Card({
 							{/* <AutoAnimate duration={duration}> */}
 							<span>
 								{minutes}
-								{minutes === 10000 && "+"}
+								{minutes === max && "+"}
 							</span>
 							{/* </AutoAnimate> */}
 						</Minutes>
 						<Slider
-							defaultValue={300}
+							defaultValue={0}
 							aria-label="call volume, adjust to view different plans"
 							type="range"
-							min="300"
-							max="10000"
+							min="0"
+							max={max}
 							onChange={(e) => setMinutes(Number.parseInt(e.target.value))}
 						/>
 					</>
