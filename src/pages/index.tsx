@@ -3,6 +3,7 @@ import { useTrackedLoad } from "library/pageReady"
 import { Suspense, lazy } from "react"
 
 import Hero from "sections/home/01-Hero"
+import Pricing from "../sections/home/Pricing"
 const Industry = lazy(() => import("sections/home/02-Industry"))
 const Statement = lazy(() => import("sections/home/03-Statement"))
 const Features = lazy(() => import("sections/home/04-Features"))
@@ -38,7 +39,7 @@ export default function IndexPage() {
 				<WidgetsAndVideo />
 				<Workflows />
 				<Integrations />
-				{/* <Pricing /> */}
+				<Pricing />
 				<FinalCTA />
 			</CustomSuspense>
 		</>
