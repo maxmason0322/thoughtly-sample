@@ -41,7 +41,7 @@ export default function Card({
 			setActiveIndex(0)
 		} else if (minutes < 1500) {
 			setActiveIndex(1)
-		} else if (minutes >= 1500) {
+		} else {
 			setActiveIndex(2)
 		}
 	}, [minutes])
