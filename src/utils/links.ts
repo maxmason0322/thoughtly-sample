@@ -33,7 +33,7 @@ const external = {
 
 const companies = {
 	enhanceHealth: "https://enhancehealth.com/",
-	selectQuote: "https://www.selectquote.com/",
+	stackedAI: "https://www.stack-ai.com/",
 	batchRoasting: "https://batchroasting.com/",
 	honk: "https://www.honkforhelp.com/",
 	dopplio: "https://www.dopplio.com/",
