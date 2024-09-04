@@ -6,7 +6,7 @@ import CompassSVG from "images/global/logos/Compass.svg"
 import EnhanceHealthSVG from "images/global/logos/EnhanceHealth.svg"
 import HonkSVG from "images/global/logos/Honk.svg"
 import PrimeraSVG from "images/global/logos/Primera.svg"
-import SelectQuoteSVG from "images/global/logos/SelectQuote.svg"
+import StackedAISVG from "images/global/logos/StackedAI.svg"
 import TastewiseSVG from "images/global/logos/Tastewise.svg"
 import ZillowSVG from "images/global/logos/Zillow.svg"
 import ConstantMarquee from "library/ConstantMarquee"
@@ -29,8 +29,8 @@ export default function SocialProof() {
 				<MarqueeWrapper>
 					<StyledConstantMarquee>
 						<Logos>
-							<Logo to={links.selectQuote}>
-								<img src={SelectQuoteSVG} alt="Select Quote Logo" />
+							<Logo to={links.stackedAI}>
+								<img src={StackedAISVG} alt="Stacked AI Logo" />
 							</Logo>
 							<Logo to={links.enhanceHealth}>
 								<img src={EnhanceHealthSVG} alt="Enhance Health Logo" />
