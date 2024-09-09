@@ -18,3 +18,6 @@ export type Testimonial = NonNullable<
 export type CallToAction = NonNullable<
 	NonNullable<Queries.BlogPostQuery["contentfulPageBlogPost"]>["cta"]
 >
+export type ContentType = NonNullable<
+	NonNullable<Queries.BlogPostQuery["contentfulPageBlogPost"]>["contentType"]
+>

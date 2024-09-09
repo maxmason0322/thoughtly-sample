@@ -27,7 +27,7 @@ export default function Primary({
 				{variant !== "secondary" && <Highlight />}
 				<Span>
 					{children}
-					{icon && <Icon name={icon} />}
+					{icon && <Icon name={icon} noWrapper />}
 				</Span>
 			</Inner>
 		</Wrapper>

@@ -137,7 +137,7 @@ const Link = styled(UniversalLink)`
 	color: ${colors.gray800};
 
 	&:last-of-type {
-		color: ${colors.green400};
+		color: ${colors.green500};
 	}
 
 	${ftablet(css`
@@ -299,7 +299,10 @@ export const query = graphql`
 				gatsbyImageData
 				description
 			}
-			categories
+			contentType {
+				contentTypeName
+				iconName
+			}
 			articleText {
 				raw
 				references {
@@ -365,7 +368,10 @@ export const query = graphql`
 					gatsbyImageData
 					description
 				}
-				categories
+				contentType {
+					contentTypeName
+        	iconName
+				}
 				articleTextPreview
 			}
 		}

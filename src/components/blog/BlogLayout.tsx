@@ -20,7 +20,7 @@ import { Dots } from "styles/background"
 import colors, { gradients } from "styles/colors"
 import { desktopBreakpoint } from "styles/media"
 import textStyles, { transparentText } from "styles/text"
-import Categories from "./Categories"
+import ContentType from "./ContentType"
 import EmailInput from "./EmailInput"
 import SearchBar from "./SearchBar"
 
@@ -31,7 +31,7 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 	const needsRefresh = useRef(false)
 
 	const [query] = useParamState("query")
-	const [category] = useParamState("category")
+	const [contentType] = useParamState("contentType")
 	const [showAll] = useParamState("showAll")
 
 	const images: Queries.BlogLayoutQuery = useStaticQuery(graphql`
@@ -94,7 +94,7 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 	}, [])
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: intentional side effect
-	useEffect(onChange, [query, category])
+	useEffect(onChange, [query, contentType])
 	useEventListener("scroll", onScroll)
 
 	useAnimation(() => {
@@ -108,8 +108,8 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 					<StyledDots />
 					<Widget1 image={images.widget1} alt="widget1" />
 					<Widget2 image={images.widget2} alt="widget2" />
-					<StyledKicker icon="phone" iconLeft iconColor={colors.green400}>
-						Blog
+					<StyledKicker icon="document" iconLeft iconColor={colors.gray600}>
+						Resources
 					</StyledKicker>
 					<h1>
 						<strong>Thoughts</strong>
@@ -117,15 +117,15 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
 						<Logo />
 					</h1>
 					<Description>
-						Best practices, insights, news and customer examples to help you
-						deploy AI voice agents effectively.
+						Product announcements, customer stories, and best practices for
+						accounting and finance teams.
 					</Description>
 				</Header>
 				<Columns>
 					<Left>
 						<div ref={pin}>
 							<SearchBar />
-							<Categories />
+							<ContentType />
 							<EmailInput />
 						</div>
 					</Left>

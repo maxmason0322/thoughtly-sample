@@ -1,25 +1,39 @@
 import * as Popover from "@radix-ui/react-popover"
 import Link from "components/Buttons/Link"
-import Icon from "components/Icon"
+import Icon, { type IconType } from "components/Icon"
+import { loadPage } from "library/Loader/TransitionUtils"
 import { useScrollLock } from "library/Scroll"
 import { eases } from "library/eases"
 import { fresponsive } from "library/fullyResponsive"
 import { useBetterThrottle } from "library/useBetterThrottle"
+import { useParamState } from "library/useParamState"
 import { type ReactNode, useState } from "react"
 import styled, { css, keyframes } from "styled-components"
 import colors, { gradients } from "styles/colors"
 import textStyles from "styles/text"
+import type { ContentType } from "types/aliases"
 import links from "utils/links"
 
 const duration = 200
 
+type Sublink = {
+	icon: string
+	to: string
+	title: string
+}
+
 export default function Dropdown({
 	children,
 	feature,
+	sublinks,
+	contentTypes,
 }: {
 	children: string
-	feature: ReactNode
+	feature?: ReactNode
+	sublinks?: Sublink[]
+	contentTypes?: ContentType[]
 }) {
+	const [, setContentType] = useParamState("contentType")
 	const [rawOpen, setOpen] = useState(false)
 	// throttle the state change to allow the animation to finish
 	const open = useBetterThrottle(rawOpen, duration)
@@ -39,6 +53,7 @@ export default function Dropdown({
 								style={{
 									scale: open ? "1 -1" : "1 1",
 								}}
+								color={colors.gray600}
 							/>
 						</Link>
 					</Popover.Trigger>
@@ -51,23 +66,61 @@ export default function Dropdown({
 					}}
 				>
 					<Column>
-						<SubLink>
-							<Icon name="feather" />
-							<Link to={links.blog}>Blog</Link>
-						</SubLink>
-						<SubLink>
-							<Icon name="careers" />
-							<Link to={links.careers}>Careers</Link>
-						</SubLink>
-						<SubLink>
-							<Icon name="phone2" />
-							<Link to={links.contact}>Contact</Link>
-						</SubLink>
+						{sublinks?.map((sublink) => {
+							return (
+								<SubLink key={sublink.title}>
+									<Icon
+										name={sublink.icon as IconType}
+										color={colors.gray500}
+									/>
+									<Link to={sublink.to}>{sublink.title}</Link>
+								</SubLink>
+							)
+						})}
+
+						{!sublinks && (
+							<>
+								<SubLink>
+									<Icon name="document" color={colors.gray500} />
+									<Link to={links.blog}>Resources</Link>
+								</SubLink>
+								{contentTypes
+									?.filter((contentType) => contentType !== null)
+									.map((contentType) => {
+										return (
+											<SubLink key={contentType?.contentTypeName}>
+												<Icon
+													name={contentType?.iconName as IconType}
+													color={colors.gray500}
+												/>
+												<Link
+													type="button"
+													onClick={() => {
+														loadPage(links.blog, "fade")
+															.finally(() => {
+																setContentType(
+																	contentType?.contentTypeName ?? "",
+																)
+															})
+															.catch((error: string) => {
+																throw new Error(error)
+															})
+													}}
+												>
+													{contentType?.contentTypeName}
+												</Link>
+											</SubLink>
+										)
+									})}
+							</>
+						)}
 					</Column>
-					<Column>
-						<ColumnTitle>Featured</ColumnTitle>
-						{feature}
-					</Column>
+					{feature && (
+						<Column>
+							<ColumnTitle>Featured</ColumnTitle>
+							{feature}
+						</Column>
+					)}
 				</Content>
 			</Popover.Root>
 		</div>
@@ -113,7 +166,6 @@ const Anchor = styled(Popover.Anchor)`
 	${fresponsive(css`
 		padding-bottom: 6px;
 		margin-bottom: -6px;
-		padding-right: 100px;
 	`)}
 `
 
@@ -169,10 +221,6 @@ const SubLink = styled.div`
 		svg {
 			width: 16px;
 			height: 16px;
-
-			* {
-				fill: ${colors.gray500};
-			}
 		}
 	`)}
 `

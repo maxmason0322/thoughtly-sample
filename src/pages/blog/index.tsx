@@ -2,8 +2,8 @@ import Primary from "components/Buttons/Primary"
 import Icon from "components/Icon"
 import Seo from "components/Seo"
 import BlogLayout from "components/blog/BlogLayout"
-import Categories from "components/blog/Categories"
 import ClearButton from "components/blog/ClearButton"
+import ContentType from "components/blog/ContentType"
 import EmailInput from "components/blog/EmailInput"
 import LargeCard from "components/blog/LargeCard"
 import SmallCard from "components/blog/SmallCard"
@@ -31,7 +31,7 @@ export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {
 	const hasMoreCards = restOfCards.length > 9
 
 	const [query] = useParamState("query")
-	const [category] = useParamState("category")
+	const [contentType] = useParamState("contentType")
 	const [showAll, setShowAll] = useParamState("showAll")
 
 	/**
@@ -40,32 +40,32 @@ export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {
 	// biome-ignore lint/correctness/useExhaustiveDependencies: allowable side effect
 	useEffect(() => {
 		ScrollSmoother.get()?.scrollTo(0)
-	}, [query, category, showAll])
+	}, [query, contentType, showAll])
 
 	const searchedCards = useSearchResults(
 		query ?? "",
 		[...unfilteredCards],
 		["articleTextPreview", "author", "slug", "title"],
 	)
-	const categorizedCards = category
-		? searchedCards.filter((card: BlogCard) =>
-				card.categories?.includes(category),
+	const categorizedCards = contentType
+		? searchedCards.filter(
+				(card: BlogCard) => card.contentType?.contentTypeName === contentType,
 			)
 		: searchedCards
 
-	if (Boolean(query) || Boolean(category))
+	if (Boolean(query) || Boolean(contentType))
 		return (
 			<BlogLayout>
-				{(query || category) && (
+				{(query || contentType) && (
 					<HeaderWrapper>
-						{query && category ? (
+						{query && contentType ? (
 							<LightHeader>
 								Search results for <span>“{query}”</span> in{" "}
-								<span>{category}</span>
+								<span>{contentType}</span>
 							</LightHeader>
-						) : category ? (
+						) : contentType ? (
 							<Header>
-								Categories <Icon name="chev" /> <span>{category}</span>
+								Content Type <Icon name="chev" /> <span>{contentType}</span>
 							</Header>
 						) : (
 							<LightHeader>
@@ -101,7 +101,7 @@ export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {
 		<BlogLayout>
 			{featuredCard && <LargeCard data={featuredCard} />}
 			<MobileOnly>
-				<Categories />
+				<ContentType />
 			</MobileOnly>
 			<Header>Previous Articles</Header>
 			<CardGroup>
@@ -246,7 +246,10 @@ export const query = graphql`
 					gatsbyImageData
 					description
 				}
-				categories
+				contentType {
+					contentTypeName
+        	iconName
+				}
 				articleTextPreview
 			}
 		}
@@ -269,7 +272,10 @@ export const query = graphql`
 					gatsbyImageData
 					description
 				}
-				categories
+				contentType {
+					contentTypeName
+        	iconName
+				}
 				articleTextPreview
 			}
 		}
