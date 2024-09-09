@@ -104,7 +104,7 @@ export default function IndustryCard({
 				)}
 				<FileName>{item.name}</FileName>
 				<div style={{ marginLeft: "auto" }}>
-					<Trash name="trash" color={"#d9d9d9"} />
+					<Trash name="trash" color={colors.gray400} />
 				</div>
 			</File>
 		)

@@ -43,10 +43,10 @@ export default function Dropdown({
 	return (
 		<div onMouseLeave={() => setOpen(false)} onMouseEnter={() => setOpen(true)}>
 			<Blur style={{ opacity: open ? 1 : 0 }} />
-			<Popover.Root open={open} onOpenChange={setOpen}>
+			<Root open={open} onOpenChange={setOpen}>
 				<Anchor>
 					<Popover.Trigger asChild>
-						<Link type="button">
+						<StyledLink type="button">
 							{children}
 							<DropdownIcon
 								name="chevDown"
@@ -55,7 +55,7 @@ export default function Dropdown({
 								}}
 								color={colors.gray600}
 							/>
-						</Link>
+						</StyledLink>
 					</Popover.Trigger>
 				</Anchor>
 				<Content
@@ -73,7 +73,7 @@ export default function Dropdown({
 										name={sublink.icon as IconType}
 										color={colors.gray500}
 									/>
-									<Link to={sublink.to}>{sublink.title}</Link>
+									<StyledLink to={sublink.to}>{sublink.title}</StyledLink>
 								</SubLink>
 							)
 						})}
@@ -82,7 +82,7 @@ export default function Dropdown({
 							<>
 								<SubLink>
 									<Icon name="document" color={colors.gray500} />
-									<Link to={links.blog}>Resources</Link>
+									<StyledLink to={links.blog}>Resources</StyledLink>
 								</SubLink>
 								{contentTypes
 									?.filter((contentType) => contentType !== null)
@@ -93,7 +93,7 @@ export default function Dropdown({
 													name={contentType?.iconName as IconType}
 													color={colors.gray500}
 												/>
-												<Link
+												<StyledLink
 													type="button"
 													onClick={() => {
 														loadPage(links.blog, "fade")
@@ -108,7 +108,7 @@ export default function Dropdown({
 													}}
 												>
 													{contentType?.contentTypeName}
-												</Link>
+												</StyledLink>
 											</SubLink>
 										)
 									})}
@@ -122,10 +122,23 @@ export default function Dropdown({
 						</Column>
 					)}
 				</Content>
-			</Popover.Root>
+			</Root>
 		</div>
 	)
 }
+
+const disableRadixAccessibility = css`
+	outline: none !important;
+	border: none !important;
+`
+
+const Root = styled(Popover.Root)`
+	${disableRadixAccessibility};
+`
+
+const StyledLink = styled(Link)`
+	${disableRadixAccessibility};
+`
 
 const DropdownIcon = styled(Icon)`
 	${fresponsive(css`
@@ -183,6 +196,7 @@ const Blur = styled.div`
 `
 
 const Content = styled(Popover.Content)`
+	${disableRadixAccessibility};
 	background: ${gradients.surface1};
 	display: flex;
 
@@ -212,6 +226,7 @@ const Column = styled.div`
 `
 
 const SubLink = styled.div`
+	${disableRadixAccessibility};
 	display: flex;
 	align-items: center;
 
