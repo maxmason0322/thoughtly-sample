@@ -57,6 +57,7 @@ export default function Header() {
 				}
 			}
 			allContentfulPageBlogPost {
+				distinctContentTypes: distinct(field: { contentType: { contentTypeName: SELECT } })
 				items: nodes {
 					contentType {
 						contentTypeName
@@ -67,12 +68,14 @@ export default function Header() {
 		}
 	`)
 
-	const mappedContentTypes = data.allContentfulPageBlogPost.items
-		.filter((item) => item.contentType !== null)
-		.map((item) => ({
-			contentTypeName: item.contentType?.contentTypeName ?? null,
-			iconName: item.contentType?.iconName ?? null,
-		}))
+	const uniqueContentTypes = data.allContentfulPageBlogPost.distinctContentTypes
+		.map((contentTypeName) => {
+			const item = data.allContentfulPageBlogPost.items.find(
+				(item) => item.contentType?.contentTypeName === contentTypeName,
+			)
+			return item ? item.contentType : null
+		})
+		.filter(Boolean)
 
 	const companySublinks = [
 		{
@@ -224,7 +227,7 @@ export default function Header() {
 										<Icon name="document" color={colors.gray500} />
 										<span>Resources</span>
 									</MobileLink>
-									{mappedContentTypes
+									{uniqueContentTypes
 										.filter((contentType) => contentType !== null)
 										.map((contentType) => {
 											return (
@@ -290,7 +293,7 @@ export default function Header() {
 							<Link to={links.agentAccelerator}>Agent Accelerator</Link>
 							<Dropdown
 								feature={feature}
-								contentTypes={mappedContentTypes ?? []}
+								contentTypes={uniqueContentTypes ?? []}
 							>
 								Resources
 							</Dropdown>

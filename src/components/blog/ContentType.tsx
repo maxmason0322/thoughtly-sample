@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import { useParamState } from "library/useParamState"
+import { useMemo } from "react"
 import styled, { css } from "styled-components"
 import colors from "styles/colors"
 import textStyles from "styles/text"
@@ -11,42 +12,54 @@ export default function ContentType() {
 	const [contentType, setContentType] = useParamState("contentType")
 
 	const data: Queries.ContentTypeQuery = useStaticQuery(graphql`
-    query ContentType {
-      allContentfulPageBlogPost {
+		query ContentType {
+			allContentfulPageBlogPost {
+				distinctContentTypes: distinct(field: { contentType: { contentTypeName: SELECT } })
 				items: nodes {
 					contentType {
 						contentTypeName
 						iconName
 					}
 				}
-      }
-    }
-  `)
+			}
+		}
+	`)
 
-	const contentTypeEls = data.allContentfulPageBlogPost.items
-		.filter((item) => item.contentType !== null)
-		.map((item) => {
-			const isSelected = item.contentType?.contentTypeName === contentType
-			return (
-				<ContentTypeWrapper
-					key={item.contentType?.contentTypeName}
-					type="button"
-					onClick={() =>
-						setContentType(item.contentType?.contentTypeName ?? "")
-					}
-				>
-					{item.contentType?.iconName && (
-						<ContentTypeIcon
-							name={item.contentType?.iconName as IconType}
-							color={isSelected ? colors.green500 : colors.gray500}
-						/>
-					)}
-					<Text style={{ color: isSelected ? colors.gray900 : colors.gray700 }}>
-						{item.contentType?.contentTypeName}
-					</Text>
-				</ContentTypeWrapper>
+	const uniqueContentTypes = data.allContentfulPageBlogPost.distinctContentTypes
+		.map((contentTypeName) => {
+			const item = data.allContentfulPageBlogPost.items.find(
+				(item) => item.contentType?.contentTypeName === contentTypeName,
 			)
+			return item ? item.contentType : null
 		})
+		.filter(Boolean)
+
+	const contentTypeEls = useMemo(
+		() =>
+			uniqueContentTypes.map((item) => {
+				const isSelected = item.contentTypeName === contentType
+				return (
+					<ContentTypeWrapper
+						key={item.contentTypeName}
+						type="button"
+						onClick={() => setContentType(item.contentTypeName ?? "")}
+					>
+						{item.iconName && (
+							<ContentTypeIcon
+								name={item.iconName as IconType}
+								color={isSelected ? colors.green500 : colors.gray500}
+							/>
+						)}
+						<Text
+							style={{ color: isSelected ? colors.gray900 : colors.gray700 }}
+						>
+							{item.contentTypeName}
+						</Text>
+					</ContentTypeWrapper>
+				)
+			}),
+		[uniqueContentTypes, contentType, setContentType],
+	)
 
 	return (
 		<Wrapper>
