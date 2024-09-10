@@ -8,7 +8,7 @@ import colors from "styles/colors"
 import textStyles from "styles/text"
 
 export default function ContentType() {
-	const [, setContentType] = useParamState("contentType")
+	const [contentType, setContentType] = useParamState("contentType")
 
 	const data: Queries.ContentTypeQuery = useStaticQuery(graphql`
     query ContentType {
@@ -26,6 +26,7 @@ export default function ContentType() {
 	const contentTypeEls = data.allContentfulPageBlogPost.items
 		.filter((item) => item.contentType !== null)
 		.map((item) => {
+			const isSelected = item.contentType?.contentTypeName === contentType
 			return (
 				<ContentTypeWrapper
 					key={item.contentType?.contentTypeName}
@@ -37,20 +38,19 @@ export default function ContentType() {
 					{item.contentType?.iconName && (
 						<ContentTypeIcon
 							name={item.contentType?.iconName as IconType}
-							color={colors.gray500}
+							color={isSelected ? colors.green500 : colors.gray500}
 						/>
 					)}
-					<Text>{item.contentType?.contentTypeName}</Text>
+					<Text style={{ color: isSelected ? colors.gray900 : colors.gray700 }}>
+						{item.contentType?.contentTypeName}
+					</Text>
 				</ContentTypeWrapper>
 			)
 		})
 
 	return (
 		<Wrapper>
-			<ContentTypeHeader>
-				Content Type
-				<StyledIcon name="chev" color={colors.green500} />
-			</ContentTypeHeader>
+			<ContentTypeHeader>Content Type</ContentTypeHeader>
 			{contentTypeEls}
 		</Wrapper>
 	)
@@ -62,6 +62,7 @@ const Wrapper = styled.div`
 		gap: 5px;
 		grid-row: 1 / -2;
 		margin-bottom: 32px;
+		padding-left: 22px;
 	`)}
 
 	${ftablet(css`
@@ -76,12 +77,12 @@ const Wrapper = styled.div`
 		padding-bottom: 20px;
 		margin-bottom: 48px;
 		border-bottom: 1px solid ${colors.gray300};
+		padding-left: 0;
 	`)}
 `
 
 const ContentTypeWrapper = styled(UniversalLink)`
 	${textStyles.sh4}
-	color: ${colors.gray900};
 	display: flex;
 	align-items: center;
 
@@ -123,17 +124,15 @@ const ContentTypeIcon = styled(Icon)`
 	`)}
 `
 
-const StyledIcon = styled(Icon)`
-	${fresponsive(css`
-		width: 16px;
-		height: 16px;
-	`)}
-
-	rotate: -90deg;
-`
-
 const Text = styled.div`
+	transition: background-color 0.25s;
+
 	${fresponsive(css`
 		padding: 8px 10px;
+		border-radius: 8px;
 	`)}
+
+	&:hover {
+		background-color: ${colors.beige300};
+	}
 `
