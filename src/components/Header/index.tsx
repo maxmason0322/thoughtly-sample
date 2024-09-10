@@ -1,12 +1,13 @@
 import * as Popover from "@radix-ui/react-popover"
 import PrimaryButton from "components/Buttons/Primary"
-import Icon from "components/Icon"
+import Icon, { type IconType } from "components/Icon"
 import { graphql, useStaticQuery } from "gatsby"
 import gsap from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
 import { ReactComponent as LogoSVG } from "images/global/logo.svg"
 import { loader } from "library/Loader"
 import { usePreloader } from "library/Loader/PreloaderUtils"
+import { loadPage } from "library/Loader/TransitionUtils"
 import UniversalLink from "library/Loader/UniversalLink"
 import { ScreenContext } from "library/ScreenContext"
 import { useScrollLock } from "library/Scroll"
@@ -15,6 +16,7 @@ import { eases } from "library/eases"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import useAnimation from "library/useAnimation"
 import { useBetterThrottle } from "library/useBetterThrottle"
+import { useParamState } from "library/useParamState"
 import { useResponsivePixels } from "library/viewportUtils"
 import { useContext, useEffect, useRef, useState } from "react"
 import styled, { css, keyframes } from "styled-components"
@@ -39,6 +41,7 @@ export default function Header() {
 	const lineRef2 = useRef<SVGLineElement | null>(null)
 	const lineRef3 = useRef<SVGLineElement | null>(null)
 	const menuRef = useRef<HTMLDivElement | null>(null)
+	const [, setContentType] = useParamState("contentType")
 
 	useScrollLock("lock", menuOpen)
 
@@ -53,8 +56,39 @@ export default function Header() {
 					}
 				}
 			}
+			allContentfulPageBlogPost {
+				distinctContentTypes: distinct(field: { contentType: { contentTypeName: SELECT } })
+				items: nodes {
+					contentType {
+						contentTypeName
+						iconName
+					}
+				}
+      }
 		}
 	`)
+
+	const uniqueContentTypes = data.allContentfulPageBlogPost.distinctContentTypes
+		.map((contentTypeName) => {
+			const item = data.allContentfulPageBlogPost.items.find(
+				(item) => item.contentType?.contentTypeName === contentTypeName,
+			)
+			return item ? item.contentType : null
+		})
+		.filter(Boolean)
+
+	const companySublinks = [
+		{
+			icon: "careers",
+			to: links.careers,
+			title: "Careers",
+		},
+		{
+			icon: "phone2",
+			to: links.contact,
+			title: "Contact",
+		},
+	]
 
 	const post = data.contentfulPageBlogHub?.featuredBlogPost
 	// prevent orphaned arrow on last line
@@ -69,7 +103,7 @@ export default function Header() {
 			<CardTitle>
 				{allButLast}{" "}
 				<span style={{ whiteSpace: "nowrap" }}>
-					{last} <Icon name="chev" />
+					{last} <Icon name="chev" noWrapper />
 				</span>
 			</CardTitle>
 		</Card>
@@ -177,30 +211,67 @@ export default function Header() {
 							<HR />
 							<MobileLinks>
 								<MobileLink to={links.platform}>
-									<Icon name="platform" />
+									<Icon name="platform" color={colors.gray500} />
 									<span>Platform</span>
 								</MobileLink>
 								<MobileLink to={links.agentAccelerator}>
-									<Icon name="customers" />
+									<Icon name="customers" color={colors.gray500} />
 									<span>Agent Accelerator</span>
 								</MobileLink>
 							</MobileLinks>
 							<div>
 								<HR />
-								<SectionTitle>Company</SectionTitle>
+								<SectionTitle>Resources</SectionTitle>
 								<MobileLinks>
 									<MobileLink to={links.blog}>
-										<Icon name="feather" />
-										<span>Blog</span>
+										<Icon name="document" color={colors.gray500} />
+										<span>Resources</span>
 									</MobileLink>
-									<MobileLink to={links.careers}>
-										<Icon name="careers" />
-										<span>Careers</span>
-									</MobileLink>
-									<MobileLink to={links.contact}>
-										<Icon name="phone2" />
-										<span>Contact</span>
-									</MobileLink>
+									{uniqueContentTypes
+										.filter((contentType) => contentType !== null)
+										.map((contentType) => {
+											return (
+												<div key={contentType?.contentTypeName}>
+													<MobileLink
+														type="button"
+														onClick={() => {
+															loadPage(links.blog, "fade")
+																.finally(() => {
+																	setContentType(
+																		contentType?.contentTypeName ?? "",
+																	)
+																})
+																.catch((error: string) => {
+																	throw new Error(error)
+																})
+														}}
+													>
+														<Icon
+															name={contentType?.iconName as IconType}
+															color={colors.gray500}
+														/>
+														<span>{contentType?.contentTypeName}</span>
+													</MobileLink>
+												</div>
+											)
+										})}
+								</MobileLinks>
+							</div>
+							<div>
+								<HR />
+								<SectionTitle>Company</SectionTitle>
+								<MobileLinks>
+									{companySublinks?.map((sublink) => {
+										return (
+											<MobileLink key={sublink.title} to={sublink.to}>
+												<Icon
+													name={sublink.icon as IconType}
+													color={colors.gray500}
+												/>
+												<span>{sublink.title}</span>
+											</MobileLink>
+										)
+									})}
 								</MobileLinks>
 							</div>
 							<div>
@@ -220,7 +291,13 @@ export default function Header() {
 						<Links>
 							<Link to={links.platform}>Platform</Link>
 							<Link to={links.agentAccelerator}>Agent Accelerator</Link>
-							<Dropdown feature={feature}>Company</Dropdown>
+							<Dropdown
+								feature={feature}
+								contentTypes={uniqueContentTypes ?? []}
+							>
+								Resources
+							</Dropdown>
+							<Dropdown sublinks={companySublinks}>Company</Dropdown>
 						</Links>
 					</Left>
 					<Popover.Anchor>
@@ -519,10 +596,6 @@ const MobileLink = styled(UniversalLink)`
 			width: 16px;
 			height: 16px;
 			flex-shrink: 0;
-
-			path {
-				fill: ${colors.gray600};
-			}
 		}
 	`)}
 
@@ -536,7 +609,7 @@ const MobileLink = styled(UniversalLink)`
 const Card = styled(UniversalLink)`
 	${fresponsive(css`
 		width: 160px;
-		height: 126px;
+		height: 100%;
 		border-radius: 10px;
 		isolation: isolate;
 		overflow: clip;

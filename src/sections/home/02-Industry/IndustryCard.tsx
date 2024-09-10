@@ -99,9 +99,13 @@ export default function IndustryCard({
 		if (!item) return null
 		return (
 			<File key={item.name}>
-				{item.icon && <FileIcon name={item.icon as IconType} />}
+				{item.icon && (
+					<FileIcon name={item.icon as IconType} color={colors.black} />
+				)}
 				<FileName>{item.name}</FileName>
-				<Trash name="trash" />
+				<div style={{ marginLeft: "auto" }}>
+					<Trash name="trash" color={colors.gray400} />
+				</div>
 			</File>
 		)
 	})
@@ -472,12 +476,6 @@ const FileIcon = styled(Icon)`
 `
 
 const Trash = styled(Icon)`
-	margin-left: auto;
-
-	path {
-		fill: #d9d9d9;
-	}
-
 	${fresponsive(css`
 		width: 12px;
 		height: 12px;

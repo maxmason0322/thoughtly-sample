@@ -1,3 +1,4 @@
+import Icon, { type IconType } from "components/Icon"
 import UniversalLink from "library/Loader/UniversalLink"
 import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
@@ -11,7 +12,7 @@ import FormCTA from "./FormCTA"
 import RichText from "./RichComponents"
 
 export default function PostContent({ post }: { post: BlogPost }) {
-	const { author, title, mainImage, categories, articleText, cta } = post
+	const { author, title, mainImage, contentType, articleText, cta } = post
 
 	return (
 		<Wrapper>
@@ -25,13 +26,20 @@ export default function PostContent({ post }: { post: BlogPost }) {
 				image={mainImage?.gatsbyImageData}
 				alt={mainImage?.description ?? "broken image"}
 			/>
-			<Categories>
-				{categories?.filter(Boolean).map((category) => (
-					<Category to={`/blog?category=${category}`} key={category}>
-						{category}
-					</Category>
-				))}
-			</Categories>
+			{contentType && (
+				<ContentType
+					to={`/blog?contentType=${contentType?.contentTypeName}`}
+					key={contentType?.contentTypeName}
+				>
+					{contentType?.iconName && (
+						<StyledIcon
+							name={contentType?.iconName as IconType}
+							color={colors.gray500}
+						/>
+					)}
+					{contentType?.contentTypeName}
+				</ContentType>
+			)}
 			<RichText content={articleText} />
 			{cta && "header" in cta && <CTA cta={cta} />}
 			{cta && "callToActionText" in cta && (
@@ -78,29 +86,30 @@ const ArticleImage = styled(UniversalImage)`
 	`)}
 `
 
-const Categories = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-
-	${fresponsive(css`
-		gap: 8px;
-	`)}
-`
-
-const Category = styled(UniversalLink)`
+const ContentType = styled(UniversalLink)`
 	${trim(1.3)}
 	display: flex;
 	${textStyles.sh4}
+	width: fit-content;
+	align-items: center;
 
 	${fresponsive(css`
-		padding: 12px 24px;
+		padding: 12px 24px 12px 20px;
 		border-radius: 10px;
 		border: 1.5px solid ${colors.gray200};
 		color: ${colors.gray700};
+		gap: 8px;
 	`)}
 `
 
 const Row = styled.div`
 	display: flex;
 	justify-content: space-between;
+`
+
+const StyledIcon = styled(Icon)`
+	${fresponsive(css`
+		height: 12px;
+		width: auto;
+	`)}
 `

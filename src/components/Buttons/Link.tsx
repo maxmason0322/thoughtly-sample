@@ -21,7 +21,7 @@ function LinkNoRef({ icon, tag, children, ...props }: Props) {
 		<Wrapper $hasTag={!!tag} {...props}>
 			<Span>
 				{children}
-				{icon && !tag && <StyledIcon name={icon} />}
+				{icon && !tag && <StyledIcon name={icon} color={colors.gray600} />}
 				{tag && !icon && <StyledTag>{tag}</StyledTag>}
 			</Span>
 		</Wrapper>
@@ -76,9 +76,4 @@ const StyledIcon = styled(Icon)`
 		height: auto;
 		width: 12px;
 	`)}
-
-	path {
-		fill: ${colors.gray600};
-		stroke: ${colors.gray600};
-	}
 `

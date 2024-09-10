@@ -7,21 +7,21 @@ import colors from "styles/colors"
 import textStyles from "styles/text"
 
 export default function ClearButton() {
-	const [category, setCategory] = useParamState("category")
+	const [contentType, setContentType] = useParamState("contentType")
 	const [query, setQuery] = useParamState("query")
 	const [showAll, setShowAll] = useParamState("showAll")
 	return (
 		<>
-			{Boolean(category) || Boolean(query) || Boolean(showAll) ? (
+			{Boolean(contentType) || Boolean(query) || Boolean(showAll) ? (
 				<Wrapper
 					type="button"
 					onClick={() => {
-						setCategory(null)
+						setContentType(null)
 						setQuery(null)
 						setShowAll(null)
 					}}
 				>
-					<ClearIcon name="x" />
+					<ClearIcon name="x" color={colors.gray800} />
 					Clear Filters / Search
 				</Wrapper>
 			) : null}
@@ -47,10 +47,6 @@ const Wrapper = styled(UniversalLink)`
 `
 
 const ClearIcon = styled(Icon)`
-	path {
-		stroke: ${colors.black};
-	}
-
 	${fresponsive(css`
 		width: 16px;
 		height: 16px;
