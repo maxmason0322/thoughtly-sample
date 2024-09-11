@@ -13,14 +13,18 @@ import { ReactComponent as InstaSVG } from "images/global/icons/Insta.svg"
 import { ReactComponent as IntegrationSVG } from "images/global/icons/Integration.svg"
 import { ReactComponent as LibrarySVG } from "images/global/icons/Library.svg"
 import { ReactComponent as LockSVG } from "images/global/icons/Lock.svg"
+import { ReactComponent as MouseOneSVG } from "images/global/icons/Mouse-one.svg"
+import { ReactComponent as MouseTwoSVG } from "images/global/icons/Mouse-two.svg"
 import { ReactComponent as NodesSVG } from "images/global/icons/Nodes.svg"
 import { ReactComponent as OpenSVG } from "images/global/icons/Open.svg"
 import { ReactComponent as PhoneSVG } from "images/global/icons/Phone.svg"
+import { ReactComponent as PodcastSVG } from "images/global/icons/Podcast.svg"
 import { ReactComponent as RoutingSVG } from "images/global/icons/Routing.svg"
 import { ReactComponent as SettingsSVG } from "images/global/icons/Settings.svg"
 import { ReactComponent as TargetSVG } from "images/global/icons/Target.svg"
 import { ReactComponent as TrashSVG } from "images/global/icons/Trash.svg"
 import { ReactComponent as VerifiedSVG } from "images/global/icons/Verified.svg"
+import { ReactComponent as WebinarsSVG } from "images/global/icons/Webinars.svg"
 import { ReactComponent as WhistleSVG } from "images/global/icons/Whistle.svg"
 import { ReactComponent as AboutSVG } from "images/global/icons/about.svg"
 import { ReactComponent as AgencySVG } from "images/global/icons/agency.svg"
@@ -94,6 +98,8 @@ const iconMap = {
 	lightning: { component: LightningSVG, modifyStroke: false, modifyFill: true },
 	linkedin: { component: LinkedinSVG, modifyStroke: false, modifyFill: true },
 	lock: { component: LockSVG, modifyStroke: false, modifyFill: true },
+	mouseOne: { component: MouseOneSVG, modifyStroke: false, modifyFill: true },
+	mouseTwo: { component: MouseTwoSVG, modifyStroke: true, modifyFill: true },
 	news: { component: NewsSVG, modifyStroke: false, modifyFill: true },
 	nodes: { component: NodesSVG, modifyStroke: true, modifyFill: false },
 	open: { component: OpenSVG, modifyStroke: true, modifyFill: false },
@@ -102,6 +108,7 @@ const iconMap = {
 	phoneTwo: { component: Phone2SVG, modifyStroke: false, modifyFill: true },
 	platform: { component: PlatformSVG, modifyStroke: false, modifyFill: true },
 	play: { component: PlaySVG, modifyStroke: false, modifyFill: true },
+	podcast: { component: PodcastSVG, modifyStroke: true, modifyFill: true },
 	pro: { component: ProSVG, modifyStroke: false, modifyFill: true },
 	rocket: { component: RocketSVG, modifyStroke: false, modifyFill: true },
 	routing: { component: RoutingSVG, modifyStroke: false, modifyFill: true },
@@ -115,6 +122,7 @@ const iconMap = {
 	trash: { component: TrashSVG, modifyStroke: false, modifyFill: true },
 	twitter: { component: TwitterSVG, modifyStroke: false, modifyFill: true },
 	verified: { component: VerifiedSVG, modifyStroke: false, modifyFill: true },
+	webinars: { component: WebinarsSVG, modifyStroke: false, modifyFill: true },
 	whistle: { component: WhistleSVG, modifyStroke: false, modifyFill: true },
 	x: { component: XSVG, modifyStroke: true, modifyFill: false },
 }
