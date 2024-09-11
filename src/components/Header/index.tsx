@@ -84,7 +84,7 @@ export default function Header() {
 			title: "Careers",
 		},
 		{
-			icon: "phone2",
+			icon: "phoneTwo",
 			to: links.contact,
 			title: "Contact",
 		},

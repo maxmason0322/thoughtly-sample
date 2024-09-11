@@ -33,7 +33,7 @@
 		"backgroundMobile": "./backgrounds/feature-3-mobile.webp"
 	},
 	{
-		"icon": "atom",
+		"icon": "genius",
 		"title": "Custom \nKnowledge Base",
 		"text": "Train your agent on hours of call recordings, unstructured text, and even your website. Your agent will learn from your data and improve over time.",
 		"background": "./backgrounds/feature-4.webp",
