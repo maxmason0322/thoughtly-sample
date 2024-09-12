@@ -29,6 +29,7 @@ const external = {
 	mediaInquiries: "mailto:press@thought.ly",
 	contact: "mailto:support@thought.ly",
 	phone: "tel:+18557170250",
+	docs: "https://docs.thought.ly/",
 }
 
 const companies = {

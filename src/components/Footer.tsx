@@ -91,6 +91,7 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 							<StyledLink to={links.mediaInquiries}>Media Inquiries</StyledLink>
 							<StyledLink to={links.careers}>Careers</StyledLink>
 							<StyledLink to={links.blog}>Resources</StyledLink>
+							<StyledLink to={links.docs}>Docs</StyledLink>
 						</LinkColumn>
 						<LinkColumn>
 							<Label>Support</Label>
