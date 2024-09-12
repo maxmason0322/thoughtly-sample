@@ -255,6 +255,10 @@ export default function Header() {
 												</div>
 											)
 										})}
+									<MobileLink to={links.docs}>
+										<Icon name="document" color={colors.gray500} />
+										<span>Docs</span>
+									</MobileLink>
 								</MobileLinks>
 							</div>
 							<div>
@@ -298,6 +302,7 @@ export default function Header() {
 								Resources
 							</Dropdown>
 							<Dropdown sublinks={companySublinks}>Company</Dropdown>
+							<Link to={links.docs}>Docs</Link>
 						</Links>
 					</Left>
 					<Popover.Anchor>
