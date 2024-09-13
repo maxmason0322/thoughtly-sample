@@ -108,7 +108,7 @@ const iconMap = {
 	phoneTwo: { component: Phone2SVG, modifyStroke: false, modifyFill: true },
 	platform: { component: PlatformSVG, modifyStroke: false, modifyFill: true },
 	play: { component: PlaySVG, modifyStroke: false, modifyFill: true },
-	podcast: { component: PodcastSVG, modifyStroke: true, modifyFill: true },
+	podcasts: { component: PodcastSVG, modifyStroke: false, modifyFill: false },
 	pro: { component: ProSVG, modifyStroke: false, modifyFill: true },
 	rocket: { component: RocketSVG, modifyStroke: false, modifyFill: true },
 	routing: { component: RoutingSVG, modifyStroke: false, modifyFill: true },
