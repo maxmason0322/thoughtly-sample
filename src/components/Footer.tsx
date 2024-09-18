@@ -107,6 +107,7 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 								<StyledLink to={links.instagram}>Instagram</StyledLink>
 								<StyledLink to={links.linkedin}>Linkedin</StyledLink>
 								<StyledLink to={links.twitter}>X (Twitter)</StyledLink>
+								<StyledLink to={links.slack}>Slack Community</StyledLink>
 							</LinkColumn>
 						)}
 					</Columns>
@@ -118,6 +119,7 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 								<StyledLink to={links.instagram}>Instagram</StyledLink>
 								<StyledLink to={links.linkedin}>LinkedIn</StyledLink>
 								<StyledLink to={links.twitter}>X (Twitter)</StyledLink>
+								<StyledLink to={links.slack}>Slack Community</StyledLink>
 							</Socials>
 						)}
 						<EmailInput />

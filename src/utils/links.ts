@@ -19,6 +19,7 @@ const external = {
 	linkedin: "https://www.linkedin.com/company/thoughtly-ai/",
 	twitter: "https://twitter.com/thoughtlyai",
 	instagram: "https://www.instagram.com/thoughtly.ai/",
+	slack: "https://thought.ly/slack",
 
 	// our other links
 	careers: "https://jobs.ashbyhq.com/thoughtly",
