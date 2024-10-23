@@ -97,6 +97,7 @@ export default function Footer({ position }: { position: "fixed" | "static" }) {
 							<Label>Support</Label>
 							<StyledLink to={links.helpCenter}>Help Center</StyledLink>
 							<StyledLink to={links.apiDocs}>API Docs</StyledLink>
+							<StyledLink to={links.partners}>Partners</StyledLink>
 							<StyledLink to={getDemoLink()} openInNewTab>
 								Contact Us
 							</StyledLink>

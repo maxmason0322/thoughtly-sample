@@ -24,13 +24,14 @@ const external = {
 	// our other links
 	careers: "https://jobs.ashbyhq.com/thoughtly",
 	login: "https://app.thought.ly",
-	helpCenter: "https://help.thought.ly/en/",
+	helpCenter: "https://docs.thought.ly/",
 	apiDocs: "https://api.thought.ly/docs/",
 	bookDemo: "https://forms.default.com/448680",
 	mediaInquiries: "mailto:press@thought.ly",
 	contact: "mailto:support@thought.ly",
 	phone: "tel:+18557170250",
 	docs: "https://docs.thought.ly/",
+	partners: "https://docs.thought.ly/resources/partners",
 }
 
 const companies = {
