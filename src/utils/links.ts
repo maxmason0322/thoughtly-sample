@@ -31,7 +31,7 @@ const external = {
 	contact: "mailto:support@thought.ly",
 	phone: "tel:+18557170250",
 	docs: "https://docs.thought.ly/",
-	partners: "https://docs.thought.ly/resources/partners",
+	partners: "https://docs.thought.ly/company/partners",
 }
 
 const companies = {
