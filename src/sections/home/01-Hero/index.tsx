@@ -203,10 +203,11 @@ export default function Hero() {
 					<StyledDots />
 				</BackgroundTablet>
 				<TextContent>
-					<Title>Your phone calls, handled beautifully.</Title>
+					<Title>Never leave your business on hold.</Title>
 					<Text>
-						Thoughtly helps businesses build and deploy human-like AI voice
-						agents in just 17 minutes. Welcome to the future of calling.
+						Deploy your fully-integrated AI call center starting at just 9 cents
+						per minute. Build workflows around your CRM, and let your agents
+						handle the rest.
 					</Text>
 					<EmailInput />
 				</TextContent>
