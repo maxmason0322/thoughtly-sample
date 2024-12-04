@@ -125,7 +125,7 @@ const Top = styled.div`
 
 	${fresponsive(css`
 		gap: 36px;
-		padding: 96px 0 72px;
+		padding: 0 0 72px;
 		width: 1128px;
 	`)}
 
@@ -133,10 +133,9 @@ const Top = styled.div`
 		width: 888px;
 	`)}
 
-  ${fmobile(css`
+	${fmobile(css`
 		width: 320px;
 		padding: 60px 27px 48px;
-		margin-top: 91px;
 	`)}
 `
 

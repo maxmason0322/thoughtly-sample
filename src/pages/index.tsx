@@ -30,10 +30,10 @@ export default function IndexPage() {
 		<>
 			<Hero />
 			<CustomSuspense>
-				<CallCTA />
-				<Features />
-				<Industry />
 				<SocialProof />
+				<Features />
+				<CallCTA />
+				<Industry />
 				<Statement />
 				<WidgetsAndVideo />
 				<Workflows />
