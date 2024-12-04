@@ -62,7 +62,7 @@ export default function SocialProof() {
 			to: "https://coldwellbanker.com",
 		},
 		{ src: CompassSVG, alt: "Compass Logo", to: "https://compass.com" },
-		{ src: CentrecomSVG, alt: "Centrecom Logo", to: "https://centrecom.com" },
+		{ src: CentrecomSVG, alt: "Centrecom Logo", to: "https://centracom.com" },
 		// { src: ChapterSVG, alt: "Chapter Logo", to: "https://askchapter.org" },
 		{ src: PrimeraSVG, alt: "Primera Logo", to: "https://getprimera.com" },
 		{ src: TwoUSvg, alt: "2U Logo", to: "https://2u.com" },
