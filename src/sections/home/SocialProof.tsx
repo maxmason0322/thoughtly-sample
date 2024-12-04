@@ -1,6 +1,5 @@
 import TwoUSvg from "images/global/logos/2U.svg"
 import AceSVG from "images/global/logos/Ace.svg"
-import BanfieldSVG from "images/global/logos/Banfield.svg"
 import Boardsi from "images/global/logos/Boardsi.svg"
 import BoatSetterSVG from "images/global/logos/Boatsetter.svg"
 import CardMerchantServicesSVG from "images/global/logos/CardMerchantServices.svg"
@@ -16,10 +15,8 @@ import GoHealthSVG from "images/global/logos/GoHealth.svg"
 import GuildSVG from "images/global/logos/Guild.svg"
 import IonSVG from "images/global/logos/Ion.svg"
 import KwSVG from "images/global/logos/KW.svg"
-import KindSVG from "images/global/logos/Kind.svg"
 import KiwiSVG from "images/global/logos/Kiwi.svg"
 import LootSVG from "images/global/logos/Loot.svg"
-import MandMSVG from "images/global/logos/MandM.svg"
 import MarsSVG from "images/global/logos/Mars.svg"
 import NineSVG from "images/global/logos/Nine.svg"
 import NomadSVG from "images/global/logos/Nomad.svg"
@@ -28,10 +25,8 @@ import PrimeraSVG from "images/global/logos/Primera.svg"
 import RokSVG from "images/global/logos/Rok.svg"
 import RothschildSVG from "images/global/logos/Rothschild.svg"
 import SleepDoctorSVG from "images/global/logos/SleepDoctor.svg"
-import SnickersSVG from "images/global/logos/Snickers.svg"
 // import StudsSVG from "images/global/logos/Studs.svg"
 import TheJointSVG from "images/global/logos/TheJoint.svg"
-import VcaSVG from "images/global/logos/Vca.svg"
 import ZillowSVG from "images/global/logos/Zillow.svg"
 import ConstantMarquee from "library/ConstantMarquee"
 import UniversalLink from "library/Loader/UniversalLink"
@@ -88,12 +83,12 @@ export default function SocialProof() {
 			alt: "Rothschild Logo",
 			to: "https://www.rothschildandco.com",
 		},
-		{ src: MandMSVG, alt: "M&M Logo", to: "https://mars.com" },
-		{ src: BanfieldSVG, alt: "Banfield Logo", to: "https://mars.com" },
+		// { src: MandMSVG, alt: "M&M Logo", to: "https://mars.com" },
+		// { src: BanfieldSVG, alt: "Banfield Logo", to: "https://mars.com" },
 		// { src: StudsSVG, alt: "Studs Logo", to: "https://studs.com" },
-		{ src: KindSVG, alt: "Kind Logo", to: "https://mars.com" },
-		{ src: VcaSVG, alt: "VCA Logo", to: "https://mars.com" },
-		{ src: SnickersSVG, alt: "Snickers Logo", to: "https://mars.com" },
+		// { src: KindSVG, alt: "Kind Logo", to: "https://mars.com" },
+		// { src: VcaSVG, alt: "VCA Logo", to: "https://mars.com" },
+		// { src: SnickersSVG, alt: "Snickers Logo", to: "https://mars.com" },
 		{ src: EdxSVG, alt: "Edx Logo", to: "https://edx.com" },
 		{
 			src: GetSmarterSVG,
