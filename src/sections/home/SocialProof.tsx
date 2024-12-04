@@ -6,7 +6,7 @@ import BoatSetterSVG from "images/global/logos/Boatsetter.svg"
 import CardMerchantServicesSVG from "images/global/logos/CardMerchantServices.svg"
 import CavsSVG from "images/global/logos/Cavs.svg"
 import CentrecomSVG from "images/global/logos/Centrecom.svg"
-import ChapterSVG from "images/global/logos/Chapter.svg"
+// import ChapterSVG from "images/global/logos/Chapter.svg"
 import ColdwellBankerSVG from "images/global/logos/ColdwellBanker.svg"
 import CompassSVG from "images/global/logos/Compass.svg"
 import EdxSVG from "images/global/logos/Edx.svg"
@@ -29,7 +29,7 @@ import RokSVG from "images/global/logos/Rok.svg"
 import RothschildSVG from "images/global/logos/Rothschild.svg"
 import SleepDoctorSVG from "images/global/logos/SleepDoctor.svg"
 import SnickersSVG from "images/global/logos/Snickers.svg"
-import StudsSVG from "images/global/logos/Studs.svg"
+// import StudsSVG from "images/global/logos/Studs.svg"
 import TheJointSVG from "images/global/logos/TheJoint.svg"
 import VcaSVG from "images/global/logos/Vca.svg"
 import ZillowSVG from "images/global/logos/Zillow.svg"
@@ -67,7 +67,7 @@ export default function SocialProof() {
 		},
 		{ src: CompassSVG, alt: "Compass Logo", to: "https://compass.com" },
 		{ src: CentrecomSVG, alt: "Centrecom Logo", to: "https://centrecom.com" },
-		{ src: ChapterSVG, alt: "Chapter Logo", to: "https://askchapter.org" },
+		// { src: ChapterSVG, alt: "Chapter Logo", to: "https://askchapter.org" },
 		{ src: PrimeraSVG, alt: "Primera Logo", to: "https://getprimera.com" },
 		{ src: TwoUSvg, alt: "2U Logo", to: "https://2u.com" },
 		{
@@ -89,7 +89,7 @@ export default function SocialProof() {
 		},
 		{ src: MandMSVG, alt: "M&M Logo", to: "https://mars.com" },
 		{ src: BanfieldSVG, alt: "Banfield Logo", to: "https://mars.com" },
-		{ src: StudsSVG, alt: "Studs Logo", to: "https://studs.com" },
+		// { src: StudsSVG, alt: "Studs Logo", to: "https://studs.com" },
 		{ src: KindSVG, alt: "Kind Logo", to: "https://mars.com" },
 		{ src: VcaSVG, alt: "VCA Logo", to: "https://mars.com" },
 		{ src: SnickersSVG, alt: "Snickers Logo", to: "https://mars.com" },
@@ -196,7 +196,7 @@ const Inner = styled.div`
 	`)}
 	${fmobile(css`
 		max-width: ${mobileBreakpoint}px;
-		padding: 54px 30px;
+		padding: 0 0 98px;
 		gap: 36px;
 	`)}
 	padding-top: 120px;
@@ -270,10 +270,6 @@ const MarqueeWrapper = styled.div`
 		width: 888px;
 	`)}
 
-	${fmobile(css`
-		width: 314px;
-	`)}
-
 	&::before,
 	&::after {
 		content: "";
@@ -294,6 +290,10 @@ const MarqueeWrapper = styled.div`
 		right: 0;
 		background: linear-gradient(to left, ${colors.beige200}, transparent);
 	}
+
+	${fmobile(css`
+		width: 314px;
+	`)}
 `
 
 const StyledConstantMarquee = styled(ConstantMarquee)`
@@ -318,8 +318,7 @@ const Top = styled.div`
 
 	${fmobile(css`
 		width: 320px;
-		padding: 60px 27px 48px;
-		margin-top: 91px;
+		padding: 0 27px 48px;
 	`)}
 `
 
@@ -329,6 +328,7 @@ const Heading = styled.h1`
 	font-weight: 500;
 
 	${fmobile(css`
+		font-size: 54px;
 		width: 350px;
 		text-align: center;
 	`)}
@@ -349,6 +349,7 @@ const Text = styled.p`
 	`)}
 
 	${fmobile(css`
-		width: 300px;
+		width: 120%;
+		font-size: 16px;
 	`)}
 `

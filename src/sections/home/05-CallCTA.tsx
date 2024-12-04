@@ -142,8 +142,10 @@ const Top = styled.div`
 const Heading = styled.h1`
 	${textStyles.h5};
 	color: ${colors.black};
+	font-weight: 500;
 
 	${fmobile(css`
+		font-size: 54px;
 		width: 350px;
 		text-align: center;
 	`)}

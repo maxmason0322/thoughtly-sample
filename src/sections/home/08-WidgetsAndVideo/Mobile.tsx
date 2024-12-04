@@ -168,7 +168,7 @@ export default function Mobile() {
 						Unlimited phone agents at your fingertips
 					</Kicker>
 					<Title className="parallax-elements">
-						Finally, AI that works full-time for your business.
+						AI that works full-time for your business.
 					</Title>
 				</TopText>
 				<Grid1 ref={innerGrid1}>

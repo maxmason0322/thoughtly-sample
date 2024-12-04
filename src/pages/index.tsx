@@ -4,7 +4,7 @@ import { Suspense, lazy } from "react"
 import Hero from "sections/home/01-Hero"
 
 const Industry = lazy(() => import("sections/home/02-Industry"))
-const Statement = lazy(() => import("sections/home/03-Statement"))
+// const Statement = lazy(() => import("sections/home/03-Statement"))
 const Features = lazy(() => import("sections/home/04-Features"))
 const CallCTA = lazy(() => import("sections/home/05-CallCTA"))
 const Workflows = lazy(() => import("sections/home/07-Workflows"))
@@ -34,7 +34,7 @@ export default function IndexPage() {
 				<Features />
 				<CallCTA />
 				<Industry />
-				<Statement />
+				{/* <Statement /> */}
 				<WidgetsAndVideo />
 				<Workflows />
 				<Integrations />
