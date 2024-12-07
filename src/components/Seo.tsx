@@ -142,6 +142,26 @@ export default function Seo({
 				})(window, document);
 			`}</Script>
 			)}
+
+			<Script>{`
+				(function (w, d) {
+					var id = 'podscribe-capture',
+					n = 'script';
+					var e = d.createElement(n);
+					e.id = id;
+					e.async = true;
+					e.src = 'https://d34r8q7sht0t9k.cloudfront.net/tag.js';
+					var s = d.getElementsByTagName(n)[0];
+					s.parentNode.insertBefore(e, s);
+					e.addEventListener('load', function() {
+						w.podscribe('init', {
+							user_id: 'e57161e7-790c-4707-80c0-40a21e8f161e',
+							advertiser: 'bordeauxburgundy'
+						});
+						w.podscribe('view');
+					})
+				})(window, document);
+			`}</Script>
 		</>
 	)
 }
