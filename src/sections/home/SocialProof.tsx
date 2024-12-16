@@ -1,4 +1,3 @@
-import TwoUSvg from "images/global/logos/2U.svg"
 import AceSVG from "images/global/logos/Ace.svg"
 import Boardsi from "images/global/logos/Boardsi.svg"
 import BoatSetterSVG from "images/global/logos/Boatsetter.svg"
@@ -8,16 +7,16 @@ import CentrecomSVG from "images/global/logos/Centrecom.svg"
 // import ChapterSVG from "images/global/logos/Chapter.svg"
 import ColdwellBankerSVG from "images/global/logos/ColdwellBanker.svg"
 import CompassSVG from "images/global/logos/Compass.svg"
-import EdxSVG from "images/global/logos/Edx.svg"
+// import EdxSVG from "images/global/logos/Edx.svg"
 import FarmersSVG from "images/global/logos/Farmers.svg"
-import GetSmarterSVG from "images/global/logos/GetSmarter.svg"
+// import GetSmarterSVG from "images/global/logos/GetSmarter.svg"
 import GoHealthSVG from "images/global/logos/GoHealth.svg"
 import GuildSVG from "images/global/logos/Guild.svg"
 import IonSVG from "images/global/logos/Ion.svg"
 import KwSVG from "images/global/logos/KW.svg"
 import KiwiSVG from "images/global/logos/Kiwi.svg"
 import LootSVG from "images/global/logos/Loot.svg"
-import MarsSVG from "images/global/logos/Mars.svg"
+// import MarsSVG from "images/global/logos/Mars.svg"
 import NineSVG from "images/global/logos/Nine.svg"
 import NomadSVG from "images/global/logos/Nomad.svg"
 import PearsonSVG from "images/global/logos/Pearson.svg"
@@ -27,7 +26,7 @@ import RothschildSVG from "images/global/logos/Rothschild.svg"
 import SleepDoctorSVG from "images/global/logos/SleepDoctor.svg"
 // import StudsSVG from "images/global/logos/Studs.svg"
 import TheJointSVG from "images/global/logos/TheJoint.svg"
-import ZillowSVG from "images/global/logos/Zillow.svg"
+// import ZillowSVG from "images/global/logos/Zillow.svg"
 import ConstantMarquee from "library/ConstantMarquee"
 import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
@@ -65,18 +64,18 @@ export default function SocialProof() {
 		{ src: CentrecomSVG, alt: "Centrecom Logo", to: "https://centracom.com" },
 		// { src: ChapterSVG, alt: "Chapter Logo", to: "https://askchapter.org" },
 		{ src: PrimeraSVG, alt: "Primera Logo", to: "https://getprimera.com" },
-		{ src: TwoUSvg, alt: "2U Logo", to: "https://2u.com" },
+		// { src: TwoUSvg, alt: "2U Logo", to: "https://2u.com" },
 		{
 			src: AceSVG,
 			alt: "Ace Logo",
 			to: "https://www.acehandymanservices.com/",
 		},
-		{ src: ZillowSVG, alt: "Zillow Logo", to: "https://zillow.com" },
+		// { src: ZillowSVG, alt: "Zillow Logo", to: "https://zillow.com" },
 		{ src: GoHealthSVG, alt: "GoHealth Logo", to: "https://gohealth.com" },
 		{ src: GuildSVG, alt: "Guild Logo", to: "https://guild.com" },
 		{ src: KwSVG, alt: "Kelley Williams Logo", to: "https://kw.com" },
 		{ src: LootSVG, alt: "Loot Logo", to: "https://www.getloot.com/" },
-		{ src: MarsSVG, alt: "Mars Logo", to: "https://mars.com" },
+		// { src: MarsSVG, alt: "Mars Logo", to: "https://mars.com" },
 		{ src: TheJointSVG, alt: "The Joint Logo", to: "https://thejoint.com" },
 		{
 			src: RothschildSVG,
@@ -89,12 +88,12 @@ export default function SocialProof() {
 		// { src: KindSVG, alt: "Kind Logo", to: "https://mars.com" },
 		// { src: VcaSVG, alt: "VCA Logo", to: "https://mars.com" },
 		// { src: SnickersSVG, alt: "Snickers Logo", to: "https://mars.com" },
-		{ src: EdxSVG, alt: "Edx Logo", to: "https://edx.com" },
-		{
-			src: GetSmarterSVG,
-			alt: "Get Smarter Logo",
-			to: "https://getsmarter.com",
-		},
+		// { src: EdxSVG, alt: "Edx Logo", to: "https://edx.com" },
+		// {
+		// 	src: GetSmarterSVG,
+		// 	alt: "Get Smarter Logo",
+		// 	to: "https://getsmarter.com",
+		// },
 		{ src: IonSVG, alt: "Ion Logo", to: "https://www.ionsolar.com" },
 		{ src: NomadSVG, alt: "Nomad Logo", to: "https://nomadlease.com/" },
 		{
