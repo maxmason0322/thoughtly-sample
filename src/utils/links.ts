@@ -25,7 +25,7 @@ const external = {
 	careers: "https://jobs.ashbyhq.com/thoughtly",
 	login: "https://app.thought.ly",
 	helpCenter: "https://docs.thought.ly/",
-	apiDocs: "https://api.thought.ly/docs/",
+	apiDocs: "https://docs.thought.ly/developers",
 	bookDemo: "https://forms.default.com/448680",
 	mediaInquiries: "mailto:press@thought.ly",
 	contact: "mailto:support@thought.ly",
