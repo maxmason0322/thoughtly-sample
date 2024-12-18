@@ -19,19 +19,19 @@ const external = {
 	linkedin: "https://www.linkedin.com/company/thoughtly-ai/",
 	twitter: "https://twitter.com/thoughtlyai",
 	instagram: "https://www.instagram.com/thoughtly.ai/",
-	slack: "https://thought.ly/slack",
+	slack: "https://thoughtly.com/slack",
 
 	// our other links
 	careers: "https://jobs.ashbyhq.com/thoughtly",
-	login: "https://app.thought.ly",
-	helpCenter: "https://docs.thought.ly/",
-	apiDocs: "https://docs.thought.ly/developers",
+	login: "https://app.thoughtly.com",
+	helpCenter: "https://docs.thoughtly.com/",
+	apiDocs: "https://docs.thoughtly.com/developers",
 	bookDemo: "https://forms.default.com/448680",
-	mediaInquiries: "mailto:press@thought.ly",
-	contact: "mailto:support@thought.ly",
+	mediaInquiries: "mailto:press@thoughtly.com",
+	contact: "mailto:support@thoughtly.com",
 	phone: "tel:+18557170250",
-	docs: "https://docs.thought.ly/",
-	partners: "https://docs.thought.ly/company/partners",
+	docs: "https://docs.thoughtly.com/",
+	partners: "https://docs.thoughtly.com/company/partners",
 }
 
 const companies = {

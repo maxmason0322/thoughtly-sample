@@ -21,7 +21,7 @@ const config: GatsbyConfig = {
 		/**
 		 * this is the base URL of the site. do not include a trailing slash
 		 */
-		siteUrl: "https://thought.ly",
+		siteUrl: "https://thoughtly.com",
 		/**
 		 * this is the default og image when none other is provided
 		 * it must be a complete URL (e.g. https://example.com/image.jpg)
@@ -121,8 +121,8 @@ const config: GatsbyConfig = {
 		{
 			resolve: "gatsby-plugin-robots-txt",
 			options: {
-				host: "https://thought.ly/",
-				sitemap: "https://thought.ly/sitemap-0.xml",
+				host: "https://thoughtly.com/",
+				sitemap: "https://thoughtly.com/sitemap-0.xml",
 				policy: [{ userAgent: "*", allow: "/" }],
 			},
 		},

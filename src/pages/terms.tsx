@@ -49,7 +49,7 @@ export default function Terms() {
 					<legalStyles.Paragraph $noPadding={false}>
 						We operate the website{" "}
 						<legalStyles.Link to={links.home}>
-							https://thought.ly
+							https://thoughtly.com
 						</legalStyles.Link>{" "}
 						(the "Site"), as well as any other related products and services
 						that refer or link to these Terms (collectively, the "Services").
@@ -1033,10 +1033,10 @@ export default function Terms() {
 						You understand that by using the Services you consent and agree to
 						the collection and use of certain information about you and your use
 						of the Services in accordance with our Privacy Policy, available
-						https://thought.ly/privacy, which is incorporated by reference into
-						and forms a part of these Terms. If you object to your information
-						being used in this way, please do not use the Services. Without
-						limiting the foregoing, you consent and agree to receiving
+						https://thoughtly.com/privacy, which is incorporated by reference
+						into and forms a part of these Terms. If you object to your
+						information being used in this way, please do not use the Services.
+						Without limiting the foregoing, you consent and agree to receiving
 						communications from Thoughtly through text message, SMS and voice
 						calls. Please see our Privacy Policy for more information on how to
 						opt out of text message communications.
@@ -1186,12 +1186,12 @@ export default function Terms() {
 					<legalStyles.Paragraph $noPadding={false}>
 						We always interested in resolving disputes amicably and efficiently,
 						and most of your concerns can be resolved quickly and to your
-						satisfaction by emailing customer support at support@thought.ly. If
-						such efforts prove unsuccessful, a party who intends to seek
+						satisfaction by emailing customer support at support@thoughtly.com.
+						If such efforts prove unsuccessful, a party who intends to seek
 						arbitration must first send to the other, by certified mail, a
 						written notice of dispute ("Notice"). The Notice to Thoughtly should
 						be sent to the address: 041 E 11th St, New York, NY 10003, with copy
-						to support@thought.ly ("Notice Address"). The Notice must (i)
+						to support@thoughtly.com ("Notice Address"). The Notice must (i)
 						describe the nature and basis of the claim or dispute and (ii) set
 						forth the specific relief sought. If you and Thoughtly do not
 						resolve the claim within sixty (60) calendar days after the Notice
@@ -1898,7 +1898,7 @@ export default function Terms() {
 					</legalStyles.Paragraph>
 					<legalStyles.Paragraph $noPadding>
 						<legalStyles.Link to={links.contact}>
-							support@thought.ly
+							support@thoughtly.com
 						</legalStyles.Link>
 					</legalStyles.Paragraph>
 				</legalStyles.Section>

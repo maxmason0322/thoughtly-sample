@@ -23,9 +23,9 @@ export default function Privacy() {
 					<legalStyles.Paragraph $noPadding={false}>
 						Your privacy is important to us. This Privacy Policy (“Policy”)
 						applies to services provided by Thoughtly, Inc. (“we”, “us”, or
-						“Thoughtly”) and our website (thought.ly, accessible from{" "}
+						“Thoughtly”) and our website (thoughtly.com, accessible from{" "}
 						<legalStyles.Link to={links.home}>
-							https://thought.ly/
+							https://thoughtly.com/
 						</legalStyles.Link>
 						), product pages, mobile or web applications, or other digital
 						products that link to or reference this Policy (collectively, the
@@ -688,7 +688,7 @@ export default function Privacy() {
 						Personal Information furnished by a user in their user account by
 						contacting us at{" "}
 						<legalStyles.Link to={links.contact}>
-							support@thought.ly
+							support@thoughtly.com
 						</legalStyles.Link>
 						. For your protection, we may only share and update the Personal
 						Information associated with the specific email address that you use
@@ -712,7 +712,7 @@ export default function Privacy() {
 						you can text back “STOP” and we will send you a text message to
 						confirm that you have been unsubscribed. You can also contact us at{" "}
 						<legalStyles.Link to={links.contact}>
-							support@thought.ly
+							support@thoughtly.com
 						</legalStyles.Link>
 						, to opt out. Despite your indicated email preferences, we may send
 						you service related communications, including notices of any updates
@@ -755,7 +755,7 @@ export default function Privacy() {
 						from someone under the age of sixteen (16), please contact us
 						immediately at{" "}
 						<legalStyles.Link to={links.contact}>
-							support@thought.ly
+							support@thoughtly.com
 						</legalStyles.Link>{" "}
 						and the information will be deleted.
 					</legalStyles.Paragraph>
@@ -788,7 +788,7 @@ export default function Privacy() {
 						provide targeted advertising. To find out more about Do Not Track,
 						please visit{" "}
 						<legalStyles.Link to={links.home}>
-							https://thought.ly/
+							https://thoughtly.com/
 						</legalStyles.Link>
 						.
 					</legalStyles.Paragraph>
@@ -838,7 +838,7 @@ export default function Privacy() {
 						To the extent applicable under local law, you can exercise privacy
 						rights described in this section by submitting a request through
 						<legalStyles.Link to={links.contact}>
-							support@thought.ly
+							support@thoughtly.com
 						</legalStyles.Link>
 						.
 					</legalStyles.Paragraph>
@@ -861,7 +861,7 @@ export default function Privacy() {
 						your identity and submit proof of your residency with us. Authorized
 						agent requests can be submitted to{" "}
 						<legalStyles.Link to={links.contact}>
-							support@thought.ly
+							support@thoughtly.com
 						</legalStyles.Link>
 						.
 					</legalStyles.Paragraph>
@@ -871,7 +871,7 @@ export default function Privacy() {
 						relating to requests to exercise your rights under applicable local
 						law. To appeal a decision, please send your request to
 						<legalStyles.Link to={links.contact}>
-							support@thought.ly
+							support@thoughtly.com
 						</legalStyles.Link>
 						.
 					</legalStyles.Paragraph>
@@ -991,7 +991,7 @@ export default function Privacy() {
 						to exercise your rights regarding Personal Information about you in
 						accordance with applicable law. To do so, you may contact us at{" "}
 						<legalStyles.Link to={links.contact}>
-							support@thought.ly
+							support@thoughtly.com
 						</legalStyles.Link>
 						. Please note these rights may be limited in certain circumstances
 						as provided by applicable law. We will promptly review all such
@@ -1001,7 +1001,7 @@ export default function Privacy() {
 						we have violated any of the rights concerning Personal Information
 						about you. We encourage you to first reach out to us at{" "}
 						<legalStyles.Link to={links.contact}>
-							support@thought.ly
+							support@thoughtly.com
 						</legalStyles.Link>
 						, so we have an opportunity to address your concerns directly before
 						you do so.
@@ -1012,7 +1012,7 @@ export default function Privacy() {
 					<legalStyles.Paragraph $noPadding={false}>
 						If you have any questions about this Policy, you can contact us at{" "}
 						<legalStyles.Link to={links.contact}>
-							support@thought.ly
+							support@thoughtly.com
 						</legalStyles.Link>
 					</legalStyles.Paragraph>
 				</legalStyles.Section>

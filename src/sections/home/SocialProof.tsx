@@ -3,7 +3,7 @@ import Boardsi from "images/global/logos/Boardsi.svg"
 import BoatSetterSVG from "images/global/logos/Boatsetter.svg"
 import CardMerchantServicesSVG from "images/global/logos/CardMerchantServices.svg"
 import CavsSVG from "images/global/logos/Cavs.svg"
-import CentrecomSVG from "images/global/logos/Centrecom.svg"
+import CentracomSVG from "images/global/logos/Centracom.svg"
 // import ChapterSVG from "images/global/logos/Chapter.svg"
 import ColdwellBankerSVG from "images/global/logos/ColdwellBanker.svg"
 import CompassSVG from "images/global/logos/Compass.svg"
@@ -61,7 +61,7 @@ export default function SocialProof() {
 			to: "https://coldwellbanker.com",
 		},
 		{ src: CompassSVG, alt: "Compass Logo", to: "https://compass.com" },
-		{ src: CentrecomSVG, alt: "Centrecom Logo", to: "https://centracom.com" },
+		{ src: CentracomSVG, alt: "Centrecom Logo", to: "https://centracom.com" },
 		// { src: ChapterSVG, alt: "Chapter Logo", to: "https://askchapter.org" },
 		{ src: PrimeraSVG, alt: "Primera Logo", to: "https://getprimera.com" },
 		// { src: TwoUSvg, alt: "2U Logo", to: "https://2u.com" },
