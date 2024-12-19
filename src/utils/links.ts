@@ -23,7 +23,7 @@ const external = {
 
 	// our other links
 	careers: "https://jobs.ashbyhq.com/thoughtly",
-	login: "https://app.thoughtly.com",
+	login: "https://app.thought.ly",
 	helpCenter: "https://docs.thoughtly.com/",
 	apiDocs: "https://docs.thoughtly.com/developers",
 	bookDemo: "https://forms.default.com/448680",
