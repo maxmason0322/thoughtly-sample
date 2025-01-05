@@ -5,3 +5,5 @@
 # Thoughtly Marketing Site
 
 Built with Gatsby. Install with `pnpm install` and run  `pnpm start`
+
+Link to Relevant Code: https://www.thoughtly.com/platform/
